@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c0d10">
+  <meta name="description" content="한국에서 열리는 J-POP 내한 공연, 선예매와 일반예매 일정을 한눈에 확인하는 제이라이브 코리아 캘린더입니다.">
+  <title>J-POP 내한 공연·예매 캘린더 | 제이라이브 코리아</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./site-config.js"></script>
+  <script src="./site.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <a class="brand" href="./index.html"><span class="brand-mark">J</span> 제이라이브 코리아</a>
+      <div class="header-actions">
+        <a class="ghost-button" href="./about.html">사이트 소개</a>
+        <button class="primary-button" id="notifyButton" type="button">일정 공유</button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <div class="eyebrow">J-POP LIVE IN KOREA</div>
+        <h1>놓치고 싶지 않은<br><span>내한의 모든 날짜.</span></h1>
+      </div>
+      <p class="hero-copy">
+        공연일, 선예매, 일반예매 일정을 달력에서 확인하세요.
+        공식 출처 두 곳 이상이 확인된 공연만 공개합니다.
+      </p>
+    </section>
+
+    <main class="app">
+      <section class="calendar-area">
+        <div class="calendar-toolbar">
+          <div class="month-nav">
+            <button class="icon-button" id="prevMonth" type="button" aria-label="이전 달">‹</button>
+            <h2 id="monthTitle"></h2>
+            <button class="icon-button" id="nextMonth" type="button" aria-label="다음 달">›</button>
+          </div>
+          <div class="filters" aria-label="일정 필터">
+            <button class="filter active" data-type="concert" type="button"><i></i>공연</button>
+            <button class="filter active" data-type="ticket" type="button"><i></i>일반예매</button>
+            <button class="filter active" data-type="presale" type="button"><i></i>선예매</button>
+          </div>
+        </div>
+        <div class="weekdays" aria-hidden="true">
+          <span>SUN</span><span>MON</span><span>TUE</span><span>WED</span>
+          <span>THU</span><span>FRI</span><span>SAT</span>
+        </div>
+        <div class="calendar-grid" id="calendar" aria-live="polite"></div>
+        <p class="empty-calendar" id="emptyCalendar" hidden>이 달에는 등록된 일정이 없습니다.</p>
+      </section>
+
+      <button class="mobile-detail-backdrop" id="mobileDetailBackdrop" type="button" aria-label="공연 상세 닫기"></button>
+      <aside class="detail-panel" id="detailPanel" aria-label="공연 상세 정보">
+        <div class="mobile-detail-handle">
+          <span></span>
+          <strong>공연 상세</strong>
+          <button id="closeDetail" type="button" aria-label="공연 상세 닫기">×</button>
+        </div>
+        <div class="detail-empty" id="detailEmpty">
+          <strong>공연 일정을 불러오는 중입니다.</strong>
+          <span>잠시만 기다려 주세요.</span>
+        </div>
+        <div id="detailBody" hidden>
+          <div class="detail-visual">
+            <img class="artist-photo" id="artistPhoto" alt="" referrerpolicy="no-referrer">
+            <span class="detail-label" id="detailLabel">공연</span>
+            <div class="artist-heading">
+              <small id="detailGenre"></small>
+              <h3 id="detailArtist"></h3>
+            </div>
+          </div>
+          <div class="detail-content">
+            <div class="day-lineup" id="dayLineup" aria-label="같은 날짜의 다른 일정"></div>
+            <div class="date-line" id="detailDate"></div>
+            <dl class="info-list">
+              <div><dt>공연장</dt><dd id="detailVenue"></dd></div>
+              <div><dt>선예매</dt><dd id="detailPresale"></dd></div>
+              <div><dt>일반예매</dt><dd id="detailTicket"></dd></div>
+              <div><dt>예매처</dt><dd id="detailVendor"></dd></div>
+            </dl>
+            <div class="verification">
+              <div class="verification-head">
+                <span class="verification-status">공식 출처 확인</span>
+                <span id="verifiedAt"></span>
+              </div>
+              <div class="source-links" id="sourceLinks"></div>
+            </div>
+            <section class="songs" id="songsSection">
+              <h4>대표곡 바로 듣기</h4>
+              <div class="song-list" id="songList"></div>
+            </section>
+            <a class="ticket-button" id="ticketButton" target="_blank" rel="noopener noreferrer">예매처 확인하기 ↗</a>
+            <a class="detail-page-button" id="detailPageButton">공연 상세 페이지</a>
+          </div>
+        </div>
+      </aside>
+    </main>
+    <footer class="site-footer">
+      <nav><a href="./about.html">소개</a><a href="./contact.html">문의</a><a href="./privacy.html">개인정보처리방침</a><a href="./terms.html">이용약관</a><a href="./corrections.html">정보 수정 요청</a></nav>
+      <p>제이라이브 코리아는 공연 주최사 또는 예매처가 아닙니다. 예매 전 공식 페이지의 최신 정보를 다시 확인하세요.</p>
+    </footer>
+  </div>
+  <script src="./app.js" defer></script>
+</body>
+</html>

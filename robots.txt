@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /demo/admin.html
+Sitemap: https://j-live.kr/sitemap.xml
