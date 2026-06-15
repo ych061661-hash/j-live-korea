@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /demo/admin.html
+Disallow: /calendar/admin.html
 Sitemap: https://j-live.kr/sitemap.xml

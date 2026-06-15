@@ -1,2 +1,3 @@
-/  /demo/  301
-/api/events  /demo/data/events.json  200
+/  /calendar/  301
+/demo/*  /calendar/:splat  301
+/api/events  /calendar/data/events.json  200
