@@ -4,7 +4,7 @@
     "artist": "King Gnu",
     "genre": "J-POP / ALTERNATIVE ROCK",
     "concertDate": "2026-06-20",
-    "time": "오후 6:00",
+    "time": "",
     "venue": "KSPO DOME",
     "presaleDate": "",
     "ticketDate": "2026-03-17",
@@ -816,12 +816,12 @@
     "artist": "natori",
     "genre": "J-POP / ALTERNATIVE",
     "concertDate": "2026-07-18",
-    "time": "오후 6:00",
+    "time": "",
     "venue": "올림픽공원 올림픽홀",
     "presaleDate": "",
     "ticketDate": "",
-    "vendor": "미정",
-    "vendorUrl": "",
+    "vendor": "공식 공지 · 매진",
+    "vendorUrl": "https://www.sonymusic.co.jp/artist/natori/live/54833",
     "youtubeChannel": "@natori_official",
     "songs": [
       [
@@ -840,9 +840,9 @@
         "https://www.youtube.com/watch?v=gIQX7ibvWBs"
       ]
     ],
-    "status": "pending",
+    "status": "confirmed",
     "sources": [
-      "https://natori-official.com/live/"
+      "https://www.sonymusic.co.jp/artist/natori/live/54833"
     ],
     "verifiedAt": "2026-06-15",
     "createdAt": "2026-06-11T10:00:00+09:00"
@@ -852,12 +852,12 @@
     "artist": "natori",
     "genre": "J-POP / ALTERNATIVE",
     "concertDate": "2026-07-19",
-    "time": "오후 6:00",
+    "time": "",
     "venue": "올림픽공원 올림픽홀",
     "presaleDate": "",
     "ticketDate": "",
-    "vendor": "미정",
-    "vendorUrl": "",
+    "vendor": "공식 공지 · 매진",
+    "vendorUrl": "https://www.sonymusic.co.jp/artist/natori/live/54833",
     "youtubeChannel": "@natori_official",
     "songs": [
       [
@@ -876,9 +876,9 @@
         "https://www.youtube.com/watch?v=gIQX7ibvWBs"
       ]
     ],
-    "status": "pending",
+    "status": "confirmed",
     "sources": [
-      "https://natori-official.com/live/"
+      "https://www.sonymusic.co.jp/artist/natori/live/54833"
     ],
     "verifiedAt": "2026-06-15",
     "createdAt": "2026-06-11T10:00:00+09:00"
