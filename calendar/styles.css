@@ -13,7 +13,7 @@ a { text-decoration:none; }
 .shell,.admin-shell { width:min(1440px,calc(100% - 40px)); margin:auto; }
 header { display:flex; align-items:center; justify-content:space-between; min-height:78px; border-bottom:1px solid var(--line); }
 .brand { display:flex; align-items:center; gap:10px; font-weight:800; }
-.brand-mark { display:grid; place-items:center; width:34px; height:34px; border-radius:50%; color:#111; background:var(--lime); transform:rotate(-8deg); }
+.brand-mark { display:grid; place-items:center; width:34px; height:34px; border-radius:9px; color:transparent; background:#0c0d10 url("./assets/brand/j-live-app-logo.png") center/cover no-repeat; font-size:0; box-shadow:0 0 0 1px rgba(215,255,79,.2); }
 .brand b { color:var(--lime); font-size:11px; letter-spacing:.1em; }
 .header-actions { display:flex; gap:9px; }
 .ghost-button,.primary-button { display:inline-block; padding:10px 15px; border:1px solid var(--line); border-radius:99px; background:transparent; cursor:pointer; }
@@ -24,6 +24,22 @@ header { display:flex; align-items:center; justify-content:space-between; min-he
 h1 { margin:12px 0 0; font-size:clamp(40px,5vw,72px); line-height:1.02; letter-spacing:-.065em; }
 h1 span { color:var(--lime); }
 .hero-copy { max-width:390px; margin:0 0 7px; color:var(--muted); font-size:14px; line-height:1.8; }
+.weekend-spotlight { margin-bottom:22px; padding:20px; overflow:hidden; border:1px solid rgba(215,255,79,.24); border-radius:22px; background:linear-gradient(120deg,rgba(215,255,79,.1),rgba(255,255,255,.025) 45%),var(--panel); }
+.weekend-heading { display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:15px; }
+.weekend-heading h2 { margin:3px 0 0; font-size:25px; letter-spacing:-.04em; }
+.weekend-heading p { margin:0 0 2px; color:var(--muted); font-size:12px; }
+.weekend-events { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:10px; }
+.weekend-card { position:relative; min-height:152px; overflow:hidden; border:1px solid var(--line); border-radius:15px; background:#22242a; transition:transform .18s ease,border-color .18s ease; }
+.weekend-card:hover,.weekend-card:focus-visible { border-color:var(--lime); outline:none; transform:translateY(-3px); }
+.weekend-card img,.weekend-card-shade { position:absolute; inset:0; width:100%; height:100%; }
+.weekend-card img { object-fit:cover; opacity:.68; transition:transform .3s ease; }
+.weekend-card:hover img { transform:scale(1.04); }
+.weekend-card-shade { background:linear-gradient(to top,rgba(12,13,16,.98) 8%,rgba(12,13,16,.28) 78%); }
+.weekend-card-content { position:absolute; right:14px; bottom:13px; left:14px; z-index:1; display:grid; }
+.weekend-card-content small { color:var(--lime); font-size:9px; font-weight:800; }
+.weekend-card-content strong { margin-top:4px; overflow:hidden; font-size:18px; text-overflow:ellipsis; white-space:nowrap; }
+.weekend-card-content em { margin-top:3px; overflow:hidden; color:#b3b4b9; font-size:9px; font-style:normal; text-overflow:ellipsis; white-space:nowrap; }
+.weekend-card-arrow { position:absolute; top:10px; right:10px; z-index:1; display:grid; place-items:center; width:27px; height:27px; border-radius:50%; color:#111; background:var(--lime); font-size:13px; font-weight:800; }
 .app { display:grid; grid-template-columns:minmax(0,1fr) 360px; min-height:690px; overflow:hidden; border:1px solid var(--line); border-radius:26px; background:rgba(21,22,26,.9); box-shadow:0 28px 80px rgba(0,0,0,.38); }
 .calendar-area { position:relative; padding:25px; }
 .calendar-toolbar,.month-nav,.filters { display:flex; align-items:center; }
@@ -257,6 +273,14 @@ footer { padding:22px 0 34px; color:#686970; font-size:11px; text-align:center; 
   .hero { display:block; padding:30px 16px 22px; }
   .hero h1 { max-width:520px; }
   .hero-copy { max-width:none; margin-top:16px; font-size:13px; line-height:1.65; }
+  .weekend-spotlight { margin:0 12px 14px; padding:15px 0 15px 15px; border-radius:18px; }
+  .weekend-heading { align-items:start; margin:0 15px 12px 0; }
+  .weekend-heading h2 { font-size:21px; }
+  .weekend-heading p { display:none; }
+  .weekend-events { display:flex; gap:9px; padding-right:15px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; }
+  .weekend-events::-webkit-scrollbar { display:none; }
+  .weekend-card { flex:0 0 min(64vw,240px); min-height:130px; scroll-snap-align:start; }
+  .weekend-card-content strong { font-size:17px; }
   .app { display:block; min-height:0; overflow:visible; border-width:1px 0; border-radius:0; box-shadow:none; }
   .calendar-area { padding:16px 12px 24px; }
   .calendar-toolbar { display:grid; gap:14px; margin-bottom:17px; }
@@ -339,7 +363,9 @@ footer { padding:22px 0 34px; color:#686970; font-size:11px; text-align:center; 
 }
 @media (max-width:500px) {
   .header-actions .ghost-button { display:none; }
-  h1 { font-size:39px; }
+  .hero { padding:18px 16px 14px; }
+  .hero .eyebrow { font-size:9px; }
+  h1 { margin-top:7px; font-size:31px; }
   .hero-copy { display:none; }
   .calendar-grid { gap:4px; }
   .day { height:68px; min-height:68px; padding:5px 4px; }

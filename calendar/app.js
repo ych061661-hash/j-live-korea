@@ -4,6 +4,13 @@ const typeLabels = { concert: "공연", ticket: "일반예매", presale: "선예
 const weekdays = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
 const filters = new Set(Object.keys(typeLabels));
 const calendar = document.querySelector("#calendar");
+const weekendEvents = document.querySelector("#weekendEvents");
+const weekendDates = new Set(["2026-06-20", "2026-06-21"]);
+const weekendArtistOrder = new Map([
+  ["King Gnu", 0],
+  ["SUKIMASWITCH", 1],
+  ["『ユイカ』", 2]
+]);
 let schedules = [];
 let selectedId = "";
 let selectedType = "concert";
@@ -41,6 +48,41 @@ function eventsForDate(key) {
     schedule.ticketDate === key && { type: "ticket", schedule },
     schedule.presaleDate === key && { type: "presale", schedule }
   ].filter(Boolean));
+}
+
+function renderWeekendSpotlight() {
+  const events = schedules
+    .filter(schedule => weekendDates.has(schedule.concertDate))
+    .sort((a, b) => a.concertDate.localeCompare(b.concertDate)
+      || (weekendArtistOrder.get(a.artist) ?? 99) - (weekendArtistOrder.get(b.artist) ?? 99)
+      || a.artist.localeCompare(b.artist));
+
+  weekendEvents.innerHTML = events.map(schedule => {
+    const photoUrl = window.JLIVE_ARTIST_IMAGES.localUrl(schedule);
+    return `
+      <a class="weekend-card" href="./events/${encodeURIComponent(schedule.id)}.html"
+        aria-label="${escapeHtml(schedule.artist)} ${escapeHtml(formatDate(schedule.concertDate))} 공연 상세 보기">
+        ${photoUrl ? `<img src="${escapeHtml(photoUrl)}" alt="" loading="eager">` : ""}
+        <span class="weekend-card-shade"></span>
+        <span class="weekend-card-content">
+          <small>${escapeHtml(formatDate(schedule.concertDate))} · ${escapeHtml(schedule.time || "시간 미정")}</small>
+          <strong>${escapeHtml(schedule.artist)}</strong>
+          <em>${escapeHtml(schedule.venue)}</em>
+        </span>
+        <span class="weekend-card-arrow" aria-hidden="true">↗</span>
+      </a>`;
+  }).join("");
+
+  weekendEvents.querySelectorAll("img").forEach((image, index) => {
+    image.addEventListener("error", () => {
+      const remoteUrl = window.JLIVE_ARTIST_IMAGES.remoteUrl(events[index]);
+      if (remoteUrl && image.src !== remoteUrl) {
+        image.src = remoteUrl;
+        return;
+      }
+      image.hidden = true;
+    });
+  });
 }
 
 function renderCalendar() {
@@ -231,6 +273,7 @@ async function initialize() {
     schedules = (await response.json()).filter(event => event.status === "confirmed");
     schedules.sort((a, b) => a.concertDate.localeCompare(b.concertDate));
     window.JLIVE_ARTIST_IMAGES.preload(schedules);
+    renderWeekendSpotlight();
     const upcoming = schedules.find(event => event.concertDate >= dateKey(new Date())) || schedules[0];
     if (!upcoming) {
       document.querySelector("#detailEmpty").innerHTML = "<strong>공식 확인된 공연이 없습니다.</strong><span>새로운 일정이 확인되면 이곳에 표시됩니다.</span>";

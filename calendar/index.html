@@ -7,6 +7,8 @@
   <meta name="theme-color" content="#0c0d10">
   <meta name="description" content="한국에서 열리는 J-POP 내한 공연, 선예매와 일반예매 일정을 한눈에 확인하는 제이라이브 코리아 캘린더입니다.">
   <title>J-POP 내한 공연·예매 캘린더 | 제이라이브 코리아</title>
+  <link rel="icon" type="image/png" href="./assets/brand/j-live-app-logo.png">
+  <link rel="apple-touch-icon" href="./assets/brand/j-live-app-logo.png">
   <link rel="stylesheet" href="./styles.css">
   <script src="./site-config.js"></script>
   <script src="./site.js" defer></script>
@@ -30,6 +32,17 @@
         공연일, 선예매, 일반예매 일정을 달력에서 확인하세요.
         공식 출처 두 곳 이상이 확인된 공연만 공개합니다.
       </p>
+    </section>
+
+    <section class="weekend-spotlight" aria-labelledby="weekendTitle">
+      <div class="weekend-heading">
+        <div>
+          <span class="section-kicker">JUNE 20-21</span>
+          <h2 id="weekendTitle">이번 주말 공연</h2>
+        </div>
+        <p>이번 주말 서울에서 만나는 J-POP 공연을 바로 확인하세요.</p>
+      </div>
+      <div class="weekend-events" id="weekendEvents" aria-live="polite"></div>
     </section>
 
     <main class="app">
