@@ -820,8 +820,8 @@
     "venue": "올림픽공원 올림픽홀",
     "presaleDate": "",
     "ticketDate": "",
-    "vendor": "공식 공지 · 매진",
-    "vendorUrl": "https://www.sonymusic.co.jp/artist/natori/live/54833",
+    "vendor": "멜론티켓",
+    "vendorUrl": "https://ticket.melon.com/performance/index.htm?prodId=213098",
     "youtubeChannel": "@natori_official",
     "songs": [
       [
@@ -842,9 +842,9 @@
     ],
     "status": "confirmed",
     "sources": [
-      "https://www.sonymusic.co.jp/artist/natori/live/54833"
+      "https://ticket.melon.com/performance/index.htm?prodId=213098"
     ],
-    "verifiedAt": "2026-06-15",
+    "verifiedAt": "2026-06-16",
     "createdAt": "2026-06-11T10:00:00+09:00"
   },
   {
@@ -856,8 +856,8 @@
     "venue": "올림픽공원 올림픽홀",
     "presaleDate": "",
     "ticketDate": "",
-    "vendor": "공식 공지 · 매진",
-    "vendorUrl": "https://www.sonymusic.co.jp/artist/natori/live/54833",
+    "vendor": "멜론티켓",
+    "vendorUrl": "https://ticket.melon.com/performance/index.htm?prodId=213098",
     "youtubeChannel": "@natori_official",
     "songs": [
       [
@@ -878,9 +878,9 @@
     ],
     "status": "confirmed",
     "sources": [
-      "https://www.sonymusic.co.jp/artist/natori/live/54833"
+      "https://ticket.melon.com/performance/index.htm?prodId=213098"
     ],
-    "verifiedAt": "2026-06-15",
+    "verifiedAt": "2026-06-16",
     "createdAt": "2026-06-11T10:00:00+09:00"
   },
   {
