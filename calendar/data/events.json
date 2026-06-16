@@ -1086,13 +1086,29 @@
     "vendor": "NOL 티켓",
     "vendorUrl": "https://tickets.interpark.com/goods/26008207",
     "youtubeChannel": "@11thenovembers11",
-    "songs": [],
-    "status": "pending",
+    "songs": [
+      [
+        "BOY",
+        "",
+        "https://www.youtube.com/watch?v=wyhcnEurk3Q"
+      ],
+      [
+        "BAD DREAM",
+        "",
+        "https://www.youtube.com/watch?v=zeHjdd-sqSY"
+      ],
+      [
+        "みんな急いでいる",
+        "",
+        "https://www.youtube.com/watch?v=qOTNBy2dE7s"
+      ]
+    ],
+    "status": "confirmed",
     "sources": [
       "https://the-novembers.com/26-7-17fritour-2026%E3%80%8Cthe-singing-engines-in-seoul-br%E9%9F%93%E5%9B%BD%E3%83%BB%E3%82%BD%E3%82%A6%E3%83%ABktg-sangsang-madang%E5%BC%98%E5%A4%A7",
       "https://tickets.interpark.com/goods/26008207"
     ],
-    "verifiedAt": "2026-06-15",
+    "verifiedAt": "2026-06-17",
     "createdAt": "2026-06-15T13:43:06+09:00"
   },
   {
@@ -1103,18 +1119,35 @@
     "time": "오후 7:00",
     "venue": "YES24 원더로크홀",
     "presaleDate": "",
-    "ticketDate": "",
+    "ticketDate": "2026-03-27",
+    "ticketTime": "오후 7:00",
     "vendor": "YES24 티켓",
     "vendorUrl": "https://m.ticket.yes24.com/Perf/57606",
-    "youtubeChannel": "",
-    "songs": [],
-    "status": "pending",
-    "sources": [
-      "https://www.instagram.com/p/DVx1IC4keO1/",
-      "https://x.com/muque_official/status/2032383879441694849",
-      "https://m.ticket.yes24.com/Perf/57606"
+    "youtubeChannel": "@muque",
+    "songs": [
+      [
+        "Bite you",
+        "",
+        "https://www.youtube.com/watch?v=RcDBofJ-_oA"
+      ],
+      [
+        "456",
+        "",
+        "https://www.youtube.com/watch?v=G4L-Ta7EFVM"
+      ],
+      [
+        "The 1",
+        "",
+        "https://www.youtube.com/watch?v=vCpVhY-cDnU"
+      ]
     ],
-    "verifiedAt": "2026-06-16",
+    "status": "confirmed",
+    "sources": [
+      "https://muque.jp/live/live-1273-3-2/",
+      "https://ticket.yes24.com/Perf/57606",
+      "https://ticket.yes24.com/Pages/English/Perf/FnPerfDeail.aspx?IdPerf=57606"
+    ],
+    "verifiedAt": "2026-06-17",
     "createdAt": "2026-06-16T09:00:00+09:00"
   },
   {
@@ -1129,15 +1162,31 @@
     "ticketTime": "오후 12:00",
     "vendor": "YES24 티켓",
     "vendorUrl": "https://m.ticket.yes24.com/Perf/57841",
-    "youtubeChannel": "",
-    "songs": [],
-    "status": "pending",
+    "youtubeChannel": "@gogovanillas_official1",
+    "songs": [
+      [
+        "SCARY MONSTER",
+        "",
+        "https://www.youtube.com/watch?v=ldZkycwD254"
+      ],
+      [
+        "Moonshine",
+        "",
+        "https://www.youtube.com/watch?v=LvQ877tBttQ"
+      ],
+      [
+        "Leyline",
+        "",
+        "https://www.youtube.com/watch?v=eKYWgJZk_jw"
+      ]
+    ],
+    "status": "confirmed",
     "sources": [
-      "https://www.instagram.com/reel/DWfiWark28f/",
-      "https://www.instagram.com/p/DWdxa37mr80/",
+      "https://gogovanillas.com/news/detail/5569",
+      "https://ggv-asiatour2026.jp/",
       "https://m.ticket.yes24.com/Perf/57841"
     ],
-    "verifiedAt": "2026-06-16",
+    "verifiedAt": "2026-06-17",
     "createdAt": "2026-06-16T09:00:00+09:00"
   },
   {
@@ -1145,21 +1194,39 @@
     "artist": "Kento Nakajima",
     "genre": "J-POP / IDOL",
     "concertDate": "2026-10-03",
-    "time": "오후 5:00",
+    "time": "오후 6:00",
     "venue": "올림픽공원 올림픽홀",
     "presaleDate": "",
     "ticketDate": "2026-06-04",
     "ticketTime": "오후 2:00",
     "vendor": "YES24 티켓",
     "vendorUrl": "https://m.ticket.yes24.com/Perf/58653",
-    "youtubeChannel": "",
-    "songs": [],
-    "status": "pending",
-    "sources": [
-      "https://www.instagram.com/p/DZHHoTQExey/",
-      "https://m.ticket.yes24.com/Perf/58653"
+    "youtubeChannel": "@n_kento_official",
+    "songs": [
+      [
+        "IDOLIC",
+        "",
+        "https://www.youtube.com/watch?v=K8TPXjVmnYk"
+      ],
+      [
+        "Fiction Love",
+        "",
+        "https://www.youtube.com/watch?v=SgPpz7FcqLs"
+      ],
+      [
+        "MONTAGE",
+        "",
+        "https://www.youtube.com/watch?v=JxaczTQXtYg"
+      ]
     ],
-    "verifiedAt": "2026-06-16",
+    "status": "confirmed",
+    "sources": [
+      "https://starto.jp/s/p/live/10494?artist=156&lang=en",
+      "https://kentonakajima.lnk.to/ASIATOUR2026",
+      "https://www.nakajimakento.com/news/detail/?id=583773",
+      "https://ticket.yes24.com/New/Notice/NoticeMain.aspx?Gcode=009_208_002#id=17913"
+    ],
+    "verifiedAt": "2026-06-17",
     "createdAt": "2026-06-16T09:00:00+09:00"
   },
   {
@@ -1167,21 +1234,39 @@
     "artist": "Kento Nakajima",
     "genre": "J-POP / IDOL",
     "concertDate": "2026-10-04",
-    "time": "",
+    "time": "오후 5:00",
     "venue": "올림픽공원 올림픽홀",
     "presaleDate": "",
     "ticketDate": "2026-06-04",
     "ticketTime": "오후 2:00",
     "vendor": "YES24 티켓",
     "vendorUrl": "https://m.ticket.yes24.com/Perf/58653",
-    "youtubeChannel": "",
-    "songs": [],
-    "status": "pending",
-    "sources": [
-      "https://www.instagram.com/p/DZHHoTQExey/",
-      "https://m.ticket.yes24.com/Perf/58653"
+    "youtubeChannel": "@n_kento_official",
+    "songs": [
+      [
+        "IDOLIC",
+        "",
+        "https://www.youtube.com/watch?v=K8TPXjVmnYk"
+      ],
+      [
+        "Fiction Love",
+        "",
+        "https://www.youtube.com/watch?v=SgPpz7FcqLs"
+      ],
+      [
+        "MONTAGE",
+        "",
+        "https://www.youtube.com/watch?v=JxaczTQXtYg"
+      ]
     ],
-    "verifiedAt": "2026-06-16",
+    "status": "confirmed",
+    "sources": [
+      "https://starto.jp/s/p/live/10494?artist=156&lang=en",
+      "https://kentonakajima.lnk.to/ASIATOUR2026",
+      "https://www.nakajimakento.com/news/detail/?id=583773",
+      "https://ticket.yes24.com/New/Notice/NoticeMain.aspx?Gcode=009_208_002#id=17913"
+    ],
+    "verifiedAt": "2026-06-17",
     "createdAt": "2026-06-16T09:00:00+09:00"
   }
 ]
