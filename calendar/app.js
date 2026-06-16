@@ -288,3 +288,36 @@ async function initialize() {
   }
 }
 initialize();
+
+{
+  const originalShareButton = document.querySelector("#notifyButton");
+  const shareButton = originalShareButton.cloneNode(true);
+  originalShareButton.replaceWith(shareButton);
+
+  shareButton.addEventListener("click", async () => {
+    const shareData = {
+      title: document.title || "J-LIVE Korea",
+      text: "J-POP 내한 공연 일정을 확인해보세요.",
+      url: location.href
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+        shareButton.textContent = "공유창 열림";
+      } else if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(location.href);
+        shareButton.textContent = "주소 복사 완료";
+      } else {
+        prompt("이 주소를 복사해 주세요.", location.href);
+        shareButton.textContent = "주소 복사";
+      }
+    } catch (error) {
+      shareButton.textContent = error.name === "AbortError" ? "공유 취소됨" : "주소창에서 복사해 주세요";
+    }
+
+    setTimeout(() => {
+      shareButton.textContent = "일정 공유";
+    }, 1800);
+  });
+}
