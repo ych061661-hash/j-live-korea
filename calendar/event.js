@@ -22,6 +22,44 @@ function humanDate(value, time = "") {
   return time ? `${text} ${time}` : text;
 }
 
+function songTitles(event) {
+  return (event.songs || [])
+    .map(song => song[0])
+    .filter(Boolean);
+}
+
+function buildFirstTimerGuide(event) {
+  const songs = songTitles(event);
+  const songText = songs.length
+    ? `대표곡은 ${songs.slice(0, 3).join(", ")} 순서로 먼저 들어보면 공연 분위기를 잡기 좋습니다.`
+    : "공연 전 공식 채널의 최근 라이브 영상과 대표곡을 먼저 들어보면 현장 분위기를 이해하기 좋습니다.";
+  return `${event.artist} 내한 공연을 처음 보는 팬이라면 공연일과 예매일을 따로 체크하는 것이 좋습니다. ${songText} 스탠딩 공연은 입장 번호와 대기 동선이 중요하고, 지정석 공연도 공연장 입구와 물품보관 안내를 미리 확인하면 당일 이동이 훨씬 편합니다.`;
+}
+
+function buildSongGuide(event) {
+  const songs = songTitles(event);
+  if (!songs.length) {
+    return `${event.artist}의 대표곡 링크가 확인되는 대로 업데이트합니다. 공연 전에는 공식 YouTube 채널과 예매처 안내를 함께 확인하세요.`;
+  }
+  return `${songs[0]}을 먼저 듣고, 이어서 ${songs.slice(1).join(", ")}까지 이어 들으면 ${event.artist}의 사운드와 무대 흐름을 빠르게 파악할 수 있습니다. 각 링크는 YouTube로 바로 연결됩니다.`;
+}
+
+function buildChecklist(event) {
+  const ticketText = event.ticketDate
+    ? `일반예매는 ${humanDate(event.ticketDate, event.ticketTime)} 기준으로 기록되어 있습니다. 예매 전 ${event.vendor || "공식 예매처"} 로그인, 본인인증, 결제수단을 미리 확인하세요.`
+    : "일반예매 일정은 아직 미정이거나 공식 공지에서 재확인이 필요합니다. 예매처 알림과 주최사 공지를 함께 확인하세요.";
+  const presaleText = event.presaleDate
+    ? `선예매가 있다면 ${humanDate(event.presaleDate, event.presaleTime)} 일정과 대상 조건을 먼저 확인하세요.`
+    : "선예매 정보가 없는 공연은 공식 팬클럽, 주최사, 예매처 공지가 추가로 나오는지 확인하세요.";
+  return [
+    `${humanDate(event.concertDate, event.time)} 공연 기준으로 최소 1시간 전 도착을 목표로 잡으면 입장 대기와 물품보관에 여유가 있습니다.`,
+    `${event.venue}까지의 대중교통 막차, 환승 경로, 공연 종료 후 이동 시간을 미리 확인하세요.`,
+    ticketText,
+    presaleText,
+    "공식 출처와 마지막 검증일을 확인하고, 일정이나 예매 방식이 바뀐 경우 정보 수정 요청으로 알려주세요."
+  ];
+}
+
 function isoDateTime(date, time) {
   if (!date) return "";
   const matched = String(time || "").match(/(오전|오후|낮)\s*(\d{1,2}):(\d{2})/);
@@ -81,6 +119,11 @@ function renderEvent(event) {
     `${event.venue} 방문 전 공식 공연장 안내에서 대중교통, 주차와 입장 게이트를 확인하세요.`;
   document.querySelector("#ticketTip").textContent = editorial.ticketTips[event.vendor] ||
     "공식 예매처 로그인과 본인인증, 결제수단을 미리 점검하고 공지된 예매 시작 시각보다 여유 있게 접속하세요.";
+  document.querySelector("#firstTimerGuide").textContent = buildFirstTimerGuide(event);
+  document.querySelector("#songGuide").textContent = buildSongGuide(event);
+  document.querySelector("#dayChecklist").innerHTML = buildChecklist(event)
+    .map(item => `<li>${escapeHtml(item)}</li>`)
+    .join("");
 
   document.querySelector("#factDate").textContent = humanDate(event.concertDate, event.time);
   document.querySelector("#factVenue").textContent = event.venue;
