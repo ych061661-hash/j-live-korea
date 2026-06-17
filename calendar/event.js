@@ -28,14 +28,6 @@ function songTitles(event) {
     .filter(Boolean);
 }
 
-function buildFirstTimerGuide(event) {
-  const songs = songTitles(event);
-  const songText = songs.length
-    ? `대표곡은 ${songs.slice(0, 3).join(", ")} 순서로 먼저 들어보면 공연 분위기를 잡기 좋습니다.`
-    : "공연 전 공식 채널의 최근 라이브 영상과 대표곡을 먼저 들어보면 현장 분위기를 이해하기 좋습니다.";
-  return `${event.artist} 내한 공연을 처음 보는 팬이라면 공연일과 예매일을 따로 체크하는 것이 좋습니다. ${songText} 스탠딩 공연은 입장 번호와 대기 동선이 중요하고, 지정석 공연도 공연장 입구와 물품보관 안내를 미리 확인하면 당일 이동이 훨씬 편합니다.`;
-}
-
 function buildSongGuide(event) {
   const songs = songTitles(event);
   if (!songs.length) {
@@ -119,7 +111,6 @@ function renderEvent(event) {
     `${event.venue} 방문 전 공식 공연장 안내에서 대중교통, 주차와 입장 게이트를 확인하세요.`;
   document.querySelector("#ticketTip").textContent = editorial.ticketTips[event.vendor] ||
     "공식 예매처 로그인과 본인인증, 결제수단을 미리 점검하고 공지된 예매 시작 시각보다 여유 있게 접속하세요.";
-  document.querySelector("#firstTimerGuide").textContent = buildFirstTimerGuide(event);
   document.querySelector("#songGuide").textContent = buildSongGuide(event);
   document.querySelector("#dayChecklist").innerHTML = buildChecklist(event)
     .map(item => `<li>${escapeHtml(item)}</li>`)
