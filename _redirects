@@ -1,5 +1,6 @@
 /  /calendar/  301
 /calendar/admin*  /404  404!
+/calendar/months/*  /calendar/  301
 /demo/admin*  /404  404!
 /demo/*  /calendar/:splat  301
 /api/events  /calendar/data/events.json  200
