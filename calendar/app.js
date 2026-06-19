@@ -6,9 +6,11 @@ const filters = new Set(Object.keys(typeLabels));
 const calendar = document.querySelector("#calendar");
 const weekendEvents = document.querySelector("#weekendEvents");
 const weekendSpotlight = document.querySelector(".weekend-spotlight");
-const weekendKicker = document.querySelector("#weekendKicker");
+const weekendKicker = document.querySelector("#weekendKicker")
+  || document.querySelector(".weekend-heading .section-kicker");
 const weekendTitle = document.querySelector("#weekendTitle");
-const weekendCopy = document.querySelector("#weekendCopy");
+const weekendCopy = document.querySelector("#weekendCopy")
+  || document.querySelector(".weekend-heading > p");
 let schedules = [];
 let selectedId = "";
 let selectedType = "concert";
