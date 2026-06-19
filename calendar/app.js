@@ -5,12 +5,10 @@ const weekdays = ["일요일", "월요일", "화요일", "수요일", "목요일
 const filters = new Set(Object.keys(typeLabels));
 const calendar = document.querySelector("#calendar");
 const weekendEvents = document.querySelector("#weekendEvents");
-const weekendDates = new Set(["2026-06-20", "2026-06-21"]);
-const weekendArtistOrder = new Map([
-  ["King Gnu", 0],
-  ["SUKIMASWITCH", 1],
-  ["『ユイカ』", 2]
-]);
+const weekendSpotlight = document.querySelector(".weekend-spotlight");
+const weekendKicker = document.querySelector("#weekendKicker");
+const weekendTitle = document.querySelector("#weekendTitle");
+const weekendCopy = document.querySelector("#weekendCopy");
 let schedules = [];
 let selectedId = "";
 let selectedType = "concert";
@@ -50,12 +48,56 @@ function eventsForDate(key) {
   ].filter(Boolean));
 }
 
+function weekendRangeFor(key) {
+  const date = parseDate(key);
+  const saturday = new Date(date);
+  saturday.setDate(date.getDate() + (date.getDay() === 0 ? -1 : 6 - date.getDay()));
+  const sunday = new Date(saturday);
+  sunday.setDate(saturday.getDate() + 1);
+  return { saturday, sunday };
+}
+
+function formatWeekendKicker(saturday, sunday) {
+  const month = saturday.toLocaleDateString("en-US", { month: "long" }).toUpperCase();
+  return saturday.getMonth() === sunday.getMonth()
+    ? `${month} ${saturday.getDate()}-${sunday.getDate()}`
+    : `${month} ${saturday.getDate()}-${sunday.toLocaleDateString("en-US", { month: "long" }).toUpperCase()} ${sunday.getDate()}`;
+}
+
+function formatWeekendTitle(saturday, sunday) {
+  const start = `${saturday.getMonth() + 1}월 ${saturday.getDate()}일`;
+  const end = saturday.getMonth() === sunday.getMonth()
+    ? `${sunday.getDate()}일`
+    : `${sunday.getMonth() + 1}월 ${sunday.getDate()}일`;
+  return `${start}-${end} 주말 공연`;
+}
+
 function renderWeekendSpotlight() {
+  const today = dateKey(new Date());
+  const nextWeekendEvent = schedules.find(schedule => {
+    if (schedule.concertDate < today) return false;
+    const day = parseDate(schedule.concertDate).getDay();
+    return day === 0 || day === 6;
+  });
+
+  if (!nextWeekendEvent) {
+    weekendSpotlight.hidden = true;
+    return;
+  }
+
+  const { saturday, sunday } = weekendRangeFor(nextWeekendEvent.concertDate);
+  const saturdayKey = dateKey(saturday);
+  const sundayKey = dateKey(sunday);
   const events = schedules
-    .filter(schedule => weekendDates.has(schedule.concertDate))
+    .filter(schedule => schedule.concertDate === saturdayKey || schedule.concertDate === sundayKey)
     .sort((a, b) => a.concertDate.localeCompare(b.concertDate)
-      || (weekendArtistOrder.get(a.artist) ?? 99) - (weekendArtistOrder.get(b.artist) ?? 99)
+      || (a.time || "").localeCompare(b.time || "")
       || a.artist.localeCompare(b.artist));
+
+  weekendKicker.textContent = formatWeekendKicker(saturday, sunday);
+  weekendTitle.textContent = formatWeekendTitle(saturday, sunday);
+  weekendCopy.textContent = `다가오는 주말 한국에서 열리는 J-POP 공연 ${events.length}개를 바로 확인하세요.`;
+  weekendSpotlight.hidden = false;
 
   weekendEvents.innerHTML = events.map(schedule => {
     const photoUrl = window.JLIVE_ARTIST_IMAGES.localUrl(schedule);
