@@ -62,12 +62,35 @@ function isoDateTime(date, time) {
   return `${date}T${String(hour).padStart(2, "0")}:${matched[3]}:00+09:00`;
 }
 
+function sameSeries(left, right) {
+  return left.artist === right.artist
+    && left.venue === right.venue
+    && (left.vendorUrl || left.vendor || "") === (right.vendorUrl || right.vendor || "");
+}
+
+function renderSeries(event, events) {
+  const series = events
+    .filter(item => item.status === "confirmed" && sameSeries(item, event))
+    .sort((a, b) => a.concertDate.localeCompare(b.concertDate) || (a.time || "").localeCompare(b.time || ""));
+  document.querySelector("#seriesSummary").textContent = series.length > 1
+    ? `이번 내한은 ${series.length}회 공연으로 진행됩니다. 날짜별 공연 시각과 예매 조건을 확인하세요.`
+    : "현재 공식 확인된 한국 공연은 1회입니다. 추가 회차는 공식 출처에서 다시 확인합니다.";
+  const base = location.pathname.includes("/calendar/events/") ? "./" : "./events/";
+  document.querySelector("#seriesDates").innerHTML = series.map(item => `
+    <li class="${item.id === event.id ? "active" : ""}">
+      <a href="${base}${encodeURIComponent(item.id)}.html">${escapeHtml(humanDate(item.concertDate, item.time))}</a>
+    </li>`).join("");
+  return series;
+}
+
 function addStructuredData(event) {
-  const canonical = location.pathname.includes("/calendar/events/")
+  const canonicalElement = document.querySelector("#canonicalLink");
+  const canonical = canonicalElement?.getAttribute("href") || (location.pathname.includes("/calendar/events/")
     ? `${config.siteUrl || location.origin}/calendar/events/${encodeURIComponent(event.id)}.html`
-    : `${config.siteUrl || location.origin}/calendar/event.html?id=${encodeURIComponent(event.id)}`;
-  const script = document.createElement("script");
+    : `${config.siteUrl || location.origin}/calendar/event.html?id=${encodeURIComponent(event.id)}`);
+  const script = document.querySelector("#eventStructuredData") || document.createElement("script");
   script.type = "application/ld+json";
+  script.id = "eventStructuredData";
   script.textContent = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "MusicEvent",
@@ -89,22 +112,24 @@ function addStructuredData(event) {
     } : undefined,
     url: canonical
   });
-  document.head.append(script);
+  if (!script.isConnected) document.head.append(script);
 }
 
-function renderEvent(event) {
+function renderEvent(event, events) {
   const title = `${event.artist} 내한 공연 일정·예매 | 제이라이브 코리아`;
   const description = `${humanDate(event.concertDate, event.time)}, ${event.venue}에서 열리는 ${event.artist} 내한 공연의 예매 일정과 공식 출처입니다.`;
   document.title = title;
   document.querySelector('meta[name="description"]').content = description;
-  const canonical = location.pathname.includes("/calendar/events/")
+  const canonicalElement = document.querySelector("#canonicalLink");
+  const canonical = canonicalElement.getAttribute("href") || (location.pathname.includes("/calendar/events/")
     ? `${config.siteUrl || location.origin}/calendar/events/${encodeURIComponent(event.id)}.html`
-    : `${config.siteUrl || location.origin}/calendar/event.html?id=${encodeURIComponent(event.id)}`;
-  document.querySelector("#canonicalLink").href = canonical;
+    : `${config.siteUrl || location.origin}/calendar/event.html?id=${encodeURIComponent(event.id)}`);
+  canonicalElement.href = canonical;
 
   document.querySelector("#eventArtist").textContent = event.artist;
   document.querySelector("#eventGenre").textContent = event.genre || "J-POP";
   document.querySelector("#eventSummary").textContent = `${humanDate(event.concertDate, event.time)} · ${event.venue}`;
+  renderSeries(event, events);
   document.querySelector("#artistIntro").textContent = editorial.artists[event.artist] ||
     `${event.artist}의 한국 공연입니다. 제이라이브 코리아는 공식 발표와 예매처 정보를 기준으로 공연 일정을 정리합니다.`;
   document.querySelector("#venueGuide").textContent = editorial.venues[event.venue] ||
@@ -168,7 +193,7 @@ async function initializeEvent() {
   const events = await response.json();
   const event = events.find(item => item.id === eventId && item.status === "confirmed");
   if (!event) throw new Error("공연을 찾을 수 없습니다.");
-  renderEvent(event);
+  renderEvent(event, events);
 }
 
 initializeEvent().catch(error => {

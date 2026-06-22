@@ -35,12 +35,18 @@
             <strong id="eventSummary"></strong>
           </div>
         </section>
-        <div class="ad-slot ad-slot-top" aria-label="광고 영역">
+        <div class="ad-slot ad-slot-top approval-placeholder" aria-label="광고 영역" hidden>
           <span>AD</span>
           <p>공연 정보를 방해하지 않는 위치에 배치되는 광고 영역입니다.</p>
         </div>
         <div class="event-layout">
           <div class="event-main">
+            <section class="editorial-section series-section">
+              <div class="section-kicker">CONCERT DATES</div>
+              <h2>확인된 공연 일정</h2>
+              <p id="seriesSummary"></p>
+              <ul class="series-date-list" id="seriesDates"></ul>
+            </section>
             <section class="editorial-section">
               <div class="section-kicker">ARTIST</div>
               <h2>아티스트 소개</h2>
@@ -62,7 +68,7 @@
                 <li>공식 예매처 이외의 개인 간 거래는 피해 위험이 있습니다.</li>
               </ul>
             </section>
-            <div class="ad-slot ad-slot-inline" aria-label="광고 영역">
+            <div class="ad-slot ad-slot-inline approval-placeholder" aria-label="광고 영역" hidden>
               <span>AD</span>
               <p>상세 정보를 읽는 흐름을 끊지 않는 본문 중간 광고 영역입니다.</p>
             </div>
@@ -95,7 +101,7 @@
             </dl>
             <a class="ticket-button" id="eventTicket" target="_blank" rel="noopener noreferrer">공식 예매처 확인 ↗</a>
             <a class="correction-link" id="correctionLink" href="./corrections.html">정보 수정 요청</a>
-            <div class="ad-slot ad-slot-side" aria-label="광고 영역">
+            <div class="ad-slot ad-slot-side approval-placeholder" aria-label="광고 영역" hidden>
               <span>AD</span>
               <p>승인 후 사이드 광고를 넣기 좋은 영역입니다.</p>
             </div>
