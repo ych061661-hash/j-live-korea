@@ -1,5 +1,64 @@
 "use strict";
 
+(() => {
+  const calendarRoot = `${location.origin}/calendar/`;
+
+  const ensureHeadLink = (rel, href, attrs = {}) => {
+    if (document.head.querySelector(`link[rel="${rel}"][href="${href}"]`)) return;
+    const link = document.createElement("link");
+    link.rel = rel;
+    link.href = href;
+    Object.entries(attrs).forEach(([key, value]) => link.setAttribute(key, value));
+    document.head.append(link);
+  };
+
+  ensureHeadLink("manifest", `${calendarRoot}manifest.webmanifest`);
+  ensureHeadLink("apple-touch-icon", `${calendarRoot}assets/brand/j-live-app-logo.png`);
+
+  if (!document.head.querySelector('meta[name="apple-mobile-web-app-capable"]')) {
+    const capable = document.createElement("meta");
+    capable.name = "apple-mobile-web-app-capable";
+    capable.content = "yes";
+    document.head.append(capable);
+  }
+
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register(`${calendarRoot}service-worker.js`, { scope: "/calendar/" })
+        .catch(() => {});
+    });
+  }
+
+  let deferredInstallPrompt = null;
+  const isStandalone = () => window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone;
+
+  const installButton = document.createElement("button");
+  installButton.type = "button";
+  installButton.className = "pwa-install-button";
+  installButton.textContent = "\uC571\uC73C\uB85C \uC124\uCE58";
+  installButton.hidden = true;
+  installButton.addEventListener("click", async () => {
+    if (!deferredInstallPrompt) return;
+    deferredInstallPrompt.prompt();
+    await deferredInstallPrompt.userChoice.catch(() => null);
+    deferredInstallPrompt = null;
+    installButton.hidden = true;
+  });
+
+  window.addEventListener("beforeinstallprompt", event => {
+    if (isStandalone()) return;
+    event.preventDefault();
+    deferredInstallPrompt = event;
+    if (!installButton.isConnected) document.body.append(installButton);
+    installButton.hidden = false;
+  });
+
+  window.addEventListener("appinstalled", () => {
+    deferredInstallPrompt = null;
+    installButton.hidden = true;
+  });
+})();
+
 window.JLIVE_ARTIST_IMAGES = (() => {
   const fileNameForChannel = channel => String(channel || "")
     .replace(/^@/, "")
