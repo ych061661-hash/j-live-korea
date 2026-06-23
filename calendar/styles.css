@@ -238,6 +238,7 @@ footer { padding:22px 0 34px; color:#686970; font-size:11px; text-align:center; 
 .editorial-section,.event-facts,.info-page section,.contact-card { padding:30px; border:1px solid var(--line); border-radius:20px; background:var(--panel); }
 .editorial-section h2,.event-facts h2,.info-page h2 { margin:6px 0 14px; font-size:22px; }
 .editorial-section p,.info-page section p { margin:0; color:#c3c4c8; line-height:1.85; }
+.editorial-section.deep-guide p + p { margin-top:14px; }
 .section-kicker { color:var(--lime); font-size:10px; font-weight:800; letter-spacing:.14em; }
 .content-note,.verified-copy { margin-top:15px !important; color:#74757c !important; font-size:11px; }
 .tip-list,.check-list { display:grid; gap:9px; margin:18px 0 0; padding-left:18px; color:#aaa; font-size:12px; line-height:1.6; }

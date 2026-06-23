@@ -126,6 +126,36 @@ function sourcesMarkup(event) {
   return (event.sources || []).map((source, index) => `<a class="source-link" href="${escapeHtml(source)}" target="_blank" rel="noopener noreferrer">공식 출처 ${index + 1} 확인 ↗</a>`).join("\n");
 }
 
+
+function listText(items) {
+  return items.filter(Boolean).join(", ");
+}
+
+function richEventGuideMarkup(event, group) {
+  const songs = (event.songs || []).map(song => song[0]).filter(Boolean).slice(0, 3);
+  const dateList = group.map(item => humanDate(item.concertDate, item.time)).join(" / ");
+  const multiDayNote = group.length > 1
+    ? `This run has ${group.length} Seoul dates, so check the exact date before booking transportation or making a meeting plan.`
+    : "This is currently listed as a single Korea date, so ticket availability can change quickly after the main sale opens.";
+  const songLine = songs.length
+    ? `A practical listening route before the show is ${listText(songs)}. These tracks give new listeners a quick sense of the artist's vocal color, arrangement style, and live energy.`
+    : `Before the show, use the artist's official channel and recent live clips to understand the sound, fan chants, and typical concert atmosphere.`;
+
+  const paragraphs = [
+    `${event.artist} is listed for ${dateList} at ${event.venue}. ${multiDayNote} J-LIVE keeps this page focused on the parts a visitor actually needs before opening the ticket page: date, venue, ticket vendor, source links, and the most recent verification date.`,
+    `For first-time visitors, the safest plan is to confirm the venue gate, ticket pickup rules, and bag policy on the official vendor page on the morning of the concert. Korean venues often update entrance notices close to the event date, especially when the show uses standing queues, separate fan-club checks, or mobile ticket verification.`,
+    `Ticket preparation should start before the sale time. Log in to ${event.vendor || "the official ticket vendor"}, check identity verification, save a payment method, and keep only one stable browser session open. If presale information is not listed here, treat the general sale as the confirmed public path and avoid relying on reposted screenshots from social media.`,
+    songLine,
+    `After booking, save the official source link and this page together. If the promoter changes the start time, venue notice, or ticket pickup rule, those changes usually appear first on the ticket vendor or the artist's official announcement page. This is why each J-LIVE event page keeps source links visible instead of hiding them at the bottom.`
+  ];
+
+  return `<section class="editorial-section deep-guide">
+              <div class="section-kicker">J-LIVE ORIGINAL GUIDE</div>
+              <h2>${escapeHtml(event.artist)} concert planning notes</h2>
+              ${paragraphs.map(paragraph => `<p>${escapeHtml(paragraph)}</p>`).join("\n              ")}
+            </section>`;
+}
+
 function structuredData(event, group, canonical, siteUrl) {
   const offer = event.vendorUrl ? {
     "@type": "Offer",
@@ -185,6 +215,7 @@ function renderEventPage({ event, group, primary, editorial, siteUrl, template, 
     .replace('<ul class="check-list" id="dayChecklist"></ul>', `<ul class="check-list" id="dayChecklist">${checklistMarkup(event)}</ul>`)
     .replace('<p id="songGuide"></p>', `<p id="songGuide">${escapeHtml(songGuide)}</p>`)
     .replace('<div class="song-list" id="eventSongs"></div>', `<div class="song-list" id="eventSongs">${songsMarkup(event)}</div>`)
+    .replace(/<section class="editorial-section">\s*<div class="section-kicker">SOURCES<\/div>/, `${richEventGuideMarkup(event, group)}\n            <section class="editorial-section">\n              <div class="section-kicker">SOURCES</div>`)
     .replace('<div class="source-links" id="eventSources"></div>', `<div class="source-links" id="eventSources">${sourcesMarkup(event)}</div>`)
     .replace('<p class="verified-copy" id="eventVerified"></p>', `<p class="verified-copy" id="eventVerified">마지막 검증일: ${escapeHtml(event.verifiedAt || "기록 없음")} · 이후 공식 발표로 정보가 변경될 수 있습니다.</p>`)
     .replace('<dd id="factDate"></dd>', `<dd id="factDate">${escapeHtml(humanDate(event.concertDate, event.time))}</dd>`)
@@ -215,9 +246,9 @@ function main() {
     writeUtf8(path.join(eventsDirectory, `${event.id}.html`), html);
   }
 
-  const staticPaths = ["/calendar/index.html", "/calendar/about.html", "/calendar/contact.html", "/calendar/privacy.html", "/calendar/terms.html", "/calendar/corrections.html", "/calendar/guides/ticketing.html", "/calendar/guides/venues.html", "/calendar/guides/verification.html"];
+  const staticPaths = ["/calendar/index.html", "/calendar/about.html", "/calendar/contact.html", "/calendar/privacy.html", "/calendar/terms.html", "/calendar/corrections.html", "/calendar/guides/ticketing.html", "/calendar/guides/venues.html", "/calendar/guides/verification.html", "/calendar/guides/yes24-ticketing.html", "/calendar/guides/melon-ticketing.html", "/calendar/guides/standing-concert.html", "/calendar/guides/olympic-park.html", "/calendar/guides/first-jpop-concert.html"];
   const primaryEvents = events.filter(event => primaryById.get(event.id).id === event.id && groupById.get(event.id).some(item => item.concertDate >= today));
-  const lastmod = new Date().toISOString().slice(0, 10);
+  const lastmod = today;
   const urls = [...staticPaths.map(url => ({ loc: `${siteUrl}${url}`, lastmod })), ...primaryEvents.map(event => ({ loc: `${siteUrl}/calendar/events/${encodeURIComponent(event.id)}.html`, lastmod: event.verifiedAt || lastmod }))];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(item => `  <url><loc>${escapeHtml(item.loc)}</loc><lastmod>${item.lastmod}</lastmod></url>`).join("\n")}\n</urlset>\n`;
   writeUtf8(path.join(root, "sitemap.xml"), sitemap);
