@@ -73,6 +73,37 @@ function isoDateTime(date, time) {
   return `${date}T${String(hour).padStart(2, "0")}:${matched[3]}:00+09:00`;
 }
 
+function addHoursToIso(value, hours) {
+  if (!value) return "";
+  if (!value.includes("T")) return value;
+  const matched = value.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})\+09:00$/);
+  if (!matched) return value;
+  const [, year, month, day, hour, minute, second] = matched.map(Number);
+  const date = new Date(Date.UTC(year, month - 1, day, hour + hours, minute, second));
+  if (Number.isNaN(date.getTime())) return value;
+  return `${date.toISOString().slice(0, 19)}+09:00`;
+}
+
+function fileNameForChannel(channel) {
+  return String(channel || "")
+    .replace(/^@/, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9_-]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function artistImageUrl(event, siteUrl) {
+  if (event.youtubeProfileImage && /^https?:\/\//i.test(event.youtubeProfileImage)) return event.youtubeProfileImage;
+  if (event.youtubeProfileImage) return `${siteUrl}/calendar/${String(event.youtubeProfileImage).replace(/^\.\//, "")}`;
+  const fileName = fileNameForChannel(event.youtubeChannel);
+  return fileName ? `${siteUrl}/calendar/assets/artists/${fileName}.jpg` : `${siteUrl}/calendar/assets/brand/j-live-app-logo.png`;
+}
+
+function eventEndDate(group) {
+  const last = group[group.length - 1];
+  return addHoursToIso(isoDateTime(last.concertDate, last.time), 2);
+}
+
 function seriesDatesMarkup(group, activeId) {
   return group.map(item => `<li${item.id === activeId ? ' class="active"' : ""}><a href="${encodeURIComponent(item.id)}.html">${escapeHtml(humanDate(item.concertDate, item.time))}</a></li>`).join("\n");
 }
@@ -95,17 +126,28 @@ function sourcesMarkup(event) {
   return (event.sources || []).map((source, index) => `<a class="source-link" href="${escapeHtml(source)}" target="_blank" rel="noopener noreferrer">공식 출처 ${index + 1} 확인 ↗</a>`).join("\n");
 }
 
-function structuredData(event, group, canonical) {
+function structuredData(event, group, canonical, siteUrl) {
+  const offer = event.vendorUrl ? {
+    "@type": "Offer",
+    url: event.vendorUrl,
+    availability: "https://schema.org/InStock",
+    validFrom: isoDateTime(event.ticketDate, event.ticketTime) || isoDateTime(event.concertDate, event.time),
+    priceCurrency: event.priceCurrency || "KRW",
+    price: event.price || 0
+  } : undefined;
+
   return JSON.stringify({
     "@context": "https://schema.org", "@type": "MusicEvent",
-    name: `${event.artist} 내한 공연`,
-    description: `${event.artist}의 한국 공연 일정, 예매 정보, 공연장 교통과 공식 출처를 정리한 안내입니다.`,
+    name: `${event.artist} ?? ??`,
+    description: `${event.artist}? ?? ?? ??, ?? ??, ??? ??? ?? ??? ??? ?????.`,
     startDate: isoDateTime(event.concertDate, event.time),
-    endDate: group.length > 1 ? isoDateTime(group[group.length - 1].concertDate, group[group.length - 1].time) : undefined,
+    endDate: eventEndDate(group),
+    image: [artistImageUrl(event, siteUrl)],
     eventStatus: "https://schema.org/EventScheduled", eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
     location: { "@type": "Place", name: event.venue, address: { "@type": "PostalAddress", addressCountry: "KR" } },
     performer: { "@type": "MusicGroup", name: event.artist },
-    offers: event.vendorUrl ? { "@type": "Offer", url: event.vendorUrl, availability: "https://schema.org/InStock", validFrom: isoDateTime(event.ticketDate, event.ticketTime) } : undefined,
+    organizer: { "@type": "Organization", name: event.vendor || "J-LIVE Korea", url: event.vendorUrl || siteUrl },
+    offers: offer,
     url: canonical
   }).replace(/</g, "\\u003c");
 }
@@ -128,7 +170,7 @@ function renderEventPage({ event, group, primary, editorial, siteUrl, template, 
   return template
     .replace("<title>공연 상세 | 제이라이브 코리아</title>", `<title>${escapeHtml(title)}</title>`)
     .replace('content="J-POP 내한 공연 일정, 예매 정보, 공연장 교통과 대표곡을 확인하세요."', `content="${escapeHtml(description)}"`)
-    .replace('<link rel="canonical" id="canonicalLink" href="">', `<link rel="canonical" id="canonicalLink" href="${escapeHtml(canonical)}">\n  <meta name="robots" content="${robots}">\n  <script type="application/ld+json" id="eventStructuredData">${structuredData(event, group, canonical)}</script>`)
+    .replace('<link rel="canonical" id="canonicalLink" href="">', `<link rel="canonical" id="canonicalLink" href="${escapeHtml(canonical)}">\n  <meta name="robots" content="${robots}">\n  <script type="application/ld+json" id="eventStructuredData">${structuredData(event, group, canonical, siteUrl)}</script>`)
     .replace("<body>", `<body data-event-id="${escapeHtml(event.id)}">`)
     .replace('<div class="event-loading" id="eventLoading">', '<div class="event-loading" id="eventLoading" hidden>')
     .replace('<article id="eventArticle" hidden>', '<article id="eventArticle">')
