@@ -131,27 +131,47 @@ function listText(items) {
   return items.filter(Boolean).join(", ");
 }
 
+function venueFacilityGuide(venue) {
+  const guides = {
+    "KSPO DOME": "KSPO DOME은 대형 공연장이라 객석층과 로비/콘코스 쪽 화장실 이용 동선이 분산됩니다. 입장 직후보다 공연 시작 30분 전부터 줄이 길어질 수 있으니, 도착하면 먼저 가장 가까운 화장실 위치와 퇴장 동선을 확인해 두는 편이 좋습니다. 올림픽공원역과 공원 안 공용 화장실도 입장 전 대기 시간에 활용할 수 있지만, 공연장 재입장이 제한될 수 있으니 입장 후에는 내부 안내를 우선 확인하세요.",
+    "올림픽공원 올림픽홀": "올림픽홀은 올림픽공원 안에 있어 입장 전에는 공원 내 공용 화장실과 역사 주변 시설을 함께 확인할 수 있습니다. 다만 입장 후에는 재입장 가능 여부가 공연마다 다르므로, 좌석에 들어가기 전에 로비 화장실과 물품 보관 위치를 먼저 봐두는 것이 안전합니다.",
+    "고척스카이돔": "고척스카이돔은 야구장형 대형 venue라 내부 층별 화장실과 매점이 여러 구역에 나뉘어 있습니다. 공연 시작 직전과 종료 직후에는 같은 층 화장실 줄이 길어질 수 있으니, 좌석 구역과 가까운 화장실뿐 아니라 한 구역 옆 동선도 미리 확인해 두면 좋습니다.",
+    "YES24 LIVE HALL": "YES24 LIVE HALL은 스탠딩 공연이 많아 입장 대기 중 화장실과 물품 보관 동선이 특히 중요합니다. 번호별 대기 시작 전 건물 내 화장실 위치를 확인하고, 입장 직전에는 줄을 이탈하기 어려울 수 있으니 여유 있게 다녀오는 것을 권합니다.",
+    "YES24 원더로크홀": "YES24 원더로크홀은 홍대권 공연장 특성상 입장 전 주변 유동 인구가 많습니다. 공연장 내부 화장실 위치와 대기 줄 위치가 가까운지 먼저 확인하고, 스탠딩 공연이라면 입장 시작 전에 화장실을 다녀오는 것이 좋습니다.",
+    "KT&G 상상마당 라이브홀": "KT&G 상상마당 라이브홀은 홍대 건물형 공연장이라 층 이동과 대기 동선 확인이 중요합니다. 공연장 층의 화장실 위치, 물품 보관 가능 여부, 입장 줄 위치를 함께 확인해 두면 입장 직전에 움직이는 일을 줄일 수 있습니다.",
+    "무신사 개러지": "무신사 개러지는 홍대권 스탠딩 공연이 많은 venue입니다. 입장 번호 대기 중 줄을 오래 비우기 어려울 수 있으니, 도착 직후 화장실과 물품 보관 위치를 먼저 확인하고 대기하는 편이 좋습니다.",
+    "장충체육관": "장충체육관은 실내 체육관형 venue라 객석층과 로비 쪽 화장실 동선이 나뉩니다. 공연 종료 후 지하철역 방향으로 인파가 몰릴 수 있으니, 앙코르 전후 이동 계획과 가까운 출구를 함께 확인하세요.",
+    "인스파이어 아레나": "인스파이어 아레나는 공연장과 복합 리조트 동선이 연결되는 venue입니다. 화장실과 매점은 내부 안내 표지판을 따라 확인하는 것이 가장 정확하고, 서울 복귀 교통 시간이 길 수 있으니 공연 전 물과 화장실을 미리 챙기는 편이 좋습니다.",
+    "킨텍스 제2전시장 10홀": "킨텍스 전시장 공연은 홀 입구, 로비, 전시장 공용 화장실 동선 확인이 중요합니다. 전시장 규모가 커서 같은 건물 안에서도 이동 시간이 길 수 있으니, 입장 게이트와 가까운 화장실을 먼저 체크하세요.",
+    "킨텍스 제2전시장 9홀": "킨텍스 제2전시장 공연은 로비와 홀 주변 공용 화장실을 함께 확인하는 것이 좋습니다. 공연 종료 후 셔틀, 버스, 지하철 연계 이동이 몰릴 수 있어 퇴장 전 화장실 이용 시간을 조금 앞당기는 편이 안전합니다.",
+    "킨텍스 제2전시장 후면광장": "야외 또는 광장형 공연은 임시 화장실, 전시장 내부 화장실, 운영 구역 제한이 공연마다 달라질 수 있습니다. 현장 안내판과 주최 측 공지를 우선 확인하고, 비나 더위에 대비해 물과 대기 시간을 함께 고려하세요."
+  };
+  return guides[venue] || venue + " 방문 전에는 공식 공연장 안내도에서 화장실, 물품 보관, 입장 게이트 위치를 먼저 확인하세요. 공연 시작 직전과 종료 직후에는 화장실 줄이 길어질 수 있으니 도착 직후 한 번, 입장 직전 한 번 동선을 확인해 두면 편합니다.";
+}
+
 function richEventGuideMarkup(event, group) {
   const songs = (event.songs || []).map(song => song[0]).filter(Boolean).slice(0, 3);
   const dateList = group.map(item => humanDate(item.concertDate, item.time)).join(" / ");
   const multiDayNote = group.length > 1
-    ? `This run has ${group.length} Seoul dates, so check the exact date before booking transportation or making a meeting plan.`
-    : "This is currently listed as a single Korea date, so ticket availability can change quickly after the main sale opens.";
+    ? "이번 내한은 " + group.length + "회차로 잡혀 있어 날짜별 시작 시간과 예매 조건을 따로 확인해야 합니다."
+    : "현재 확인된 한국 공연은 1회차 중심이라 일반 예매 이후 잔여석 변동을 자주 확인하는 편이 좋습니다.";
   const songLine = songs.length
-    ? `A practical listening route before the show is ${listText(songs)}. These tracks give new listeners a quick sense of the artist's vocal color, arrangement style, and live energy.`
-    : `Before the show, use the artist's official channel and recent live clips to understand the sound, fan chants, and typical concert atmosphere.`;
+    ? "공연 전에는 " + listText(songs) + " 순서로 먼저 들어보면 " + event.artist + "의 대표적인 보컬 톤, 편곡 스타일, 라이브 에너지를 빠르게 파악할 수 있습니다."
+    : event.artist + "의 공식 채널과 최근 라이브 영상을 먼저 확인하면 공연 분위기와 관객 반응을 예상하기 쉽습니다.";
+  const facilityGuide = venueFacilityGuide(event.venue);
 
   const paragraphs = [
-    `${event.artist} is listed for ${dateList} at ${event.venue}. ${multiDayNote} J-LIVE keeps this page focused on the parts a visitor actually needs before opening the ticket page: date, venue, ticket vendor, source links, and the most recent verification date.`,
-    `For first-time visitors, the safest plan is to confirm the venue gate, ticket pickup rules, and bag policy on the official vendor page on the morning of the concert. Korean venues often update entrance notices close to the event date, especially when the show uses standing queues, separate fan-club checks, or mobile ticket verification.`,
-    `Ticket preparation should start before the sale time. Log in to ${event.vendor || "the official ticket vendor"}, check identity verification, save a payment method, and keep only one stable browser session open. If presale information is not listed here, treat the general sale as the confirmed public path and avoid relying on reposted screenshots from social media.`,
+    event.artist + " 내한 공연은 " + dateList + " " + event.venue + "에서 열리는 일정으로 정리되어 있습니다. " + multiDayNote + " 이 페이지는 공연 날짜, 예매처, 공연장, 대표곡, 공식 출처를 한곳에서 확인하도록 만든 준비용 안내입니다.",
+    "처음 가는 관객이라면 공연 당일 아침에 예매처 공지, 주최 측 안내, 공연장 입장 공지를 다시 확인하는 것이 좋습니다. 스탠딩 번호 대기, 모바일 티켓 확인, 신분증 확인, 팬클럽 선예매 조건은 공연마다 달라질 수 있어 캡처본보다 공식 페이지를 우선해야 합니다.",
+    "예매 준비는 판매 시작 전부터 해두는 편이 안전합니다. " + (event.vendor || "공식 예매처") + " 로그인 상태, 본인 인증, 결제 수단, 팝업 차단 여부를 미리 확인하고 한 브라우저에서 안정적으로 진행하세요. 선예매 정보가 없다면 일반 예매를 기준으로 보고, SNS에 올라온 비공식 좌석표나 재판매 글은 주의하는 것이 좋습니다.",
     songLine,
-    `After booking, save the official source link and this page together. If the promoter changes the start time, venue notice, or ticket pickup rule, those changes usually appear first on the ticket vendor or the artist's official announcement page. This is why each J-LIVE event page keeps source links visible instead of hiding them at the bottom.`
+    facilityGuide,
+    "예매 후에는 공식 출처 링크와 마지막 검증일을 함께 저장해 두세요. 공연 시간이 바뀌거나, 입장 게이트와 물품 보관 방식이 변경되는 경우는 보통 예매처 또는 아티스트 공식 공지에 먼저 올라옵니다. J-LIVE는 이런 변경을 추적하기 쉽도록 각 상세페이지에 출처와 검증 기록을 계속 남깁니다."
   ];
 
   return `<section class="editorial-section deep-guide">
               <div class="section-kicker">J-LIVE ORIGINAL GUIDE</div>
-              <h2>${escapeHtml(event.artist)} concert planning notes</h2>
+              <h2>${escapeHtml(event.artist)} 내한 준비 가이드</h2>
               ${paragraphs.map(paragraph => `<p>${escapeHtml(paragraph)}</p>`).join("\n              ")}
             </section>`;
 }
@@ -168,8 +188,8 @@ function structuredData(event, group, canonical, siteUrl) {
 
   return JSON.stringify({
     "@context": "https://schema.org", "@type": "MusicEvent",
-    name: `${event.artist} ?? ??`,
-    description: `${event.artist}? ?? ?? ??, ?? ??, ??? ??? ?? ??? ??? ?????.`,
+    name: `${event.artist} 내한 공연`,
+    description: `${event.artist} 내한 공연 일정, 예매 정보, 공연장 안내와 대표곡을 정리했습니다.`,
     startDate: isoDateTime(event.concertDate, event.time),
     endDate: eventEndDate(group),
     image: [artistImageUrl(event, siteUrl)],
@@ -246,7 +266,7 @@ function main() {
     writeUtf8(path.join(eventsDirectory, `${event.id}.html`), html);
   }
 
-  const staticPaths = ["/calendar/index.html", "/calendar/about.html", "/calendar/contact.html", "/calendar/privacy.html", "/calendar/terms.html", "/calendar/corrections.html", "/calendar/guides/ticketing.html", "/calendar/guides/venues.html", "/calendar/guides/verification.html", "/calendar/guides/yes24-ticketing.html", "/calendar/guides/melon-ticketing.html", "/calendar/guides/standing-concert.html", "/calendar/guides/olympic-park.html", "/calendar/guides/first-jpop-concert.html"];
+  const staticPaths = ["/calendar/index.html", "/calendar/about.html", "/calendar/contact.html", "/calendar/privacy.html", "/calendar/terms.html", "/calendar/corrections.html", "/calendar/guides/ticketing.html", "/calendar/guides/venues.html", "/calendar/guides/verification.html", "/calendar/guides/yes24-ticketing.html", "/calendar/guides/melon-ticketing.html", "/calendar/guides/standing-concert.html", "/calendar/guides/olympic-park.html", "/calendar/guides/first-jpop-concert.html", "/calendar/guides/venue-facilities.html"];
   const primaryEvents = events.filter(event => primaryById.get(event.id).id === event.id && groupById.get(event.id).some(item => item.concertDate >= today));
   const lastmod = today;
   const urls = [...staticPaths.map(url => ({ loc: `${siteUrl}${url}`, lastmod })), ...primaryEvents.map(event => ({ loc: `${siteUrl}/calendar/events/${encodeURIComponent(event.id)}.html`, lastmod: event.verifiedAt || lastmod }))];
