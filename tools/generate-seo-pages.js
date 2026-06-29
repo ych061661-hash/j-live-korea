@@ -266,7 +266,7 @@ function main() {
     writeUtf8(path.join(eventsDirectory, `${event.id}.html`), html);
   }
 
-  const staticPaths = ["/calendar/index.html", "/calendar/about.html", "/calendar/contact.html", "/calendar/privacy.html", "/calendar/terms.html", "/calendar/corrections.html", "/calendar/guides/venues.html", "/calendar/guides/verification.html", "/calendar/guides/standing-concert.html", "/calendar/guides/olympic-park.html"];
+  const staticPaths = ["/calendar/index.html", "/calendar/about.html", "/calendar/contact.html", "/calendar/privacy.html", "/calendar/terms.html", "/calendar/corrections.html", "/calendar/guides/venues.html", "/calendar/guides/verification.html", "/calendar/guides/standing-concert.html"];
   const primaryEvents = events.filter(event => primaryById.get(event.id).id === event.id && groupById.get(event.id).some(item => item.concertDate >= today));
   const lastmod = today;
   const urls = [...staticPaths.map(url => ({ loc: `${siteUrl}${url}`, lastmod })), ...primaryEvents.map(event => ({ loc: `${siteUrl}/calendar/events/${encodeURIComponent(event.id)}.html`, lastmod: event.verifiedAt || lastmod }))];
