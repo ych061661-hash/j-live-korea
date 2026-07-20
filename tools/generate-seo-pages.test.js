@@ -2,7 +2,7 @@
 
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { buildSeries, humanDate } = require("./generate-seo-pages");
+const { buildSeries, hasEditorialGuide, humanDate, richEventGuideMarkup } = require("./generate-seo-pages");
 
 test("groups consecutive dates and selects the first future performance", () => {
   const base = { artist: "Artist", venue: "Venue", vendorUrl: "https://tickets.example/event" };
@@ -21,4 +21,16 @@ test("groups consecutive dates and selects the first future performance", () => 
 test("formats Korean dates without relying on UTC conversion", () => {
   assert.equal(humanDate("2026-07-18", "오후 6:00"), "2026년 7월 18일(토) 오후 6:00");
   assert.equal(humanDate(null), "미정");
+});
+
+test("renders artist-specific editorial content only when it exists", () => {
+  const event = { artist: "Artist", verifiedAt: "2026-07-20" };
+  const editorial = { eventGuides: { Artist: { focus: "관전 포인트", listening: "듣는 순서", plan: "동선 메모" } } };
+
+  const html = richEventGuideMarkup(event, editorial);
+  assert.match(html, /J-LIVE ORIGINAL/);
+  assert.match(html, /관전 포인트/);
+  assert.equal(hasEditorialGuide(event, editorial), true);
+  assert.equal(hasEditorialGuide({ artist: "Unknown" }, editorial), false);
+  assert.equal(richEventGuideMarkup({ artist: "Unknown" }, editorial), "");
 });
