@@ -2,7 +2,7 @@
 
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { buildSeries, hasEditorialGuide, humanDate, richEventGuideMarkup } = require("./generate-seo-pages");
+const { buildSeries, hasEditorialGuide, humanDate, richEventGuideMarkup, ticketGuideMarkup, venueGuideForEvent, venuePageHtml } = require("./generate-seo-pages");
 
 test("groups consecutive dates and selects the first future performance", () => {
   const base = { artist: "Artist", venue: "Venue", vendorUrl: "https://tickets.example/event" };
@@ -33,4 +33,20 @@ test("renders artist-specific editorial content only when it exists", () => {
   assert.equal(hasEditorialGuide(event, editorial), true);
   assert.equal(hasEditorialGuide({ artist: "Unknown" }, editorial), false);
   assert.equal(richEventGuideMarkup({ artist: "Unknown" }, editorial), "");
+});
+
+test("renders ticket analysis and resolves a venue field guide", () => {
+  const event = { artist: "Band", venue: "Hall", verifiedAt: "2026-07-20" };
+  const editorial = {
+    ticketGuides: { Band: { price: "R 100원", presale: "없음", identity: "확인", ticket: "현장수령", cancellation: "고정 시각 없음", verifiedAt: "2026-07-20" } },
+    venueGuides: { hall: { name: "Hall", venues: ["Hall"] } }
+  };
+  assert.match(ticketGuideMarkup(event, editorial), /좌석 등급과 가격/);
+  assert.equal(venueGuideForEvent(event, editorial)[0], "hall");
+});
+
+test("renders every requested venue section", () => {
+  const guide = { name: "Hall", summary: "요약", transit: "교통", arrival: "입장", restroom: "화장실", storage: "보관", waiting: "대기", nearby: "식사", return: "귀가", verifiedAt: "2026-07-20", sources: [] };
+  const html = venuePageHtml("hall", guide, "https://j-live.kr");
+  for (const heading of ["지하철·버스에서 공연장까지", "입장 줄까지의 동선", "화장실", "물품 보관", "스탠딩·현장 대기", "주변 식사·카페", "귀가와 막차"]) assert.match(html, new RegExp(heading));
 });

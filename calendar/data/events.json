@@ -196,6 +196,9 @@
     "venue": "킨텍스 제2전시장 10홀",
     "presaleDate": "",
     "ticketDate": "2026-05-13",
+    "ticketTime": "오후 6:00",
+    "price": 154000,
+    "priceCurrency": "KRW",
     "vendor": "티켓링크",
     "vendorUrl": "https://www.ticketlink.co.kr/product/63100",
     "youtubeChannel": "@Novelbright",
@@ -221,7 +224,7 @@
       "https://www.ticketlink.co.kr/product/63100",
       "https://www.ticketlink.co.kr/help/notice/64824"
     ],
-    "verifiedAt": "2026-06-15",
+    "verifiedAt": "2026-07-20",
     "createdAt": "2026-06-11T09:00:00+09:00"
   },
   {
@@ -233,6 +236,9 @@
     "venue": "킨텍스 제2전시장 10홀",
     "presaleDate": "",
     "ticketDate": "2026-05-13",
+    "ticketTime": "오후 6:00",
+    "price": 154000,
+    "priceCurrency": "KRW",
     "vendor": "티켓링크",
     "vendorUrl": "https://www.ticketlink.co.kr/product/63100",
     "youtubeChannel": "@Novelbright",
@@ -258,7 +264,7 @@
       "https://www.ticketlink.co.kr/product/63100",
       "https://www.ticketlink.co.kr/help/notice/64824"
     ],
-    "verifiedAt": "2026-06-17",
+    "verifiedAt": "2026-07-20",
     "createdAt": "2026-06-11T09:00:00+09:00"
   },
   {
@@ -271,6 +277,8 @@
     "presaleDate": "2026-03-31",
     "ticketDate": "2026-04-16",
     "ticketTime": "오후 7:00",
+    "price": 132000,
+    "priceCurrency": "KRW",
     "vendor": "NOL 티켓",
     "vendorUrl": "https://tickets.interpark.com/goods/26005670",
     "youtubeChannel": "@officialhigedandism",
@@ -296,7 +304,7 @@
       "https://event.higedan.com/feature/asiatour2026",
       "https://tickets.interpark.com/contents/notice/detail/13341"
     ],
-    "verifiedAt": "2026-06-15",
+    "verifiedAt": "2026-07-20",
     "createdAt": "2026-06-11T09:00:00+09:00"
   },
   {
@@ -309,6 +317,8 @@
     "presaleDate": "2026-03-31",
     "ticketDate": "2026-04-16",
     "ticketTime": "오후 7:00",
+    "price": 132000,
+    "priceCurrency": "KRW",
     "vendor": "NOL 티켓",
     "vendorUrl": "https://tickets.interpark.com/goods/26005670",
     "youtubeChannel": "@officialhigedandism",
@@ -334,7 +344,7 @@
       "https://event.higedan.com/feature/asiatour2026",
       "https://tickets.interpark.com/contents/notice/detail/13341"
     ],
-    "verifiedAt": "2026-06-15",
+    "verifiedAt": "2026-07-20",
     "createdAt": "2026-06-11T09:00:00+09:00"
   },
   {
@@ -346,6 +356,9 @@
     "venue": "킨텍스 제2전시장 9홀",
     "presaleDate": "",
     "ticketDate": "2026-04-22",
+    "ticketTime": "오후 7:00",
+    "price": 143000,
+    "priceCurrency": "KRW",
     "vendor": "YES24 티켓",
     "vendorUrl": "https://ticket.yes24.com/Perf/58079",
     "youtubeChannel": "@backnumberchannel",
@@ -371,7 +384,7 @@
       "https://backnumber.info/news/list/7?range=future_event_end_time&sort=asc&tag=live/event",
       "https://ticket.yes24.com/Perf/58079"
     ],
-    "verifiedAt": "2026-06-15",
+    "verifiedAt": "2026-07-20",
     "createdAt": "2026-06-11T09:00:00+09:00"
   },
   {
@@ -383,6 +396,9 @@
     "venue": "킨텍스 제2전시장 9홀",
     "presaleDate": "",
     "ticketDate": "2026-04-22",
+    "ticketTime": "오후 7:00",
+    "price": 143000,
+    "priceCurrency": "KRW",
     "vendor": "YES24 티켓",
     "vendorUrl": "https://ticket.yes24.com/Perf/58079",
     "youtubeChannel": "@backnumberchannel",
@@ -408,7 +424,7 @@
       "https://backnumber.info/news/list/7?range=future_event_end_time&sort=asc&tag=live/event",
       "https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17720"
     ],
-    "verifiedAt": "2026-06-15",
+    "verifiedAt": "2026-07-20",
     "createdAt": "2026-06-11T09:00:00+09:00"
   },
   {
@@ -419,7 +435,10 @@
     "time": "오후 5:00",
     "venue": "장충체육관",
     "presaleDate": "",
-    "ticketDate": "",
+    "ticketDate": "2026-06-08",
+    "ticketTime": "오후 6:00",
+    "price": 143000,
+    "priceCurrency": "KRW",
     "vendor": "YES24 티켓",
     "vendorUrl": "https://ticket.yes24.com/Perf/58751",
     "youtubeChannel": "@heysayjump_official",
@@ -445,7 +464,7 @@
       "https://ticket.yes24.com/Perf/58751",
       "https://m.ticket.yes24.com/Perf/58751"
     ],
-    "verifiedAt": "2026-06-22",
+    "verifiedAt": "2026-07-20",
     "createdAt": "2026-06-11T09:00:00+09:00"
   },
   {
@@ -456,7 +475,10 @@
     "time": "오후 5:00",
     "venue": "인스파이어 아레나",
     "presaleDate": "",
-    "ticketDate": "",
+    "ticketDate": "2026-03-11",
+    "ticketTime": "오후 8:00",
+    "price": 154000,
+    "priceCurrency": "KRW",
     "vendor": "NOL 티켓",
     "vendorUrl": "https://tickets.interpark.com/goods/26003199",
     "youtubeChannel": "@Vaundy",
@@ -482,7 +504,7 @@
       "https://member.vaundy.jp/feature/ASIAARENATOUR_2026",
       "https://tickets.interpark.com/goods/26003199"
     ],
-    "verifiedAt": "2026-06-15",
+    "verifiedAt": "2026-07-20",
     "createdAt": "2026-06-11T09:00:00+09:00"
   },
   {
@@ -493,7 +515,10 @@
     "time": "오후 4:00",
     "venue": "인스파이어 아레나",
     "presaleDate": "",
-    "ticketDate": "",
+    "ticketDate": "2026-03-11",
+    "ticketTime": "오후 8:00",
+    "price": 154000,
+    "priceCurrency": "KRW",
     "vendor": "NOL 티켓",
     "vendorUrl": "https://tickets.interpark.com/goods/26003199",
     "youtubeChannel": "@Vaundy",
@@ -519,7 +544,7 @@
       "https://member.vaundy.jp/feature/ASIAARENATOUR_2026",
       "https://tickets.interpark.com/goods/26003199"
     ],
-    "verifiedAt": "2026-06-15",
+    "verifiedAt": "2026-07-20",
     "createdAt": "2026-06-11T09:00:00+09:00"
   },
   {
@@ -557,7 +582,7 @@
       "https://tickets.interpark.com/contents/notice/detail/14058",
       "https://takuya-kimura.jp/"
     ],
-    "verifiedAt": "2026-06-15",
+    "verifiedAt": "2026-07-20",
     "createdAt": "2026-06-11T09:00:00+09:00"
   },
   {
@@ -899,6 +924,9 @@
     "venue": "킨텍스 제2전시장 후면광장",
     "presaleDate": "",
     "ticketDate": "2026-05-29",
+    "ticketTime": "오후 8:00",
+    "price": 138000,
+    "priceCurrency": "KRW",
     "vendor": "YES24 티켓",
     "vendorUrl": "https://ticket.yes24.com/Perf/58592",
     "youtubeChannel": "@SPYAIRofficial",
@@ -923,7 +951,7 @@
     "sources": [
       "https://ticket.yes24.com/Perf/58592"
     ],
-    "verifiedAt": "2026-06-22",
+    "verifiedAt": "2026-07-20",
     "createdAt": "2026-06-11T10:00:00+09:00"
   },
   {
@@ -935,6 +963,8 @@
     "venue": "공감센터 공감홀",
     "presaleDate": "",
     "ticketDate": "",
+    "price": 99000,
+    "priceCurrency": "KRW",
     "vendor": "YES24 티켓",
     "vendorUrl": "https://ticket.yes24.com/Perf/58335",
     "youtubeChannel": "@Omoinotake",
@@ -960,7 +990,7 @@
       "https://ticket.yes24.com/Perf/58335",
       "https://www.highjinkx.com/show-list/omoinotake-2026"
     ],
-    "verifiedAt": "2026-06-15",
+    "verifiedAt": "2026-07-20",
     "createdAt": "2026-06-11T09:00:00+09:00"
   },
   {
@@ -972,6 +1002,9 @@
     "venue": "YES24 원더로크홀",
     "presaleDate": "",
     "ticketDate": "2026-05-20",
+    "ticketTime": "오후 8:00",
+    "price": 99000,
+    "priceCurrency": "KRW",
     "vendor": "YES24 티켓",
     "vendorUrl": "https://ticket.yes24.com/Perf/58454",
     "youtubeChannel": "@chillibeans_mc",
@@ -996,7 +1029,7 @@
     "sources": [
       "https://ticket.yes24.com/Perf/58454"
     ],
-    "verifiedAt": "2026-06-22",
+    "verifiedAt": "2026-07-20",
     "createdAt": "2026-06-11T18:50:00+09:00"
   },
   {
@@ -1045,6 +1078,8 @@
     "presaleDate": "",
     "ticketDate": "2026-06-17",
     "ticketTime": "오후 7:00",
+    "price": 132000,
+    "priceCurrency": "KRW",
     "vendor": "멜론티켓",
     "vendorUrl": "https://ticket.melon.com/csoon/detail.htm?csoonId=12366",
     "youtubeChannel": "@FujiiKaze",
@@ -1070,7 +1105,7 @@
       "https://fujiikaze.com/news-article/news260610/",
       "https://ticket.melon.com/csoon/detail.htm?csoonId=12366"
     ],
-    "verifiedAt": "2026-06-15",
+    "verifiedAt": "2026-07-20",
     "createdAt": "2026-06-11T23:38:00+09:00"
   },
   {
@@ -1226,7 +1261,7 @@
       "https://www.nakajimakento.com/news/detail/?id=583773",
       "https://ticket.yes24.com/New/Notice/NoticeMain.aspx?Gcode=009_208_002#id=17913"
     ],
-    "verifiedAt": "2026-06-17",
+    "verifiedAt": "2026-07-20",
     "createdAt": "2026-06-16T09:00:00+09:00"
   },
   {
@@ -1266,7 +1301,7 @@
       "https://www.nakajimakento.com/news/detail/?id=583773",
       "https://ticket.yes24.com/New/Notice/NoticeMain.aspx?Gcode=009_208_002#id=17913"
     ],
-    "verifiedAt": "2026-06-17",
+    "verifiedAt": "2026-07-20",
     "createdAt": "2026-06-16T09:00:00+09:00"
   }
 ]
