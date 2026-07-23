@@ -311,8 +311,15 @@ calendar.addEventListener("mouseleave", () => document.querySelectorAll(".day").
 
 async function initialize() {
   try {
-    let response = await fetch("/api/events", { cache: "no-store" });
-    if (!response.ok) response = await fetch("./data/events.json", { cache: "no-store" });
+    let response;
+    try {
+      response = await fetch("/api/events", { cache: "no-store" });
+      if (!response.ok || !response.headers.get("content-type")?.includes("application/json")) {
+        throw new Error("API response is unavailable");
+      }
+    } catch {
+      response = await fetch("./data/events.json", { cache: "no-store" });
+    }
     if (!response.ok) throw new Error("공연 데이터를 불러오지 못했습니다.");
     schedules = (await response.json()).filter(event => event.status === "confirmed");
     schedules.sort((a, b) => a.concertDate.localeCompare(b.concertDate));

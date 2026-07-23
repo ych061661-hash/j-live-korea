@@ -1303,5 +1303,164 @@
     ],
     "verifiedAt": "2026-07-20",
     "createdAt": "2026-06-16T09:00:00+09:00"
+  },
+  {
+    "id": "dannie-may-2026-08-21",
+    "artist": "Dannie May",
+    "genre": "J-POP / ROCK",
+    "concertDate": "2026-08-21",
+    "time": "오후 8:00",
+    "venue": "KT&G 상상마당 라이브홀",
+    "presaleDate": "",
+    "ticketDate": "2026-06-04",
+    "ticketTime": "오후 7:00",
+    "price": 88000,
+    "priceCurrency": "KRW",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://nol.yanolja.com/ticket/products/26007623",
+    "youtubeChannel": "UCzBa6MWELrpy84nBgL1IHtg",
+    "songs": [
+      [
+        "ええじゃないか",
+        "",
+        "https://www.youtube.com/watch?v=eWE4py_yLLQ"
+      ],
+      [
+        "未完成婚姻論",
+        "",
+        "https://www.youtube.com/watch?v=hmTET9uBh8A"
+      ],
+      [
+        "ぐーぐーぐー",
+        "",
+        "https://www.youtube.com/watch?v=0bXoxSJeoN4"
+      ]
+    ],
+    "status": "confirmed",
+    "sources": [
+      "https://danniemay.com/%E3%80%90oneman%E3%80%91dannie-may-one-shot-vacation-in-seoul/",
+      "https://tickets.interpark.com/contents/notice/detail/13934"
+    ],
+    "verifiedAt": "2026-07-23",
+    "createdAt": "2026-07-23T15:00:00+09:00"
+  },
+  {
+    "id": "let-me-know-2026-11-28",
+    "artist": "LET ME KNOW",
+    "genre": "J-POP / ROCK",
+    "concertDate": "2026-11-28",
+    "time": "오후 6:00",
+    "venue": "명화라이브홀",
+    "presaleDate": "2026-07-27",
+    "presaleTime": "오후 6:00",
+    "ticketDate": "2026-07-31",
+    "ticketTime": "오후 6:00",
+    "price": 99000,
+    "priceCurrency": "KRW",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://nol.yanolja.com/ticket/products/26010681",
+    "youtubeChannel": "UCK2FjeAnIeWdutVTR396Acw",
+    "songs": [
+      [
+        "偽愛とハイボール",
+        "",
+        "https://www.youtube.com/watch?v=Pu7meBa8R5w"
+      ],
+      [
+        "100円キッス",
+        "",
+        "https://www.youtube.com/watch?v=ALOSFSILnpk"
+      ],
+      [
+        "1800",
+        "",
+        "https://www.youtube.com/watch?v=RzuCR5jvYYA"
+      ]
+    ],
+    "status": "confirmed",
+    "sources": [
+      "https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/",
+      "https://letmeknowmusic.jp/news/3422/"
+    ],
+    "verifiedAt": "2026-07-23",
+    "createdAt": "2026-07-23T15:00:00+09:00"
+  },
+  {
+    "id": "yuuri-2026-12-05",
+    "artist": "YUURI",
+    "genre": "J-POP / SINGER-SONGWRITER",
+    "concertDate": "2026-12-05",
+    "time": "오후 6:00",
+    "venue": "인스파이어 아레나",
+    "presaleDate": "",
+    "ticketDate": "2026-07-31",
+    "ticketTime": "오후 8:00",
+    "price": 143000,
+    "priceCurrency": "KRW",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://nol.yanolja.com/ticket/products/26010352",
+    "youtubeChannel": "@yuuri_official",
+    "songs": [
+      [
+        "ドライフラワー",
+        "",
+        "https://www.youtube.com/watch?v=kzZ6KXDM1RI"
+      ],
+      [
+        "ベテルギウス",
+        "",
+        "https://www.youtube.com/watch?v=cbqvxDTLMps"
+      ],
+      [
+        "かくれんぼ",
+        "",
+        "https://www.youtube.com/watch?v=7W-6qJnza5w"
+      ]
+    ],
+    "status": "confirmed",
+    "sources": [
+      "https://tickets.interpark.com/contents/notice/detail/14619"
+    ],
+    "verifiedAt": "2026-07-23",
+    "createdAt": "2026-07-23T15:00:00+09:00"
+  },
+  {
+    "id": "yuuri-2026-12-06",
+    "artist": "YUURI",
+    "genre": "J-POP / SINGER-SONGWRITER",
+    "concertDate": "2026-12-06",
+    "time": "오후 5:00",
+    "venue": "인스파이어 아레나",
+    "presaleDate": "",
+    "ticketDate": "2026-07-31",
+    "ticketTime": "오후 8:00",
+    "price": 143000,
+    "priceCurrency": "KRW",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://nol.yanolja.com/ticket/products/26010352",
+    "youtubeChannel": "@yuuri_official",
+    "songs": [
+      [
+        "ドライフラワー",
+        "",
+        "https://www.youtube.com/watch?v=kzZ6KXDM1RI"
+      ],
+      [
+        "ベテルギウス",
+        "",
+        "https://www.youtube.com/watch?v=cbqvxDTLMps"
+      ],
+      [
+        "かくれんぼ",
+        "",
+        "https://www.youtube.com/watch?v=7W-6qJnza5w"
+      ]
+    ],
+    "status": "confirmed",
+    "sources": [
+      "https://tickets.interpark.com/contents/notice/detail/14619"
+    ],
+    "verifiedAt": "2026-07-23",
+    "createdAt": "2026-07-23T15:00:00+09:00"
   }
 ]
