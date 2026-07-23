@@ -43,11 +43,20 @@ function formatScheduleDate(key, time = "") {
 }
 
 function eventsForDate(key) {
-  return schedules.flatMap(schedule => [
+  const events = schedules.flatMap(schedule => [
     schedule.concertDate === key && { type: "concert", schedule },
     schedule.ticketDate === key && { type: "ticket", schedule },
     schedule.presaleDate === key && { type: "presale", schedule }
   ].filter(Boolean));
+  const seenTicketEvents = new Set();
+  return events.filter(({ type, schedule }) => {
+    if (type === "concert") return true;
+    const time = type === "ticket" ? schedule.ticketTime : schedule.presaleTime;
+    const eventKey = `${type}|${schedule.artist}|${time || ""}`;
+    if (seenTicketEvents.has(eventKey)) return false;
+    seenTicketEvents.add(eventKey);
+    return true;
+  });
 }
 
 function weekendRangeFor(key) {
