@@ -149,7 +149,7 @@ function renderAttendanceRanking() {
       && schedule.attendance > 0
       && schedule.attendanceSource)
     .sort((a, b) => b.attendance - a.attendance)
-    .slice(0, 10);
+    .slice(0, 5);
 
   attendanceRanking.innerHTML = ranked.map((schedule, index) => `
     <li>

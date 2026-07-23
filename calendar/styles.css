@@ -216,7 +216,7 @@ footer { padding:22px 0 34px; color:#686970; font-size:11px; text-align:center; 
 .guide-article h2 { margin:0 0 12px; font-size:20px; }
 .guide-article p,.guide-article li { color:#c3c4c8; line-height:1.85; }
 .guide-article ul { margin:12px 0 0; padding-left:20px; }
-.attendance-board { margin:24px 0 0; padding:30px; border:1px solid var(--line); border-radius:24px; background:var(--panel); }
+.attendance-board { margin:56px 0 0; padding:38px 30px 30px; border:1px solid var(--line); border-top:3px solid var(--lime); border-radius:24px; background:var(--panel); }
 .attendance-board-heading { display:flex; justify-content:space-between; gap:24px; align-items:end; }
 .attendance-board-heading h2 { margin:7px 0 0; font-size:25px; }
 .attendance-board-heading p { max-width:510px; margin:0; color:var(--muted); font-size:12px; line-height:1.7; }
@@ -470,7 +470,7 @@ footer { padding:22px 0 34px; color:#686970; font-size:11px; text-align:center; 
   .guide-preview-grid { grid-template-columns:1fr; }
   .guide-article { padding:44px 16px 60px; }
   .guide-article section { padding:22px 18px; }
-  .attendance-board { margin:16px 12px 0; padding:22px 18px; }
+  .attendance-board { margin:36px 12px 0; padding:28px 18px 22px; }
   .attendance-board-heading { display:block; }
   .attendance-board-heading p { margin-top:10px; }
   .attendance-ranking li { grid-template-columns:34px 1fr; padding:16px; }
