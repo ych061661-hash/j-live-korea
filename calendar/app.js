@@ -11,6 +11,8 @@ const weekendKicker = document.querySelector("#weekendKicker")
 const weekendTitle = document.querySelector("#weekendTitle");
 const weekendCopy = document.querySelector("#weekendCopy")
   || document.querySelector(".weekend-heading > p");
+const attendanceRanking = document.querySelector("#attendanceRanking");
+const attendanceEmpty = document.querySelector("#attendanceEmpty");
 let schedules = [];
 let selectedId = "";
 let selectedType = "concert";
@@ -136,6 +138,31 @@ function renderWeekendSpotlight() {
       image.hidden = true;
     });
   });
+}
+
+function renderAttendanceRanking() {
+  if (!attendanceRanking) return;
+  const today = dateKey(new Date());
+  const ranked = schedules
+    .filter(schedule => schedule.concertDate < today
+      && Number.isFinite(schedule.attendance)
+      && schedule.attendance > 0
+      && schedule.attendanceSource)
+    .sort((a, b) => b.attendance - a.attendance)
+    .slice(0, 10);
+
+  attendanceRanking.innerHTML = ranked.map((schedule, index) => `
+    <li>
+      <span class="rank">${index + 1}</span>
+      <div>
+        <a href="./events/${encodeURIComponent(schedule.id)}.html"><strong>${escapeHtml(schedule.artist)}</strong></a>
+        <small>${escapeHtml(schedule.attendanceScope || formatDate(schedule.concertDate))} · ${escapeHtml(schedule.venue)}</small>
+        <a class="attendance-source" href="${escapeHtml(schedule.attendanceSource)}" target="_blank" rel="noopener noreferrer">출처 · ${escapeHtml(schedule.attendanceVerifiedAt || "검증일 미정")} ↗</a>
+      </div>
+      <b>${schedule.attendance.toLocaleString("ko-KR")}명</b>
+    </li>
+  `).join("");
+  attendanceEmpty.hidden = ranked.length > 0;
 }
 
 function renderCalendar() {
@@ -334,6 +361,7 @@ async function initialize() {
     schedules.sort((a, b) => a.concertDate.localeCompare(b.concertDate));
     window.JLIVE_ARTIST_IMAGES.preload(schedules);
     renderWeekendSpotlight();
+    renderAttendanceRanking();
     const upcoming = schedules.find(event => event.concertDate >= dateKey(new Date())) || schedules[0];
     if (!upcoming) {
       document.querySelector("#detailEmpty").innerHTML = "<strong>공식 확인된 공연이 없습니다.</strong><span>새로운 일정이 확인되면 이곳에 표시됩니다.</span>";

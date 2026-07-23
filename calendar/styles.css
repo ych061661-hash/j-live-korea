@@ -216,6 +216,19 @@ footer { padding:22px 0 34px; color:#686970; font-size:11px; text-align:center; 
 .guide-article h2 { margin:0 0 12px; font-size:20px; }
 .guide-article p,.guide-article li { color:#c3c4c8; line-height:1.85; }
 .guide-article ul { margin:12px 0 0; padding-left:20px; }
+.attendance-board { margin:24px 0 0; padding:30px; border:1px solid var(--line); border-radius:24px; background:var(--panel); }
+.attendance-board-heading { display:flex; justify-content:space-between; gap:24px; align-items:end; }
+.attendance-board-heading h2 { margin:7px 0 0; font-size:25px; }
+.attendance-board-heading p { max-width:510px; margin:0; color:var(--muted); font-size:12px; line-height:1.7; }
+.attendance-ranking { display:grid; gap:10px; margin:22px 0 0; padding:0; list-style:none; }
+.attendance-ranking li { display:grid; grid-template-columns:42px 1fr auto; align-items:center; gap:16px; padding:18px 20px; border:1px solid var(--line); border-radius:16px; background:var(--panel); }
+.attendance-ranking .rank { color:var(--lime); font-size:24px; font-weight:900; }
+.attendance-ranking div { display:grid; gap:5px; }
+.attendance-ranking strong { color:#fff; font-size:17px; }
+.attendance-ranking small { color:var(--muted); }
+.attendance-ranking b { color:#fff; font-size:15px; white-space:nowrap; }
+.attendance-source { width:max-content; color:var(--lime); font-size:10px; }
+.attendance-empty { margin:22px 0 0; color:var(--muted); font-size:12px; }
 .guide-updated { color:var(--muted); font-size:11px; }
 .site-footer nav { display:flex; flex-wrap:wrap; justify-content:center; gap:8px 18px; margin-bottom:12px; }
 .site-footer nav a { color:#a4a5ab; }
@@ -457,6 +470,11 @@ footer { padding:22px 0 34px; color:#686970; font-size:11px; text-align:center; 
   .guide-preview-grid { grid-template-columns:1fr; }
   .guide-article { padding:44px 16px 60px; }
   .guide-article section { padding:22px 18px; }
+  .attendance-board { margin:16px 12px 0; padding:22px 18px; }
+  .attendance-board-heading { display:block; }
+  .attendance-board-heading p { margin-top:10px; }
+  .attendance-ranking li { grid-template-columns:34px 1fr; padding:16px; }
+  .attendance-ranking b { grid-column:2; }
   .venue-card-grid { grid-template-columns:1fr; }
   .event-hero { min-height:430px; border-radius:20px; }
   .event-hero-copy { padding:28px 22px; }

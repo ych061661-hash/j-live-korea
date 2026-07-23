@@ -30,6 +30,10 @@
       ]
     ],
     "status": "confirmed",
+    "attendance": 30000,
+    "attendanceScope": "2026년 6월 20일~21일 양일 합산",
+    "attendanceSource": "https://sports.khan.co.kr/article/202606242234013",
+    "attendanceVerifiedAt": "2026-07-24",
     "sources": [
       "https://kinggnu.jp/news/in.html?id=577778",
       "https://ticket.yes24.com/Perf/57563"
