@@ -23,6 +23,9 @@ const mobileQuery = window.matchMedia("(max-width: 820px)");
 const escapeHtml = (value = "") => String(value).replace(/[&<>"']/g, char => ({
   "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
 })[char]);
+const typeLabel = (type, schedule) => type === "ticket" && schedule.ticketLabel
+  ? schedule.ticketLabel
+  : typeLabels[type];
 
 function parseDate(key) {
   const [year, month, day] = key.split("-").map(Number);
@@ -204,7 +207,7 @@ function renderCalendar() {
       const chip = document.createElement("button");
       chip.type = "button";
       chip.className = `event-chip ${type}`;
-      chip.innerHTML = `<span>${typeLabels[type]}</span><span>${escapeHtml(schedule.artist)}</span>`;
+      chip.innerHTML = `<span>${escapeHtml(typeLabel(type, schedule))}</span><span>${escapeHtml(schedule.artist)}</span>`;
       chip.addEventListener("click", () => selectSchedule(schedule, type, key));
       stack.append(chip);
     });
@@ -219,14 +222,14 @@ function renderLineup(key) {
     <button type="button" class="lineup-button ${schedule.id === selectedId && type === selectedType ? "active" : ""}"
       data-id="${escapeHtml(schedule.id)}" data-type="${type}">
       <strong>${escapeHtml(schedule.artist)}</strong>
-      <small>${typeLabels[type]} · ${escapeHtml(schedule.time || "시간 미정")}</small>
+      <small>${escapeHtml(typeLabel(type, schedule))} · ${escapeHtml(schedule.time || "시간 미정")}</small>
     </button>`).join("");
 }
 
 function renderDetail(schedule, type) {
   document.querySelector("#detailEmpty").hidden = true;
   document.querySelector("#detailBody").hidden = false;
-  document.querySelector("#detailLabel").textContent = typeLabels[type];
+  document.querySelector("#detailLabel").textContent = typeLabel(type, schedule);
   document.querySelector("#detailGenre").textContent = schedule.genre || "J-POP";
   document.querySelector("#detailArtist").textContent = schedule.artist;
   document.querySelector("#detailDate").textContent = `${formatDate(schedule.concertDate)} · ${schedule.time || "시간 미정"}`;

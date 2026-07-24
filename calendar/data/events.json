@@ -279,8 +279,9 @@
     "time": "오후 7:00",
     "venue": "KSPO DOME",
     "presaleDate": "2026-03-31",
-    "ticketDate": "2026-04-16",
-    "ticketTime": "오후 7:00",
+    "ticketDate": "2026-07-28",
+    "ticketTime": "낮 12:00",
+    "ticketLabel": "추가 티켓",
     "price": 132000,
     "priceCurrency": "KRW",
     "vendor": "NOL 티켓",
@@ -306,9 +307,9 @@
     "status": "confirmed",
     "sources": [
       "https://event.higedan.com/feature/asiatour2026",
-      "https://tickets.interpark.com/contents/notice/detail/13341"
+      "https://nol.yanolja.com/ticket/products/26005670"
     ],
-    "verifiedAt": "2026-07-20",
+    "verifiedAt": "2026-07-24",
     "createdAt": "2026-06-11T09:00:00+09:00"
   },
   {
@@ -319,8 +320,9 @@
     "time": "오후 7:00",
     "venue": "KSPO DOME",
     "presaleDate": "2026-03-31",
-    "ticketDate": "2026-04-16",
-    "ticketTime": "오후 7:00",
+    "ticketDate": "2026-07-28",
+    "ticketTime": "낮 12:00",
+    "ticketLabel": "추가 티켓",
     "price": 132000,
     "priceCurrency": "KRW",
     "vendor": "NOL 티켓",
@@ -346,9 +348,9 @@
     "status": "confirmed",
     "sources": [
       "https://event.higedan.com/feature/asiatour2026",
-      "https://tickets.interpark.com/contents/notice/detail/13341"
+      "https://nol.yanolja.com/ticket/products/26005670"
     ],
-    "verifiedAt": "2026-07-20",
+    "verifiedAt": "2026-07-24",
     "createdAt": "2026-06-11T09:00:00+09:00"
   },
   {
