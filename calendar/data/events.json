@@ -279,6 +279,7 @@
     "time": "오후 7:00",
     "venue": "KSPO DOME",
     "presaleDate": "2026-03-31",
+    "presaleTime": "낮 12:00",
     "ticketDate": "2026-07-28",
     "ticketTime": "낮 12:00",
     "ticketLabel": "추가 티켓",
@@ -309,7 +310,7 @@
       "https://event.higedan.com/feature/asiatour2026",
       "https://nol.yanolja.com/ticket/products/26005670"
     ],
-    "verifiedAt": "2026-07-24",
+    "verifiedAt": "2026-07-25",
     "createdAt": "2026-06-11T09:00:00+09:00"
   },
   {
@@ -320,6 +321,7 @@
     "time": "오후 7:00",
     "venue": "KSPO DOME",
     "presaleDate": "2026-03-31",
+    "presaleTime": "낮 12:00",
     "ticketDate": "2026-07-28",
     "ticketTime": "낮 12:00",
     "ticketLabel": "추가 티켓",
@@ -350,7 +352,7 @@
       "https://event.higedan.com/feature/asiatour2026",
       "https://nol.yanolja.com/ticket/products/26005670"
     ],
-    "verifiedAt": "2026-07-24",
+    "verifiedAt": "2026-07-25",
     "createdAt": "2026-06-11T09:00:00+09:00"
   },
   {
@@ -968,7 +970,9 @@
     "time": "오후 7:00",
     "venue": "공감센터 공감홀",
     "presaleDate": "",
-    "ticketDate": "",
+    "presaleTime": "",
+    "ticketDate": "2026-05-13",
+    "ticketTime": "낮 12:00",
     "price": 99000,
     "priceCurrency": "KRW",
     "vendor": "YES24 티켓",
@@ -996,7 +1000,7 @@
       "https://ticket.yes24.com/Perf/58335",
       "https://www.highjinkx.com/show-list/omoinotake-2026"
     ],
-    "verifiedAt": "2026-07-20",
+    "verifiedAt": "2026-07-25",
     "createdAt": "2026-06-11T09:00:00+09:00"
   },
   {
@@ -1392,6 +1396,263 @@
     "createdAt": "2026-07-23T15:00:00+09:00"
   },
   {
+    "id": "hitorie-2026-08-23",
+    "artist": "HITORIE",
+    "genre": "J-ROCK / ALTERNATIVE",
+    "concertDate": "2026-08-23",
+    "time": "오후 5:00",
+    "venue": "KT&G 상상마당 라이브홀",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "2026-07-01",
+    "ticketTime": "낮 12:00",
+    "price": 66000,
+    "priceCurrency": "KRW",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/59024",
+    "youtubeChannel": "@hitorieJP",
+    "youtubeProfileImage": "https://img.youtube.com/vi/xBwmPob9flU/hqdefault.jpg",
+    "songs": [
+      [
+        "オン・ザ・フロントライン",
+        "",
+        "https://www.youtube.com/watch?v=xBwmPob9flU"
+      ],
+      [
+        "アンノウン・マザーグース",
+        "",
+        "https://www.youtube.com/watch?v=P_CSdxSGfaA"
+      ],
+      [
+        "3分29秒",
+        "",
+        "https://www.youtube.com/watch?v=riSnyvR46B0"
+      ]
+    ],
+    "status": "confirmed",
+    "sources": [
+      "https://www.hitorie.jp/contents/1081323",
+      "https://www.highjinkx.com/hitorie-2026",
+      "https://ticket.yes24.com/Perf/59024"
+    ],
+    "verifiedAt": "2026-07-25",
+    "createdAt": "2026-07-25T15:00:00+09:00"
+  },
+  {
+    "id": "t-square-2026-10-11",
+    "artist": "T-SQUARE",
+    "genre": "J-FUSION / JAZZ FUSION",
+    "concertDate": "2026-10-11",
+    "time": "오후 6:00",
+    "venue": "연세대학교 대강당",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "2026-07-09",
+    "ticketTime": "오전 10:00",
+    "price": 77000,
+    "priceCurrency": "KRW",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://nol.yanolja.com/ticket/products/26009558",
+    "youtubeChannel": "T-SQUARE MUSIC official",
+    "youtubeProfileImage": "https://img.youtube.com/vi/djC_QmFSGeY/hqdefault.jpg",
+    "songs": [
+      [
+        "TRUTH",
+        "",
+        "https://www.youtube.com/watch?v=djC_QmFSGeY"
+      ],
+      [
+        "TAKARAJIMA",
+        "",
+        "https://www.youtube.com/watch?v=Nzp03JM8_88"
+      ],
+      [
+        "Legend of Poker ~Turn the Page~",
+        "",
+        "https://www.youtube.com/watch?v=2DZdFyt-4Sw"
+      ]
+    ],
+    "status": "confirmed",
+    "sources": [
+      "https://tickets.interpark.com/contents/notice/detail/14430",
+      "https://nol.yanolja.com/ticket/products/26009558",
+      "https://www.tsquare.jp/"
+    ],
+    "verifiedAt": "2026-07-25",
+    "createdAt": "2026-07-25T15:00:00+09:00"
+  },
+  {
+    "id": "ano-2026-10-17",
+    "artist": "ano",
+    "genre": "J-POP / ALT-POP",
+    "concertDate": "2026-10-17",
+    "time": "오후 6:00",
+    "venue": "블루스퀘어 우리WON뱅킹홀",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "2026-07-21",
+    "ticketTime": "오후 8:00",
+    "price": 138000,
+    "priceCurrency": "KRW",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://nol.yanolja.com/ticket/products/26010474",
+    "youtubeChannel": "ano official channel",
+    "youtubeProfileImage": "https://img.youtube.com/vi/PgW53XNJDe8/hqdefault.jpg",
+    "songs": [
+      [
+        "愛してる、なんてね。",
+        "",
+        "https://www.youtube.com/watch?v=PgW53XNJDe8"
+      ],
+      [
+        "許婚っきゅん",
+        "",
+        "https://www.youtube.com/watch?v=kcdSjvUBrDA"
+      ],
+      [
+        "ちゅ、多様性。",
+        "",
+        "https://www.youtube.com/watch?v=Fyb4lO3acRo"
+      ]
+    ],
+    "status": "confirmed",
+    "sources": [
+      "https://www.toysfactory.co.jp/artist/ano/live/detail/13680",
+      "https://tickets.interpark.com/contents/notice/detail/14615",
+      "https://nol.yanolja.com/ticket/products/26010474"
+    ],
+    "verifiedAt": "2026-07-25",
+    "createdAt": "2026-07-25T15:00:00+09:00"
+  },
+  {
+    "id": "ano-2026-10-18",
+    "artist": "ano",
+    "genre": "J-POP / ALT-POP",
+    "concertDate": "2026-10-18",
+    "time": "오후 6:00",
+    "venue": "블루스퀘어 우리WON뱅킹홀",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "2026-07-21",
+    "ticketTime": "오후 8:00",
+    "price": 138000,
+    "priceCurrency": "KRW",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://nol.yanolja.com/ticket/products/26010474",
+    "youtubeChannel": "ano official channel",
+    "youtubeProfileImage": "https://img.youtube.com/vi/PgW53XNJDe8/hqdefault.jpg",
+    "songs": [
+      [
+        "愛してる、なんてね。",
+        "",
+        "https://www.youtube.com/watch?v=PgW53XNJDe8"
+      ],
+      [
+        "許婚っきゅん",
+        "",
+        "https://www.youtube.com/watch?v=kcdSjvUBrDA"
+      ],
+      [
+        "ちゅ、多様性。",
+        "",
+        "https://www.youtube.com/watch?v=Fyb4lO3acRo"
+      ]
+    ],
+    "status": "confirmed",
+    "sources": [
+      "https://www.toysfactory.co.jp/artist/ano/live/detail/13680",
+      "https://tickets.interpark.com/contents/notice/detail/14615",
+      "https://nol.yanolja.com/ticket/products/26010474"
+    ],
+    "verifiedAt": "2026-07-25",
+    "createdAt": "2026-07-25T15:00:00+09:00"
+  },
+  {
+    "id": "cero-2026-10-10",
+    "artist": "cero",
+    "genre": "J-POP / INDIE",
+    "concertDate": "2026-10-10",
+    "time": "오후 7:00",
+    "venue": "KT&G 상상마당 홍대 라이브홀",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "pending",
+    "ticketTime": "pending",
+    "price": 77000,
+    "priceCurrency": "KRW",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/",
+    "youtubeChannel": "KAKUBARHYTHM",
+    "youtubeProfileImage": "https://img.youtube.com/vi/lfETQNfBAD4/hqdefault.jpg",
+    "songs": [
+      [
+        "Summer Soul",
+        "",
+        "https://www.youtube.com/watch?v=lfETQNfBAD4"
+      ],
+      [
+        "Orphans",
+        "",
+        "https://www.youtube.com/watch?v=c_SLGBJgDNE"
+      ],
+      [
+        "Yellow Magus",
+        "",
+        "https://www.youtube.com/watch?v=iyIaweKZvcM"
+      ]
+    ],
+    "status": "pending",
+    "sources": [
+      "https://cero-web.jp/",
+      "https://kakubarhythm.com/news/cero",
+      "https://www.highjinkx.com/show-list/cero"
+    ],
+    "verifiedAt": "2026-07-26",
+    "createdAt": "2026-07-26T11:30:00+09:00"
+  },
+  {
+    "id": "regallily-2026-11-07",
+    "artist": "Regallily",
+    "genre": "J-ROCK / INDIE",
+    "concertDate": "2026-11-07",
+    "time": "오후 7:00",
+    "venue": "KT&G 상상마당 라이브홀",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "2026-06-30",
+    "ticketTime": "낮 12:00",
+    "price": 88000,
+    "priceCurrency": "KRW",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/59001",
+    "youtubeChannel": "@OfficeAugusta",
+    "songs": [
+      [
+        "キラキラの灰",
+        "",
+        "https://www.youtube.com/watch?v=-2IX1FDR8aw"
+      ],
+      [
+        "ぼくのベガ",
+        "",
+        "https://www.youtube.com/watch?v=jrGOylZ63oE"
+      ],
+      [
+        "danceasphalt",
+        "",
+        "https://www.youtube.com/watch?v=ms_zWwn1Nzo"
+      ]
+    ],
+    "status": "confirmed",
+    "sources": [
+      "https://www.office-augusta.com/regallily/live/?post=20261107",
+      "https://www.highjinkx.com/show-list/regallily",
+      "https://ticket.yes24.com/Perf/59001"
+    ],
+    "verifiedAt": "2026-07-25",
+    "createdAt": "2026-07-25T15:00:00+09:00"
+  },
+  {
     "id": "yuuri-2026-12-05",
     "artist": "YUURI",
     "genre": "J-POP / SINGER-SONGWRITER",
@@ -1399,6 +1660,7 @@
     "time": "오후 6:00",
     "venue": "인스파이어 아레나",
     "presaleDate": "",
+    "presaleTime": "",
     "ticketDate": "2026-07-31",
     "ticketTime": "오후 8:00",
     "price": 143000,
@@ -1427,7 +1689,7 @@
     "sources": [
       "https://tickets.interpark.com/contents/notice/detail/14619"
     ],
-    "verifiedAt": "2026-07-23",
+    "verifiedAt": "2026-07-25",
     "createdAt": "2026-07-23T15:00:00+09:00"
   },
   {
@@ -1438,6 +1700,7 @@
     "time": "오후 5:00",
     "venue": "인스파이어 아레나",
     "presaleDate": "",
+    "presaleTime": "",
     "ticketDate": "2026-07-31",
     "ticketTime": "오후 8:00",
     "price": 143000,
@@ -1466,7 +1729,7 @@
     "sources": [
       "https://tickets.interpark.com/contents/notice/detail/14619"
     ],
-    "verifiedAt": "2026-07-23",
+    "verifiedAt": "2026-07-25",
     "createdAt": "2026-07-23T15:00:00+09:00"
   }
 ]
