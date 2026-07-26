@@ -317,6 +317,10 @@ footer { padding:22px 0 34px; color:#686970; font-size:11px; text-align:center; 
 .info-page > h1 { margin:12px 0 24px; font-size:clamp(42px,6vw,68px); }
 .info-lead { max-width:720px; margin:0 0 36px; color:#b5b6bb; font-size:17px; line-height:1.8; }
 .info-page section { margin-top:14px; }
+.author-profile p { max-width:680px; }
+.author-profile .author-greeting { margin-bottom:26px; color:var(--lime); font-weight:700; }
+.author-profile h3 { margin:28px 0 9px; color:#f3f3f4; font-size:16px; }
+.author-profile p + p { margin-top:16px; }
 .legal-page section { padding:24px 28px; }
 .policy-date { margin:-12px 0 34px; color:var(--muted); font-size:12px; }
 .contact-email { display:inline-block; margin-bottom:15px; color:var(--lime); font-size:22px; font-weight:700; }
