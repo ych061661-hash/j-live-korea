@@ -10,7 +10,7 @@
   <link rel="canonical" href="https://j-live.kr/calendar/">
   <link rel="icon" type="image/png" href="./assets/brand/j-live-app-logo.png">
   <link rel="apple-touch-icon" href="./assets/brand/j-live-app-logo.png">
-  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./styles.css?v=20260728">
   <script src="./site-config.js"></script>
   <script src="./site.js" defer></script>
 </head>
@@ -49,9 +49,15 @@
     <main class="app">
       <section class="calendar-area">
         <div class="artist-search">
-          <label for="artistSearch">아티스트 검색</label>
-          <input id="artistSearch" type="search" placeholder="킹누, King Gnu, キングヌー" autocomplete="off"
-            aria-controls="artistSearchResults" aria-expanded="false">
+          <div class="artist-search-heading">
+            <label for="artistSearch">아티스트 찾기</label>
+            <span>한글 · English · 日本語</span>
+          </div>
+          <div class="artist-search-field">
+            <i aria-hidden="true"></i>
+            <input id="artistSearch" type="search" placeholder="킹누, King Gnu, キングヌー" autocomplete="off"
+              aria-controls="artistSearchResults" aria-expanded="false">
+          </div>
           <div class="artist-search-results" id="artistSearchResults" role="listbox" hidden></div>
         </div>
         <div class="calendar-toolbar">
@@ -147,6 +153,6 @@
       <p>제이라이브 코리아는 공연 주최사 또는 예매처가 아닙니다. 예매 전 공식 페이지의 최신 정보를 다시 확인하세요.</p>
     </footer>
   </div>
-  <script src="./app.js?v=20260728" defer></script>
+  <script src="./app.js?v=20260728b" defer></script>
 </body>
 </html>

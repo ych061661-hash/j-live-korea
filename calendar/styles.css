@@ -42,11 +42,19 @@ h1 span { color:var(--lime); }
 .weekend-card-arrow { position:absolute; top:10px; right:10px; z-index:1; display:grid; place-items:center; width:27px; height:27px; border-radius:50%; color:#111; background:var(--lime); font-size:13px; font-weight:800; }
 .app { display:grid; grid-template-columns:minmax(0,1fr) 360px; min-height:690px; overflow:hidden; border:1px solid var(--line); border-radius:26px; background:rgba(21,22,26,.9); box-shadow:0 28px 80px rgba(0,0,0,.38); }
 .calendar-area { position:relative; padding:25px; }
-.artist-search { position:relative; z-index:10001; margin-bottom:16px; }
-.artist-search label { display:block; margin-bottom:7px; color:var(--muted); font-size:10px; font-weight:700; letter-spacing:.08em; }
-.artist-search input { width:100%; height:44px; padding:0 15px; color:var(--text); border:1px solid var(--line); border-radius:12px; background:#101115; outline:none; }
+.artist-search { position:relative; z-index:10001; display:grid; grid-template-columns:auto minmax(220px,1fr); align-items:center; gap:18px; margin-bottom:22px; padding:14px 16px; border:1px solid rgba(215,255,79,.18); border-radius:16px; background:linear-gradient(110deg,rgba(215,255,79,.07),rgba(255,255,255,.025) 42%),#121317; }
+.artist-search-heading { display:grid; min-width:130px; }
+.artist-search-heading label { color:var(--text); font-size:13px; font-weight:800; letter-spacing:-.02em; }
+.artist-search-heading span { margin-top:3px; color:var(--lime); font-size:8px; font-weight:700; letter-spacing:.08em; }
+.artist-search-field { position:relative; }
+.artist-search-field i { position:absolute; top:50%; left:15px; width:13px; height:13px; border:1.5px solid #777980; border-radius:50%; pointer-events:none; transform:translateY(-58%); }
+.artist-search-field i::after { content:""; position:absolute; right:-4px; bottom:-3px; width:5px; height:1.5px; border-radius:2px; background:#777980; transform:rotate(45deg); }
+.artist-search input { width:100%; height:46px; padding:0 42px; color:var(--text); border:1px solid var(--line); border-radius:12px; background:#0d0e11; outline:none; appearance:none; }
+.artist-search input::placeholder { color:#616269; }
 .artist-search input:focus { border-color:var(--lime); box-shadow:0 0 0 3px rgba(215,255,79,.08); }
-.artist-search-results { position:absolute; top:100%; right:0; left:0; max-height:290px; margin-top:7px; padding:6px; overflow-y:auto; border:1px solid var(--line); border-radius:13px; background:#17181d; box-shadow:0 18px 45px rgba(0,0,0,.55); }
+.artist-search-field:focus-within i { border-color:var(--lime); }
+.artist-search-field:focus-within i::after { background:var(--lime); }
+.artist-search-results { position:absolute; top:calc(100% + 7px); right:0; left:166px; max-height:290px; padding:6px; overflow-y:auto; border:1px solid rgba(215,255,79,.22); border-radius:13px; background:#17181d; box-shadow:0 18px 45px rgba(0,0,0,.55); }
 .artist-search-result { display:grid; grid-template-columns:1fr auto; gap:3px 12px; width:100%; padding:11px 12px; border:0; border-radius:9px; color:var(--text); background:transparent; cursor:pointer; text-align:left; }
 .artist-search-result:hover,.artist-search-result:focus-visible { color:#111; background:var(--lime); outline:none; }
 .artist-search-result strong { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
@@ -414,9 +422,11 @@ footer { padding:22px 0 34px; color:#686970; font-size:11px; text-align:center; 
   .weekend-card-content strong { font-size:17px; }
   .app { display:block; min-height:0; overflow:visible; border-width:1px 0; border-radius:0; box-shadow:none; }
   .calendar-area { padding:16px 12px 24px; }
-  .artist-search { margin-bottom:14px; }
-  .artist-search input { height:42px; }
-  .artist-search-results { max-height:245px; }
+  .artist-search { display:block; margin-bottom:16px; padding:13px; border-radius:14px; }
+  .artist-search-heading { display:flex; align-items:center; justify-content:space-between; margin-bottom:9px; }
+  .artist-search-heading span { margin:0; }
+  .artist-search input { height:43px; }
+  .artist-search-results { top:calc(100% + 6px); left:0; max-height:245px; }
   .calendar-toolbar { display:grid; gap:14px; margin-bottom:17px; }
   .month-nav { justify-content:space-between; }
   .filters { display:flex; width:100%; gap:7px; overflow-x:auto; scrollbar-width:none; }
