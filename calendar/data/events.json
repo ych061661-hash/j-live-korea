@@ -356,6 +356,49 @@
     "createdAt": "2026-06-11T09:00:00+09:00"
   },
   {
+    "id": "ash-da-hero-2026-08-08",
+    "artist": "ASH DA HERO",
+    "genre": "J-ROCK / MIXTURE",
+    "concertDate": "2026-08-08",
+    "time": "오후 7:00",
+    "venue": "웨스트브릿지",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "2026-06-17",
+    "ticketTime": "오후 6:00",
+    "price": 99000,
+    "priceCurrency": "KRW",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://m.ticket.yes24.com/Perf/58894",
+    "youtubeChannel": "@ASHDAHERO",
+    "youtubeProfileImage": "https://img.youtube.com/vi/FYO3FBmoBVE/hqdefault.jpg",
+    "songs": [
+      [
+        "Persona",
+        "",
+        "https://www.youtube.com/watch?v=FYO3FBmoBVE"
+      ],
+      [
+        "One Two Three",
+        "",
+        "https://www.youtube.com/watch?v=ONOdN1zH39w"
+      ],
+      [
+        "Judgement",
+        "",
+        "https://www.youtube.com/watch?v=KoZaBqxLIaw"
+      ]
+    ],
+    "status": "confirmed",
+    "sources": [
+      "https://ashdahero.com/contents/15044",
+      "https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17968&order=1&type=1",
+      "https://m.ticket.yes24.com/Perf/58894"
+    ],
+    "verifiedAt": "2026-07-27",
+    "createdAt": "2026-07-27T11:00:00+09:00"
+  },
+  {
     "id": "back-number-2026-09-12",
     "artist": "back number",
     "genre": "J-POP / ROCK",

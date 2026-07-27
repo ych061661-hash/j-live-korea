@@ -48,6 +48,12 @@
 
     <main class="app">
       <section class="calendar-area">
+        <div class="artist-search">
+          <label for="artistSearch">아티스트 검색</label>
+          <input id="artistSearch" type="search" placeholder="킹누, King Gnu, キングヌー" autocomplete="off"
+            aria-controls="artistSearchResults" aria-expanded="false">
+          <div class="artist-search-results" id="artistSearchResults" role="listbox" hidden></div>
+        </div>
         <div class="calendar-toolbar">
           <div class="month-nav">
             <button class="icon-button" id="prevMonth" type="button" aria-label="이전 달">‹</button>
@@ -141,6 +147,6 @@
       <p>제이라이브 코리아는 공연 주최사 또는 예매처가 아닙니다. 예매 전 공식 페이지의 최신 정보를 다시 확인하세요.</p>
     </footer>
   </div>
-  <script src="./app.js?v=20260727" defer></script>
+  <script src="./app.js?v=20260728" defer></script>
 </body>
 </html>

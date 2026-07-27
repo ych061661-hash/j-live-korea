@@ -13,6 +13,44 @@ const weekendCopy = document.querySelector("#weekendCopy")
   || document.querySelector(".weekend-heading > p");
 const attendanceRanking = document.querySelector("#attendanceRanking");
 const attendanceEmpty = document.querySelector("#attendanceEmpty");
+const artistSearch = document.querySelector("#artistSearch");
+const artistSearchResults = document.querySelector("#artistSearchResults");
+const artistAliases = {
+  "ASH DA HERO": ["애쉬 다 히어로", "アッシュダヒーロー"],
+  Aooo: ["아오"],
+  "Chilli Beans.": ["칠리 빈즈", "チリビーンズ"],
+  "Dannie May": ["대니 메이"],
+  "Fujii Kaze": ["후지이 카제", "후지카제", "藤井風"],
+  HITORIE: ["히토리에", "ヒトリエ"],
+  "Kento Nakajima": ["나카지마 켄토", "中島健人"],
+  "King Gnu": ["킹누", "킹 누", "キングヌー"],
+  "LET ME KNOW": ["렛 미 노우"],
+  "NOMELON NOLEMON": ["노멜론 노레몬"],
+  Novelbright: ["노벨브라이트"],
+  "Official髭男dism": ["오피셜히게단디즘", "오피셜 히게단 디즘", "히게단"],
+  Omoinotake: ["오모이노타케"],
+  Regallily: ["리갈릴리", "リーガルリリー"],
+  Reol: ["레오루", "れをる"],
+  "Ryosuke Yamada": ["야마다 료스케", "山田涼介"],
+  SPYAIR: ["스파이에어"],
+  SUKIMASWITCH: ["스키마스위치", "スキマスイッチ"],
+  Sou: ["소우"],
+  "T-SQUARE": ["티스퀘어"],
+  "THE NOVEMBERS": ["더 노벰버스"],
+  "TK from Ling tosite sigure": ["티케이 프롬 린 토시테 시구레", "린토시테시구레", "凛として時雨"],
+  "Takuya Kimura": ["기무라 타쿠야", "木村拓哉"],
+  Vaundy: ["바운디"],
+  YUURI: ["유우리", "優里"],
+  ano: ["아노"],
+  asmi: ["아스미"],
+  "back number": ["백넘버", "バックナンバー"],
+  cero: ["세로"],
+  "go!go!vanillas": ["고고바닐라스"],
+  muque: ["뮤크"],
+  natori: ["나토리", "なとり"],
+  yutori: ["유토리"],
+  "『ユイカ』": ["유이카"]
+};
 let schedules = [];
 let selectedId = "";
 let selectedType = "concert";
@@ -62,6 +100,31 @@ function eventsForDate(key) {
     seenTicketEvents.add(eventKey);
     return true;
   });
+}
+
+const normalizeSearchText = value => String(value || "")
+  .normalize("NFKC")
+  .toLocaleLowerCase()
+  .replace(/[\s\p{P}\p{S}]/gu, "");
+
+function renderArtistSearch() {
+  const query = normalizeSearchText(artistSearch.value);
+  artistSearchResults.hidden = !query;
+  artistSearch.setAttribute("aria-expanded", String(Boolean(query)));
+  if (!query) return;
+
+  const matches = schedules.filter(schedule =>
+    [schedule.artist, ...(artistAliases[schedule.artist] || [])]
+      .some(name => normalizeSearchText(name).includes(query))
+  );
+  artistSearchResults.innerHTML = matches.length
+    ? matches.map(schedule => `
+      <button class="artist-search-result" type="button" role="option" data-id="${escapeHtml(schedule.id)}">
+        <strong>${escapeHtml(schedule.artist)}</strong>
+        <small>${escapeHtml(schedule.venue)}</small>
+        <time>${escapeHtml(formatDate(schedule.concertDate))}</time>
+      </button>`).join("")
+    : '<p class="artist-search-empty">검색 결과가 없습니다.</p>';
 }
 
 function weekendRangeFor(key) {
@@ -293,6 +356,23 @@ document.querySelector("#dayLineup").addEventListener("click", event => {
   if (!button) return;
   const schedule = schedules.find(item => item.id === button.dataset.id);
   if (schedule) selectSchedule(schedule, button.dataset.type, selectedDateKey);
+});
+
+artistSearch.addEventListener("input", renderArtistSearch);
+artistSearch.addEventListener("focus", renderArtistSearch);
+artistSearch.addEventListener("keydown", event => {
+  if (event.key !== "Escape") return;
+  artistSearch.value = "";
+  renderArtistSearch();
+});
+artistSearchResults.addEventListener("click", event => {
+  const button = event.target.closest("[data-id]");
+  const schedule = button && schedules.find(item => item.id === button.dataset.id);
+  if (!schedule) return;
+  viewDate = parseDate(schedule.concertDate);
+  artistSearchResults.hidden = true;
+  artistSearch.setAttribute("aria-expanded", "false");
+  selectSchedule(schedule, "concert", schedule.concertDate);
 });
 
 document.querySelectorAll(".filter").forEach(button => button.addEventListener("click", () => {
