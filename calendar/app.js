@@ -15,6 +15,12 @@ const attendanceRanking = document.querySelector("#attendanceRanking");
 const attendanceEmpty = document.querySelector("#attendanceEmpty");
 const artistSearch = document.querySelector("#artistSearch");
 const artistSearchResults = document.querySelector("#artistSearchResults");
+const myShowEvents = document.querySelector("#myShowEvents");
+const myShowsEmpty = document.querySelector("#myShowsEmpty");
+const myShowsSummary = document.querySelector("#myShowsSummary");
+const savedArtists = document.querySelector("#savedArtists");
+const saveEventButton = document.querySelector("#saveEventButton");
+const saveArtistButton = document.querySelector("#saveArtistButton");
 const artistAliases = {
   "ASH DA HERO": ["애쉬 다 히어로", "アッシュダヒーロー"],
   Aooo: ["아오"],
@@ -56,6 +62,7 @@ let selectedId = "";
 let selectedType = "concert";
 let selectedDateKey = "";
 let viewDate = new Date();
+let savedFavorites = window.JLIVE_FAVORITES.read();
 const mobileQuery = window.matchMedia("(max-width: 820px)");
 
 const escapeHtml = (value = "") => String(value).replace(/[&<>"']/g, char => ({
@@ -206,6 +213,58 @@ function renderWeekendSpotlight() {
   });
 }
 
+function updateSaveButtons(schedule) {
+  const eventSaved = savedFavorites.events.includes(schedule.id);
+  const artistSaved = savedFavorites.artists.includes(schedule.artist);
+  saveEventButton.setAttribute("aria-pressed", String(eventSaved));
+  saveArtistButton.setAttribute("aria-pressed", String(artistSaved));
+  saveEventButton.textContent = eventSaved ? "✓ 공연 저장됨" : "＋ 공연 저장";
+  saveArtistButton.textContent = artistSaved ? "♥ 관심 아티스트" : "♡ 아티스트 관심";
+}
+
+function renderMyShows() {
+  const today = dateKey(new Date());
+  const upcoming = window.JLIVE_FAVORITES.upcoming(schedules, savedFavorites, today);
+  const savedCount = savedFavorites.artists.length + savedFavorites.events.length;
+
+  myShowsSummary.textContent = savedCount
+    ? `관심 아티스트 ${savedFavorites.artists.length}명 · 저장 공연 ${savedFavorites.events.length}개`
+    : "로그인 없이 이 브라우저에만 저장됩니다.";
+
+  savedArtists.hidden = savedFavorites.artists.length === 0;
+  savedArtists.innerHTML = savedFavorites.artists.map(artist => `
+    <span><b>${escapeHtml(artist)}</b><button type="button" data-remove-artist="${escapeHtml(artist)}"
+      aria-label="${escapeHtml(artist)} 관심 해제">×</button></span>
+  `).join("");
+
+  myShowsEmpty.hidden = upcoming.length > 0;
+  myShowsEmpty.innerHTML = savedCount
+    ? "<strong>저장한 항목의 예정 공연이 없습니다.</strong><span>새 내한 일정이 추가되면 이곳에 자동으로 표시됩니다.</span>"
+    : "<strong>아직 저장한 공연이 없습니다.</strong><span>달력에서 공연을 선택한 뒤 공연이나 아티스트를 저장해 보세요.</span>";
+
+  myShowEvents.innerHTML = upcoming.map(schedule => {
+    const savedByArtist = savedFavorites.artists.includes(schedule.artist);
+    const savedEvent = savedFavorites.events.includes(schedule.id);
+    return `
+      <article class="my-show-card">
+        <button class="my-show-open" type="button" data-open-saved="${escapeHtml(schedule.id)}">
+          <span class="my-show-card-top">
+            <small>${escapeHtml(savedByArtist ? "관심 아티스트" : "저장 공연")}</small>
+            <time>${escapeHtml(formatDate(schedule.concertDate))}</time>
+          </span>
+          <strong>${escapeHtml(schedule.artist)}</strong>
+          <em>${escapeHtml(schedule.venue)} · ${escapeHtml(schedule.time || "시간 미정")}</em>
+          <span class="my-show-sales">
+            <span><i class="presale"></i>선예매 <b>${escapeHtml(formatScheduleDate(schedule.presaleDate, schedule.presaleTime))}</b></span>
+            <span><i class="ticket"></i>일반예매 <b>${escapeHtml(formatScheduleDate(schedule.ticketDate, schedule.ticketTime))}</b></span>
+          </span>
+        </button>
+        ${savedEvent ? `<button class="my-show-remove" type="button" data-remove-event="${escapeHtml(schedule.id)}"
+          aria-label="${escapeHtml(schedule.artist)} 공연 저장 해제">저장 해제</button>` : ""}
+      </article>`;
+  }).join("");
+}
+
 function renderAttendanceRanking() {
   if (!attendanceRanking) return;
   const today = dateKey(new Date());
@@ -330,6 +389,7 @@ function renderDetail(schedule, type) {
   ticketButton.hidden = !schedule.vendorUrl;
   ticketButton.href = schedule.vendorUrl || "#";
   document.querySelector("#detailPageButton").href = `./events/${encodeURIComponent(schedule.id)}`;
+  updateSaveButtons(schedule);
 }
 
 function openMobileDetail() {
@@ -356,6 +416,57 @@ document.querySelector("#dayLineup").addEventListener("click", event => {
   if (!button) return;
   const schedule = schedules.find(item => item.id === button.dataset.id);
   if (schedule) selectSchedule(schedule, button.dataset.type, selectedDateKey);
+});
+
+function saveFavorites(next) {
+  savedFavorites = window.JLIVE_FAVORITES.write(next);
+  renderMyShows();
+  const selected = schedules.find(schedule => schedule.id === selectedId);
+  if (selected) updateSaveButtons(selected);
+}
+
+saveEventButton.addEventListener("click", () => {
+  if (!selectedId) return;
+  saveFavorites({
+    ...savedFavorites,
+    events: window.JLIVE_FAVORITES.toggle(savedFavorites.events, selectedId)
+  });
+});
+
+saveArtistButton.addEventListener("click", () => {
+  const schedule = schedules.find(item => item.id === selectedId);
+  if (!schedule) return;
+  saveFavorites({
+    ...savedFavorites,
+    artists: window.JLIVE_FAVORITES.toggle(savedFavorites.artists, schedule.artist)
+  });
+});
+
+savedArtists.addEventListener("click", event => {
+  const button = event.target.closest("[data-remove-artist]");
+  if (!button) return;
+  saveFavorites({
+    ...savedFavorites,
+    artists: savedFavorites.artists.filter(artist => artist !== button.dataset.removeArtist)
+  });
+});
+
+myShowEvents.addEventListener("click", event => {
+  const removeButton = event.target.closest("[data-remove-event]");
+  if (removeButton) {
+    saveFavorites({
+      ...savedFavorites,
+      events: savedFavorites.events.filter(id => id !== removeButton.dataset.removeEvent)
+    });
+    return;
+  }
+
+  const openButton = event.target.closest("[data-open-saved]");
+  const schedule = openButton && schedules.find(item => item.id === openButton.dataset.openSaved);
+  if (!schedule) return;
+  viewDate = parseDate(schedule.concertDate);
+  selectSchedule(schedule, "concert", schedule.concertDate);
+  document.querySelector(".app").scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
 artistSearch.addEventListener("input", renderArtistSearch);
@@ -406,6 +517,13 @@ document.addEventListener("keydown", event => {
 mobileQuery.addEventListener("change", event => {
   if (!event.matches) closeMobileDetail();
 });
+window.addEventListener("storage", event => {
+  if (event.key !== window.JLIVE_FAVORITES.STORAGE_KEY) return;
+  savedFavorites = window.JLIVE_FAVORITES.read();
+  renderMyShows();
+  const selected = schedules.find(schedule => schedule.id === selectedId);
+  if (selected) updateSaveButtons(selected);
+});
 
 calendar.addEventListener("mousemove", event => {
   if (innerWidth <= 820) return;
@@ -444,6 +562,7 @@ async function initialize() {
     schedules.sort((a, b) => a.concertDate.localeCompare(b.concertDate));
     window.JLIVE_ARTIST_IMAGES.preload(schedules);
     renderWeekendSpotlight();
+    renderMyShows();
     renderAttendanceRanking();
     const upcoming = schedules.find(event => event.concertDate >= dateKey(new Date())) || schedules[0];
     if (!upcoming) {

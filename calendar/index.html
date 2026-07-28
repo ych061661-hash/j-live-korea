@@ -10,7 +10,7 @@
   <link rel="canonical" href="https://j-live.kr/calendar/">
   <link rel="icon" type="image/png" href="./assets/brand/j-live-app-logo.png">
   <link rel="apple-touch-icon" href="./assets/brand/j-live-app-logo.png">
-  <link rel="stylesheet" href="./styles.css?v=20260728">
+  <link rel="stylesheet" href="./styles.css?v=20260729">
   <script src="./site-config.js"></script>
   <script src="./site.js" defer></script>
 </head>
@@ -44,6 +44,22 @@
         <p id="weekendCopy">다가오는 주말 한국에서 열리는 J-POP 공연을 확인하세요.</p>
       </div>
       <div class="weekend-events" id="weekendEvents" aria-live="polite"></div>
+    </section>
+
+    <section class="my-shows" id="myShows" aria-labelledby="myShowsTitle">
+      <div class="my-shows-heading">
+        <div>
+          <span class="section-kicker">MY J-LIVE</span>
+          <h2 id="myShowsTitle">내 공연</h2>
+        </div>
+        <p id="myShowsSummary">로그인 없이 이 브라우저에만 저장됩니다.</p>
+      </div>
+      <div class="saved-artists" id="savedArtists" aria-label="관심 아티스트" hidden></div>
+      <div class="my-show-events" id="myShowEvents" aria-live="polite"></div>
+      <div class="my-shows-empty" id="myShowsEmpty">
+        <strong>아직 저장한 공연이 없습니다.</strong>
+        <span>달력에서 공연을 선택한 뒤 공연이나 아티스트를 저장해 보세요.</span>
+      </div>
     </section>
 
     <main class="app">
@@ -120,6 +136,10 @@
               <h4>대표곡 바로 듣기</h4>
               <div class="song-list" id="songList"></div>
             </section>
+            <div class="save-actions" aria-label="내 공연 저장">
+              <button class="save-button" id="saveEventButton" type="button" aria-pressed="false">＋ 공연 저장</button>
+              <button class="save-button" id="saveArtistButton" type="button" aria-pressed="false">♡ 아티스트 관심</button>
+            </div>
             <a class="ticket-button" id="ticketButton" target="_blank" rel="noopener noreferrer">예매처 확인하기 ↗</a>
             <a class="detail-page-button" id="detailPageButton">공연 상세 페이지</a>
           </div>
@@ -153,6 +173,7 @@
       <p>제이라이브 코리아는 공연 주최사 또는 예매처가 아닙니다. 예매 전 공식 페이지의 최신 정보를 다시 확인하세요.</p>
     </footer>
   </div>
-  <script src="./app.js?v=20260728c" defer></script>
+  <script src="./favorites.js?v=20260729" defer></script>
+  <script src="./app.js?v=20260729" defer></script>
 </body>
 </html>
