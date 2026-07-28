@@ -248,35 +248,160 @@ function venueSourcesMarkup(guide) {
   return (guide.sources || []).map(source => `<a class="source-link" href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.label)} ↗</a>`).join("");
 }
 
+function venueFacilityMapMarkup(slug, sections) {
+  const sectionTarget = key => {
+    const index = sections.findIndex(([sectionKey]) => sectionKey === key);
+    return index < 0 ? "#venue-sources" : `#venue-${index + 1}`;
+  };
+  const wc = (x, y, label) => `<a href="${sectionTarget("restroom")}" aria-label="${escapeHtml(label)}"><g class="map-wc"><circle cx="${x}" cy="${y}" r="27"/><text x="${x}" y="${y + 6}">WC</text></g></a>`;
+  const gate = (x, y, text, label = `${text} 입장구`) => `<a href="${sectionTarget("arrival")}" aria-label="${escapeHtml(label)}"><g class="map-gate"><rect x="${x}" y="${y}" width="70" height="34" rx="9"/><text x="${x + 35}" y="${y + 23}">${escapeHtml(text)}</text></g></a>`;
+  const maps = {
+    "kspo-dome": {
+      title: "KSPO DOME 화장실·게이트 약도",
+      note: "올림픽공원 공식 안내도와 사용자가 제공한 2026 KING GNU 공연 현장 안내도를 바탕으로 단순화했습니다. WC는 해당 공연의 참고 위치이며 상시 개방 위치가 아닙니다.",
+      source: "https://www.ksponco.or.kr/sports/map",
+      sourceLabel: "올림픽공원 공식 지도",
+      svg: `<path class="map-road" d="M18 174 C155 124 192 34 340 22 S610 76 742 42"/><path class="map-road" d="M32 544 C158 465 230 486 337 584"/><path class="map-road" d="M548 596 C588 505 676 486 748 458"/>
+        <rect class="map-landmark" x="250" y="20" width="304" height="86" rx="28"/><text class="map-landmark-label" x="402" y="70">올림픽수영장</text>
+        <path class="map-landmark" d="M18 214 Q138 146 222 214 V438 Q100 476 18 410Z"/><text class="map-landmark-label" x="116" y="324">88잔디마당</text>
+        <rect class="map-landmark" x="66" y="492" width="266" height="92" rx="44"/><text class="map-landmark-label" x="199" y="532">티켓링크 라이브 아레나</text>
+        <rect class="map-landmark" x="523" y="499" width="212" height="82" rx="28"/><text class="map-landmark-label" x="629" y="536">핸드볼경기장</text>
+        <circle class="map-dome-ring" cx="428" cy="316" r="190"/><circle class="map-dome" cx="428" cy="316" r="158"/><text class="map-dome-title" x="428" y="305">KSPO DOME</text><text class="map-dome-subtitle" x="428" y="333">올림픽체조경기장</text>
+        ${gate(536, 138, "2-3")}${gate(228, 292, "2-2")}${gate(526, 454, "2-1")}${wc(242, 132, "북서쪽 화장실 안내")}${wc(446, 506, "남쪽 화장실 안내")}
+        <g class="map-parking"><path d="M620 92 H704"/><path d="M696 84 L710 92 L696 100"/><circle cx="606" cy="92" r="26"/><text x="606" y="98">P5</text></g><text class="map-small-label" x="654" y="72">동2문·P5 방향</text>
+        <g class="map-temporary"><circle cx="644" cy="410" r="23"/><text x="644" y="416">!</text></g><text class="map-small-label" x="644" y="447">임시 부스</text>`
+    },
+    "olympic-hall": {
+      title: "올림픽홀 1층 시설 약도",
+      note: "공식 1층 평면도의 관객 로비·객석·화장실 위치 관계를 단순화했습니다.",
+      source: "https://www.ksponco.or.kr/attachFiles/download/kspo/olympichall_1.pdf",
+      sourceLabel: "올림픽홀 공식 1층 도면",
+      svg: `<rect class="map-building" x="58" y="42" width="644" height="520" rx="30"/>
+        <rect class="map-zone service" x="92" y="226" width="170" height="98" rx="18"/><text class="map-zone-label" x="177" y="281">로비</text>
+        <rect class="map-zone primary" x="292" y="94" width="356" height="342" rx="80"/><rect class="map-detail-box dark" x="370" y="116" width="200" height="52" rx="12"/><text class="map-detail-label light" x="470" y="148">무대</text><path class="map-detail-line light" d="M330 194 H610"/><text class="map-zone-label light" x="470" y="265">올림픽홀 객석</text><text class="map-zone-sub light" x="470" y="294">1층 객석 · 후면 조정실</text>
+        <rect class="map-zone secondary" x="292" y="456" width="356" height="72" rx="22"/><text class="map-zone-label" x="470" y="499">대중음악전시관·VIP실</text>
+        ${wc(251, 424, "1층 로비 인근 화장실 안내")}${gate(92, 412, "ENT", "올림픽홀 관객 입구")}`
+    },
+    "kintex-second-exhibition": {
+      title: "킨텍스 제2전시장 9·10홀 약도",
+      note: "공식 제2전시장 안내도와 주최자 매뉴얼을 기준으로 9홀·10홀과 10홀 앞 물품보관함을 표시했습니다. WC 아이콘은 각 홀 지원 화장실의 개념 표시이며 정확한 좌표는 공식 도면을 확인해야 합니다.",
+      source: "https://www.kintex.com/web/ko/html/facility/exhibition_facility_02.do",
+      sourceLabel: "킨텍스 제2전시장 공식 도면",
+      svg: `<rect class="map-building" x="42" y="54" width="676" height="500" rx="24"/>
+        <rect class="map-zone muted" x="76" y="92" width="108" height="300" rx="12"/><text class="map-zone-label" x="130" y="248">8홀</text>
+        <rect class="map-zone primary" x="200" y="92" width="218" height="300" rx="12"/><path class="map-detail-line light" d="M309 92 V392"/><text class="map-detail-label light" x="255" y="222">9A</text><text class="map-detail-label light" x="364" y="222">9B</text><text class="map-zone-sub light" x="309" y="126">9홀</text>
+        <rect class="map-zone primary" x="434" y="92" width="218" height="300" rx="12"/><path class="map-detail-line light" d="M543 92 V392"/><text class="map-detail-label light" x="489" y="222">10A</text><text class="map-detail-label light" x="598" y="222">10B</text><text class="map-zone-sub light" x="543" y="126">10홀</text>
+        <rect class="map-zone service" x="76" y="420" width="576" height="76" rx="18"/><text class="map-zone-label" x="364" y="453">관객 로비·중앙 통로</text><text class="map-zone-sub" x="222" y="480">홀별 지원시설</text><text class="map-zone-sub" x="505" y="480">10홀 앞 물품보관함</text>
+        ${wc(426, 452, "9홀과 10홀 사이 로비 화장실 안내")}${wc(664, 452, "10홀 로비 화장실 안내")}${gate(270, 510, "ENTRY", "제2전시장 관객 진입 방향")}`
+    },
+    "jangchung-gymnasium": {
+      title: "장충체육관 출입·편의시설 약도",
+      note: "공식 시설 안내의 동대입구역 연결통로와 주출입구를 단순화했습니다. WC 아이콘은 공식 안내된 1층 장애인 전용 화장실 2개소를 뜻하며 정확한 좌표는 아닙니다.",
+      source: "https://www.sisul.or.kr/open_content/jangchung/introduce/facility.jsp",
+      sourceLabel: "장충체육관 공식 시설 안내",
+      svg: `<path class="map-flow" d="M40 300 H174"/><text class="map-small-label" x="106" y="276">동대입구역 5번 출구</text>
+        <ellipse class="map-dome-ring" cx="430" cy="300" rx="244" ry="214"/><ellipse class="map-level-ring" cx="430" cy="300" rx="220" ry="190"/><ellipse class="map-dome" cx="430" cy="300" rx="174" ry="144"/>
+        <text class="map-dome-title" x="430" y="290">장충체육관</text><text class="map-dome-subtitle" x="430" y="320">주경기장</text><text class="map-small-label light" x="430" y="104">3F 경기장·라운지</text><text class="map-small-label light" x="430" y="478">2F 안내·매표·물품보관</text>
+        ${gate(174, 282, "연결", "지하철 연결통로 입구")}${gate(624, 282, "주출입", "장충체육관 주출입구")}${wc(284, 126, "1층 장애인 전용 화장실")}${wc(576, 126, "1층 장애인 전용 화장실")}<text class="map-small-label" x="690" y="230">P1·P2 주차 방향</text>`
+    },
+    "inspire-arena": {
+      title: "인스파이어 아레나 리조트 동선 약도",
+      note: "공식 리조트 교통·아레나 안내를 기준으로 셔틀 도착부터 아레나까지의 실내 이동 관계를 표시했습니다. 화장실 세부 좌표는 공개되지 않았습니다.",
+      source: "https://www.inspireresorts.com/ko/entertainment/inspire-arena",
+      sourceLabel: "인스파이어 아레나 공식 안내",
+      svg: `<rect class="map-zone service" x="48" y="228" width="150" height="92" rx="28"/><text class="map-zone-label" x="123" y="266">셔틀 하차</text><text class="map-zone-sub" x="123" y="292">오션타워</text>
+        <path class="map-flow" d="M198 274 H310"/><rect class="map-zone secondary" x="310" y="190" width="172" height="168" rx="34"/><text class="map-zone-label" x="396" y="266">리조트 내부</text><text class="map-zone-sub" x="396" y="292">오로라 통로</text>
+        <path class="map-flow" d="M482 274 H552"/><rect class="map-zone primary" x="552" y="90" width="160" height="368" rx="64"/><rect class="map-detail-box dark" x="576" y="124" width="112" height="64" rx="16"/><text class="map-detail-label light" x="632" y="153">2~4F</text><text class="map-zone-sub light" x="632" y="174">스탠드</text><rect class="map-detail-box dark" x="576" y="214" width="112" height="116" rx="22"/><text class="map-detail-label light" x="632" y="265">1F 플로어</text><text class="map-zone-sub light" x="632" y="290">공연별 배치</text><text class="map-zone-sub light" x="632" y="390">아레나 로비</text>
+        ${gate(520, 257, "GATE", "아레나 관객 입구")}${wc(396, 394, "리조트 공용 화장실 위치 현장 확인")}
+        <g class="map-temporary"><circle cx="632" cy="510" r="23"/><text x="632" y="516">!</text></g><text class="map-small-label" x="632" y="548">층별 WC·임시 부스 확인</text>`
+    },
+    "gonggam-hall": {
+      title: "공감센터 공감홀 층별 약도",
+      note: "공식 홈페이지에 공개된 1층 관객 로비, 1·2층 객석과 3층 부대공간 관계를 표시했습니다. 화장실 세부 좌표는 현장에서 확인해야 합니다.",
+      source: "https://www.gongamcenter.com/",
+      sourceLabel: "공감센터 공식 시설 안내",
+      svg: `<rect class="map-building" x="112" y="54" width="536" height="500" rx="24"/>
+        <rect class="map-zone secondary" x="148" y="88" width="464" height="82" rx="16"/><text class="map-zone-label" x="380" y="137">3F 부대 공간</text>
+        <rect class="map-zone primary" x="148" y="190" width="464" height="108" rx="18"/><text class="map-zone-label light" x="380" y="240">2F 객석 300석</text>
+        <rect class="map-zone primary" x="148" y="318" width="464" height="120" rx="18"/><rect class="map-detail-box dark" x="166" y="336" width="94" height="84" rx="12"/><text class="map-detail-label light" x="213" y="382">무대</text><path class="map-detail-line light" d="M280 336 V420"/><text class="map-zone-label light" x="444" y="374">1F 객석 702석</text><text class="map-zone-sub light" x="444" y="401">고정 객석</text>
+        <rect class="map-zone service" x="148" y="458" width="464" height="62" rx="16"/><text class="map-zone-label" x="380" y="497">1F 관객 로비</text>
+        ${gate(345, 522, "ENTRY", "공감홀 관객 입구")}<g class="map-temporary"><circle cx="644" cy="488" r="23"/><text x="644" y="494">!</text></g><text class="map-small-label" x="684" y="494">WC 확인</text>`
+    },
+    "wanderloch-hall": {
+      title: "YES24 원더로크홀 B3 약도",
+      note: "공식 시설 설명의 엘리베이터, 인포메이션 데스크, 로비, 보관함 138개와 공연장 관계를 단순화했습니다. 무대 방향은 이해를 위한 표현이며 공연별 배치가 우선합니다.",
+      source: "https://www.wanderlochhall.com/index",
+      sourceLabel: "원더로크홀 공식 시설 안내",
+      svg: `<rect class="map-building" x="56" y="62" width="648" height="470" rx="28"/>
+        <rect class="map-zone service" x="90" y="98" width="154" height="100" rx="20"/><text class="map-zone-label" x="167" y="138">엘리베이터</text><text class="map-zone-sub" x="167" y="164">B3 도착</text>
+        <rect class="map-zone secondary" x="266" y="98" width="192" height="100" rx="20"/><text class="map-zone-label" x="362" y="138">인포 데스크</text><text class="map-zone-sub" x="362" y="164">티켓·MD</text>
+        <rect class="map-zone service" x="480" y="98" width="190" height="100" rx="20"/><text class="map-zone-label" x="575" y="138">물품보관함</text><text class="map-zone-sub" x="575" y="164">138개</text>
+        <rect class="map-zone secondary" x="90" y="224" width="580" height="92" rx="22"/><text class="map-zone-label" x="380" y="276">200㎡ 로비·실내 대기</text>
+        <rect class="map-zone primary" x="90" y="342" width="580" height="150" rx="34"/><rect class="map-detail-box dark" x="112" y="365" width="112" height="104" rx="20"/><text class="map-detail-label light" x="168" y="421">무대</text><path class="map-detail-line light" d="M244 365 V469"/><text class="map-zone-label light" x="424" y="398">1F 스탠딩 플로어</text><text class="map-zone-sub light" x="424" y="426">최대 540명</text><text class="map-zone-sub light" x="424" y="454">2F A~E열 111석</text>
+        ${gate(345, 300, "HALL", "공연장 입장구")}<g class="map-temporary"><circle cx="700" cy="272" r="23"/><text x="700" y="278">!</text></g><text class="map-small-label" x="650" y="312">WC 현장 확인</text>`
+    },
+    "gocheok-sky-dome": {
+      title: "고척스카이돔 관객 동선 약도",
+      note: "공식 시설 안내를 기준으로 구일역 보행로, 외부광장, 돔 관람층과 화장실 관계를 표시했습니다. WC 아이콘은 층별 이용 지점의 개념 표시이며 정확한 좌표와 콘서트 게이트는 현장 안내가 우선입니다.",
+      source: "https://www.sisul.or.kr/open_content/skydome/introduce/facility.jsp",
+      sourceLabel: "고척스카이돔 공식 시설 안내",
+      svg: `<rect class="map-zone service" x="34" y="250" width="128" height="74" rx="20"/><text class="map-zone-label" x="98" y="281">구일역</text><text class="map-zone-sub" x="98" y="305">보행로</text><path class="map-flow" d="M162 287 H242"/>
+        <ellipse class="map-dome-ring" cx="470" cy="292" rx="250" ry="220"/><ellipse class="map-level-ring" cx="470" cy="292" rx="222" ry="194"/><ellipse class="map-dome" cx="470" cy="292" rx="176" ry="146"/>
+        <text class="map-dome-title" x="470" y="272">고척스카이돔</text><text class="map-dome-subtitle" x="470" y="302">1F 플로어·공연별 무대</text><text class="map-small-label light" x="470" y="117">2F 관람석</text><text class="map-small-label light" x="470" y="480">3F 스카이박스 · 4F 관람층</text>
+        ${gate(220, 270, "PLAZA", "외부 보행광장 진입")} ${wc(332, 126, "관람층 화장실 안내")}${wc(608, 126, "관람층 화장실 안내")}${wc(332, 458, "관람층 화장실 안내")}${wc(608, 458, "관람층 화장실 안내")}
+        <g class="map-temporary"><circle cx="714" cy="292" r="23"/><text x="714" y="298">!</text></g><text class="map-small-label" x="682" y="336">게이트 현장 확인</text>`
+    }
+  };
+  const map = maps[slug];
+  if (!map) return "";
+  return `<section class="venue-site-map" id="facility-map" aria-labelledby="facility-map-title">
+      <div class="site-map-heading"><div><span class="section-kicker">VENUE SITE MAP</span><h2 id="facility-map-title">${escapeHtml(map.title)}</h2></div><span>축척 아님 · 2026-07-28 확인</span></div>
+      <p class="site-map-note">${escapeHtml(map.note)}</p>
+      <div class="site-map-layout">
+        <ul class="site-map-legend" aria-label="약도 범례">
+          <li><span class="map-key wc">WC</span><strong>화장실</strong></li>
+          <li><span class="map-key gate">IN</span><strong>관객 입장·이동</strong></li>
+          <li><span class="map-key parking">■</span><strong>공식 확인 시설</strong></li>
+          <li><span class="map-key temporary">!</span><strong>공연별·현장 확인</strong></li>
+        </ul>
+        <div class="site-map-canvas">
+          <svg class="venue-site-map-svg" viewBox="0 0 760 620" role="img" aria-label="${escapeHtml(map.title)}">${map.svg}</svg>
+        </div>
+      </div>
+      <div class="site-map-actions"><a href="${sectionTarget("restroom")}">화장실 안내 보기</a><a href="${escapeHtml(map.source)}" target="_blank" rel="noopener noreferrer">${escapeHtml(map.sourceLabel)} ↗</a><a href="#venue-sources">전체 출처 보기</a></div>
+    </section>`;
+}
+
 function venuePageHtml(slug, guide, siteUrl) {
   const canonical = `${siteUrl}/calendar/guides/venues/${encodeURIComponent(slug)}`;
   const sections = [
-    ["지하철·버스에서 공연장까지", guide.transit],
-    guide.capacity && ["좌석·수용 규모", guide.capacity],
-    ["입장 줄까지의 동선", guide.arrival],
-    ["화장실", guide.restroom],
-    ["물품 보관", guide.storage],
-    guide.parking && ["관객 주차", guide.parking],
-    ["스탠딩·현장 대기", guide.waiting],
-    ["주변 식사·카페", guide.nearby],
-    ["귀가와 막차", guide.return]
-  ].filter(Boolean);
-  const description = guide.seoDescription || `${guide.name} 교통, 입장 동선, 화장실, 물품 보관, 식사와 귀가 정보를 공식 출처 기준으로 정리했습니다.`;
+    ["transit", "지하철·버스에서 공연장까지", guide.transit],
+    ["capacity", "좌석·수용 규모", guide.capacity],
+    ["arrival", "입장 줄까지의 동선", guide.arrival],
+    ["restroom", "화장실", guide.restroom],
+    ["storage", "물품 보관", guide.storage],
+    ["parking", "관객 주차", guide.parking],
+    ["waiting", "스탠딩·현장 대기", guide.waiting],
+    ["return", "귀가와 막차", guide.return]
+  ].filter(([, , body]) => body);
+  const description = guide.seoDescription || `${guide.name} 교통, 입장 동선, 화장실, 물품 보관과 귀가 정보를 공식 출처 기준으로 정리했습니다.`;
   const title = guide.seoTitle || `${guide.name} 교통·화장실·물품보관 가이드`;
+  const facilityMap = venueFacilityMapMarkup(slug, sections);
   return `<!doctype html>
 <html lang="ko"><head>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3081918168688274" crossorigin="anonymous"></script>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="${escapeHtml(description)}">
   <title>${escapeHtml(title)} | 제이라이브 코리아</title>
-  <link rel="canonical" href="${escapeHtml(canonical)}"><link rel="stylesheet" href="../../styles.css">
+  <link rel="canonical" href="${escapeHtml(canonical)}"><link rel="stylesheet" href="../../styles.css?v=20260728g">
 </head><body><div class="shell info-shell">
   <header><a class="brand" href="../../"><span class="brand-mark">J</span> 제이라이브 코리아</a><a class="ghost-button" href="../venues">공연장 목록</a></header>
   <main class="guide-article venue-article"><span class="section-kicker">VENUE FIELD GUIDE</span><h1>${escapeHtml(guide.name)}</h1>
     <p class="guide-lead">${escapeHtml(guide.summary)}</p>
-    <nav class="venue-section-nav" aria-label="이 페이지 목차">${sections.map(([title], index) => `<a href="#venue-${index + 1}">${escapeHtml(title)}</a>`).join("")}</nav>
-    ${sections.map(([title, body], index) => `<section id="venue-${index + 1}"><h2>${escapeHtml(title)}</h2><p>${escapeHtml(body)}</p></section>`).join("\n    ")}
-    <section><h2>출처와 확인일</h2><div class="source-links">${venueSourcesMarkup(guide)}</div><p class="guide-updated">마지막 확인: ${escapeHtml(guide.verifiedAt)} · 공연 당일 운영은 주최사 공지를 우선합니다.</p></section>
+    <nav class="venue-section-nav" aria-label="이 페이지 목차">${facilityMap ? '<a href="#facility-map">시설 지도</a>' : ""}${sections.map(([, title], index) => `<a href="#venue-${index + 1}">${escapeHtml(title)}</a>`).join("")}</nav>
+    ${facilityMap}
+    ${sections.map(([, title, body], index) => `<section id="venue-${index + 1}"><h2>${escapeHtml(title)}</h2><p>${escapeHtml(body)}</p></section>`).join("\n    ")}
+    <section id="venue-sources"><h2>출처와 확인일</h2><div class="source-links">${venueSourcesMarkup(guide)}</div><p class="guide-updated">마지막 확인: ${escapeHtml(guide.verifiedAt)} · 공연 당일 운영은 주최사 공지를 우선합니다.</p></section>
   </main><footer class="site-footer"><nav><a href="../venues">공연장 가이드</a><a href="../../corrections">정보 수정 요청</a></nav></footer>
 </div></body></html>\n`;
 }
@@ -287,9 +412,9 @@ function venueIndexHtml(venueGuides, siteUrl) {
 <html lang="ko"><head>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3081918168688274" crossorigin="anonymous"></script>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="J-POP 내한 주요 공연장의 교통, 입장 동선, 화장실, 물품 보관, 식사와 귀가 정보를 공연장별로 확인하세요.">
+  <meta name="description" content="J-POP 내한 주요 공연장의 교통, 입장 동선, 화장실, 물품 보관과 귀가 정보를 공연장별로 확인하세요.">
   <title>J-POP 내한 공연장 현장 가이드 | 제이라이브 코리아</title>
-  <link rel="canonical" href="${escapeHtml(siteUrl)}/calendar/guides/venues"><link rel="stylesheet" href="../styles.css">
+  <link rel="canonical" href="${escapeHtml(siteUrl)}/calendar/guides/venues"><link rel="stylesheet" href="../styles.css?v=20260728g">
 </head><body><div class="shell info-shell">
   <header><a class="brand" href="../"><span class="brand-mark">J</span> 제이라이브 코리아</a><a class="ghost-button" href="../">공연 달력</a></header>
   <main class="guide-article venue-index"><span class="section-kicker">VENUE CATEGORY</span><h1>공연장 현장 가이드</h1>
@@ -336,4 +461,4 @@ function main() {
 }
 
 if (require.main === module) main();
-module.exports = { assertCleanText, buildSeries, hasEditorialGuide, humanDate, renderEventPage, richEventGuideMarkup, seriesDatesMarkup, seriesKey, ticketGuideMarkup, venueGuideForEvent, venueIndexHtml, venuePageHtml };
+module.exports = { assertCleanText, buildSeries, hasEditorialGuide, humanDate, renderEventPage, richEventGuideMarkup, seriesDatesMarkup, seriesKey, ticketGuideMarkup, venueFacilityMapMarkup, venueGuideForEvent, venueIndexHtml, venuePageHtml };
