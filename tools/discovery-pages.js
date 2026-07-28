@@ -27,7 +27,7 @@ function pageShell({ title, description, canonical, body, siteUrl, depth = ".." 
   <meta property="og:url" content="${escapeHtml(canonical)}"><meta property="og:type" content="website">
   <title>${escapeHtml(title)}</title><link rel="canonical" href="${escapeHtml(canonical)}">
   <link rel="stylesheet" href="${depth}/styles.css?v=20260729b">
-  <script src="${depth}/site-config.js"></script><script src="${depth}/analytics.js" defer></script><script src="${depth}/site.js" defer></script>
+  <script src="${depth}/site-config.js?v=20260729ga"></script><script src="${depth}/analytics.js" defer></script><script src="${depth}/site.js" defer></script>
 </head><body><div class="shell info-shell">
   <header><a class="brand" href="${depth}/"><span class="brand-mark">J</span> 제이라이브 코리아</a><nav class="page-nav"><a href="${depth}/weekly">이번 주</a><a href="${depth}/updates">업데이트</a><a href="${depth}/artists">아티스트</a></nav></header>
   ${body}
