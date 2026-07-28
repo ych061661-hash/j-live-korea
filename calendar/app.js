@@ -21,48 +21,18 @@ const myShowsSummary = document.querySelector("#myShowsSummary");
 const savedArtists = document.querySelector("#savedArtists");
 const saveEventButton = document.querySelector("#saveEventButton");
 const saveArtistButton = document.querySelector("#saveArtistButton");
-const artistAliases = {
-  "ASH DA HERO": ["애쉬 다 히어로", "アッシュダヒーロー"],
-  Aooo: ["아오"],
-  "Chilli Beans.": ["칠리 빈즈", "チリビーンズ"],
-  "Dannie May": ["대니 메이"],
-  "Fujii Kaze": ["후지이 카제", "후지카제", "藤井風"],
-  HITORIE: ["히토리에", "ヒトリエ"],
-  "Kento Nakajima": ["나카지마 켄토", "中島健人"],
-  "King Gnu": ["킹누", "킹 누", "キングヌー"],
-  "LET ME KNOW": ["렛 미 노우"],
-  "NOMELON NOLEMON": ["노멜론 노레몬"],
-  Novelbright: ["노벨브라이트"],
-  "Official髭男dism": ["오피셜히게단디즘", "오피셜 히게단 디즘", "히게단"],
-  Omoinotake: ["오모이노타케"],
-  Regallily: ["리갈릴리", "リーガルリリー"],
-  Reol: ["레오루", "れをる"],
-  "Ryosuke Yamada": ["야마다 료스케", "山田涼介"],
-  SPYAIR: ["스파이에어"],
-  SUKIMASWITCH: ["스키마스위치", "スキマスイッチ"],
-  Sou: ["소우"],
-  "T-SQUARE": ["티스퀘어"],
-  "THE NOVEMBERS": ["더 노벰버스"],
-  "TK from Ling tosite sigure": ["티케이 프롬 린 토시테 시구레", "린토시테시구레", "凛として時雨"],
-  "Takuya Kimura": ["기무라 타쿠야", "木村拓哉"],
-  Vaundy: ["바운디"],
-  YUURI: ["유우리", "優里"],
-  ano: ["아노"],
-  asmi: ["아스미"],
-  "back number": ["백넘버", "バックナンバー"],
-  cero: ["세로"],
-  "go!go!vanillas": ["고고바닐라스"],
-  muque: ["뮤크"],
-  natori: ["나토리", "なとり"],
-  yutori: ["유토리"],
-  "『ユイカ』": ["유이카"]
-};
+const alertButton = document.querySelector("#alertButton");
+const alertPlan = document.querySelector("#alertPlan");
+let artistAliases = {};
 let schedules = [];
+let updates = [];
 let selectedId = "";
 let selectedType = "concert";
 let selectedDateKey = "";
 let viewDate = new Date();
 let savedFavorites = window.JLIVE_FAVORITES.read();
+let alertSettings = window.JLIVE_ALERTS.read();
+let emptySearchTimer = 0;
 const mobileQuery = window.matchMedia("(max-width: 820px)");
 
 const escapeHtml = (value = "") => String(value).replace(/[&<>"']/g, char => ({
@@ -263,6 +233,35 @@ function renderMyShows() {
           aria-label="${escapeHtml(schedule.artist)} 공연 저장 해제">저장 해제</button>` : ""}
       </article>`;
   }).join("");
+  renderAlertPlan();
+}
+
+function renderAlertPlan() {
+  const rows = window.JLIVE_ALERTS.upcoming(schedules, savedFavorites, dateKey(new Date()));
+  alertPlan.hidden = rows.length === 0;
+  alertPlan.innerHTML = rows.map(row => `<span><b>${escapeHtml(formatDate(row.date))}</b> · ${escapeHtml(row.artist)} ${escapeHtml(row.label)} ${escapeHtml(row.time || "")}</span>`).join("");
+  if (!("Notification" in window)) {
+    alertButton.hidden = true;
+    return;
+  }
+  const active = alertSettings.enabled && Notification.permission === "granted";
+  alertButton.hidden = false;
+  alertButton.setAttribute("aria-pressed", String(active));
+  alertButton.textContent = Notification.permission === "denied" ? "브라우저에서 알림 차단됨" : active ? "예매 알림 켜짐" : "예매 알림 켜기";
+}
+
+async function sendDueAlerts() {
+  if (!alertSettings.enabled || !("Notification" in window) || Notification.permission !== "granted") return;
+  const due = window.JLIVE_ALERTS.buildAlerts(schedules, updates, savedFavorites, dateKey(new Date()))
+    .filter(alert => !alertSettings.sent.includes(alert.id));
+  if (!due.length) return;
+  const registration = "serviceWorker" in navigator ? await navigator.serviceWorker.ready.catch(() => null) : null;
+  for (const alert of due) {
+    const options = { body: alert.body, icon: "./assets/brand/j-live-app-logo.png", data: { url: alert.url } };
+    if (registration) await registration.showNotification(alert.title, options);
+    else new Notification(alert.title, options);
+  }
+  alertSettings = window.JLIVE_ALERTS.write({ ...alertSettings, sent: [...alertSettings.sent, ...due.map(alert => alert.id)] });
 }
 
 function renderAttendanceRanking() {
@@ -420,6 +419,7 @@ document.querySelector("#dayLineup").addEventListener("click", event => {
 
 function saveFavorites(next) {
   savedFavorites = window.JLIVE_FAVORITES.write(next);
+  window.JLIVE_ANALYTICS.track("favorites_snapshot", { events: savedFavorites.events.length, artists: savedFavorites.artists.length });
   renderMyShows();
   const selected = schedules.find(schedule => schedule.id === selectedId);
   if (selected) updateSaveButtons(selected);
@@ -427,19 +427,36 @@ function saveFavorites(next) {
 
 saveEventButton.addEventListener("click", () => {
   if (!selectedId) return;
+  const saving = !savedFavorites.events.includes(selectedId);
   saveFavorites({
     ...savedFavorites,
     events: window.JLIVE_FAVORITES.toggle(savedFavorites.events, selectedId)
   });
+  if (saving) window.JLIVE_ANALYTICS.track("favorite_save", { type: "events", event_id: selectedId });
 });
 
 saveArtistButton.addEventListener("click", () => {
   const schedule = schedules.find(item => item.id === selectedId);
   if (!schedule) return;
+  const saving = !savedFavorites.artists.includes(schedule.artist);
   saveFavorites({
     ...savedFavorites,
     artists: window.JLIVE_FAVORITES.toggle(savedFavorites.artists, schedule.artist)
   });
+  if (saving) window.JLIVE_ANALYTICS.track("favorite_save", { type: "artists", artist: schedule.artist });
+});
+
+alertButton.addEventListener("click", async () => {
+  if (!("Notification" in window) || Notification.permission === "denied") return;
+  if (alertSettings.enabled && Notification.permission === "granted") {
+    alertSettings = window.JLIVE_ALERTS.write({ ...alertSettings, enabled: false });
+    renderAlertPlan();
+    return;
+  }
+  const permission = Notification.permission === "granted" ? "granted" : await Notification.requestPermission();
+  alertSettings = window.JLIVE_ALERTS.write({ ...alertSettings, enabled: permission === "granted" });
+  renderAlertPlan();
+  await sendDueAlerts();
 });
 
 savedArtists.addEventListener("click", event => {
@@ -470,6 +487,20 @@ myShowEvents.addEventListener("click", event => {
 });
 
 artistSearch.addEventListener("input", renderArtistSearch);
+artistSearch.addEventListener("input", () => {
+  clearTimeout(emptySearchTimer);
+  const value = artistSearch.value.trim();
+  emptySearchTimer = setTimeout(() => {
+    const query = normalizeSearchText(value);
+    const match = schedules.find(schedule =>
+      [schedule.artist, ...(artistAliases[schedule.artist] || [])].some(name => normalizeSearchText(name).includes(query)));
+    if (query && value === artistSearch.value.trim() && match) {
+      window.JLIVE_ANALYTICS.track("artist_search", { artist: match.artist });
+    } else if (query && value === artistSearch.value.trim()) {
+      window.JLIVE_ANALYTICS.track("empty_search", { search_term: value.slice(0, 60) });
+    }
+  }, 800);
+});
 artistSearch.addEventListener("focus", renderArtistSearch);
 artistSearch.addEventListener("keydown", event => {
   if (event.key !== "Escape") return;
@@ -480,10 +511,16 @@ artistSearchResults.addEventListener("click", event => {
   const button = event.target.closest("[data-id]");
   const schedule = button && schedules.find(item => item.id === button.dataset.id);
   if (!schedule) return;
+  window.JLIVE_ANALYTICS.track("artist_result_open", { artist: schedule.artist });
   viewDate = parseDate(schedule.concertDate);
   artistSearchResults.hidden = true;
   artistSearch.setAttribute("aria-expanded", "false");
   selectSchedule(schedule, "concert", schedule.concertDate);
+});
+
+document.querySelector("#ticketButton").addEventListener("click", () => {
+  const schedule = schedules.find(item => item.id === selectedId);
+  if (schedule) window.JLIVE_ANALYTICS.track("ticket_click", { vendor: schedule.vendor || "미정", event_id: schedule.id });
 });
 
 document.querySelectorAll(".filter").forEach(button => button.addEventListener("click", () => {
@@ -559,10 +596,18 @@ async function initialize() {
     }
     if (!response.ok) throw new Error("공연 데이터를 불러오지 못했습니다.");
     schedules = (await response.json()).filter(event => event.status === "confirmed");
+    const [aliasResponse, updateResponse] = await Promise.all([
+      fetch("./data/artist-aliases.json", { cache: "no-store" }).catch(() => null),
+      fetch("./data/updates.json", { cache: "no-store" }).catch(() => null)
+    ]);
+    artistAliases = aliasResponse?.ok ? await aliasResponse.json() : {};
+    updates = updateResponse?.ok ? await updateResponse.json() : [];
     schedules.sort((a, b) => a.concertDate.localeCompare(b.concertDate));
     window.JLIVE_ARTIST_IMAGES.preload(schedules);
     renderWeekendSpotlight();
     renderMyShows();
+    window.JLIVE_ANALYTICS.track("favorites_snapshot", { events: savedFavorites.events.length, artists: savedFavorites.artists.length });
+    await sendDueAlerts();
     renderAttendanceRanking();
     const upcoming = schedules.find(event => event.concertDate >= dateKey(new Date())) || schedules[0];
     if (!upcoming) {

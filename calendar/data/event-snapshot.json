@@ -1,0 +1,855 @@
+{
+  "king-gnu-2026-06-20": {
+    "artist": "King Gnu",
+    "concertDate": "2026-06-20",
+    "time": "오후 6:00",
+    "venue": "KSPO DOME",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/57563",
+    "ticketDate": "2026-03-17",
+    "ticketTime": "오후 7:00",
+    "presaleDate": "",
+    "presaleTime": null,
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-06-17",
+    "sources": [
+      "https://kinggnu.jp/news/in.html?id=577778",
+      "https://ticket.yes24.com/Perf/57563"
+    ]
+  },
+  "king-gnu-2026-06-21": {
+    "artist": "King Gnu",
+    "concertDate": "2026-06-21",
+    "time": "오후 6:00",
+    "venue": "KSPO DOME",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/57563",
+    "ticketDate": "2026-03-17",
+    "ticketTime": "오후 7:00",
+    "presaleDate": "",
+    "presaleTime": null,
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-06-17",
+    "sources": [
+      "https://kinggnu.jp/news/in.html?id=577778",
+      "https://ticket.yes24.com/Perf/57563"
+    ]
+  },
+  "yuika-2026-06-20": {
+    "artist": "『ユイカ』",
+    "concertDate": "2026-06-20",
+    "time": "오후 5:00",
+    "venue": "명화라이브홀",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://tickets.interpark.com/contents/notice/detail/13423",
+    "ticketDate": "2026-04-13",
+    "ticketTime": "오후 6:00",
+    "presaleDate": "",
+    "presaleTime": null,
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-06-17",
+    "sources": [
+      "https://tickets.interpark.com/contents/notice/detail/13423"
+    ]
+  },
+  "reol-2026-07-18": {
+    "artist": "Reol",
+    "concertDate": "2026-07-18",
+    "time": "오후 6:00",
+    "venue": "YES24 원더로크홀",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/58180",
+    "ticketDate": "2026-04-02",
+    "ticketTime": "오후 8:00",
+    "presaleDate": "",
+    "presaleTime": null,
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-06-15",
+    "sources": [
+      "https://ticket.yes24.com/Perf/58180",
+      "https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17768"
+    ]
+  },
+  "reol-2026-07-19": {
+    "artist": "Reol",
+    "concertDate": "2026-07-19",
+    "time": "오후 6:00",
+    "venue": "YES24 원더로크홀",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/58180",
+    "ticketDate": "2026-06-04",
+    "ticketTime": null,
+    "presaleDate": "",
+    "presaleTime": null,
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-06-15",
+    "sources": [
+      "https://ticket.yes24.com/Perf/58180",
+      "https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17768"
+    ]
+  },
+  "novelbright-2026-08-01": {
+    "artist": "Novelbright",
+    "concertDate": "2026-08-01",
+    "time": "오후 6:00",
+    "venue": "킨텍스 제2전시장 10홀",
+    "vendor": "티켓링크",
+    "vendorUrl": "https://www.ticketlink.co.kr/product/63100",
+    "ticketDate": "2026-05-13",
+    "ticketTime": "오후 6:00",
+    "presaleDate": "",
+    "presaleTime": null,
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-07-20",
+    "sources": [
+      "https://www.ticketlink.co.kr/product/63100",
+      "https://www.ticketlink.co.kr/help/notice/64824"
+    ]
+  },
+  "novelbright-2026-08-02": {
+    "artist": "Novelbright",
+    "concertDate": "2026-08-02",
+    "time": "오후 6:00",
+    "venue": "킨텍스 제2전시장 10홀",
+    "vendor": "티켓링크",
+    "vendorUrl": "https://www.ticketlink.co.kr/product/63100",
+    "ticketDate": "2026-05-13",
+    "ticketTime": "오후 6:00",
+    "presaleDate": "",
+    "presaleTime": null,
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-07-20",
+    "sources": [
+      "https://www.ticketlink.co.kr/product/63100",
+      "https://www.ticketlink.co.kr/help/notice/64824"
+    ]
+  },
+  "official-hige-dandism-2026-08-08": {
+    "artist": "Official髭男dism",
+    "concertDate": "2026-08-08",
+    "time": "오후 7:00",
+    "venue": "KSPO DOME",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://tickets.interpark.com/goods/26005670",
+    "ticketDate": "2026-07-28",
+    "ticketTime": "낮 12:00",
+    "presaleDate": "2026-03-31",
+    "presaleTime": "낮 12:00",
+    "status": "confirmed",
+    "ticketLabel": "추가 티켓",
+    "verifiedAt": "2026-07-25",
+    "sources": [
+      "https://event.higedan.com/feature/asiatour2026",
+      "https://nol.yanolja.com/ticket/products/26005670"
+    ]
+  },
+  "official-hige-dandism-2026-08-09": {
+    "artist": "Official髭男dism",
+    "concertDate": "2026-08-09",
+    "time": "오후 7:00",
+    "venue": "KSPO DOME",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://tickets.interpark.com/goods/26005670",
+    "ticketDate": "2026-07-28",
+    "ticketTime": "낮 12:00",
+    "presaleDate": "2026-03-31",
+    "presaleTime": "낮 12:00",
+    "status": "confirmed",
+    "ticketLabel": "추가 티켓",
+    "verifiedAt": "2026-07-25",
+    "sources": [
+      "https://event.higedan.com/feature/asiatour2026",
+      "https://nol.yanolja.com/ticket/products/26005670"
+    ]
+  },
+  "ash-da-hero-2026-08-08": {
+    "artist": "ASH DA HERO",
+    "concertDate": "2026-08-08",
+    "time": "오후 7:00",
+    "venue": "웨스트브릿지",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://m.ticket.yes24.com/Perf/58894",
+    "ticketDate": "2026-06-17",
+    "ticketTime": "오후 6:00",
+    "presaleDate": "",
+    "presaleTime": "",
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-07-27",
+    "sources": [
+      "https://ashdahero.com/contents/15044",
+      "https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17968&order=1&type=1",
+      "https://m.ticket.yes24.com/Perf/58894"
+    ]
+  },
+  "back-number-2026-09-12": {
+    "artist": "back number",
+    "concertDate": "2026-09-12",
+    "time": "오후 6:00",
+    "venue": "킨텍스 제2전시장 9홀",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/58079",
+    "ticketDate": "2026-04-22",
+    "ticketTime": "오후 7:00",
+    "presaleDate": "",
+    "presaleTime": null,
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-07-20",
+    "sources": [
+      "https://backnumber.info/news/list/7?range=future_event_end_time&sort=asc&tag=live/event",
+      "https://ticket.yes24.com/Perf/58079"
+    ]
+  },
+  "back-number-2026-09-13": {
+    "artist": "back number",
+    "concertDate": "2026-09-13",
+    "time": "오후 6:00",
+    "venue": "킨텍스 제2전시장 9홀",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/58079",
+    "ticketDate": "2026-04-22",
+    "ticketTime": "오후 7:00",
+    "presaleDate": "",
+    "presaleTime": null,
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-07-20",
+    "sources": [
+      "https://backnumber.info/news/list/7?range=future_event_end_time&sort=asc&tag=live/event",
+      "https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17720"
+    ]
+  },
+  "ryosuke-yamada-2026-09-13": {
+    "artist": "Ryosuke Yamada",
+    "concertDate": "2026-09-13",
+    "time": "오후 5:00",
+    "venue": "장충체육관",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/58751",
+    "ticketDate": "2026-06-08",
+    "ticketTime": "오후 6:00",
+    "presaleDate": "",
+    "presaleTime": null,
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-07-20",
+    "sources": [
+      "https://ticket.yes24.com/Perf/58751",
+      "https://m.ticket.yes24.com/Perf/58751"
+    ]
+  },
+  "vaundy-2026-09-19": {
+    "artist": "Vaundy",
+    "concertDate": "2026-09-19",
+    "time": "오후 5:00",
+    "venue": "인스파이어 아레나",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://tickets.interpark.com/goods/26003199",
+    "ticketDate": "2026-03-11",
+    "ticketTime": "오후 8:00",
+    "presaleDate": "",
+    "presaleTime": null,
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-07-20",
+    "sources": [
+      "https://member.vaundy.jp/feature/ASIAARENATOUR_2026",
+      "https://tickets.interpark.com/goods/26003199"
+    ]
+  },
+  "vaundy-2026-09-20": {
+    "artist": "Vaundy",
+    "concertDate": "2026-09-20",
+    "time": "오후 4:00",
+    "venue": "인스파이어 아레나",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://tickets.interpark.com/goods/26003199",
+    "ticketDate": "2026-03-11",
+    "ticketTime": "오후 8:00",
+    "presaleDate": "",
+    "presaleTime": null,
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-07-20",
+    "sources": [
+      "https://member.vaundy.jp/feature/ASIAARENATOUR_2026",
+      "https://tickets.interpark.com/goods/26003199"
+    ]
+  },
+  "takuya-kimura-2026-09-26": {
+    "artist": "Takuya Kimura",
+    "concertDate": "2026-09-26",
+    "time": "오후 4:00",
+    "venue": "인스파이어 아레나",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://tickets.interpark.com/contents/notice/detail/14058",
+    "ticketDate": "2026-06-29",
+    "ticketTime": "오후 7:00",
+    "presaleDate": "",
+    "presaleTime": null,
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-07-20",
+    "sources": [
+      "https://tickets.interpark.com/contents/notice/detail/14058",
+      "https://takuya-kimura.jp/"
+    ]
+  },
+  "echoes-aooo-2026-06-12": {
+    "artist": "Aooo",
+    "concertDate": "2026-06-12",
+    "time": "오후 6:00",
+    "venue": "YES24 원더로크홀",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/57214",
+    "ticketDate": "2026-02-20",
+    "ticketTime": "오후 8:00",
+    "presaleDate": "",
+    "presaleTime": null,
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-06-11",
+    "sources": [
+      "https://ticket.yes24.com/Perf/57214"
+    ]
+  },
+  "echoes-nomelon-nolemon-2026-06-13": {
+    "artist": "NOMELON NOLEMON",
+    "concertDate": "2026-06-13",
+    "time": "오후 6:00",
+    "venue": "YES24 원더로크홀",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/57214",
+    "ticketDate": "2026-02-20",
+    "ticketTime": null,
+    "presaleDate": "",
+    "presaleTime": null,
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-06-11",
+    "sources": [
+      "https://ticket.yes24.com/Perf/57214"
+    ]
+  },
+  "echoes-asmi-2026-06-14": {
+    "artist": "asmi",
+    "concertDate": "2026-06-14",
+    "time": "오후 6:00",
+    "venue": "YES24 원더로크홀",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/57214",
+    "ticketDate": "2026-02-20",
+    "ticketTime": null,
+    "presaleDate": "",
+    "presaleTime": null,
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-06-11",
+    "sources": [
+      "https://ticket.yes24.com/Perf/57214"
+    ]
+  },
+  "sukimaswitch-2026-06-20": {
+    "artist": "SUKIMASWITCH",
+    "concertDate": "2026-06-20",
+    "time": "오후 6:00",
+    "venue": "YES24 원더로크홀",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/57807",
+    "ticketDate": "2026-04-02",
+    "ticketTime": "오후 8:00",
+    "presaleDate": "",
+    "presaleTime": null,
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-06-17",
+    "sources": [
+      "https://ticket.yes24.com/Perf/57807"
+    ]
+  },
+  "sukimaswitch-2026-06-21": {
+    "artist": "SUKIMASWITCH",
+    "concertDate": "2026-06-21",
+    "time": "오후 6:00",
+    "venue": "YES24 원더로크홀",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/57807",
+    "ticketDate": "2026-04-02",
+    "ticketTime": "오후 8:00",
+    "presaleDate": "",
+    "presaleTime": null,
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-06-17",
+    "sources": [
+      "https://ticket.yes24.com/Perf/57807"
+    ]
+  },
+  "yutori-2026-06-27": {
+    "artist": "yutori",
+    "concertDate": "2026-06-27",
+    "time": "오후 6:00",
+    "venue": "무신사 개러지",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://tickets.interpark.com/goods/26004936",
+    "ticketDate": "2026-04-04",
+    "ticketTime": "낮 12:00",
+    "presaleDate": "",
+    "presaleTime": null,
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-06-15",
+    "sources": [
+      "http://www.kopis.or.kr/por/db/pblprfr/pblprfrView.do?menuId=MNU_00020&mt20Id=PF288369"
+    ]
+  },
+  "sou-2026-07-04": {
+    "artist": "Sou",
+    "concertDate": "2026-07-04",
+    "time": "오후 5:30",
+    "venue": "YES24 원더로크홀",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/57553",
+    "ticketDate": "",
+    "ticketTime": null,
+    "presaleDate": "",
+    "presaleTime": null,
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-06-15",
+    "sources": [
+      "https://ticket.yes24.com/Perf/57553"
+    ]
+  },
+  "natori-2026-07-18": {
+    "artist": "natori",
+    "concertDate": "2026-07-18",
+    "time": "오후 6:00",
+    "venue": "올림픽공원 올림픽홀",
+    "vendor": "멜론티켓",
+    "vendorUrl": "https://ticket.melon.com/performance/index.htm?prodId=213098",
+    "ticketDate": "2026-05-08",
+    "ticketTime": "오후 8:00",
+    "presaleDate": "",
+    "presaleTime": null,
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-06-16",
+    "sources": [
+      "https://ticket.melon.com/performance/index.htm?prodId=213098"
+    ]
+  },
+  "natori-2026-07-19": {
+    "artist": "natori",
+    "concertDate": "2026-07-19",
+    "time": "오후 6:00",
+    "venue": "올림픽공원 올림픽홀",
+    "vendor": "멜론티켓",
+    "vendorUrl": "https://ticket.melon.com/performance/index.htm?prodId=213098",
+    "ticketDate": "2026-05-08",
+    "ticketTime": "오후 8:00",
+    "presaleDate": "",
+    "presaleTime": null,
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-06-16",
+    "sources": [
+      "https://ticket.melon.com/performance/index.htm?prodId=213098"
+    ]
+  },
+  "spyair-2026-09-05": {
+    "artist": "SPYAIR",
+    "concertDate": "2026-09-05",
+    "time": "오후 6:00",
+    "venue": "킨텍스 제2전시장 후면광장",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/58592",
+    "ticketDate": "2026-05-29",
+    "ticketTime": "오후 8:00",
+    "presaleDate": "",
+    "presaleTime": null,
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-07-20",
+    "sources": [
+      "https://ticket.yes24.com/Perf/58592"
+    ]
+  },
+  "omoinotake-2026-10-17": {
+    "artist": "Omoinotake",
+    "concertDate": "2026-10-17",
+    "time": "오후 7:00",
+    "venue": "공감센터 공감홀",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/58335",
+    "ticketDate": "2026-05-13",
+    "ticketTime": "낮 12:00",
+    "presaleDate": "",
+    "presaleTime": "",
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-07-25",
+    "sources": [
+      "https://ticket.yes24.com/Perf/58335",
+      "https://www.highjinkx.com/show-list/omoinotake-2026"
+    ]
+  },
+  "chilli-beans-2026-08-08": {
+    "artist": "Chilli Beans.",
+    "concertDate": "2026-08-08",
+    "time": "오후 6:00",
+    "venue": "YES24 원더로크홀",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/58454",
+    "ticketDate": "2026-05-20",
+    "ticketTime": "오후 8:00",
+    "presaleDate": "",
+    "presaleTime": null,
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-07-20",
+    "sources": [
+      "https://ticket.yes24.com/Perf/58454"
+    ]
+  },
+  "tk-ling-tosite-sigure-2026-07-12": {
+    "artist": "TK from Ling tosite sigure",
+    "concertDate": "2026-07-12",
+    "time": "오후 6:00",
+    "venue": "YES24 원더로크홀",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/58258",
+    "ticketDate": "2026-05-04",
+    "ticketTime": null,
+    "presaleDate": "",
+    "presaleTime": null,
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-06-22",
+    "sources": [
+      "https://ticket.yes24.com/Perf/58258"
+    ]
+  },
+  "fujii-kaze-2027-01-09": {
+    "artist": "Fujii Kaze",
+    "concertDate": "2027-01-09",
+    "time": "오후 6:00",
+    "venue": "고척스카이돔",
+    "vendor": "멜론티켓",
+    "vendorUrl": "https://ticket.melon.com/csoon/detail.htm?csoonId=12366",
+    "ticketDate": "2026-06-17",
+    "ticketTime": "오후 7:00",
+    "presaleDate": "",
+    "presaleTime": null,
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-07-20",
+    "sources": [
+      "https://fujiikaze.com/news-article/news260610/",
+      "https://ticket.melon.com/csoon/detail.htm?csoonId=12366"
+    ]
+  },
+  "the-novembers-2026-07-17": {
+    "artist": "THE NOVEMBERS",
+    "concertDate": "2026-07-17",
+    "time": "오후 6:00",
+    "venue": "KT&G 상상마당 라이브홀",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://tickets.interpark.com/goods/26008207",
+    "ticketDate": "2026-06-17",
+    "ticketTime": "오후 7:00",
+    "presaleDate": "",
+    "presaleTime": null,
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-06-17",
+    "sources": [
+      "https://the-novembers.com/26-7-17fritour-2026%E3%80%8Cthe-singing-engines-in-seoul-br%E9%9F%93%E5%9B%BD%E3%83%BB%E3%82%BD%E3%82%A6%E3%83%ABktg-sangsang-madang%E5%BC%98%E5%A4%A7",
+      "https://tickets.interpark.com/goods/26008207"
+    ]
+  },
+  "muque-2026-07-11": {
+    "artist": "muque",
+    "concertDate": "2026-07-11",
+    "time": "오후 7:00",
+    "venue": "YES24 원더로크홀",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://m.ticket.yes24.com/Perf/57606",
+    "ticketDate": "2026-03-27",
+    "ticketTime": "오후 7:00",
+    "presaleDate": "",
+    "presaleTime": null,
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-06-17",
+    "sources": [
+      "https://muque.jp/live/live-1273-3-2/",
+      "https://ticket.yes24.com/Perf/57606",
+      "https://ticket.yes24.com/Pages/English/Perf/FnPerfDeail.aspx?IdPerf=57606"
+    ]
+  },
+  "go-go-vanillas-2026-07-12": {
+    "artist": "go!go!vanillas",
+    "concertDate": "2026-07-12",
+    "time": "오후 5:00",
+    "venue": "YES24 LIVE HALL",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://m.ticket.yes24.com/Perf/57841",
+    "ticketDate": "2026-03-30",
+    "ticketTime": "오후 12:00",
+    "presaleDate": "",
+    "presaleTime": null,
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-06-17",
+    "sources": [
+      "https://gogovanillas.com/news/detail/5569",
+      "https://ggv-asiatour2026.jp/",
+      "https://m.ticket.yes24.com/Perf/57841"
+    ]
+  },
+  "kento-nakajima-2026-10-03": {
+    "artist": "Kento Nakajima",
+    "concertDate": "2026-10-03",
+    "time": "오후 6:00",
+    "venue": "올림픽공원 올림픽홀",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://m.ticket.yes24.com/Perf/58653",
+    "ticketDate": "2026-06-04",
+    "ticketTime": "오후 2:00",
+    "presaleDate": "",
+    "presaleTime": null,
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-07-20",
+    "sources": [
+      "https://starto.jp/s/p/live/10494?artist=156&lang=en",
+      "https://kentonakajima.lnk.to/ASIATOUR2026",
+      "https://www.nakajimakento.com/news/detail/?id=583773",
+      "https://ticket.yes24.com/New/Notice/NoticeMain.aspx?Gcode=009_208_002#id=17913"
+    ]
+  },
+  "kento-nakajima-2026-10-04": {
+    "artist": "Kento Nakajima",
+    "concertDate": "2026-10-04",
+    "time": "오후 5:00",
+    "venue": "올림픽공원 올림픽홀",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://m.ticket.yes24.com/Perf/58653",
+    "ticketDate": "2026-06-04",
+    "ticketTime": "오후 2:00",
+    "presaleDate": "",
+    "presaleTime": null,
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-07-20",
+    "sources": [
+      "https://starto.jp/s/p/live/10494?artist=156&lang=en",
+      "https://kentonakajima.lnk.to/ASIATOUR2026",
+      "https://www.nakajimakento.com/news/detail/?id=583773",
+      "https://ticket.yes24.com/New/Notice/NoticeMain.aspx?Gcode=009_208_002#id=17913"
+    ]
+  },
+  "dannie-may-2026-08-21": {
+    "artist": "Dannie May",
+    "concertDate": "2026-08-21",
+    "time": "오후 8:00",
+    "venue": "KT&G 상상마당 라이브홀",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://nol.yanolja.com/ticket/products/26007623",
+    "ticketDate": "2026-06-04",
+    "ticketTime": "오후 7:00",
+    "presaleDate": "",
+    "presaleTime": null,
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-07-23",
+    "sources": [
+      "https://danniemay.com/%E3%80%90oneman%E3%80%91dannie-may-one-shot-vacation-in-seoul/",
+      "https://tickets.interpark.com/contents/notice/detail/13934"
+    ]
+  },
+  "let-me-know-2026-11-28": {
+    "artist": "LET ME KNOW",
+    "concertDate": "2026-11-28",
+    "time": "오후 6:00",
+    "venue": "명화라이브홀",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://nol.yanolja.com/ticket/products/26010681",
+    "ticketDate": "2026-07-31",
+    "ticketTime": "오후 6:00",
+    "presaleDate": "2026-07-27",
+    "presaleTime": "오후 6:00",
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-07-23",
+    "sources": [
+      "https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/",
+      "https://letmeknowmusic.jp/news/3422/"
+    ]
+  },
+  "hitorie-2026-08-23": {
+    "artist": "HITORIE",
+    "concertDate": "2026-08-23",
+    "time": "오후 5:00",
+    "venue": "KT&G 상상마당 라이브홀",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/59024",
+    "ticketDate": "2026-07-01",
+    "ticketTime": "낮 12:00",
+    "presaleDate": "",
+    "presaleTime": "",
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-07-25",
+    "sources": [
+      "https://www.hitorie.jp/contents/1081323",
+      "https://www.highjinkx.com/hitorie-2026",
+      "https://ticket.yes24.com/Perf/59024"
+    ]
+  },
+  "t-square-2026-10-11": {
+    "artist": "T-SQUARE",
+    "concertDate": "2026-10-11",
+    "time": "오후 6:00",
+    "venue": "연세대학교 대강당",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://nol.yanolja.com/ticket/products/26009558",
+    "ticketDate": "2026-07-09",
+    "ticketTime": "오전 10:00",
+    "presaleDate": "",
+    "presaleTime": "",
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-07-25",
+    "sources": [
+      "https://tickets.interpark.com/contents/notice/detail/14430",
+      "https://nol.yanolja.com/ticket/products/26009558",
+      "https://www.tsquare.jp/"
+    ]
+  },
+  "ano-2026-10-17": {
+    "artist": "ano",
+    "concertDate": "2026-10-17",
+    "time": "오후 6:00",
+    "venue": "블루스퀘어 우리WON뱅킹홀",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://nol.yanolja.com/ticket/products/26010474",
+    "ticketDate": "2026-07-21",
+    "ticketTime": "오후 8:00",
+    "presaleDate": "",
+    "presaleTime": "",
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-07-25",
+    "sources": [
+      "https://www.toysfactory.co.jp/artist/ano/live/detail/13680",
+      "https://tickets.interpark.com/contents/notice/detail/14615",
+      "https://nol.yanolja.com/ticket/products/26010474"
+    ]
+  },
+  "ano-2026-10-18": {
+    "artist": "ano",
+    "concertDate": "2026-10-18",
+    "time": "오후 6:00",
+    "venue": "블루스퀘어 우리WON뱅킹홀",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://nol.yanolja.com/ticket/products/26010474",
+    "ticketDate": "2026-07-21",
+    "ticketTime": "오후 8:00",
+    "presaleDate": "",
+    "presaleTime": "",
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-07-25",
+    "sources": [
+      "https://www.toysfactory.co.jp/artist/ano/live/detail/13680",
+      "https://tickets.interpark.com/contents/notice/detail/14615",
+      "https://nol.yanolja.com/ticket/products/26010474"
+    ]
+  },
+  "cero-2026-10-10": {
+    "artist": "cero",
+    "concertDate": "2026-10-10",
+    "time": "오후 7:00",
+    "venue": "KT&G 상상마당 홍대 라이브홀",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/",
+    "ticketDate": "pending",
+    "ticketTime": "pending",
+    "presaleDate": "",
+    "presaleTime": "",
+    "status": "pending",
+    "ticketLabel": null,
+    "verifiedAt": "2026-07-26",
+    "sources": [
+      "https://cero-web.jp/",
+      "https://kakubarhythm.com/news/cero",
+      "https://www.highjinkx.com/show-list/cero"
+    ]
+  },
+  "regallily-2026-11-07": {
+    "artist": "Regallily",
+    "concertDate": "2026-11-07",
+    "time": "오후 7:00",
+    "venue": "KT&G 상상마당 라이브홀",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/59001",
+    "ticketDate": "2026-06-30",
+    "ticketTime": "낮 12:00",
+    "presaleDate": "",
+    "presaleTime": "",
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-07-25",
+    "sources": [
+      "https://www.office-augusta.com/regallily/live/?post=20261107",
+      "https://www.highjinkx.com/show-list/regallily",
+      "https://ticket.yes24.com/Perf/59001"
+    ]
+  },
+  "yuuri-2026-12-05": {
+    "artist": "YUURI",
+    "concertDate": "2026-12-05",
+    "time": "오후 6:00",
+    "venue": "인스파이어 아레나",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://nol.yanolja.com/ticket/products/26010352",
+    "ticketDate": "2026-07-31",
+    "ticketTime": "오후 8:00",
+    "presaleDate": "",
+    "presaleTime": "",
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-07-25",
+    "sources": [
+      "https://tickets.interpark.com/contents/notice/detail/14619"
+    ]
+  },
+  "yuuri-2026-12-06": {
+    "artist": "YUURI",
+    "concertDate": "2026-12-06",
+    "time": "오후 5:00",
+    "venue": "인스파이어 아레나",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://nol.yanolja.com/ticket/products/26010352",
+    "ticketDate": "2026-07-31",
+    "ticketTime": "오후 8:00",
+    "presaleDate": "",
+    "presaleTime": "",
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-07-25",
+    "sources": [
+      "https://tickets.interpark.com/contents/notice/detail/14619"
+    ]
+  }
+}

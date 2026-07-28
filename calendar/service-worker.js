@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_VERSION = "j-live-pwa-v20";
+const CACHE_VERSION = "j-live-pwa-v22";
 const APP_SHELL = [
   "/calendar/",
   "/calendar/index.html",
@@ -8,11 +8,18 @@ const APP_SHELL = [
   "/calendar/styles.css",
   "/calendar/site-config.js",
   "/calendar/site.js",
+  "/calendar/analytics.js",
   "/calendar/favorites.js",
+  "/calendar/alerts.js",
   "/calendar/app.js",
   "/calendar/content.js",
   "/calendar/event.js",
   "/calendar/data/events.json",
+  "/calendar/data/artist-aliases.json",
+  "/calendar/data/updates.json",
+  "/calendar/artists/index.html",
+  "/calendar/updates.html",
+  "/calendar/weekly/index.html",
   "/calendar/assets/brand/j-live-app-logo.png",
   "/calendar/about.html",
   "/calendar/contact.html",
@@ -29,6 +36,26 @@ self.addEventListener("install", event => {
       .then(cache => cache.addAll(APP_SHELL))
       .then(() => self.skipWaiting())
   );
+});
+
+self.addEventListener("push", event => {
+  let payload = {};
+  try { payload = event.data?.json() || {}; } catch { payload = { body: event.data?.text() || "" }; }
+  event.waitUntil(self.registration.showNotification(payload.title || "J-LIVE 예매 알림", {
+    body: payload.body || "저장한 공연에 새로운 일정이 있습니다.",
+    icon: "/calendar/assets/brand/j-live-app-logo.png",
+    badge: "/calendar/assets/brand/j-live-app-logo.png",
+    data: { url: payload.url || "/calendar/" }
+  }));
+});
+
+self.addEventListener("notificationclick", event => {
+  event.notification.close();
+  const url = event.notification.data?.url || "/calendar/";
+  event.waitUntil(clients.matchAll({ type: "window", includeUncontrolled: true }).then(windows => {
+    const existing = windows.find(client => "focus" in client);
+    return existing ? existing.navigate(url).then(client => client.focus()) : clients.openWindow(url);
+  }));
 });
 
 self.addEventListener("activate", event => {

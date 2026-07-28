@@ -3,6 +3,10 @@
 const fs = require("fs");
 const path = require("path");
 const vm = require("vm");
+const {
+  artistIndexHtml, artistPageHtml, artistSlug, buildUpdateHistory,
+  snapshotEvents, updatesPageHtml, weeklyPageHtml
+} = require("./discovery-pages");
 
 const root = path.resolve(__dirname, "..");
 const calendar = path.join(root, "calendar");
@@ -226,7 +230,7 @@ function renderEventPage({ event, group, primary, editorial, siteUrl, template, 
     .replace('<strong id="eventSummary"></strong>', `<strong id="eventSummary">${escapeHtml(`${dates} · ${event.venue}`)}</strong>`)
     .replace('<p id="seriesSummary"></p>', `<p id="seriesSummary">${escapeHtml(seriesSummary)}</p>`)
     .replace('<ul class="series-date-list" id="seriesDates"></ul>', `<ul class="series-date-list" id="seriesDates">${seriesDatesMarkup(group, event.id)}</ul>`)
-    .replace('<p id="artistIntro"></p>', `<p id="artistIntro">${escapeHtml(artistIntro)}</p>`)
+    .replace('<p id="artistIntro"></p>', `<p id="artistIntro">${escapeHtml(artistIntro)}</p><a class="artist-profile-link" href="../artists/${encodeURIComponent(artistSlug(event))}">${escapeHtml(event.artist)} 아티스트 페이지 →</a>`)
     .replace('<p id="venueGuide"></p>', `<p id="venueGuide">${escapeHtml(venueGuide)}</p>${venueGuideLink(event, editorial)}`)
     .replace('<p id="ticketTip"></p>', `<p id="ticketTip">${escapeHtml(ticketTip)}</p>`)
     .replace('<ul class="check-list" id="dayChecklist"></ul>', `<ul class="check-list" id="dayChecklist">${checklistMarkup(event)}</ul>`)
@@ -240,7 +244,7 @@ function renderEventPage({ event, group, primary, editorial, siteUrl, template, 
     .replace('<dd id="factPresale"></dd>', `<dd id="factPresale">${escapeHtml(humanDate(event.presaleDate, event.presaleTime))}</dd>`)
     .replace('<dd id="factTicket"></dd>', `<dd id="factTicket">${escapeHtml(humanDate(event.ticketDate, event.ticketTime))}</dd>`)
     .replace('<dd id="factVendor"></dd>', `<dd id="factVendor">${escapeHtml(event.vendor || "미정")}</dd>`)
-    .replace('id="eventTicket" target=', `id="eventTicket" href="${escapeHtml(event.vendorUrl || "#")}" target=`)
+    .replace('id="eventTicket" target=', `id="eventTicket" href="${escapeHtml(event.vendorUrl || "#")}" data-track-vendor="${escapeHtml(event.vendor || "미정")}" target=`)
     .replaceAll('href="./', 'href="../').replaceAll('src="./', 'src="../');
 }
 
@@ -426,7 +430,9 @@ function venueIndexHtml(venueGuides, siteUrl) {
 
 function main() {
   const today = process.env.BUILD_DATE || new Date().toISOString().slice(0, 10);
-  const events = JSON.parse(readUtf8(path.join(calendar, "data", "events.json"))).filter(event => event.status === "confirmed");
+  const allEvents = JSON.parse(readUtf8(path.join(calendar, "data", "events.json")));
+  const events = allEvents.filter(event => event.status === "confirmed");
+  const aliases = JSON.parse(readUtf8(path.join(calendar, "data", "artist-aliases.json")));
   const editorial = loadEditorial(path.join(calendar, "content.js"));
   const configText = readUtf8(path.join(calendar, "site-config.js"));
   const siteUrlMatch = configText.match(/siteUrl:\s*"([^"]+)"/);
@@ -449,8 +455,37 @@ function main() {
   for (const [slug, guide] of Object.entries(editorial.venueGuides || {})) writeUtf8(path.join(venueDirectory, `${slug}.html`), venuePageHtml(slug, guide, siteUrl));
   writeUtf8(path.join(calendar, "guides", "venues.html"), venueIndexHtml(editorial.venueGuides, siteUrl));
 
+  const artistGroups = new Map();
+  for (const event of events) {
+    if (!artistGroups.has(event.artist)) artistGroups.set(event.artist, []);
+    artistGroups.get(event.artist).push(event);
+  }
+  const artistDirectory = path.join(calendar, "artists");
+  fs.mkdirSync(artistDirectory, { recursive: true });
+  for (const filename of fs.readdirSync(artistDirectory)) if (filename.endsWith(".html")) fs.unlinkSync(path.join(artistDirectory, filename));
+  for (const [artist, artistEvents] of artistGroups) {
+    writeUtf8(path.join(artistDirectory, `${artistSlug(artistEvents[0])}.html`), artistPageHtml({ artist, events: artistEvents, aliases, editorial, siteUrl, today }));
+  }
+  writeUtf8(path.join(artistDirectory, "index.html"), artistIndexHtml({ groups: artistGroups, aliases, siteUrl, today }));
+
+  const snapshotFile = path.join(calendar, "data", "event-snapshot.json");
+  const updatesFile = path.join(calendar, "data", "updates.json");
+  const previousSnapshot = fs.existsSync(snapshotFile) ? JSON.parse(readUtf8(snapshotFile)) : {};
+  const previousUpdates = fs.existsSync(updatesFile) ? JSON.parse(readUtf8(updatesFile)) : [];
+  const updates = buildUpdateHistory(allEvents, previousSnapshot, previousUpdates, today);
+  writeUtf8(snapshotFile, `${JSON.stringify(snapshotEvents(allEvents), null, 2)}\n`);
+  writeUtf8(updatesFile, `${JSON.stringify(updates, null, 2)}\n`);
+  writeUtf8(path.join(calendar, "updates.html"), updatesPageHtml({ updates, siteUrl }));
+
+  const weekly = weeklyPageHtml({ events, aliases, editorial, siteUrl, today });
+  const weeklyDirectory = path.join(calendar, "weekly");
+  fs.mkdirSync(weeklyDirectory, { recursive: true });
+  writeUtf8(path.join(weeklyDirectory, `${weekly.start}.html`), weekly.html);
+  writeUtf8(path.join(weeklyDirectory, "index.html"), weekly.html);
+
   const venuePaths = Object.keys(editorial.venueGuides || {}).map(slug => `/calendar/guides/venues/${encodeURIComponent(slug)}`);
-  const staticPaths = ["/calendar/", "/calendar/about", "/calendar/guides/venues", ...venuePaths, "/calendar/guides/verification", "/calendar/guides/standing-concert"];
+  const artistPaths = [...artistGroups.values()].map(artistEvents => `/calendar/artists/${encodeURIComponent(artistSlug(artistEvents[0]))}`);
+  const staticPaths = ["/calendar/", "/calendar/about", "/calendar/artists", ...artistPaths, "/calendar/updates", `/calendar/weekly/${weekly.start}`, "/calendar/guides/venues", ...venuePaths, "/calendar/guides/verification", "/calendar/guides/standing-concert"];
   const primaryEvents = events.filter(event => primaryById.get(event.id).id === event.id && groupById.get(event.id).some(item => item.concertDate >= today) && hasEditorialGuide(event, editorial));
   const lastmod = today;
   const urls = [...staticPaths.map(url => ({ loc: `${siteUrl}${url}`, lastmod })), ...primaryEvents.map(event => ({ loc: `${siteUrl}/calendar/events/${encodeURIComponent(event.id)}`, lastmod: event.verifiedAt || lastmod }))];

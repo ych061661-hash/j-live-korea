@@ -94,6 +94,23 @@ window.JLIVE_ARTIST_IMAGES = (() => {
   return { localUrl, remoteUrl, preload };
 })();
 
+document.addEventListener("click", async event => {
+  const vendorLink = event.target.closest("[data-track-vendor]");
+  if (vendorLink) window.JLIVE_ANALYTICS?.track("ticket_click", { vendor: vendorLink.dataset.trackVendor || "미정" });
+
+  const shareButton = event.target.closest("[data-share-page]");
+  if (!shareButton) return;
+  const shareData = { title: document.title, text: document.querySelector('meta[name="description"]')?.content || "", url: location.href };
+  try {
+    if (navigator.share) await navigator.share(shareData);
+    else await navigator.clipboard.writeText(location.href);
+    shareButton.textContent = navigator.share ? "공유 완료" : "주소 복사 완료";
+  } catch (error) {
+    shareButton.textContent = error.name === "AbortError" ? "공유 취소됨" : "주소창에서 복사해 주세요";
+  }
+  setTimeout(() => { shareButton.textContent = "이번 주 일정 공유"; }, 1800);
+});
+
 (() => {
   const config = window.JLIVE_CONFIG || {};
   if (config.googleSiteVerification) {

@@ -44,6 +44,12 @@ h1 span { color:var(--lime); }
 .my-shows-heading { display:flex; align-items:end; justify-content:space-between; gap:24px; }
 .my-shows-heading h2 { margin:4px 0 0; font-size:25px; letter-spacing:-.04em; }
 .my-shows-heading p { margin:0 0 2px; color:var(--muted); font-size:11px; }
+.my-shows-tools { display:grid; justify-items:end; gap:8px; }
+.my-shows-tools button { padding:8px 10px; border:1px solid var(--blue); border-radius:9px; color:#d9edff; background:rgba(109,185,255,.1); cursor:pointer; font-size:9px; font-weight:800; }
+.my-shows-tools button[aria-pressed=true] { color:#111; background:var(--blue); }
+.alert-plan { display:flex; gap:7px; margin-top:14px; overflow-x:auto; scrollbar-width:thin; }
+.alert-plan span { flex:0 0 auto; padding:8px 10px; border:1px solid var(--line); border-radius:9px; color:#bec0c7; background:rgba(255,255,255,.035); font-size:9px; }
+.alert-plan b { color:var(--blue); }
 .saved-artists { display:flex; gap:7px; margin-top:16px; overflow-x:auto; scrollbar-width:thin; }
 .saved-artists span { display:flex; flex:0 0 auto; align-items:center; gap:7px; padding:7px 8px 7px 11px; border:1px solid rgba(109,185,255,.32); border-radius:99px; color:#d8ecff; background:rgba(109,185,255,.08); font-size:10px; }
 .saved-artists button { display:grid; place-items:center; width:20px; height:20px; padding:0; border:0; border-radius:50%; color:#9cb2c6; background:rgba(255,255,255,.07); cursor:pointer; }
@@ -256,6 +262,56 @@ footer { padding:22px 0 34px; color:#686970; font-size:11px; text-align:center; 
 .guide-preview-grid a:hover { border-color:var(--lime); transform:translateY(-2px); }
 .guide-preview-grid strong { font-size:14px; }
 .guide-preview-grid span { color:var(--muted); font-size:11px; line-height:1.55; }
+.page-nav { display:flex; gap:8px; }
+.page-nav a { padding:8px 10px; border:1px solid var(--line); border-radius:9px; color:#bbbcc2; font-size:10px; }
+.directory-page,.updates-page,.weekly-page,.artist-profile { min-height:65vh; padding:56px 0 76px; }
+.directory-page > h1,.updates-page > h1,.weekly-page > h1 { margin:8px 0 14px; font-size:clamp(38px,6vw,64px); letter-spacing:-.055em; }
+.artist-index-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:28px; }
+.artist-index-card { display:grid; gap:6px; min-width:0; padding:18px; border:1px solid var(--line); border-radius:15px; background:var(--panel); }
+.artist-index-card:hover,.artist-index-card:focus-visible { border-color:var(--lime); outline:none; transform:translateY(-2px); }
+.artist-index-card span { color:var(--lime); font-size:9px; font-weight:800; }
+.artist-index-card strong { overflow:hidden; font-size:17px; text-overflow:ellipsis; white-space:nowrap; }
+.artist-index-card small { color:var(--muted); font-size:9px; }
+.artist-profile-hero { display:grid; grid-template-columns:240px 1fr; align-items:end; gap:30px; padding:30px; border:1px solid var(--line); border-radius:24px; background:var(--panel); }
+.artist-profile-hero img { width:100%; aspect-ratio:1; border-radius:18px; object-fit:cover; }
+.artist-profile-hero h1 { margin:8px 0 16px; }
+.artist-profile-hero p { max-width:700px; margin:0; color:#b9bac0; line-height:1.8; }
+.artist-name-grid,.artist-profile-grid,.artist-related { display:grid; gap:10px; margin-top:16px; }
+.artist-name-grid { grid-template-columns:repeat(3,1fr); }
+.artist-name-grid div,.artist-profile-grid > section,.artist-songs,.artist-related > div { padding:22px; border:1px solid var(--line); border-radius:17px; background:var(--panel); }
+.artist-name-grid small { display:block; color:var(--muted); font-size:9px; }
+.artist-name-grid strong { display:block; margin-top:6px; font-size:16px; }
+.artist-profile-grid,.artist-related { grid-template-columns:1fr 1fr; }
+.artist-profile-grid h2,.artist-songs h2,.artist-related h2,.weekly-page h2 { margin:7px 0 16px; font-size:21px; }
+.artist-event-list { display:grid; gap:7px; margin:0; padding:0; list-style:none; }
+.artist-event-list a { display:grid; gap:4px; padding:12px; border-radius:10px; background:rgba(255,255,255,.035); }
+.artist-event-list span,.artist-related p { color:var(--muted); font-size:10px; line-height:1.6; }
+.artist-songs { margin-top:16px; }
+.artist-related a,.artist-profile-link { color:var(--lime); }
+.artist-profile-link { display:inline-block; margin-top:12px; font-size:11px; font-weight:700; }
+.weekly-page > section { margin-top:26px; padding:24px; border:1px solid var(--line); border-radius:20px; background:var(--panel); }
+.share-page-button { padding:11px 14px; border:1px solid var(--lime); border-radius:10px; color:#111; background:var(--lime); cursor:pointer; font-weight:800; }
+.weekly-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
+.weekly-card { display:grid; gap:15px; padding:18px; border:1px solid var(--line); border-radius:14px; background:#111216; }
+.weekly-card h3 { margin:6px 0; font-size:20px; }
+.weekly-card p { margin:0; color:var(--muted); font-size:10px; }
+.weekly-songs { display:grid; gap:6px; }
+.weekly-songs a { overflow:hidden; color:#c7c8cc; font-size:10px; text-overflow:ellipsis; white-space:nowrap; }
+.weekly-actions { display:flex; gap:7px; margin-top:auto; }
+.weekly-actions a,.weekly-ticket-list a,.update-card a { padding:7px 9px; border:1px solid var(--line); border-radius:8px; font-size:9px; }
+.weekly-ticket-list { display:grid; gap:8px; }
+.weekly-ticket-list article { display:grid; grid-template-columns:180px 1fr 1fr auto; align-items:center; gap:12px; padding:14px; border:1px solid var(--line); border-radius:12px; }
+.weekly-ticket-list time { color:var(--pink); font-size:10px; font-weight:800; }
+.weekly-ticket-list span { color:var(--muted); font-size:10px; }
+.update-feed { display:grid; gap:10px; margin-top:26px; }
+.update-card { display:grid; grid-template-columns:120px 100px 180px 1fr auto; align-items:center; gap:14px; padding:18px; border:1px solid var(--line); border-radius:15px; background:var(--panel); }
+.update-card time { color:var(--muted); font-size:9px; }
+.update-card > span { color:var(--blue); font-size:9px; font-weight:800; }
+.update-card h2,.update-card p { margin:0; }
+.update-card h2 { font-size:16px; }
+.update-card p { color:#b6b7bc; font-size:10px; line-height:1.6; }
+.update-card > div { display:flex; gap:6px; }
+.empty-row { color:var(--muted); font-size:11px; }
 .guide-article { max-width:820px; min-height:65vh; padding:64px 0 80px; }
 .guide-article > h1 { margin:12px 0 20px; font-size:clamp(40px,6vw,66px); line-height:1.06; }
 .guide-article .guide-lead { margin:0 0 34px; color:#b5b6bb; font-size:17px; line-height:1.8; }
@@ -517,6 +573,7 @@ footer { padding:22px 0 34px; color:#686970; font-size:11px; text-align:center; 
   .my-shows-heading { align-items:start; }
   .my-shows-heading h2 { font-size:21px; }
   .my-shows-heading p { max-width:150px; text-align:right; }
+  .my-shows-tools { justify-items:end; }
   .my-show-events { display:flex; gap:9px; margin-right:-15px; padding-right:15px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; }
   .my-show-events::-webkit-scrollbar { display:none; }
   .my-show-card { flex:0 0 min(78vw,290px); scroll-snap-align:start; }
@@ -597,6 +654,18 @@ footer { padding:22px 0 34px; color:#686970; font-size:11px; text-align:center; 
   .guide-preview-heading { display:block; }
   .guide-preview-heading p { margin-top:10px; }
   .guide-preview-grid { grid-template-columns:1fr; }
+  .page-nav { gap:4px; }
+  .page-nav a { padding:7px; font-size:9px; }
+  .directory-page,.updates-page,.weekly-page,.artist-profile { padding:40px 14px 56px; }
+  .artist-index-grid { grid-template-columns:1fr 1fr; }
+  .artist-profile-hero { grid-template-columns:100px 1fr; align-items:center; gap:16px; padding:18px; }
+  .artist-profile-hero h1 { font-size:34px; }
+  .artist-profile-hero p { grid-column:1/-1; font-size:11px; }
+  .artist-name-grid,.artist-profile-grid,.artist-related { grid-template-columns:1fr; }
+  .weekly-grid { grid-template-columns:1fr; }
+  .weekly-ticket-list article { grid-template-columns:1fr; gap:5px; }
+  .update-card { grid-template-columns:1fr 1fr; gap:8px; }
+  .update-card h2,.update-card p,.update-card > div { grid-column:1/-1; }
   .guide-article { padding:44px 16px 60px; }
   .guide-article section { padding:22px 18px; }
   .attendance-board { margin:36px 12px 0; padding:28px 18px 22px; }

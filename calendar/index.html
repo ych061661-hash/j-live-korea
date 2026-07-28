@@ -10,7 +10,7 @@
   <link rel="canonical" href="https://j-live.kr/calendar/">
   <link rel="icon" type="image/png" href="./assets/brand/j-live-app-logo.png">
   <link rel="apple-touch-icon" href="./assets/brand/j-live-app-logo.png">
-  <link rel="stylesheet" href="./styles.css?v=20260729a">
+  <link rel="stylesheet" href="./styles.css?v=20260729b">
   <script src="./site-config.js"></script>
   <script src="./site.js" defer></script>
 </head>
@@ -136,9 +136,13 @@
           <span class="section-kicker">MY J-LIVE</span>
           <h2 id="myShowsTitle">내 공연</h2>
         </div>
-        <p id="myShowsSummary">로그인 없이 이 브라우저에만 저장됩니다.</p>
+        <div class="my-shows-tools">
+          <p id="myShowsSummary">로그인 없이 이 브라우저에만 저장됩니다.</p>
+          <button id="alertButton" type="button">예매 알림 켜기</button>
+        </div>
       </div>
       <div class="saved-artists" id="savedArtists" aria-label="관심 아티스트" hidden></div>
+      <div class="alert-plan" id="alertPlan" aria-live="polite" hidden></div>
       <div class="my-show-events" id="myShowEvents" aria-live="polite"></div>
       <div class="my-shows-empty" id="myShowsEmpty">
         <strong>아직 저장한 공연이 없습니다.</strong>
@@ -162,6 +166,9 @@
         <p>달력에서 날짜를 찾은 뒤 실제 예매와 이동에 필요한 내용을 직접 정리했습니다.</p>
       </div>
       <div class="guide-preview-grid">
+        <a href="./weekly"><strong>이번 주 J-POP</strong><span>이번 주 공연과 티켓팅을 공유 가능한 한 페이지로 확인</span></a>
+        <a href="./updates"><strong>공연 업데이트</strong><span>신규 발표, 예매 변경, 추가 좌석과 취소·연기 기록</span></a>
+        <a href="./artists"><strong>내한 아티스트</strong><span>예정 공연, 지난 내한과 대표곡 3개를 아티스트별로 확인</span></a>
         <a href="./guides/venues"><strong>주요 공연장 교통 안내</strong><span>도착 시간과 귀가 동선을 공연장별로 비교</span></a>
         <a href="./guides/verification"><strong>일정 검증은 이렇게 합니다</strong><span>공식 출처와 마지막 확인일을 기록하는 기준</span></a>
         <a href="./guides/standing-concert"><strong>스탠딩 공연 체크리스트</strong><span>입장 번호, 화장실, 물품 보관, 공연 후 이동.</span></a>
@@ -172,7 +179,9 @@
       <p>제이라이브 코리아는 공연 주최사 또는 예매처가 아닙니다. 예매 전 공식 페이지의 최신 정보를 다시 확인하세요.</p>
     </footer>
   </div>
+  <script src="./analytics.js?v=20260729" defer></script>
   <script src="./favorites.js?v=20260729" defer></script>
-  <script src="./app.js?v=20260729" defer></script>
+  <script src="./alerts.js?v=20260729" defer></script>
+  <script src="./app.js?v=20260729b" defer></script>
 </body>
 </html>

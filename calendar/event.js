@@ -154,6 +154,7 @@ function renderEvent(event, events) {
   const ticket = document.querySelector("#eventTicket");
   ticket.hidden = !event.vendorUrl;
   ticket.href = event.vendorUrl || "#";
+  ticket.dataset.trackVendor = event.vendor || "미정";
   const correctionBase = location.pathname.includes("/calendar/events/") ? "../corrections" : "./corrections";
   document.querySelector("#correctionLink").href = `${correctionBase}?event=${encodeURIComponent(event.id)}&artist=${encodeURIComponent(event.artist)}`;
 
