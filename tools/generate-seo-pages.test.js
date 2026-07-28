@@ -2,7 +2,7 @@
 
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { buildSeries, hasEditorialGuide, humanDate, richEventGuideMarkup, ticketGuideMarkup, venueGuideForEvent, venuePageHtml } = require("./generate-seo-pages");
+const { buildSeries, hasEditorialGuide, humanDate, richEventGuideMarkup, seriesDatesMarkup, ticketGuideMarkup, venueGuideForEvent, venueIndexHtml, venuePageHtml } = require("./generate-seo-pages");
 
 test("groups consecutive dates and selects the first future performance", () => {
   const base = { artist: "Artist", venue: "Venue", vendorUrl: "https://tickets.example/event" };
@@ -46,7 +46,15 @@ test("renders ticket analysis and resolves a venue field guide", () => {
 });
 
 test("renders every requested venue section", () => {
-  const guide = { name: "Hall", summary: "요약", transit: "교통", arrival: "입장", restroom: "화장실", storage: "보관", waiting: "대기", nearby: "식사", return: "귀가", verifiedAt: "2026-07-20", sources: [] };
+  const guide = { name: "Hall", summary: "요약", seoTitle: "Hall 위치·좌석 안내", transit: "교통", capacity: "1,000석", arrival: "입장", restroom: "화장실", storage: "보관", parking: "관객 주차 없음", waiting: "대기", nearby: "식사", return: "귀가", verifiedAt: "2026-07-20", sources: [] };
   const html = venuePageHtml("hall", guide, "https://j-live.kr");
-  for (const heading of ["지하철·버스에서 공연장까지", "입장 줄까지의 동선", "화장실", "물품 보관", "스탠딩·현장 대기", "주변 식사·카페", "귀가와 막차"]) assert.match(html, new RegExp(heading));
+  for (const heading of ["지하철·버스에서 공연장까지", "좌석·수용 규모", "입장 줄까지의 동선", "화장실", "물품 보관", "관객 주차", "스탠딩·현장 대기", "주변 식사·카페", "귀가와 막차"]) assert.match(html, new RegExp(heading));
+  assert.match(html, /<link rel="canonical" href="https:\/\/j-live\.kr\/calendar\/guides\/venues\/hall">/);
+  assert.doesNotMatch(html, /hall\.html/);
+});
+
+test("generates extensionless public links", () => {
+  assert.match(seriesDatesMarkup([{ id: "artist-2026-08-01", concertDate: "2026-08-01" }], "artist-2026-08-01"), /href="artist-2026-08-01"/);
+  assert.doesNotMatch(seriesDatesMarkup([{ id: "artist-2026-08-01", concertDate: "2026-08-01" }], "artist-2026-08-01"), /\.html/);
+  assert.doesNotMatch(venueIndexHtml({ hall: { name: "Hall", venues: ["Hall"], summary: "요약", verifiedAt: "2026-07-20" } }, "https://j-live.kr"), /\.html/);
 });

@@ -78,7 +78,7 @@ function renderSeries(event, events) {
   const base = location.pathname.includes("/calendar/events/") ? "./" : "./events/";
   document.querySelector("#seriesDates").innerHTML = series.map(item => `
     <li class="${item.id === event.id ? "active" : ""}">
-      <a href="${base}${encodeURIComponent(item.id)}.html">${escapeHtml(humanDate(item.concertDate, item.time))}</a>
+      <a href="${base}${encodeURIComponent(item.id)}">${escapeHtml(humanDate(item.concertDate, item.time))}</a>
     </li>`).join("");
   return series;
 }
@@ -86,8 +86,8 @@ function renderSeries(event, events) {
 function addStructuredData(event) {
   const canonicalElement = document.querySelector("#canonicalLink");
   const canonical = canonicalElement?.getAttribute("href") || (location.pathname.includes("/calendar/events/")
-    ? `${config.siteUrl || location.origin}/calendar/events/${encodeURIComponent(event.id)}.html`
-    : `${config.siteUrl || location.origin}/calendar/event.html?id=${encodeURIComponent(event.id)}`);
+    ? `${config.siteUrl || location.origin}/calendar/events/${encodeURIComponent(event.id)}`
+    : `${config.siteUrl || location.origin}/calendar/event?id=${encodeURIComponent(event.id)}`);
   const script = document.querySelector("#eventStructuredData") || document.createElement("script");
   script.type = "application/ld+json";
   script.id = "eventStructuredData";
@@ -116,14 +116,15 @@ function addStructuredData(event) {
 }
 
 function renderEvent(event, events) {
-  const title = `${event.artist} 내한 공연 일정·예매 | 제이라이브 코리아`;
+  const [year, month, day] = event.concertDate.split("-").map(Number);
+  const title = `${event.artist} 내한 ${year} | ${month}월 ${day}일 공연·예매 정보`;
   const description = `${humanDate(event.concertDate, event.time)}, ${event.venue}에서 열리는 ${event.artist} 내한 공연의 예매 일정과 공식 출처입니다.`;
   document.title = title;
   document.querySelector('meta[name="description"]').content = description;
   const canonicalElement = document.querySelector("#canonicalLink");
   const canonical = canonicalElement.getAttribute("href") || (location.pathname.includes("/calendar/events/")
-    ? `${config.siteUrl || location.origin}/calendar/events/${encodeURIComponent(event.id)}.html`
-    : `${config.siteUrl || location.origin}/calendar/event.html?id=${encodeURIComponent(event.id)}`);
+    ? `${config.siteUrl || location.origin}/calendar/events/${encodeURIComponent(event.id)}`
+    : `${config.siteUrl || location.origin}/calendar/event?id=${encodeURIComponent(event.id)}`);
   canonicalElement.href = canonical;
 
   document.querySelector("#eventArtist").textContent = event.artist;
@@ -153,7 +154,7 @@ function renderEvent(event, events) {
   const ticket = document.querySelector("#eventTicket");
   ticket.hidden = !event.vendorUrl;
   ticket.href = event.vendorUrl || "#";
-  const correctionBase = location.pathname.includes("/calendar/events/") ? "../corrections.html" : "./corrections.html";
+  const correctionBase = location.pathname.includes("/calendar/events/") ? "../corrections" : "./corrections";
   document.querySelector("#correctionLink").href = `${correctionBase}?event=${encodeURIComponent(event.id)}&artist=${encodeURIComponent(event.artist)}`;
 
   document.querySelector("#eventSongs").innerHTML = (event.songs || []).map(song => `
@@ -197,6 +198,6 @@ async function initializeEvent() {
 }
 
 initializeEvent().catch(error => {
-  const indexPath = location.pathname.includes("/calendar/events/") ? "../index.html" : "./index.html";
+  const indexPath = location.pathname.includes("/calendar/events/") ? "../" : "./";
   document.querySelector("#eventLoading").innerHTML = `<strong>공연 정보를 표시할 수 없습니다.</strong><span>${escapeHtml(error.message)}</span><a href="${indexPath}">전체 달력으로 돌아가기</a>`;
 });

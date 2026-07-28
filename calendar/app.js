@@ -181,7 +181,7 @@ function renderWeekendSpotlight() {
   weekendEvents.innerHTML = events.map(schedule => {
     const photoUrl = window.JLIVE_ARTIST_IMAGES.localUrl(schedule);
     return `
-      <a class="weekend-card" href="./events/${encodeURIComponent(schedule.id)}.html"
+      <a class="weekend-card" href="./events/${encodeURIComponent(schedule.id)}"
         aria-label="${escapeHtml(schedule.artist)} ${escapeHtml(formatDate(schedule.concertDate))} 공연 상세 보기">
         ${photoUrl ? `<img src="${escapeHtml(photoUrl)}" alt="" loading="eager">` : ""}
         <span class="weekend-card-shade"></span>
@@ -221,7 +221,7 @@ function renderAttendanceRanking() {
     <li>
       <span class="rank">${index + 1}</span>
       <div>
-        <a href="./events/${encodeURIComponent(schedule.id)}.html"><strong>${escapeHtml(schedule.artist)}</strong></a>
+        <a href="./events/${encodeURIComponent(schedule.id)}"><strong>${escapeHtml(schedule.artist)}</strong></a>
         <small>${escapeHtml(schedule.attendanceScope || formatDate(schedule.concertDate))} · ${escapeHtml(schedule.venue)}</small>
         <a class="attendance-source" href="${escapeHtml(schedule.attendanceSource)}" target="_blank" rel="noopener noreferrer">출처 · ${escapeHtml(schedule.attendanceVerifiedAt || "검증일 미정")} ↗</a>
       </div>
@@ -329,7 +329,7 @@ function renderDetail(schedule, type) {
   const ticketButton = document.querySelector("#ticketButton");
   ticketButton.hidden = !schedule.vendorUrl;
   ticketButton.href = schedule.vendorUrl || "#";
-  document.querySelector("#detailPageButton").href = `./events/${encodeURIComponent(schedule.id)}.html`;
+  document.querySelector("#detailPageButton").href = `./events/${encodeURIComponent(schedule.id)}`;
 }
 
 function openMobileDetail() {

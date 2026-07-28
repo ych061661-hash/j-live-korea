@@ -105,7 +105,7 @@ function eventEndDate(group) {
 }
 
 function seriesDatesMarkup(group, activeId) {
-  return group.map(item => `<li${item.id === activeId ? ' class="active"' : ""}><a href="${encodeURIComponent(item.id)}.html">${escapeHtml(humanDate(item.concertDate, item.time))}</a></li>`).join("\n");
+  return group.map(item => `<li${item.id === activeId ? ' class="active"' : ""}><a href="${encodeURIComponent(item.id)}">${escapeHtml(humanDate(item.concertDate, item.time))}</a></li>`).join("\n");
 }
 
 function checklistMarkup(event) {
@@ -150,7 +150,7 @@ function venueGuideForEvent(event, editorial) {
 
 function venueGuideLink(event, editorial) {
   const entry = venueGuideForEvent(event, editorial);
-  return entry ? `<a class="inline-guide-link" href="../guides/venues/${encodeURIComponent(entry[0])}.html">${escapeHtml(entry[1].name)} 현장 가이드 보기 →</a>` : "";
+  return entry ? `<a class="inline-guide-link" href="../guides/venues/${encodeURIComponent(entry[0])}">${escapeHtml(entry[1].name)} 현장 가이드 보기 →</a>` : "";
 }
 
 function richEventGuideMarkup(event, editorial) {
@@ -197,10 +197,11 @@ function structuredData(event, group, canonical, siteUrl) {
 }
 
 function renderEventPage({ event, group, primary, editorial, siteUrl, template, today }) {
-  const canonical = `${siteUrl}/calendar/events/${encodeURIComponent(primary.id)}.html`;
+  const canonical = `${siteUrl}/calendar/events/${encodeURIComponent(primary.id)}`;
   const indexable = event.id === primary.id && group.some(item => item.concertDate >= today) && hasEditorialGuide(event, editorial);
   const years = [...new Set(group.map(item => item.concertDate.slice(0, 4)))].join("·");
-  const title = `${event.artist} 내한 ${years} 일정·예매·공연장 정보 | 제이라이브 코리아`;
+  const [, month, day] = event.concertDate.split("-").map(Number);
+  const title = `${event.artist} 내한 ${years} | ${month}월 ${day}일 공연·예매 정보`;
   const dates = group.map(item => humanDate(item.concertDate, item.time)).join(", ");
   const description = `${event.artist} 내한 공연은 ${dates} ${event.venue}에서 열립니다. 예매 일정, 교통, 대표곡과 공식 출처를 확인하세요.`;
   const artistIntro = editorial.artists[event.artist] || `${event.artist}의 한국 공연입니다. 공식 발표와 예매처 정보를 기준으로 일정을 정리했습니다.`;
@@ -248,31 +249,35 @@ function venueSourcesMarkup(guide) {
 }
 
 function venuePageHtml(slug, guide, siteUrl) {
-  const canonical = `${siteUrl}/calendar/guides/venues/${encodeURIComponent(slug)}.html`;
+  const canonical = `${siteUrl}/calendar/guides/venues/${encodeURIComponent(slug)}`;
   const sections = [
     ["지하철·버스에서 공연장까지", guide.transit],
+    guide.capacity && ["좌석·수용 규모", guide.capacity],
     ["입장 줄까지의 동선", guide.arrival],
     ["화장실", guide.restroom],
     ["물품 보관", guide.storage],
+    guide.parking && ["관객 주차", guide.parking],
     ["스탠딩·현장 대기", guide.waiting],
     ["주변 식사·카페", guide.nearby],
     ["귀가와 막차", guide.return]
-  ];
+  ].filter(Boolean);
+  const description = guide.seoDescription || `${guide.name} 교통, 입장 동선, 화장실, 물품 보관, 식사와 귀가 정보를 공식 출처 기준으로 정리했습니다.`;
+  const title = guide.seoTitle || `${guide.name} 교통·화장실·물품보관 가이드`;
   return `<!doctype html>
 <html lang="ko"><head>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3081918168688274" crossorigin="anonymous"></script>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="${escapeHtml(`${guide.name} 교통, 입장 동선, 화장실, 물품 보관, 식사와 귀가 정보를 공식 출처 기준으로 정리했습니다.`)}">
-  <title>${escapeHtml(guide.name)} 교통·화장실·물품보관 가이드 | 제이라이브 코리아</title>
+  <meta name="description" content="${escapeHtml(description)}">
+  <title>${escapeHtml(title)} | 제이라이브 코리아</title>
   <link rel="canonical" href="${escapeHtml(canonical)}"><link rel="stylesheet" href="../../styles.css">
 </head><body><div class="shell info-shell">
-  <header><a class="brand" href="../../index.html"><span class="brand-mark">J</span> 제이라이브 코리아</a><a class="ghost-button" href="../venues.html">공연장 목록</a></header>
+  <header><a class="brand" href="../../"><span class="brand-mark">J</span> 제이라이브 코리아</a><a class="ghost-button" href="../venues">공연장 목록</a></header>
   <main class="guide-article venue-article"><span class="section-kicker">VENUE FIELD GUIDE</span><h1>${escapeHtml(guide.name)}</h1>
     <p class="guide-lead">${escapeHtml(guide.summary)}</p>
     <nav class="venue-section-nav" aria-label="이 페이지 목차">${sections.map(([title], index) => `<a href="#venue-${index + 1}">${escapeHtml(title)}</a>`).join("")}</nav>
     ${sections.map(([title, body], index) => `<section id="venue-${index + 1}"><h2>${escapeHtml(title)}</h2><p>${escapeHtml(body)}</p></section>`).join("\n    ")}
     <section><h2>출처와 확인일</h2><div class="source-links">${venueSourcesMarkup(guide)}</div><p class="guide-updated">마지막 확인: ${escapeHtml(guide.verifiedAt)} · 공연 당일 운영은 주최사 공지를 우선합니다.</p></section>
-  </main><footer class="site-footer"><nav><a href="../venues.html">공연장 가이드</a><a href="../../corrections.html">정보 수정 요청</a></nav></footer>
+  </main><footer class="site-footer"><nav><a href="../venues">공연장 가이드</a><a href="../../corrections">정보 수정 요청</a></nav></footer>
 </div></body></html>\n`;
 }
 
@@ -284,13 +289,13 @@ function venueIndexHtml(venueGuides, siteUrl) {
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="J-POP 내한 주요 공연장의 교통, 입장 동선, 화장실, 물품 보관, 식사와 귀가 정보를 공연장별로 확인하세요.">
   <title>J-POP 내한 공연장 현장 가이드 | 제이라이브 코리아</title>
-  <link rel="canonical" href="${escapeHtml(siteUrl)}/calendar/guides/venues.html"><link rel="stylesheet" href="../styles.css">
+  <link rel="canonical" href="${escapeHtml(siteUrl)}/calendar/guides/venues"><link rel="stylesheet" href="../styles.css">
 </head><body><div class="shell info-shell">
-  <header><a class="brand" href="../index.html"><span class="brand-mark">J</span> 제이라이브 코리아</a><a class="ghost-button" href="../index.html">공연 달력</a></header>
+  <header><a class="brand" href="../"><span class="brand-mark">J</span> 제이라이브 코리아</a><a class="ghost-button" href="../">공연 달력</a></header>
   <main class="guide-article venue-index"><span class="section-kicker">VENUE CATEGORY</span><h1>공연장 현장 가이드</h1>
     <p class="guide-lead">교통만 적지 않았습니다. 입장 줄, 화장실, 물품 보관, 식사와 공연 종료 뒤 귀가까지 공연장별로 확인합니다.</p>
-    <div class="venue-card-grid">${guides.map(([slug, guide]) => `<a class="venue-card" href="./venues/${encodeURIComponent(slug)}.html"><span>${escapeHtml(guide.venues.join(" · "))}</span><strong>${escapeHtml(guide.name)}</strong><p>${escapeHtml(guide.summary)}</p><em>마지막 확인 ${escapeHtml(guide.verifiedAt)}</em></a>`).join("")}</div>
-  </main><footer class="site-footer"><nav><a href="../about.html">소개</a><a href="../corrections.html">정보 수정 요청</a></nav></footer>
+    <div class="venue-card-grid">${guides.map(([slug, guide]) => `<a class="venue-card" href="./venues/${encodeURIComponent(slug)}"><span>${escapeHtml(guide.venues.join(" · "))}</span><strong>${escapeHtml(guide.name)}</strong><p>${escapeHtml(guide.summary)}</p><em>마지막 확인 ${escapeHtml(guide.verifiedAt)}</em></a>`).join("")}</div>
+  </main><footer class="site-footer"><nav><a href="../about">소개</a><a href="../corrections">정보 수정 요청</a></nav></footer>
 </div></body></html>\n`;
 }
 
@@ -319,11 +324,11 @@ function main() {
   for (const [slug, guide] of Object.entries(editorial.venueGuides || {})) writeUtf8(path.join(venueDirectory, `${slug}.html`), venuePageHtml(slug, guide, siteUrl));
   writeUtf8(path.join(calendar, "guides", "venues.html"), venueIndexHtml(editorial.venueGuides, siteUrl));
 
-  const venuePaths = Object.keys(editorial.venueGuides || {}).map(slug => `/calendar/guides/venues/${encodeURIComponent(slug)}.html`);
-  const staticPaths = ["/calendar/", "/calendar/about.html", "/calendar/guides/venues.html", ...venuePaths, "/calendar/guides/verification.html", "/calendar/guides/standing-concert.html"];
+  const venuePaths = Object.keys(editorial.venueGuides || {}).map(slug => `/calendar/guides/venues/${encodeURIComponent(slug)}`);
+  const staticPaths = ["/calendar/", "/calendar/about", "/calendar/guides/venues", ...venuePaths, "/calendar/guides/verification", "/calendar/guides/standing-concert"];
   const primaryEvents = events.filter(event => primaryById.get(event.id).id === event.id && groupById.get(event.id).some(item => item.concertDate >= today) && hasEditorialGuide(event, editorial));
   const lastmod = today;
-  const urls = [...staticPaths.map(url => ({ loc: `${siteUrl}${url}`, lastmod })), ...primaryEvents.map(event => ({ loc: `${siteUrl}/calendar/events/${encodeURIComponent(event.id)}.html`, lastmod: event.verifiedAt || lastmod }))];
+  const urls = [...staticPaths.map(url => ({ loc: `${siteUrl}${url}`, lastmod })), ...primaryEvents.map(event => ({ loc: `${siteUrl}/calendar/events/${encodeURIComponent(event.id)}`, lastmod: event.verifiedAt || lastmod }))];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(item => `  <url><loc>${escapeHtml(item.loc)}</loc><lastmod>${item.lastmod}</lastmod></url>`).join("\n")}\n</urlset>\n`;
   writeUtf8(path.join(root, "sitemap.xml"), sitemap);
   writeUtf8(path.join(root, "robots.txt"), `User-agent: *\nAllow: /\nDisallow: /calendar/admin.html\nSitemap: ${siteUrl}/sitemap.xml\n`);
@@ -331,4 +336,4 @@ function main() {
 }
 
 if (require.main === module) main();
-module.exports = { assertCleanText, buildSeries, hasEditorialGuide, humanDate, renderEventPage, richEventGuideMarkup, seriesKey, ticketGuideMarkup, venueGuideForEvent, venueIndexHtml, venuePageHtml };
+module.exports = { assertCleanText, buildSeries, hasEditorialGuide, humanDate, renderEventPage, richEventGuideMarkup, seriesDatesMarkup, seriesKey, ticketGuideMarkup, venueGuideForEvent, venueIndexHtml, venuePageHtml };
