@@ -9,7 +9,7 @@
   <title>정보 수정 요청 | 제이라이브 코리아</title>
   <link rel="icon" type="image/png" href="./assets/brand/j-live-app-logo.png">
   <link rel="stylesheet" href="./styles.css">
-  <script src="./site-config.js?v=20260729ga"></script><script src="./site.js" defer></script><script src="./corrections.js" defer></script>
+  <script src="./site-config.js?v=20260729ga"></script><script src="./site.js" defer></script>
 </head>
 <body>
   <div class="shell info-shell">
@@ -18,12 +18,19 @@
       <div class="section-kicker">CORRECTION REQUEST</div>
       <h1>정보 수정 요청</h1>
       <p class="info-lead">공연 일정 변경, 취소, 예매처 변경 또는 잘못된 정보를 발견했다면 공식 출처와 함께 알려주세요.</p>
-      <form class="correction-form" id="correctionForm">
+      <p class="form-success" id="sent" role="status">수정 요청이 접수되었습니다. 공식 출처를 확인한 뒤 반영하겠습니다.</p>
+      <form class="correction-form" action="https://formsubmit.co/2b17f101d256e5e8482c76f35ebe3aef" method="POST">
+        <input type="hidden" name="_subject" value="J-LIVE 정보 수정 요청">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://j-live.kr/calendar/corrections#sent">
         <label>아티스트 또는 공연명<input name="artist" id="correctionArtist" required></label>
         <label>수정할 내용<textarea name="message" rows="6" required placeholder="현재 표시된 내용과 올바른 내용을 적어주세요."></textarea></label>
         <label>공식 출처 URL<input name="source" type="url" required placeholder="https://"></label>
-        <button class="primary-submit" type="submit">이메일로 수정 요청 보내기</button>
-        <p class="form-help">버튼을 누르면 기본 이메일 앱이 열립니다. 이 페이지 자체에는 입력 내용이 저장되지 않습니다.</p>
+        <label>답변 받을 이메일<input name="email" type="email" autocomplete="email" maxlength="120" required></label>
+        <label class="form-consent"><input type="checkbox" required> 요청 처리와 답변을 위한 개인정보 수집 및 외부 전송에 동의합니다.</label>
+        <input class="form-honey" type="text" name="_honey" tabindex="-1" autocomplete="off">
+        <button class="primary-submit" type="submit">수정 요청 보내기</button>
+        <p class="form-help">입력한 정보는 요청 확인과 답변에만 사용됩니다.</p>
       </form>
     </main>
     <footer class="site-footer"><nav><a href="./about">소개</a><a href="./contact">문의</a><a href="./privacy">개인정보처리방침</a><a href="./terms">이용약관</a></nav></footer>

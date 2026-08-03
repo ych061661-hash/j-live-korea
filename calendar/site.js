@@ -131,9 +131,4 @@ document.addEventListener("click", async event => {
     window.gtag("config", config.googleAnalyticsId, { anonymize_ip: true });
   }
 
-  document.querySelectorAll("[data-contact-email]").forEach(element => {
-    const email = config.contactEmail || "ydh061661@gmail.com";
-    element.textContent = email;
-    if (element.tagName === "A") element.href = `mailto:${email}`;
-  });
 })();
