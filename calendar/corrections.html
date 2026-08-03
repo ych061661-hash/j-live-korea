@@ -9,7 +9,7 @@
   <title>정보 수정 요청 | 제이라이브 코리아</title>
   <link rel="icon" type="image/png" href="./assets/brand/j-live-app-logo.png">
   <link rel="stylesheet" href="./styles.css">
-  <script src="./site-config.js?v=20260729ga"></script><script src="./site.js" defer></script>
+  <script src="./site-config.js?v=20260729ga"></script><script src="./analytics.js"></script><script src="./site.js" defer></script>
 </head>
 <body>
   <div class="shell info-shell">
@@ -19,7 +19,7 @@
       <h1>정보 수정 요청</h1>
       <p class="info-lead">공연 일정 변경, 취소, 예매처 변경 또는 잘못된 정보를 발견했다면 공식 출처와 함께 알려주세요.</p>
       <p class="form-success" id="sent" role="status">수정 요청이 접수되었습니다. 공식 출처를 확인한 뒤 반영하겠습니다.</p>
-      <form class="correction-form" action="https://formsubmit.co/2b17f101d256e5e8482c76f35ebe3aef" method="POST">
+      <form class="correction-form" action="https://formsubmit.co/2b17f101d256e5e8482c76f35ebe3aef" method="POST" data-track-submit="correction_submit">
         <input type="hidden" name="_subject" value="J-LIVE 정보 수정 요청">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_next" value="https://j-live.kr/calendar/corrections#sent">

@@ -9,7 +9,7 @@
   <title>문의 | 제이라이브 코리아</title>
   <link rel="icon" type="image/png" href="./assets/brand/j-live-app-logo.png">
   <link rel="stylesheet" href="./styles.css">
-  <script src="./site-config.js?v=20260729ga"></script><script src="./site.js" defer></script>
+  <script src="./site-config.js?v=20260729ga"></script><script src="./analytics.js"></script><script src="./site.js" defer></script>
 </head>
 <body>
   <div class="shell info-shell">
@@ -19,7 +19,7 @@
       <h1>문의하기</h1>
       <p class="info-lead">공연 정보 제보, 서비스 문의, 광고와 제휴 제안을 받고 있습니다.</p>
       <p class="form-success" id="sent" role="status">문의가 접수되었습니다. 확인 후 입력하신 이메일로 답변드리겠습니다.</p>
-      <form class="contact-form" action="https://formsubmit.co/2b17f101d256e5e8482c76f35ebe3aef" method="POST">
+      <form class="contact-form" action="https://formsubmit.co/2b17f101d256e5e8482c76f35ebe3aef" method="POST" data-track-submit="form_submit">
         <input type="hidden" name="_subject" value="J-LIVE 새 문의">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_next" value="https://j-live.kr/calendar/contact#sent">

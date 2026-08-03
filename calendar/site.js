@@ -111,6 +111,11 @@ document.addEventListener("click", async event => {
   setTimeout(() => { shareButton.textContent = "이번 주 일정 공유"; }, 1800);
 });
 
+document.addEventListener("submit", event => {
+  const form = event.target.closest?.("[data-track-submit]");
+  if (form) window.JLIVE_ANALYTICS?.track(form.dataset.trackSubmit, { form_name: form.dataset.trackSubmit });
+});
+
 (() => {
   const config = window.JLIVE_CONFIG || {};
   if (config.googleSiteVerification) {

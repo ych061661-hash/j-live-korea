@@ -15,3 +15,16 @@ test("aggregates search, ticket and save actions without storing raw visits", ()
   assert.equal(result.ticketClicks.YES24, 1);
   assert.deepEqual(result.favorites, { events: 2, artists: 1 });
 });
+
+test("forwards contact form conversions to GA4", () => {
+  const calls = [];
+  const storage = { getItem: () => null, setItem: () => {} };
+  globalThis.gtag = (...args) => calls.push(args);
+  analytics.track("form_submit", { form_name: "form_submit" }, storage);
+  analytics.track("correction_submit", { form_name: "correction_submit" }, storage);
+  delete globalThis.gtag;
+  assert.deepEqual(calls, [
+    ["event", "form_submit", { form_name: "form_submit" }],
+    ["event", "correction_submit", { form_name: "correction_submit" }]
+  ]);
+});
