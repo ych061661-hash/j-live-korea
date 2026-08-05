@@ -520,7 +520,17 @@ artistSearchResults.addEventListener("click", event => {
 
 document.querySelector("#ticketButton").addEventListener("click", () => {
   const schedule = schedules.find(item => item.id === selectedId);
-  if (schedule) window.JLIVE_ANALYTICS.track("ticket_click", { vendor: schedule.vendor || "미정", event_id: schedule.id });
+  if (schedule) window.JLIVE_ANALYTICS.track("ticket_click", {
+    vendor: schedule.vendor || "미정",
+    event_id: schedule.id,
+    artist: schedule.artist,
+    link_url: schedule.vendorUrl
+  });
+});
+
+document.querySelector("#detailPageButton").addEventListener("click", () => {
+  const schedule = schedules.find(item => item.id === selectedId);
+  if (schedule) window.JLIVE_ANALYTICS.track("event_detail_open", { event_id: schedule.id, artist: schedule.artist });
 });
 
 document.querySelectorAll(".filter").forEach(button => button.addEventListener("click", () => {
@@ -640,12 +650,15 @@ initialize();
       if (navigator.share) {
         await navigator.share(shareData);
         shareButton.textContent = "공유창 열림";
+        window.JLIVE_ANALYTICS.track("schedule_share", { method: "web_share", content_type: "calendar" });
       } else if (navigator.clipboard?.writeText) {
         await navigator.clipboard.writeText(location.href);
         shareButton.textContent = "주소 복사 완료";
+        window.JLIVE_ANALYTICS.track("schedule_share", { method: "clipboard", content_type: "calendar" });
       } else {
         prompt("이 주소를 복사해 주세요.", location.href);
         shareButton.textContent = "주소 복사";
+        window.JLIVE_ANALYTICS.track("schedule_share", { method: "prompt", content_type: "calendar" });
       }
     } catch (error) {
       shareButton.textContent = error.name === "AbortError" ? "공유 취소됨" : "주소창에서 복사해 주세요";
