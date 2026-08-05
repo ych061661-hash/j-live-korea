@@ -51,6 +51,19 @@ test("renders artist pages with three songs and correct directory links", () => 
   assert.doesNotMatch(directory, /href="\.\/artists\/band"/);
 });
 
+test("uses the brand image when a channel avatar is not cached", () => {
+  const html = artistPageHtml({
+    artist: "Band",
+    events: [{ ...event, youtubeProfileImage: "", youtubeChannel: "@missing-avatar" }],
+    aliases: {},
+    editorial: {},
+    siteUrl: "https://j-live.kr",
+    today: "2026-07-29"
+  });
+
+  assert.match(html, /assets\/brand\/j-live-app-logo\.png/);
+});
+
 test("renders the current Monday-to-Sunday weekly page", () => {
   const page = weeklyPageHtml({
     events: [event],

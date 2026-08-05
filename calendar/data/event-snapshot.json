@@ -782,18 +782,19 @@
     "time": "오후 7:00",
     "venue": "KT&G 상상마당 홍대 라이브홀",
     "vendor": "YES24 티켓",
-    "vendorUrl": "https://ticket.yes24.com/",
-    "ticketDate": "pending",
-    "ticketTime": "pending",
+    "vendorUrl": "https://ticket.yes24.com/Perf/59471",
+    "ticketDate": "2026-08-03",
+    "ticketTime": "오후 12:00",
     "presaleDate": "",
     "presaleTime": "",
-    "status": "pending",
+    "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-07-26",
+    "verifiedAt": "2026-08-05",
     "sources": [
       "https://cero-web.jp/",
       "https://kakubarhythm.com/news/cero",
-      "https://www.highjinkx.com/show-list/cero"
+      "https://www.highjinkx.com/show-list/cero",
+      "https://ticket.yes24.com/Perf/59471"
     ]
   },
   "regallily-2026-11-07": {
@@ -850,6 +851,46 @@
     "verifiedAt": "2026-07-25",
     "sources": [
       "https://tickets.interpark.com/contents/notice/detail/14619"
+    ]
+  },
+  "kana-boon-2026-12-05": {
+    "artist": "KANA-BOON",
+    "concertDate": "2026-12-05",
+    "time": "오후 6:00",
+    "venue": "YES24 LIVE HALL",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/59553",
+    "ticketDate": "2026-08-10",
+    "ticketTime": "오후 8:00",
+    "presaleDate": "",
+    "presaleTime": "",
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-08-05",
+    "sources": [
+      "https://m.ticket.yes24.com/Notice/18262",
+      "https://ticket.yes24.com/Perf/59553",
+      "https://sp.kanaboon.jp/news/detail/2781"
+    ]
+  },
+  "cutie-street-2027-01-23": {
+    "artist": "CUTIE STREET",
+    "concertDate": "2027-01-23",
+    "time": "오후 6:00",
+    "venue": "일산 킨텍스(KINTEX) HALL 9A",
+    "vendor": "멜론티켓",
+    "vendorUrl": "https://ticket.melon.com/performance/index.htm?prodId=213705",
+    "ticketDate": "2026-08-24",
+    "ticketTime": "오후 8:00",
+    "presaleDate": "2026-08-21",
+    "presaleTime": "오후 8:00",
+    "status": "pending",
+    "ticketLabel": null,
+    "verifiedAt": "2026-08-05",
+    "sources": [
+      "https://ticket.melon.com/csoon/detail.htm?csoonId=12672",
+      "https://ticket.melon.com/performance/index.htm?prodId=213705",
+      "https://cutiestreet.asobisystem.com/news/detail/85655"
     ]
   }
 }

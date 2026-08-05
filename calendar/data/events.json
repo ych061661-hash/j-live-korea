@@ -1619,14 +1619,13 @@
     "venue": "KT&G 상상마당 홍대 라이브홀",
     "presaleDate": "",
     "presaleTime": "",
-    "ticketDate": "pending",
-    "ticketTime": "pending",
+    "ticketDate": "2026-08-03",
+    "ticketTime": "오후 12:00",
     "price": 77000,
     "priceCurrency": "KRW",
     "vendor": "YES24 티켓",
-    "vendorUrl": "https://ticket.yes24.com/",
+    "vendorUrl": "https://ticket.yes24.com/Perf/59471",
     "youtubeChannel": "KAKUBARHYTHM",
-    "youtubeProfileImage": "https://img.youtube.com/vi/lfETQNfBAD4/hqdefault.jpg",
     "songs": [
       [
         "Summer Soul",
@@ -1644,13 +1643,14 @@
         "https://www.youtube.com/watch?v=iyIaweKZvcM"
       ]
     ],
-    "status": "pending",
+    "status": "confirmed",
     "sources": [
       "https://cero-web.jp/",
       "https://kakubarhythm.com/news/cero",
-      "https://www.highjinkx.com/show-list/cero"
+      "https://www.highjinkx.com/show-list/cero",
+      "https://ticket.yes24.com/Perf/59471"
     ],
-    "verifiedAt": "2026-07-26",
+    "verifiedAt": "2026-08-05",
     "createdAt": "2026-07-26T11:30:00+09:00"
   },
   {
@@ -1774,5 +1774,65 @@
     ],
     "verifiedAt": "2026-07-25",
     "createdAt": "2026-07-23T15:00:00+09:00"
+  },
+  {
+    "id": "kana-boon-2026-12-05",
+    "artist": "KANA-BOON",
+    "genre": "J-ROCK / ROCK",
+    "concertDate": "2026-12-05",
+    "time": "오후 6:00",
+    "venue": "YES24 LIVE HALL",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "2026-08-10",
+    "ticketTime": "오후 8:00",
+    "price": 138000,
+    "priceCurrency": "KRW",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/59553",
+    "youtubeChannel": "@KANA-BOON_official",
+    "songs": [
+      ["シルエット", "", "https://www.youtube.com/watch?v=ZFoJYI7Q4iA"],
+      ["ないものねだり", "", "https://www.youtube.com/watch?v=UgS7vgquBvo1"],
+      ["スターマーカー", "", "https://www.youtube.com/watch?v=JiVXh3hsI4k"]
+    ],
+    "status": "confirmed",
+    "sources": [
+      "https://m.ticket.yes24.com/Notice/18262",
+      "https://ticket.yes24.com/Perf/59553",
+      "https://sp.kanaboon.jp/news/detail/2781"
+    ],
+    "verifiedAt": "2026-08-05",
+    "createdAt": "2026-08-05T20:30:00+09:00"
+  },
+  {
+    "id": "cutie-street-2027-01-23",
+    "artist": "CUTIE STREET",
+    "genre": "J-POP / IDOL",
+    "concertDate": "2027-01-23",
+    "time": "오후 6:00",
+    "venue": "일산 킨텍스(KINTEX) HALL 9A",
+    "presaleDate": "2026-08-21",
+    "presaleTime": "오후 8:00",
+    "ticketDate": "2026-08-24",
+    "ticketTime": "오후 8:00",
+    "price": 135000,
+    "priceCurrency": "KRW",
+    "vendor": "멜론티켓",
+    "vendorUrl": "https://ticket.melon.com/performance/index.htm?prodId=213705",
+    "youtubeChannel": "@CUTIE_STREET",
+    "songs": [
+      ["かわいいだけじゃだめですか？", "", "https://www.youtube.com/watch?v=CfwGsFV7jNc"],
+      ["キューにストップできません！", "", "https://www.youtube.com/watch?v=YI2jG7rnrys"],
+      ["ひたむきシンデレラ！", "", "https://www.youtube.com/watch?v=mNNRlG8aqIs"]
+    ],
+    "status": "pending",
+    "sources": [
+      "https://ticket.melon.com/csoon/detail.htm?csoonId=12672",
+      "https://ticket.melon.com/performance/index.htm?prodId=213705",
+      "https://cutiestreet.asobisystem.com/news/detail/85655"
+    ],
+    "verifiedAt": "2026-08-05",
+    "createdAt": "2026-08-05T20:30:00+09:00"
   }
 ]

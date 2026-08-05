@@ -100,7 +100,9 @@ function artistImageUrl(event, siteUrl) {
   if (event.youtubeProfileImage && /^https?:\/\//i.test(event.youtubeProfileImage)) return event.youtubeProfileImage;
   if (event.youtubeProfileImage) return `${siteUrl}/calendar/${String(event.youtubeProfileImage).replace(/^\.\//, "")}`;
   const fileName = fileNameForChannel(event.youtubeChannel);
-  return fileName ? `${siteUrl}/calendar/assets/artists/${fileName}.jpg` : `${siteUrl}/calendar/assets/brand/j-live-app-logo.png`;
+  return fileName && fs.existsSync(path.join(calendar, "assets", "artists", `${fileName}.jpg`))
+    ? `${siteUrl}/calendar/assets/artists/${fileName}.jpg`
+    : `${siteUrl}/calendar/assets/brand/j-live-app-logo.png`;
 }
 
 function eventEndDate(group) {

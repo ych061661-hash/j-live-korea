@@ -1,5 +1,10 @@
 "use strict";
 
+const fs = require("fs");
+const path = require("path");
+
+const artistAssets = path.resolve(__dirname, "../calendar/assets/artists");
+
 const escapeHtml = value => String(value ?? "").replace(/[&<>"']/g, character => ({
   "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
 })[character]);
@@ -48,7 +53,9 @@ function imageUrl(event, siteUrl) {
   if (event.youtubeProfileImage && /^https?:\/\//i.test(event.youtubeProfileImage)) return event.youtubeProfileImage;
   if (event.youtubeProfileImage) return `${siteUrl}/calendar/${String(event.youtubeProfileImage).replace(/^\.\//, "")}`;
   const channel = String(event.youtubeChannel || "").replace(/^@/, "").toLowerCase().replace(/[^a-z0-9_-]+/g, "-").replace(/^-+|-+$/g, "");
-  return channel ? `${siteUrl}/calendar/assets/artists/${channel}.jpg` : `${siteUrl}/calendar/assets/brand/j-live-app-logo.png`;
+  return channel && fs.existsSync(path.join(artistAssets, `${channel}.jpg`))
+    ? `${siteUrl}/calendar/assets/artists/${channel}.jpg`
+    : `${siteUrl}/calendar/assets/brand/j-live-app-logo.png`;
 }
 
 function artistPageHtml({ artist, events, aliases, editorial, siteUrl, today }) {

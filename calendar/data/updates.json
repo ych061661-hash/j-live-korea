@@ -1,5 +1,41 @@
 [
   {
+    "id": "2026-08-05-ticket-change-cero-2026-10-10",
+    "date": "2026-08-05",
+    "kind": "ticket-change",
+    "label": "예매 일정 변경",
+    "artist": "cero",
+    "eventId": "cero-2026-10-10",
+    "concertDate": "2026-10-10",
+    "summary": "예매 일정이 변경됐습니다. 선예매 미정, 일반예매 2026년 8월 3일(월) 오후 12:00.",
+    "url": "https://cero-web.jp/",
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "2026-08-05-announcement-kana-boon-2026-12-05",
+    "date": "2026-08-05",
+    "kind": "announcement",
+    "label": "신규 공연",
+    "artist": "KANA-BOON",
+    "eventId": "kana-boon-2026-12-05",
+    "concertDate": "2026-12-05",
+    "summary": "2026년 12월 5일(토) 오후 6:00 YES24 LIVE HALL 공연이 발표됐습니다.",
+    "url": "https://m.ticket.yes24.com/Notice/18262",
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "2026-08-05-announcement-cutie-street-2027-01-23",
+    "date": "2026-08-05",
+    "kind": "announcement",
+    "label": "신규 공연",
+    "artist": "CUTIE STREET",
+    "eventId": "cutie-street-2027-01-23",
+    "concertDate": "2027-01-23",
+    "summary": "2027년 1월 23일(토) 오후 6:00 일산 킨텍스(KINTEX) HALL 9A 공연이 발표됐습니다.",
+    "url": "https://ticket.melon.com/csoon/detail.htm?csoonId=12672",
+    "verifiedAt": "2026-08-05"
+  },
+  {
     "id": "2026-07-27-announcement-ash-da-hero-2026-08-08",
     "date": "2026-07-27",
     "kind": "announcement",
