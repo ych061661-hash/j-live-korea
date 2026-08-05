@@ -510,7 +510,7 @@ function main() {
 
   const venuePaths = Object.keys(editorial.venueGuides || {}).map(slug => `/calendar/guides/venues/${encodeURIComponent(slug)}`);
   const artistPaths = [...artistGroups.values()].map(artistEvents => `/calendar/artists/${encodeURIComponent(artistSlug(artistEvents[0]))}`);
-  const staticPaths = ["/calendar/", "/calendar/about", "/calendar/artists", ...artistPaths, "/calendar/updates", `/calendar/weekly/${weekly.start}`, "/calendar/guides/venues", ...venuePaths, "/calendar/guides/verification", "/calendar/guides/standing-concert"];
+  const staticPaths = ["/calendar/", "/calendar/about", "/calendar/artists", "/calendar/fanclubs", ...artistPaths, "/calendar/updates", `/calendar/weekly/${weekly.start}`, "/calendar/guides/venues", ...venuePaths, "/calendar/guides/verification", "/calendar/guides/standing-concert"];
   const primaryEvents = futurePrimaryEvents.filter(event => hasEditorialGuide(event, editorial));
   const lastmod = today;
   const urls = [...staticPaths.map(url => ({ loc: `${siteUrl}${url}`, lastmod })), ...primaryEvents.map(event => ({ loc: `${siteUrl}/calendar/events/${encodeURIComponent(event.id)}`, lastmod: event.verifiedAt || lastmod }))];
