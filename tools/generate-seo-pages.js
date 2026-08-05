@@ -132,6 +132,27 @@ function sourcesMarkup(event) {
   return (event.sources || []).map((source, index) => `<a class="source-link" href="${escapeHtml(source)}" target="_blank" rel="noopener noreferrer">공식 출처 ${index + 1} 확인 ↗</a>`).join("\n");
 }
 
+function relatedEvents(event, events, today) {
+  const seenArtists = new Set();
+  return events
+    .filter(item => item.status === "confirmed" && item.id !== event.id && item.artist !== event.artist && item.concertDate >= today)
+    .map(item => ({
+      item,
+      score: (item.genre === event.genre ? 4 : 0)
+        + (item.venue === event.venue ? 3 : 0)
+        + (item.vendor === event.vendor ? 2 : 0)
+        + (Math.abs(new Date(`${item.concertDate}T00:00:00`) - new Date(`${event.concertDate}T00:00:00`)) <= 30 * 86400000 ? 2 : 0)
+    }))
+    .sort((left, right) => right.score - left.score || left.item.concertDate.localeCompare(right.item.concertDate))
+    .filter(({ item }) => !seenArtists.has(item.artist) && seenArtists.add(item.artist))
+    .slice(0, 3)
+    .map(({ item }) => item);
+}
+
+function relatedEventsMarkup(event, events, today) {
+  return relatedEvents(event, events, today).map(item => `<a href="./events/${encodeURIComponent(item.id)}" data-related-event="${escapeHtml(item.id)}"><span>${escapeHtml(item.genre || "J-POP")}</span><strong>${escapeHtml(item.artist)}</strong><p>${escapeHtml(humanDate(item.concertDate, item.time))}</p><em>${escapeHtml(item.venue)}</em></a>`).join("\n");
+}
+
 function ticketGuideMarkup(event, editorial) {
   const guide = editorial.ticketGuides?.[event.artist];
   if (!guide) return "";
@@ -202,7 +223,7 @@ function structuredData(event, group, canonical, siteUrl) {
   }).replace(/</g, "\\u003c");
 }
 
-function renderEventPage({ event, group, primary, editorial, siteUrl, template, today }) {
+function renderEventPage({ event, events, group, primary, editorial, siteUrl, template, today }) {
   const canonical = `${siteUrl}/calendar/events/${encodeURIComponent(primary.id)}`;
   const indexable = event.id === primary.id && group.some(item => item.concertDate >= today) && hasEditorialGuide(event, editorial);
   const years = [...new Set(group.map(item => item.concertDate.slice(0, 4)))].join("·");
@@ -238,6 +259,7 @@ function renderEventPage({ event, group, primary, editorial, siteUrl, template, 
     .replace('<ul class="check-list" id="dayChecklist"></ul>', `<ul class="check-list" id="dayChecklist">${checklistMarkup(event)}</ul>`)
     .replace('<p id="songGuide"></p>', `<p id="songGuide">${escapeHtml(songGuide)}</p>`)
     .replace('<div class="song-list" id="eventSongs"></div>', `<div class="song-list" id="eventSongs">${songsMarkup(event)}</div>`)
+    .replace('<div class="related-event-grid" id="relatedEvents"></div>', `<div class="related-event-grid" id="relatedEvents">${relatedEventsMarkup(event, events, today)}</div>`)
     .replace(/<section class="editorial-section">\s*<div class="section-kicker">SOURCES<\/div>/, `${richGuide ? `${richGuide}\n            ` : ""}<section class="editorial-section">\n              <div class="section-kicker">SOURCES</div>`)
     .replace('<div class="source-links" id="eventSources"></div>', `<div class="source-links" id="eventSources">${sourcesMarkup(event)}</div>`)
     .replace('<p class="verified-copy" id="eventVerified"></p>', `<p class="verified-copy" id="eventVerified">마지막 검증일: ${escapeHtml(event.verifiedAt || "기록 없음")} · 이후 공식 발표로 정보가 변경될 수 있습니다.</p>`)
@@ -446,8 +468,9 @@ function main() {
   for (const filename of fs.readdirSync(eventsDirectory)) if (filename.endsWith(".html")) fs.unlinkSync(path.join(eventsDirectory, filename));
 
   const { primaryById, groupById } = buildSeries(events, today);
+  const futurePrimaryEvents = events.filter(event => primaryById.get(event.id).id === event.id && groupById.get(event.id).some(item => item.concertDate >= today));
   for (const event of events) {
-    const html = renderEventPage({ event, group: groupById.get(event.id), primary: primaryById.get(event.id), editorial, siteUrl, template, today });
+    const html = renderEventPage({ event, events: futurePrimaryEvents, group: groupById.get(event.id), primary: primaryById.get(event.id), editorial, siteUrl, template, today });
     writeUtf8(path.join(eventsDirectory, `${event.id}.html`), html);
   }
 
@@ -488,7 +511,7 @@ function main() {
   const venuePaths = Object.keys(editorial.venueGuides || {}).map(slug => `/calendar/guides/venues/${encodeURIComponent(slug)}`);
   const artistPaths = [...artistGroups.values()].map(artistEvents => `/calendar/artists/${encodeURIComponent(artistSlug(artistEvents[0]))}`);
   const staticPaths = ["/calendar/", "/calendar/about", "/calendar/artists", ...artistPaths, "/calendar/updates", `/calendar/weekly/${weekly.start}`, "/calendar/guides/venues", ...venuePaths, "/calendar/guides/verification", "/calendar/guides/standing-concert"];
-  const primaryEvents = events.filter(event => primaryById.get(event.id).id === event.id && groupById.get(event.id).some(item => item.concertDate >= today) && hasEditorialGuide(event, editorial));
+  const primaryEvents = futurePrimaryEvents.filter(event => hasEditorialGuide(event, editorial));
   const lastmod = today;
   const urls = [...staticPaths.map(url => ({ loc: `${siteUrl}${url}`, lastmod })), ...primaryEvents.map(event => ({ loc: `${siteUrl}/calendar/events/${encodeURIComponent(event.id)}`, lastmod: event.verifiedAt || lastmod }))];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(item => `  <url><loc>${escapeHtml(item.loc)}</loc><lastmod>${item.lastmod}</lastmod></url>`).join("\n")}\n</urlset>\n`;
@@ -498,4 +521,4 @@ function main() {
 }
 
 if (require.main === module) main();
-module.exports = { assertCleanText, buildSeries, hasEditorialGuide, humanDate, renderEventPage, richEventGuideMarkup, seriesDatesMarkup, seriesKey, ticketGuideMarkup, venueFacilityMapMarkup, venueGuideForEvent, venueIndexHtml, venuePageHtml };
+module.exports = { assertCleanText, buildSeries, hasEditorialGuide, humanDate, relatedEvents, renderEventPage, richEventGuideMarkup, seriesDatesMarkup, seriesKey, ticketGuideMarkup, venueFacilityMapMarkup, venueGuideForEvent, venueIndexHtml, venuePageHtml };

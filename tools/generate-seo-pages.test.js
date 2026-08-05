@@ -2,7 +2,7 @@
 
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { buildSeries, hasEditorialGuide, humanDate, richEventGuideMarkup, seriesDatesMarkup, ticketGuideMarkup, venueGuideForEvent, venueIndexHtml, venuePageHtml } = require("./generate-seo-pages");
+const { buildSeries, hasEditorialGuide, humanDate, relatedEvents, richEventGuideMarkup, seriesDatesMarkup, ticketGuideMarkup, venueGuideForEvent, venueIndexHtml, venuePageHtml } = require("./generate-seo-pages");
 
 test("groups consecutive dates and selects the first future performance", () => {
   const base = { artist: "Artist", venue: "Venue", vendorUrl: "https://tickets.example/event" };
@@ -21,6 +21,20 @@ test("groups consecutive dates and selects the first future performance", () => 
 test("formats Korean dates without relying on UTC conversion", () => {
   assert.equal(humanDate("2026-07-18", "오후 6:00"), "2026년 7월 18일(토) 오후 6:00");
   assert.equal(humanDate(null), "미정");
+});
+
+test("recommends three future similar concerts without duplicate artists", () => {
+  const event = { id: "current", artist: "Current", concertDate: "2026-08-10", genre: "Rock", venue: "Hall A", vendor: "YES24", status: "confirmed" };
+  const events = [
+    event,
+    { id: "same-artist", artist: "Current", concertDate: "2026-08-11", genre: "Rock", venue: "Hall A", vendor: "YES24", status: "confirmed" },
+    { id: "best", artist: "Best", concertDate: "2026-08-12", genre: "Rock", venue: "Hall A", vendor: "YES24", status: "confirmed" },
+    { id: "best-second-date", artist: "Best", concertDate: "2026-08-13", genre: "Rock", venue: "Hall A", vendor: "YES24", status: "confirmed" },
+    { id: "second", artist: "Second", concertDate: "2026-08-14", genre: "Rock", venue: "Hall B", vendor: "YES24", status: "confirmed" },
+    { id: "third", artist: "Third", concertDate: "2026-09-20", genre: "Pop", venue: "Hall C", vendor: "Melon", status: "confirmed" },
+    { id: "past", artist: "Past", concertDate: "2026-07-01", genre: "Rock", venue: "Hall A", vendor: "YES24", status: "confirmed" }
+  ];
+  assert.deepEqual(relatedEvents(event, events, "2026-08-05").map(item => item.id), ["best", "second", "third"]);
 });
 
 test("renders artist-specific editorial content only when it exists", () => {

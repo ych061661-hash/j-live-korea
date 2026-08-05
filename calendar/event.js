@@ -68,6 +68,39 @@ function sameSeries(left, right) {
     && (left.vendorUrl || left.vendor || "") === (right.vendorUrl || right.vendor || "");
 }
 
+function relatedEvents(event, events, today) {
+  const seenArtists = new Set();
+  return events
+    .filter(item => item.status === "confirmed" && item.id !== event.id && item.artist !== event.artist && item.concertDate >= today)
+    .map(item => ({
+      item,
+      score: (item.genre === event.genre ? 4 : 0)
+        + (item.venue === event.venue ? 3 : 0)
+        + (item.vendor === event.vendor ? 2 : 0)
+        + (Math.abs(parseDate(item.concertDate) - parseDate(event.concertDate)) <= 30 * 86400000 ? 2 : 0)
+    }))
+    .sort((left, right) => right.score - left.score || left.item.concertDate.localeCompare(right.item.concertDate))
+    .filter(({ item }) => !seenArtists.has(item.artist) && seenArtists.add(item.artist))
+    .slice(0, 3)
+    .map(({ item }) => item);
+}
+
+function renderRelatedEvents(event, events) {
+  const now = new Date();
+  const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
+  const base = location.pathname.includes("/calendar/events/") ? "./" : "./events/";
+  const related = relatedEvents(event, events, today);
+  const section = document.querySelector(".related-events-section");
+  section.hidden = related.length === 0;
+  document.querySelector("#relatedEvents").innerHTML = related.map(item => `
+    <a href="${base}${encodeURIComponent(item.id)}" data-related-event="${escapeHtml(item.id)}">
+      <span>${escapeHtml(item.genre || "J-POP")}</span>
+      <strong>${escapeHtml(item.artist)}</strong>
+      <p>${escapeHtml(humanDate(item.concertDate, item.time))}</p>
+      <em>${escapeHtml(item.venue)}</em>
+    </a>`).join("");
+}
+
 function renderSeries(event, events) {
   const series = events
     .filter(item => item.status === "confirmed" && sameSeries(item, event))
@@ -165,6 +198,7 @@ function renderEvent(event, events) {
   document.querySelector("#eventSources").innerHTML = (event.sources || []).map((source, index) =>
     `<a class="source-link" href="${escapeHtml(source)}" target="_blank" rel="noopener noreferrer">공식 출처 ${index + 1} 확인 ↗</a>`
   ).join("");
+  renderRelatedEvents(event, events);
 
   const photo = document.querySelector("#eventPhoto");
   photo.alt = `${event.artist} 공식 YouTube 프로필`;
@@ -197,6 +231,11 @@ async function initializeEvent() {
   if (!event) throw new Error("공연을 찾을 수 없습니다.");
   renderEvent(event, events);
 }
+
+document.querySelector("#relatedEvents").addEventListener("click", clickEvent => {
+  const link = clickEvent.target.closest("[data-related-event]");
+  if (link) window.JLIVE_ANALYTICS.track("event_detail_open", { event_id: link.dataset.relatedEvent, source: "related_events" });
+});
 
 initializeEvent().catch(error => {
   const indexPath = location.pathname.includes("/calendar/events/") ? "../" : "./";

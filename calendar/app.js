@@ -325,11 +325,15 @@ function renderCalendar() {
 
     events.forEach(({ type, schedule }) => {
       if (!filters.has(type)) return;
-      const chip = document.createElement("button");
-      chip.type = "button";
+      const chip = document.createElement("a");
+      chip.href = `./events/${encodeURIComponent(schedule.id)}`;
       chip.className = `event-chip ${type}`;
       chip.innerHTML = `<span>${escapeHtml(typeLabel(type, schedule))}</span><span>${escapeHtml(schedule.artist)}</span>`;
-      chip.addEventListener("click", () => selectSchedule(schedule, type, key));
+      chip.addEventListener("click", () => window.JLIVE_ANALYTICS.track("event_detail_open", {
+        event_id: schedule.id,
+        artist: schedule.artist,
+        source: "calendar"
+      }));
       stack.append(chip);
     });
     calendar.append(day);

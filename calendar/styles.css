@@ -461,6 +461,12 @@ footer { padding:22px 0 34px; color:#686970; font-size:11px; text-align:center; 
   font-size:12px;
 }
 .series-date-list .active a { color:#111; border-color:var(--lime); background:var(--lime); font-weight:800; }
+.related-event-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
+.related-event-grid a { display:grid; gap:6px; min-width:0; padding:15px; border:1px solid var(--line); border-radius:13px; background:rgba(255,255,255,.025); }
+.related-event-grid span { color:var(--lime); font-size:9px; font-weight:800; }
+.related-event-grid strong { overflow:hidden; font-size:14px; text-overflow:ellipsis; white-space:nowrap; }
+.related-event-grid p,.related-event-grid em { margin:0; color:var(--muted); font-size:9px; font-style:normal; line-height:1.5; }
+.related-event-grid a:hover,.related-event-grid a:focus-visible { border-color:rgba(215,255,79,.55); background:rgba(215,255,79,.06); }
 .ad-slot {
   display:grid;
   place-items:center;
@@ -667,6 +673,7 @@ footer { padding:22px 0 34px; color:#686970; font-size:11px; text-align:center; 
   .artist-profile-hero h1 { font-size:34px; }
   .artist-profile-hero p { grid-column:1/-1; font-size:11px; }
   .artist-name-grid,.artist-profile-grid,.artist-related { grid-template-columns:1fr; }
+  .related-event-grid { grid-template-columns:1fr; }
   .weekly-grid { grid-template-columns:1fr; }
   .weekly-ticket-list article { grid-template-columns:1fr; gap:5px; }
   .update-card { grid-template-columns:1fr 1fr; gap:8px; }
