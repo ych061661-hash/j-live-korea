@@ -31,7 +31,7 @@ function pageShell({ title, description, canonical, body, siteUrl, depth = ".." 
   <meta property="og:title" content="${escapeHtml(title)}"><meta property="og:description" content="${escapeHtml(description)}">
   <meta property="og:url" content="${escapeHtml(canonical)}"><meta property="og:type" content="website">
   <title>${escapeHtml(title)}</title><link rel="canonical" href="${escapeHtml(canonical)}">
-  <link rel="stylesheet" href="${depth}/styles.css?v=20260729b">
+  <link rel="stylesheet" href="${depth}/styles.css?v=20260806h">
   <script src="${depth}/site-config.js?v=20260729ga"></script><script src="${depth}/analytics.js" defer></script><script src="${depth}/site.js" defer></script>
 </head><body><div class="shell info-shell">
   <header><a class="brand" href="${depth}/"><span class="brand-mark">J</span> 제이라이브 코리아</a><nav class="page-nav"><a href="${depth}/weekly">이번 주</a><a href="${depth}/updates">업데이트</a><a href="${depth}/artists">아티스트</a></nav></header>
@@ -70,12 +70,29 @@ function artistPageHtml({ artist, events, aliases, editorial, siteUrl, today }) 
   const vendors = [...new Map(sorted.filter(event => event.vendorUrl).map(event => [event.vendor, event.vendorUrl])).entries()];
   const intro = editorial.artists?.[artist] || `${artist}의 한국 내한 공연과 예매 기록을 공식 출처 기준으로 정리합니다.`;
   const eventRows = list => list.length ? list.map(event => `<li><a href="../events/${encodeURIComponent(event.id)}"><strong>${escapeHtml(humanDate(event.concertDate, event.time))}</strong><span>${escapeHtml(event.venue)} · ${escapeHtml(event.vendor || "예매처 미정")}</span></a></li>`).join("") : "<li class=\"empty-row\">확인된 일정이 없습니다.</li>";
+  const historyGroups = new Map();
+  for (const event of past) {
+    const key = `${event.venue}\u0000${event.vendorUrl || event.vendor || event.id}`;
+    if (!historyGroups.has(key)) historyGroups.set(key, []);
+    historyGroups.get(key).push(event);
+  }
+  const historyRows = [...historyGroups.values()].map(group => {
+    group.sort((a, b) => a.concertDate.localeCompare(b.concertDate));
+    const first = group[0];
+    const last = group[group.length - 1];
+    const attendance = group.find(event => Number.isFinite(event.attendance) && event.attendance > 0);
+    const dates = first.concertDate === last.concertDate
+      ? humanDate(first.concertDate, first.time)
+      : `${humanDate(first.concertDate)} ~ ${humanDate(last.concertDate)}`;
+    return `<li><a class="artist-history-main" href="../events/${encodeURIComponent(first.id)}"><time>${escapeHtml(dates)}</time><strong>${escapeHtml(first.venue)}</strong><span>${group.length}회 공연</span></a><div class="artist-history-audience"><small>공식 관객 수</small><b>${attendance ? `${Number(attendance.attendance).toLocaleString("ko-KR")}명` : "미공개"}</b>${attendance?.attendanceScope ? `<span>${escapeHtml(attendance.attendanceScope)}</span>` : ""}${attendance?.attendanceSource ? `<a href="${escapeHtml(attendance.attendanceSource)}" target="_blank" rel="noopener noreferrer">공식 발표 확인 ↗</a>` : ""}</div></li>`;
+  }).join("") || '<li class="empty-row">공식 확인된 지난 내한 기록이 없습니다.</li>';
+  const nextEvent = upcoming[0];
   const body = `<main class="artist-profile">
     <section class="artist-profile-hero"><img src="${escapeHtml(imageUrl(latest, siteUrl))}" alt="${escapeHtml(artist)} 공식 프로필" loading="eager"><div><span class="section-kicker">ARTIST PROFILE</span><h1>${escapeHtml(artist)}</h1><p>${escapeHtml(intro)}</p></div></section>
     <section class="artist-name-grid" aria-label="아티스트 이름 표기"><div><small>한국어</small><strong>${escapeHtml(names.korean)}</strong></div><div><small>English</small><strong>${escapeHtml(names.english)}</strong></div><div><small>日本語</small><strong>${escapeHtml(names.japanese)}</strong></div></section>
     <div class="artist-profile-grid">
-      <section><span class="section-kicker">UPCOMING</span><h2>예정된 내한 공연</h2><ul class="artist-event-list">${eventRows(upcoming)}</ul></section>
-      <section><span class="section-kicker">HISTORY</span><h2>지난 내한 기록</h2><ul class="artist-event-list">${eventRows(past)}</ul></section>
+      <section><span class="section-kicker">NEXT CONCERT</span><h2>다음 한국 공연</h2><ul class="artist-event-list">${eventRows(nextEvent ? [nextEvent] : [])}</ul></section>
+      <section class="artist-history"><span class="section-kicker">KOREA HISTORY</span><h2>공식 확인 내한 이력</h2><ol class="artist-history-list">${historyRows}</ol><p class="artist-history-note">J-LIVE가 공식 출처로 확인한 기록만 표시하며, 관객 수는 발표된 경우에만 제공합니다.</p></section>
     </div>
     <section class="artist-songs"><span class="section-kicker">START WITH 3 SONGS</span><h2>대표곡 3개</h2><div class="song-list">${songs.map(song => `<a class="song" href="${escapeHtml(song[2])}" target="_blank" rel="noopener noreferrer"><span class="play">▶</span><span>${escapeHtml(song[0])}</span><em>공식 YouTube</em></a>`).join("")}</div></section>
     <section class="artist-related"><div><h2>관련 공연장</h2><p>${venues.map(escapeHtml).join(" · ")}</p></div><div><h2>예매처</h2><p>${vendors.length ? vendors.map(([name, url]) => `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" data-track-vendor="${escapeHtml(name)}">${escapeHtml(name)} ↗</a>`).join(" · ") : "확인된 예매처가 없습니다."}</p></div></section>

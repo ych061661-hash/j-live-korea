@@ -286,6 +286,15 @@ footer { padding:22px 0 34px; color:#686970; font-size:11px; text-align:center; 
 .artist-event-list { display:grid; gap:7px; margin:0; padding:0; list-style:none; }
 .artist-event-list a { display:grid; gap:4px; padding:12px; border-radius:10px; background:rgba(255,255,255,.035); }
 .artist-event-list span,.artist-related p { color:var(--muted); font-size:10px; line-height:1.6; }
+.artist-history-list { display:grid; gap:8px; margin:0; padding:0; list-style:none; }
+.artist-history-list > li { display:grid; grid-template-columns:minmax(0,1fr) 150px; gap:12px; padding:13px; border:1px solid var(--line); border-radius:12px; background:rgba(255,255,255,.025); }
+.artist-history-main { display:grid; gap:5px; min-width:0; }
+.artist-history-main time { color:var(--lime); font-size:10px; font-weight:800; }
+.artist-history-main strong { font-size:14px; }.artist-history-main span { color:var(--muted); font-size:9px; }
+.artist-history-audience { display:grid; align-content:center; justify-items:end; gap:3px; text-align:right; }
+.artist-history-audience small,.artist-history-audience span { color:var(--muted); font-size:8px; }.artist-history-audience b { font-size:16px; }
+.artist-history-audience a { color:var(--lime); font-size:8px; }
+.artist-history-note { margin:12px 2px 0; color:var(--muted); font-size:9px; line-height:1.6; }
 .artist-songs { margin-top:16px; }
 .artist-related a,.artist-profile-link { color:var(--lime); }
 .artist-profile-link { display:inline-block; margin-top:12px; font-size:11px; font-weight:700; }
@@ -748,6 +757,7 @@ footer { padding:22px 0 34px; color:#686970; font-size:11px; text-align:center; 
   .artist-profile-hero h1 { font-size:34px; }
   .artist-profile-hero p { grid-column:1/-1; font-size:11px; }
   .artist-name-grid,.artist-profile-grid,.artist-related { grid-template-columns:1fr; }
+  .artist-history-list > li { grid-template-columns:1fr; }.artist-history-audience { justify-items:start; text-align:left; }
   .related-event-grid { grid-template-columns:1fr; }
   .weekly-grid { grid-template-columns:1fr; }
   .weekly-ticket-list article { grid-template-columns:1fr; gap:5px; }

@@ -64,6 +64,22 @@ test("uses the brand image when a channel avatar is not cached", () => {
   assert.match(html, /assets\/brand\/j-live-app-logo\.png/);
 });
 
+test("renders the next concert and verified Korea attendance history", () => {
+  const html = artistPageHtml({
+    artist: "Band",
+    events: [
+      { ...event, concertDate: "2026-08-01" },
+      { ...event, id: "band-2025-05-03", concertDate: "2025-05-03", attendance: 1200, attendanceScope: "단독 공연", attendanceSource: "https://artist.example/news" }
+    ],
+    aliases: {}, editorial: {}, siteUrl: "https://j-live.kr", today: "2026-07-29"
+  });
+
+  assert.match(html, /NEXT CONCERT/);
+  assert.match(html, /KOREA HISTORY/);
+  assert.match(html, /1,200명/);
+  assert.match(html, /https:\/\/artist\.example\/news/);
+});
+
 test("renders the current Monday-to-Sunday weekly page", () => {
   const page = weeklyPageHtml({
     events: [event],
