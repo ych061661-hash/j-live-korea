@@ -776,6 +776,46 @@
       "https://nol.yanolja.com/ticket/products/26010474"
     ]
   },
+  "andteam-2026-10-03": {
+    "artist": "&TEAM",
+    "concertDate": "2026-10-03",
+    "time": "오후 6:00",
+    "venue": "KSPO DOME",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://tickets.interpark.com/contents/notice/detail/14782",
+    "ticketDate": "2026-08-11",
+    "ticketTime": "오후 8:00",
+    "presaleDate": "2026-08-10",
+    "presaleTime": "오후 8:00",
+    "status": "pending",
+    "ticketLabel": null,
+    "verifiedAt": "2026-08-06",
+    "sources": [
+      "https://tickets.interpark.com/contents/notice/detail/14782",
+      "https://www.andteam-official.jp/",
+      "https://www.youtube.com/@andTEAM_official/videos"
+    ]
+  },
+  "andteam-2026-10-04": {
+    "artist": "&TEAM",
+    "concertDate": "2026-10-04",
+    "time": "오후 5:00",
+    "venue": "KSPO DOME",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://tickets.interpark.com/contents/notice/detail/14782",
+    "ticketDate": "2026-08-11",
+    "ticketTime": "오후 8:00",
+    "presaleDate": "2026-08-10",
+    "presaleTime": "오후 8:00",
+    "status": "pending",
+    "ticketLabel": null,
+    "verifiedAt": "2026-08-06",
+    "sources": [
+      "https://tickets.interpark.com/contents/notice/detail/14782",
+      "https://www.andteam-official.jp/",
+      "https://www.youtube.com/@andTEAM_official/videos"
+    ]
+  },
   "cero-2026-10-10": {
     "artist": "cero",
     "concertDate": "2026-10-10",
@@ -815,6 +855,26 @@
       "https://www.office-augusta.com/regallily/live/?post=20261107",
       "https://www.highjinkx.com/show-list/regallily",
       "https://ticket.yes24.com/Perf/59001"
+    ]
+  },
+  "sunny-day-service-2026-12-03": {
+    "artist": "Sunny Day Service",
+    "concertDate": "2026-12-03",
+    "time": "오후 8:00",
+    "venue": "무신사 개러지",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://tickets.interpark.com/goods/26011116",
+    "ticketDate": "2026-08-13",
+    "ticketTime": "오후 2:00",
+    "presaleDate": "",
+    "presaleTime": "",
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-08-06",
+    "sources": [
+      "https://tickets.interpark.com/goods/26011116",
+      "https://www.sokabekeiichi.com/",
+      "https://www.youtube.com/@SunnyDayServiceofficial/videos"
     ]
   },
   "yuuri-2026-12-05": {
@@ -891,6 +951,84 @@
       "https://ticket.melon.com/csoon/detail.htm?csoonId=12672",
       "https://ticket.melon.com/performance/index.htm?prodId=213705",
       "https://cutiestreet.asobisystem.com/news/detail/85655"
+    ]
+  },
+  "paris-match-2026-10-31": {
+    "artist": "paris match",
+    "concertDate": "2026-10-31",
+    "time": "오후 6:00",
+    "venue": "스카이아트홀",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://tickets.interpark.com/goods/26011570",
+    "ticketDate": "2026-08-13",
+    "ticketTime": "오후 12:00",
+    "presaleDate": "",
+    "presaleTime": "",
+    "status": "pending",
+    "ticketLabel": null,
+    "verifiedAt": "2026-08-08",
+    "sources": [
+      "https://tickets.interpark.com/goods/26011570",
+      "https://www.jvcmusic.co.jp/parismatch/profile.html",
+      "https://www.youtube.com/channel/UCctyUsz8nIthLqSzUHQXHbQ"
+    ]
+  },
+  "hamano-haruki-2026-10-16": {
+    "artist": "Hamano Haruki",
+    "concertDate": "2026-10-16",
+    "time": "오후 8:00",
+    "venue": "웨스트브릿지 라이브홀",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://tickets.interpark.com/goods/26011287",
+    "ticketDate": "2026-08-13",
+    "ticketTime": "오후 6:00",
+    "presaleDate": "",
+    "presaleTime": "",
+    "status": "pending",
+    "ticketLabel": null,
+    "verifiedAt": "2026-08-08",
+    "sources": [
+      "https://tickets.interpark.com/goods/26011287",
+      "https://www.youtube.com/@paruchan86/videos"
+    ]
+  },
+  "kazumi-tateishi-trio-2026-12-26": {
+    "artist": "Kazumi Tateishi Trio",
+    "concertDate": "2026-12-26",
+    "time": "오후 5:00",
+    "venue": "금정문화회관 금빛누리홀",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://tickets.interpark.com/goods/26011629",
+    "ticketDate": "2026-08-13",
+    "ticketTime": "오후 12:00",
+    "presaleDate": "",
+    "presaleTime": "",
+    "status": "pending",
+    "ticketLabel": null,
+    "verifiedAt": "2026-08-08",
+    "sources": [
+      "https://tickets.interpark.com/goods/26011629",
+      "https://www.jvcmusic.co.jp/-/Profile/A023203.html"
+    ]
+  },
+  "luv-2026-03-21": {
+    "artist": "luv",
+    "concertDate": "2026-03-21",
+    "time": "오후 7:00",
+    "venue": "KT&G 상상마당 라이브홀",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://tickets.interpark.com/contents/notice/detail/11964",
+    "ticketDate": "",
+    "ticketTime": "",
+    "presaleDate": "",
+    "presaleTime": "",
+    "status": "pending",
+    "ticketLabel": null,
+    "verifiedAt": "2026-08-08",
+    "sources": [
+      "https://tickets.interpark.com/contents/notice/detail/11964",
+      "https://luv-band.com/",
+      "https://www.youtube.com/@luv-band1030/videos"
     ]
   }
 }

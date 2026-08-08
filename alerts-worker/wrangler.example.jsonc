@@ -1,0 +1,20 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "j-live-alerts",
+  "main": "src/index.mjs",
+  "compatibility_date": "2026-08-01",
+  "triggers": { "crons": ["0 * * * *"] },
+  "vars": {
+    "SITE_URL": "https://j-live.kr",
+    "API_URL": "https://j-live.kr/api/alerts",
+    "DATA_BASE_URL": "https://j-live.kr/calendar/data",
+    "FROM_EMAIL": "J-LIVE <alerts@notify.j-live.kr>"
+  },
+  "routes": [{ "pattern": "j-live.kr/api/alerts/*", "zone_name": "j-live.kr" }],
+  "d1_databases": [{
+    "binding": "DB",
+    "database_name": "j-live-alerts",
+    "database_id": "REPLACE_WITH_D1_DATABASE_ID",
+    "migrations_dir": "migrations"
+  }]
+}

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>J-LIVE 공연 관리자</title>
+  <link rel="stylesheet" href="/admin.css">
+  <script src="/admin.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <span class="kicker">LOCAL ADMIN</span>
+      <h1>공연 정보 관리</h1>
+      <p>자동 수집 후보를 검토하고 승인된 일정만 공개 데이터에 반영합니다.</p>
+    </div>
+    <button class="primary" id="newEvent" type="button">＋ 새 공연 추가</button>
+  </header>
+
+  <main>
+    <section class="summary" aria-label="일정 상태 요약">
+      <button data-filter="pending" class="active"><strong id="pendingCount">0</strong><span>승인 대기</span></button>
+      <button data-filter="confirmed"><strong id="confirmedCount">0</strong><span>공개 일정</span></button>
+      <button data-filter="cancelled"><strong id="cancelledCount">0</strong><span>취소</span></button>
+      <button data-filter="rejected"><strong id="rejectedCount">0</strong><span>반려</span></button>
+      <button data-filter="all"><strong id="allCount">0</strong><span>전체</span></button>
+    </section>
+
+    <div class="workspace">
+      <section class="queue" aria-labelledby="queueTitle">
+        <div class="queue-head">
+          <div><span class="kicker">REVIEW QUEUE</span><h2 id="queueTitle">승인 대기</h2></div>
+          <input id="search" type="search" placeholder="아티스트·공연장 검색" aria-label="공연 검색">
+        </div>
+        <div class="event-list" id="eventList" aria-live="polite"></div>
+      </section>
+
+      <section class="editor" aria-labelledby="editorTitle">
+        <div class="editor-head">
+          <div><span class="kicker">EVENT EDITOR</span><h2 id="editorTitle">공연 추가</h2></div>
+          <span class="status pending" id="editorStatus">승인 대기</span>
+        </div>
+        <div class="message" id="message" role="status" hidden></div>
+        <form id="eventForm">
+          <input type="hidden" name="status" value="pending">
+          <div class="form-grid">
+            <label>고유 ID<input name="id" required pattern="[a-z0-9][a-z0-9-]*" placeholder="artist-2026-10-01"></label>
+            <label>아티스트<input name="artist" required></label>
+            <label>장르<input name="genre" placeholder="J-POP / ROCK"></label>
+            <label>공연일<input name="concertDate" type="date" required></label>
+            <label>공연 시각<input name="time" required placeholder="오후 7:00"></label>
+            <label>공연장<input name="venue" required></label>
+            <label>일반예매일<input name="ticketDate" type="date"></label>
+            <label>일반예매 시각<input name="ticketTime" placeholder="오후 8:00"></label>
+            <label>선예매일<input name="presaleDate" type="date"></label>
+            <label>선예매 시각<input name="presaleTime" placeholder="오후 8:00"></label>
+            <label>예매처<input name="vendor" required></label>
+            <label>가격<input name="price" type="number" min="0" step="1" placeholder="154000"></label>
+            <label class="wide">예매처 URL<input name="vendorUrl" type="url" required></label>
+            <label>통화<input name="priceCurrency" value="KRW"></label>
+            <label>공식 YouTube 채널<input name="youtubeChannel" placeholder="@OfficialChannel"></label>
+            <label>마지막 검증일<input name="verifiedAt" type="date"></label>
+          </div>
+
+          <fieldset>
+            <legend>대표곡 3개</legend>
+            <div class="song-row" data-song><input data-song-title placeholder="곡명 1"><input data-song-duration placeholder="길이"><input data-song-url type="url" placeholder="YouTube watch URL"></div>
+            <div class="song-row" data-song><input data-song-title placeholder="곡명 2"><input data-song-duration placeholder="길이"><input data-song-url type="url" placeholder="YouTube watch URL"></div>
+            <div class="song-row" data-song><input data-song-title placeholder="곡명 3"><input data-song-duration placeholder="길이"><input data-song-url type="url" placeholder="YouTube watch URL"></div>
+          </fieldset>
+
+          <label class="block">공식 출처 URL<textarea name="sources" rows="4" placeholder="한 줄에 URL 하나"></textarea></label>
+          <label class="block" id="cancellationField" hidden>취소 사유<textarea name="cancellationReason" rows="2"></textarea></label>
+
+          <div class="form-actions">
+            <button class="secondary" id="verifyEvent" type="button">오늘 날짜로 검증</button>
+            <button class="secondary danger" id="cancelEvent" type="button">공연 취소</button>
+            <button class="secondary" id="rejectEvent" type="button">후보 반려</button>
+            <button class="secondary" type="submit">내용 저장</button>
+            <button class="primary" id="approveEvent" type="button">검증 후 승인·공개</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

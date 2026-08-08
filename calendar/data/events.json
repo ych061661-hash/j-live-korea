@@ -1540,7 +1540,7 @@
     "vendor": "NOL 티켓",
     "vendorUrl": "https://nol.yanolja.com/ticket/products/26010474",
     "youtubeChannel": "ano official channel",
-    "youtubeProfileImage": "https://img.youtube.com/vi/PgW53XNJDe8/hqdefault.jpg",
+    "youtubeProfileImage": "./assets/artists/anoofficialchannel.jpg",
     "songs": [
       [
         "愛してる、なんてね。",
@@ -1583,7 +1583,7 @@
     "vendor": "NOL 티켓",
     "vendorUrl": "https://nol.yanolja.com/ticket/products/26010474",
     "youtubeChannel": "ano official channel",
-    "youtubeProfileImage": "https://img.youtube.com/vi/PgW53XNJDe8/hqdefault.jpg",
+    "youtubeProfileImage": "./assets/artists/anoofficialchannel.jpg",
     "songs": [
       [
         "愛してる、なんてね。",
@@ -1609,6 +1609,66 @@
     ],
     "verifiedAt": "2026-07-25",
     "createdAt": "2026-07-25T15:00:00+09:00"
+  },
+  {
+    "id": "andteam-2026-10-03",
+    "artist": "&TEAM",
+    "genre": "J-POP / IDOL",
+    "concertDate": "2026-10-03",
+    "time": "오후 6:00",
+    "venue": "KSPO DOME",
+    "presaleDate": "2026-08-10",
+    "presaleTime": "오후 8:00",
+    "ticketDate": "2026-08-11",
+    "ticketTime": "오후 8:00",
+    "price": 165000,
+    "priceCurrency": "KRW",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://tickets.interpark.com/contents/notice/detail/14782",
+    "youtubeChannel": "@andTEAM_official",
+    "songs": [
+      ["War Cry", "", "https://www.youtube.com/watch?v=UJaW2Z5DxS8"],
+      ["Dropkick", "", "https://www.youtube.com/watch?v=AWawgm20UBc"],
+      ["FIREWORK", "", "https://www.youtube.com/watch?v=uY-lOn0XwBg"]
+    ],
+    "status": "pending",
+    "sources": [
+      "https://tickets.interpark.com/contents/notice/detail/14782",
+      "https://www.andteam-official.jp/",
+      "https://www.youtube.com/@andTEAM_official/videos"
+    ],
+    "verifiedAt": "2026-08-06",
+    "createdAt": "2026-08-06T16:30:00+09:00"
+  },
+  {
+    "id": "andteam-2026-10-04",
+    "artist": "&TEAM",
+    "genre": "J-POP / IDOL",
+    "concertDate": "2026-10-04",
+    "time": "오후 5:00",
+    "venue": "KSPO DOME",
+    "presaleDate": "2026-08-10",
+    "presaleTime": "오후 8:00",
+    "ticketDate": "2026-08-11",
+    "ticketTime": "오후 8:00",
+    "price": 165000,
+    "priceCurrency": "KRW",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://tickets.interpark.com/contents/notice/detail/14782",
+    "youtubeChannel": "@andTEAM_official",
+    "songs": [
+      ["War Cry", "", "https://www.youtube.com/watch?v=UJaW2Z5DxS8"],
+      ["Dropkick", "", "https://www.youtube.com/watch?v=AWawgm20UBc"],
+      ["FIREWORK", "", "https://www.youtube.com/watch?v=uY-lOn0XwBg"]
+    ],
+    "status": "pending",
+    "sources": [
+      "https://tickets.interpark.com/contents/notice/detail/14782",
+      "https://www.andteam-official.jp/",
+      "https://www.youtube.com/@andTEAM_official/videos"
+    ],
+    "verifiedAt": "2026-08-06",
+    "createdAt": "2026-08-06T16:30:00+09:00"
   },
   {
     "id": "cero-2026-10-10",
@@ -1694,6 +1754,36 @@
     ],
     "verifiedAt": "2026-07-25",
     "createdAt": "2026-07-25T15:00:00+09:00"
+  },
+  {
+    "id": "sunny-day-service-2026-12-03",
+    "artist": "Sunny Day Service",
+    "genre": "J-POP / INDIE ROCK",
+    "concertDate": "2026-12-03",
+    "time": "오후 8:00",
+    "venue": "무신사 개러지",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "2026-08-13",
+    "ticketTime": "오후 2:00",
+    "price": 88000,
+    "priceCurrency": "KRW",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://tickets.interpark.com/goods/26011116",
+    "youtubeChannel": "@SunnyDayServiceofficial",
+    "songs": [
+      ["セツナ", "", "https://www.youtube.com/watch?v=gfmoWR6jQ0M"],
+      ["クリスマス", "", "https://www.youtube.com/watch?v=oHosarYxncQ"],
+      ["苺畑でつかまえて", "", "https://www.youtube.com/watch?v=lK4mZNivisU"]
+    ],
+    "status": "confirmed",
+    "sources": [
+      "https://tickets.interpark.com/goods/26011116",
+      "https://www.sokabekeiichi.com/",
+      "https://www.youtube.com/@SunnyDayServiceofficial/videos"
+    ],
+    "verifiedAt": "2026-08-06",
+    "createdAt": "2026-08-06T16:30:00+09:00"
   },
   {
     "id": "yuuri-2026-12-05",
@@ -1834,5 +1924,119 @@
     ],
     "verifiedAt": "2026-08-05",
     "createdAt": "2026-08-05T20:30:00+09:00"
+  },
+  {
+    "id": "paris-match-2026-10-31",
+    "artist": "paris match",
+    "genre": "J-POP / CITY POP / JAZZ",
+    "concertDate": "2026-10-31",
+    "time": "오후 6:00",
+    "venue": "스카이아트홀",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "2026-08-13",
+    "ticketTime": "오후 12:00",
+    "price": null,
+    "priceCurrency": "KRW",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://tickets.interpark.com/goods/26011570",
+    "youtubeChannel": "paris match - Topic",
+    "songs": [
+      ["太陽の接吻", "", "https://www.youtube.com/watch?v=Dzia7v68_Bw"],
+      ["さよならシーサイド", "", "https://www.youtube.com/watch?v=zRBRTmo_6fc"],
+      ["STAY WITH ME", "", "https://www.youtube.com/watch?v=TFb_1gbLoDQ"]
+    ],
+    "status": "pending",
+    "sources": [
+      "https://tickets.interpark.com/goods/26011570",
+      "https://www.jvcmusic.co.jp/parismatch/profile.html",
+      "https://www.youtube.com/channel/UCctyUsz8nIthLqSzUHQXHbQ"
+    ],
+    "verifiedAt": "2026-08-08",
+    "createdAt": "2026-08-08T03:10:00+09:00"
+  },
+  {
+    "id": "hamano-haruki-2026-10-16",
+    "artist": "Hamano Haruki",
+    "genre": "J-POP / SINGER-SONGWRITER",
+    "concertDate": "2026-10-16",
+    "time": "오후 8:00",
+    "venue": "웨스트브릿지 라이브홀",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "2026-08-13",
+    "ticketTime": "오후 6:00",
+    "price": null,
+    "priceCurrency": "KRW",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://tickets.interpark.com/goods/26011287",
+    "youtubeChannel": "@paruchan86",
+    "songs": [
+      ["ギジコイ", "", "https://www.youtube.com/watch?v=L4qYYEIQqA0"],
+      ["Princess GaL", "", "https://www.youtube.com/watch?v=v_aze025Q5M"],
+      ["中洲ロンリーナイト", "", "https://www.youtube.com/watch?v=xPyYhBUERes"]
+    ],
+    "status": "pending",
+    "sources": [
+      "https://tickets.interpark.com/goods/26011287",
+      "https://www.youtube.com/@paruchan86/videos"
+    ],
+    "verifiedAt": "2026-08-08",
+    "createdAt": "2026-08-08T03:10:00+09:00"
+  },
+  {
+    "id": "kazumi-tateishi-trio-2026-12-26",
+    "artist": "Kazumi Tateishi Trio",
+    "genre": "JAZZ / GHIBLI",
+    "concertDate": "2026-12-26",
+    "time": "오후 5:00",
+    "venue": "금정문화회관 금빛누리홀",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "2026-08-13",
+    "ticketTime": "오후 12:00",
+    "price": null,
+    "priceCurrency": "KRW",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://tickets.interpark.com/goods/26011629",
+    "youtubeChannel": "",
+    "songs": [],
+    "status": "pending",
+    "sources": [
+      "https://tickets.interpark.com/goods/26011629",
+      "https://www.jvcmusic.co.jp/-/Profile/A023203.html"
+    ],
+    "verifiedAt": "2026-08-08",
+    "createdAt": "2026-08-08T03:10:00+09:00"
+  },
+  {
+    "id": "luv-2026-03-21",
+    "artist": "luv",
+    "genre": "J-POP / NEO SOUL / FUNK",
+    "concertDate": "2026-03-21",
+    "time": "오후 7:00",
+    "venue": "KT&G 상상마당 라이브홀",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "",
+    "ticketTime": "",
+    "price": 77000,
+    "priceCurrency": "KRW",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://tickets.interpark.com/contents/notice/detail/11964",
+    "youtubeChannel": "@luv-band1030",
+    "songs": [
+      ["bye<3", "", "https://www.youtube.com/watch?v=t-vfbYrCl8Y"],
+      ["Ohaguro", "", "https://www.youtube.com/watch?v=xHNpsMTkbbw"],
+      ["meguri", "", "https://www.youtube.com/watch?v=WYOgGr-_nGM"]
+    ],
+    "status": "pending",
+    "sources": [
+      "https://tickets.interpark.com/contents/notice/detail/11964",
+      "https://luv-band.com/",
+      "https://www.youtube.com/@luv-band1030/videos"
+    ],
+    "verifiedAt": "2026-08-08",
+    "createdAt": "2026-08-08T03:10:00+09:00"
   }
 ]

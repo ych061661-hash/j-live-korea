@@ -423,6 +423,7 @@ document.querySelector("#dayLineup").addEventListener("click", event => {
 
 function saveFavorites(next) {
   savedFavorites = window.JLIVE_FAVORITES.write(next);
+  window.JLIVE_EMAIL_ALERTS?.sync(savedFavorites).catch(() => {});
   window.JLIVE_ANALYTICS.track("favorites_snapshot", { events: savedFavorites.events.length, artists: savedFavorites.artists.length });
   renderMyShows();
   const selected = schedules.find(schedule => schedule.id === selectedId);

@@ -1,1 +1,4 @@
 .netlify
+alerts-worker/wrangler.jsonc
+.wrangler/
+alerts-worker/.wrangler/
