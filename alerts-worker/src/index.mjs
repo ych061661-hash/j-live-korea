@@ -1,4 +1,4 @@
-import { buildEmailAlerts, normalizePreferences, renderAlertEmail } from "./logic.mjs";
+import { buildEmailAlerts, buildWeeklyTicketSummary, normalizePreferences, renderAlertEmail } from "./logic.mjs";
 
 const json = (body, status = 200, headers = {}) => new Response(JSON.stringify(body), { status, headers: { "Content-Type": "application/json; charset=utf-8", ...headers } });
 const token = () => {
@@ -162,10 +162,10 @@ async function unsubscribeByManageToken(request, env) {
     : json({ error: "구독 정보를 찾을 수 없습니다." }, 404, cors(request, env));
 }
 
-function koreaDate(timestamp) {
-  const parts = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Seoul", year: "numeric", month: "2-digit", day: "2-digit" }).formatToParts(new Date(timestamp));
+function koreaClock(timestamp) {
+  const parts = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Seoul", year: "numeric", month: "2-digit", day: "2-digit", weekday: "short", hour: "2-digit", hourCycle: "h23" }).formatToParts(new Date(timestamp));
   const values = Object.fromEntries(parts.map(part => [part.type, part.value]));
-  return `${values.year}-${values.month}-${values.day}`;
+  return { date: `${values.year}-${values.month}-${values.day}`, hour: Number(values.hour), weekday: values.weekday };
 }
 
 async function runNotifications(env, timestamp = Date.now()) {
@@ -173,7 +173,8 @@ async function runNotifications(env, timestamp = Date.now()) {
   if (!eventsResponse.ok || !updatesResponse.ok) throw new Error("J-LIVE 공개 데이터를 불러오지 못했습니다.");
   const [events, updates] = await Promise.all([eventsResponse.json(), updatesResponse.json()]);
   const { results: subscriptions } = await env.DB.prepare("SELECT id,email,artists,events,kinds FROM subscriptions WHERE verified_at IS NOT NULL").all();
-  const today = koreaDate(timestamp);
+  const clock = koreaClock(timestamp);
+  const today = clock.date;
   let sent = 0;
   let failed = 0;
 
@@ -181,6 +182,7 @@ async function runNotifications(env, timestamp = Date.now()) {
     try {
       const preferences = { artists: JSON.parse(subscription.artists), events: JSON.parse(subscription.events), kinds: JSON.parse(subscription.kinds) };
       const due = buildEmailAlerts(events, updates, preferences, today);
+      if (clock.weekday === "Mon" && clock.hour >= 8) due.push(...buildWeeklyTicketSummary(events, preferences, today));
       const unsent = [];
       for (const alert of due) {
         const row = await env.DB.prepare("SELECT 1 AS found FROM sent_notifications WHERE subscription_id=?1 AND alert_id=?2").bind(subscription.id, alert.id).first();
@@ -189,7 +191,11 @@ async function runNotifications(env, timestamp = Date.now()) {
       if (!unsent.length) continue;
       const unsubscribeUrl = `${env.API_URL}/unsubscribe?token=${encodeURIComponent(await unsubscribeToken(env, subscription.id))}`;
       const key = `alerts-${subscription.id}-${today}-${await hash(unsent.map(item => item.id).join("|"))}`.slice(0, 256);
-      await sendEmail(env, { from: env.FROM_EMAIL, to: [subscription.email], subject: `[J-LIVE] ${unsent[0].title}${unsent.length > 1 ? ` 외 ${unsent.length - 1}건` : ""}`, html: renderAlertEmail(unsent, env.SITE_URL, unsubscribeUrl) }, key);
+      const weeklyCount = unsent.filter(item => item.kind === "weekly").length;
+      const subject = weeklyCount
+        ? `[J-LIVE] 이번 주 예매 일정 ${weeklyCount}건${unsent.length > weeklyCount ? ` 외 ${unsent.length - weeklyCount}건` : ""}`
+        : `[J-LIVE] ${unsent[0].title}${unsent.length > 1 ? ` 외 ${unsent.length - 1}건` : ""}`;
+      await sendEmail(env, { from: env.FROM_EMAIL, to: [subscription.email], subject, html: renderAlertEmail(unsent, env.SITE_URL, unsubscribeUrl) }, key);
       await env.DB.batch(unsent.map(alert => env.DB.prepare("INSERT OR IGNORE INTO sent_notifications (subscription_id,alert_id,sent_at) VALUES (?1,?2,?3)").bind(subscription.id, alert.id, new Date().toISOString())));
       sent += unsent.length;
     } catch (error) {

@@ -44,6 +44,8 @@ test("renders artist-specific editorial content only when it exists", () => {
   const html = richEventGuideMarkup(event, editorial);
   assert.match(html, /J-LIVE ORIGINAL/);
   assert.match(html, /관전 포인트/);
+  assert.match(html, /듣는 순서/);
+  assert.match(html, /동선 메모/);
   assert.equal(hasEditorialGuide(event, editorial), true);
   assert.equal(hasEditorialGuide({ artist: "Unknown" }, editorial), false);
   assert.equal(richEventGuideMarkup({ artist: "Unknown" }, editorial), "");

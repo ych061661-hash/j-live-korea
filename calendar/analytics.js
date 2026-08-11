@@ -17,6 +17,23 @@
     bucket[key] = (Number(bucket[key]) || 0) + 1;
   }
 
+  function safeSearchTerm(value) {
+    const term = String(value || "").normalize("NFKC").trim().replace(/\s+/g, " ").slice(0, 60);
+    if (!term || /https?:\/\/|www\./i.test(term) || /\b[^\s@]+@[^\s@]+\.[^\s@]+\b/.test(term)) return "";
+    if ((term.match(/\d/g) || []).length >= 8) return "";
+    return term;
+  }
+
+  function searchLanguage(value) {
+    const term = String(value || "");
+    const scripts = [/[가-힣]/.test(term), /[ぁ-んァ-ヶ一-龠々]/.test(term), /[A-Za-z]/.test(term)].filter(Boolean).length;
+    if (scripts > 1) return "mixed";
+    if (/[가-힣]/.test(term)) return "korean";
+    if (/[ぁ-んァ-ヶ一-龠々]/.test(term)) return "japanese";
+    if (/[A-Za-z]/.test(term)) return "latin";
+    return "other";
+  }
+
   function track(name, detail = {}, storage) {
     const data = read(storage);
     if (name === "artist_search") increment(data.searches, detail.artist);
@@ -31,7 +48,7 @@
     return data;
   }
 
-  const api = { STORAGE_KEY, read, track };
+  const api = { STORAGE_KEY, read, safeSearchTerm, searchLanguage, track };
   root.JLIVE_ANALYTICS = api;
   if (typeof module === "object" && module.exports) module.exports = api;
 })(typeof window === "object" ? window : globalThis);

@@ -18,6 +18,10 @@ const artistSearchResults = document.querySelector("#artistSearchResults");
 const myShowEvents = document.querySelector("#myShowEvents");
 const myShowsEmpty = document.querySelector("#myShowsEmpty");
 const myShowsSummary = document.querySelector("#myShowsSummary");
+const myShowsUpcomingCount = document.querySelector("#myShowsUpcomingCount");
+const myShowsWeeklySales = document.querySelector("#myShowsWeeklySales");
+const myShowsNextDate = document.querySelector("#myShowsNextDate");
+const myShowsAlerts = document.querySelector("#myShowsAlerts");
 const savedArtists = document.querySelector("#savedArtists");
 const saveEventButton = document.querySelector("#saveEventButton");
 const saveArtistButton = document.querySelector("#saveArtistButton");
@@ -196,10 +200,26 @@ function renderMyShows() {
   const today = dateKey(new Date());
   const upcoming = window.JLIVE_FAVORITES.upcoming(schedules, savedFavorites, today);
   const savedCount = savedFavorites.artists.length + savedFavorites.events.length;
+  const now = parseDate(today);
+  const monday = new Date(now);
+  monday.setDate(now.getDate() - ((now.getDay() + 6) % 7));
+  const sunday = new Date(monday);
+  sunday.setDate(monday.getDate() + 6);
+  const mondayKey = dateKey(monday);
+  const sundayKey = dateKey(sunday);
+  const matchesSaved = schedule => savedFavorites.events.includes(schedule.id) || savedFavorites.artists.includes(schedule.artist);
+  const weeklySales = schedules.reduce((count, schedule) => count
+    + (matchesSaved(schedule) && schedule.presaleDate >= mondayKey && schedule.presaleDate <= sundayKey ? 1 : 0)
+    + (matchesSaved(schedule) && schedule.ticketDate >= mondayKey && schedule.ticketDate <= sundayKey ? 1 : 0), 0);
 
   myShowsSummary.textContent = savedCount
     ? `관심 아티스트 ${savedFavorites.artists.length}명 · 저장 공연 ${savedFavorites.events.length}개`
     : "로그인 없이 이 브라우저에만 저장됩니다.";
+  myShowsUpcomingCount.textContent = String(upcoming.length);
+  myShowsWeeklySales.textContent = String(weeklySales);
+  myShowsNextDate.textContent = upcoming.length
+    ? `${formatDate(upcoming[0].concertDate)} · ${upcoming[0].artist}`
+    : savedCount ? "새 일정 대기 중" : "저장 후 표시";
 
   savedArtists.hidden = savedFavorites.artists.length === 0;
   savedArtists.innerHTML = savedFavorites.artists.map(artist => `
@@ -210,7 +230,7 @@ function renderMyShows() {
   myShowsEmpty.hidden = upcoming.length > 0;
   myShowsEmpty.innerHTML = savedCount
     ? "<strong>저장한 항목의 예정 공연이 없습니다.</strong><span>새 내한 일정이 추가되면 이곳에 자동으로 표시됩니다.</span>"
-    : "<strong>아직 저장한 공연이 없습니다.</strong><span>달력에서 공연을 선택한 뒤 공연이나 아티스트를 저장해 보세요.</span>";
+    : "<strong>아직 저장한 공연이 없습니다.</strong><span>달력에서 공연을 선택한 뒤 공연이나 아티스트를 저장해 보세요.</span><a href=\"#calendar\">캘린더에서 찾기</a>";
 
   myShowEvents.innerHTML = upcoming.map(schedule => {
     const savedByArtist = savedFavorites.artists.includes(schedule.artist);
@@ -238,7 +258,7 @@ function renderMyShows() {
 
 function renderAlertPlan() {
   const rows = window.JLIVE_ALERTS.upcoming(schedules, savedFavorites, dateKey(new Date()));
-  alertPlan.hidden = rows.length === 0;
+  myShowsAlerts.hidden = rows.length === 0;
   alertPlan.innerHTML = rows.map(row => `<span><b>${escapeHtml(formatDate(row.date))}</b> · ${escapeHtml(row.artist)} ${escapeHtml(row.label)} ${escapeHtml(row.time || "")}</span>`).join("");
   if (!("Notification" in window)) {
     alertButton.hidden = true;
@@ -423,6 +443,7 @@ document.querySelector("#dayLineup").addEventListener("click", event => {
 
 function saveFavorites(next) {
   savedFavorites = window.JLIVE_FAVORITES.write(next);
+  window.dispatchEvent(new CustomEvent("jlive:favorites-changed", { detail: savedFavorites }));
   window.JLIVE_EMAIL_ALERTS?.sync(savedFavorites).catch(() => {});
   window.JLIVE_ANALYTICS.track("favorites_snapshot", { events: savedFavorites.events.length, artists: savedFavorites.artists.length });
   renderMyShows();
@@ -502,7 +523,12 @@ artistSearch.addEventListener("input", () => {
     if (query && value === artistSearch.value.trim() && match) {
       window.JLIVE_ANALYTICS.track("artist_search", { artist: match.artist });
     } else if (query && value === artistSearch.value.trim()) {
-      window.JLIVE_ANALYTICS.track("empty_search", { search_term: value.slice(0, 60) });
+      const searchTerm = window.JLIVE_ANALYTICS.safeSearchTerm(value);
+      if (searchTerm) window.JLIVE_ANALYTICS.track("empty_search", {
+        search_term: searchTerm,
+        search_language: window.JLIVE_ANALYTICS.searchLanguage(searchTerm),
+        term_length: [...searchTerm].length
+      });
     }
   }, 800);
 });

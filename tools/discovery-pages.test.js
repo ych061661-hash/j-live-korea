@@ -100,7 +100,21 @@ test("deduplicates identical series-level ticket updates", () => {
   ];
   const updates = buildUpdateHistory(events, {}, [], "2026-07-29");
   assert.equal(updates.filter(item => item.kind === "announcement").length, 1);
+  assert.equal(updates.filter(item => item.kind === "ticket-open").length, 1);
   assert.equal(updates.filter(item => item.kind === "extra-seat").length, 1);
+});
+
+test("creates ticket opening posts and keeps later schedule changes separate", () => {
+  const withoutSale = { ...event, ticketDate: null, ticketTime: null };
+  const opened = { ...event, ticketDate: "2026-07-30", ticketTime: "20:00" };
+  const previous = { [event.id]: withoutSale };
+  const openedUpdates = buildUpdateHistory([opened], previous, [], "2026-07-29");
+  assert.equal(openedUpdates[0].kind, "ticket-open");
+  assert.doesNotMatch(openedUpdates[0].summary, /선예매 미정/);
+
+  const changed = { ...opened, ticketTime: "21:00" };
+  const changedUpdates = buildUpdateHistory([changed], { [event.id]: opened }, [], "2026-07-30");
+  assert.equal(changedUpdates[0].kind, "ticket-change");
 });
 
 test("uses calendar-relative assets on the update page", () => {

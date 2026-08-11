@@ -165,7 +165,7 @@ function weeklyPageHtml({ events, aliases, editorial, siteUrl, today }) {
 }
 
 const updateLabels = {
-  announcement: "신규 공연", "ticket-change": "예매 일정 변경", "extra-show": "추가 회차",
+  announcement: "신규 공연", "ticket-open": "티켓 오픈", "ticket-change": "예매 일정 변경", "extra-show": "추가 회차",
   "extra-seat": "추가 좌석", restock: "취소표", cancellation: "취소", postponement: "연기"
 };
 const snapshotFields = ["artist", "concertDate", "time", "venue", "vendor", "vendorUrl", "ticketDate", "ticketTime", "presaleDate", "presaleTime", "status", "ticketLabel", "verifiedAt", "sources"];
@@ -183,16 +183,29 @@ function classifyTicketLabel(label = "") {
   return "";
 }
 
+function ticketScheduleSummary(event, prefix) {
+  const items = [];
+  if (event.presaleDate) items.push(`선예매 ${humanDate(event.presaleDate, event.presaleTime)}`);
+  if (event.ticketDate) items.push(`일반예매 ${humanDate(event.ticketDate, event.ticketTime)}`);
+  return `${prefix} ${items.join(", ")}.`;
+}
+
 function buildUpdateHistory(events, previousSnapshot = {}, previousUpdates = [], today) {
   const additions = [];
   const previousEvents = Object.values(previousSnapshot);
   if (Object.keys(previousSnapshot).length === 0) {
     const seededSeries = new Set();
+    const seededTickets = new Set();
     for (const event of events.filter(item => item.status === "confirmed")) {
       const series = `${event.artist}|${event.venue}|${event.vendorUrl || event.vendor || ""}`;
       if (!seededSeries.has(series)) {
         additions.push(makeUpdate(event, "announcement", event.verifiedAt || today, `${humanDate(event.concertDate, event.time)} ${event.venue} 공연이 공식 확인됐습니다.`));
         seededSeries.add(series);
+      }
+      const ticketSeries = `${series}|${event.presaleDate || ""}|${event.presaleTime || ""}|${event.ticketDate || ""}|${event.ticketTime || ""}`;
+      if ((event.presaleDate || event.ticketDate) && !seededTickets.has(ticketSeries)) {
+        additions.push(makeUpdate(event, "ticket-open", event.verifiedAt || today, ticketScheduleSummary(event, "예매 일정이 공개됐습니다.")));
+        seededTickets.add(ticketSeries);
       }
       const special = classifyTicketLabel(event.ticketLabel);
       if (special) additions.push(makeUpdate(event, special, event.verifiedAt || today, `${event.ticketLabel} 일정이 ${humanDate(event.ticketDate, event.ticketTime)}로 확인됐습니다.`));
@@ -204,13 +217,18 @@ function buildUpdateHistory(events, previousSnapshot = {}, previousUpdates = [],
       if (!before) {
         const kind = previousEvents.some(item => item.artist === event.artist) ? "extra-show" : "announcement";
         additions.push(makeUpdate(event, kind, date, kind === "extra-show" ? `${humanDate(event.concertDate, event.time)} 추가 회차가 발표됐습니다.` : `${humanDate(event.concertDate, event.time)} ${event.venue} 공연이 발표됐습니다.`));
+        if (event.presaleDate || event.ticketDate) additions.push(makeUpdate(event, "ticket-open", date, ticketScheduleSummary(event, "예매 일정이 공개됐습니다.")));
+        const special = classifyTicketLabel(event.ticketLabel);
+        if (special) additions.push(makeUpdate(event, special, date, `${event.ticketLabel} 일정이 ${humanDate(event.ticketDate, event.ticketTime)}로 확인됐습니다.`));
         continue;
       }
       const status = String(event.status || "").toLowerCase();
       if (before.status !== event.status && /cancel|취소/.test(status)) additions.push(makeUpdate(event, "cancellation", date, `${humanDate(event.concertDate)} 공연 취소가 확인됐습니다.`));
       if (before.status !== event.status && /postpone|연기/.test(status)) additions.push(makeUpdate(event, "postponement", date, `${humanDate(event.concertDate)} 공연 연기가 확인됐습니다.`));
       if (["ticketDate", "ticketTime", "presaleDate", "presaleTime"].some(field => before[field] !== (event[field] ?? null))) {
-        additions.push(makeUpdate(event, "ticket-change", date, `예매 일정이 변경됐습니다. 선예매 ${humanDate(event.presaleDate, event.presaleTime)}, 일반예매 ${humanDate(event.ticketDate, event.ticketTime)}.`));
+        const hadSchedule = Boolean(before.ticketDate || before.presaleDate);
+        const kind = hadSchedule ? "ticket-change" : "ticket-open";
+        additions.push(makeUpdate(event, kind, date, ticketScheduleSummary(event, hadSchedule ? "예매 일정이 변경됐습니다." : "예매 일정이 공개됐습니다.")));
       }
       const special = classifyTicketLabel(event.ticketLabel);
       if (special && before.ticketLabel !== event.ticketLabel) additions.push(makeUpdate(event, special, date, `${event.ticketLabel} 일정이 ${humanDate(event.ticketDate, event.ticketTime)}로 확인됐습니다.`));

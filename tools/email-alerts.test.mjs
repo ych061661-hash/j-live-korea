@@ -1,7 +1,11 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { buildEmailAlerts, normalizePreferences, renderAlertEmail } from "../alerts-worker/src/logic.mjs";
+import { createRequire } from "node:module";
+import { buildEmailAlerts, buildWeeklyTicketSummary, normalizePreferences, renderAlertEmail } from "../alerts-worker/src/logic.mjs";
 import { cleanupExpired, recover, runNotifications, subscribe, unsubscribeByManageToken } from "../alerts-worker/src/index.mjs";
+
+const require = createRequire(import.meta.url);
+const emailAlertsUi = require("../calendar/email-alerts.js");
 
 const events = [
   { id: "a-live", artist: "A", status: "confirmed", ticketDate: "2026-08-09", ticketTime: "오후 8:00", presaleDate: "2026-08-09", presaleTime: "오후 7:00", vendor: "YES24" },
@@ -14,11 +18,33 @@ const updates = [
   { id: "new-pending", eventId: "pending", artist: "A", date: "2026-08-08", kind: "announcement", label: "신규 공연", summary: "미승인" }
 ];
 
+test("classifies verification redirects without exposing personal data", () => {
+  assert.deepEqual(emailAlertsUi.classifyReturnState("?email-alert=verified", ""), { type: "verified" });
+  assert.deepEqual(emailAlertsUi.classifyReturnState("?email-alert=invalid", ""), { type: "invalid" });
+  assert.deepEqual(emailAlertsUi.classifyReturnState("", "#email-alert=recovered&manage-token=one-time"), { type: "recovered", manageToken: "one-time" });
+  assert.deepEqual(emailAlertsUi.classifyReturnState("?email-alert=unknown", ""), { type: "" });
+});
+
 test("builds all four alert types only for confirmed favorite artists", () => {
   const result = buildEmailAlerts(events, updates, { artists: ["A"], events: [], kinds: ["announcement", "presale", "ticket", "extra-seat"] }, "2026-08-08");
   assert.deepEqual(result.map(item => item.kind).sort(), ["announcement", "extra-seat", "presale", "ticket"]);
   assert.ok(result.every(item => item.artist === "A"));
   assert.ok(result.every(item => !item.id.includes("pending")));
+});
+
+test("builds a deduplicated Monday-to-Sunday ticket summary", () => {
+  const weeklyEvents = [
+    { id: "a-one", artist: "A", status: "confirmed", ticketDate: "2026-08-10", ticketTime: "오후 8:00", vendor: "YES24" },
+    { id: "a-two", artist: "A", status: "confirmed", ticketDate: "2026-08-10", ticketTime: "오후 8:00", vendor: "YES24" },
+    { id: "b-one", artist: "B", status: "confirmed", presaleDate: "2026-08-16", presaleTime: "오후 7:00", vendor: "NOL" },
+    { id: "outside", artist: "C", status: "confirmed", ticketDate: "2026-08-17", vendor: "NOL" },
+    { id: "pending", artist: "D", status: "pending", ticketDate: "2026-08-11", vendor: "NOL" }
+  ];
+  const result = buildWeeklyTicketSummary(weeklyEvents, { kinds: ["weekly"] }, "2026-08-10");
+  assert.deepEqual(result.map(item => item.title), ["A 일반예매", "B 선예매"]);
+  assert.ok(result.every(item => item.kind === "weekly"));
+  assert.match(renderAlertEmail(result, "https://j-live.kr", "https://example.com/out"), /이번 주 예매 일정/);
+  assert.deepEqual(buildWeeklyTicketSummary(weeklyEvents, { kinds: ["ticket"] }, "2026-08-10"), []);
 });
 
 test("normalizes preference values and renders safe email HTML", () => {
@@ -169,6 +195,44 @@ test("continues delivering when one subscriber email fails", async () => {
   } finally {
     globalThis.fetch = originalFetch;
     console.error = originalError;
+  }
+});
+
+test("sends the weekly ticket summary after 8 AM Monday in Korea", async () => {
+  const originalFetch = globalThis.fetch;
+  let subject = "";
+  globalThis.fetch = async (url, options) => {
+    const value = String(url);
+    if (value.endsWith("/events.json")) return new Response(JSON.stringify([
+      { id: "weekly-show", artist: "A", status: "confirmed", ticketDate: "2026-08-12", ticketTime: "오후 8:00", vendor: "YES24" }
+    ]), { status: 200 });
+    if (value.endsWith("/updates.json")) return new Response("[]", { status: 200 });
+    subject = JSON.parse(options.body).subject;
+    return new Response("{}", { status: 200 });
+  };
+  const env = {
+    API_URL: "https://j-live.kr/api/alerts",
+    DATA_BASE_URL: "https://j-live.kr/calendar/data",
+    SITE_URL: "https://j-live.kr",
+    FROM_EMAIL: "J-LIVE <alerts@notify.j-live.kr>",
+    RESEND_API_KEY: "test-key",
+    UNSUBSCRIBE_SECRET: "test-signing-secret",
+    DB: {
+      prepare() {
+        return {
+          bind() { return { first: async () => null }; },
+          all: async () => ({ results: [{ id: "weekly-fan", email: "fan@example.com", artists: "[]", events: "[]", kinds: '["weekly"]' }] })
+        };
+      },
+      batch: async () => []
+    }
+  };
+  try {
+    const result = await runNotifications(env, Date.parse("2026-08-09T23:00:00Z"));
+    assert.equal(result.sent, 1);
+    assert.equal(subject, "[J-LIVE] 이번 주 예매 일정 1건");
+  } finally {
+    globalThis.fetch = originalFetch;
   }
 });
 

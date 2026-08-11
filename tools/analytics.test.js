@@ -28,3 +28,27 @@ test("forwards contact form conversions to GA4", () => {
     ["event", "correction_submit", { form_name: "correction_submit" }]
   ]);
 });
+
+test("forwards email signup and verification conversions without an email address", () => {
+  const calls = [];
+  const storage = { getItem: () => null, setItem: () => {} };
+  globalThis.gtag = (...args) => calls.push(args);
+  analytics.track("email_alert_signup_sent", { favorite_count: 2, kind_count: 4 }, storage);
+  analytics.track("email_alert_verified", { subscriber_state: "verified" }, storage);
+  delete globalThis.gtag;
+  assert.deepEqual(calls, [
+    ["event", "email_alert_signup_sent", { favorite_count: 2, kind_count: 4 }],
+    ["event", "email_alert_verified", { subscriber_state: "verified" }]
+  ]);
+  assert.equal(JSON.stringify(calls).includes("@"), false);
+});
+
+test("sanitizes empty search terms and classifies their writing system", () => {
+  assert.equal(analytics.safeSearchTerm("  킹누  "), "킹누");
+  assert.equal(analytics.searchLanguage("킹누"), "korean");
+  assert.equal(analytics.searchLanguage("King Gnu"), "latin");
+  assert.equal(analytics.searchLanguage("キングヌー"), "japanese");
+  assert.equal(analytics.safeSearchTerm("fan@example.com"), "");
+  assert.equal(analytics.safeSearchTerm("https://example.com"), "");
+  assert.equal(analytics.safeSearchTerm("010-1234-5678"), "");
+});

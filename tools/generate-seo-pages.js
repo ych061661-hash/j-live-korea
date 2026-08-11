@@ -184,14 +184,17 @@ function richEventGuideMarkup(event, editorial) {
   const guide = editorial.eventGuides?.[event.artist];
   if (!guide) return "";
   const songs = editorial.songGuides?.[event.artist] || [];
+  const optionalSection = (title, value) => value ? `<h3>${title}</h3><p>${escapeHtml(value)}</p>` : "";
   return `<section class="editorial-section deep-guide">
               <div class="section-kicker">J-LIVE ORIGINAL</div>
               <h2>${escapeHtml(event.artist)} 공연을 더 잘 즐기는 법</h2>
               <p class="content-note">J-LIVE 편집부 작성 · 마지막 일정 검증 ${escapeHtml(event.verifiedAt || "기록 없음")}</p>
               <h3>이번 공연의 관전 포인트</h3>
               <p>${escapeHtml(guide.focus)}</p>
+              ${optionalSection("공연 전에 듣는 순서", guide.listening)}
               <h3>조회수 높은 대표곡 3곡 입문 순서</h3>
               <ol class="track-guide">${songs.map(song => `<li><strong>${escapeHtml(song.title)}</strong><p>${escapeHtml(song.note)}</p></li>`).join("")}</ol>
+              ${optionalSection("공연장 도착과 귀가 계획", guide.plan)}
             </section>
             ${ticketGuideMarkup(event, editorial)}`;
 }
@@ -228,7 +231,7 @@ function renderEventPage({ event, events, group, primary, editorial, siteUrl, te
   const indexable = event.id === primary.id && group.some(item => item.concertDate >= today) && hasEditorialGuide(event, editorial);
   const years = [...new Set(group.map(item => item.concertDate.slice(0, 4)))].join("·");
   const [, month, day] = event.concertDate.split("-").map(Number);
-  const title = `${event.artist} 내한 ${years} | ${month}월 ${day}일 공연·예매 정보`;
+  const title = `${event.artist} 내한 ${years} 예매 일정 | ${month}월 ${day}일 공연 정보`;
   const dates = group.map(item => humanDate(item.concertDate, item.time)).join(", ");
   const description = `${event.artist} 내한 공연은 ${dates} ${event.venue}에서 열립니다. 예매 일정, 교통, 대표곡과 공식 출처를 확인하세요.`;
   const artistIntro = editorial.artists[event.artist] || `${event.artist}의 한국 공연입니다. 공식 발표와 예매처 정보를 기준으로 일정을 정리했습니다.`;
