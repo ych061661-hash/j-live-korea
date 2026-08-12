@@ -1936,7 +1936,7 @@
     "presaleTime": "",
     "ticketDate": "2026-08-13",
     "ticketTime": "오후 12:00",
-    "price": null,
+    "price": 77000,
     "priceCurrency": "KRW",
     "vendor": "NOL 티켓",
     "vendorUrl": "https://tickets.interpark.com/goods/26011570",
@@ -1952,7 +1952,7 @@
       "https://www.jvcmusic.co.jp/parismatch/profile.html",
       "https://www.youtube.com/channel/UCctyUsz8nIthLqSzUHQXHbQ"
     ],
-    "verifiedAt": "2026-08-08",
+    "verifiedAt": "2026-08-12",
     "createdAt": "2026-08-08T03:10:00+09:00"
   },
   {
@@ -1995,7 +1995,7 @@
     "presaleTime": "",
     "ticketDate": "2026-08-13",
     "ticketTime": "오후 12:00",
-    "price": null,
+    "price": 55000,
     "priceCurrency": "KRW",
     "vendor": "NOL 티켓",
     "vendorUrl": "https://tickets.interpark.com/goods/26011629",
@@ -2006,7 +2006,7 @@
       "https://tickets.interpark.com/goods/26011629",
       "https://www.jvcmusic.co.jp/-/Profile/A023203.html"
     ],
-    "verifiedAt": "2026-08-08",
+    "verifiedAt": "2026-08-12",
     "createdAt": "2026-08-08T03:10:00+09:00"
   },
   {
