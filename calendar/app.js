@@ -27,6 +27,16 @@ const saveEventButton = document.querySelector("#saveEventButton");
 const saveArtistButton = document.querySelector("#saveArtistButton");
 const alertButton = document.querySelector("#alertButton");
 const alertPlan = document.querySelector("#alertPlan");
+const attendanceAddButton = document.querySelector("#attendanceAddButton");
+const attendanceFormWrap = document.querySelector("#attendanceFormWrap");
+const attendanceForm = document.querySelector("#attendanceForm");
+const attendanceCancelButton = document.querySelector("#attendanceCancelButton");
+const attendanceFormTotal = document.querySelector("#attendanceFormTotal");
+const attendanceShowCount = document.querySelector("#attendanceShowCount");
+const attendanceTicketCount = document.querySelector("#attendanceTicketCount");
+const attendanceTotal = document.querySelector("#attendanceTotal");
+const attendanceRecords = document.querySelector("#attendanceRecords");
+const attendanceRecordsEmpty = document.querySelector("#attendanceRecordsEmpty");
 let artistAliases = {};
 let schedules = [];
 let updates = [];
@@ -35,6 +45,7 @@ let selectedType = "concert";
 let selectedDateKey = "";
 let viewDate = new Date();
 let savedFavorites = window.JLIVE_FAVORITES.read();
+let attendanceLog = window.JLIVE_ATTENDANCE.read();
 let alertSettings = window.JLIVE_ALERTS.read();
 let emptySearchTimer = 0;
 const mobileQuery = window.matchMedia("(max-width: 820px)");
@@ -81,6 +92,78 @@ function eventsForDate(key) {
     seenTicketEvents.add(eventKey);
     return true;
   });
+}
+
+const formatWon = value => `${Math.max(0, Number(value) || 0).toLocaleString("ko-KR")}원`;
+
+function eligibleAttendanceEvents() {
+  const today = dateKey(new Date());
+  return schedules.filter(schedule => schedule.concertDate <= today)
+    .sort((a, b) => b.concertDate.localeCompare(a.concertDate) || a.artist.localeCompare(b.artist));
+}
+
+function updateAttendanceFormTotal() {
+  const data = new FormData(attendanceForm);
+  const total = Math.max(0, Number(data.get("unitPrice")) || 0)
+    * Math.min(20, Math.max(1, Number(data.get("quantity")) || 1))
+    + Math.max(0, Number(data.get("fees")) || 0);
+  attendanceFormTotal.textContent = formatWon(Math.round(total));
+}
+
+function closeAttendanceForm() {
+  attendanceFormWrap.hidden = true;
+  attendanceAddButton.setAttribute("aria-expanded", "false");
+  attendanceAddButton.textContent = "＋ 관람 기록";
+  attendanceForm.reset();
+  attendanceForm.elements.recordId.value = "";
+  attendanceForm.elements.quantity.value = "1";
+  attendanceForm.elements.fees.value = "0";
+  updateAttendanceFormTotal();
+}
+
+function openAttendanceForm(record = null) {
+  const events = eligibleAttendanceEvents();
+  const recordSchedule = record && schedules.find(schedule => schedule.id === record.eventId);
+  attendanceForm.elements.eventId.innerHTML = events.length
+    ? events.map(schedule => `<option value="${escapeHtml(schedule.id)}">${escapeHtml(formatDate(schedule.concertDate))} · ${escapeHtml(schedule.artist)} · ${escapeHtml(schedule.venue)}</option>`).join("")
+    : '<option value="">기록 가능한 지난 공연이 없습니다</option>';
+  if (record && !recordSchedule) {
+    attendanceForm.elements.eventId.insertAdjacentHTML("afterbegin", `<option value="${escapeHtml(record.eventId)}">${escapeHtml(formatDate(record.concertDate))} · ${escapeHtml(record.artist)}</option>`);
+  }
+  attendanceForm.elements.recordId.value = record?.id || "";
+  attendanceForm.elements.eventId.value = record?.eventId || events[0]?.id || "";
+  attendanceForm.elements.seat.value = record?.seat === "좌석 미입력" ? "" : record?.seat || "";
+  attendanceForm.elements.unitPrice.value = record?.unitPrice || "";
+  attendanceForm.elements.quantity.value = record?.quantity || 1;
+  attendanceForm.elements.fees.value = record?.fees || 0;
+  attendanceFormWrap.hidden = false;
+  attendanceAddButton.setAttribute("aria-expanded", "true");
+  attendanceAddButton.textContent = record ? "기록 수정 중" : "기록 입력 중";
+  updateAttendanceFormTotal();
+  attendanceForm.elements.seat.focus();
+}
+
+function renderAttendanceLog() {
+  const summary = window.JLIVE_ATTENDANCE.summarize(attendanceLog);
+  attendanceShowCount.textContent = String(summary.shows);
+  attendanceTicketCount.textContent = String(summary.tickets);
+  attendanceTotal.textContent = formatWon(summary.total);
+  attendanceRecordsEmpty.hidden = attendanceLog.length > 0;
+  attendanceRecords.innerHTML = [...attendanceLog]
+    .sort((a, b) => (b.concertDate || "").localeCompare(a.concertDate || "") || b.createdAt.localeCompare(a.createdAt))
+    .map(record => {
+      const schedule = schedules.find(item => item.id === record.eventId);
+      const artist = schedule?.artist || record.artist || "공연 정보 없음";
+      const venue = schedule?.venue || record.venue || "공연장 미입력";
+      const concertDate = schedule?.concertDate || record.concertDate;
+      const total = window.JLIVE_ATTENDANCE.totalFor(record);
+      return `<article class="attendance-record">
+        <div class="attendance-record-main"><time>${escapeHtml(formatDate(concertDate))}</time><strong>${escapeHtml(artist)}</strong><span>${escapeHtml(venue)}</span></div>
+        <div class="attendance-record-seat"><small>좌석·구역</small><strong>${escapeHtml(record.seat)}</strong></div>
+        <div class="attendance-record-price"><small>${formatWon(record.unitPrice)} × ${record.quantity}매${record.fees ? ` + 수수료 ${formatWon(record.fees)}` : ""}</small><strong>${formatWon(total)}</strong></div>
+        <div class="attendance-record-actions"><button type="button" data-edit-attendance="${escapeHtml(record.id)}">수정</button><button type="button" data-delete-attendance="${escapeHtml(record.id)}">삭제</button></div>
+      </article>`;
+    }).join("");
 }
 
 const normalizeSearchText = value => String(value || "")
@@ -512,6 +595,49 @@ myShowEvents.addEventListener("click", event => {
   document.querySelector(".app").scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
+attendanceAddButton.addEventListener("click", () => {
+  if (attendanceFormWrap.hidden) openAttendanceForm();
+  else closeAttendanceForm();
+});
+attendanceCancelButton.addEventListener("click", closeAttendanceForm);
+attendanceForm.addEventListener("input", updateAttendanceFormTotal);
+attendanceForm.addEventListener("submit", event => {
+  event.preventDefault();
+  const data = new FormData(attendanceForm);
+  const schedule = schedules.find(item => item.id === data.get("eventId"));
+  const existing = attendanceLog.find(record => record.id === data.get("recordId"));
+  if (!schedule && !existing) return;
+  const record = {
+    id: existing?.id || `${data.get("eventId")}-${Date.now()}`,
+    eventId: data.get("eventId"),
+    artist: schedule?.artist || existing?.artist,
+    venue: schedule?.venue || existing?.venue,
+    concertDate: schedule?.concertDate || existing?.concertDate,
+    seat: data.get("seat"),
+    unitPrice: data.get("unitPrice"),
+    quantity: data.get("quantity"),
+    fees: data.get("fees"),
+    createdAt: existing?.createdAt || new Date().toISOString()
+  };
+  attendanceLog = window.JLIVE_ATTENDANCE.write(window.JLIVE_ATTENDANCE.upsert(attendanceLog, record));
+  window.JLIVE_ANALYTICS.track("attendance_record_save", { edit: Boolean(existing) });
+  closeAttendanceForm();
+  renderAttendanceLog();
+});
+attendanceRecords.addEventListener("click", event => {
+  const editButton = event.target.closest("[data-edit-attendance]");
+  if (editButton) {
+    const record = attendanceLog.find(item => item.id === editButton.dataset.editAttendance);
+    if (record) openAttendanceForm(record);
+    return;
+  }
+  const deleteButton = event.target.closest("[data-delete-attendance]");
+  if (!deleteButton || !window.confirm("이 관람 기록을 삭제할까요?")) return;
+  attendanceLog = window.JLIVE_ATTENDANCE.write(window.JLIVE_ATTENDANCE.remove(attendanceLog, deleteButton.dataset.deleteAttendance));
+  window.JLIVE_ANALYTICS.track("attendance_record_delete");
+  renderAttendanceLog();
+});
+
 artistSearch.addEventListener("input", renderArtistSearch);
 artistSearch.addEventListener("input", () => {
   clearTimeout(emptySearchTimer);
@@ -596,11 +722,16 @@ mobileQuery.addEventListener("change", event => {
   if (!event.matches) closeMobileDetail();
 });
 window.addEventListener("storage", event => {
-  if (event.key !== window.JLIVE_FAVORITES.STORAGE_KEY) return;
-  savedFavorites = window.JLIVE_FAVORITES.read();
-  renderMyShows();
-  const selected = schedules.find(schedule => schedule.id === selectedId);
-  if (selected) updateSaveButtons(selected);
+  if (event.key === window.JLIVE_FAVORITES.STORAGE_KEY) {
+    savedFavorites = window.JLIVE_FAVORITES.read();
+    renderMyShows();
+    const selected = schedules.find(schedule => schedule.id === selectedId);
+    if (selected) updateSaveButtons(selected);
+  }
+  if (event.key === window.JLIVE_ATTENDANCE.STORAGE_KEY) {
+    attendanceLog = window.JLIVE_ATTENDANCE.read();
+    renderAttendanceLog();
+  }
 });
 
 calendar.addEventListener("mousemove", event => {
@@ -647,6 +778,7 @@ async function initialize() {
     window.JLIVE_ARTIST_IMAGES.preload(schedules);
     renderWeekendSpotlight();
     renderMyShows();
+    renderAttendanceLog();
     window.JLIVE_ANALYTICS.track("favorites_snapshot", { events: savedFavorites.events.length, artists: savedFavorites.artists.length });
     await sendDueAlerts();
     renderAttendanceRanking();

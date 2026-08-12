@@ -10,7 +10,7 @@
   <link rel="canonical" href="https://j-live.kr/calendar/">
   <link rel="icon" type="image/png" href="./assets/brand/j-live-app-logo.png">
   <link rel="apple-touch-icon" href="./assets/brand/j-live-app-logo.png">
-  <link rel="stylesheet" href="./styles.css?v=20260811ret">
+  <link rel="stylesheet" href="./styles.css?v=20260812att">
   <script src="./site-config.js?v=20260808ea"></script>
   <script src="./site.js" defer></script>
 </head>
@@ -191,6 +191,32 @@
         <strong>아직 저장한 공연이 없습니다.</strong>
         <span>달력에서 공연을 선택한 뒤 공연이나 아티스트를 저장해 보세요.</span>
       </div>
+      <section class="attendance-ledger" aria-labelledby="attendanceLedgerTitle">
+        <div class="attendance-ledger-heading">
+          <div><span class="section-kicker">MY CONCERT LOG</span><h3 id="attendanceLedgerTitle">관람 기록과 좌석별 지출</h3></div>
+          <button id="attendanceAddButton" type="button" aria-expanded="false" aria-controls="attendanceFormWrap">＋ 관람 기록</button>
+        </div>
+        <p class="attendance-ledger-copy">다녀온 공연의 좌석과 결제 금액을 기록합니다. 금액 정보는 이 브라우저에만 저장됩니다.</p>
+        <div class="attendance-summary" aria-label="관람 지출 요약">
+          <article><span>관람 공연</span><strong id="attendanceShowCount">0</strong><small>개</small></article>
+          <article><span>티켓</span><strong id="attendanceTicketCount">0</strong><small>매</small></article>
+          <article class="attendance-total"><span>총 사용액</span><strong id="attendanceTotal">0원</strong></article>
+        </div>
+        <div class="attendance-form-wrap" id="attendanceFormWrap" hidden>
+          <form id="attendanceForm">
+            <input type="hidden" name="recordId">
+            <label class="full"><span>관람한 공연</span><select name="eventId" required></select></label>
+            <label><span>좌석·구역</span><input name="seat" maxlength="60" placeholder="예: R석 1층 A구역" required></label>
+            <label><span>1매 가격</span><span class="money-input"><input name="unitPrice" type="number" min="0" step="100" inputmode="numeric" required><i>원</i></span></label>
+            <label><span>매수</span><input name="quantity" type="number" min="1" max="20" value="1" inputmode="numeric" required></label>
+            <label><span>수수료·배송비</span><span class="money-input"><input name="fees" type="number" min="0" step="100" value="0" inputmode="numeric"><i>원</i></span></label>
+            <div class="attendance-form-total full"><span>이번 기록 합계</span><strong id="attendanceFormTotal">0원</strong></div>
+            <div class="attendance-form-actions full"><button type="button" id="attendanceCancelButton">취소</button><button type="submit">저장하기</button></div>
+          </form>
+        </div>
+        <div class="attendance-records" id="attendanceRecords" aria-live="polite"></div>
+        <p class="attendance-records-empty" id="attendanceRecordsEmpty">아직 관람 기록이 없습니다. 다녀온 공연부터 하나씩 남겨보세요.</p>
+      </section>
     </section>
     <section class="attendance-board" aria-labelledby="attendanceTitle">
       <div class="attendance-board-heading">
@@ -225,8 +251,9 @@
   </div>
   <script src="./analytics.js?v=20260729" defer></script>
   <script src="./favorites.js?v=20260729" defer></script>
+  <script src="./attendance.js?v=20260812" defer></script>
   <script src="./alerts.js?v=20260729" defer></script>
   <script src="./email-alerts.js?v=20260811ret" defer></script>
-  <script src="./app.js?v=20260811ret" defer></script>
+  <script src="./app.js?v=20260812att" defer></script>
 </body>
 </html>

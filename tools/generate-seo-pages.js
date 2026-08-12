@@ -155,18 +155,21 @@ function relatedEventsMarkup(event, events, today) {
 
 function ticketGuideMarkup(event, editorial) {
   const guide = editorial.ticketGuides?.[event.artist];
-  if (!guide) return "";
+  const verifiedPrices = Array.isArray(event.seatPrices) && event.seatPrices.length
+    ? event.seatPrices.map(item => `${item.name} ${Number(item.price).toLocaleString("ko-KR")}원`).join(" · ")
+    : "";
+  if (!guide && !verifiedPrices) return "";
   const rows = [
-    ["좌석 등급과 가격", guide.price],
-    ["선예매·일반예매 조건", guide.presale],
-    ["본인 확인", guide.identity],
-    ["티켓 수령·모바일 티켓", guide.ticket],
-    ["취소표가 풀리는 방식", guide.cancellation]
-  ];
+    ["좌석 등급과 가격", verifiedPrices || guide?.price],
+    ["선예매·일반예매 조건", guide?.presale],
+    ["본인 확인", guide?.identity],
+    ["티켓 수령·모바일 티켓", guide?.ticket],
+    ["취소표가 풀리는 방식", guide?.cancellation]
+  ].filter(([, value]) => value);
   return `<section class="editorial-section ticket-analysis">
               <div class="section-kicker">TICKET ANALYSIS</div>
               <h2>공연별 실제 예매 분석</h2>
-              <p class="content-note">공식 예매처 기준 · 마지막 확인 ${escapeHtml(guide.verifiedAt || event.verifiedAt || "기록 없음")}</p>
+              <p class="content-note">공식 예매처 기준 · 마지막 확인 ${escapeHtml(event.priceVerifiedAt || guide?.verifiedAt || event.verifiedAt || "기록 없음")}</p>
               <dl class="analysis-list">${rows.map(([label, value]) => `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>`).join("")}</dl>
             </section>`;
 }
@@ -195,8 +198,7 @@ function richEventGuideMarkup(event, editorial) {
               <h3>조회수 높은 대표곡 3곡 입문 순서</h3>
               <ol class="track-guide">${songs.map(song => `<li><strong>${escapeHtml(song.title)}</strong><p>${escapeHtml(song.note)}</p></li>`).join("")}</ol>
               ${optionalSection("공연장 도착과 귀가 계획", guide.plan)}
-            </section>
-            ${ticketGuideMarkup(event, editorial)}`;
+            </section>`;
 }
 
 const hasEditorialGuide = (event, editorial) => Boolean(editorial.eventGuides?.[event.artist]);
@@ -241,7 +243,7 @@ function renderEventPage({ event, events, group, primary, editorial, siteUrl, te
   const songGuide = songs.length ? `${songs.join(", ")} 순서로 들어보면 ${event.artist}의 음악 색깔을 빠르게 파악할 수 있습니다. 각 곡은 공식 YouTube 영상으로 연결됩니다.` : `${event.artist}의 공식 YouTube 채널에서 최근 대표곡과 라이브 영상을 확인하세요.`;
   const seriesSummary = group.length > 1 ? `이번 내한은 ${group.length}회 공연으로 진행됩니다. 날짜별 공연 시각과 예매 조건이 달라질 수 있으므로 선택한 회차를 확인하세요.` : "현재 공식 확인된 한국 공연은 1회입니다. 추가 회차나 운영 변경은 연결된 공식 출처에서 다시 확인합니다.";
   const robots = indexable ? "index,follow,max-image-preview:large" : "noindex,follow";
-  const richGuide = richEventGuideMarkup(event, editorial);
+  const detailGuides = [richEventGuideMarkup(event, editorial), ticketGuideMarkup(event, editorial)].filter(Boolean).join("\n            ");
 
   return template
     .replace("<title>공연 상세 | 제이라이브 코리아</title>", `<title>${escapeHtml(title)}</title>`)
@@ -263,7 +265,7 @@ function renderEventPage({ event, events, group, primary, editorial, siteUrl, te
     .replace('<p id="songGuide"></p>', `<p id="songGuide">${escapeHtml(songGuide)}</p>`)
     .replace('<div class="song-list" id="eventSongs"></div>', `<div class="song-list" id="eventSongs">${songsMarkup(event)}</div>`)
     .replace('<div class="related-event-grid" id="relatedEvents"></div>', `<div class="related-event-grid" id="relatedEvents">${relatedEventsMarkup(event, events, today)}</div>`)
-    .replace(/<section class="editorial-section">\s*<div class="section-kicker">SOURCES<\/div>/, `${richGuide ? `${richGuide}\n            ` : ""}<section class="editorial-section">\n              <div class="section-kicker">SOURCES</div>`)
+    .replace(/<section class="editorial-section">\s*<div class="section-kicker">SOURCES<\/div>/, `${detailGuides ? `${detailGuides}\n            ` : ""}<section class="editorial-section">\n              <div class="section-kicker">SOURCES</div>`)
     .replace('<div class="source-links" id="eventSources"></div>', `<div class="source-links" id="eventSources">${sourcesMarkup(event)}</div>`)
     .replace('<p class="verified-copy" id="eventVerified"></p>', `<p class="verified-copy" id="eventVerified">마지막 검증일: ${escapeHtml(event.verifiedAt || "기록 없음")} · 이후 공식 발표로 정보가 변경될 수 있습니다.</p>`)
     .replace('<dd id="factDate"></dd>', `<dd id="factDate">${escapeHtml(humanDate(event.concertDate, event.time))}</dd>`)

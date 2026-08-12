@@ -39,7 +39,27 @@
       "https://ticket.yes24.com/Perf/57563"
     ],
     "verifiedAt": "2026-06-17",
-    "createdAt": "2026-06-11T03:57:06.1646376Z"
+    "createdAt": "2026-06-11T03:57:06.1646376Z",
+    "seatPrices": [
+      {
+        "name": "아레나 스탠딩",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 R석",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 S석",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "price": 154000,
+    "priceCurrency": "KRW",
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "king-gnu-2026-06-21",
@@ -77,7 +97,27 @@
       "https://ticket.yes24.com/Perf/57563"
     ],
     "verifiedAt": "2026-06-17",
-    "createdAt": "2026-06-11T03:57:06.1866775Z"
+    "createdAt": "2026-06-11T03:57:06.1866775Z",
+    "seatPrices": [
+      {
+        "name": "아레나 스탠딩",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 R석",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 S석",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "price": 154000,
+    "priceCurrency": "KRW",
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "yuika-2026-06-20",
@@ -114,7 +154,22 @@
       "https://tickets.interpark.com/contents/notice/detail/13423"
     ],
     "verifiedAt": "2026-06-17",
-    "createdAt": "2026-06-11T09:00:00+09:00"
+    "createdAt": "2026-06-11T09:00:00+09:00",
+    "seatPrices": [
+      {
+        "name": "VIP 패키지",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "스탠딩/지정석",
+        "price": 121000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "price": 121000,
+    "priceCurrency": "KRW",
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "reol-2026-07-18",
@@ -152,7 +207,17 @@
       "https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17768"
     ],
     "verifiedAt": "2026-06-15",
-    "createdAt": "2026-06-11T09:00:00+09:00"
+    "createdAt": "2026-06-11T09:00:00+09:00",
+    "seatPrices": [
+      {
+        "name": "전석",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "price": 99000,
+    "priceCurrency": "KRW",
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "reol-2026-07-19",
@@ -189,7 +254,17 @@
       "https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17768"
     ],
     "verifiedAt": "2026-06-15",
-    "createdAt": "2026-06-11T09:00:00+09:00"
+    "createdAt": "2026-06-11T09:00:00+09:00",
+    "seatPrices": [
+      {
+        "name": "전석",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "price": 99000,
+    "priceCurrency": "KRW",
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "novelbright-2026-08-01",
@@ -229,7 +304,35 @@
       "https://www.ticketlink.co.kr/help/notice/64824"
     ],
     "verifiedAt": "2026-07-20",
-    "createdAt": "2026-06-11T09:00:00+09:00"
+    "createdAt": "2026-06-11T09:00:00+09:00",
+    "seatPrices": [
+      {
+        "name": "스탠딩 VIP",
+        "price": 220000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "스탠딩 R",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "스탠딩 S",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 R",
+        "price": 176000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 S",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "novelbright-2026-08-02",
@@ -269,7 +372,35 @@
       "https://www.ticketlink.co.kr/help/notice/64824"
     ],
     "verifiedAt": "2026-07-20",
-    "createdAt": "2026-06-11T09:00:00+09:00"
+    "createdAt": "2026-06-11T09:00:00+09:00",
+    "seatPrices": [
+      {
+        "name": "스탠딩 VIP",
+        "price": 220000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "스탠딩 R",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "스탠딩 S",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 R",
+        "price": 176000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 S",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "official-hige-dandism-2026-08-08",
@@ -311,7 +442,40 @@
       "https://nol.yanolja.com/ticket/products/26005670"
     ],
     "verifiedAt": "2026-07-25",
-    "createdAt": "2026-06-11T09:00:00+09:00"
+    "createdAt": "2026-06-11T09:00:00+09:00",
+    "seatPrices": [
+      {
+        "name": "스탠딩 R",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "스탠딩 S",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 R",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 S",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 A",
+        "price": 143000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 B",
+        "price": 132000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "official-hige-dandism-2026-08-09",
@@ -353,7 +517,40 @@
       "https://nol.yanolja.com/ticket/products/26005670"
     ],
     "verifiedAt": "2026-07-25",
-    "createdAt": "2026-06-11T09:00:00+09:00"
+    "createdAt": "2026-06-11T09:00:00+09:00",
+    "seatPrices": [
+      {
+        "name": "스탠딩 R",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "스탠딩 S",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 R",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 S",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 A",
+        "price": 143000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 B",
+        "price": 132000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "ash-da-hero-2026-08-08",
@@ -396,7 +593,15 @@
       "https://m.ticket.yes24.com/Perf/58894"
     ],
     "verifiedAt": "2026-07-27",
-    "createdAt": "2026-07-27T11:00:00+09:00"
+    "createdAt": "2026-07-27T11:00:00+09:00",
+    "seatPrices": [
+      {
+        "name": "1+1 티켓",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "back-number-2026-09-12",
@@ -436,7 +641,25 @@
       "https://ticket.yes24.com/Perf/58079"
     ],
     "verifiedAt": "2026-07-20",
-    "createdAt": "2026-06-11T09:00:00+09:00"
+    "createdAt": "2026-06-11T09:00:00+09:00",
+    "seatPrices": [
+      {
+        "name": "스탠딩 R석",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "스탠딩 S석",
+        "price": 143000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 R석",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "back-number-2026-09-13",
@@ -476,7 +699,25 @@
       "https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17720"
     ],
     "verifiedAt": "2026-07-20",
-    "createdAt": "2026-06-11T09:00:00+09:00"
+    "createdAt": "2026-06-11T09:00:00+09:00",
+    "seatPrices": [
+      {
+        "name": "스탠딩 R석",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "스탠딩 S석",
+        "price": 143000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 R석",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "ryosuke-yamada-2026-09-13",
@@ -516,7 +757,30 @@
       "https://m.ticket.yes24.com/Perf/58751"
     ],
     "verifiedAt": "2026-07-20",
-    "createdAt": "2026-06-11T09:00:00+09:00"
+    "createdAt": "2026-06-11T09:00:00+09:00",
+    "seatPrices": [
+      {
+        "name": "PL 1 STANDING",
+        "price": 187000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "PL 2 SEATED",
+        "price": 187000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "PL 3 SEATED",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "PL 4 SEATED",
+        "price": 143000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "vaundy-2026-09-19",
@@ -556,7 +820,25 @@
       "https://tickets.interpark.com/goods/26003199"
     ],
     "verifiedAt": "2026-07-20",
-    "createdAt": "2026-06-11T09:00:00+09:00"
+    "createdAt": "2026-06-11T09:00:00+09:00",
+    "seatPrices": [
+      {
+        "name": "플로어 스탠딩",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 R",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 S",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "vaundy-2026-09-20",
@@ -596,7 +878,25 @@
       "https://tickets.interpark.com/goods/26003199"
     ],
     "verifiedAt": "2026-07-20",
-    "createdAt": "2026-06-11T09:00:00+09:00"
+    "createdAt": "2026-06-11T09:00:00+09:00",
+    "seatPrices": [
+      {
+        "name": "플로어 스탠딩",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 R",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 S",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "takuya-kimura-2026-09-26",
@@ -608,8 +908,10 @@
     "presaleDate": "",
     "ticketDate": "2026-06-29",
     "ticketTime": "오후 7:00",
+    "price": 165000,
+    "priceCurrency": "KRW",
     "vendor": "NOL 티켓",
-    "vendorUrl": "https://tickets.interpark.com/contents/notice/detail/14058",
+    "vendorUrl": "https://tickets.interpark.com/goods/26008115",
     "youtubeChannel": "@takuya.kimura.official",
     "songs": [
       [
@@ -630,9 +932,28 @@
     ],
     "status": "confirmed",
     "sources": [
+      "https://tickets.interpark.com/goods/26008115",
       "https://tickets.interpark.com/contents/notice/detail/14058",
       "https://takuya-kimura.jp/"
     ],
+    "seatPrices": [
+      {
+        "name": "VIP석",
+        "price": 242000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "R석",
+        "price": 187000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "S석",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12",
     "verifiedAt": "2026-07-20",
     "createdAt": "2026-06-11T09:00:00+09:00"
   },
@@ -646,6 +967,8 @@
     "presaleDate": "",
     "ticketDate": "2026-02-20",
     "ticketTime": "오후 8:00",
+    "price": 99000,
+    "priceCurrency": "KRW",
     "vendor": "YES24 티켓",
     "vendorUrl": "https://ticket.yes24.com/Perf/57214",
     "youtubeChannel": "@Aooo_band",
@@ -667,6 +990,19 @@
       ]
     ],
     "status": "confirmed",
+    "seatPrices": [
+      {
+        "name": "3일권",
+        "price": 258000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "1일권",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://ticket.yes24.com/Perf/57214"
     ],
@@ -682,6 +1018,8 @@
     "venue": "YES24 원더로크홀",
     "presaleDate": "",
     "ticketDate": "2026-02-20",
+    "price": 99000,
+    "priceCurrency": "KRW",
     "vendor": "YES24 티켓",
     "vendorUrl": "https://ticket.yes24.com/Perf/57214",
     "youtubeChannel": "@NOMELONNOLEMON",
@@ -703,6 +1041,19 @@
       ]
     ],
     "status": "confirmed",
+    "seatPrices": [
+      {
+        "name": "3일권",
+        "price": 258000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "1일권",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://ticket.yes24.com/Perf/57214"
     ],
@@ -718,6 +1069,8 @@
     "venue": "YES24 원더로크홀",
     "presaleDate": "",
     "ticketDate": "2026-02-20",
+    "price": 99000,
+    "priceCurrency": "KRW",
     "vendor": "YES24 티켓",
     "vendorUrl": "https://ticket.yes24.com/Perf/57214",
     "youtubeChannel": "@asmiOfficialChannel",
@@ -739,6 +1092,19 @@
       ]
     ],
     "status": "confirmed",
+    "seatPrices": [
+      {
+        "name": "3일권",
+        "price": 258000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "1일권",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://ticket.yes24.com/Perf/57214"
     ],
@@ -780,7 +1146,17 @@
       "https://ticket.yes24.com/Perf/57807"
     ],
     "verifiedAt": "2026-06-17",
-    "createdAt": "2026-06-11T10:00:00+09:00"
+    "createdAt": "2026-06-11T10:00:00+09:00",
+    "seatPrices": [
+      {
+        "name": "전석",
+        "price": 105000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "price": 105000,
+    "priceCurrency": "KRW",
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "sukimaswitch-2026-06-21",
@@ -817,7 +1193,17 @@
       "https://ticket.yes24.com/Perf/57807"
     ],
     "verifiedAt": "2026-06-17",
-    "createdAt": "2026-06-11T10:00:00+09:00"
+    "createdAt": "2026-06-11T10:00:00+09:00",
+    "seatPrices": [
+      {
+        "name": "전석",
+        "price": 105000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "price": 105000,
+    "priceCurrency": "KRW",
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "yutori-2026-06-27",
@@ -927,7 +1313,22 @@
       "https://ticket.melon.com/performance/index.htm?prodId=213098"
     ],
     "verifiedAt": "2026-06-16",
-    "createdAt": "2026-06-11T10:00:00+09:00"
+    "createdAt": "2026-06-11T10:00:00+09:00",
+    "seatPrices": [
+      {
+        "name": "일반석",
+        "price": 138000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "시야제한석",
+        "price": 124000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "price": 124000,
+    "priceCurrency": "KRW",
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "natori-2026-07-19",
@@ -964,7 +1365,22 @@
       "https://ticket.melon.com/performance/index.htm?prodId=213098"
     ],
     "verifiedAt": "2026-06-16",
-    "createdAt": "2026-06-11T10:00:00+09:00"
+    "createdAt": "2026-06-11T10:00:00+09:00",
+    "seatPrices": [
+      {
+        "name": "일반석",
+        "price": 138000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "시야제한석",
+        "price": 124000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "price": 124000,
+    "priceCurrency": "KRW",
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "spyair-2026-09-05",
@@ -1003,7 +1419,25 @@
       "https://ticket.yes24.com/Perf/58592"
     ],
     "verifiedAt": "2026-07-20",
-    "createdAt": "2026-06-11T10:00:00+09:00"
+    "createdAt": "2026-06-11T10:00:00+09:00",
+    "seatPrices": [
+      {
+        "name": "VIP A (T-shirt)",
+        "price": 187000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "VIP B (Towel)",
+        "price": 172000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "일반석",
+        "price": 138000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "omoinotake-2026-10-17",
@@ -1044,7 +1478,20 @@
       "https://www.highjinkx.com/show-list/omoinotake-2026"
     ],
     "verifiedAt": "2026-07-25",
-    "createdAt": "2026-06-11T09:00:00+09:00"
+    "createdAt": "2026-06-11T09:00:00+09:00",
+    "seatPrices": [
+      {
+        "name": "VIP",
+        "price": 132000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "일반",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "chilli-beans-2026-08-08",
@@ -1083,7 +1530,15 @@
       "https://ticket.yes24.com/Perf/58454"
     ],
     "verifiedAt": "2026-07-20",
-    "createdAt": "2026-06-11T18:50:00+09:00"
+    "createdAt": "2026-06-11T18:50:00+09:00",
+    "seatPrices": [
+      {
+        "name": "전석",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "tk-ling-tosite-sigure-2026-07-12",
@@ -1119,7 +1574,17 @@
       "https://ticket.yes24.com/Perf/58258"
     ],
     "verifiedAt": "2026-06-22",
-    "createdAt": "2026-06-11T23:27:00+09:00"
+    "createdAt": "2026-06-11T23:27:00+09:00",
+    "seatPrices": [
+      {
+        "name": "전석",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "price": 99000,
+    "priceCurrency": "KRW",
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "fujii-kaze-2027-01-09",
@@ -1159,7 +1624,40 @@
       "https://ticket.melon.com/csoon/detail.htm?csoonId=12366"
     ],
     "verifiedAt": "2026-07-20",
-    "createdAt": "2026-06-11T23:38:00+09:00"
+    "createdAt": "2026-06-11T23:38:00+09:00",
+    "seatPrices": [
+      {
+        "name": "플로어 FR",
+        "price": 210000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "플로어 SR",
+        "price": 198000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "플로어 R",
+        "price": 187000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 S",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 A",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 B",
+        "price": 132000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "the-novembers-2026-07-17",
@@ -1197,7 +1695,17 @@
       "https://tickets.interpark.com/goods/26008207"
     ],
     "verifiedAt": "2026-06-17",
-    "createdAt": "2026-06-15T13:43:06+09:00"
+    "createdAt": "2026-06-15T13:43:06+09:00",
+    "seatPrices": [
+      {
+        "name": "예매 (전석 스탠딩)",
+        "price": 77000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "price": 77000,
+    "priceCurrency": "KRW",
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "muque-2026-07-11",
@@ -1236,7 +1744,22 @@
       "https://ticket.yes24.com/Pages/English/Perf/FnPerfDeail.aspx?IdPerf=57606"
     ],
     "verifiedAt": "2026-06-17",
-    "createdAt": "2026-06-16T09:00:00+09:00"
+    "createdAt": "2026-06-16T09:00:00+09:00",
+    "seatPrices": [
+      {
+        "name": "1층 스탠딩",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "2층 지정좌석",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "price": 99000,
+    "priceCurrency": "KRW",
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "go-go-vanillas-2026-07-12",
@@ -1275,7 +1798,22 @@
       "https://m.ticket.yes24.com/Perf/57841"
     ],
     "verifiedAt": "2026-06-17",
-    "createdAt": "2026-06-16T09:00:00+09:00"
+    "createdAt": "2026-06-16T09:00:00+09:00",
+    "seatPrices": [
+      {
+        "name": "VIP (스탠딩/지정석)",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "일반 (스탠딩/지정석)",
+        "price": 110000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "price": 110000,
+    "priceCurrency": "KRW",
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "kento-nakajima-2026-10-03",
@@ -1287,6 +1825,8 @@
     "presaleDate": "",
     "ticketDate": "2026-06-04",
     "ticketTime": "오후 2:00",
+    "price": 132000,
+    "priceCurrency": "KRW",
     "vendor": "YES24 티켓",
     "vendorUrl": "https://m.ticket.yes24.com/Perf/58653",
     "youtubeChannel": "@n_kento_official",
@@ -1308,6 +1848,29 @@
       ]
     ],
     "status": "confirmed",
+    "seatPrices": [
+      {
+        "name": "VIP석",
+        "price": 250000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "R석",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "S석",
+        "price": 143000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "A석",
+        "price": 132000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://starto.jp/s/p/live/10494?artist=156&lang=en",
       "https://kentonakajima.lnk.to/ASIATOUR2026",
@@ -1327,6 +1890,8 @@
     "presaleDate": "",
     "ticketDate": "2026-06-04",
     "ticketTime": "오후 2:00",
+    "price": 132000,
+    "priceCurrency": "KRW",
     "vendor": "YES24 티켓",
     "vendorUrl": "https://m.ticket.yes24.com/Perf/58653",
     "youtubeChannel": "@n_kento_official",
@@ -1348,6 +1913,29 @@
       ]
     ],
     "status": "confirmed",
+    "seatPrices": [
+      {
+        "name": "VIP석",
+        "price": 250000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "R석",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "S석",
+        "price": 143000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "A석",
+        "price": 132000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://starto.jp/s/p/live/10494?artist=156&lang=en",
       "https://kentonakajima.lnk.to/ASIATOUR2026",
@@ -1395,7 +1983,15 @@
       "https://tickets.interpark.com/contents/notice/detail/13934"
     ],
     "verifiedAt": "2026-07-23",
-    "createdAt": "2026-07-23T15:00:00+09:00"
+    "createdAt": "2026-07-23T15:00:00+09:00",
+    "seatPrices": [
+      {
+        "name": "전석 스탠딩",
+        "price": 88000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "let-me-know-2026-11-28",
@@ -1436,7 +2032,15 @@
       "https://letmeknowmusic.jp/news/3422/"
     ],
     "verifiedAt": "2026-07-23",
-    "createdAt": "2026-07-23T15:00:00+09:00"
+    "createdAt": "2026-07-23T15:00:00+09:00",
+    "seatPrices": [
+      {
+        "name": "전석",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "hitorie-2026-08-23",
@@ -1479,7 +2083,20 @@
       "https://ticket.yes24.com/Perf/59024"
     ],
     "verifiedAt": "2026-07-25",
-    "createdAt": "2026-07-25T15:00:00+09:00"
+    "createdAt": "2026-07-25T15:00:00+09:00",
+    "seatPrices": [
+      {
+        "name": "VIP (전석 스탠딩)",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "일반 (전석 스탠딩)",
+        "price": 66000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "t-square-2026-10-11",
@@ -1522,7 +2139,35 @@
       "https://www.tsquare.jp/"
     ],
     "verifiedAt": "2026-07-25",
-    "createdAt": "2026-07-25T15:00:00+09:00"
+    "createdAt": "2026-07-25T15:00:00+09:00",
+    "seatPrices": [
+      {
+        "name": "VIP",
+        "price": 143000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "R",
+        "price": 121000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "S",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "A",
+        "price": 77000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "W",
+        "price": 88000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "ano-2026-10-17",
@@ -1565,7 +2210,15 @@
       "https://nol.yanolja.com/ticket/products/26010474"
     ],
     "verifiedAt": "2026-07-25",
-    "createdAt": "2026-07-25T15:00:00+09:00"
+    "createdAt": "2026-07-25T15:00:00+09:00",
+    "seatPrices": [
+      {
+        "name": "전석",
+        "price": 138000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "ano-2026-10-18",
@@ -1608,7 +2261,15 @@
       "https://nol.yanolja.com/ticket/products/26010474"
     ],
     "verifiedAt": "2026-07-25",
-    "createdAt": "2026-07-25T15:00:00+09:00"
+    "createdAt": "2026-07-25T15:00:00+09:00",
+    "seatPrices": [
+      {
+        "name": "전석",
+        "price": 138000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "andteam-2026-10-03",
@@ -1627,11 +2288,41 @@
     "vendorUrl": "https://tickets.interpark.com/contents/notice/detail/14782",
     "youtubeChannel": "@andTEAM_official",
     "songs": [
-      ["War Cry", "", "https://www.youtube.com/watch?v=UJaW2Z5DxS8"],
-      ["Dropkick", "", "https://www.youtube.com/watch?v=AWawgm20UBc"],
-      ["FIREWORK", "", "https://www.youtube.com/watch?v=uY-lOn0XwBg"]
+      [
+        "War Cry",
+        "",
+        "https://www.youtube.com/watch?v=UJaW2Z5DxS8"
+      ],
+      [
+        "Dropkick",
+        "",
+        "https://www.youtube.com/watch?v=AWawgm20UBc"
+      ],
+      [
+        "FIREWORK",
+        "",
+        "https://www.youtube.com/watch?v=uY-lOn0XwBg"
+      ]
     ],
     "status": "pending",
+    "seatPrices": [
+      {
+        "name": "M&G석",
+        "price": 253000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "SOUND CHECK석",
+        "price": 220000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "일반석",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://tickets.interpark.com/contents/notice/detail/14782",
       "https://www.andteam-official.jp/",
@@ -1657,11 +2348,41 @@
     "vendorUrl": "https://tickets.interpark.com/contents/notice/detail/14782",
     "youtubeChannel": "@andTEAM_official",
     "songs": [
-      ["War Cry", "", "https://www.youtube.com/watch?v=UJaW2Z5DxS8"],
-      ["Dropkick", "", "https://www.youtube.com/watch?v=AWawgm20UBc"],
-      ["FIREWORK", "", "https://www.youtube.com/watch?v=uY-lOn0XwBg"]
+      [
+        "War Cry",
+        "",
+        "https://www.youtube.com/watch?v=UJaW2Z5DxS8"
+      ],
+      [
+        "Dropkick",
+        "",
+        "https://www.youtube.com/watch?v=AWawgm20UBc"
+      ],
+      [
+        "FIREWORK",
+        "",
+        "https://www.youtube.com/watch?v=uY-lOn0XwBg"
+      ]
     ],
     "status": "pending",
+    "seatPrices": [
+      {
+        "name": "M&G석",
+        "price": 253000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "SOUND CHECK석",
+        "price": 220000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "일반석",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://tickets.interpark.com/contents/notice/detail/14782",
       "https://www.andteam-official.jp/",
@@ -1711,7 +2432,15 @@
       "https://ticket.yes24.com/Perf/59471"
     ],
     "verifiedAt": "2026-08-05",
-    "createdAt": "2026-07-26T11:30:00+09:00"
+    "createdAt": "2026-07-26T11:30:00+09:00",
+    "seatPrices": [
+      {
+        "name": "전석 스탠딩",
+        "price": 77000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "regallily-2026-11-07",
@@ -1753,7 +2482,15 @@
       "https://ticket.yes24.com/Perf/59001"
     ],
     "verifiedAt": "2026-07-25",
-    "createdAt": "2026-07-25T15:00:00+09:00"
+    "createdAt": "2026-07-25T15:00:00+09:00",
+    "seatPrices": [
+      {
+        "name": "전석 스탠딩",
+        "price": 88000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "sunny-day-service-2026-12-03",
@@ -1772,11 +2509,31 @@
     "vendorUrl": "https://tickets.interpark.com/goods/26011116",
     "youtubeChannel": "@SunnyDayServiceofficial",
     "songs": [
-      ["セツナ", "", "https://www.youtube.com/watch?v=gfmoWR6jQ0M"],
-      ["クリスマス", "", "https://www.youtube.com/watch?v=oHosarYxncQ"],
-      ["苺畑でつかまえて", "", "https://www.youtube.com/watch?v=lK4mZNivisU"]
+      [
+        "セツナ",
+        "",
+        "https://www.youtube.com/watch?v=gfmoWR6jQ0M"
+      ],
+      [
+        "クリスマス",
+        "",
+        "https://www.youtube.com/watch?v=oHosarYxncQ"
+      ],
+      [
+        "苺畑でつかまえて",
+        "",
+        "https://www.youtube.com/watch?v=lK4mZNivisU"
+      ]
     ],
     "status": "confirmed",
+    "seatPrices": [
+      {
+        "name": "스탠딩",
+        "price": 88000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://tickets.interpark.com/goods/26011116",
       "https://www.sokabekeiichi.com/",
@@ -1823,7 +2580,25 @@
       "https://tickets.interpark.com/contents/notice/detail/14619"
     ],
     "verifiedAt": "2026-07-25",
-    "createdAt": "2026-07-23T15:00:00+09:00"
+    "createdAt": "2026-07-23T15:00:00+09:00",
+    "seatPrices": [
+      {
+        "name": "R석",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "S석",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "A석",
+        "price": 143000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "yuuri-2026-12-06",
@@ -1863,7 +2638,25 @@
       "https://tickets.interpark.com/contents/notice/detail/14619"
     ],
     "verifiedAt": "2026-07-25",
-    "createdAt": "2026-07-23T15:00:00+09:00"
+    "createdAt": "2026-07-23T15:00:00+09:00",
+    "seatPrices": [
+      {
+        "name": "R석",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "S석",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "A석",
+        "price": 143000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "kana-boon-2026-12-05",
@@ -1882,9 +2675,21 @@
     "vendorUrl": "https://ticket.yes24.com/Perf/59553",
     "youtubeChannel": "@KANA-BOON_official",
     "songs": [
-      ["シルエット", "", "https://www.youtube.com/watch?v=ZFoJYI7Q4iA"],
-      ["ないものねだり", "", "https://www.youtube.com/watch?v=UgS7vgquBvo1"],
-      ["スターマーカー", "", "https://www.youtube.com/watch?v=JiVXh3hsI4k"]
+      [
+        "シルエット",
+        "",
+        "https://www.youtube.com/watch?v=ZFoJYI7Q4iA"
+      ],
+      [
+        "ないものねだり",
+        "",
+        "https://www.youtube.com/watch?v=UgS7vgquBvo1"
+      ],
+      [
+        "スターマーカー",
+        "",
+        "https://www.youtube.com/watch?v=JiVXh3hsI4k"
+      ]
     ],
     "status": "confirmed",
     "sources": [
@@ -1893,7 +2698,15 @@
       "https://sp.kanaboon.jp/news/detail/2781"
     ],
     "verifiedAt": "2026-08-05",
-    "createdAt": "2026-08-05T20:30:00+09:00"
+    "createdAt": "2026-08-05T20:30:00+09:00",
+    "seatPrices": [
+      {
+        "name": "전석",
+        "price": 138000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12"
   },
   {
     "id": "cutie-street-2027-01-23",
@@ -1912,9 +2725,21 @@
     "vendorUrl": "https://ticket.melon.com/performance/index.htm?prodId=213705",
     "youtubeChannel": "@CUTIE_STREET",
     "songs": [
-      ["かわいいだけじゃだめですか？", "", "https://www.youtube.com/watch?v=CfwGsFV7jNc"],
-      ["キューにストップできません！", "", "https://www.youtube.com/watch?v=YI2jG7rnrys"],
-      ["ひたむきシンデレラ！", "", "https://www.youtube.com/watch?v=mNNRlG8aqIs"]
+      [
+        "かわいいだけじゃだめですか？",
+        "",
+        "https://www.youtube.com/watch?v=CfwGsFV7jNc"
+      ],
+      [
+        "キューにストップできません！",
+        "",
+        "https://www.youtube.com/watch?v=YI2jG7rnrys"
+      ],
+      [
+        "ひたむきシンデレラ！",
+        "",
+        "https://www.youtube.com/watch?v=mNNRlG8aqIs"
+      ]
     ],
     "status": "pending",
     "sources": [
@@ -1942,11 +2767,46 @@
     "vendorUrl": "https://tickets.interpark.com/goods/26011570",
     "youtubeChannel": "paris match - Topic",
     "songs": [
-      ["太陽の接吻", "", "https://www.youtube.com/watch?v=Dzia7v68_Bw"],
-      ["さよならシーサイド", "", "https://www.youtube.com/watch?v=zRBRTmo_6fc"],
-      ["STAY WITH ME", "", "https://www.youtube.com/watch?v=TFb_1gbLoDQ"]
+      [
+        "太陽の接吻",
+        "",
+        "https://www.youtube.com/watch?v=Dzia7v68_Bw"
+      ],
+      [
+        "さよならシーサイド",
+        "",
+        "https://www.youtube.com/watch?v=zRBRTmo_6fc"
+      ],
+      [
+        "STAY WITH ME",
+        "",
+        "https://www.youtube.com/watch?v=TFb_1gbLoDQ"
+      ]
     ],
     "status": "pending",
+    "seatPrices": [
+      {
+        "name": "VIP석",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "R석",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "A석",
+        "price": 88000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "시야제한석",
+        "price": 77000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://tickets.interpark.com/goods/26011570",
       "https://www.jvcmusic.co.jp/parismatch/profile.html",
@@ -1966,17 +2826,62 @@
     "presaleTime": "",
     "ticketDate": "2026-08-13",
     "ticketTime": "오후 6:00",
-    "price": null,
+    "price": 77000,
     "priceCurrency": "KRW",
     "vendor": "NOL 티켓",
     "vendorUrl": "https://tickets.interpark.com/goods/26011287",
     "youtubeChannel": "@paruchan86",
     "songs": [
-      ["ギジコイ", "", "https://www.youtube.com/watch?v=L4qYYEIQqA0"],
-      ["Princess GaL", "", "https://www.youtube.com/watch?v=v_aze025Q5M"],
-      ["中洲ロンリーナイト", "", "https://www.youtube.com/watch?v=xPyYhBUERes"]
+      [
+        "ギジコイ",
+        "",
+        "https://www.youtube.com/watch?v=L4qYYEIQqA0"
+      ],
+      [
+        "Princess GaL",
+        "",
+        "https://www.youtube.com/watch?v=v_aze025Q5M"
+      ],
+      [
+        "中洲ロンリーナイト",
+        "",
+        "https://www.youtube.com/watch?v=xPyYhBUERes"
+      ]
     ],
     "status": "pending",
+    "seatPrices": [
+      {
+        "name": "사전예매 VVIP",
+        "price": 120000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "사전예매 VIP",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "사전예매 일반",
+        "price": 77000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "현장예매 VVIP",
+        "price": 130000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "현장예매 VIP",
+        "price": 110000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "현장예매 일반",
+        "price": 88000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://tickets.interpark.com/goods/26011287",
       "https://www.youtube.com/@paruchan86/videos"
@@ -1999,12 +2904,53 @@
     "priceCurrency": "KRW",
     "vendor": "NOL 티켓",
     "vendorUrl": "https://tickets.interpark.com/goods/26011629",
-    "youtubeChannel": "",
-    "songs": [],
-    "status": "pending",
+    "youtubeChannel": "https://www.youtube.com/channel/UC-AiP1NoABhE6hVssW3rXng",
+    "songs": [
+      [
+        "人生のメリーゴーランド (하울의 움직이는 성)",
+        "",
+        "https://www.youtube.com/watch?v=-KVdLKPIMHQ"
+      ],
+      [
+        "海の見える街 (마녀 배달부 키키)",
+        "",
+        "https://www.youtube.com/watch?v=tR4zJlwhPjs"
+      ],
+      [
+        "となりのトトロ (이웃집 토토로)",
+        "",
+        "https://www.youtube.com/watch?v=XQ-kj4VnXzs"
+      ]
+    ],
+    "status": "confirmed",
+    "seatPrices": [
+      {
+        "name": "VIP석",
+        "price": 88000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "R석",
+        "price": 77000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "S석",
+        "price": 66000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "A석",
+        "price": 55000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://tickets.interpark.com/goods/26011629",
-      "https://www.jvcmusic.co.jp/-/Profile/A023203.html"
+      "https://kazumitateishi-trio.com/",
+      "https://www.jvcmusic.co.jp/-/Discography/A023203/VICL-63644.html",
+      "https://www.jvcmusic.co.jp/-/Discography/A023203/VICL-63758.html"
     ],
     "verifiedAt": "2026-08-12",
     "createdAt": "2026-08-08T03:10:00+09:00"
@@ -2026,9 +2972,21 @@
     "vendorUrl": "https://tickets.interpark.com/contents/notice/detail/11964",
     "youtubeChannel": "@luv-band1030",
     "songs": [
-      ["bye<3", "", "https://www.youtube.com/watch?v=t-vfbYrCl8Y"],
-      ["Ohaguro", "", "https://www.youtube.com/watch?v=xHNpsMTkbbw"],
-      ["meguri", "", "https://www.youtube.com/watch?v=WYOgGr-_nGM"]
+      [
+        "bye<3",
+        "",
+        "https://www.youtube.com/watch?v=t-vfbYrCl8Y"
+      ],
+      [
+        "Ohaguro",
+        "",
+        "https://www.youtube.com/watch?v=xHNpsMTkbbw"
+      ],
+      [
+        "meguri",
+        "",
+        "https://www.youtube.com/watch?v=WYOgGr-_nGM"
+      ]
     ],
     "status": "pending",
     "sources": [
@@ -2037,6 +2995,14 @@
       "https://www.youtube.com/@luv-band1030/videos"
     ],
     "verifiedAt": "2026-08-08",
-    "createdAt": "2026-08-08T03:10:00+09:00"
+    "createdAt": "2026-08-08T03:10:00+09:00",
+    "seatPrices": [
+      {
+        "name": "전석 스탠딩",
+        "price": 77000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-12"
   }
 ]

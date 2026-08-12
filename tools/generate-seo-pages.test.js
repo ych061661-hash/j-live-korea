@@ -61,6 +61,20 @@ test("renders ticket analysis and resolves a venue field guide", () => {
   assert.equal(venueGuideForEvent(event, editorial)[0], "hall");
 });
 
+test("renders verified seat prices without a handwritten ticket guide", () => {
+  const event = {
+    artist: "Band",
+    priceVerifiedAt: "2026-08-12",
+    seatPrices: [
+      { name: "VIP", price: 132000, priceCurrency: "KRW" },
+      { name: "일반", price: 99000, priceCurrency: "KRW" }
+    ]
+  };
+  const html = ticketGuideMarkup(event, {});
+  assert.match(html, /VIP 132,000원 · 일반 99,000원/);
+  assert.match(html, /마지막 확인 2026-08-12/);
+});
+
 test("renders every requested venue section", () => {
   const guide = { name: "Hall", summary: "요약", seoTitle: "Hall 위치·좌석 안내", transit: "교통", capacity: "1,000석", arrival: "입장", restroom: "화장실", storage: "보관", parking: "관객 주차 없음", waiting: "대기", nearby: "식사", return: "귀가", verifiedAt: "2026-07-20", sources: [] };
   const html = venuePageHtml("hall", guide, "https://j-live.kr");

@@ -290,7 +290,7 @@
     "time": "오후 4:00",
     "venue": "인스파이어 아레나",
     "vendor": "NOL 티켓",
-    "vendorUrl": "https://tickets.interpark.com/contents/notice/detail/14058",
+    "vendorUrl": "https://tickets.interpark.com/goods/26008115",
     "ticketDate": "2026-06-29",
     "ticketTime": "오후 7:00",
     "presaleDate": "",
@@ -299,6 +299,7 @@
     "ticketLabel": null,
     "verifiedAt": "2026-07-20",
     "sources": [
+      "https://tickets.interpark.com/goods/26008115",
       "https://tickets.interpark.com/contents/notice/detail/14058",
       "https://takuya-kimura.jp/"
     ]
@@ -1003,12 +1004,14 @@
     "ticketTime": "오후 12:00",
     "presaleDate": "",
     "presaleTime": "",
-    "status": "pending",
+    "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-08-12",
     "sources": [
       "https://tickets.interpark.com/goods/26011629",
-      "https://www.jvcmusic.co.jp/-/Profile/A023203.html"
+      "https://kazumitateishi-trio.com/",
+      "https://www.jvcmusic.co.jp/-/Discography/A023203/VICL-63644.html",
+      "https://www.jvcmusic.co.jp/-/Discography/A023203/VICL-63758.html"
     ]
   },
   "luv-2026-03-21": {
