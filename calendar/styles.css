@@ -970,3 +970,128 @@ footer { padding:22px 0 34px; color:#686970; font-size:11px; text-align:center; 
   html { scroll-behavior:auto; }
   *,*::before,*::after { scroll-behavior:auto !important; transition-duration:.01ms !important; animation-duration:.01ms !important; animation-iteration-count:1 !important; }
 }
+
+/* 2026 minimal product redesign: preserve the existing calendar behavior. */
+.home-page {
+  background:
+    radial-gradient(circle at 50% -10%,rgba(215,255,79,.1),transparent 28rem),
+    radial-gradient(circle at 98% 36%,rgba(109,185,255,.065),transparent 28rem),
+    var(--bg);
+  -webkit-font-smoothing:antialiased;
+}
+.home-page .shell { width:min(1440px,calc(100% - 40px)); }
+.home-page .minimal-header {
+  position:sticky;
+  top:0;
+  z-index:10020;
+  height:68px;
+  padding:0;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  background:rgba(12,13,16,.76);
+  backdrop-filter:saturate(160%) blur(22px);
+}
+.home-page .brand { gap:10px; font-size:14px; font-weight:750; }
+.home-page .brand-mark { width:30px; height:30px; border-radius:9px; color:#0c0d10; box-shadow:none; }
+.minimal-nav { display:flex; align-items:center; gap:28px; margin-left:auto; margin-right:28px; }
+.minimal-nav a { color:#a7a8af; font-size:12px; text-decoration:none; transition:color .18s ease; }
+.minimal-nav a:hover,.minimal-nav a:focus-visible { color:var(--text); outline:none; }
+.home-page .header-actions { gap:9px; }
+.home-page .header-actions .ghost-button { min-height:36px; padding:0 14px; border:0; color:#a7a8af; background:transparent; }
+.home-page .header-actions .primary-button { min-height:36px; padding:0 16px; border:0; border-radius:999px; color:#0c0d10; background:var(--text); font-size:11px; }
+.home-page .hero {
+  display:block;
+  min-height:0;
+  padding:108px 0 82px;
+  border:0;
+  text-align:center;
+}
+.home-page .hero .eyebrow { color:var(--lime); font-size:12px; font-weight:800; letter-spacing:.12em; }
+.home-page .hero h1 { max-width:930px; margin:20px auto 24px; font-size:clamp(54px,8vw,96px); line-height:.98; letter-spacing:-.075em; }
+.home-page .hero h1 span { display:block; color:#a7a8af; }
+.home-page .hero-copy { max-width:600px; margin:0 auto; padding:0; border:0; color:var(--muted); font-size:16px; line-height:1.7; text-wrap:balance; }
+.home-page .email-alerts-top {
+  grid-template-columns:minmax(0,1fr) minmax(420px,.85fr);
+  gap:26px;
+  margin:0 0 18px;
+  padding:20px 22px;
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:rgba(255,255,255,.032);
+  box-shadow:none;
+}
+.home-page .email-alerts-copy h2 { margin:7px 0 5px; font-size:19px; }
+.home-page .email-alerts-copy > p { font-size:11px; }
+.home-page .email-alert-benefits { margin-top:12px; }
+.home-page .email-alert-benefits span { min-height:30px; padding:0 10px; background:rgba(255,255,255,.03); }
+.home-page .email-alert-steps { display:none; }
+.home-page .email-alerts-copy .email-alert-selection { margin-top:10px; }
+.home-page .email-alert-kinds label { min-height:34px; padding:0 9px; }
+.home-page .email-alert-consent { margin-top:8px; }
+.home-page .weekend-spotlight {
+  margin:18px 0 0;
+  padding:30px;
+  border:1px solid var(--line);
+  border-radius:26px;
+  background:linear-gradient(135deg,rgba(215,255,79,.055),rgba(255,255,255,.02));
+  box-shadow:none;
+}
+.home-page .weekend-heading { align-items:end; }
+.home-page .weekend-heading h2 { font-size:32px; letter-spacing:-.055em; }
+.home-page .weekend-card { min-height:154px; border-radius:20px; background:rgba(255,255,255,.032); box-shadow:none; }
+.home-page .weekend-events:has(.weekend-card:only-child) { grid-template-columns:minmax(240px,360px); }
+.home-page .app { margin-top:22px; }
+.home-page .event-chip span:first-child { display:none; }
+.home-page .my-shows,
+.home-page .attendance-board,
+.home-page .guide-preview {
+  margin-top:90px;
+  padding:34px;
+  border:1px solid var(--line);
+  border-radius:30px;
+  background:rgba(255,255,255,.026);
+  box-shadow:none;
+}
+.home-page .my-shows-heading h2,
+.home-page .attendance-board-heading h2,
+.home-page .guide-preview-heading h2 { font-size:35px; letter-spacing:-.055em; }
+.home-page .my-shows-dashboard article { min-height:112px; border-radius:20px; background:rgba(255,255,255,.04); }
+.home-page .attendance-ledger { border-radius:24px; background:rgba(255,255,255,.025); }
+.home-page .attendance-ranking li { border-radius:20px; background:rgba(255,255,255,.035); }
+.home-page .guide-preview-grid { grid-template-columns:repeat(3,1fr); gap:12px; }
+.home-page .guide-preview-grid a { min-height:150px; padding:24px; border-radius:22px; background:rgba(255,255,255,.025); }
+.home-page .guide-preview-grid strong { margin-top:auto; font-size:18px; }
+.home-page .site-footer { margin-top:80px; padding:36px 0 50px; }
+
+@media (prefers-reduced-motion:no-preference) {
+  .home-page .hero > * { animation:minimal-enter .65s ease both; }
+  .home-page .hero h1 { animation-delay:.06s; }
+  .home-page .hero-copy { animation-delay:.12s; }
+  @keyframes minimal-enter { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
+}
+
+@media (max-width:820px) {
+  .home-page .shell { width:100%; }
+  .home-page .minimal-header { height:64px; padding:0 14px; }
+  .minimal-nav,.home-page .header-actions .ghost-button { display:none; }
+  .home-page .hero { padding:64px 18px 52px; }
+  .home-page .hero h1 { font-size:clamp(46px,13vw,64px); }
+  .home-page .hero-copy { font-size:14px; }
+  .home-page .email-alerts-top { grid-template-columns:1fr; margin:0 12px 14px; padding:22px; border-radius:24px; }
+  .home-page .weekend-spotlight { margin:14px 12px 0; padding:24px 20px; border-radius:24px; }
+  .home-page .app { margin-top:16px; }
+  .home-page .my-shows,.home-page .attendance-board,.home-page .guide-preview { margin:72px 12px 0; padding:24px 20px; border-radius:24px; }
+  .home-page .guide-preview-grid { grid-template-columns:1fr; }
+  .home-page .guide-preview-grid a { min-height:135px; }
+  .home-page .site-footer { margin:60px 16px 0; }
+}
+
+@media (max-width:500px) {
+  .home-page .hero { padding-top:52px; }
+  .home-page .hero h1 { font-size:46px; line-height:1; }
+  .home-page .hero-copy { display:block; margin-top:22px; font-size:13px; }
+  .home-page .email-alert-benefits { display:none; }
+  .home-page .weekend-heading { align-items:start; }
+  .home-page .weekend-heading h2 { font-size:28px; }
+  .home-page .my-shows-dashboard { grid-template-columns:repeat(2,1fr); }
+  .home-page .my-shows-dashboard .my-shows-next { grid-column:1/-1; }
+}
