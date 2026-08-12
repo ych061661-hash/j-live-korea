@@ -134,23 +134,23 @@ async function verify(url, env) {
   const verifyHash = await hash(url.searchParams.get("token") || "");
   const now = new Date().toISOString();
   const result = await env.DB.prepare("UPDATE subscriptions SET verified_at=?1,verify_hash=NULL,updated_at=?1 WHERE verify_hash=?2").bind(now, verifyHash).run();
-  return Response.redirect(`${env.SITE_URL}/calendar/?email-alert=${result.meta.changes ? "verified" : "invalid"}`, 302);
+  return Response.redirect(`${env.SITE_URL}/calendar/alerts/?email-alert=${result.meta.changes ? "verified" : "invalid"}`, 302);
 }
 
 async function recover(url, env) {
   const recoveryHash = await hash(url.searchParams.get("token") || "");
   const subscription = await env.DB.prepare("SELECT id FROM subscriptions WHERE recovery_hash=?1").bind(recoveryHash).first();
-  if (!subscription) return Response.redirect(`${env.SITE_URL}/calendar/?email-alert=invalid`, 302);
+  if (!subscription) return Response.redirect(`${env.SITE_URL}/calendar/alerts/?email-alert=invalid`, 302);
   const manageToken = token();
   await env.DB.prepare("UPDATE subscriptions SET manage_hash=?1,recovery_hash=NULL,updated_at=?2 WHERE id=?3")
     .bind(await hash(manageToken), new Date().toISOString(), subscription.id).run();
-  return Response.redirect(`${env.SITE_URL}/calendar/#email-alert=recovered&manage-token=${encodeURIComponent(manageToken)}`, 302);
+  return Response.redirect(`${env.SITE_URL}/calendar/alerts/#email-alert=recovered&manage-token=${encodeURIComponent(manageToken)}`, 302);
 }
 
 async function unsubscribe(url, env) {
   const id = await verifyUnsubscribeToken(env, url.searchParams.get("token") || "");
   const result = id ? await env.DB.prepare("DELETE FROM subscriptions WHERE id=?1").bind(id).run() : null;
-  return Response.redirect(`${env.SITE_URL}/calendar/?email-alert=${result?.meta.changes ? "unsubscribed" : "invalid"}`, 302);
+  return Response.redirect(`${env.SITE_URL}/calendar/alerts/?email-alert=${result?.meta.changes ? "unsubscribed" : "invalid"}`, 302);
 }
 
 async function unsubscribeByManageToken(request, env) {

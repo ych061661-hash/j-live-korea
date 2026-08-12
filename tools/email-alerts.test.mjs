@@ -148,6 +148,7 @@ test("rotates the management token through a one-time recovery link", async () =
   const location = new URL(response.headers.get("Location"));
   const fragment = new URLSearchParams(location.hash.slice(1));
   assert.equal(response.status, 302);
+  assert.equal(location.pathname, "/calendar/alerts/");
   assert.equal(fragment.get("email-alert"), "recovered");
   assert.ok(fragment.get("manage-token").length >= 40);
   assert.equal(updateValues[0].length, 64);
