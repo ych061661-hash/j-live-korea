@@ -18,7 +18,6 @@
       seat: text(value?.seat, 60) || "좌석 미입력",
       unitPrice: money(value?.unitPrice),
       quantity: count(value?.quantity),
-      fees: money(value?.fees),
       createdAt: text(value?.createdAt, 30) || new Date().toISOString()
     };
   }
@@ -42,7 +41,7 @@
     return records;
   }
 
-  const totalFor = record => record.unitPrice * record.quantity + record.fees;
+  const totalFor = record => record.unitPrice * record.quantity;
 
   function summarize(value) {
     const records = normalize(value);

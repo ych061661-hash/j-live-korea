@@ -10,7 +10,7 @@
   <link rel="canonical" href="https://j-live.kr/calendar/">
   <link rel="icon" type="image/png" href="./assets/brand/j-live-app-logo.png">
   <link rel="apple-touch-icon" href="./assets/brand/j-live-app-logo.png">
-  <link rel="stylesheet" href="./styles.css?v=20260812att">
+  <link rel="stylesheet" href="./styles.css?v=20260813day">
   <script src="./site-config.js?v=20260808ea"></script>
   <script src="./site.js" defer></script>
 </head>
@@ -111,7 +111,7 @@
           <span>SUN</span><span>MON</span><span>TUE</span><span>WED</span>
           <span>THU</span><span>FRI</span><span>SAT</span>
         </div>
-        <div class="calendar-grid" id="calendar" aria-live="polite"></div>
+        <div class="calendar-grid" id="calendar" role="grid" aria-label="월간 공연 일정" aria-live="polite"></div>
         <p class="empty-calendar" id="emptyCalendar" hidden>이 달에는 등록된 일정이 없습니다.</p>
       </section>
 
@@ -205,11 +205,10 @@
         <div class="attendance-form-wrap" id="attendanceFormWrap" hidden>
           <form id="attendanceForm">
             <input type="hidden" name="recordId">
-            <label class="full"><span>관람한 공연</span><select name="eventId" required></select></label>
+            <div class="full attendance-event-picker"><label for="attendanceEventSearch">관람한 공연 검색</label><input id="attendanceEventSearch" type="search" autocomplete="off" placeholder="아티스트, 공연장 또는 날짜 검색" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="attendanceEventResults" required><input name="eventId" type="hidden"><div class="attendance-event-results" id="attendanceEventResults" role="listbox" hidden></div></div>
             <label><span>좌석·구역</span><input name="seat" maxlength="60" placeholder="예: R석 1층 A구역" required></label>
             <label><span>1매 가격</span><span class="money-input"><input name="unitPrice" type="number" min="0" step="100" inputmode="numeric" required><i>원</i></span></label>
             <label><span>매수</span><input name="quantity" type="number" min="1" max="20" value="1" inputmode="numeric" required></label>
-            <label><span>수수료·배송비</span><span class="money-input"><input name="fees" type="number" min="0" step="100" value="0" inputmode="numeric"><i>원</i></span></label>
             <div class="attendance-form-total full"><span>이번 기록 합계</span><strong id="attendanceFormTotal">0원</strong></div>
             <div class="attendance-form-actions full"><button type="button" id="attendanceCancelButton">취소</button><button type="submit">저장하기</button></div>
           </form>
@@ -251,9 +250,9 @@
   </div>
   <script src="./analytics.js?v=20260729" defer></script>
   <script src="./favorites.js?v=20260729" defer></script>
-  <script src="./attendance.js?v=20260812" defer></script>
+  <script src="./attendance.js?v=20260813" defer></script>
   <script src="./alerts.js?v=20260729" defer></script>
   <script src="./email-alerts.js?v=20260811ret" defer></script>
-  <script src="./app.js?v=20260812att" defer></script>
+  <script src="./app.js?v=20260813day" defer></script>
 </body>
 </html>

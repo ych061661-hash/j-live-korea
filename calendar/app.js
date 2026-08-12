@@ -32,6 +32,8 @@ const attendanceFormWrap = document.querySelector("#attendanceFormWrap");
 const attendanceForm = document.querySelector("#attendanceForm");
 const attendanceCancelButton = document.querySelector("#attendanceCancelButton");
 const attendanceFormTotal = document.querySelector("#attendanceFormTotal");
+const attendanceEventSearch = document.querySelector("#attendanceEventSearch");
+const attendanceEventResults = document.querySelector("#attendanceEventResults");
 const attendanceShowCount = document.querySelector("#attendanceShowCount");
 const attendanceTicketCount = document.querySelector("#attendanceTicketCount");
 const attendanceTotal = document.querySelector("#attendanceTotal");
@@ -105,8 +107,7 @@ function eligibleAttendanceEvents() {
 function updateAttendanceFormTotal() {
   const data = new FormData(attendanceForm);
   const total = Math.max(0, Number(data.get("unitPrice")) || 0)
-    * Math.min(20, Math.max(1, Number(data.get("quantity")) || 1))
-    + Math.max(0, Number(data.get("fees")) || 0);
+    * Math.min(20, Math.max(1, Number(data.get("quantity")) || 1));
   attendanceFormTotal.textContent = formatWon(Math.round(total));
 }
 
@@ -116,31 +117,33 @@ function closeAttendanceForm() {
   attendanceAddButton.textContent = "＋ 관람 기록";
   attendanceForm.reset();
   attendanceForm.elements.recordId.value = "";
+  attendanceForm.elements.eventId.value = "";
   attendanceForm.elements.quantity.value = "1";
-  attendanceForm.elements.fees.value = "0";
+  attendanceEventSearch.setCustomValidity("");
+  attendanceEventResults.hidden = true;
+  attendanceEventSearch.setAttribute("aria-expanded", "false");
   updateAttendanceFormTotal();
 }
 
 function openAttendanceForm(record = null) {
   const events = eligibleAttendanceEvents();
   const recordSchedule = record && schedules.find(schedule => schedule.id === record.eventId);
-  attendanceForm.elements.eventId.innerHTML = events.length
-    ? events.map(schedule => `<option value="${escapeHtml(schedule.id)}">${escapeHtml(formatDate(schedule.concertDate))} · ${escapeHtml(schedule.artist)} · ${escapeHtml(schedule.venue)}</option>`).join("")
-    : '<option value="">기록 가능한 지난 공연이 없습니다</option>';
-  if (record && !recordSchedule) {
-    attendanceForm.elements.eventId.insertAdjacentHTML("afterbegin", `<option value="${escapeHtml(record.eventId)}">${escapeHtml(formatDate(record.concertDate))} · ${escapeHtml(record.artist)}</option>`);
-  }
   attendanceForm.elements.recordId.value = record?.id || "";
-  attendanceForm.elements.eventId.value = record?.eventId || events[0]?.id || "";
+  attendanceForm.elements.eventId.value = record?.eventId || "";
+  attendanceEventSearch.value = record
+    ? `${formatDate(recordSchedule?.concertDate || record.concertDate)} · ${recordSchedule?.artist || record.artist}`
+    : "";
+  attendanceEventSearch.placeholder = events.length
+    ? "아티스트, 공연장 또는 날짜 검색"
+    : "기록 가능한 지난 공연이 없습니다";
   attendanceForm.elements.seat.value = record?.seat === "좌석 미입력" ? "" : record?.seat || "";
   attendanceForm.elements.unitPrice.value = record?.unitPrice || "";
   attendanceForm.elements.quantity.value = record?.quantity || 1;
-  attendanceForm.elements.fees.value = record?.fees || 0;
   attendanceFormWrap.hidden = false;
   attendanceAddButton.setAttribute("aria-expanded", "true");
   attendanceAddButton.textContent = record ? "기록 수정 중" : "기록 입력 중";
   updateAttendanceFormTotal();
-  attendanceForm.elements.seat.focus();
+  (record ? attendanceForm.elements.seat : attendanceEventSearch).focus();
 }
 
 function renderAttendanceLog() {
@@ -160,7 +163,7 @@ function renderAttendanceLog() {
       return `<article class="attendance-record">
         <div class="attendance-record-main"><time>${escapeHtml(formatDate(concertDate))}</time><strong>${escapeHtml(artist)}</strong><span>${escapeHtml(venue)}</span></div>
         <div class="attendance-record-seat"><small>좌석·구역</small><strong>${escapeHtml(record.seat)}</strong></div>
-        <div class="attendance-record-price"><small>${formatWon(record.unitPrice)} × ${record.quantity}매${record.fees ? ` + 수수료 ${formatWon(record.fees)}` : ""}</small><strong>${formatWon(total)}</strong></div>
+        <div class="attendance-record-price"><small>${formatWon(record.unitPrice)} × ${record.quantity}매</small><strong>${formatWon(total)}</strong></div>
         <div class="attendance-record-actions"><button type="button" data-edit-attendance="${escapeHtml(record.id)}">수정</button><button type="button" data-delete-attendance="${escapeHtml(record.id)}">삭제</button></div>
       </article>`;
     }).join("");
@@ -170,6 +173,35 @@ const normalizeSearchText = value => String(value || "")
   .normalize("NFKC")
   .toLocaleLowerCase()
   .replace(/[\s\p{P}\p{S}]/gu, "");
+
+function attendanceEventLabel(schedule) {
+  return `${formatDate(schedule.concertDate)} · ${schedule.artist} · ${schedule.venue}`;
+}
+
+function renderAttendanceEventSearch() {
+  const query = normalizeSearchText(attendanceEventSearch.value);
+  const matches = eligibleAttendanceEvents().filter(schedule => !query || [
+    schedule.artist,
+    schedule.venue,
+    schedule.concertDate,
+    formatDate(schedule.concertDate),
+    ...(artistAliases[schedule.artist] || [])
+  ].some(value => normalizeSearchText(value).includes(query))).slice(0, 8);
+  attendanceEventResults.innerHTML = matches.length
+    ? matches.map(schedule => `<button type="button" role="option" data-attendance-event="${escapeHtml(schedule.id)}"><strong>${escapeHtml(schedule.artist)}</strong><span>${escapeHtml(schedule.venue)}</span><time>${escapeHtml(formatDate(schedule.concertDate))}</time></button>`).join("")
+    : '<p>검색 결과가 없습니다.</p>';
+  attendanceEventResults.hidden = false;
+  attendanceEventSearch.setAttribute("aria-expanded", "true");
+}
+
+function selectAttendanceEvent(schedule) {
+  if (!schedule) return;
+  attendanceForm.elements.eventId.value = schedule.id;
+  attendanceEventSearch.value = attendanceEventLabel(schedule);
+  attendanceEventSearch.setCustomValidity("");
+  attendanceEventResults.hidden = true;
+  attendanceEventSearch.setAttribute("aria-expanded", "false");
+}
 
 function renderArtistSearch() {
   const query = normalizeSearchText(artistSearch.value);
@@ -416,6 +448,10 @@ function renderCalendar() {
       key === selectedDateKey ? "selected" : ""
     ].filter(Boolean).join(" ");
     day.dataset.date = key;
+    day.tabIndex = 0;
+    day.setAttribute("role", "gridcell");
+    day.setAttribute("aria-selected", String(key === selectedDateKey));
+    day.setAttribute("aria-label", `${formatDate(key)}${events.length ? `, 일정 ${events.length}개` : ", 등록된 일정 없음"}`);
     if (events.length > 2) {
       const visibleRows = Math.min(events.length, 6);
       const expandedStackHeight = Math.max(150, visibleRows * 27 - 5);
@@ -517,6 +553,24 @@ function selectSchedule(schedule, type = "concert", key = schedule.concertDate, 
   if (openDetail) openMobileDetail();
 }
 
+function selectCalendarDate(key) {
+  const firstEvent = eventsForDate(key).find(({ type }) => filters.has(type));
+  if (firstEvent) {
+    selectSchedule(firstEvent.schedule, firstEvent.type, key);
+    return;
+  }
+  selectedId = "";
+  selectedType = "concert";
+  selectedDateKey = key;
+  document.querySelector("#detailBody").hidden = true;
+  const empty = document.querySelector("#detailEmpty");
+  empty.hidden = false;
+  empty.innerHTML = `<strong>${escapeHtml(formatDate(key))}</strong><span>이 날짜에는 등록된 공연이나 예매 일정이 없습니다.</span>`;
+  renderCalendar();
+  window.JLIVE_ANALYTICS.track("calendar_empty_date_select", { date: key });
+  openMobileDetail();
+}
+
 document.querySelector("#dayLineup").addEventListener("click", event => {
   const button = event.target.closest("[data-id]");
   if (!button) return;
@@ -601,12 +655,33 @@ attendanceAddButton.addEventListener("click", () => {
 });
 attendanceCancelButton.addEventListener("click", closeAttendanceForm);
 attendanceForm.addEventListener("input", updateAttendanceFormTotal);
+attendanceEventSearch.addEventListener("focus", renderAttendanceEventSearch);
+attendanceEventSearch.addEventListener("input", () => {
+  attendanceForm.elements.eventId.value = "";
+  attendanceEventSearch.setCustomValidity("");
+  renderAttendanceEventSearch();
+});
+attendanceEventSearch.addEventListener("keydown", event => {
+  if (event.key !== "Escape") return;
+  attendanceEventResults.hidden = true;
+  attendanceEventSearch.setAttribute("aria-expanded", "false");
+});
+attendanceEventResults.addEventListener("click", event => {
+  const button = event.target.closest("[data-attendance-event]");
+  if (!button) return;
+  selectAttendanceEvent(schedules.find(schedule => schedule.id === button.dataset.attendanceEvent));
+});
 attendanceForm.addEventListener("submit", event => {
   event.preventDefault();
   const data = new FormData(attendanceForm);
   const schedule = schedules.find(item => item.id === data.get("eventId"));
   const existing = attendanceLog.find(record => record.id === data.get("recordId"));
-  if (!schedule && !existing) return;
+  const keepsUnavailableEvent = existing && data.get("eventId") === existing.eventId;
+  if (!schedule && !keepsUnavailableEvent) {
+    attendanceEventSearch.setCustomValidity("검색 결과에서 관람한 공연을 선택해 주세요.");
+    attendanceEventSearch.reportValidity();
+    return;
+  }
   const record = {
     id: existing?.id || `${data.get("eventId")}-${Date.now()}`,
     eventId: data.get("eventId"),
@@ -616,7 +691,6 @@ attendanceForm.addEventListener("submit", event => {
     seat: data.get("seat"),
     unitPrice: data.get("unitPrice"),
     quantity: data.get("quantity"),
-    fees: data.get("fees"),
     createdAt: existing?.createdAt || new Date().toISOString()
   };
   attendanceLog = window.JLIVE_ATTENDANCE.write(window.JLIVE_ATTENDANCE.upsert(attendanceLog, record));
@@ -754,6 +828,18 @@ calendar.addEventListener("mouseleave", () => document.querySelectorAll(".day").
   day.style.removeProperty("--scale");
   day.style.removeProperty("--z");
 }));
+calendar.addEventListener("click", event => {
+  if (event.target.closest(".event-chip")) return;
+  const day = event.target.closest(".day");
+  if (day) selectCalendarDate(day.dataset.date);
+});
+calendar.addEventListener("keydown", event => {
+  if (event.key !== "Enter" && event.key !== " ") return;
+  const day = event.target.closest(".day");
+  if (!day || event.target.closest(".event-chip")) return;
+  event.preventDefault();
+  selectCalendarDate(day.dataset.date);
+});
 
 async function initialize() {
   try {
