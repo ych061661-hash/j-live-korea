@@ -10,7 +10,7 @@
   <link rel="canonical" href="https://j-live.kr/calendar/">
   <link rel="icon" type="image/png" href="./assets/brand/j-live-app-logo.png">
   <link rel="apple-touch-icon" href="./assets/brand/j-live-app-logo.png">
-  <link rel="stylesheet" href="./styles.css?v=20260813minimal2">
+  <link rel="stylesheet" href="./styles.css?v=20260813minimal3">
   <script src="./site-config.js?v=20260808ea"></script>
   <script src="./site.js" defer></script>
 </head>
@@ -171,21 +171,32 @@
       </aside>
     </main>
     <section class="my-shows" id="myShows" aria-labelledby="myShowsTitle">
-      <div class="my-shows-heading">
-        <div>
-          <span class="section-kicker">MY J-LIVE</span>
-          <h2 id="myShowsTitle">내 공연</h2>
+      <div class="my-shows-overview">
+        <div class="my-shows-heading">
+          <div>
+            <span class="section-kicker">MY J-LIVE</span>
+            <h2 id="myShowsTitle">내 공연, 한눈에</h2>
+          </div>
+          <div class="my-shows-tools">
+            <p id="myShowsSummary">로그인 없이 이 브라우저에만 저장됩니다.</p>
+            <button id="alertButton" type="button">예매 알림 켜기</button>
+          </div>
         </div>
-        <div class="my-shows-tools">
-          <p id="myShowsSummary">로그인 없이 이 브라우저에만 저장됩니다.</p>
-          <button id="alertButton" type="button">예매 알림 켜기</button>
+        <div class="my-shows-dashboard" aria-label="내 공연 요약">
+          <article><span>예정 공연</span><strong id="myShowsUpcomingCount">0</strong></article>
+          <article><span>이번 주 예매</span><strong id="myShowsWeeklySales">0</strong></article>
+          <article><span>관람 기록</span><strong id="myShowsAttendanceCount">0</strong></article>
         </div>
       </div>
-      <div class="my-shows-dashboard" aria-label="내 공연 요약">
-        <article><span>예정 공연</span><strong id="myShowsUpcomingCount">0</strong></article>
-        <article><span>이번 주 예매</span><strong id="myShowsWeeklySales">0</strong></article>
-        <article class="my-shows-next"><span>가장 가까운 공연</span><strong id="myShowsNextDate">저장 후 표시</strong></article>
-      </div>
+      <a class="my-shows-feature" id="myShowsFeature" href="#" hidden>
+        <span class="my-shows-feature-image"><img id="myShowsFeatureImage" alt=""></span>
+        <span class="my-shows-feature-copy">
+          <span class="section-kicker">NEXT SAVED SHOW</span>
+          <strong id="myShowsFeatureArtist"></strong>
+          <span id="myShowsFeatureMeta"></span>
+          <span class="my-shows-feature-badges"><b id="myShowsFeatureDday"></b><b>저장됨</b></span>
+        </span>
+      </a>
       <div class="saved-artists" id="savedArtists" aria-label="관심 아티스트" hidden></div>
       <div class="my-shows-alerts" id="myShowsAlerts" hidden>
         <span class="section-kicker">UPCOMING ALERTS</span>
@@ -258,6 +269,6 @@
   <script src="./attendance.js?v=20260813" defer></script>
   <script src="./alerts.js?v=20260729" defer></script>
   <script src="./email-alerts.js?v=20260811ret" defer></script>
-  <script src="./app.js?v=20260813minimal" defer></script>
+  <script src="./app.js?v=20260813minimal3" defer></script>
 </body>
 </html>

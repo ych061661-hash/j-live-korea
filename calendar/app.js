@@ -20,7 +20,12 @@ const myShowsEmpty = document.querySelector("#myShowsEmpty");
 const myShowsSummary = document.querySelector("#myShowsSummary");
 const myShowsUpcomingCount = document.querySelector("#myShowsUpcomingCount");
 const myShowsWeeklySales = document.querySelector("#myShowsWeeklySales");
-const myShowsNextDate = document.querySelector("#myShowsNextDate");
+const myShowsAttendanceCount = document.querySelector("#myShowsAttendanceCount");
+const myShowsFeature = document.querySelector("#myShowsFeature");
+const myShowsFeatureImage = document.querySelector("#myShowsFeatureImage");
+const myShowsFeatureArtist = document.querySelector("#myShowsFeatureArtist");
+const myShowsFeatureMeta = document.querySelector("#myShowsFeatureMeta");
+const myShowsFeatureDday = document.querySelector("#myShowsFeatureDday");
 const myShowsAlerts = document.querySelector("#myShowsAlerts");
 const savedArtists = document.querySelector("#savedArtists");
 const saveEventButton = document.querySelector("#saveEventButton");
@@ -332,9 +337,29 @@ function renderMyShows() {
     : "로그인 없이 이 브라우저에만 저장됩니다.";
   myShowsUpcomingCount.textContent = String(upcoming.length);
   myShowsWeeklySales.textContent = String(weeklySales);
-  myShowsNextDate.textContent = upcoming.length
-    ? `${formatDate(upcoming[0].concertDate)} · ${upcoming[0].artist}`
-    : savedCount ? "새 일정 대기 중" : "저장 후 표시";
+  myShowsAttendanceCount.textContent = String(window.JLIVE_ATTENDANCE.summarize(attendanceLog).shows);
+
+  myShowsFeature.hidden = upcoming.length === 0;
+  if (upcoming.length) {
+    const nextShow = upcoming[0];
+    const daysUntil = Math.max(0, Math.round((parseDate(nextShow.concertDate) - parseDate(today)) / 86400000));
+    const localPhoto = window.JLIVE_ARTIST_IMAGES.localUrl(nextShow);
+    const remotePhoto = window.JLIVE_ARTIST_IMAGES.remoteUrl(nextShow);
+    myShowsFeature.href = `./events/${encodeURIComponent(nextShow.id)}`;
+    myShowsFeatureArtist.textContent = nextShow.artist;
+    myShowsFeatureMeta.textContent = `${formatDate(nextShow.concertDate)} · ${nextShow.venue}`;
+    myShowsFeatureDday.textContent = daysUntil ? `D-${daysUntil}` : "D-DAY";
+    myShowsFeatureImage.alt = `${nextShow.artist} 프로필`;
+    myShowsFeatureImage.src = localPhoto || remotePhoto;
+    myShowsFeatureImage.hidden = !localPhoto && !remotePhoto;
+    myShowsFeatureImage.onerror = () => {
+      if (remotePhoto && myShowsFeatureImage.src !== remotePhoto) {
+        myShowsFeatureImage.src = remotePhoto;
+        return;
+      }
+      myShowsFeatureImage.hidden = true;
+    };
+  }
 
   savedArtists.hidden = savedFavorites.artists.length === 0;
   savedArtists.innerHTML = savedFavorites.artists.map(artist => `
@@ -697,6 +722,7 @@ attendanceForm.addEventListener("submit", event => {
   window.JLIVE_ANALYTICS.track("attendance_record_save", { edit: Boolean(existing) });
   closeAttendanceForm();
   renderAttendanceLog();
+  renderMyShows();
 });
 attendanceRecords.addEventListener("click", event => {
   const editButton = event.target.closest("[data-edit-attendance]");
@@ -710,6 +736,7 @@ attendanceRecords.addEventListener("click", event => {
   attendanceLog = window.JLIVE_ATTENDANCE.write(window.JLIVE_ATTENDANCE.remove(attendanceLog, deleteButton.dataset.deleteAttendance));
   window.JLIVE_ANALYTICS.track("attendance_record_delete");
   renderAttendanceLog();
+  renderMyShows();
 });
 
 artistSearch.addEventListener("input", renderArtistSearch);
@@ -805,6 +832,7 @@ window.addEventListener("storage", event => {
   if (event.key === window.JLIVE_ATTENDANCE.STORAGE_KEY) {
     attendanceLog = window.JLIVE_ATTENDANCE.read();
     renderAttendanceLog();
+    renderMyShows();
   }
 });
 
