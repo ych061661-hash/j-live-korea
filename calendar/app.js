@@ -22,10 +22,15 @@ const myShowsUpcomingCount = document.querySelector("#myShowsUpcomingCount");
 const myShowsWeeklySales = document.querySelector("#myShowsWeeklySales");
 const myShowsAttendanceCount = document.querySelector("#myShowsAttendanceCount");
 const myShowsFeature = document.querySelector("#myShowsFeature");
+const myShowsFeatureLink = document.querySelector("#myShowsFeatureLink");
 const myShowsFeatureImage = document.querySelector("#myShowsFeatureImage");
 const myShowsFeatureArtist = document.querySelector("#myShowsFeatureArtist");
 const myShowsFeatureMeta = document.querySelector("#myShowsFeatureMeta");
 const myShowsFeatureDday = document.querySelector("#myShowsFeatureDday");
+const myShowsFeatureNav = document.querySelector("#myShowsFeatureNav");
+const myShowsFeaturePosition = document.querySelector("#myShowsFeaturePosition");
+const myShowsFeaturePrev = document.querySelector("#myShowsFeaturePrev");
+const myShowsFeatureNext = document.querySelector("#myShowsFeatureNext");
 const myShowsAlerts = document.querySelector("#myShowsAlerts");
 const savedArtists = document.querySelector("#savedArtists");
 const saveEventButton = document.querySelector("#saveEventButton");
@@ -55,6 +60,8 @@ let savedFavorites = window.JLIVE_FAVORITES.read();
 let attendanceLog = window.JLIVE_ATTENDANCE.read();
 let alertSettings = window.JLIVE_ALERTS.read();
 let emptySearchTimer = 0;
+let myShowsFeatureSchedules = [];
+let myShowsFeatureIndex = 0;
 const mobileQuery = window.matchMedia("(max-width: 820px)");
 
 const escapeHtml = (value = "") => String(value).replace(/[&<>"']/g, char => ({
@@ -141,14 +148,13 @@ function openAttendanceForm(record = null) {
   attendanceEventSearch.placeholder = events.length
     ? "아티스트, 공연장 또는 날짜 검색"
     : "기록 가능한 지난 공연이 없습니다";
-  attendanceForm.elements.seat.value = record?.seat === "좌석 미입력" ? "" : record?.seat || "";
   attendanceForm.elements.unitPrice.value = record?.unitPrice || "";
   attendanceForm.elements.quantity.value = record?.quantity || 1;
   attendanceFormWrap.hidden = false;
   attendanceAddButton.setAttribute("aria-expanded", "true");
   attendanceAddButton.textContent = record ? "기록 수정 중" : "기록 입력 중";
   updateAttendanceFormTotal();
-  (record ? attendanceForm.elements.seat : attendanceEventSearch).focus();
+  (record ? attendanceForm.elements.unitPrice : attendanceEventSearch).focus();
 }
 
 function renderAttendanceLog() {
@@ -167,7 +173,6 @@ function renderAttendanceLog() {
       const total = window.JLIVE_ATTENDANCE.totalFor(record);
       return `<article class="attendance-record">
         <div class="attendance-record-main"><time>${escapeHtml(formatDate(concertDate))}</time><strong>${escapeHtml(artist)}</strong><span>${escapeHtml(venue)}</span></div>
-        <div class="attendance-record-seat"><small>좌석·구역</small><strong>${escapeHtml(record.seat)}</strong></div>
         <div class="attendance-record-price"><small>${formatWon(record.unitPrice)} × ${record.quantity}매</small><strong>${formatWon(total)}</strong></div>
         <div class="attendance-record-actions"><button type="button" data-edit-attendance="${escapeHtml(record.id)}">수정</button><button type="button" data-delete-attendance="${escapeHtml(record.id)}">삭제</button></div>
       </article>`;
@@ -316,6 +321,42 @@ function updateSaveButtons(schedule) {
   saveArtistButton.textContent = artistSaved ? "♥ 관심 아티스트" : "♡ 아티스트 관심";
 }
 
+function renderMyShowsFeature(today) {
+  const count = myShowsFeatureSchedules.length;
+  myShowsFeature.hidden = count === 0;
+  if (!count) return;
+  myShowsFeatureIndex = (myShowsFeatureIndex + count) % count;
+  const nextShow = myShowsFeatureSchedules[myShowsFeatureIndex];
+  const daysUntil = Math.max(0, Math.round((parseDate(nextShow.concertDate) - parseDate(today)) / 86400000));
+  const localPhoto = window.JLIVE_ARTIST_IMAGES.localUrl(nextShow);
+  const remotePhoto = window.JLIVE_ARTIST_IMAGES.remoteUrl(nextShow);
+  myShowsFeatureLink.href = `./events/${encodeURIComponent(nextShow.id)}`;
+  myShowsFeatureArtist.textContent = nextShow.artist;
+  myShowsFeatureMeta.textContent = `${formatDate(nextShow.concertDate)} · ${nextShow.venue}`;
+  myShowsFeatureDday.textContent = daysUntil ? `D-${daysUntil}` : "D-DAY";
+  myShowsFeaturePosition.textContent = `${myShowsFeatureIndex + 1} / ${count}`;
+  myShowsFeatureNav.hidden = count < 2;
+  myShowsFeatureImage.alt = `${nextShow.artist} 프로필`;
+  myShowsFeatureImage.src = localPhoto || remotePhoto;
+  myShowsFeatureImage.hidden = !localPhoto && !remotePhoto;
+  myShowsFeatureImage.onerror = () => {
+    if (remotePhoto && myShowsFeatureImage.src !== remotePhoto) {
+      myShowsFeatureImage.src = remotePhoto;
+      return;
+    }
+    myShowsFeatureImage.hidden = true;
+  };
+  myShowsFeatureLink.classList.remove("is-changing");
+  void myShowsFeatureLink.offsetWidth;
+  myShowsFeatureLink.classList.add("is-changing");
+}
+
+function moveMyShowsFeature(direction) {
+  if (myShowsFeatureSchedules.length < 2) return;
+  myShowsFeatureIndex += direction;
+  renderMyShowsFeature(dateKey(new Date()));
+}
+
 function renderMyShows() {
   const today = dateKey(new Date());
   const upcoming = window.JLIVE_FAVORITES.upcoming(schedules, savedFavorites, today);
@@ -339,27 +380,9 @@ function renderMyShows() {
   myShowsWeeklySales.textContent = String(weeklySales);
   myShowsAttendanceCount.textContent = String(window.JLIVE_ATTENDANCE.summarize(attendanceLog).shows);
 
-  myShowsFeature.hidden = upcoming.length === 0;
-  if (upcoming.length) {
-    const nextShow = upcoming[0];
-    const daysUntil = Math.max(0, Math.round((parseDate(nextShow.concertDate) - parseDate(today)) / 86400000));
-    const localPhoto = window.JLIVE_ARTIST_IMAGES.localUrl(nextShow);
-    const remotePhoto = window.JLIVE_ARTIST_IMAGES.remoteUrl(nextShow);
-    myShowsFeature.href = `./events/${encodeURIComponent(nextShow.id)}`;
-    myShowsFeatureArtist.textContent = nextShow.artist;
-    myShowsFeatureMeta.textContent = `${formatDate(nextShow.concertDate)} · ${nextShow.venue}`;
-    myShowsFeatureDday.textContent = daysUntil ? `D-${daysUntil}` : "D-DAY";
-    myShowsFeatureImage.alt = `${nextShow.artist} 프로필`;
-    myShowsFeatureImage.src = localPhoto || remotePhoto;
-    myShowsFeatureImage.hidden = !localPhoto && !remotePhoto;
-    myShowsFeatureImage.onerror = () => {
-      if (remotePhoto && myShowsFeatureImage.src !== remotePhoto) {
-        myShowsFeatureImage.src = remotePhoto;
-        return;
-      }
-      myShowsFeatureImage.hidden = true;
-    };
-  }
+  myShowsFeatureSchedules = upcoming;
+  if (myShowsFeatureIndex >= upcoming.length) myShowsFeatureIndex = 0;
+  renderMyShowsFeature(today);
 
   savedArtists.hidden = savedFavorites.artists.length === 0;
   savedArtists.innerHTML = savedFavorites.artists.map(artist => `
@@ -674,6 +697,15 @@ myShowEvents.addEventListener("click", event => {
   document.querySelector(".app").scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
+myShowsFeaturePrev.addEventListener("click", () => moveMyShowsFeature(-1));
+myShowsFeatureNext.addEventListener("click", () => moveMyShowsFeature(1));
+
+setInterval(() => {
+  if (myShowsFeatureSchedules.length < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (myShowsFeature.matches(":hover") || myShowsFeature.contains(document.activeElement)) return;
+  moveMyShowsFeature(1);
+}, 5000);
+
 attendanceAddButton.addEventListener("click", () => {
   if (attendanceFormWrap.hidden) openAttendanceForm();
   else closeAttendanceForm();
@@ -713,7 +745,7 @@ attendanceForm.addEventListener("submit", event => {
     artist: schedule?.artist || existing?.artist,
     venue: schedule?.venue || existing?.venue,
     concertDate: schedule?.concertDate || existing?.concertDate,
-    seat: data.get("seat"),
+    seat: existing?.seat || "좌석 미입력",
     unitPrice: data.get("unitPrice"),
     quantity: data.get("quantity"),
     createdAt: existing?.createdAt || new Date().toISOString()

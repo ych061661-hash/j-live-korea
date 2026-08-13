@@ -1,11 +1,11 @@
 "use strict";
 
-const CACHE_VERSION = "j-live-pwa-v51";
+const CACHE_VERSION = "j-live-pwa-v54";
 const APP_SHELL = [
   "/calendar/",
   "/calendar/index.html",
   "/calendar/offline.html",
-  "/calendar/styles.css?v=20260813minimal6",
+  "/calendar/styles.css?v=20260813minimal9",
   "/calendar/site-config.js?v=20260808ea",
   "/calendar/site.js",
   "/calendar/analytics.js",
@@ -15,7 +15,7 @@ const APP_SHELL = [
   "/calendar/email-alerts.js?v=20260811ret",
   "/calendar/alerts/",
   "/calendar/alerts/index.html",
-  "/calendar/app.js?v=20260813minimal3",
+  "/calendar/app.js?v=20260813minimal9",
   "/calendar/content.js",
   "/calendar/event.js",
   "/calendar/data/events.json",

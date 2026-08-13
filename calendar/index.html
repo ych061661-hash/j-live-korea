@@ -10,7 +10,7 @@
   <link rel="canonical" href="https://j-live.kr/calendar/">
   <link rel="icon" type="image/png" href="./assets/brand/j-live-app-logo.png">
   <link rel="apple-touch-icon" href="./assets/brand/j-live-app-logo.png">
-  <link rel="stylesheet" href="./styles.css?v=20260813minimal6">
+  <link rel="stylesheet" href="./styles.css?v=20260813minimal9">
   <script src="./site-config.js?v=20260808ea"></script>
   <script src="./site.js" defer></script>
 </head>
@@ -162,15 +162,22 @@
           <article><span>관람 기록</span><strong id="myShowsAttendanceCount">0</strong></article>
         </div>
       </div>
-      <a class="my-shows-feature" id="myShowsFeature" href="#" hidden>
-        <span class="my-shows-feature-image"><img id="myShowsFeatureImage" alt=""></span>
-        <span class="my-shows-feature-copy">
-          <span class="section-kicker">NEXT SAVED SHOW</span>
-          <strong id="myShowsFeatureArtist"></strong>
-          <span id="myShowsFeatureMeta"></span>
-          <span class="my-shows-feature-badges"><b id="myShowsFeatureDday"></b><b>저장됨</b></span>
-        </span>
-      </a>
+      <article class="my-shows-feature" id="myShowsFeature" hidden>
+        <a class="my-shows-feature-link" id="myShowsFeatureLink" href="#">
+          <span class="my-shows-feature-image"><img id="myShowsFeatureImage" alt=""></span>
+          <span class="my-shows-feature-copy">
+            <span class="section-kicker">NEXT SAVED SHOW</span>
+            <strong id="myShowsFeatureArtist"></strong>
+            <span id="myShowsFeatureMeta"></span>
+            <span class="my-shows-feature-badges"><b id="myShowsFeatureDday"></b></span>
+          </span>
+        </a>
+        <div class="my-shows-feature-nav" id="myShowsFeatureNav" aria-label="저장 공연 슬라이드">
+          <button id="myShowsFeaturePrev" type="button" aria-label="이전 저장 공연">‹</button>
+          <span id="myShowsFeaturePosition" aria-live="polite">1 / 1</span>
+          <button id="myShowsFeatureNext" type="button" aria-label="다음 저장 공연">›</button>
+        </div>
+      </article>
       <div class="saved-artists" id="savedArtists" aria-label="관심 아티스트" hidden></div>
       <div class="my-shows-alerts" id="myShowsAlerts" hidden>
         <span class="section-kicker">UPCOMING ALERTS</span>
@@ -183,10 +190,10 @@
       </div>
       <section class="attendance-ledger" aria-labelledby="attendanceLedgerTitle">
         <div class="attendance-ledger-heading">
-          <div><span class="section-kicker">MY CONCERT LOG</span><h3 id="attendanceLedgerTitle">관람 기록과 좌석별 지출</h3></div>
+          <div><span class="section-kicker">MY CONCERT LOG</span><h3 id="attendanceLedgerTitle">관람 기록과 지출</h3></div>
           <button id="attendanceAddButton" type="button" aria-expanded="false" aria-controls="attendanceFormWrap">＋ 관람 기록</button>
         </div>
-        <p class="attendance-ledger-copy">다녀온 공연의 좌석과 결제 금액을 기록합니다. 금액 정보는 이 브라우저에만 저장됩니다.</p>
+        <p class="attendance-ledger-copy">다녀온 공연과 결제 금액을 기록합니다. 금액 정보는 이 브라우저에만 저장됩니다.</p>
         <div class="attendance-summary" aria-label="관람 지출 요약">
           <article><span>관람 공연</span><strong id="attendanceShowCount">0</strong><small>개</small></article>
           <article><span>티켓</span><strong id="attendanceTicketCount">0</strong><small>매</small></article>
@@ -196,7 +203,6 @@
           <form id="attendanceForm">
             <input type="hidden" name="recordId">
             <div class="full attendance-event-picker"><label for="attendanceEventSearch">관람한 공연 검색</label><input id="attendanceEventSearch" type="search" autocomplete="off" placeholder="아티스트, 공연장 또는 날짜 검색" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="attendanceEventResults" required><input name="eventId" type="hidden"><div class="attendance-event-results" id="attendanceEventResults" role="listbox" hidden></div></div>
-            <label><span>좌석·구역</span><input name="seat" maxlength="60" placeholder="예: R석 1층 A구역" required></label>
             <label><span>1매 가격</span><span class="money-input"><input name="unitPrice" type="number" min="0" step="100" inputmode="numeric" required><i>원</i></span></label>
             <label><span>매수</span><input name="quantity" type="number" min="1" max="20" value="1" inputmode="numeric" required></label>
             <div class="attendance-form-total full"><span>이번 기록 합계</span><strong id="attendanceFormTotal">0원</strong></div>
@@ -242,6 +248,6 @@
   <script src="./favorites.js?v=20260729" defer></script>
   <script src="./attendance.js?v=20260813" defer></script>
   <script src="./alerts.js?v=20260729" defer></script>
-  <script src="./app.js?v=20260813minimal3" defer></script>
+  <script src="./app.js?v=20260813minimal9" defer></script>
 </body>
 </html>
