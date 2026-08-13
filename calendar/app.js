@@ -38,6 +38,7 @@ const saveArtistButton = document.querySelector("#saveArtistButton");
 const alertButton = document.querySelector("#alertButton");
 const alertPlan = document.querySelector("#alertPlan");
 const attendanceAddButton = document.querySelector("#attendanceAddButton");
+const attendanceImageButton = document.querySelector("#attendanceImageButton");
 const attendanceFormWrap = document.querySelector("#attendanceFormWrap");
 const attendanceForm = document.querySelector("#attendanceForm");
 const attendanceCancelButton = document.querySelector("#attendanceCancelButton");
@@ -188,6 +189,135 @@ function renderAttendanceLog() {
         <div class="attendance-record-actions"><button type="button" data-edit-attendance="${escapeHtml(record.id)}">수정</button><button type="button" data-delete-attendance="${escapeHtml(record.id)}">삭제</button></div>
       </article>`;
     }).join("");
+}
+
+function drawRoundRect(context, x, y, width, height, radius, fill, stroke = "") {
+  context.beginPath();
+  context.roundRect(x, y, width, height, radius);
+  if (fill) {
+    context.fillStyle = fill;
+    context.fill();
+  }
+  if (stroke) {
+    context.strokeStyle = stroke;
+    context.stroke();
+  }
+}
+
+function attendanceImageRecords() {
+  return [...attendanceLog]
+    .sort((a, b) => (b.concertDate || "").localeCompare(a.concertDate || "") || b.createdAt.localeCompare(a.createdAt))
+    .map(record => {
+      const schedule = attendanceSchedules.find(item => item.id === record.eventId);
+      return {
+        artist: schedule?.artist || record.artist || "공연 정보 없음",
+        venue: schedule?.venue || record.venue || "공연장 미입력",
+        concertDate: schedule?.concertDate || record.concertDate,
+        quantity: Math.max(1, Number(record.quantity) || 1),
+        unitPrice: Math.max(0, Number(record.unitPrice) || 0),
+        total: window.JLIVE_ATTENDANCE.totalFor(record)
+      };
+    });
+}
+
+async function saveAttendanceImage() {
+  const records = attendanceImageRecords();
+  if (!records.length) {
+    window.alert("저장할 관람 기록이 없습니다.");
+    return;
+  }
+
+  attendanceImageButton.disabled = true;
+  attendanceImageButton.textContent = "이미지 만드는 중";
+  try {
+    await document.fonts?.ready;
+    const scale = 2;
+    const width = 1200;
+    const padding = 48;
+    const rowHeight = 104;
+    const height = 310 + records.length * rowHeight;
+    const canvas = document.createElement("canvas");
+    canvas.width = width * scale;
+    canvas.height = height * scale;
+    const context = canvas.getContext("2d");
+    context.scale(scale, scale);
+    context.textBaseline = "middle";
+    context.imageSmoothingEnabled = true;
+    context.imageSmoothingQuality = "high";
+    context.fillStyle = "#0b0c0f";
+    context.fillRect(0, 0, width, height);
+
+    context.font = "800 15px Pretendard, Arial, sans-serif";
+    context.fillStyle = "#d7ff4f";
+    context.fillText("MY CONCERT LOG", padding, 52);
+    context.font = "800 34px Pretendard, Arial, sans-serif";
+    context.fillStyle = "#f5f5f2";
+    context.fillText("관람 기록과 지출", padding, 94);
+    context.font = "500 14px Pretendard, Arial, sans-serif";
+    context.fillStyle = "#85878e";
+    context.fillText("J-LIVE · 이 브라우저에 저장된 나의 공연 기록", padding, 128);
+
+    const summary = window.JLIVE_ATTENDANCE.summarize(attendanceLog);
+    const cards = [
+      ["관람 공연", `${summary.shows}개`],
+      ["티켓", `${summary.tickets}매`],
+      ["총 사용액", formatWon(summary.total)]
+    ];
+    const cardGap = 12;
+    const cardWidth = (width - padding * 2 - cardGap * 2) / 3;
+    cards.forEach(([label, value], index) => {
+      const x = padding + index * (cardWidth + cardGap);
+      drawRoundRect(context, x, 154, cardWidth, 92, 16, "#171a16", "#35421d");
+      context.font = "600 12px Pretendard, Arial, sans-serif";
+      context.fillStyle = "#858a80";
+      context.fillText(label, x + 20, 178);
+      context.font = "800 25px Pretendard, Arial, sans-serif";
+      context.fillStyle = "#d7ff4f";
+      context.fillText(value, x + 20, 215);
+    });
+
+    records.forEach((record, index) => {
+      const y = 270 + index * rowHeight;
+      drawRoundRect(context, padding, y, width - padding * 2, 88, 14, "#111216", "#292b31");
+      context.font = "500 11px Pretendard, Arial, sans-serif";
+      context.fillStyle = "#767981";
+      context.fillText(formatAttendanceDate(record.concertDate), padding + 20, y + 20);
+      context.font = "800 17px Pretendard, Arial, sans-serif";
+      context.fillStyle = "#f0f1ed";
+      context.fillText(record.artist, padding + 20, y + 46, 570);
+      context.font = "500 12px Pretendard, Arial, sans-serif";
+      context.fillStyle = "#85878e";
+      context.fillText(record.venue, padding + 20, y + 68, 570);
+      context.textAlign = "right";
+      context.font = "500 11px Pretendard, Arial, sans-serif";
+      context.fillStyle = "#777981";
+      context.fillText(`${formatWon(record.unitPrice)} × ${record.quantity}매`, width - padding - 20, y + 25);
+      context.font = "800 21px Pretendard, Arial, sans-serif";
+      context.fillStyle = "#d7ff4f";
+      context.fillText(formatWon(record.total), width - padding - 20, y + 57);
+      context.textAlign = "left";
+    });
+
+    context.font = "500 11px Pretendard, Arial, sans-serif";
+    context.fillStyle = "#55585f";
+    context.fillText(`j-live.kr · ${new Date().toLocaleDateString("ko-KR")} 저장`, padding, height - 20);
+
+    const blob = await new Promise(resolve => canvas.toBlob(resolve, "image/png"));
+    if (!blob) throw new Error("PNG creation failed");
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `j-live-concert-log-${dateKey(new Date())}.png`;
+    link.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    window.JLIVE_ANALYTICS.track("attendance_image_download", { records: records.length });
+  } catch (error) {
+    console.error(error);
+    window.alert("이미지를 만들지 못했습니다. 잠시 후 다시 시도해 주세요.");
+  } finally {
+    attendanceImageButton.disabled = false;
+    attendanceImageButton.textContent = "이미지 저장";
+  }
 }
 
 const normalizeSearchText = value => String(value || "")
@@ -753,6 +883,7 @@ attendanceAddButton.addEventListener("click", () => {
   if (attendanceFormWrap.hidden) openAttendanceForm();
   else closeAttendanceForm();
 });
+attendanceImageButton.addEventListener("click", saveAttendanceImage);
 attendanceCancelButton.addEventListener("click", closeAttendanceForm);
 attendanceForm.addEventListener("input", updateAttendanceFormTotal);
 attendanceEventSearch.addEventListener("focus", renderAttendanceEventSearch);

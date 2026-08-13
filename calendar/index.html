@@ -191,7 +191,10 @@
       <section class="attendance-ledger" aria-labelledby="attendanceLedgerTitle">
         <div class="attendance-ledger-heading">
           <div><span class="section-kicker">MY CONCERT LOG</span><h3 id="attendanceLedgerTitle">관람 기록과 지출</h3></div>
-          <button id="attendanceAddButton" type="button" aria-expanded="false" aria-controls="attendanceFormWrap">＋ 관람 기록</button>
+          <div class="attendance-heading-actions">
+            <button id="attendanceImageButton" type="button">이미지 저장</button>
+            <button id="attendanceAddButton" type="button" aria-expanded="false" aria-controls="attendanceFormWrap">＋ 관람 기록</button>
+          </div>
         </div>
         <p class="attendance-ledger-copy">다녀온 공연과 결제 금액을 기록합니다. 금액 정보는 이 브라우저에만 저장됩니다.</p>
         <div class="attendance-summary" aria-label="관람 지출 요약">
@@ -249,6 +252,6 @@
   <script src="./favorites.js?v=20260729" defer></script>
   <script src="./attendance.js?v=20260813" defer></script>
   <script src="./alerts.js?v=20260729" defer></script>
-  <script src="./app.js?v=20260814outsideclick" defer></script>
+  <script src="./app.js?v=20260814imageexport" defer></script>
 </body>
 </html>
