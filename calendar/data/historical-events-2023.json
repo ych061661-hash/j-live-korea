@@ -1,0 +1,67 @@
+[
+  {
+    "id": "fujii-kaze-2023-06-24", "artist": "Fujii Kaze", "concertDate": "2023-06-24", "time": "19:00",
+    "venue": "광운대학교 동해문화예술관 대극장", "vendor": "티켓링크", "vendorUrl": "https://www.ticketlink.co.kr/help/notice/56655",
+    "status": "confirmed", "price": 99000, "priceCurrency": "KRW",
+    "seatPrices": [{ "name": "VIP", "price": 121000, "priceCurrency": "KRW" }, { "name": "R석", "price": 110000, "priceCurrency": "KRW" }, { "name": "S석", "price": 99000, "priceCurrency": "KRW" }],
+    "sources": ["https://fujiikaze.com/tour/fujii-kaze-and-the-piano-asia-tour/", "https://www.ticketlink.co.kr/help/notice/56655"]
+  },
+  {
+    "id": "lucky-tapes-2023-06-25", "artist": "LUCKY TAPES", "concertDate": "2023-06-25", "time": "18:00",
+    "venue": "노들섬 라이브하우스", "vendor": "노들섬", "vendorUrl": "https://nodeul.org/program/%EB%9F%AD%ED%82%A4%ED%85%8C%EC%9D%B4%ED%94%84%EC%8A%A4-%EB%82%B4%ED%95%9C%EA%B3%B5%EC%97%B0-lucky-tapes-live-in-seoul/",
+    "status": "confirmed", "price": 88000, "priceCurrency": "KRW",
+    "seatPrices": [{ "name": "전석", "price": 88000, "priceCurrency": "KRW" }],
+    "sources": ["https://nodeul.org/program/%EB%9F%AD%ED%82%A4%ED%85%8C%EC%9D%B4%ED%94%84%EC%8A%A4-%EB%82%B4%ED%95%9C%EA%B3%B5%EC%97%B0-lucky-tapes-live-in-seoul/"]
+  },
+  {
+    "id": "ellegarden-2023-10-02", "artist": "ELLEGARDEN", "concertDate": "2023-10-02", "time": "19:00",
+    "venue": "YES24 LIVE HALL", "vendor": "YES24 티켓", "vendorUrl": "https://m.ticket.yes24.com/Notice/Detail.aspx?bid=13425",
+    "status": "confirmed", "price": 99000, "priceCurrency": "KRW", "seatPrices": [{ "name": "전석", "price": 99000, "priceCurrency": "KRW" }],
+    "sources": ["https://m.ticket.yes24.com/Notice/Detail.aspx?bid=13425", "https://ellegarden.jp/live.html"]
+  },
+  {
+    "id": "ellegarden-2023-10-03", "artist": "ELLEGARDEN", "concertDate": "2023-10-03", "time": "19:00",
+    "venue": "YES24 LIVE HALL", "vendor": "YES24 티켓", "vendorUrl": "https://m.ticket.yes24.com/Notice/Detail.aspx?bid=13425",
+    "status": "confirmed", "price": 99000, "priceCurrency": "KRW", "seatPrices": [{ "name": "전석", "price": 99000, "priceCurrency": "KRW" }],
+    "sources": ["https://m.ticket.yes24.com/Notice/Detail.aspx?bid=13425", "https://ellegarden.jp/live.html"]
+  },
+  {
+    "id": "konomi-suzuki-2023-10-14", "artist": "Konomi Suzuki", "concertDate": "2023-10-14", "time": "19:00",
+    "venue": "롤링홀", "vendor": "티켓링크", "vendorUrl": "https://m.ticketlink.co.kr/help/notice/57667",
+    "status": "confirmed", "price": 33000, "priceCurrency": "KRW",
+    "seatPrices": [{ "name": "VIP석", "price": 110000, "priceCurrency": "KRW" }, { "name": "일반석", "price": 33000, "priceCurrency": "KRW" }],
+    "sources": ["https://m.ticketlink.co.kr/help/notice/57667"]
+  },
+  {
+    "id": "novelbright-2023-10-22", "artist": "Novelbright", "concertDate": "2023-10-22", "time": "18:00",
+    "venue": "마포아트센터 아트홀 맥", "vendor": "YES24 티켓", "vendorUrl": "https://m.ticket.yes24.com/Notice/Detail.aspx?bid=13378&order=1&type=1",
+    "status": "confirmed", "price": 88000, "priceCurrency": "KRW",
+    "seatPrices": [{ "name": "R석", "price": 99000, "priceCurrency": "KRW" }, { "name": "S석", "price": 88000, "priceCurrency": "KRW" }],
+    "sources": ["https://m.ticket.yes24.com/Notice/Detail.aspx?bid=13378&order=1&type=1", "https://m.ticket.yes24.com/Perf/Detail/PerfEtcInfo.aspx?IdPerf=46879"]
+  },
+  {
+    "id": "one-ok-rock-2023-12-02", "artist": "ONE OK ROCK", "concertDate": "2023-12-02", "time": "19:00",
+    "venue": "고려대학교 화정체육관", "vendor": "티켓링크", "vendorUrl": "https://www.ticketlink.co.kr/help/notice/57764",
+    "status": "confirmed", "price": 121000, "priceCurrency": "KRW",
+    "seatPrices": [{ "name": "스탠딩", "price": 132000, "priceCurrency": "KRW" }, { "name": "R석", "price": 132000, "priceCurrency": "KRW" }, { "name": "S석", "price": 121000, "priceCurrency": "KRW" }],
+    "sources": ["https://www.ticketlink.co.kr/help/notice/57764", "https://www.oneokrock.com/en/news/1291/"]
+  },
+  {
+    "id": "yoasobi-2023-12-16", "artist": "YOASOBI", "concertDate": "2023-12-16", "time": "18:00",
+    "venue": "고려대학교 화정체육관", "vendor": "멜론티켓", "vendorUrl": "https://ticket.melon.com/performance/index.htm?prodId=208789",
+    "status": "confirmed", "price": 121000, "priceCurrency": "KRW", "seatPrices": [{ "name": "전석", "price": 121000, "priceCurrency": "KRW" }],
+    "sources": ["https://ticket.melon.com/performance/index.htm?prodId=208789"]
+  },
+  {
+    "id": "yoasobi-2023-12-17", "artist": "YOASOBI", "concertDate": "2023-12-17", "time": "18:00",
+    "venue": "고려대학교 화정체육관", "vendor": "멜론티켓", "vendorUrl": "https://ticket.melon.com/performance/index.htm?prodId=208789",
+    "status": "confirmed", "price": 121000, "priceCurrency": "KRW", "seatPrices": [{ "name": "전석", "price": 121000, "priceCurrency": "KRW" }],
+    "sources": ["https://ticket.melon.com/performance/index.htm?prodId=208789"]
+  },
+  {
+    "id": "sakamoto-miu-2023-12-27", "artist": "Sakamoto Miu", "concertDate": "2023-12-27", "time": "20:00",
+    "venue": "세종문화회관 S씨어터", "vendor": "멜론티켓 / 위메프티켓 / 세종문화티켓", "vendorUrl": "https://www.sejongpac.or.kr/portal/performance/performance/view.do?menuNo=200004&performIdx=34671",
+    "status": "confirmed", "price": 77000, "priceCurrency": "KRW", "seatPrices": [{ "name": "R석", "price": 77000, "priceCurrency": "KRW" }],
+    "sources": ["https://www.sejongpac.or.kr/portal/performance/performance/view.do?menuNo=200004&performIdx=34671", "https://www.sejongpac.or.kr/portal/bbs/B0000049/view.do?menuNo=200440&nttId=46588&pageIndex=19"]
+  }
+]

@@ -974,16 +974,18 @@ async function initialize() {
         priceVerifiedAt: event.priceVerifiedAt || staticEvent.priceVerifiedAt
       };
     }).filter(event => event.status === "confirmed");
-    const [aliasResponse, updateResponse, historicalResponse] = await Promise.all([
+    const [aliasResponse, updateResponse, historicalResponse, historical2023Response] = await Promise.all([
       fetch("./data/artist-aliases.json", { cache: "no-store" }).catch(() => null),
       fetch("./data/updates.json", { cache: "no-store" }).catch(() => null),
-      fetch("./data/historical-events.json", { cache: "no-store" }).catch(() => null)
+      fetch("./data/historical-events.json", { cache: "no-store" }).catch(() => null),
+      fetch("./data/historical-events-2023.json", { cache: "no-store" }).catch(() => null)
     ]);
     artistAliases = aliasResponse?.ok ? await aliasResponse.json() : {};
     updates = updateResponse?.ok ? await updateResponse.json() : [];
     const historicalEvents = historicalResponse?.ok ? await historicalResponse.json() : [];
+    const historical2023Events = historical2023Response?.ok ? await historical2023Response.json() : [];
     const scheduleIds = new Set(schedules.map(event => event.id));
-    attendanceSchedules = [...schedules, ...historicalEvents.filter(event =>
+    attendanceSchedules = [...schedules, ...[...historical2023Events, ...historicalEvents].filter(event =>
       event.status === "confirmed" && !scheduleIds.has(event.id)).map(event => ({ ...event, historical: true }))];
     schedules.sort((a, b) => a.concertDate.localeCompare(b.concertDate));
     window.JLIVE_ARTIST_IMAGES.preload(schedules);

@@ -325,6 +325,31 @@
       { "name": "스탠딩 S", "price": 121000, "priceCurrency": "KRW" }
     ]
   },
+  {
+    "id": "fujii-kaze-2024-12-14",
+    "artist": "Fujii Kaze",
+    "concertDate": "2024-12-14",
+    "time": "19:00",
+    "venue": "고척스카이돔",
+    "vendor": "티켓링크",
+    "vendorUrl": "https://facility-m.ticketlink.co.kr/global/en/product/52025",
+    "status": "confirmed",
+    "price": 121000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "VIP", "price": 187000, "priceCurrency": "KRW" },
+      { "name": "SR", "price": 176000, "priceCurrency": "KRW" },
+      { "name": "R", "price": 165000, "priceCurrency": "KRW" },
+      { "name": "S", "price": 143000, "priceCurrency": "KRW" },
+      { "name": "A", "price": 121000, "priceCurrency": "KRW" }
+    ],
+    "sources": [
+      "https://fujiikaze.com/tour/best-of-fujii-kaze-2020-2024-asia-tour/",
+      "https://hehn.fujiikaze.com/asiatour2024/",
+      "https://www.ticketlink.co.kr/help/notice/60324",
+      "https://facility-m.ticketlink.co.kr/global/en/product/52025"
+    ]
+  },
 
   {
     "id": "meiyo-2025-01-18",
