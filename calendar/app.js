@@ -768,6 +768,11 @@ attendanceEventSearch.addEventListener("keydown", event => {
   attendanceEventResults.hidden = true;
   attendanceEventSearch.setAttribute("aria-expanded", "false");
 });
+document.addEventListener("pointerdown", event => {
+  if (attendanceEventResults.hidden || event.target.closest(".attendance-event-picker")) return;
+  attendanceEventResults.hidden = true;
+  attendanceEventSearch.setAttribute("aria-expanded", "false");
+});
 attendanceEventResults.addEventListener("click", event => {
   const button = event.target.closest("[data-attendance-event]");
   if (!button) return;

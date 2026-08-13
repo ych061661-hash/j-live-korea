@@ -2972,8 +2972,8 @@
     "venue": "KT&G 상상마당 라이브홀",
     "presaleDate": "",
     "presaleTime": "",
-    "ticketDate": "",
-    "ticketTime": "",
+    "ticketDate": "2025-12-10",
+    "ticketTime": "18:00",
     "price": 77000,
     "priceCurrency": "KRW",
     "vendor": "NOL 티켓",
@@ -2996,13 +2996,13 @@
         "https://www.youtube.com/watch?v=WYOgGr-_nGM"
       ]
     ],
-    "status": "pending",
+    "status": "confirmed",
     "sources": [
       "https://tickets.interpark.com/contents/notice/detail/11964",
       "https://luv-band.com/",
       "https://www.youtube.com/@luv-band1030/videos"
     ],
-    "verifiedAt": "2026-08-08",
+    "verifiedAt": "2026-08-13",
     "createdAt": "2026-08-08T03:10:00+09:00",
     "seatPrices": [
       {

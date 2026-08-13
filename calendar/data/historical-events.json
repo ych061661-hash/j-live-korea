@@ -455,14 +455,20 @@
     "id": "luck-life-2025-03-08",
     "artist": "Luck Life",
     "concertDate": "2025-03-08",
+    "time": "19:00",
     "venue": "무신사 개러지",
-    "status": "pending",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://nol.yanolja.com/ticket/places/24001660/products/24018170",
+    "status": "confirmed",
     "price": 99000,
     "priceCurrency": "KRW",
     "seatPrices": [
       { "name": "전석 스탠딩", "price": 99000, "priceCurrency": "KRW" }
     ],
-    "note": "가격은 보조 출처 기준, 공식 본문 직접 확인 약함"
+    "sources": [
+      "https://nol.yanolja.com/ticket/places/24001660/products/24018170"
+    ],
+    "verifiedAt": "2026-08-13"
   },
   {
     "id": "ellegarden-2025-03-20",

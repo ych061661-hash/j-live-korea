@@ -1,5 +1,17 @@
 [
   {
+    "id": "2026-08-13-ticket-open-luv-2026-03-21",
+    "date": "2026-08-13",
+    "kind": "ticket-open",
+    "label": "티켓 오픈",
+    "artist": "luv",
+    "eventId": "luv-2026-03-21",
+    "concertDate": "2026-03-21",
+    "summary": "예매 일정이 공개됐습니다. 일반예매 2025년 12월 10일(수) 18:00.",
+    "url": "https://tickets.interpark.com/contents/notice/detail/11964",
+    "verifiedAt": "2026-08-13"
+  },
+  {
     "id": "2026-08-08-announcement-paris-match-2026-10-31",
     "date": "2026-08-08",
     "kind": "announcement",
