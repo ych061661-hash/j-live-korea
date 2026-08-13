@@ -2742,12 +2742,20 @@
       ]
     ],
     "status": "pending",
+    "seatPrices": [
+      {
+        "name": "전석",
+        "price": 135000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-08-13",
     "sources": [
       "https://ticket.melon.com/csoon/detail.htm?csoonId=12672",
       "https://ticket.melon.com/performance/index.htm?prodId=213705",
       "https://cutiestreet.asobisystem.com/news/detail/85655"
     ],
-    "verifiedAt": "2026-08-05",
+    "verifiedAt": "2026-08-13",
     "createdAt": "2026-08-05T20:30:00+09:00"
   },
   {
