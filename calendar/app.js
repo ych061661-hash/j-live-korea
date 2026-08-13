@@ -88,6 +88,12 @@ function formatDate(key) {
   return `${date.getMonth() + 1}월 ${date.getDate()}일 ${weekdays[date.getDay()]}`;
 }
 
+function formatAttendanceDate(key) {
+  if (!key) return "미정";
+  const date = parseDate(key);
+  return `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일 ${weekdays[date.getDay()]}`;
+}
+
 function formatScheduleDate(key, time = "") {
   const formatted = formatDate(key);
   return key && time ? `${formatted} · ${time}` : formatted;
@@ -147,7 +153,7 @@ function openAttendanceForm(record = null) {
   attendanceForm.elements.recordId.value = record?.id || "";
   attendanceForm.elements.eventId.value = record?.eventId || "";
   attendanceEventSearch.value = record
-    ? `${formatDate(recordSchedule?.concertDate || record.concertDate)} · ${recordSchedule?.artist || record.artist}`
+    ? `${formatAttendanceDate(recordSchedule?.concertDate || record.concertDate)} · ${recordSchedule?.artist || record.artist}`
     : "";
   attendanceEventSearch.placeholder = events.length
     ? "아티스트, 공연장 또는 날짜 검색"
@@ -177,7 +183,7 @@ function renderAttendanceLog() {
       const concertDate = schedule?.concertDate || record.concertDate;
       const total = window.JLIVE_ATTENDANCE.totalFor(record);
       return `<article class="attendance-record">
-        <div class="attendance-record-main"><time>${escapeHtml(formatDate(concertDate))}</time><strong>${escapeHtml(artist)}</strong><span>${escapeHtml(venue)}</span></div>
+        <div class="attendance-record-main"><time>${escapeHtml(formatAttendanceDate(concertDate))}</time><strong>${escapeHtml(artist)}</strong><span>${escapeHtml(venue)}</span></div>
         <div class="attendance-record-price"><small>${formatWon(record.unitPrice)} × ${record.quantity}매</small><strong>${formatWon(total)}</strong></div>
         <div class="attendance-record-actions"><button type="button" data-edit-attendance="${escapeHtml(record.id)}">수정</button><button type="button" data-delete-attendance="${escapeHtml(record.id)}">삭제</button></div>
       </article>`;
@@ -190,7 +196,7 @@ const normalizeSearchText = value => String(value || "")
   .replace(/[\s\p{P}\p{S}]/gu, "");
 
 function attendanceEventLabel(schedule) {
-  return `${formatDate(schedule.concertDate)} · ${schedule.artist} · ${schedule.venue}`;
+  return `${formatAttendanceDate(schedule.concertDate)} · ${schedule.artist} · ${schedule.venue}`;
 }
 
 function renderAttendanceEventSearch() {
@@ -200,10 +206,11 @@ function renderAttendanceEventSearch() {
     schedule.venue,
     schedule.concertDate,
     formatDate(schedule.concertDate),
+    formatAttendanceDate(schedule.concertDate),
     ...(artistAliases[schedule.artist] || [])
   ].some(value => normalizeSearchText(value).includes(query))).slice(0, 8);
   attendanceEventResults.innerHTML = matches.length
-    ? matches.map(schedule => `<button type="button" role="option" data-attendance-event="${escapeHtml(schedule.id)}"><strong>${escapeHtml(schedule.artist)}</strong><span>${escapeHtml(schedule.venue)}</span><time>${escapeHtml(formatDate(schedule.concertDate))}</time></button>`).join("")
+    ? matches.map(schedule => `<button type="button" role="option" data-attendance-event="${escapeHtml(schedule.id)}"><strong>${escapeHtml(schedule.artist)}</strong><span>${escapeHtml(schedule.venue)}</span><time>${escapeHtml(formatAttendanceDate(schedule.concertDate))}</time></button>`).join("")
     : '<p>검색 결과가 없습니다.</p>';
   attendanceEventResults.hidden = false;
   attendanceEventSearch.setAttribute("aria-expanded", "true");
