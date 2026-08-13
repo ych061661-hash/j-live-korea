@@ -44,6 +44,7 @@ const attendanceCancelButton = document.querySelector("#attendanceCancelButton")
 const attendanceFormTotal = document.querySelector("#attendanceFormTotal");
 const attendanceEventSearch = document.querySelector("#attendanceEventSearch");
 const attendanceEventResults = document.querySelector("#attendanceEventResults");
+const attendancePriceOptions = document.querySelector("#attendancePriceOptions");
 const attendanceShowCount = document.querySelector("#attendanceShowCount");
 const attendanceTicketCount = document.querySelector("#attendanceTicketCount");
 const attendanceTotal = document.querySelector("#attendanceTotal");
@@ -51,6 +52,7 @@ const attendanceRecords = document.querySelector("#attendanceRecords");
 const attendanceRecordsEmpty = document.querySelector("#attendanceRecordsEmpty");
 let artistAliases = {};
 let schedules = [];
+let attendanceSchedules = [];
 let updates = [];
 let selectedId = "";
 let selectedType = "concert";
@@ -112,7 +114,7 @@ const formatWon = value => `${Math.max(0, Number(value) || 0).toLocaleString("ko
 
 function eligibleAttendanceEvents() {
   const today = dateKey(new Date());
-  return schedules.filter(schedule => schedule.concertDate <= today)
+  return attendanceSchedules.filter(schedule => schedule.concertDate <= today)
     .sort((a, b) => b.concertDate.localeCompare(a.concertDate) || a.artist.localeCompare(b.artist));
 }
 
@@ -133,13 +135,15 @@ function closeAttendanceForm() {
   attendanceForm.elements.quantity.value = "1";
   attendanceEventSearch.setCustomValidity("");
   attendanceEventResults.hidden = true;
+  attendancePriceOptions.hidden = true;
+  attendancePriceOptions.innerHTML = "";
   attendanceEventSearch.setAttribute("aria-expanded", "false");
   updateAttendanceFormTotal();
 }
 
 function openAttendanceForm(record = null) {
   const events = eligibleAttendanceEvents();
-  const recordSchedule = record && schedules.find(schedule => schedule.id === record.eventId);
+  const recordSchedule = record && attendanceSchedules.find(schedule => schedule.id === record.eventId);
   attendanceForm.elements.recordId.value = record?.id || "";
   attendanceForm.elements.eventId.value = record?.eventId || "";
   attendanceEventSearch.value = record
@@ -153,6 +157,7 @@ function openAttendanceForm(record = null) {
   attendanceFormWrap.hidden = false;
   attendanceAddButton.setAttribute("aria-expanded", "true");
   attendanceAddButton.textContent = record ? "기록 수정 중" : "기록 입력 중";
+  renderAttendancePrices(recordSchedule, false);
   updateAttendanceFormTotal();
   (record ? attendanceForm.elements.unitPrice : attendanceEventSearch).focus();
 }
@@ -166,7 +171,7 @@ function renderAttendanceLog() {
   attendanceRecords.innerHTML = [...attendanceLog]
     .sort((a, b) => (b.concertDate || "").localeCompare(a.concertDate || "") || b.createdAt.localeCompare(a.createdAt))
     .map(record => {
-      const schedule = schedules.find(item => item.id === record.eventId);
+      const schedule = attendanceSchedules.find(item => item.id === record.eventId);
       const artist = schedule?.artist || record.artist || "공연 정보 없음";
       const venue = schedule?.venue || record.venue || "공연장 미입력";
       const concertDate = schedule?.concertDate || record.concertDate;
@@ -211,6 +216,37 @@ function selectAttendanceEvent(schedule) {
   attendanceEventSearch.setCustomValidity("");
   attendanceEventResults.hidden = true;
   attendanceEventSearch.setAttribute("aria-expanded", "false");
+  renderAttendancePrices(schedule, true);
+}
+
+function attendancePrices(schedule) {
+  if (!schedule) return [];
+  const prices = Array.isArray(schedule.seatPrices) ? schedule.seatPrices : [];
+  const normalized = prices
+    .map(item => ({ name: String(item?.name || "티켓"), price: Number(item?.price) || 0 }))
+    .filter(item => item.price > 0);
+  if (!normalized.length && Number(schedule.price) > 0) {
+    normalized.push({ name: "공식 등록 가격", price: Number(schedule.price) });
+  }
+  return normalized.filter((item, index, items) => items.findIndex(candidate =>
+    candidate.name === item.name && candidate.price === item.price) === index);
+}
+
+function renderAttendancePrices(schedule, autofill) {
+  const prices = attendancePrices(schedule);
+  attendancePriceOptions.hidden = prices.length === 0;
+  const priceTitle = schedule?.historical ? "등록된 과거 티켓 가격" : "확인된 티켓 가격";
+  const priceNote = schedule?.historical
+    ? "사용자 제공 과거 자료 기준입니다. 실제 결제 내역과 다르면 직접 입력하세요."
+    : "실제로 결제한 가격을 선택하거나 아래에 직접 입력하세요.";
+  attendancePriceOptions.innerHTML = prices.length ? `
+    <span>${priceTitle}</span>
+    <div>${prices.map(item => `<button type="button" data-attendance-price="${item.price}"><b>${escapeHtml(item.name)}</b><em>${escapeHtml(formatWon(item.price))}</em></button>`).join("")}</div>
+    <small>${priceNote}</small>` : "";
+  if (autofill && prices.length === 1) {
+    attendanceForm.elements.unitPrice.value = String(prices[0].price);
+    updateAttendanceFormTotal();
+  }
 }
 
 function renderArtistSearch() {
@@ -715,6 +751,8 @@ attendanceForm.addEventListener("input", updateAttendanceFormTotal);
 attendanceEventSearch.addEventListener("focus", renderAttendanceEventSearch);
 attendanceEventSearch.addEventListener("input", () => {
   attendanceForm.elements.eventId.value = "";
+  attendancePriceOptions.hidden = true;
+  attendancePriceOptions.innerHTML = "";
   attendanceEventSearch.setCustomValidity("");
   renderAttendanceEventSearch();
 });
@@ -726,12 +764,21 @@ attendanceEventSearch.addEventListener("keydown", event => {
 attendanceEventResults.addEventListener("click", event => {
   const button = event.target.closest("[data-attendance-event]");
   if (!button) return;
-  selectAttendanceEvent(schedules.find(schedule => schedule.id === button.dataset.attendanceEvent));
+  selectAttendanceEvent(attendanceSchedules.find(schedule => schedule.id === button.dataset.attendanceEvent));
+});
+attendancePriceOptions.addEventListener("click", event => {
+  const button = event.target.closest("[data-attendance-price]");
+  if (!button) return;
+  attendanceForm.elements.unitPrice.value = button.dataset.attendancePrice;
+  updateAttendanceFormTotal();
+  attendancePriceOptions.querySelectorAll("button").forEach(item => {
+    item.classList.toggle("is-selected", item === button);
+  });
 });
 attendanceForm.addEventListener("submit", event => {
   event.preventDefault();
   const data = new FormData(attendanceForm);
-  const schedule = schedules.find(item => item.id === data.get("eventId"));
+  const schedule = attendanceSchedules.find(item => item.id === data.get("eventId"));
   const existing = attendanceLog.find(record => record.id === data.get("recordId"));
   const keepsUnavailableEvent = existing && data.get("eventId") === existing.eventId;
   if (!schedule && !keepsUnavailableEvent) {
@@ -913,13 +960,31 @@ async function initialize() {
       response = await fetch("./data/events.json", { cache: "no-store" });
     }
     if (!response.ok) throw new Error("공연 데이터를 불러오지 못했습니다.");
-    schedules = (await response.json()).filter(event => event.status === "confirmed");
-    const [aliasResponse, updateResponse] = await Promise.all([
+    const primaryEvents = await response.json();
+    const staticResponse = await fetch("./data/events.json", { cache: "no-store" }).catch(() => null);
+    const staticEvents = staticResponse?.ok ? await staticResponse.json() : [];
+    const staticById = new Map(staticEvents.map(event => [event.id, event]));
+    schedules = primaryEvents.map(event => {
+      const staticEvent = staticById.get(event.id) || {};
+      return {
+        ...event,
+        seatPrices: event.seatPrices?.length ? event.seatPrices : staticEvent.seatPrices,
+        price: event.price ?? staticEvent.price,
+        priceCurrency: event.priceCurrency || staticEvent.priceCurrency,
+        priceVerifiedAt: event.priceVerifiedAt || staticEvent.priceVerifiedAt
+      };
+    }).filter(event => event.status === "confirmed");
+    const [aliasResponse, updateResponse, historicalResponse] = await Promise.all([
       fetch("./data/artist-aliases.json", { cache: "no-store" }).catch(() => null),
-      fetch("./data/updates.json", { cache: "no-store" }).catch(() => null)
+      fetch("./data/updates.json", { cache: "no-store" }).catch(() => null),
+      fetch("./data/historical-events.json", { cache: "no-store" }).catch(() => null)
     ]);
     artistAliases = aliasResponse?.ok ? await aliasResponse.json() : {};
     updates = updateResponse?.ok ? await updateResponse.json() : [];
+    const historicalEvents = historicalResponse?.ok ? await historicalResponse.json() : [];
+    const scheduleIds = new Set(schedules.map(event => event.id));
+    attendanceSchedules = [...schedules, ...historicalEvents.filter(event =>
+      event.status === "confirmed" && !scheduleIds.has(event.id)).map(event => ({ ...event, historical: true }))];
     schedules.sort((a, b) => a.concertDate.localeCompare(b.concertDate));
     window.JLIVE_ARTIST_IMAGES.preload(schedules);
     renderWeekendSpotlight();

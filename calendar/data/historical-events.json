@@ -1,0 +1,691 @@
+[
+  {
+    "id": "fhana-2024-01-06",
+    "artist": "fhana",
+    "concertDate": "2024-01-06",
+    "venue": "웨스트브릿지 라이브홀",
+    "status": "confirmed",
+    "price": 78000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "VIP", "price": 121000, "priceCurrency": "KRW" },
+      { "name": "일반", "price": 78000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "macaroni-empitsu-2024-02-03",
+    "artist": "Macaroni Empitsu",
+    "concertDate": "2024-02-03",
+    "venue": "YES24 LIVE HALL",
+    "status": "confirmed",
+    "price": 99000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "전석", "price": 99000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "ado-2024-02-24",
+    "artist": "Ado",
+    "concertDate": "2024-02-24",
+    "venue": "킨텍스 제2전시장 10B홀",
+    "status": "confirmed",
+    "price": 121000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "전석", "price": 121000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "hotei-tomoyasu-2024-03-03",
+    "artist": "HOTEI TOMOYASU",
+    "concertDate": "2024-03-03",
+    "venue": "KT&G 상상마당 대치아트홀",
+    "status": "confirmed",
+    "price": 132000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "전석", "price": 132000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "wanuka-2024-03-03",
+    "artist": "WANUKA",
+    "concertDate": "2024-03-03",
+    "venue": "무신사 개러지",
+    "status": "confirmed",
+    "price": 88000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "전석", "price": 88000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "chanmina-2024-03-05",
+    "artist": "CHANMINA",
+    "concertDate": "2024-03-05",
+    "venue": "명화 라이브홀",
+    "status": "confirmed",
+    "price": 99000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "VIP", "price": 187000, "priceCurrency": "KRW" },
+      { "name": "스탠딩", "price": 99000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "amazarashi-2024-03-10",
+    "artist": "amazarashi",
+    "concertDate": "2024-03-10",
+    "venue": "마포아트센터 아트홀 맥",
+    "status": "confirmed",
+    "price": 99000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "전석", "price": 99000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "reol-2024-03-23",
+    "artist": "Reol",
+    "concertDate": "2024-03-23",
+    "venue": "무신사 개러지",
+    "status": "confirmed",
+    "price": 88000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "전석", "price": 88000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "flow-luck-life-2024-03-30",
+    "artist": "FLOW x LUCK LIFE",
+    "concertDate": "2024-03-30",
+    "venue": "YES24 원더로크홀",
+    "status": "confirmed",
+    "price": 99000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "전석", "price": 99000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "iri-2024-04-06",
+    "artist": "iri",
+    "concertDate": "2024-04-06",
+    "venue": "KT&G 상상마당 라이브홀",
+    "status": "confirmed",
+    "price": 77000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "전석 스탠딩", "price": 77000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "king-gnu-2024-04-19",
+    "artist": "King Gnu",
+    "concertDate": "2024-04-19",
+    "venue": "올림픽홀",
+    "status": "confirmed",
+    "price": 121000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "R석", "price": 132000, "priceCurrency": "KRW" },
+      { "name": "S석", "price": 121000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "king-gnu-2024-04-20",
+    "artist": "King Gnu",
+    "concertDate": "2024-04-20",
+    "venue": "올림픽홀",
+    "status": "confirmed",
+    "price": 121000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "R석", "price": 132000, "priceCurrency": "KRW" },
+      { "name": "S석", "price": 121000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "eve-2024-05-12",
+    "artist": "Eve",
+    "concertDate": "2024-05-12",
+    "venue": "YES24 LIVE HALL",
+    "status": "confirmed",
+    "price": 110000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "전석", "price": 110000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "konomi-suzuki-2024-05-25",
+    "artist": "Konomi Suzuki",
+    "concertDate": "2024-05-25",
+    "venue": "롤링홀",
+    "status": "confirmed",
+    "price": 88000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "VIP", "price": 121000, "priceCurrency": "KRW" },
+      { "name": "일반", "price": 88000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "radwimps-2024-05-25",
+    "artist": "RADWIMPS",
+    "concertDate": "2024-05-25",
+    "venue": "SK핸드볼경기장",
+    "status": "confirmed",
+    "price": 121000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "스탠딩", "price": 121000, "priceCurrency": "KRW" },
+      { "name": "R석", "price": 132000, "priceCurrency": "KRW" },
+      { "name": "S석", "price": 121000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "radwimps-2024-05-26",
+    "artist": "RADWIMPS",
+    "concertDate": "2024-05-26",
+    "venue": "SK핸드볼경기장",
+    "status": "confirmed",
+    "price": 121000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "스탠딩", "price": 121000, "priceCurrency": "KRW" },
+      { "name": "R석", "price": 132000, "priceCurrency": "KRW" },
+      { "name": "S석", "price": 121000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "spyair-2024-05-25",
+    "artist": "SPYAIR",
+    "concertDate": "2024-05-25",
+    "venue": "무신사 개러지",
+    "status": "confirmed",
+    "price": 90000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "전석 스탠딩", "price": 90000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "spyair-2024-05-26",
+    "artist": "SPYAIR",
+    "concertDate": "2024-05-26",
+    "venue": "무신사 개러지",
+    "status": "confirmed",
+    "price": 90000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "전석 스탠딩", "price": 90000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "zutomayo-2024-06-15",
+    "artist": "ZUTOMAYO",
+    "concertDate": "2024-06-15",
+    "venue": "YES24 LIVE HALL",
+    "status": "confirmed",
+    "price": 132000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "전석", "price": 132000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "zutomayo-2024-06-16",
+    "artist": "ZUTOMAYO",
+    "concertDate": "2024-06-16",
+    "venue": "YES24 LIVE HALL",
+    "status": "confirmed",
+    "price": 132000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "전석", "price": 132000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "atarashii-gakko-2024-06-19",
+    "artist": "ATARASHII GAKKO!",
+    "concertDate": "2024-06-19",
+    "venue": "YES24 LIVE HALL",
+    "status": "confirmed",
+    "price": 110000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "1층 스탠딩", "price": 110000, "priceCurrency": "KRW" },
+      { "name": "2층 지정석", "price": 121000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "xg-2024-07-11",
+    "artist": "XG",
+    "concertDate": "2024-07-11",
+    "venue": "YES24 LIVE HALL",
+    "status": "confirmed",
+    "price": 121000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "1층", "price": 121000, "priceCurrency": "KRW" },
+      { "name": "2층", "price": 132000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "imase-2024-07-16",
+    "artist": "imase",
+    "concertDate": "2024-07-16",
+    "venue": "YES24 LIVE HALL",
+    "status": "confirmed",
+    "price": 110000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "1층", "price": 121000, "priceCurrency": "KRW" },
+      { "name": "2층", "price": 110000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "lisa-2024-07-20",
+    "artist": "LiSA",
+    "concertDate": "2024-07-20",
+    "venue": "고려대학교 화정체육관",
+    "status": "confirmed",
+    "price": 132000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "전석", "price": 132000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "official-higedandism-2024-11-30",
+    "artist": "Official髭男dism",
+    "concertDate": "2024-11-30",
+    "venue": "킨텍스 Hall 5",
+    "status": "confirmed",
+    "price": 121000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "스탠딩 R", "price": 132000, "priceCurrency": "KRW" },
+      { "name": "스탠딩 S", "price": 121000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "official-higedandism-2024-12-01",
+    "artist": "Official髭男dism",
+    "concertDate": "2024-12-01",
+    "venue": "킨텍스 Hall 5",
+    "status": "confirmed",
+    "price": 121000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "스탠딩 R", "price": 132000, "priceCurrency": "KRW" },
+      { "name": "스탠딩 S", "price": 121000, "priceCurrency": "KRW" }
+    ]
+  },
+
+  {
+    "id": "meiyo-2025-01-18",
+    "artist": "meiyo",
+    "concertDate": "2025-01-18",
+    "venue": "무신사 개러지",
+    "status": "confirmed",
+    "price": 88000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "전석", "price": 88000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "leina-2025-01-25",
+    "artist": "Leina",
+    "concertDate": "2025-01-25",
+    "venue": "YES24 원더로크홀",
+    "status": "confirmed",
+    "price": 99000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "전석", "price": 99000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "mrs-green-apple-2025-02-15",
+    "artist": "Mrs. GREEN APPLE",
+    "concertDate": "2025-02-15",
+    "venue": "고려대학교 화정체육관",
+    "status": "confirmed",
+    "price": 138000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "전석", "price": 138000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "mrs-green-apple-2025-02-16",
+    "artist": "Mrs. GREEN APPLE",
+    "concertDate": "2025-02-16",
+    "venue": "고려대학교 화정체육관",
+    "status": "confirmed",
+    "price": 138000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "전석", "price": 138000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "ichiko-aoba-2025-02-26",
+    "artist": "Ichiko Aoba",
+    "concertDate": "2025-02-26",
+    "venue": "스카이아트홀",
+    "status": "confirmed",
+    "price": 77000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "R석", "price": 110000, "priceCurrency": "KRW" },
+      { "name": "S석", "price": 99000, "priceCurrency": "KRW" },
+      { "name": "시야제한석", "price": 77000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "ichiko-aoba-2025-02-27",
+    "artist": "Ichiko Aoba",
+    "concertDate": "2025-02-27",
+    "venue": "스카이아트홀",
+    "status": "confirmed",
+    "price": 77000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "R석", "price": 110000, "priceCurrency": "KRW" },
+      { "name": "S석", "price": 99000, "priceCurrency": "KRW" },
+      { "name": "시야제한석", "price": 77000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "yuika-2025-03-07",
+    "artist": "유이카",
+    "concertDate": "2025-03-07",
+    "venue": "YES24 원더로크홀",
+    "status": "confirmed",
+    "price": 88000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "전석", "price": 88000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "yuika-2025-03-08",
+    "artist": "유이카",
+    "concertDate": "2025-03-08",
+    "venue": "YES24 원더로크홀",
+    "status": "confirmed",
+    "price": 88000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "전석", "price": 88000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "luck-life-2025-03-08",
+    "artist": "Luck Life",
+    "concertDate": "2025-03-08",
+    "venue": "무신사 개러지",
+    "status": "pending",
+    "price": 99000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "전석 스탠딩", "price": 99000, "priceCurrency": "KRW" }
+    ],
+    "note": "가격은 보조 출처 기준, 공식 본문 직접 확인 약함"
+  },
+  {
+    "id": "ellegarden-2025-03-20",
+    "artist": "ELLEGARDEN",
+    "concertDate": "2025-03-20",
+    "venue": "YES24 LIVE HALL",
+    "status": "confirmed",
+    "price": 88000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "전석", "price": 88000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "ellegarden-2025-03-21",
+    "artist": "ELLEGARDEN",
+    "concertDate": "2025-03-21",
+    "venue": "YES24 LIVE HALL",
+    "status": "confirmed",
+    "price": 88000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "전석", "price": 88000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "yuuri-arena-2025-05-03",
+    "artist": "YUURI",
+    "concertDate": "2025-05-03",
+    "venue": "KSPO DOME",
+    "status": "confirmed",
+    "price": 135000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "1층 스탠딩", "price": 135000, "priceCurrency": "KRW" },
+      { "name": "지정석", "price": 135000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "yuuri-arena-2025-05-04",
+    "artist": "YUURI",
+    "concertDate": "2025-05-04",
+    "venue": "KSPO DOME",
+    "status": "confirmed",
+    "price": 135000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "1층 스탠딩", "price": 135000, "priceCurrency": "KRW" },
+      { "name": "지정석", "price": 135000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "gogovanillas-2025-05-05",
+    "artist": "go!go!vanillas",
+    "concertDate": "2025-05-05",
+    "venue": "YES24 LIVE HALL",
+    "status": "confirmed",
+    "price": 99000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "스탠딩", "price": 99000, "priceCurrency": "KRW" },
+      { "name": "지정석", "price": 99000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "nanaoakari-2025-05-10",
+    "artist": "NANAOAKARI",
+    "concertDate": "2025-05-10",
+    "venue": "YES24 원더로크홀",
+    "status": "confirmed",
+    "price": 99000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "전석", "price": 99000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "mika-nakashima-2025-05-10",
+    "artist": "MIKA NAKASHIMA",
+    "concertDate": "2025-05-10",
+    "venue": "고려대학교 화정체육관",
+    "status": "confirmed",
+    "price": 110000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "VIP석", "price": 168000, "priceCurrency": "KRW" },
+      { "name": "일반석", "price": 154000, "priceCurrency": "KRW" },
+      { "name": "시야방해석", "price": 154000, "priceCurrency": "KRW" },
+      { "name": "휠체어석", "price": 110000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "mika-nakashima-2025-05-11",
+    "artist": "MIKA NAKASHIMA",
+    "concertDate": "2025-05-11",
+    "venue": "고려대학교 화정체육관",
+    "status": "confirmed",
+    "price": 110000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "VIP석", "price": 168000, "priceCurrency": "KRW" },
+      { "name": "일반석", "price": 154000, "priceCurrency": "KRW" },
+      { "name": "시야방해석", "price": 154000, "priceCurrency": "KRW" },
+      { "name": "휠체어석", "price": 110000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "ado-2025-05-15",
+    "artist": "Ado",
+    "concertDate": "2025-05-15",
+    "venue": "킨텍스 제2전시장 9홀",
+    "status": "confirmed",
+    "price": 143000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "HIBANA석", "price": 198000, "priceCurrency": "KRW" },
+      { "name": "S석", "price": 165000, "priceCurrency": "KRW" },
+      { "name": "A석", "price": 154000, "priceCurrency": "KRW" },
+      { "name": "B석", "price": 143000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "yui-ogura-2025-05-17",
+    "artist": "Yui Ogura",
+    "concertDate": "2025-05-17",
+    "venue": "YES24 원더로크홀",
+    "status": "confirmed",
+    "price": 88000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "VIP", "price": 128000, "priceCurrency": "KRW" },
+      { "name": "일반", "price": 88000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "ash-da-hero-2025-05-18",
+    "artist": "ASH DA HERO",
+    "concertDate": "2025-05-18",
+    "venue": "웨스트브릿지",
+    "status": "confirmed",
+    "price": 88000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "전석", "price": 88000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "tatsuya-kitani-2025-05-24",
+    "artist": "Tatsuya Kitani",
+    "concertDate": "2025-05-24",
+    "venue": "YES24 LIVE HALL",
+    "status": "confirmed",
+    "price": 132000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "스탠딩", "price": 132000, "priceCurrency": "KRW" },
+      { "name": "지정석", "price": 132000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "konomi-suzuki-2025-05-25",
+    "artist": "Konomi Suzuki",
+    "concertDate": "2025-05-25",
+    "venue": "롤링홀",
+    "status": "confirmed",
+    "price": 88000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "VIP", "price": 121000, "priceCurrency": "KRW" },
+      { "name": "일반", "price": 88000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "eiko-ishibashi-2025-06-05",
+    "artist": "Eiko Ishibashi",
+    "concertDate": "2025-06-05",
+    "venue": "스카이아트홀",
+    "status": "confirmed",
+    "price": 88000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "일반석", "price": 88000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "tomioka-ai-2025-10-19",
+    "artist": "Tomioka Ai",
+    "concertDate": "2025-10-19",
+    "venue": "YES24 원더로크홀",
+    "status": "confirmed",
+    "price": 99000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "FC VIP", "price": 132000, "priceCurrency": "KRW" },
+      { "name": "VIP", "price": 132000, "priceCurrency": "KRW" },
+      { "name": "일반", "price": 99000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "yuuri-2025-11-01",
+    "artist": "YUURI",
+    "concertDate": "2025-11-01",
+    "venue": "킨텍스 제2전시장 10홀",
+    "status": "confirmed",
+    "price": 143000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "스탠딩 R", "price": 154000, "priceCurrency": "KRW" },
+      { "name": "스탠딩 S", "price": 143000, "priceCurrency": "KRW" },
+      { "name": "지정석", "price": 143000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "yuuri-2025-11-02",
+    "artist": "YUURI",
+    "concertDate": "2025-11-02",
+    "venue": "킨텍스 제2전시장 10홀",
+    "status": "confirmed",
+    "price": 143000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "스탠딩 R", "price": 154000, "priceCurrency": "KRW" },
+      { "name": "스탠딩 S", "price": 143000, "priceCurrency": "KRW" },
+      { "name": "지정석", "price": 143000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "atarayo-2025-11-23",
+    "artist": "Atarayo",
+    "concertDate": "2025-11-23",
+    "venue": "노들섬 라이브하우스",
+    "status": "confirmed",
+    "price": 99000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "전석", "price": 99000, "priceCurrency": "KRW" }
+    ]
+  },
+  {
+    "id": "centimillimental-2025-12-06",
+    "artist": "Centimillimental",
+    "concertDate": "2025-12-06",
+    "venue": "무신사 개러지",
+    "status": "confirmed",
+    "price": 88000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      { "name": "스탠딩", "price": 88000, "priceCurrency": "KRW" }
+    ]
+  }
+]
