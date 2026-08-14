@@ -406,6 +406,26 @@ function renderArtistSearch() {
     : '<p class="artist-search-empty">검색 결과가 없습니다.</p>';
 }
 
+function closeArtistSearch(clearValue = false) {
+  if (clearValue) artistSearch.value = "";
+  artistSearchResults.hidden = true;
+  artistSearch.setAttribute("aria-expanded", "false");
+  artistSearch.blur();
+}
+
+function calendarArtistName(schedule) {
+  if (!mobileQuery.matches) return schedule.artist;
+  const aliases = (artistAliases[schedule.artist] || [])
+    .map(name => String(name).trim())
+    .filter(Boolean);
+  const koreanAliases = aliases.filter(name => /[가-힣]/u.test(name));
+  const candidates = koreanAliases.length ? koreanAliases : [...aliases, schedule.artist];
+  const shortest = candidates.reduce((current, name) =>
+    [...name].length < [...current].length ? name : current, candidates[0]);
+  const words = shortest.split(/\s+/);
+  return [...shortest].length > 8 && words.length > 2 ? words.slice(-2).join(" ") : shortest;
+}
+
 function weekendRangeFor(key) {
   const date = parseDate(key);
   const saturday = new Date(date);
@@ -686,9 +706,12 @@ function renderCalendar() {
     events.forEach(({ type, schedule }) => {
       if (!filters.has(type)) return;
       const chip = document.createElement("a");
+      const displayArtist = calendarArtistName(schedule);
       chip.href = `./events/${encodeURIComponent(schedule.id)}`;
       chip.className = `event-chip ${type}`;
-      chip.innerHTML = `<span>${escapeHtml(typeLabel(type, schedule))}</span><span>${escapeHtml(schedule.artist)}</span>`;
+      chip.title = `${schedule.artist} · ${typeLabel(type, schedule)}`;
+      chip.setAttribute("aria-label", `${schedule.artist} ${typeLabel(type, schedule)}`);
+      chip.innerHTML = `<span>${escapeHtml(typeLabel(type, schedule))}</span><span>${escapeHtml(displayArtist)}</span>`;
       chip.addEventListener("click", () => window.JLIVE_ANALYTICS.track("event_detail_open", {
         event_id: schedule.id,
         artist: schedule.artist,
@@ -993,8 +1016,7 @@ artistSearchResults.addEventListener("click", event => {
   if (!schedule) return;
   window.JLIVE_ANALYTICS.track("artist_result_open", { artist: schedule.artist });
   viewDate = parseDate(schedule.concertDate);
-  artistSearchResults.hidden = true;
-  artistSearch.setAttribute("aria-expanded", "false");
+  closeArtistSearch(true);
   selectSchedule(schedule, "concert", schedule.concertDate);
 });
 

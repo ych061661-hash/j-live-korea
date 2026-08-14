@@ -3,6 +3,24 @@
 (() => {
   const calendarRoot = `${location.origin}/calendar/`;
 
+  if (/\/calendar\/events\//.test(location.pathname)) {
+    const calendarBack = document.querySelector("header .ghost-button");
+    if (calendarBack) {
+      calendarBack.textContent = "\u2190 \uB2EC\uB825\uC73C\uB85C";
+      calendarBack.setAttribute("aria-label", "\uB2EC\uB825\uC73C\uB85C \uB3CC\uC544\uAC00\uAE30");
+      calendarBack.addEventListener("click", event => {
+        if (!document.referrer) return;
+        const previous = new URL(document.referrer);
+        const cameFromCalendar = previous.origin === location.origin
+          && previous.pathname.startsWith("/calendar/")
+          && !previous.pathname.startsWith("/calendar/events/");
+        if (!cameFromCalendar) return;
+        event.preventDefault();
+        history.back();
+      });
+    }
+  }
+
   const ensureHeadLink = (rel, href, attrs = {}) => {
     if (document.head.querySelector(`link[rel="${rel}"][href="${href}"]`)) return;
     const link = document.createElement("link");
