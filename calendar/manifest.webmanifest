@@ -14,7 +14,7 @@
   "icons": [
     {
       "src": "/calendar/assets/brand/j-live-app-logo.png",
-      "sizes": "1254x1254",
+      "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     }
@@ -27,7 +27,7 @@
       "icons": [
         {
           "src": "/calendar/assets/brand/j-live-app-logo.png",
-          "sizes": "1254x1254",
+          "sizes": "512x512",
           "type": "image/png"
         }
       ]
@@ -39,7 +39,7 @@
       "icons": [
         {
           "src": "/calendar/assets/brand/j-live-app-logo.png",
-          "sizes": "1254x1254",
+          "sizes": "512x512",
           "type": "image/png"
         }
       ]

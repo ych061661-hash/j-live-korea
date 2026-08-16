@@ -22,19 +22,23 @@ const humanDate = (value, time = "") => {
   return `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일(${weekday})${time ? ` ${time}` : ""}`;
 };
 
-function pageShell({ title, description, canonical, body, siteUrl, depth = ".." }) {
+function pageShell({ title, description, canonical, body, siteUrl, depth = "..", robots = "index,follow,max-image-preview:large", includeAds = true, image = "" }) {
+  const socialImage = image || `${siteUrl}/calendar/assets/brand/j-live-social-card.png`;
   return `<!doctype html>
 <html lang="ko"><head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3081918168688274" crossorigin="anonymous"></script>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+${includeAds ? '  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3081918168688274" crossorigin="anonymous"></script>\n' : ""}  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="${escapeHtml(robots)}">
   <meta name="description" content="${escapeHtml(description)}">
   <meta property="og:title" content="${escapeHtml(title)}"><meta property="og:description" content="${escapeHtml(description)}">
   <meta property="og:url" content="${escapeHtml(canonical)}"><meta property="og:type" content="website">
+  <meta property="og:locale" content="ko_KR"><meta property="og:site_name" content="제이라이브 코리아">
+  <meta property="og:image" content="${escapeHtml(socialImage)}"><meta property="og:image:alt" content="제이라이브 코리아 페이지 미리보기">
+  <meta name="twitter:card" content="summary_large_image">
   <title>${escapeHtml(title)}</title><link rel="canonical" href="${escapeHtml(canonical)}">
-  <link rel="stylesheet" href="${depth}/styles.css?v=20260806h">
+  <link rel="stylesheet" href="${depth}/styles.css?v=20260815directory1">
   <script src="${depth}/site-config.js?v=20260729ga"></script><script src="${depth}/analytics.js" defer></script><script src="${depth}/site.js" defer></script>
 </head><body><div class="shell info-shell">
-  <header><a class="brand" href="${depth}/"><span class="brand-mark">J</span> 제이라이브 코리아</a><nav class="page-nav"><a href="${depth}/weekly">이번 주</a><a href="${depth}/updates">업데이트</a><a href="${depth}/artists">아티스트</a></nav></header>
+  <header><a class="brand" href="${depth}/"><span class="brand-mark">J</span> 제이라이브 코리아</a><nav class="page-nav"><a href="${depth}/weekly/">이번 주</a><a href="${depth}/updates">업데이트</a><a href="${depth}/artists/">아티스트</a></nav></header>
   ${body}
   <footer class="site-footer"><nav><a href="${depth}/about">소개</a><a href="${depth}/privacy">개인정보처리방침</a><a href="${depth}/corrections">정보 수정 요청</a></nav><p>${escapeHtml(siteUrl.replace(/^https?:\/\//, ""))} · 공식 출처 기준 J-POP 내한 정보</p></footer>
 </div></body></html>\n`;
@@ -56,6 +60,12 @@ function imageUrl(event, siteUrl) {
   return channel && fs.existsSync(path.join(artistAssets, `${channel}.jpg`))
     ? `${siteUrl}/calendar/assets/artists/${channel}.jpg`
     : `${siteUrl}/calendar/assets/brand/j-live-app-logo.png`;
+}
+
+function hasArtistImage(event) {
+  if (event.youtubeProfileImage) return true;
+  const channel = String(event.youtubeChannel || "").replace(/^@/, "").toLowerCase().replace(/[^a-z0-9_-]+/g, "-").replace(/^-+|-+$/g, "");
+  return Boolean(channel && fs.existsSync(path.join(artistAssets, `${channel}.jpg`)));
 }
 
 function artistPageHtml({ artist, events, aliases, editorial, siteUrl, today }) {
@@ -88,7 +98,7 @@ function artistPageHtml({ artist, events, aliases, editorial, siteUrl, today }) 
   }).join("") || '<li class="empty-row">공식 확인된 지난 내한 기록이 없습니다.</li>';
   const nextEvent = upcoming[0];
   const body = `<main class="artist-profile">
-    <section class="artist-profile-hero"><img src="${escapeHtml(imageUrl(latest, siteUrl))}" alt="${escapeHtml(artist)} 공식 프로필" loading="eager"><div><span class="section-kicker">ARTIST PROFILE</span><h1>${escapeHtml(artist)}</h1><p>${escapeHtml(intro)}</p></div></section>
+    <section class="artist-profile-hero"><img src="${escapeHtml(imageUrl(latest, siteUrl))}" alt="${escapeHtml(hasArtistImage(latest) ? `${artist} 공식 프로필` : "J-LIVE 기본 아티스트 이미지")}" width="800" height="800" loading="eager" decoding="async"><div><span class="section-kicker">ARTIST PROFILE</span><h1>${escapeHtml(artist)}</h1><p>${escapeHtml(intro)}</p></div></section>
     <section class="artist-name-grid" aria-label="아티스트 이름 표기"><div><small>한국어</small><strong>${escapeHtml(names.korean)}</strong></div><div><small>English</small><strong>${escapeHtml(names.english)}</strong></div><div><small>日本語</small><strong>${escapeHtml(names.japanese)}</strong></div></section>
     <div class="artist-profile-grid">
       <section><span class="section-kicker">NEXT CONCERT</span><h2>다음 한국 공연</h2><ul class="artist-event-list">${eventRows(nextEvent ? [nextEvent] : [])}</ul></section>
@@ -101,23 +111,37 @@ function artistPageHtml({ artist, events, aliases, editorial, siteUrl, today }) 
     title: `${artist} 내한 공연·대표곡·지난 기록 | 제이라이브 코리아`,
     description: `${artist}의 예정된 한국 공연, 지난 내한 기록, 대표곡 3개와 관련 공연장·예매처를 확인하세요.`,
     canonical: `${siteUrl}/calendar/artists/${encodeURIComponent(slug)}`,
-    body, siteUrl
+    body, siteUrl,
+    robots: "noindex,follow",
+    includeAds: false,
+    image: imageUrl(latest, siteUrl)
   });
 }
 
 function artistIndexHtml({ groups, aliases, siteUrl, today }) {
+  const entries = [...groups.entries()].sort(([a], [b]) => a.localeCompare(b));
+  const confirmedDates = entries.flatMap(([, events]) => events);
+  const upcomingArtists = entries.filter(([, events]) => events.some(event => event.concertDate >= today)).length;
+  const pastDates = confirmedDates.filter(event => event.concertDate < today).length;
   const cards = [...groups.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([artist, events]) => {
     const sorted = [...events].sort((a, b) => a.concertDate.localeCompare(b.concertDate));
     const next = sorted.find(event => event.concertDate >= today);
     const names = languageNames(artist, aliases[artist]);
-    return `<a class="artist-index-card" href="./${encodeURIComponent(artistSlug(sorted[0]))}"><span>${escapeHtml(names.korean)}</span><strong>${escapeHtml(artist)}</strong><small>${next ? `다음 공연 ${escapeHtml(humanDate(next.concertDate))}` : `지난 내한 ${sorted.length}회 기록`}</small></a>`;
+    return `<a class="artist-index-card" href="./${encodeURIComponent(artistSlug(sorted[0]))}"><span>${escapeHtml(names.korean)}</span><strong>${escapeHtml(artist)}</strong><small>${next ? `다음 공연 ${escapeHtml(humanDate(next.concertDate))}` : `지난 공연일 ${sorted.length}일 기록`}</small></a>`;
   }).join("");
+  const body = `<main class="directory-page artist-directory-page">
+    <section class="artist-directory-hero"><div><span class="section-kicker">ARTIST DIRECTORY</span><h1>내한 아티스트</h1><p class="guide-lead">한국어로 검색할 때와 공식 영문·일문 표기가 다르더라도 같은 아티스트를 찾을 수 있도록 이름과 한국 공연 기록을 연결했습니다. 공식 발표가 확인된 공연만 집계하며, 발표 전 소문이나 출처가 충돌하는 일정은 목록에 넣지 않습니다.</p><p class="guide-updated"><a href="../about" rel="author">여일육 편집</a> · 데이터 기준일 ${escapeHtml(today)}</p></div><div class="artist-directory-stats" aria-label="아티스트 디렉터리 요약"><div><span>확인된 아티스트</span><strong>${entries.length}</strong><small>공식 공연 기록 기준</small></div><div><span>예정 공연 보유</span><strong>${upcomingArtists}</strong><small>${escapeHtml(today)} 이후</small></div><div><span>지난 공연일 기록</span><strong>${pastDates}</strong><small>날짜별 공연 수</small></div></div></section>
+    <section class="artist-directory-guide"><span class="section-kicker">HOW TO READ</span><h2>목록을 읽는 방법</h2><div class="artist-directory-guide-grid"><article><strong>한글명과 공식 표기</strong><p>카드 위쪽에는 국내에서 주로 쓰는 한글명을, 가운데에는 아티스트가 사용하는 공식 영문·일문 표기를 표시합니다. 캘린더 검색에서는 등록된 별칭도 함께 비교합니다.</p></article><article><strong>다음 공연 날짜</strong><p>오늘 이후 공식 확인된 한국 공연이 있으면 가장 가까운 날짜를 보여줍니다. 이틀 이상 이어지는 공연은 첫 공연일을 표시하고 상세페이지에서 전체 회차를 확인할 수 있습니다.</p></article><article><strong>지난 공연일 기록</strong><p>표시 숫자는 별도 내한 횟수가 아니라 J-LIVE에 확인된 실제 공연 날짜 수입니다. 같은 투어의 이틀 공연도 공연일 2일로 세며, 기록이 추가되면 수치가 바뀔 수 있습니다.</p></article></div></section>
+    <section class="artist-directory-list"><div class="artist-directory-heading"><div><span class="section-kicker">CONFIRMED ARTISTS</span><h2>공식 확인 아티스트 목록</h2></div><p>카드를 선택하면 대표곡 3곡, 다음 한국 공연, 공식 확인된 지난 공연일과 예매처를 볼 수 있습니다.</p></div><div class="artist-index-grid">${cards}</div></section>
+    <section class="artist-directory-policy"><span class="section-kicker">EDITORIAL STANDARD</span><h2>누구를 목록에 포함하나요</h2><p>한국에서 열리는 공연이 공식 예매처, 주최사 또는 아티스트 공식 채널에서 확인된 일본 아티스트를 다룹니다. 록·팝뿐 아니라 일본 재즈, 애니메이션 음악 연주 프로젝트와 한국 페스티벌 출연도 공식 공연 기록이 있으면 포함할 수 있습니다. 국적이나 장르만으로 자동 등록하지 않으며, 날짜·공연장·예매처가 서로 충돌하거나 아직 발표되지 않은 정보는 확정 목록에서 제외합니다.</p><div class="artist-directory-links"><a href="../guides/verification">검증 기준 자세히 보기 →</a><a href="../reports/2026-jpop-live">2026 내한 데이터 리포트 →</a><a href="../corrections">누락·오류 제보하기 →</a></div></section>
+  </main>`;
   return pageShell({
     title: "J-POP 내한 아티스트 목록 | 제이라이브 코리아",
     description: "한국에서 공연하는 일본 아티스트의 예정 공연, 지난 내한 기록과 대표곡을 확인하세요.",
-    canonical: `${siteUrl}/calendar/artists`,
-    body: `<main class="directory-page"><span class="section-kicker">ARTIST DIRECTORY</span><h1>내한 아티스트</h1><p class="guide-lead">한국어·영어·일본어 이름과 공연 기록을 아티스트별로 모았습니다.</p><div class="artist-index-grid">${cards}</div></main>`,
-    siteUrl
+    canonical: `${siteUrl}/calendar/artists/`,
+    body,
+    siteUrl,
+    includeAds: false
   });
 }
 
@@ -159,7 +183,9 @@ function weeklyPageHtml({ events, aliases, editorial, siteUrl, today }) {
       title: `[내한정보] ${monday.getMonth() + 1}월 ${Math.ceil(monday.getDate() / 7)}주차 J-POP 공연·티켓팅`,
       description: `${humanDate(start)}부터 ${humanDate(end)}까지의 J-POP 내한 공연, 선예매와 일반예매 일정입니다.`,
       canonical: `${siteUrl}/calendar/weekly/${start}`,
-      body, siteUrl
+      body, siteUrl,
+      robots: "noindex,follow",
+      includeAds: false
     })
   };
 }
@@ -244,15 +270,18 @@ function buildUpdateHistory(events, previousSnapshot = {}, previousUpdates = [],
   return [...deduped.values()].sort((a, b) => b.date.localeCompare(a.date) || b.id.localeCompare(a.id));
 }
 
-function updatesPageHtml({ updates, siteUrl }) {
-  const cards = updates.slice(0, 100).map(update => `<article class="update-card" data-kind="${escapeHtml(update.kind)}"><time>${escapeHtml(humanDate(update.date))}</time><span>${escapeHtml(update.label)}</span><h2>${escapeHtml(update.artist)}</h2><p>${escapeHtml(update.summary)}</p><div>${update.eventId ? `<a href="./events/${encodeURIComponent(update.eventId)}">공연 정보</a>` : ""}${update.url ? `<a href="${escapeHtml(update.url)}" target="_blank" rel="noopener noreferrer">공식 출처 ↗</a>` : ""}</div></article>`).join("");
+function updatesPageHtml({ updates, siteUrl, validEventIds = null }) {
+  const hasPage = eventId => eventId && (!validEventIds || validEventIds.has(eventId));
+  const cards = updates.slice(0, 100).map(update => `<article class="update-card" data-kind="${escapeHtml(update.kind)}"><time>${escapeHtml(humanDate(update.date))}</time><span>${escapeHtml(update.label)}</span><h2>${escapeHtml(update.artist)}</h2><p>${escapeHtml(update.summary)}</p><div>${hasPage(update.eventId) ? `<a href="./events/${encodeURIComponent(update.eventId)}">공연 정보</a>` : update.eventId ? '<span class="update-pending">상세 검증 중</span>' : ""}${update.url ? `<a href="${escapeHtml(update.url)}" target="_blank" rel="noopener noreferrer">공식 출처 ↗</a>` : ""}</div></article>`).join("");
   return pageShell({
     title: "J-POP 내한 공연 업데이트 | 제이라이브 코리아",
     description: "신규 공연, 예매 일정 변경, 추가 좌석·회차와 공연 취소·연기 기록을 날짜순으로 확인하세요.",
     canonical: `${siteUrl}/calendar/updates`,
     body: `<main class="updates-page"><span class="section-kicker">CHANGELOG</span><h1>공연 업데이트</h1><p class="guide-lead">무엇이 언제 바뀌었는지 공식 출처와 함께 기록합니다.</p><div class="update-feed">${cards || '<p class="empty-row">기록된 변경 사항이 없습니다.</p>'}</div></main>`,
     siteUrl,
-    depth: "."
+    depth: ".",
+    robots: "noindex,follow",
+    includeAds: false
   });
 }
 

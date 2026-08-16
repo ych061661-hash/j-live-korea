@@ -121,9 +121,16 @@ function addStructuredData(event) {
   const canonical = canonicalElement?.getAttribute("href") || (location.pathname.includes("/calendar/events/")
     ? `${config.siteUrl || location.origin}/calendar/events/${encodeURIComponent(event.id)}`
     : `${config.siteUrl || location.origin}/calendar/event?id=${encodeURIComponent(event.id)}`);
-  const script = document.querySelector("#eventStructuredData") || document.createElement("script");
+  const existingScript = document.querySelector("#eventStructuredData");
+  if (document.body.dataset.eventId && existingScript?.textContent.trim()) return;
+  const script = existingScript || document.createElement("script");
   script.type = "application/ld+json";
   script.id = "eventStructuredData";
+  const availability = event.ticketAvailability === "sold_out"
+    ? "https://schema.org/SoldOut"
+    : event.ticketAvailability === "in_stock"
+      ? "https://schema.org/InStock"
+      : undefined;
   script.textContent = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "MusicEvent",
@@ -140,7 +147,7 @@ function addStructuredData(event) {
     offers: event.vendorUrl ? {
       "@type": "Offer",
       url: event.vendorUrl,
-      availability: "https://schema.org/InStock",
+      ...(availability ? { availability } : {}),
       validFrom: isoDateTime(event.ticketDate, event.ticketTime)
     } : undefined,
     url: canonical
@@ -180,6 +187,11 @@ function renderEvent(event, events) {
   document.querySelector("#factPresale").textContent = humanDate(event.presaleDate, event.presaleTime);
   document.querySelector("#factTicket").textContent = humanDate(event.ticketDate, event.ticketTime);
   document.querySelector("#factVendor").textContent = event.vendor || "미정";
+  document.querySelector("#factAvailability").textContent = event.ticketAvailability === "sold_out"
+    ? "매진"
+    : event.ticketAvailability === "in_stock"
+      ? "판매 중"
+      : "공식 예매처 확인";
   document.querySelector("#eventVerified").textContent = event.verifiedAt
     ? `마지막 검증일: ${event.verifiedAt} · 이후 공식 발표로 정보가 변경될 수 있습니다.`
     : "검증일이 기록되지 않았습니다.";
@@ -201,25 +213,38 @@ function renderEvent(event, events) {
   renderRelatedEvents(event, events);
 
   const photo = document.querySelector("#eventPhoto");
-  photo.alt = `${event.artist} 공식 YouTube 프로필`;
-  const localPhoto = window.JLIVE_ARTIST_IMAGES.localUrl(event);
-  const remotePhoto = window.JLIVE_ARTIST_IMAGES.remoteUrl(event);
-  photo.src = localPhoto || remotePhoto;
-  photo.onerror = () => {
-    if (remotePhoto && photo.src !== remotePhoto) {
-      photo.src = remotePhoto;
-      return;
-    }
-    photo.hidden = true;
-  };
+  const staticPhoto = photo.getAttribute("src");
+  if (!staticPhoto) {
+    const localPhoto = window.JLIVE_ARTIST_IMAGES.localUrl(event);
+    const remotePhoto = window.JLIVE_ARTIST_IMAGES.remoteUrl(event);
+    const fallbackPhoto = window.JLIVE_ARTIST_IMAGES.fallbackUrl();
+    photo.alt = `${event.artist} 공식 YouTube 프로필`;
+    photo.src = localPhoto || remotePhoto || fallbackPhoto;
+    photo.onerror = () => {
+      if (remotePhoto && photo.src !== remotePhoto) {
+        photo.src = remotePhoto;
+        return;
+      }
+      photo.onerror = null;
+      photo.alt = "J-LIVE 기본 공연 이미지";
+      photo.src = fallbackPhoto;
+    };
+  }
 
   addStructuredData(event);
-  document.querySelector("#eventLoading").hidden = true;
+  const loading = document.querySelector("#eventLoading");
+  loading.replaceChildren();
+  loading.hidden = true;
   document.querySelector("#eventArticle").hidden = false;
 }
 
 async function initializeEvent() {
   if (!eventId) throw new Error("공연 식별자가 없습니다.");
+  const loading = document.querySelector("#eventLoading");
+  if (document.querySelector("#eventArticle").hidden) {
+    loading.textContent = "공연 정보를 불러오는 중입니다.";
+    loading.hidden = false;
+  }
   let response = await fetch("/api/events", { cache: "no-store" });
   if (!response.ok) {
     const fallback = location.pathname.includes("/calendar/events/") ? "../data/events.json" : "./data/events.json";
@@ -239,5 +264,7 @@ document.querySelector("#relatedEvents").addEventListener("click", clickEvent =>
 
 initializeEvent().catch(error => {
   const indexPath = location.pathname.includes("/calendar/events/") ? "../" : "./";
-  document.querySelector("#eventLoading").innerHTML = `<strong>공연 정보를 표시할 수 없습니다.</strong><span>${escapeHtml(error.message)}</span><a href="${indexPath}">전체 달력으로 돌아가기</a>`;
+  const loading = document.querySelector("#eventLoading");
+  loading.hidden = false;
+  loading.innerHTML = `<strong>공연 정보를 표시할 수 없습니다.</strong><span>${escapeHtml(error.message)}</span><a href="${indexPath}">전체 달력으로 돌아가기</a>`;
 });

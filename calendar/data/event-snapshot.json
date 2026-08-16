@@ -202,10 +202,10 @@
     "presaleTime": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-07-20",
+    "verifiedAt": "2026-08-15",
     "sources": [
-      "https://backnumber.info/news/list/7?range=future_event_end_time&sort=asc&tag=live/event",
-      "https://ticket.yes24.com/Perf/58079"
+      "https://backnumber.info/feature/stadiumtour2026_ticket?_normalbrowse_=1&lang=en",
+      "https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17720&order=1"
     ]
   },
   "back-number-2026-09-13": {
@@ -221,10 +221,10 @@
     "presaleTime": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-07-20",
+    "verifiedAt": "2026-08-15",
     "sources": [
-      "https://backnumber.info/news/list/7?range=future_event_end_time&sort=asc&tag=live/event",
-      "https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17720"
+      "https://backnumber.info/feature/stadiumtour2026_ticket?_normalbrowse_=1&lang=en",
+      "https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17720&order=1"
     ]
   },
   "ryosuke-yamada-2026-09-13": {
@@ -240,10 +240,10 @@
     "presaleTime": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-07-20",
+    "verifiedAt": "2026-08-15",
     "sources": [
       "https://ticket.yes24.com/Perf/58751",
-      "https://m.ticket.yes24.com/Perf/58751"
+      "https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17932&order=1&type=1"
     ]
   },
   "vaundy-2026-09-19": {
@@ -409,7 +409,7 @@
     "ticketLabel": null,
     "verifiedAt": "2026-06-15",
     "sources": [
-      "http://www.kopis.or.kr/por/db/pblprfr/pblprfrView.do?menuId=MNU_00020&mt20Id=PF288369"
+      "https://www.kopis.or.kr/por/db/pblprfr/pblprfrView.do?menuId=MNU_00020&mt20Id=PF288369"
     ]
   },
   "sou-2026-07-04": {
@@ -479,9 +479,10 @@
     "presaleTime": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-07-20",
+    "verifiedAt": "2026-08-15",
     "sources": [
-      "https://ticket.yes24.com/Perf/58592"
+      "https://ticket.yes24.com/Perf/58592",
+      "https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17965&order=3&type=1"
     ]
   },
   "omoinotake-2026-10-17": {
@@ -672,7 +673,7 @@
     "presaleTime": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-07-23",
+    "verifiedAt": "2026-08-15",
     "sources": [
       "https://danniemay.com/%E3%80%90oneman%E3%80%91dannie-may-one-shot-vacation-in-seoul/",
       "https://tickets.interpark.com/contents/notice/detail/13934"
@@ -710,7 +711,7 @@
     "presaleTime": "",
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-07-25",
+    "verifiedAt": "2026-08-15",
     "sources": [
       "https://www.hitorie.jp/contents/1081323",
       "https://www.highjinkx.com/hitorie-2026",

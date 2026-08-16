@@ -40,6 +40,8 @@ test("renders artist pages with three songs and correct directory links", () => 
     today: "2026-07-29"
   });
   assert.equal((html.match(/youtube\.com\/watch/g) || []).length, 3);
+  assert.match(html, /<meta name="robots" content="noindex,follow">/);
+  assert.doesNotMatch(html, /pagead2\.googlesyndication\.com/);
 
   const directory = artistIndexHtml({
     groups: new Map([["Band", [event]]]),
@@ -49,6 +51,24 @@ test("renders artist pages with three songs and correct directory links", () => 
   });
   assert.match(directory, /href="\.\/band"/);
   assert.doesNotMatch(directory, /href="\.\/artists\/band"/);
+  assert.doesNotMatch(directory, /pagead2\.googlesyndication\.com/);
+});
+
+test("keeps the artist directory canonical on a trailing-slash URL", () => {
+  const groups = new Map([
+    ["Artist", [{ id: "artist-2026-09-01", artist: "Artist", concertDate: "2026-09-01" }]],
+    ["Past Band", [{ id: "past-band-2025-05-01", artist: "Past Band", concertDate: "2025-05-01" }, { id: "past-band-2025-05-02", artist: "Past Band", concertDate: "2025-05-02" }]]
+  ]);
+  const html = artistIndexHtml({ groups, aliases: {}, siteUrl: "https://j-live.kr", today: "2026-08-15" });
+  assert.match(html, /<link rel="canonical" href="https:\/\/j-live\.kr\/calendar\/artists\/">/);
+  assert.match(html, /href="\.\/artist"/);
+  assert.match(html, /확인된 아티스트/);
+  assert.match(html, /예정 공연 보유/);
+  assert.match(html, /지난 공연일 기록/);
+  assert.match(html, /지난 공연일 2일 기록/);
+  assert.doesNotMatch(html, /지난 내한 2회 기록/);
+  assert.match(html, /목록을 읽는 방법/);
+  assert.match(html, /누구를 목록에 포함하나요/);
 });
 
 test("uses the brand image when a channel avatar is not cached", () => {
@@ -121,4 +141,13 @@ test("uses calendar-relative assets on the update page", () => {
   const html = updatesPageHtml({ updates: [], siteUrl: "https://j-live.kr" });
   assert.match(html, /href="\.\/styles\.css/);
   assert.match(html, /src="\.\/site\.js"/);
+});
+
+test("does not link update cards to events without a generated detail page", () => {
+  const updates = [{ date: "2026-08-15", kind: "announcement", label: "신규 공연", artist: "Pending", summary: "확인 중", eventId: "pending-event", url: "https://tickets.example/pending" }];
+  const pending = updatesPageHtml({ updates, siteUrl: "https://j-live.kr", validEventIds: new Set() });
+  const confirmed = updatesPageHtml({ updates, siteUrl: "https://j-live.kr", validEventIds: new Set(["pending-event"]) });
+  assert.doesNotMatch(pending, /href="\.\/events\/pending-event"/);
+  assert.match(pending, /상세 검증 중/);
+  assert.match(confirmed, /href="\.\/events\/pending-event"/);
 });

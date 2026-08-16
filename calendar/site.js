@@ -62,9 +62,9 @@ window.JLIVE_ARTIST_IMAGES = (() => {
 
   const remoteUrl = event => event.youtubeProfileImage && /^https?:\/\//i.test(event.youtubeProfileImage)
     ? event.youtubeProfileImage
-    : event.youtubeChannel
-      ? `https://unavatar.io/youtube/${encodeURIComponent(event.youtubeChannel)}?fallback=false`
-      : "";
+    : "";
+
+  const fallbackUrl = () => `${location.pathname.includes("/calendar/events/") ? "../" : "./"}assets/brand/j-live-app-logo.png`;
 
   const preload = events => {
     [...new Set(events.map(localUrl).filter(Boolean))].forEach(url => {
@@ -73,7 +73,7 @@ window.JLIVE_ARTIST_IMAGES = (() => {
     });
   };
 
-  return { localUrl, remoteUrl, preload };
+  return { localUrl, remoteUrl, fallbackUrl, preload };
 })();
 
 document.addEventListener("click", async event => {

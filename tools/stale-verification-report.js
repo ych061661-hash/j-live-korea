@@ -6,6 +6,15 @@ const path = require("path");
 const DAY_MS = 24 * 60 * 60 * 1000;
 const URGENCY_ORDER = ["critical", "high", "standard"];
 
+function seoulDateKey(date = new Date()) {
+  return new Intl.DateTimeFormat("sv-SE", {
+    timeZone: "Asia/Seoul",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit"
+  }).format(date);
+}
+
 function parseDate(value, label) {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(value || "")) {
     throw new Error(`${label} must use YYYY-MM-DD format (received ${JSON.stringify(value)})`);
@@ -125,7 +134,7 @@ function renderMarkdown(report) {
   return `${lines.join("\n")}\n`;
 }
 
-function parseArgs(argv, today = new Date().toISOString().slice(0, 10)) {
+function parseArgs(argv, today = seoulDateKey()) {
   const values = {};
   for (let index = 0; index < argv.length; index += 1) {
     const name = argv[index];
@@ -159,4 +168,4 @@ function main() {
 
 if (require.main === module) main();
 
-module.exports = { buildReport, classifyUrgency, findStaleEvents, parseArgs, renderMarkdown };
+module.exports = { buildReport, classifyUrgency, findStaleEvents, parseArgs, renderMarkdown, seoulDateKey };

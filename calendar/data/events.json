@@ -568,7 +568,7 @@
     "vendor": "YES24 티켓",
     "vendorUrl": "https://m.ticket.yes24.com/Perf/58894",
     "youtubeChannel": "@ASHDAHERO",
-    "youtubeProfileImage": "https://img.youtube.com/vi/FYO3FBmoBVE/hqdefault.jpg",
+    "youtubeProfileImage": "./assets/artists/ashdahero.jpg",
     "songs": [
       [
         "Persona",
@@ -636,11 +636,12 @@
       ]
     ],
     "status": "confirmed",
+    "ticketAvailability": "sold_out",
     "sources": [
-      "https://backnumber.info/news/list/7?range=future_event_end_time&sort=asc&tag=live/event",
-      "https://ticket.yes24.com/Perf/58079"
+      "https://backnumber.info/feature/stadiumtour2026_ticket?_normalbrowse_=1&lang=en",
+      "https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17720&order=1"
     ],
-    "verifiedAt": "2026-07-20",
+    "verifiedAt": "2026-08-15",
     "createdAt": "2026-06-11T09:00:00+09:00",
     "seatPrices": [
       {
@@ -659,7 +660,7 @@
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-08-12"
+    "priceVerifiedAt": "2026-08-15"
   },
   {
     "id": "back-number-2026-09-13",
@@ -694,11 +695,12 @@
       ]
     ],
     "status": "confirmed",
+    "ticketAvailability": "sold_out",
     "sources": [
-      "https://backnumber.info/news/list/7?range=future_event_end_time&sort=asc&tag=live/event",
-      "https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17720"
+      "https://backnumber.info/feature/stadiumtour2026_ticket?_normalbrowse_=1&lang=en",
+      "https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17720&order=1"
     ],
-    "verifiedAt": "2026-07-20",
+    "verifiedAt": "2026-08-15",
     "createdAt": "2026-06-11T09:00:00+09:00",
     "seatPrices": [
       {
@@ -717,7 +719,7 @@
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-08-12"
+    "priceVerifiedAt": "2026-08-15"
   },
   {
     "id": "ryosuke-yamada-2026-09-13",
@@ -754,9 +756,9 @@
     "status": "confirmed",
     "sources": [
       "https://ticket.yes24.com/Perf/58751",
-      "https://m.ticket.yes24.com/Perf/58751"
+      "https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17932&order=1&type=1"
     ],
-    "verifiedAt": "2026-07-20",
+    "verifiedAt": "2026-08-15",
     "createdAt": "2026-06-11T09:00:00+09:00",
     "seatPrices": [
       {
@@ -780,7 +782,7 @@
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-08-12"
+    "priceVerifiedAt": "2026-08-15"
   },
   {
     "id": "vaundy-2026-09-19",
@@ -1237,7 +1239,7 @@
     ],
     "status": "confirmed",
     "sources": [
-      "http://www.kopis.or.kr/por/db/pblprfr/pblprfrView.do?menuId=MNU_00020&mt20Id=PF288369"
+      "https://www.kopis.or.kr/por/db/pblprfr/pblprfrView.do?menuId=MNU_00020&mt20Id=PF288369"
     ],
     "verifiedAt": "2026-06-15",
     "createdAt": "2026-06-11T10:00:00+09:00"
@@ -1416,9 +1418,10 @@
     ],
     "status": "confirmed",
     "sources": [
-      "https://ticket.yes24.com/Perf/58592"
+      "https://ticket.yes24.com/Perf/58592",
+      "https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17965&order=3&type=1"
     ],
-    "verifiedAt": "2026-07-20",
+    "verifiedAt": "2026-08-15",
     "createdAt": "2026-06-11T10:00:00+09:00",
     "seatPrices": [
       {
@@ -1437,7 +1440,7 @@
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-08-12"
+    "priceVerifiedAt": "2026-08-15"
   },
   {
     "id": "omoinotake-2026-10-17",
@@ -1982,7 +1985,7 @@
       "https://danniemay.com/%E3%80%90oneman%E3%80%91dannie-may-one-shot-vacation-in-seoul/",
       "https://tickets.interpark.com/contents/notice/detail/13934"
     ],
-    "verifiedAt": "2026-07-23",
+    "verifiedAt": "2026-08-15",
     "createdAt": "2026-07-23T15:00:00+09:00",
     "seatPrices": [
       {
@@ -2058,7 +2061,7 @@
     "vendor": "YES24 티켓",
     "vendorUrl": "https://ticket.yes24.com/Perf/59024",
     "youtubeChannel": "@hitorieJP",
-    "youtubeProfileImage": "https://img.youtube.com/vi/xBwmPob9flU/hqdefault.jpg",
+    "youtubeProfileImage": "./assets/artists/hitoriejp.jpg",
     "songs": [
       [
         "オン・ザ・フロントライン",
@@ -2082,7 +2085,7 @@
       "https://www.highjinkx.com/hitorie-2026",
       "https://ticket.yes24.com/Perf/59024"
     ],
-    "verifiedAt": "2026-07-25",
+    "verifiedAt": "2026-08-15",
     "createdAt": "2026-07-25T15:00:00+09:00",
     "seatPrices": [
       {
@@ -2114,7 +2117,7 @@
     "vendor": "NOL 티켓",
     "vendorUrl": "https://nol.yanolja.com/ticket/products/26009558",
     "youtubeChannel": "T-SQUARE MUSIC official",
-    "youtubeProfileImage": "https://img.youtube.com/vi/djC_QmFSGeY/hqdefault.jpg",
+    "youtubeProfileImage": "./assets/artists/t-square-music-official.jpg",
     "songs": [
       [
         "TRUTH",

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>J-LIVE 컬러 미리보기</title>
+  <style>
+    :root {
+      --paper: #f7f7f2;
+      --mist: #e4e6c3;
+      --sage: #899878;
+      --charcoal: #222725;
+      --ink: #121113;
+      --line: rgba(228, 230, 195, .16);
+      --muted: rgba(228, 230, 195, .66);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--paper);
+      background:
+        radial-gradient(circle at 76% -10%, rgba(137, 152, 120, .2), transparent 30rem),
+        linear-gradient(160deg, var(--ink) 0%, var(--charcoal) 52%, #171a19 100%);
+      font-family: Pretendard, "Noto Sans KR", Arial, sans-serif;
+    }
+
+    button, input { font: inherit; }
+    button { color: inherit; }
+    .shell { width: min(1320px, calc(100% - 48px)); margin: 0 auto; }
+    .preview-note {
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
+      padding: 12px 20px; color: var(--ink); background: var(--mist);
+      font-size: 12px; font-weight: 800; letter-spacing: .08em;
+    }
+    .swatches { display: flex; gap: 6px; }
+    .swatches i { width: 18px; height: 18px; border: 1px solid rgba(18, 17, 19, .2); border-radius: 50%; }
+    .swatches i:nth-child(1) { background: var(--paper); }
+    .swatches i:nth-child(2) { background: var(--mist); }
+    .swatches i:nth-child(3) { background: var(--sage); }
+    .swatches i:nth-child(4) { background: var(--charcoal); }
+    .swatches i:nth-child(5) { background: var(--ink); }
+
+    header { display: flex; align-items: center; justify-content: space-between; padding: 26px 0; }
+    .brand { display: flex; align-items: center; gap: 11px; font-size: 15px; font-weight: 800; }
+    .brand-mark {
+      display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px;
+      color: var(--ink); background: var(--mist); box-shadow: 0 10px 26px rgba(137, 152, 120, .18);
+    }
+    .header-actions { display: flex; gap: 10px; }
+    .button {
+      min-height: 42px; padding: 0 18px; border: 1px solid var(--line); border-radius: 999px;
+      background: transparent; font-size: 12px; font-weight: 800;
+    }
+    .button.primary { color: var(--ink); border-color: var(--mist); background: var(--mist); }
+
+    .hero {
+      display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(280px, .6fr); gap: 70px;
+      align-items: end; padding: 66px 0 58px; border-top: 1px solid var(--line);
+    }
+    .eyebrow, .kicker { color: var(--mist); font-size: 11px; font-weight: 900; letter-spacing: .17em; }
+    h1 { margin: 17px 0 0; font-size: clamp(48px, 7.1vw, 100px); line-height: .94; letter-spacing: -.075em; }
+    h1 span { color: var(--paper); }
+    .hero-copy { margin: 0; padding-left: 22px; border-left: 3px solid var(--sage); color: var(--muted); font-size: 14px; line-height: 1.8; }
+
+    .alert-card {
+      display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: center;
+      padding: 28px 30px; border: 1px solid rgba(137, 152, 120, .48); border-radius: 24px;
+      background: linear-gradient(110deg, rgba(137, 152, 120, .14), rgba(34, 39, 37, .34));
+      box-shadow: 0 22px 70px rgba(0, 0, 0, .22);
+    }
+    .alert-card h2 { margin: 8px 0 6px; font-size: 25px; letter-spacing: -.04em; }
+    .alert-card p { margin: 0; color: var(--muted); font-size: 13px; }
+    .alert-form { display: flex; gap: 8px; }
+    .alert-form input {
+      min-width: 250px; min-height: 46px; padding: 0 16px; color: var(--paper);
+      border: 1px solid var(--line); border-radius: 12px; outline: none; background: rgba(18, 17, 19, .62);
+    }
+    .alert-form button { min-height: 46px; padding: 0 20px; color: var(--ink); border: 0; border-radius: 12px; background: var(--mist); font-weight: 900; }
+
+    .app-grid { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 20px; margin: 22px 0 70px; }
+    .calendar-card, .detail-card {
+      border: 1px solid var(--line); border-radius: 26px; background: rgba(34, 39, 37, .88);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, .2); backdrop-filter: blur(12px);
+    }
+    .calendar-card { padding: 25px; }
+    .search-row { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: end; margin-bottom: 26px; }
+    .search-row label { display: block; margin-bottom: 8px; color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: .08em; }
+    .search-row input { width: 100%; min-height: 48px; padding: 0 16px; color: var(--paper); border: 1px solid var(--line); border-radius: 13px; background: rgba(18, 17, 19, .58); }
+    .filters { display: flex; gap: 7px; }
+    .filter { min-height: 38px; padding: 0 13px; border: 1px solid var(--line); border-radius: 999px; background: transparent; font-size: 11px; font-weight: 800; }
+    .filter.concert { color: var(--ink); border-color: var(--sage); background: var(--sage); }
+    .filter.ticket { color: var(--ink); border-color: var(--mist); background: var(--mist); }
+    .filter.presale { border-color: var(--sage); background: rgba(137, 152, 120, .12); }
+    .month-row { display: flex; align-items: center; justify-content: space-between; margin: 8px 0 18px; }
+    .month-row h2 { margin: 0; font-size: 30px; letter-spacing: -.05em; }
+    .month-row button { width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 50%; background: transparent; }
+    .weekdays, .calendar { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); }
+    .weekdays span { padding: 0 8px 10px; color: var(--mist); font-size: 9px; font-weight: 900; letter-spacing: .14em; }
+    .day { min-height: 108px; padding: 10px; border-top: 1px solid var(--line); border-right: 1px solid var(--line); transition: transform .2s ease, background .2s ease; }
+    .day:nth-child(7n) { border-right: 0; }
+    .day.muted { color: rgba(247, 247, 242, .28); }
+    .day.today { outline: 2px solid var(--mist); outline-offset: -2px; background: rgba(137, 152, 120, .13); transform: translateY(-3px); }
+    .date { display: block; margin-bottom: 8px; font-size: 12px; font-weight: 900; }
+    .event { display: block; margin-top: 5px; padding: 7px 7px 8px; overflow: hidden; border-radius: 8px; font-size: 9px; font-weight: 800; line-height: 1.25; text-overflow: ellipsis; white-space: nowrap; }
+    .event.concert { color: var(--ink); background: var(--sage); }
+    .event.ticket { color: var(--ink); background: var(--mist); }
+    .event.presale { color: var(--paper); border: 1px solid var(--sage); background: rgba(18, 17, 19, .5); }
+
+    .detail-card { overflow: hidden; }
+    .artist-visual { position: relative; min-height: 250px; background: var(--ink); }
+    .artist-visual img { position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: .68; }
+    .artist-visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, var(--ink), transparent 70%); }
+    .artist-title { position: absolute; right: 22px; bottom: 20px; left: 22px; z-index: 1; }
+    .artist-title span { font-size: 10px; font-weight: 900; letter-spacing: .14em; }
+    .artist-title h3 { margin: 7px 0 0; font-size: 32px; letter-spacing: -.05em; }
+    .detail-content { padding: 24px; }
+    .detail-date { color: var(--mist); font-size: 12px; font-weight: 900; }
+    dl { display: grid; grid-template-columns: 68px 1fr; gap: 11px 8px; margin: 24px 0; font-size: 12px; }
+    dt { color: var(--muted); }
+    dd { margin: 0; font-weight: 800; }
+    .detail-cta { display: grid; place-items: center; min-height: 48px; border-radius: 12px; color: var(--ink); background: var(--mist); font-size: 12px; font-weight: 900; }
+    .palette-caption { margin: -40px 0 70px; color: var(--muted); font-size: 12px; line-height: 1.7; }
+
+    @media (max-width: 880px) {
+      .shell { width: min(100% - 28px, 680px); }
+      .preview-note { align-items: flex-start; }
+      .hero { grid-template-columns: 1fr; gap: 26px; padding: 42px 0; }
+      .alert-card, .app-grid { grid-template-columns: 1fr; }
+      .alert-form { width: 100%; }
+      .alert-form input { min-width: 0; flex: 1; }
+      .detail-card { display: none; }
+    }
+
+    @media (max-width: 620px) {
+      .preview-note { font-size: 9px; }
+      .header-actions .button:first-child { display: none; }
+      h1 { font-size: 49px; }
+      .alert-card { padding: 22px; }
+      .alert-form { display: grid; }
+      .search-row { grid-template-columns: 1fr; }
+      .filters { overflow-x: auto; }
+      .calendar-card { padding: 16px 10px; border-radius: 20px; }
+      .day { min-height: 77px; padding: 7px 4px; }
+      .event { padding: 5px 4px; font-size: 8px; }
+      .month-row { padding: 0 4px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="preview-note">
+    <span>COLOR STUDY 02 · COOLORS “MUTED SAGE”</span>
+    <span class="swatches" aria-label="선정 색상"><i></i><i></i><i></i><i></i><i></i></span>
+  </div>
+
+  <div class="shell">
+    <header>
+      <div class="brand"><span class="brand-mark">J</span> 제이라이브 코리아</div>
+      <div class="header-actions"><button class="button">사이트 소개</button><button class="button primary">일정 공유</button></div>
+    </header>
+
+    <section class="hero">
+      <div><div class="eyebrow">2026 J-POP 내한 일정</div><h1>놓치고 싶지 않은<br><span>내한의 모든 날짜</span></h1></div>
+      <p class="hero-copy">공연일과 선예매·일반예매 일정을 한눈에 확인하세요. 공식 출처가 확인된 정보만 공개합니다.</p>
+    </section>
+
+    <section class="alert-card">
+      <div><span class="kicker">NEVER MISS A DATE</span><h2>관심 아티스트 소식을 먼저 받으세요</h2><p>신규 공연, 예매 하루 전, 추가 좌석 소식을 이메일로 알려드립니다.</p></div>
+      <div class="alert-form"><input type="email" placeholder="이메일 주소" aria-label="이메일 주소"><button>인증 메일 받기</button></div>
+    </section>
+
+    <main class="app-grid">
+      <section class="calendar-card">
+        <div class="search-row">
+          <div><label for="search">아티스트 찾기 · 한글 · ENGLISH · 日本語</label><input id="search" type="search" placeholder="킹누, King Gnu, キングヌー"></div>
+          <div class="filters"><button class="filter concert">공연</button><button class="filter ticket">일반예매</button><button class="filter presale">선예매</button></div>
+        </div>
+        <div class="month-row"><button aria-label="이전 달">‹</button><h2>2026년 8월</h2><button aria-label="다음 달">›</button></div>
+        <div class="weekdays"><span>SUN</span><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span></div>
+        <div class="calendar">
+          <div class="day muted"><span class="date">26</span></div><div class="day muted"><span class="date">27</span><span class="event presale">선예매 · LET ME KNOW</span></div><div class="day muted"><span class="date">28</span><span class="event ticket">추가 티켓 · 히게단</span></div><div class="day muted"><span class="date">29</span></div><div class="day muted"><span class="date">30</span></div><div class="day muted"><span class="date">31</span><span class="event ticket">일반예매 · YUURI</span></div><div class="day"><span class="date">1</span><span class="event concert">공연 · Novelbright</span></div>
+          <div class="day"><span class="date">2</span><span class="event concert">공연 · Novelbright</span></div><div class="day"><span class="date">3</span><span class="event ticket">일반예매 · cero</span></div><div class="day"><span class="date">4</span></div><div class="day"><span class="date">5</span></div><div class="day"><span class="date">6</span></div><div class="day"><span class="date">7</span></div><div class="day"><span class="date">8</span><span class="event concert">공연 · 히게단</span><span class="event concert">공연 · Chilli Beans.</span></div>
+          <div class="day"><span class="date">9</span><span class="event concert">공연 · 히게단</span></div><div class="day"><span class="date">10</span><span class="event ticket">일반예매 · KANA-BOON</span></div><div class="day"><span class="date">11</span></div><div class="day"><span class="date">12</span></div><div class="day today"><span class="date">13</span><span class="event ticket">일반예매 · Sunny Day Service</span></div><div class="day"><span class="date">14</span></div><div class="day"><span class="date">15</span></div>
+          <div class="day"><span class="date">16</span></div><div class="day"><span class="date">17</span></div><div class="day"><span class="date">18</span></div><div class="day"><span class="date">19</span></div><div class="day"><span class="date">20</span></div><div class="day"><span class="date">21</span><span class="event concert">공연 · Dannie May</span></div><div class="day"><span class="date">22</span></div>
+          <div class="day"><span class="date">23</span><span class="event concert">공연 · HITORIE</span></div><div class="day"><span class="date">24</span></div><div class="day"><span class="date">25</span></div><div class="day"><span class="date">26</span></div><div class="day"><span class="date">27</span></div><div class="day"><span class="date">28</span></div><div class="day"><span class="date">29</span></div>
+        </div>
+      </section>
+
+      <aside class="detail-card">
+        <div class="artist-visual"><img src="../assets/artists/officialhigedandism.jpg" alt="Official髭男dism"><div class="artist-title"><span>J-POP / BAND</span><h3>Official髭男dism</h3></div></div>
+        <div class="detail-content"><div class="detail-date">8월 8일 토요일 · 오후 6:00</div><dl><dt>공연장</dt><dd>인스파이어 아레나</dd><dt>일반예매</dt><dd>예매 진행 중</dd><dt>예매처</dt><dd>NOL 티켓</dd><dt>검증일</dt><dd>2026.08.13</dd></dl><div class="detail-cta">예매 정보 자세히 보기</div></div>
+      </aside>
+    </main>
+
+    <p class="palette-caption">색상 역할: 네이비는 장시간 보는 달력 배경, 아이보리는 본문, 레드는 공연·핵심 행동, 블루는 예매와 보조 정보에 사용했습니다. 운영 사이트에는 아직 적용하지 않은 디자인 예시입니다.</p>
+  </div>
+</body>
+</html>

@@ -500,7 +500,8 @@ function renderWeekendSpotlight() {
         image.src = remoteUrl;
         return;
       }
-      image.hidden = true;
+      image.onerror = null;
+      image.src = window.JLIVE_ARTIST_IMAGES.fallbackUrl();
     });
   });
 }
@@ -523,6 +524,7 @@ function renderMyShowsFeature(today) {
   const daysUntil = Math.max(0, Math.round((parseDate(nextShow.concertDate) - parseDate(today)) / 86400000));
   const localPhoto = window.JLIVE_ARTIST_IMAGES.localUrl(nextShow);
   const remotePhoto = window.JLIVE_ARTIST_IMAGES.remoteUrl(nextShow);
+  const fallbackPhoto = window.JLIVE_ARTIST_IMAGES.fallbackUrl();
   myShowsFeatureLink.href = `./events/${encodeURIComponent(nextShow.id)}`;
   myShowsFeatureArtist.textContent = nextShow.artist;
   myShowsFeatureMeta.textContent = `${formatDate(nextShow.concertDate)} · ${nextShow.venue}`;
@@ -530,14 +532,16 @@ function renderMyShowsFeature(today) {
   myShowsFeaturePosition.textContent = `${myShowsFeatureIndex + 1} / ${count}`;
   myShowsFeatureNav.hidden = count < 2;
   myShowsFeatureImage.alt = `${nextShow.artist} 프로필`;
-  myShowsFeatureImage.src = localPhoto || remotePhoto;
-  myShowsFeatureImage.hidden = !localPhoto && !remotePhoto;
+  myShowsFeatureImage.src = localPhoto || remotePhoto || fallbackPhoto;
+  myShowsFeatureImage.hidden = false;
   myShowsFeatureImage.onerror = () => {
     if (remotePhoto && myShowsFeatureImage.src !== remotePhoto) {
       myShowsFeatureImage.src = remotePhoto;
       return;
     }
-    myShowsFeatureImage.hidden = true;
+    myShowsFeatureImage.onerror = null;
+    myShowsFeatureImage.alt = "J-LIVE 기본 공연 이미지";
+    myShowsFeatureImage.src = fallbackPhoto;
   };
   myShowsFeatureLink.classList.remove("is-changing");
   void myShowsFeatureLink.offsetWidth;
@@ -721,7 +725,9 @@ function renderCalendar() {
     });
     calendar.append(day);
   }
-  document.querySelector("#emptyCalendar").hidden = visibleCount > 0;
+  const emptyCalendar = document.querySelector("#emptyCalendar");
+  emptyCalendar.textContent = visibleCount > 0 ? "" : "이 달에는 등록된 일정이 없습니다.";
+  emptyCalendar.hidden = visibleCount > 0;
 }
 
 function renderLineup(key) {
@@ -755,13 +761,16 @@ function renderDetail(schedule, type) {
   photo.hidden = !schedule.youtubeChannel && !schedule.youtubeProfileImage;
   const localPhoto = window.JLIVE_ARTIST_IMAGES.localUrl(schedule);
   const remotePhoto = window.JLIVE_ARTIST_IMAGES.remoteUrl(schedule);
-  photo.src = localPhoto || remotePhoto;
+  const fallbackPhoto = window.JLIVE_ARTIST_IMAGES.fallbackUrl();
+  photo.src = localPhoto || remotePhoto || fallbackPhoto;
   photo.onerror = () => {
     if (remotePhoto && photo.src !== remotePhoto) {
       photo.src = remotePhoto;
       return;
     }
-    photo.hidden = true;
+    photo.onerror = null;
+    photo.alt = "J-LIVE 기본 공연 이미지";
+    photo.src = fallbackPhoto;
   };
 
   const songs = Array.isArray(schedule.songs) ? schedule.songs : [];
@@ -1163,6 +1172,7 @@ async function initialize() {
     const upcoming = schedules.find(event => event.concertDate >= dateKey(new Date())) || schedules[0];
     if (!upcoming) {
       document.querySelector("#detailEmpty").innerHTML = "<strong>공식 확인된 공연이 없습니다.</strong><span>새로운 일정이 확인되면 이곳에 표시됩니다.</span>";
+      document.querySelector("#detailEmpty").hidden = false;
       renderCalendar();
       return;
     }
@@ -1170,6 +1180,7 @@ async function initialize() {
     selectSchedule(upcoming, "concert", upcoming.concertDate, false);
   } catch (error) {
     document.querySelector("#detailEmpty").innerHTML = `<strong>데이터 연결 오류</strong><span>${escapeHtml(error.message)}</span>`;
+    document.querySelector("#detailEmpty").hidden = false;
     renderCalendar();
   }
 }

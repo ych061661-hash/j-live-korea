@@ -2,7 +2,7 @@
 
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { buildReport } = require("./stale-verification-report");
+const { buildReport, parseArgs, seoulDateKey } = require("./stale-verification-report");
 
 const options = {
   asOf: "2026-06-19",
@@ -34,4 +34,9 @@ test("groups missing verification and near concerts by urgency", () => {
 
   assert.deepEqual(report.groups.critical.map(event => event.id), ["near", "missing"]);
   assert.deepEqual(report.groups.standard.map(event => event.id), ["standard"]);
+});
+
+test("uses the Seoul calendar date at the UTC day boundary", () => {
+  assert.equal(seoulDateKey(new Date("2026-08-14T16:00:00Z")), "2026-08-15");
+  assert.equal(parseArgs([], "2026-08-15").asOf, "2026-08-15");
 });
