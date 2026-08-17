@@ -1,5 +1,29 @@
 [
   {
+    "id": "2026-08-17-ticket-open-kawasaki-takaya-2026-12-20",
+    "date": "2026-08-17",
+    "kind": "ticket-open",
+    "label": "티켓 오픈",
+    "artist": "Kawasaki Takaya",
+    "eventId": "kawasaki-takaya-2026-12-20",
+    "concertDate": "2026-12-20",
+    "summary": "예매 일정이 공개됐습니다. 일반예매 2026년 8월 19일(수) 낮 12:00.",
+    "url": "https://kawasaki-takaya.com/live/live-in-seoul-2026/",
+    "verifiedAt": "2026-08-17"
+  },
+  {
+    "id": "2026-08-17-announcement-kawasaki-takaya-2026-12-20",
+    "date": "2026-08-17",
+    "kind": "announcement",
+    "label": "신규 공연",
+    "artist": "Kawasaki Takaya",
+    "eventId": "kawasaki-takaya-2026-12-20",
+    "concertDate": "2026-12-20",
+    "summary": "2026년 12월 20일(일) 오후 6:00 YES24 라이브홀 공연이 발표됐습니다.",
+    "url": "https://kawasaki-takaya.com/live/live-in-seoul-2026/",
+    "verifiedAt": "2026-08-17"
+  },
+  {
     "id": "2026-08-13-ticket-open-luv-2026-03-21",
     "date": "2026-08-13",
     "kind": "ticket-open",
