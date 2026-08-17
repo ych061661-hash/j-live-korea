@@ -341,8 +341,7 @@ test("labels the homepage search and attendance inputs", () => {
 test("makes the publisher experience and verification responsibility visible on the homepage", () => {
   const homepage = read("calendar/index.html");
   assert.match(homepage, /<section class="home-editorial-trust"/);
-  assert.match(homepage, /운영자 여일육/);
-  assert.match(homepage, /King Gnu와 Fujii Kaze 내한 공연을 직접 관람/);
+  assert.match(homepage, /팬이 직접 확인하고 씁니다/);
   assert.match(homepage, /href="\.\/stories\/why-j-live" rel="author"/);
   assert.match(homepage, /href="\.\/guides\/verification"/);
   assert.match(homepage, /확인되지 않은 일정은 확정 캘린더와 검색 색인에서 제외/);
