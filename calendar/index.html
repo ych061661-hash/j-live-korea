@@ -66,6 +66,88 @@
       <div class="weekend-events" id="weekendEvents" aria-live="polite"></div>
     </section>
 
+    <main class="app">
+      <section class="calendar-area">
+        <div class="artist-search">
+          <div class="artist-search-heading">
+            <label for="artistSearch">아티스트 찾기</label>
+            <span>한글 · English · 日本語</span>
+          </div>
+          <div class="artist-search-field">
+            <i aria-hidden="true"></i>
+            <input id="artistSearch" type="search" aria-label="아티스트 이름 검색" placeholder="킹누, King Gnu, キングヌー" autocomplete="off"
+              aria-controls="artistSearchResults" aria-expanded="false">
+          </div>
+          <div class="artist-search-results" id="artistSearchResults" role="listbox" hidden></div>
+        </div>
+        <div class="calendar-toolbar">
+          <div class="month-nav">
+            <button class="icon-button" id="prevMonth" type="button" aria-label="이전 달">‹</button>
+            <h2 id="monthTitle"></h2>
+            <button class="icon-button" id="nextMonth" type="button" aria-label="다음 달">›</button>
+          </div>
+          <div class="filters" aria-label="일정 필터">
+            <button class="filter active" data-type="concert" type="button"><i></i>공연</button>
+            <button class="filter active" data-type="ticket" type="button"><i></i>일반예매</button>
+            <button class="filter active" data-type="presale" type="button"><i></i>선예매</button>
+          </div>
+        </div>
+        <div class="weekdays" aria-hidden="true">
+          <span>SUN</span><span>MON</span><span>TUE</span><span>WED</span>
+          <span>THU</span><span>FRI</span><span>SAT</span>
+        </div>
+        <div class="calendar-grid" id="calendar" role="grid" aria-label="월간 공연 일정" aria-live="polite"></div>
+        <p class="empty-calendar" id="emptyCalendar" hidden></p>
+      </section>
+
+      <button class="mobile-detail-backdrop" id="mobileDetailBackdrop" type="button" aria-label="공연 상세 닫기"></button>
+      <aside class="detail-panel" id="detailPanel" aria-label="공연 상세 정보">
+        <div class="mobile-detail-handle">
+          <span></span>
+          <strong>공연 상세</strong>
+          <button id="closeDetail" type="button" aria-label="공연 상세 닫기">×</button>
+        </div>
+        <div class="detail-empty" id="detailEmpty" hidden></div>
+        <div id="detailBody" hidden>
+          <div class="detail-visual">
+            <img class="artist-photo" id="artistPhoto" alt="선택한 아티스트 프로필" referrerpolicy="no-referrer" width="800" height="800" decoding="async">
+            <span class="detail-label" id="detailLabel">공연</span>
+            <div class="artist-heading">
+              <small id="detailGenre"></small>
+              <h3 id="detailArtist"></h3>
+            </div>
+          </div>
+          <div class="detail-content">
+            <div class="day-lineup" id="dayLineup" aria-label="같은 날짜의 다른 일정"></div>
+            <div class="date-line" id="detailDate"></div>
+            <dl class="info-list">
+              <div><dt>공연장</dt><dd id="detailVenue"></dd></div>
+              <div><dt>선예매</dt><dd id="detailPresale"></dd></div>
+              <div><dt>일반예매</dt><dd id="detailTicket"></dd></div>
+              <div><dt>예매처</dt><dd id="detailVendor"></dd></div>
+            </dl>
+            <div class="verification">
+              <div class="verification-head">
+                <span class="verification-status">공식 출처 확인</span>
+                <span id="verifiedAt"></span>
+              </div>
+              <div class="source-links" id="sourceLinks"></div>
+            </div>
+            <section class="songs" id="songsSection">
+              <h4>대표곡 바로 듣기</h4>
+              <div class="song-list" id="songList"></div>
+            </section>
+            <div class="save-actions" aria-label="내 공연 저장">
+              <button class="save-button" id="saveEventButton" type="button" aria-pressed="false">＋ 공연 저장</button>
+              <button class="save-button" id="saveArtistButton" type="button" aria-pressed="false">♡ 아티스트 관심</button>
+            </div>
+            <a class="ticket-button" id="ticketButton" target="_blank" rel="noopener noreferrer">예매처 확인하기 ↗</a>
+            <a class="detail-page-button" id="detailPageButton">예매 정보 자세히 보기</a>
+          </div>
+        </div>
+      </aside>
+    </main>
+
     <!-- SEO_UPCOMING_START -->
     <section class="seo-upcoming" aria-labelledby="seoUpcomingTitle">
       <div class="seo-upcoming-heading">
@@ -163,87 +245,6 @@
     </section>
     <!-- SEO_UPCOMING_END -->
 
-    <main class="app">
-      <section class="calendar-area">
-        <div class="artist-search">
-          <div class="artist-search-heading">
-            <label for="artistSearch">아티스트 찾기</label>
-            <span>한글 · English · 日本語</span>
-          </div>
-          <div class="artist-search-field">
-            <i aria-hidden="true"></i>
-            <input id="artistSearch" type="search" aria-label="아티스트 이름 검색" placeholder="킹누, King Gnu, キングヌー" autocomplete="off"
-              aria-controls="artistSearchResults" aria-expanded="false">
-          </div>
-          <div class="artist-search-results" id="artistSearchResults" role="listbox" hidden></div>
-        </div>
-        <div class="calendar-toolbar">
-          <div class="month-nav">
-            <button class="icon-button" id="prevMonth" type="button" aria-label="이전 달">‹</button>
-            <h2 id="monthTitle"></h2>
-            <button class="icon-button" id="nextMonth" type="button" aria-label="다음 달">›</button>
-          </div>
-          <div class="filters" aria-label="일정 필터">
-            <button class="filter active" data-type="concert" type="button"><i></i>공연</button>
-            <button class="filter active" data-type="ticket" type="button"><i></i>일반예매</button>
-            <button class="filter active" data-type="presale" type="button"><i></i>선예매</button>
-          </div>
-        </div>
-        <div class="weekdays" aria-hidden="true">
-          <span>SUN</span><span>MON</span><span>TUE</span><span>WED</span>
-          <span>THU</span><span>FRI</span><span>SAT</span>
-        </div>
-        <div class="calendar-grid" id="calendar" role="grid" aria-label="월간 공연 일정" aria-live="polite"></div>
-        <p class="empty-calendar" id="emptyCalendar" hidden></p>
-      </section>
-
-      <button class="mobile-detail-backdrop" id="mobileDetailBackdrop" type="button" aria-label="공연 상세 닫기"></button>
-      <aside class="detail-panel" id="detailPanel" aria-label="공연 상세 정보">
-        <div class="mobile-detail-handle">
-          <span></span>
-          <strong>공연 상세</strong>
-          <button id="closeDetail" type="button" aria-label="공연 상세 닫기">×</button>
-        </div>
-        <div class="detail-empty" id="detailEmpty" hidden></div>
-        <div id="detailBody" hidden>
-          <div class="detail-visual">
-            <img class="artist-photo" id="artistPhoto" alt="선택한 아티스트 프로필" referrerpolicy="no-referrer" width="800" height="800" decoding="async">
-            <span class="detail-label" id="detailLabel">공연</span>
-            <div class="artist-heading">
-              <small id="detailGenre"></small>
-              <h3 id="detailArtist"></h3>
-            </div>
-          </div>
-          <div class="detail-content">
-            <div class="day-lineup" id="dayLineup" aria-label="같은 날짜의 다른 일정"></div>
-            <div class="date-line" id="detailDate"></div>
-            <dl class="info-list">
-              <div><dt>공연장</dt><dd id="detailVenue"></dd></div>
-              <div><dt>선예매</dt><dd id="detailPresale"></dd></div>
-              <div><dt>일반예매</dt><dd id="detailTicket"></dd></div>
-              <div><dt>예매처</dt><dd id="detailVendor"></dd></div>
-            </dl>
-            <div class="verification">
-              <div class="verification-head">
-                <span class="verification-status">공식 출처 확인</span>
-                <span id="verifiedAt"></span>
-              </div>
-              <div class="source-links" id="sourceLinks"></div>
-            </div>
-            <section class="songs" id="songsSection">
-              <h4>대표곡 바로 듣기</h4>
-              <div class="song-list" id="songList"></div>
-            </section>
-            <div class="save-actions" aria-label="내 공연 저장">
-              <button class="save-button" id="saveEventButton" type="button" aria-pressed="false">＋ 공연 저장</button>
-              <button class="save-button" id="saveArtistButton" type="button" aria-pressed="false">♡ 아티스트 관심</button>
-            </div>
-            <a class="ticket-button" id="ticketButton" target="_blank" rel="noopener noreferrer">예매처 확인하기 ↗</a>
-            <a class="detail-page-button" id="detailPageButton">예매 정보 자세히 보기</a>
-          </div>
-        </div>
-      </aside>
-    </main>
     <section class="my-shows" id="myShows" aria-labelledby="myShowsTitle">
       <div class="my-shows-overview">
         <div class="my-shows-heading">
