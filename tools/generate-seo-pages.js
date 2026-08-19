@@ -40,6 +40,9 @@ const escapeHtml = value => String(value ?? "").replace(/[&<>"']/g, character =>
   "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
 })[character]);
 
+const fundingChoicesSnippet = `  <script async src="https://fundingchoicesmessages.google.com/i/pub-3081918168688274?ers=1"></script>
+  <script>(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width:0;height:0;border:none;display:none;'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>`;
+
 function loadEditorial(filename) {
   const sandbox = { window: {} };
   vm.runInNewContext(readUtf8(filename), sandbox, { filename });
@@ -328,7 +331,7 @@ function renderEventPage({ event, events, group, primary, editorial, siteUrl, te
   const detailGuides = [richEventGuideMarkup(event, editorial), ticketGuideMarkup(event, editorial)].filter(Boolean).join("\n            ");
 
   return template
-    .replace("<head>", `<head>${indexable ? '\n  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3081918168688274" crossorigin="anonymous"></script>' : ""}`)
+    .replace("<head>", `<head>${indexable ? `\n  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3081918168688274" crossorigin="anonymous"></script>\n${fundingChoicesSnippet}` : ""}`)
     .replace("<title>공연 상세 | 제이라이브 코리아</title>", `<title>${escapeHtml(title)}</title>`)
     .replace('content="J-POP 내한 공연 일정, 예매 정보, 공연장 교통과 대표곡을 확인하세요."', `content="${escapeHtml(description)}"`)
     .replace('  <meta name="robots" content="noindex,follow">\n', "")
@@ -572,6 +575,7 @@ function venueIndexHtml(venueGuides, siteUrl) {
   return `<!doctype html>
 <html lang="ko"><head>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3081918168688274" crossorigin="anonymous"></script>
+${fundingChoicesSnippet}
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="${escapeHtml(description)}">
   <meta property="og:locale" content="ko_KR"><meta property="og:site_name" content="제이라이브 코리아">
