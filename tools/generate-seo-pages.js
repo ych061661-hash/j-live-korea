@@ -19,7 +19,8 @@ function assertCleanText(text, filename) {
 }
 
 function readUtf8(filename) {
-  return assertCleanText(utf8Decoder.decode(fs.readFileSync(filename)), filename);
+  const text = assertCleanText(utf8Decoder.decode(fs.readFileSync(filename)), filename);
+  return text.replace(/\r\n/g, "\n");
 }
 
 function writeUtf8(filename, text) {
