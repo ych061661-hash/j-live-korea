@@ -2,6 +2,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const { festflowFestivalsFor } = require("./festflow-links");
 
 const artistAssets = path.resolve(__dirname, "../calendar/assets/artists");
 
@@ -77,6 +78,7 @@ function artistPageHtml({ artist, events, aliases, editorial, siteUrl, today }) 
   const names = languageNames(artist, aliases[artist]);
   const songs = (latest.songs || []).slice(0, 3);
   const venues = [...new Set(sorted.map(event => event.venue))];
+  const festflowFestivals = festflowFestivalsFor(artist);
   const vendors = [...new Map(sorted.filter(event => event.vendorUrl).map(event => [event.vendor, event.vendorUrl])).entries()];
   const intro = editorial.artists?.[artist] || `${artist}의 한국 내한 공연과 예매 기록을 공식 출처 기준으로 정리합니다.`;
   const eventRows = list => list.length ? list.map(event => `<li><a href="../events/${encodeURIComponent(event.id)}"><strong>${escapeHtml(humanDate(event.concertDate, event.time))}</strong><span>${escapeHtml(event.venue)} · ${escapeHtml(event.vendor || "예매처 미정")}</span></a></li>`).join("") : "<li class=\"empty-row\">확인된 일정이 없습니다.</li>";
@@ -105,7 +107,7 @@ function artistPageHtml({ artist, events, aliases, editorial, siteUrl, today }) 
       <section class="artist-history"><span class="section-kicker">KOREA HISTORY</span><h2>공식 확인 내한 이력</h2><ol class="artist-history-list">${historyRows}</ol><p class="artist-history-note">J-LIVE가 공식 출처로 확인한 기록만 표시하며, 관객 수는 발표된 경우에만 제공합니다.</p></section>
     </div>
     <section class="artist-songs"><span class="section-kicker">START WITH 3 SONGS</span><h2>대표곡 3개</h2><div class="song-list">${songs.map(song => `<a class="song" href="${escapeHtml(song[2])}" target="_blank" rel="noopener noreferrer"><span class="play">▶</span><span>${escapeHtml(song[0])}</span><em>공식 YouTube</em></a>`).join("")}</div></section>
-    <section class="artist-related"><div><h2>관련 공연장</h2><p>${venues.map(escapeHtml).join(" · ")}</p></div><div><h2>예매처</h2><p>${vendors.length ? vendors.map(([name, url]) => `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" data-track-vendor="${escapeHtml(name)}">${escapeHtml(name)} ↗</a>`).join(" · ") : "확인된 예매처가 없습니다."}</p></div></section>
+    <section class="artist-related"><div><h2>관련 공연장</h2><p>${venues.map(escapeHtml).join(" · ")}</p></div><div><h2>예매처</h2><p>${vendors.length ? vendors.map(([name, url]) => `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" data-track-vendor="${escapeHtml(name)}">${escapeHtml(name)} ↗</a>`).join(" · ") : "확인된 예매처가 없습니다."}</p></div></section>${festflowFestivals.length ? `<section class="artist-festivals"><h2>페스티벌 출연</h2><p>${escapeHtml(artist)}의 일본 페스티벌 출연 라인업은 <a href="https://festflow.kr" target="_blank" rel="noopener noreferrer">페스플로우</a>에서 확인할 수 있습니다.</p><p>${festflowFestivals.map(f => `<a href="https://festflow.kr/festivals/${encodeURIComponent(f.slug)}" target="_blank" rel="noopener noreferrer">${escapeHtml(f.name)} ↗</a>`).join(" · ")}</p></section>` : ""}
   </main>`;
   return pageShell({
     title: `${artist} 내한 공연·대표곡·지난 기록 | 제이라이브 코리아`,
