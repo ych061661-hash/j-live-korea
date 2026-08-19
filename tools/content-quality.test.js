@@ -275,11 +275,6 @@ test("uses local artist images without third-party avatar fallbacks", () => {
   for (const event of events.filter(item => item.status === "confirmed")) {
     assert.doesNotMatch(event.youtubeProfileImage || "", /^https?:\/\//i, `${event.id} must cache its profile image locally`);
   }
-  for (const id of ["cero-2026-10-10", "kana-boon-2026-12-05", "kazumi-tateishi-trio-2026-12-26"]) {
-    const html = read(`calendar/events/${id}.html`);
-    assert.match(html, /<img id="eventPhoto" class="event-photo-fallback" src="\.\.\/assets\/brand\/j-live-app-logo\.png" alt="J-LIVE 기본 공연 이미지"/);
-    assert.match(html, /<meta property="og:image" content="https:\/\/j-live\.kr\/calendar\/assets\/brand\/j-live-social-card\.png">/);
-  }
 });
 
 test("keeps confirmed concert evidence direct, secure, and non-aggregated", () => {

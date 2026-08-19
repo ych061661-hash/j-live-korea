@@ -2332,7 +2332,8 @@
       "https://www.youtube.com/@andTEAM_official/videos"
     ],
     "verifiedAt": "2026-08-17",
-    "createdAt": "2026-08-06T16:30:00+09:00"
+    "createdAt": "2026-08-06T16:30:00+09:00",
+    "youtubeProfileImage": "./assets/artists/andteam.jpg"
   },
   {
     "id": "andteam-2026-10-04",
@@ -2392,7 +2393,8 @@
       "https://www.youtube.com/@andTEAM_official/videos"
     ],
     "verifiedAt": "2026-08-17",
-    "createdAt": "2026-08-06T16:30:00+09:00"
+    "createdAt": "2026-08-06T16:30:00+09:00",
+    "youtubeProfileImage": "./assets/artists/andteam.jpg"
   },
   {
     "id": "cero-2026-10-10",
@@ -2443,7 +2445,8 @@
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-08-12"
+    "priceVerifiedAt": "2026-08-12",
+    "youtubeProfileImage": "./assets/artists/cero.jpg"
   },
   {
     "id": "regallily-2026-11-07",
@@ -2709,7 +2712,8 @@
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-08-12"
+    "priceVerifiedAt": "2026-08-12",
+    "youtubeProfileImage": "./assets/artists/kana-boon.jpg"
   },
   {
     "id": "cutie-street-2027-01-23",
@@ -2759,7 +2763,8 @@
       "https://cutiestreet.asobisystem.com/news/detail/85655"
     ],
     "verifiedAt": "2026-08-17",
-    "createdAt": "2026-08-05T20:30:00+09:00"
+    "createdAt": "2026-08-05T20:30:00+09:00",
+    "youtubeProfileImage": "./assets/artists/cutie-street.jpg"
   },
   {
     "id": "paris-match-2026-10-31",
@@ -2824,7 +2829,8 @@
       "https://www.youtube.com/channel/UCctyUsz8nIthLqSzUHQXHbQ"
     ],
     "verifiedAt": "2026-08-12",
-    "createdAt": "2026-08-08T03:10:00+09:00"
+    "createdAt": "2026-08-08T03:10:00+09:00",
+    "youtubeProfileImage": "./assets/artists/paris-match.jpg"
   },
   {
     "id": "hamano-haruki-2026-10-16",
@@ -2898,7 +2904,8 @@
       "https://www.youtube.com/@paruchan86/videos"
     ],
     "verifiedAt": "2026-08-13",
-    "createdAt": "2026-08-08T03:10:00+09:00"
+    "createdAt": "2026-08-08T03:10:00+09:00",
+    "youtubeProfileImage": "./assets/artists/hamano-haruki.jpg"
   },
   {
     "id": "kazumi-tateishi-trio-2026-12-26",
@@ -2964,7 +2971,8 @@
       "https://www.jvcmusic.co.jp/-/Discography/A023203/VICL-63758.html"
     ],
     "verifiedAt": "2026-08-12",
-    "createdAt": "2026-08-08T03:10:00+09:00"
+    "createdAt": "2026-08-08T03:10:00+09:00",
+    "youtubeProfileImage": "./assets/artists/kazumi-tateishi-trio.jpg"
   },
   {
     "id": "luv-2026-03-21",
@@ -3014,7 +3022,8 @@
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-08-12"
+    "priceVerifiedAt": "2026-08-12",
+    "youtubeProfileImage": "./assets/artists/luv.jpg"
   },
   {
     "id": "kawasaki-takaya-2026-12-20",
@@ -3068,6 +3077,7 @@
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-08-17"
+    "priceVerifiedAt": "2026-08-17",
+    "youtubeProfileImage": "./assets/artists/kawasaki-takaya.jpg"
   }
 ]
