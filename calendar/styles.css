@@ -364,7 +364,7 @@ footer { padding:22px 0 34px; color:#686970; font-size:11px; text-align:center; 
 .artist-directory-links { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
 .artist-directory-links a { padding:10px 13px; border:1px solid rgba(215,255,79,.24); border-radius:99px; color:var(--lime); font-size:10px; font-weight:800; }
 .artist-profile-hero { display:grid; grid-template-columns:240px 1fr; align-items:end; gap:30px; padding:30px; border:1px solid var(--line); border-radius:24px; background:var(--panel); }
-.artist-profile-hero img { width:100%; aspect-ratio:1; border-radius:18px; object-fit:cover; }
+.artist-profile-hero img { width:100%; aspect-ratio:1; border-radius:18px; object-fit:contain; object-position:center; background:#202126; }
 .artist-profile-hero h1 { margin:8px 0 16px; }
 .artist-profile-hero p { max-width:700px; margin:0; color:#b9bac0; line-height:1.8; }
 .artist-name-grid,.artist-profile-grid,.artist-related { display:grid; gap:10px; margin-top:16px; }
