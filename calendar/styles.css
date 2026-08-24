@@ -1485,6 +1485,21 @@ footer { padding:22px 0 34px; color:#686970; font-size:11px; text-align:center; 
   .home-page .seo-upcoming-heading-copy { display:block; }
   .home-page .seo-upcoming-heading-copy > p { display:none; }
   .home-page .seo-upcoming-all { display:inline-block; margin-top:12px; padding:8px 0; }
+  .home-page .home-editorial-trust { margin-top:46px; gap:10px; }
+  .home-page .home-editorial-trust > div { padding:22px 18px; border-radius:20px; }
+  .home-page .home-editorial-trust h2 { margin:8px 0 12px; font-size:26px; line-height:1.15; }
+  .home-page .home-editorial-trust h3 { margin:8px 0 12px; font-size:20px; line-height:1.25; }
+  .home-page .home-editorial-trust p,
+  .home-page .home-editorial-trust li { font-size:12px; line-height:1.65; }
+  .home-page .home-editorial-trust ul { gap:6px; padding-left:17px; }
+  .home-page .home-editorial-trust a { margin-top:16px; font-size:11px; }
+  .home-page .guide-preview { margin-top:52px; padding:22px 18px; border-radius:20px; }
+  .home-page .guide-preview-heading h2 { font-size:27px; line-height:1.2; }
+  .home-page .guide-preview-heading p { margin-top:9px; font-size:12px; line-height:1.6; }
+  .home-page .guide-preview-grid { gap:8px; margin-top:18px; }
+  .home-page .guide-preview-grid a { min-height:0; padding:16px; border-radius:16px; }
+  .home-page .guide-preview-grid strong { font-size:14px; }
+  .home-page .guide-preview-grid span { font-size:11px; line-height:1.5; }
   .home-page .my-shows-dashboard { grid-template-columns:repeat(2,1fr); }
   .home-page .my-shows-dashboard article:last-child { grid-column:1/-1; }
   .home-page .my-shows-feature-link { grid-template-columns:1fr; }
