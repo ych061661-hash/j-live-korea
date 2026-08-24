@@ -638,10 +638,11 @@
     "status": "confirmed",
     "ticketAvailability": "sold_out",
     "sources": [
+      "https://backnumber.info/feature/stadiumtour2026?lang=ko",
       "https://backnumber.info/feature/stadiumtour2026_ticket?_normalbrowse_=1&lang=en",
       "https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17720&order=1"
     ],
-    "verifiedAt": "2026-08-15",
+    "verifiedAt": "2026-08-24",
     "createdAt": "2026-06-11T09:00:00+09:00",
     "seatPrices": [
       {
@@ -660,7 +661,7 @@
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-08-15"
+    "priceVerifiedAt": "2026-08-24"
   },
   {
     "id": "back-number-2026-09-13",
@@ -697,10 +698,11 @@
     "status": "confirmed",
     "ticketAvailability": "sold_out",
     "sources": [
+      "https://backnumber.info/feature/stadiumtour2026?lang=ko",
       "https://backnumber.info/feature/stadiumtour2026_ticket?_normalbrowse_=1&lang=en",
       "https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17720&order=1"
     ],
-    "verifiedAt": "2026-08-15",
+    "verifiedAt": "2026-08-24",
     "createdAt": "2026-06-11T09:00:00+09:00",
     "seatPrices": [
       {
@@ -719,7 +721,7 @@
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-08-15"
+    "priceVerifiedAt": "2026-08-24"
   },
   {
     "id": "ryosuke-yamada-2026-09-13",
@@ -755,10 +757,11 @@
     ],
     "status": "confirmed",
     "sources": [
+      "https://starto.jp/s/p/live/10506?ima=1208&lang=en",
       "https://ticket.yes24.com/Perf/58751",
       "https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17932&order=1&type=1"
     ],
-    "verifiedAt": "2026-08-15",
+    "verifiedAt": "2026-08-24",
     "createdAt": "2026-06-11T09:00:00+09:00",
     "seatPrices": [
       {
@@ -782,7 +785,7 @@
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-08-15"
+    "priceVerifiedAt": "2026-08-24"
   },
   {
     "id": "vaundy-2026-09-19",
@@ -1418,10 +1421,11 @@
     ],
     "status": "confirmed",
     "sources": [
+      "https://www.spyair.net/justlikethis2026/",
       "https://ticket.yes24.com/Perf/58592",
       "https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17965&order=3&type=1"
     ],
-    "verifiedAt": "2026-08-15",
+    "verifiedAt": "2026-08-24",
     "createdAt": "2026-06-11T10:00:00+09:00",
     "seatPrices": [
       {
@@ -1494,7 +1498,7 @@
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-08-12"
+    "priceVerifiedAt": "2026-08-24"
   },
   {
     "id": "chilli-beans-2026-08-08",
