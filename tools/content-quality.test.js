@@ -137,6 +137,29 @@ test("keeps noindex pages free of AdSense code", () => {
   assert.deepEqual(violations, []);
 });
 
+test("keeps advertising limited to indexed content pages", () => {
+  const sitemap = read("sitemap.xml");
+  const indexedFiles = new Set([...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)]
+    .map(match => indexedFileFor(match[1]))
+    .filter(Boolean)
+    .map(file => path.resolve(file)));
+  const violations = [];
+  const visit = directory => {
+    for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+      const file = path.join(directory, entry.name);
+      if (entry.isDirectory()) visit(file);
+      else if (entry.name.endsWith(".html")) {
+        const html = fs.readFileSync(file, "utf8");
+        if (/pagead2\.googlesyndication\.com/i.test(html) && !indexedFiles.has(path.resolve(file))) {
+          violations.push(path.relative(root, file));
+        }
+      }
+    }
+  };
+  visit(path.join(root, "calendar"));
+  assert.deepEqual(violations, []);
+});
+
 test("keeps editorial trust pages free of advertising code", () => {
   for (const page of ["calendar/about.html", "calendar/guides/verification.html"]) {
     assert.doesNotMatch(read(page), /pagead2\.googlesyndication\.com/, page);
