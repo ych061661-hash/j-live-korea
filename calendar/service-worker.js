@@ -1,11 +1,11 @@
 "use strict";
 
-const CACHE_VERSION = "j-live-pwa-v75-conversion";
+const CACHE_VERSION = "j-live-pwa-v76-homeclarity";
 const APP_SHELL = [
   "/calendar/",
   "/calendar/index.html",
   "/calendar/offline.html",
-  "/calendar/styles.css?v=20260825conversion1",
+  "/calendar/styles.css?v=20260825homeclarity1",
   "/calendar/site-config.js?v=20260808ea",
   "/calendar/site.js?v=20260825conversion1",
   "/calendar/analytics.js",

@@ -19,7 +19,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="./assets/brand/j-live-app-logo.png">
   <link rel="apple-touch-icon" href="./assets/brand/j-live-app-logo.png">
-  <link rel="stylesheet" href="./styles.css?v=20260825conversion1">
+  <link rel="stylesheet" href="./styles.css?v=20260825homeclarity1">
   <script src="./site-config.js?v=20260808ea"></script>
   <script src="./site.js?v=20260825conversion1" defer></script>
 </head>
@@ -28,9 +28,9 @@
     <header class="minimal-header">
       <a class="brand" href="./"><span class="brand-mark">J</span> 제이라이브 코리아</a>
       <nav class="minimal-nav" aria-label="주요 메뉴">
-        <a href="#calendar">캘린더</a>
-        <a href="#guideTitle">가이드</a>
-        <a href="#myShows">내 공연</a>
+        <a href="#calendar">공연 찾기</a>
+        <a href="#guideTitle">예매 가이드</a>
+        <a href="#myShows">내 저장 목록</a>
       </nav>
       <div class="header-actions">
         <a class="ghost-button" href="./about">사이트 소개</a>
@@ -38,24 +38,31 @@
       </div>
     </header>
 
-    <section class="hero">
-      <div>
-        <div class="eyebrow">2026 J-POP 내한 일정</div>
-        <h1>놓치고 싶지 않은<span>내한의 모든 날짜</span></h1>
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-main">
+        <div class="eyebrow">J-LIVE · 공식 출처 기반</div>
+        <h1 id="heroTitle">공식 일정부터<span>예매할 날짜까지.</span></h1>
+        <p class="hero-copy">
+          한국에서 열리는 J-POP 내한 공연의 날짜·예매처·공연장 정보를 한 곳에서 확인하세요.
+          로그인 없이 저장하고, 중요한 변경은 이메일로 받을 수 있습니다.
+        </p>
+        <div class="hero-actions" aria-label="홈페이지 주요 행동">
+          <a class="hero-primary" href="#calendar">공연 검색하기 <span aria-hidden="true">↓</span></a>
+          <a class="hero-secondary" href="./alerts/">예매 알림 받기 <span aria-hidden="true">↗</span></a>
+        </div>
       </div>
-      <p class="hero-copy">
-        2026년 J-POP 내한 공연일과 선예매·일반예매 일정을 달력에서 확인하세요.
-        공식 출처가 확인된 예매처와 공연장 정보만 공개합니다.
-      </p>
-    </section>
-
-    <section class="alert-promo" aria-labelledby="alertPromoTitle">
-      <span class="alert-promo-icon" aria-hidden="true"></span>
-      <div>
-        <h2 id="alertPromoTitle">중요한 일정만 먼저 알려드려요</h2>
-        <p>신규 공연 · 예매 하루 전 · 추가 좌석</p>
-      </div>
-      <a href="./alerts/">알림 시작하기</a>
+      <aside class="hero-brief" aria-label="J-LIVE 이용 안내">
+        <div>
+          <span class="section-kicker">WHAT YOU GET</span>
+          <strong>팬이 실제로 찾는 정보만</strong>
+          <p>공연일, 예매 일정, 공연장과 공식 출처를 한 흐름으로 정리합니다.</p>
+        </div>
+        <div class="hero-brief-list">
+          <span><b>01</b>아티스트·공연 검색</span>
+          <span><b>02</b>내 공연 저장</span>
+          <span><b>03</b>예매 변경 알림</span>
+        </div>
+      </aside>
     </section>
 
     <section class="weekend-spotlight" aria-labelledby="weekendTitle">
