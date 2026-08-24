@@ -252,8 +252,8 @@ function homepageUpcomingMarkup(events) {
         </article>`).join("\n");
   return `<section class="seo-upcoming" aria-labelledby="seoUpcomingTitle">
       <div class="seo-upcoming-heading">
-        <div><span class="section-kicker">EDITOR'S VERIFIED PICKS</span><h2 id="seoUpcomingTitle">직접 확인한 다가오는 공연</h2></div>
-        <p>공식 예매처와 주최사 발표를 대조하고, 아티스트별 관전 포인트와 공연장 이동 계획까지 직접 작성한 일정만 모았습니다.</p>
+        <div><span class="section-kicker">EDITOR'S VERIFIED PICKS</span><h2 id="seoUpcomingTitle"><span class="seo-upcoming-title-full">직접 확인한 다가오는 공연</span><span class="seo-upcoming-title-mobile">직접 확인한 공연</span></h2></div>
+        <div class="seo-upcoming-heading-copy"><p>공식 예매처와 주최사 발표를 대조하고, 아티스트별 관전 포인트와 공연장 이동 계획까지 직접 작성한 일정만 모았습니다.</p><a class="seo-upcoming-all" href="#calendar">전체 일정 보기 <span aria-hidden="true">→</span></a></div>
       </div>
       <div class="seo-upcoming-grid">${cards}</div>
     </section>`;
