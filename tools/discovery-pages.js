@@ -36,8 +36,8 @@ ${includeAds ? '  <script async src="https://pagead2.googlesyndication.com/pagea
   <meta property="og:image" content="${escapeHtml(socialImage)}"><meta property="og:image:alt" content="제이라이브 코리아 페이지 미리보기">
   <meta name="twitter:card" content="summary_large_image">
   <title>${escapeHtml(title)}</title><link rel="canonical" href="${escapeHtml(canonical)}">
-  <link rel="stylesheet" href="${depth}/styles.css?v=20260815directory1">
-  <script src="${depth}/site-config.js?v=20260729ga"></script><script src="${depth}/analytics.js" defer></script><script src="${depth}/site.js" defer></script>
+  <link rel="stylesheet" href="${depth}/styles.css?v=20260825conversion1">
+  <script src="${depth}/site-config.js?v=20260729ga"></script><script src="${depth}/analytics.js" defer></script><script src="${depth}/site.js?v=20260825conversion1" defer></script>
 </head><body><div class="shell info-shell">
   <header><a class="brand" href="${depth}/"><span class="brand-mark">J</span> 제이라이브 코리아</a><nav class="page-nav"><a href="${depth}/weekly/">이번 주</a><a href="${depth}/updates">업데이트</a><a href="${depth}/artists/">아티스트</a></nav></header>
   ${body}

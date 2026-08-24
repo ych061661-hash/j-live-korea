@@ -1,23 +1,26 @@
 "use strict";
 
-const CACHE_VERSION = "j-live-pwa-v74";
+const CACHE_VERSION = "j-live-pwa-v75-conversion";
 const APP_SHELL = [
   "/calendar/",
   "/calendar/index.html",
   "/calendar/offline.html",
-  "/calendar/styles.css?v=20260815trust1",
+  "/calendar/styles.css?v=20260825conversion1",
   "/calendar/site-config.js?v=20260808ea",
-  "/calendar/site.js?v=20260815images1",
+  "/calendar/site.js?v=20260825conversion1",
   "/calendar/analytics.js",
   "/calendar/favorites.js",
   "/calendar/attendance.js?v=20260813",
   "/calendar/alerts.js",
-  "/calendar/email-alerts.js?v=20260811ret",
+  "/calendar/email-alerts.js?v=20260825conversion1",
   "/calendar/alerts/",
   "/calendar/alerts/index.html",
-  "/calendar/app.js?v=20260815adsense",
+  "/calendar/original-calendar-frame.html",
+  "/calendar/original-calendar-frame.css?v=20260825conversion1",
+  "/calendar/search-utils.js?v=20260825conversion1",
+  "/calendar/app.js?v=20260825conversion1",
   "/calendar/content.js",
-  "/calendar/event.js?v=20260815schema1",
+  "/calendar/event.js?v=20260825conversion1",
   "/calendar/data/events.json",
   "/calendar/data/historical-events.json",
   "/calendar/data/historical-events-2023.json",

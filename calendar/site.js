@@ -78,7 +78,12 @@ window.JLIVE_ARTIST_IMAGES = (() => {
 
 document.addEventListener("click", async event => {
   const vendorLink = event.target.closest("[data-track-vendor]");
-  if (vendorLink) window.JLIVE_ANALYTICS?.track("ticket_click", { vendor: vendorLink.dataset.trackVendor || "미정" });
+  if (vendorLink) window.JLIVE_ANALYTICS?.track("ticket_click", {
+    vendor: vendorLink.dataset.trackVendor || "미정",
+    event_id: document.body.dataset.eventId || undefined,
+    artist: document.querySelector("#eventArtist")?.textContent?.trim() || undefined,
+    link_url: vendorLink.href
+  });
 
   const shareButton = event.target.closest("[data-share-page]");
   if (!shareButton) return;

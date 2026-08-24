@@ -544,7 +544,7 @@ function venuePageHtml(slug, guide, siteUrl) {
   <meta property="og:image" content="${escapeHtml(socialImage)}"><meta property="og:image:alt" content="제이라이브 코리아 로고">
   <meta name="twitter:card" content="summary_large_image">
   <title>${escapeHtml(title)} | 제이라이브 코리아</title>
-  <link rel="canonical" href="${escapeHtml(canonical)}"><link rel="stylesheet" href="../../styles.css?v=20260815venue1">
+  <link rel="canonical" href="${escapeHtml(canonical)}"><link rel="stylesheet" href="../../styles.css?v=20260825conversion1">
   <script type="application/ld+json">${JSON.stringify(articleData)}</script>
   <script type="application/ld+json">${JSON.stringify(breadcrumbData)}</script>
 </head><body><div class="shell info-shell">
@@ -584,7 +584,7 @@ ${fundingChoicesSnippet}
   <meta property="og:image" content="${escapeHtml(socialImage)}"><meta property="og:image:alt" content="제이라이브 코리아 로고">
   <meta name="twitter:card" content="summary_large_image">
   <title>${escapeHtml(title)}</title>
-  <link rel="canonical" href="${escapeHtml(canonical)}"><link rel="stylesheet" href="../../styles.css?v=20260815content2">
+  <link rel="canonical" href="${escapeHtml(canonical)}"><link rel="stylesheet" href="../../styles.css?v=20260825conversion1">
 </head><body><div class="shell info-shell">
   <header><a class="brand" href="../../"><span class="brand-mark">J</span> 제이라이브 코리아</a><a class="ghost-button" href="../../">공연 달력</a></header>
   <main class="guide-article venue-index"><span class="section-kicker">VENUE CATEGORY</span><h1>공연장 현장 가이드</h1>
@@ -665,7 +665,7 @@ function dataReportHtml(events, siteUrl, today) {
   <meta property="og:locale" content="ko_KR"><meta property="og:site_name" content="제이라이브 코리아"><meta property="og:type" content="article">
   <meta property="og:title" content="${escapeHtml(title)}"><meta property="og:description" content="${escapeHtml(description)}"><meta property="og:url" content="${escapeHtml(canonical)}">
   <meta property="og:image" content="${escapeHtml(socialImage)}"><meta property="og:image:alt" content="제이라이브 코리아 2026 J-POP 내한 데이터 리포트"><meta name="twitter:card" content="summary_large_image">
-  <title>${escapeHtml(title)}</title><link rel="canonical" href="${escapeHtml(canonical)}"><link rel="stylesheet" href="../styles.css?v=20260815report1">
+  <title>${escapeHtml(title)}</title><link rel="canonical" href="${escapeHtml(canonical)}"><link rel="stylesheet" href="../styles.css?v=20260825conversion1">
   <script type="application/ld+json">${JSON.stringify(datasetData)}</script><script type="application/ld+json">${JSON.stringify(breadcrumbData)}</script>
 </head><body><div class="shell info-shell">
   <header><a class="brand" href="../"><span class="brand-mark">J</span> 제이라이브 코리아</a><a class="ghost-button" href="../">공연 달력</a></header>

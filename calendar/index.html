@@ -19,9 +19,9 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="./assets/brand/j-live-app-logo.png">
   <link rel="apple-touch-icon" href="./assets/brand/j-live-app-logo.png">
-  <link rel="stylesheet" href="./styles.css?v=20260815trust1">
+  <link rel="stylesheet" href="./styles.css?v=20260825conversion1">
   <script src="./site-config.js?v=20260808ea"></script>
-  <script src="./site.js?v=20260815images1" defer></script>
+  <script src="./site.js?v=20260825conversion1" defer></script>
 </head>
 <body class="home-page">
   <div class="shell">
@@ -78,10 +78,9 @@
           </div>
           <div class="artist-search-field">
             <i aria-hidden="true"></i>
-            <input id="artistSearch" type="search" aria-label="아티스트 이름 검색" placeholder="킹누, King Gnu, キングヌー" autocomplete="off"
-              aria-controls="artistSearchResults" aria-expanded="false">
+            <input id="artistSearch" type="search" aria-label="아티스트 이름 검색" placeholder="킹누, King Gnu, キングヌー" autocomplete="off">
           </div>
-          <div class="artist-search-results" id="artistSearchResults" role="listbox" hidden></div>
+          <div class="artist-search-results" id="artistSearchResults" role="region" aria-label="아티스트 검색 결과" aria-live="polite" hidden></div>
         </div>
         <div class="calendar-toolbar">
           <div class="month-nav">
@@ -376,6 +375,7 @@
   <script src="./favorites.js?v=20260729" defer></script>
   <script src="./attendance.js?v=20260813" defer></script>
   <script src="./alerts.js?v=20260729" defer></script>
-  <script src="./app.js?v=20260815adsense" defer></script>
+  <script src="./search-utils.js?v=20260825conversion1" defer></script>
+  <script src="./app.js?v=20260825conversion1" defer></script>
 </body>
 </html>

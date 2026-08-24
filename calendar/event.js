@@ -157,6 +157,7 @@ function addStructuredData(event) {
 
 function renderEvent(event, events) {
   const [year, month, day] = event.concertDate.split("-").map(Number);
+  document.body.dataset.eventId = event.id;
   const title = `${event.artist} 내한 ${year} | ${month}월 ${day}일 공연·예매 정보`;
   const description = `${humanDate(event.concertDate, event.time)}, ${event.venue}에서 열리는 ${event.artist} 내한 공연의 예매 일정과 공식 출처입니다.`;
   document.title = title;

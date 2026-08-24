@@ -25,6 +25,24 @@ test("classifies verification redirects without exposing personal data", () => {
   assert.deepEqual(emailAlertsUi.classifyReturnState("?email-alert=unknown", ""), { type: "" });
 });
 
+test("merges saved and directly selected artists without duplicates", () => {
+  assert.deepEqual(emailAlertsUi.mergeArtists({ artists: ["A", "B"] }, new Set(["B", "C"])), ["A", "B", "C"]);
+});
+
+test("normalizes multilingual artist search input", () => {
+  assert.equal(emailAlertsUi.normalizeArtistSearch(" 킹・누 "), "킹누");
+});
+
+test("builds a deduplicated direct artist subscription payload", () => {
+  assert.deepEqual(emailAlertsUi.buildSubscriptionPayload({
+    email: " FAN@EXAMPLE.COM ", consent: 1, artists: ["A", "A"], events: ["event", "event"], kinds: ["ticket", "ticket"]
+  }), { email: "fan@example.com", consent: true, artists: ["A"], events: ["event"], kinds: ["ticket"] });
+});
+
+test("uses the Korea date at a UTC day boundary", () => {
+  assert.equal(emailAlertsUi.seoulDateKey("2026-08-24T15:30:00.000Z"), "2026-08-25");
+});
+
 test("builds all four alert types only for confirmed favorite artists", () => {
   const result = buildEmailAlerts(events, updates, { artists: ["A"], events: [], kinds: ["announcement", "presale", "ticket", "extra-seat"] }, "2026-08-08");
   assert.deepEqual(result.map(item => item.kind).sort(), ["announcement", "extra-seat", "presale", "ticket"]);

@@ -34,21 +34,28 @@
     return "other";
   }
 
+  function sanitizeDetail(name, detail = {}) {
+    const safe = { ...detail };
+    if (name === "email_alert_artist_select") delete safe.artist;
+    return safe;
+  }
+
   function track(name, detail = {}, storage) {
+    const safeDetail = sanitizeDetail(name, detail);
     const data = read(storage);
-    if (name === "artist_search") increment(data.searches, detail.artist);
-    if (name === "empty_search") increment(data.emptySearches, detail.search_term);
-    if (name === "ticket_click") increment(data.ticketClicks, detail.vendor);
-    if (name === "favorite_save" && ["events", "artists"].includes(detail.type)) data.saves[detail.type] += 1;
-    if (name === "favorites_snapshot") data.favorites = { events: Number(detail.events) || 0, artists: Number(detail.artists) || 0 };
+    if (name === "artist_search") increment(data.searches, safeDetail.artist);
+    if (name === "empty_search") increment(data.emptySearches, safeDetail.search_term);
+    if (name === "ticket_click") increment(data.ticketClicks, safeDetail.vendor);
+    if (name === "favorite_save" && ["events", "artists"].includes(safeDetail.type)) data.saves[safeDetail.type] += 1;
+    if (name === "favorites_snapshot") data.favorites = { events: Number(safeDetail.events) || 0, artists: Number(safeDetail.artists) || 0 };
     try {
       (storage || root.localStorage).setItem(STORAGE_KEY, JSON.stringify(data));
     } catch {}
-    if (typeof root.gtag === "function") root.gtag("event", name, detail);
+    if (typeof root.gtag === "function") root.gtag("event", name, safeDetail);
     return data;
   }
 
-  const api = { STORAGE_KEY, read, safeSearchTerm, searchLanguage, track };
+  const api = { STORAGE_KEY, read, safeSearchTerm, sanitizeDetail, searchLanguage, track };
   root.JLIVE_ANALYTICS = api;
   if (typeof module === "object" && module.exports) module.exports = api;
 })(typeof window === "object" ? window : globalThis);

@@ -9,9 +9,9 @@
   <title>J-LIVE 이메일 알림 설정</title>
   <link rel="canonical" href="https://j-live.kr/calendar/alerts/">
   <link rel="icon" type="image/png" href="../assets/brand/j-live-app-logo.png">
-  <link rel="stylesheet" href="../styles.css?v=20260813minimal6">
+  <link rel="stylesheet" href="../styles.css?v=20260825conversion1">
   <script src="../site-config.js?v=20260808ea"></script>
-  <script src="../site.js" defer></script>
+  <script src="../site.js?v=20260825conversion1" defer></script>
 </head>
 <body class="alert-settings-page">
   <header class="alert-settings-header">
@@ -35,14 +35,21 @@
           <span>신규 공연</span><span>예매 하루 전</span><span>추가 좌석</span><span>월요일 주간 요약</span>
         </div>
         <ol class="email-alert-steps" aria-label="이메일 알림 가입 단계">
-          <li id="emailAlertStepSave"><b>1</b><span>관심 공연 저장</span></li>
+          <li id="emailAlertStepSave"><b>1</b><span>관심 대상 선택</span></li>
           <li id="emailAlertStepSend"><b>2</b><span>인증 메일 받기</span></li>
           <li id="emailAlertStepVerify"><b>3</b><span>이메일 인증</span></li>
         </ol>
-        <p class="email-alert-selection" id="emailAlertSelection">관심 공연을 저장하면 알림을 신청할 수 있습니다.</p>
+        <p class="email-alert-selection" id="emailAlertSelection">저장한 공연·아티스트 또는 아래에서 직접 고른 아티스트를 알림에 포함합니다.</p>
       </div>
 
       <form id="emailAlertForm">
+        <div class="email-alert-direct">
+          <div class="email-alert-direct-heading"><label for="emailAlertArtistSearch">아티스트 직접 선택</label><span>저장하지 않아도 신청 가능</span></div>
+          <input id="emailAlertArtistSearch" type="search" role="combobox" aria-autocomplete="list" placeholder="예: 킹누, Vaundy, キングヌー" autocomplete="off" aria-controls="emailAlertArtistOptions" aria-expanded="false">
+          <div class="email-alert-artist-options" id="emailAlertArtistOptions" role="listbox" hidden></div>
+          <div class="email-alert-selected-artists" id="emailAlertSelectedArtists" aria-live="polite"></div>
+          <small>달력에서 저장한 관심 목록은 자동으로 함께 포함됩니다.</small>
+        </div>
         <div class="email-alert-row">
           <label class="sr-only" for="emailAlertAddress">이메일 주소</label>
           <input id="emailAlertAddress" name="email" type="email" autocomplete="email" inputmode="email" placeholder="이메일 주소" required>
@@ -66,6 +73,6 @@
 
   <script src="../analytics.js" defer></script>
   <script src="../favorites.js" defer></script>
-  <script src="../email-alerts.js?v=20260811ret" defer></script>
+  <script src="../email-alerts.js?v=20260825conversion1" defer></script>
 </body>
 </html>

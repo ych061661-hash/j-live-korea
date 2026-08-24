@@ -43,6 +43,16 @@ test("forwards email signup and verification conversions without an email addres
   assert.equal(JSON.stringify(calls).includes("@"), false);
 });
 
+test("does not forward selected artist names to GA4", () => {
+  const calls = [];
+  const storage = { getItem: () => null, setItem: () => {} };
+  globalThis.gtag = (...args) => calls.push(args);
+  analytics.track("email_alert_artist_select", { artist: "King Gnu", selected: true, artist_count: 1 }, storage);
+  delete globalThis.gtag;
+  assert.deepEqual(calls, [["event", "email_alert_artist_select", { selected: true, artist_count: 1 }]]);
+  assert.equal(analytics.sanitizeDetail("email_alert_artist_select", { artist: "King Gnu" }).artist, undefined);
+});
+
 test("sanitizes empty search terms and classifies their writing system", () => {
   assert.equal(analytics.safeSearchTerm("  킹누  "), "킹누");
   assert.equal(analytics.searchLanguage("킹누"), "korean");

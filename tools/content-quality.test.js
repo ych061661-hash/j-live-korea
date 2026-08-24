@@ -405,7 +405,7 @@ test("keeps the original data report substantial, transparent, and connected", (
   assert.match(report, /한계와 수정 원칙/);
   assert.match(report, /rel="author">여일육 작성·분석/);
   assert.match(report, /"@type":"Dataset"/);
-  assert.match(report, /href="\.\.\/styles\.css\?v=20260815report1"/);
+  assert.match(report, /href="\.\.\/styles\.css\?v=20260825conversion1"/);
   assert.match(report, /href="\.\.\/events\//);
   assert.doesNotMatch(report, /href="\.\.\/\.\.\//);
   assert.doesNotMatch(report, /pagead2\.googlesyndication\.com/);

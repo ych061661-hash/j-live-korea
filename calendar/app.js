@@ -389,27 +389,31 @@ function renderAttendancePrices(schedule, autofill) {
 function renderArtistSearch() {
   const query = normalizeSearchText(artistSearch.value);
   artistSearchResults.hidden = !query;
-  artistSearch.setAttribute("aria-expanded", String(Boolean(query)));
   if (!query) return;
 
-  const matches = schedules.filter(schedule =>
-    [schedule.artist, ...(artistAliases[schedule.artist] || [])]
+  const matches = window.JLIVE_SEARCH?.findMatches(schedules, artistAliases, query) || schedules.filter(schedule =>
+    [schedule.artist, ...(artistAliases[schedule.artist] || []), schedule.venue, schedule.concertDate]
       .some(name => normalizeSearchText(name).includes(query))
   );
   artistSearchResults.innerHTML = matches.length
     ? matches.map(schedule => `
-      <button class="artist-search-result" type="button" role="option" data-id="${escapeHtml(schedule.id)}">
-        <strong>${escapeHtml(schedule.artist)}</strong>
-        <small>${escapeHtml(schedule.venue)}</small>
-        <time>${escapeHtml(formatDate(schedule.concertDate))}</time>
-      </button>`).join("")
-    : '<p class="artist-search-empty">검색 결과가 없습니다.</p>';
+      <div class="artist-search-result-row">
+        <button class="artist-search-result" type="button" data-id="${escapeHtml(schedule.id)}">
+          <strong>${escapeHtml(schedule.artist)}</strong>
+          <small>${escapeHtml(schedule.venue)}</small>
+          <time>${escapeHtml(formatDate(schedule.concertDate))}</time>
+        </button>
+        ${schedule.vendorUrl ? `<a class="artist-search-ticket" href="${escapeHtml(schedule.vendorUrl)}" data-search-ticket="${escapeHtml(schedule.id)}" target="_blank" rel="noopener noreferrer">예매 ↗</a>` : ""}
+      </div>`).join("")
+    : (() => {
+      const alternatives = window.JLIVE_SEARCH?.suggestions(schedules, artistAliases, query) || [];
+      return `<div class="artist-search-empty"><strong>검색 결과가 없습니다.</strong><span>한글·영문·일본어 표기, 공연장명으로 다시 검색해 보세요.</span>${alternatives.length ? `<small>혹시 이 공연을 찾으셨나요?</small><div class="artist-search-suggestions">${alternatives.map(schedule => `<button type="button" data-id="${escapeHtml(schedule.id)}">${escapeHtml(schedule.artist)}</button>`).join("")}</div>` : ""}<a href="./artists/">전체 아티스트 목록 보기 →</a></div>`;
+    })();
 }
 
 function closeArtistSearch(clearValue = false) {
   if (clearValue) artistSearch.value = "";
   artistSearchResults.hidden = true;
-  artistSearch.setAttribute("aria-expanded", "false");
   artistSearch.blur();
 }
 
@@ -999,8 +1003,8 @@ artistSearch.addEventListener("input", () => {
   const value = artistSearch.value.trim();
   emptySearchTimer = setTimeout(() => {
     const query = normalizeSearchText(value);
-    const match = schedules.find(schedule =>
-      [schedule.artist, ...(artistAliases[schedule.artist] || [])].some(name => normalizeSearchText(name).includes(query)));
+    const match = window.JLIVE_SEARCH?.findMatches(schedules, artistAliases, query)?.[0] || schedules.find(schedule =>
+      [schedule.artist, ...(artistAliases[schedule.artist] || []), schedule.venue, schedule.concertDate].some(name => normalizeSearchText(name).includes(query)));
     if (query && value === artistSearch.value.trim() && match) {
       window.JLIVE_ANALYTICS.track("artist_search", { artist: match.artist });
     } else if (query && value === artistSearch.value.trim()) {
@@ -1020,6 +1024,18 @@ artistSearch.addEventListener("keydown", event => {
   renderArtistSearch();
 });
 artistSearchResults.addEventListener("click", event => {
+  const ticketLink = event.target.closest("[data-search-ticket]");
+  if (ticketLink) {
+    const schedule = schedules.find(item => item.id === ticketLink.dataset.searchTicket);
+    if (schedule) window.JLIVE_ANALYTICS.track("ticket_click", {
+      vendor: schedule.vendor || "미정",
+      event_id: schedule.id,
+      artist: schedule.artist,
+      link_url: schedule.vendorUrl,
+      source: "artist_search"
+    });
+    return;
+  }
   const button = event.target.closest("[data-id]");
   const schedule = button && schedules.find(item => item.id === button.dataset.id);
   if (!schedule) return;

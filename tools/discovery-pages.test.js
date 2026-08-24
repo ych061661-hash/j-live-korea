@@ -140,7 +140,7 @@ test("creates ticket opening posts and keeps later schedule changes separate", (
 test("uses calendar-relative assets on the update page", () => {
   const html = updatesPageHtml({ updates: [], siteUrl: "https://j-live.kr" });
   assert.match(html, /href="\.\/styles\.css/);
-  assert.match(html, /src="\.\/site\.js"/);
+  assert.match(html, /src="\.\/site\.js\?v=20260825conversion1"/);
 });
 
 test("does not link update cards to events without a generated detail page", () => {
