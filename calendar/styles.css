@@ -1562,3 +1562,39 @@ footer { padding:22px 0 34px; color:#686970; font-size:11px; text-align:center; 
   .hero-actions { display:grid; grid-template-columns:1fr; }
   .hero-primary,.hero-secondary { width:100%; box-sizing:border-box; }
 }
+
+/* Mobile compact preview: keep verified picks available without competing with the calendar. */
+@media (max-width:820px) {
+  .home-page .seo-upcoming {
+    margin:16px 12px 0;
+    padding:18px 16px 16px;
+    border-radius:20px;
+  }
+  .home-page .seo-upcoming-heading h2 { font-size:24px; line-height:1.1; }
+  .home-page .seo-upcoming-heading-copy { display:block; margin-top:7px; }
+  .home-page .seo-upcoming-heading-copy > p { display:none; }
+  .home-page .seo-upcoming-all { display:inline-block; margin-top:0; padding:6px 0; }
+  .home-page .seo-upcoming-grid {
+    display:flex;
+    gap:10px;
+    margin-top:14px;
+    padding:0 0 4px;
+    overflow-x:auto;
+    scroll-snap-type:x proximity;
+    scrollbar-width:thin;
+  }
+  .home-page .seo-upcoming-card {
+    flex:0 0 190px;
+    min-height:198px;
+    padding:15px;
+    border-radius:16px;
+    scroll-snap-align:start;
+  }
+  .home-page .seo-upcoming-card h3 { margin-top:6px; font-size:18px; }
+  .home-page .seo-upcoming-card dl { gap:6px; margin-top:14px; }
+  .home-page .seo-upcoming-card dl div { grid-template-columns:52px 1fr; gap:6px; }
+  .home-page .seo-upcoming-card dt { font-size:9px; }
+  .home-page .seo-upcoming-card dd { font-size:10px; }
+  .home-page .seo-upcoming-card > p { padding-top:12px; font-size:8px; }
+  .home-page .seo-upcoming-link { margin-top:7px; font-size:10px; }
+}

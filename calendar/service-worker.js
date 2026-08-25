@@ -1,11 +1,11 @@
 "use strict";
 
-const CACHE_VERSION = "j-live-pwa-v77-homecenter";
+const CACHE_VERSION = "j-live-pwa-v79-mobilecompact";
 const APP_SHELL = [
   "/calendar/",
   "/calendar/index.html",
   "/calendar/offline.html",
-  "/calendar/styles.css?v=20260825homecenter1",
+  "/calendar/styles.css?v=20260825mobilecompact3",
   "/calendar/site-config.js?v=20260808ea",
   "/calendar/site.js?v=20260825conversion1",
   "/calendar/analytics.js",
