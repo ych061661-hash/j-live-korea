@@ -18,8 +18,8 @@ if (profileRoot) {
   const youtubeSearch = (artist, song) => `https://www.youtube.com/results?search_query=${encodeURIComponent(`${artist} ${song} official`)}`;
 
   Promise.all([
-    fetch("../../data/festival-lineups.json").then(response => response.json()),
-    fetch("../../data/festival-artist-profiles.json").then(response => response.json())
+    fetch("/calendar/data/festival-lineups.json").then(response => response.json()),
+    fetch("/calendar/data/festival-artist-profiles.json").then(response => response.json())
   ]).then(([lineups, profiles]) => {
     const festival = lineups.find(item => item.id === "wonderlivet-2026");
     if (!festival) throw new Error("WONDERLIVET lineup not found");

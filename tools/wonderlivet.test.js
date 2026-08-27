@@ -11,6 +11,7 @@ const aliases = require("../calendar/data/artist-aliases.json");
 const profiles = require("../calendar/data/festival-artist-profiles.json");
 const page = fs.readFileSync(path.join(root, "calendar/festivals/wonderlivet-2026.html"), "utf8");
 const app = fs.readFileSync(path.join(root, "calendar/app.js"), "utf8");
+const festivalScript = fs.readFileSync(path.join(root, "calendar/festivals/wonderlivet.js"), "utf8");
 
 test("keeps the WONDERLIVET lineup at three days and 42 unique artists", () => {
   const festival = lineups.find(item => item.id === "wonderlivet-2026");
@@ -42,6 +43,9 @@ test("publishes every WONDERLIVET artist and official action on the lineup page"
   assert.match(page, /assets\/festivals\/wonderlivet-2026-mark\.png/);
   assert.match(page, /assets\/festivals\/wonderlivet-2026-lineup\.png/);
   assert.match(page, /WONDERLIVET 2026 11월 20일, 21일, 22일 KINTEX 공연 라인업 포스터/);
+  assert.match(page, /href="\/calendar\/styles\.css\?v=20260828record-disclosure1"/);
+  assert.match(page, /src="\/calendar\/festivals\/wonderlivet\.js\?v=20260827profiles1"/);
+  assert.match(festivalScript, /fetch\("\/calendar\/data\/festival-lineups\.json"\)/);
   assert.ok(fs.existsSync(path.join(root, "calendar/assets/festivals/wonderlivet-2026-mark.png")));
   assert.ok(fs.existsSync(path.join(root, "calendar/assets/festivals/wonderlivet-2026-lineup.png")));
 });
