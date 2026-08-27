@@ -1,0 +1,83 @@
+[
+  {
+    "id": "wonderlivet-2026",
+    "name": "WONDERLIVET 2026",
+    "nameKo": "원더리벳 2026",
+    "venue": "KINTEX HALL 7·8·9·10",
+    "city": "고양",
+    "dates": ["2026-11-20", "2026-11-21", "2026-11-22"],
+    "ticketDate": "2026-09-01",
+    "ticketTime": "오후 8:00",
+    "officialUrl": "https://litt.ly/wonderlivet",
+    "festflowUrl": "https://festflow.kr/festivals/wonderlivet-2026",
+    "socialUrl": "https://www.instagram.com/wonderlivet/",
+    "ticketUrl": "https://ticket.melon.com/csoon/detail.htm?csoonId=12762",
+    "sources": [
+      "https://litt.ly/wonderlivet",
+      "https://ticket.melon.com/csoon/detail.htm?csoonId=12762",
+      "https://prtimes.jp/main/html/rd/p/000004324.000011710.html"
+    ],
+    "days": [
+      {
+        "date": "2026-11-20",
+        "label": "FRI",
+        "artists": [
+          "A I W E O",
+          "amazarashi",
+          "CLAN QUEEN",
+          "Conton Candy",
+          "Da-iCE",
+          "Hoshimachi Suisei",
+          "IDIOTAPE",
+          "jo0ji",
+          "natori",
+          "nishina",
+          "ReoNa",
+          "SONG SOHEE",
+          "THE ORAL CIGARETTES",
+          "THORNAPPLE"
+        ]
+      },
+      {
+        "date": "2026-11-21",
+        "label": "SAT",
+        "artists": [
+          "[Alexandros]",
+          "CHiCO with HoneyWorks",
+          "FREDERIC",
+          "HANRORO",
+          "indigo la End",
+          "Kyary Pamyu Pamyu",
+          "Midnight Grand Orchestra",
+          "MyGO!!!!!",
+          "Roselia",
+          "SAMBOMASTER",
+          "TAK with Hatsune Miku & Kasane Teto",
+          "Tani Yuuki",
+          "The Shepherd Bois",
+          "yama"
+        ]
+      },
+      {
+        "date": "2026-11-22",
+        "label": "SUN",
+        "artists": [
+          "Ai Otsuka",
+          "BRANDY SENKI",
+          "CANDY TUNE",
+          "Chevon",
+          "eill",
+          "HUMBREADERS",
+          "KUROMI",
+          "MRCH",
+          "NELL",
+          "QWER",
+          "SUKIMASWITCH",
+          "SWEET STEADY",
+          "Tomatomat",
+          "YUZU"
+        ]
+      }
+    ]
+  }
+]

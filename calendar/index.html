@@ -19,7 +19,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="./assets/brand/j-live-app-logo.png">
   <link rel="apple-touch-icon" href="./assets/brand/j-live-app-logo.png">
-  <link rel="stylesheet" href="./styles.css?v=20260825mobilecompact3">
+  <link rel="stylesheet" href="./styles.css?v=20260828record-disclosure1">
   <script src="./site-config.js?v=20260808ea"></script>
   <script src="./site.js?v=20260825conversion1" defer></script>
 </head>
@@ -251,6 +251,7 @@
           </div>
           <div class="my-shows-tools">
             <p id="myShowsSummary">로그인 없이 이 브라우저에만 저장됩니다.</p>
+            <a class="my-shows-record-link" id="myShowsRecordLink" href="#attendanceLedgerDisclosure">관람 기록·지출 보기 ↗</a>
             <button id="alertButton" type="button">예매 알림 켜기</button>
           </div>
         </div>
@@ -286,6 +287,12 @@
         <strong>아직 저장한 공연이 없습니다.</strong>
         <span>달력에서 공연을 선택한 뒤 공연이나 아티스트를 저장해 보세요.</span>
       </div>
+      <details class="attendance-ledger-disclosure" id="attendanceLedgerDisclosure">
+        <summary>
+          <span class="section-kicker">MY CONCERT LOG</span>
+          <span class="attendance-disclosure-copy"><strong>관람 기록·지출 보기</strong><small>다녀온 공연과 티켓 사용액을 기록합니다</small></span>
+          <span class="attendance-disclosure-action">열기 <span aria-hidden="true">↗</span></span>
+        </summary>
       <section class="attendance-ledger" aria-labelledby="attendanceLedgerTitle">
         <div class="attendance-ledger-heading">
           <div><span class="section-kicker">MY CONCERT LOG</span><h3 id="attendanceLedgerTitle">관람 기록과 지출</h3></div>
@@ -314,6 +321,7 @@
         <div class="attendance-records" id="attendanceRecords" aria-live="polite"></div>
         <p class="attendance-records-empty" id="attendanceRecordsEmpty">아직 관람 기록이 없습니다. 다녀온 공연부터 하나씩 남겨보세요.</p>
       </section>
+      </details>
     </section>
     <section class="attendance-board" aria-labelledby="attendanceTitle">
       <div class="attendance-board-heading">
@@ -371,6 +379,6 @@
   <script src="./attendance.js?v=20260813" defer></script>
   <script src="./alerts.js?v=20260729" defer></script>
   <script src="./search-utils.js?v=20260825conversion1" defer></script>
-  <script src="./app.js?v=20260825conversion1" defer></script>
+  <script src="./app.js?v=20260828wonderlivet-calendar1" defer></script>
 </body>
 </html>

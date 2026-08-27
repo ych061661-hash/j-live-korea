@@ -1,11 +1,11 @@
 "use strict";
 
-const CACHE_VERSION = "j-live-pwa-v79-mobilecompact";
+const CACHE_VERSION = "j-live-pwa-v84-wonderlivet-poster";
 const APP_SHELL = [
   "/calendar/",
   "/calendar/index.html",
   "/calendar/offline.html",
-  "/calendar/styles.css?v=20260825mobilecompact3",
+  "/calendar/styles.css?v=20260828record-disclosure1",
   "/calendar/site-config.js?v=20260808ea",
   "/calendar/site.js?v=20260825conversion1",
   "/calendar/analytics.js",
@@ -18,15 +18,21 @@ const APP_SHELL = [
   "/calendar/original-calendar-frame.html",
   "/calendar/original-calendar-frame.css?v=20260825conversion1",
   "/calendar/search-utils.js?v=20260825conversion1",
-  "/calendar/app.js?v=20260825conversion1",
+  "/calendar/app.js?v=20260828wonderlivet-calendar1",
   "/calendar/content.js",
   "/calendar/event.js?v=20260825conversion1",
   "/calendar/data/events.json",
   "/calendar/data/historical-events.json",
   "/calendar/data/historical-events-2023.json",
   "/calendar/data/artist-aliases.json",
+  "/calendar/data/festival-lineups.json",
+  "/calendar/data/festival-artist-profiles.json",
   "/calendar/data/updates.json",
   "/calendar/artists/index.html",
+  "/calendar/festivals/wonderlivet-2026.html",
+  "/calendar/festivals/wonderlivet.js?v=20260827profiles1",
+  "/calendar/assets/festivals/wonderlivet-2026-mark.png",
+  "/calendar/assets/festivals/wonderlivet-2026-lineup.png",
   "/calendar/fanclubs/index.html",
   "/calendar/fanclubs/fanclubs.js",
   "/calendar/updates.html",

@@ -1,6 +1,6 @@
 "use strict";
 
-const typeLabels = { concert: "공연", ticket: "일반예매", presale: "선예매" };
+const typeLabels = { concert: "공연", ticket: "일반예매", presale: "선예매", festival: "페스티벌" };
 const weekdays = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
 const filters = new Set(Object.keys(typeLabels));
 const calendar = document.querySelector("#calendar");
@@ -18,6 +18,8 @@ const artistSearchResults = document.querySelector("#artistSearchResults");
 const myShowEvents = document.querySelector("#myShowEvents");
 const myShowsEmpty = document.querySelector("#myShowsEmpty");
 const myShowsSummary = document.querySelector("#myShowsSummary");
+const myShowsRecordLink = document.querySelector("#myShowsRecordLink");
+const attendanceLedgerDisclosure = document.querySelector("#attendanceLedgerDisclosure");
 const myShowsUpcomingCount = document.querySelector("#myShowsUpcomingCount");
 const myShowsWeeklySales = document.querySelector("#myShowsWeeklySales");
 const myShowsAttendanceCount = document.querySelector("#myShowsAttendanceCount");
@@ -53,6 +55,7 @@ const attendanceRecords = document.querySelector("#attendanceRecords");
 const attendanceRecordsEmpty = document.querySelector("#attendanceRecordsEmpty");
 let artistAliases = {};
 let schedules = [];
+let festivalLineups = [];
 let attendanceSchedules = [];
 let updates = [];
 let selectedId = "";
@@ -107,7 +110,21 @@ function eventsForDate(key) {
     schedule.presaleDate === key && { type: "presale", schedule }
   ].filter(Boolean));
   const seenTicketEvents = new Set();
-  return events.filter(({ type, schedule }) => {
+  const festivalEvents = festivalLineups.flatMap(lineup => (lineup.days || [])
+    .filter(day => day.date === key)
+    .map(day => ({
+      type: "festival",
+      schedule: {
+        id: `${lineup.id}-${day.date}`,
+        artist: lineup.name,
+        genre: "FESTIVAL",
+        concertDate: day.date,
+        venue: lineup.venue,
+        festivalId: lineup.id,
+        festivalUrl: `./festivals/${encodeURIComponent(lineup.id)}`
+      }
+    })));
+  return [...events, ...festivalEvents].filter(({ type, schedule }) => {
     if (type === "concert") return true;
     const time = type === "ticket" ? schedule.ticketTime : schedule.presaleTime;
     const eventKey = `${type}|${schedule.artist}|${time || ""}`;
@@ -325,6 +342,21 @@ const normalizeSearchText = value => String(value || "")
   .toLocaleLowerCase()
   .replace(/[\s\p{P}\p{S}]/gu, "");
 
+function festivalArtistSearchMatches(value) {
+  const query = normalizeSearchText(value);
+  if (!query) return [];
+  return festivalLineups.flatMap(lineup => (lineup.days || []).flatMap(day => (day.artists || []).map(artist => ({
+    artist,
+    lineup,
+    day
+  })))).filter(item => [
+    item.artist,
+    ...(artistAliases[item.artist] || []),
+    item.lineup.name,
+    item.lineup.nameKo
+  ].filter(Boolean).some(field => normalizeSearchText(field).includes(query)));
+}
+
 function attendanceEventLabel(schedule) {
   return `${formatAttendanceDate(schedule.concertDate)} · ${schedule.artist} · ${schedule.venue}`;
 }
@@ -395,8 +427,8 @@ function renderArtistSearch() {
     [schedule.artist, ...(artistAliases[schedule.artist] || []), schedule.venue, schedule.concertDate]
       .some(name => normalizeSearchText(name).includes(query))
   );
-  artistSearchResults.innerHTML = matches.length
-    ? matches.map(schedule => `
+  const festivalMatches = festivalArtistSearchMatches(query);
+  const scheduleResults = matches.map(schedule => `
       <div class="artist-search-result-row">
         <button class="artist-search-result" type="button" data-id="${escapeHtml(schedule.id)}">
           <strong>${escapeHtml(schedule.artist)}</strong>
@@ -404,7 +436,17 @@ function renderArtistSearch() {
           <time>${escapeHtml(formatDate(schedule.concertDate))}</time>
         </button>
         ${schedule.vendorUrl ? `<a class="artist-search-ticket" href="${escapeHtml(schedule.vendorUrl)}" data-search-ticket="${escapeHtml(schedule.id)}" target="_blank" rel="noopener noreferrer">예매 ↗</a>` : ""}
-      </div>`).join("")
+      </div>`).join("");
+  const festivalResults = festivalMatches.map(item => `
+      <div class="artist-search-result-row festival-search-row">
+        <a class="artist-search-result festival-search-result" href="./festivals/${encodeURIComponent(item.lineup.id)}" aria-label="${escapeHtml(item.artist)} ${escapeHtml(item.lineup.name)} 라인업 보기">
+          <strong>${escapeHtml(item.artist)}</strong>
+          <small>${escapeHtml(item.lineup.nameKo || item.lineup.name)} · ${escapeHtml(formatDate(item.day.date))} · ${escapeHtml(item.lineup.venue)}</small>
+          <time>라인업</time>
+        </a>
+      </div>`).join("");
+  artistSearchResults.innerHTML = matches.length || festivalMatches.length
+    ? `${scheduleResults}${festivalResults}`
     : (() => {
       const alternatives = window.JLIVE_SEARCH?.suggestions(schedules, artistAliases, query) || [];
       return `<div class="artist-search-empty"><strong>검색 결과가 없습니다.</strong><span>한글·영문·일본어 표기, 공연장명으로 다시 검색해 보세요.</span>${alternatives.length ? `<small>혹시 이 공연을 찾으셨나요?</small><div class="artist-search-suggestions">${alternatives.map(schedule => `<button type="button" data-id="${escapeHtml(schedule.id)}">${escapeHtml(schedule.artist)}</button>`).join("")}</div>` : ""}<a href="./artists/">전체 아티스트 목록 보기 →</a></div>`;
@@ -715,12 +757,13 @@ function renderCalendar() {
       if (!filters.has(type)) return;
       const chip = document.createElement("a");
       const displayArtist = calendarArtistName(schedule);
-      chip.href = `./events/${encodeURIComponent(schedule.id)}`;
+      const isFestival = type === "festival";
+      chip.href = isFestival ? schedule.festivalUrl : `./events/${encodeURIComponent(schedule.id)}`;
       chip.className = `event-chip ${type}`;
       chip.title = `${schedule.artist} · ${typeLabel(type, schedule)}`;
       chip.setAttribute("aria-label", `${schedule.artist} ${typeLabel(type, schedule)}`);
       chip.innerHTML = `<span>${escapeHtml(typeLabel(type, schedule))}</span><span>${escapeHtml(displayArtist)}</span>`;
-      chip.addEventListener("click", () => window.JLIVE_ANALYTICS.track("event_detail_open", {
+      chip.addEventListener("click", () => window.JLIVE_ANALYTICS.track(isFestival ? "festival_lineup_open" : "event_detail_open", {
         event_id: schedule.id,
         artist: schedule.artist,
         source: "calendar"
@@ -736,7 +779,7 @@ function renderCalendar() {
 
 function renderLineup(key) {
   const lineup = document.querySelector("#dayLineup");
-  lineup.innerHTML = eventsForDate(key).map(({ type, schedule }) => `
+  lineup.innerHTML = eventsForDate(key).filter(({ type }) => type !== "festival").map(({ type, schedule }) => `
     <button type="button" class="lineup-button ${schedule.id === selectedId && type === selectedType ? "active" : ""}"
       data-id="${escapeHtml(schedule.id)}" data-type="${type}">
       <strong>${escapeHtml(schedule.artist)}</strong>
@@ -811,9 +854,16 @@ function selectSchedule(schedule, type = "concert", key = schedule.concertDate, 
 }
 
 function selectCalendarDate(key) {
-  const firstEvent = eventsForDate(key).find(({ type }) => filters.has(type));
+  const dayEvents = eventsForDate(key);
+  const firstEvent = dayEvents.find(({ type }) => type !== "festival" && filters.has(type));
   if (firstEvent) {
     selectSchedule(firstEvent.schedule, firstEvent.type, key);
+    return;
+  }
+  const festivalEvent = dayEvents.find(({ type }) => type === "festival");
+  if (festivalEvent) {
+    window.JLIVE_ANALYTICS.track("festival_lineup_open", { event_id: festivalEvent.schedule.festivalId, source: "calendar_day" });
+    window.location.href = festivalEvent.schedule.festivalUrl;
     return;
   }
   selectedId = "";
@@ -877,6 +927,11 @@ alertButton.addEventListener("click", async () => {
   alertSettings = window.JLIVE_ALERTS.write({ ...alertSettings, enabled: permission === "granted" });
   renderAlertPlan();
   await sendDueAlerts();
+});
+
+myShowsRecordLink.addEventListener("click", () => {
+  attendanceLedgerDisclosure.open = true;
+  requestAnimationFrame(() => attendanceLedgerDisclosure.querySelector("summary")?.focus());
 });
 
 savedArtists.addEventListener("click", event => {
@@ -1164,13 +1219,15 @@ async function initialize() {
         priceVerifiedAt: event.priceVerifiedAt || staticEvent.priceVerifiedAt
       };
     }).filter(event => event.status === "confirmed");
-    const [aliasResponse, updateResponse, historicalResponse, historical2023Response] = await Promise.all([
+    const [aliasResponse, updateResponse, historicalResponse, historical2023Response, festivalResponse] = await Promise.all([
       fetch("./data/artist-aliases.json", { cache: "no-store" }).catch(() => null),
       fetch("./data/updates.json", { cache: "no-store" }).catch(() => null),
       fetch("./data/historical-events.json", { cache: "no-store" }).catch(() => null),
-      fetch("./data/historical-events-2023.json", { cache: "no-store" }).catch(() => null)
+      fetch("./data/historical-events-2023.json", { cache: "no-store" }).catch(() => null),
+      fetch("./data/festival-lineups.json", { cache: "no-store" }).catch(() => null)
     ]);
     artistAliases = aliasResponse?.ok ? await aliasResponse.json() : {};
+    festivalLineups = festivalResponse?.ok ? await festivalResponse.json() : [];
     updates = updateResponse?.ok ? await updateResponse.json() : [];
     const historicalEvents = historicalResponse?.ok ? await historicalResponse.json() : [];
     const historical2023Events = historical2023Response?.ok ? await historical2023Response.json() : [];
