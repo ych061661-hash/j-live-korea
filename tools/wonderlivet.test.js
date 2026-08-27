@@ -40,8 +40,8 @@ test("publishes every WONDERLIVET artist and official action on the lineup page"
   assert.match(page, /ticket\.melon\.com\/csoon\/detail\.htm\?csoonId=12762/);
   assert.match(page, /litt\.ly\/wonderlivet/);
   assert.match(page, /festflow\.kr\/festivals\/wonderlivet-2026/);
-  assert.match(page, /assets\/festivals\/wonderlivet-2026-mark\.png/);
-  assert.match(page, /assets\/festivals\/wonderlivet-2026-lineup\.png/);
+  assert.match(page, /src="\/calendar\/assets\/festivals\/wonderlivet-2026-mark\.png"/);
+  assert.match(page, /src="\/calendar\/assets\/festivals\/wonderlivet-2026-lineup\.png"/);
   assert.match(page, /WONDERLIVET 2026 11월 20일, 21일, 22일 KINTEX 공연 라인업 포스터/);
   assert.match(page, /href="\/calendar\/styles\.css\?v=20260828record-disclosure1"/);
   assert.match(page, /src="\/calendar\/festivals\/wonderlivet\.js\?v=20260827profiles1"/);
