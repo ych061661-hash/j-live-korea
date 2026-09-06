@@ -642,7 +642,7 @@
       "https://backnumber.info/feature/stadiumtour2026_ticket?_normalbrowse_=1&lang=en",
       "https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17720&order=1"
     ],
-    "verifiedAt": "2026-08-24",
+    "verifiedAt": "2026-09-06",
     "createdAt": "2026-06-11T09:00:00+09:00",
     "seatPrices": [
       {
@@ -702,7 +702,7 @@
       "https://backnumber.info/feature/stadiumtour2026_ticket?_normalbrowse_=1&lang=en",
       "https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17720&order=1"
     ],
-    "verifiedAt": "2026-08-24",
+    "verifiedAt": "2026-09-06",
     "createdAt": "2026-06-11T09:00:00+09:00",
     "seatPrices": [
       {
@@ -761,7 +761,7 @@
       "https://ticket.yes24.com/Perf/58751",
       "https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17932&order=1&type=1"
     ],
-    "verifiedAt": "2026-08-24",
+    "verifiedAt": "2026-09-06",
     "createdAt": "2026-06-11T09:00:00+09:00",
     "seatPrices": [
       {
@@ -785,7 +785,7 @@
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-08-24"
+    "priceVerifiedAt": "2026-09-06"
   },
   {
     "id": "vaundy-2026-09-19",
@@ -824,7 +824,7 @@
       "https://member.vaundy.jp/feature/ASIAARENATOUR_2026",
       "https://tickets.interpark.com/goods/26003199"
     ],
-    "verifiedAt": "2026-08-17",
+    "verifiedAt": "2026-09-06",
     "createdAt": "2026-06-11T09:00:00+09:00",
     "seatPrices": [
       {
@@ -843,7 +843,7 @@
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-08-12"
+    "priceVerifiedAt": "2026-09-06"
   },
   {
     "id": "vaundy-2026-09-20",
@@ -882,7 +882,7 @@
       "https://member.vaundy.jp/feature/ASIAARENATOUR_2026",
       "https://tickets.interpark.com/goods/26003199"
     ],
-    "verifiedAt": "2026-08-17",
+    "verifiedAt": "2026-09-06",
     "createdAt": "2026-06-11T09:00:00+09:00",
     "seatPrices": [
       {
@@ -901,7 +901,7 @@
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-08-12"
+    "priceVerifiedAt": "2026-09-06"
   },
   {
     "id": "takuya-kimura-2026-09-26",

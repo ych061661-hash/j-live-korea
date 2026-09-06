@@ -176,7 +176,8 @@ function renderEvent(event, events) {
     `${event.artist}의 한국 공연입니다. 제이라이브 코리아는 공식 발표와 예매처 정보를 기준으로 공연 일정을 정리합니다.`;
   document.querySelector("#venueGuide").textContent = editorial.venues[event.venue] ||
     `${event.venue} 방문 전 공식 공연장 안내에서 대중교통, 주차와 입장 게이트를 확인하세요.`;
-  document.querySelector("#ticketTip").textContent = editorial.ticketTips[event.vendor] ||
+  const ticketTip = document.querySelector("#ticketTip");
+  if (ticketTip) ticketTip.textContent = editorial.ticketTips[event.vendor] ||
     "공식 예매처 로그인과 본인인증, 결제수단을 미리 점검하고 공지된 예매 시작 시각보다 여유 있게 접속하세요.";
   document.querySelector("#songGuide").textContent = buildSongGuide(event);
   document.querySelector("#dayChecklist").innerHTML = buildChecklist(event)

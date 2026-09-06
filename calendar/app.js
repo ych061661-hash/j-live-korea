@@ -13,10 +13,13 @@ const weekendCopy = document.querySelector("#weekendCopy")
   || document.querySelector(".weekend-heading > p");
 const attendanceRanking = document.querySelector("#attendanceRanking");
 const attendanceEmpty = document.querySelector("#attendanceEmpty");
+const attendanceBoard = document.querySelector("#attendanceBoard");
 const artistSearch = document.querySelector("#artistSearch");
 const artistSearchResults = document.querySelector("#artistSearchResults");
 const myShowEvents = document.querySelector("#myShowEvents");
 const myShowsEmpty = document.querySelector("#myShowsEmpty");
+const myShows = document.querySelector("#myShows");
+const myShowsNav = document.querySelector("#myShowsNav");
 const myShowsSummary = document.querySelector("#myShowsSummary");
 const myShowsRecordLink = document.querySelector("#myShowsRecordLink");
 const attendanceLedgerDisclosure = document.querySelector("#attendanceLedgerDisclosure");
@@ -616,12 +619,16 @@ function renderMyShows() {
     + (matchesSaved(schedule) && schedule.presaleDate >= mondayKey && schedule.presaleDate <= sundayKey ? 1 : 0)
     + (matchesSaved(schedule) && schedule.ticketDate >= mondayKey && schedule.ticketDate <= sundayKey ? 1 : 0), 0);
 
+  const attendanceSummary = window.JLIVE_ATTENDANCE.summarize(attendanceLog);
+  const hasPersonalData = savedCount > 0 || attendanceSummary.shows > 0;
+  myShows.hidden = !hasPersonalData;
+  myShowsNav.hidden = !hasPersonalData;
   myShowsSummary.textContent = savedCount
     ? `관심 아티스트 ${savedFavorites.artists.length}명 · 저장 공연 ${savedFavorites.events.length}개`
     : "로그인 없이 이 브라우저에만 저장됩니다.";
   myShowsUpcomingCount.textContent = String(upcoming.length);
   myShowsWeeklySales.textContent = String(weeklySales);
-  myShowsAttendanceCount.textContent = String(window.JLIVE_ATTENDANCE.summarize(attendanceLog).shows);
+  myShowsAttendanceCount.textContent = String(attendanceSummary.shows);
 
   myShowsFeatureSchedules = upcoming;
   if (myShowsFeatureIndex >= upcoming.length) myShowsFeatureIndex = 0;
@@ -712,7 +719,14 @@ function renderAttendanceRanking() {
       <b>${schedule.attendance.toLocaleString("ko-KR")}명</b>
     </li>
   `).join("");
+  attendanceBoard.hidden = ranked.length === 0;
   attendanceEmpty.hidden = ranked.length > 0;
+}
+
+function revealCalendarApp() {
+  const app = document.querySelector(".app");
+  app.hidden = false;
+  app.setAttribute("aria-busy", "false");
 }
 
 function renderCalendar() {
@@ -1247,14 +1261,17 @@ async function initialize() {
       document.querySelector("#detailEmpty").innerHTML = "<strong>공식 확인된 공연이 없습니다.</strong><span>새로운 일정이 확인되면 이곳에 표시됩니다.</span>";
       document.querySelector("#detailEmpty").hidden = false;
       renderCalendar();
+      revealCalendarApp();
       return;
     }
     viewDate = parseDate(upcoming.concertDate);
     selectSchedule(upcoming, "concert", upcoming.concertDate, false);
+    revealCalendarApp();
   } catch (error) {
     document.querySelector("#detailEmpty").innerHTML = `<strong>데이터 연결 오류</strong><span>${escapeHtml(error.message)}</span>`;
     document.querySelector("#detailEmpty").hidden = false;
     renderCalendar();
+    revealCalendarApp();
   }
 }
 initialize();

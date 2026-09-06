@@ -415,5 +415,5 @@ test("keeps the original data report substantial, transparent, and connected", (
 
 test("uses verified venue dates instead of build dates in the sitemap", () => {
   const sitemap = read("sitemap.xml");
-  assert.match(sitemap, /<loc>https:\/\/j-live\.kr\/calendar\/guides\/venues\/kspo-dome<\/loc><lastmod>2026-07-20<\/lastmod>/);
+  assert.match(sitemap, /<loc>https:\/\/j-live\.kr\/calendar\/guides\/venues\/kspo-dome<\/loc><lastmod>2026-09-06<\/lastmod>/);
 });

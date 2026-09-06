@@ -235,8 +235,9 @@ function hasIndexableEventContent(event, editorial) {
     && event.sources.length > 0;
 }
 
-function homepageUpcomingMarkup(events) {
+function homepageUpcomingMarkup(events, today = "") {
   const cards = [...events]
+    .filter(event => event.concertDate >= today)
     .sort((a, b) => a.concertDate.localeCompare(b.concertDate) || (a.time || "").localeCompare(b.time || ""))
     .slice(0, 8)
     .map(event => `<article class="seo-upcoming-card">
@@ -250,6 +251,7 @@ function homepageUpcomingMarkup(events) {
           <p>공식 출처 마지막 확인 ${escapeHtml(event.verifiedAt || "기록 없음")}</p>
           <a class="seo-upcoming-link" href="./events/${encodeURIComponent(event.id)}">직접 작성한 공연 가이드 보기 →</a>
         </article>`).join("\n");
+  if (!cards) return "";
   return `<section class="seo-upcoming" aria-labelledby="seoUpcomingTitle">
       <div class="seo-upcoming-heading">
         <div><span class="section-kicker">EDITOR'S VERIFIED PICKS</span><h2 id="seoUpcomingTitle"><span class="seo-upcoming-title-full">직접 확인한 다가오는 공연</span><span class="seo-upcoming-title-mobile">직접 확인한 공연</span></h2></div>
@@ -323,12 +325,12 @@ function renderEventPage({ event, events, group, primary, editorial, siteUrl, te
   const description = `${event.artist} 내한 공연은 ${dates} ${event.venue}에서 열립니다. 예매 일정, 교통, 대표곡과 공식 출처를 확인하세요.`;
   const artistIntro = editorial.artists[event.artist] || `${event.artist}의 한국 공연입니다. 공식 발표와 예매처 정보를 기준으로 일정을 정리했습니다.`;
   const venueGuide = editorial.venues[event.venue] || `${event.venue} 방문 전 공식 공연장 안내에서 대중교통, 주차와 입장 게이트를 확인하세요.`;
-  const ticketTip = editorial.ticketTips[event.vendor] || "공식 예매처 로그인과 본인인증, 결제수단을 미리 점검하고 예매 제한 매수를 확인하세요.";
   const songs = (event.songs || []).map(song => song[0]).filter(Boolean);
   const songGuide = songs.length ? `${songs.join(", ")} 순서로 들어보면 ${event.artist}의 음악 색깔을 빠르게 파악할 수 있습니다. 각 곡은 공식 YouTube 영상으로 연결됩니다.` : `${event.artist}의 공식 YouTube 채널에서 최근 대표곡과 라이브 영상을 확인하세요.`;
   const seriesSummary = group.length > 1 ? `이번 내한은 ${group.length}회 공연으로 진행됩니다. 날짜별 공연 시각과 예매 조건이 달라질 수 있으므로 선택한 회차를 확인하세요.` : "현재 공식 확인된 한국 공연은 1회입니다. 추가 회차나 운영 변경은 연결된 공식 출처에서 다시 확인합니다.";
   const robots = indexable ? "index,follow,max-image-preview:large" : "noindex,follow";
-  const detailGuides = [richEventGuideMarkup(event, editorial), ticketGuideMarkup(event, editorial)].filter(Boolean).join("\n            ");
+  const ticketAnalysis = ticketGuideMarkup(event, editorial);
+  const detailGuides = [richEventGuideMarkup(event, editorial)].filter(Boolean).join("\n            ");
 
   return template
     .replace("<head>", `<head>${indexable ? `\n  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3081918168688274" crossorigin="anonymous"></script>\n${fundingChoicesSnippet}` : ""}`)
@@ -346,7 +348,7 @@ function renderEventPage({ event, events, group, primary, editorial, siteUrl, te
     .replace('<ul class="series-date-list" id="seriesDates"></ul>', `<ul class="series-date-list" id="seriesDates">${seriesDatesMarkup(group, event.id)}</ul>`)
     .replace('<p id="artistIntro"></p>', `<p id="artistIntro">${escapeHtml(artistIntro)}</p><a class="artist-profile-link" href="../artists/${encodeURIComponent(artistSlug(event))}">${escapeHtml(event.artist)} 아티스트 페이지 →</a>`)
     .replace('<p id="venueGuide"></p>', `<p id="venueGuide">${escapeHtml(venueGuide)}</p>${venueGuideLink(event, editorial)}`)
-    .replace('<p id="ticketTip"></p>', `<p id="ticketTip">${escapeHtml(ticketTip)}</p>`)
+    .replace('<!-- EVENT_TICKET_ANALYSIS -->', ticketAnalysis || "<!-- no event-specific ticket analysis -->")
     .replace('<ul class="check-list" id="dayChecklist"></ul>', `<ul class="check-list" id="dayChecklist">${checklistMarkup(event)}</ul>`)
     .replace('<p id="songGuide"></p>', `<p id="songGuide">${escapeHtml(songGuide)}</p>`)
     .replace('<div class="song-list" id="eventSongs"></div>', `<div class="song-list" id="eventSongs">${songsMarkup(event)}</div>`)
@@ -492,6 +494,20 @@ function venueFacilityMapMarkup(slug, sections) {
     </section>`;
 }
 
+function venueVerificationMarkup(guide) {
+  const rows = [
+    ["공식 확인 정보", guide.officialFacts],
+    ["공연별로 다시 확인", guide.eventSpecific],
+    ["확인되지 않았을 때의 대안", guide.unknownAction]
+  ].filter(([, value]) => value);
+  if (!rows.length) return "";
+  return `<section class="venue-decision-guide venue-verification-guide">
+      <span class="section-kicker">CHECK BEFORE YOU GO</span><h2>확인된 정보와 당일 확인 항목</h2>
+      <dl class="analysis-list">${rows.map(([label, value]) => `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>`).join("")}</dl>
+      <a class="inline-guide-link" href="#venue-sources">공식 시설·교통 안내 열기 →</a>
+    </section>`;
+}
+
 function venuePageHtml(slug, guide, siteUrl) {
   const canonical = `${siteUrl}/calendar/guides/venues/${encodeURIComponent(slug)}`;
   const sections = [
@@ -511,6 +527,7 @@ function venuePageHtml(slug, guide, siteUrl) {
       <span class="section-kicker">BEFORE YOU GO</span><h2>처음 가기 전에 먼저 정할 것</h2><p>${escapeHtml(guide.firstDecision)}</p>
       <h3>공연별로 다시 확인할 것</h3><p>${escapeHtml(guide.variable)}</p>
     </section>` : "";
+  const verificationGuide = venueVerificationMarkup(guide);
   const socialImage = `${siteUrl}/calendar/assets/brand/j-live-social-card.png`;
   const articleData = {
     "@context": "https://schema.org",
@@ -544,7 +561,7 @@ function venuePageHtml(slug, guide, siteUrl) {
   <meta property="og:image" content="${escapeHtml(socialImage)}"><meta property="og:image:alt" content="제이라이브 코리아 로고">
   <meta name="twitter:card" content="summary_large_image">
   <title>${escapeHtml(title)} | 제이라이브 코리아</title>
-  <link rel="canonical" href="${escapeHtml(canonical)}"><link rel="stylesheet" href="../../styles.css?v=20260825conversion1">
+  <link rel="canonical" href="${escapeHtml(canonical)}"><link rel="stylesheet" href="../../styles.css?v=20260906content1">
   <script type="application/ld+json">${JSON.stringify(articleData)}</script>
   <script type="application/ld+json">${JSON.stringify(breadcrumbData)}</script>
 </head><body><div class="shell info-shell">
@@ -553,6 +570,7 @@ function venuePageHtml(slug, guide, siteUrl) {
     <p class="guide-lead">${escapeHtml(guide.summary)}</p>
     <p class="guide-updated"><a href="../../about" rel="author">여일육 작성</a> · <a href="../verification">편집·검증 기준</a> · 마지막 시설 확인 ${escapeHtml(guide.verifiedAt)}</p>
     ${decisionGuide}
+    ${verificationGuide || "<!-- no venue verification details -->"}
     <nav class="venue-section-nav" aria-label="이 페이지 목차">${facilityMap ? '<a href="#facility-map">시설 지도</a>' : ""}${sections.map(([, title], index) => `<a href="#venue-${index + 1}">${escapeHtml(title)}</a>`).join("")}</nav>
     ${facilityMap}
     ${sections.map(([, title, body], index) => `<section id="venue-${index + 1}"><h2>${escapeHtml(title)}</h2><p>${escapeHtml(body)}</p></section>`).join("\n    ")}
@@ -755,11 +773,11 @@ function main() {
     path: `/calendar/guides/venues/${encodeURIComponent(slug)}`,
     lastmod: guide.verifiedAt || today
   }));
-  const staticPaths = ["/calendar/", "/calendar/about", "/calendar/artists/", "/calendar/fanclubs/", "/calendar/guides/venues/", "/calendar/guides/verification", "/calendar/reports/2026-jpop-live", "/calendar/stories/why-j-live"];
+  const staticPaths = ["/calendar/", "/calendar/about", "/calendar/artists/", "/calendar/fanclubs/", "/calendar/festivals/wonderlivet-2026", "/calendar/guides/venues/", "/calendar/guides/verification", "/calendar/reports/2026-jpop-live", "/calendar/stories/why-j-live"];
   const primaryEvents = futurePrimaryEvents.filter(event => hasIndexableEventContent(event, editorial));
   const homepage = homepageTemplate.replace(
     /<!-- SEO_UPCOMING_START -->[\s\S]*?<!-- SEO_UPCOMING_END -->/,
-    `<!-- SEO_UPCOMING_START -->\n    ${homepageUpcomingMarkup(primaryEvents)}\n    <!-- SEO_UPCOMING_END -->`
+    `<!-- SEO_UPCOMING_START -->\n    ${homepageUpcomingMarkup(primaryEvents, today)}\n    <!-- SEO_UPCOMING_END -->`
   );
   writeUtf8(path.join(calendar, "index.html"), homepage);
   const lastmod = today;

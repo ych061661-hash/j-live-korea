@@ -8,13 +8,16 @@
     "dates": ["2026-11-20", "2026-11-21", "2026-11-22"],
     "ticketDate": "2026-09-01",
     "ticketTime": "오후 8:00",
+    "ticketStatus": "official_page_open",
+    "ticketStatusVerifiedAt": "2026-09-06",
     "officialUrl": "https://litt.ly/wonderlivet",
     "festflowUrl": "https://festflow.kr/festivals/wonderlivet-2026",
     "socialUrl": "https://www.instagram.com/wonderlivet/",
-    "ticketUrl": "https://ticket.melon.com/csoon/detail.htm?csoonId=12762",
+    "ticketUrl": "https://ticket.melon.com/performance/index.htm?prodId=213793",
     "sources": [
       "https://litt.ly/wonderlivet",
       "https://ticket.melon.com/csoon/detail.htm?csoonId=12762",
+      "https://ticket.melon.com/performance/index.htm?prodId=213793",
       "https://prtimes.jp/main/html/rd/p/000004324.000011710.html"
     ],
     "days": [

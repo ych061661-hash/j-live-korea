@@ -94,11 +94,20 @@ test("renders crawlable upcoming concert facts on the homepage", () => {
   const html = homepageUpcomingMarkup([{
     id: "artist-2026-09-01", artist: "Artist", genre: "J-POP", concertDate: "2026-09-01", time: "오후 7:00",
     venue: "Venue", ticketDate: "2026-08-01", ticketTime: "오후 8:00", presaleDate: "", verifiedAt: "2026-08-15"
-  }]);
+  }], "2026-09-01");
   assert.match(html, /직접 확인한 다가오는 공연/);
   assert.match(html, /2026년 9월 1일/);
   assert.match(html, /공식 발표 없음/);
   assert.match(html, /\.\/events\/artist-2026-09-01/);
+});
+
+test("omits past concerts from crawlable homepage picks", () => {
+  const html = homepageUpcomingMarkup([
+    { id: "past", artist: "Past", concertDate: "2026-09-05" },
+    { id: "future", artist: "Future", concertDate: "2026-09-07" }
+  ], "2026-09-06");
+  assert.doesNotMatch(html, /Past/);
+  assert.match(html, /Future/);
 });
 
 test("publishes an original annual data report without double-counting multi-date series", () => {
@@ -142,7 +151,7 @@ test("renders verified seat prices without a handwritten ticket guide", () => {
 });
 
 test("renders every requested venue section", () => {
-  const guide = { name: "Hall", summary: "요약", seoTitle: "Hall 위치·좌석 안내", firstDecision: "교통편과 좌석층을 먼저 정합니다.", variable: "당일 입장구와 보관 운영을 다시 확인합니다.", transit: "교통", capacity: "1,000석", arrival: "입장", restroom: "화장실", storage: "보관", parking: "관객 주차 없음", waiting: "대기", nearby: "식사", return: "귀가", verifiedAt: "2026-07-20", sources: [] };
+  const guide = { name: "Hall", summary: "요약", seoTitle: "Hall 위치·좌석 안내", firstDecision: "교통편과 좌석층을 먼저 정합니다.", variable: "당일 입장구와 보관 운영을 다시 확인합니다.", officialFacts: "공식 도면에서 확인한 시설입니다.", eventSpecific: "당일 게이트는 공연마다 다릅니다.", unknownAction: "공식 출처를 다시 확인하세요.", transit: "교통", capacity: "1,000석", arrival: "입장", restroom: "화장실", storage: "보관", parking: "관객 주차 없음", waiting: "대기", nearby: "식사", return: "귀가", verifiedAt: "2026-07-20", sources: [] };
   const html = venuePageHtml("hall", guide, "https://j-live.kr");
   for (const heading of ["지하철·버스에서 공연장까지", "좌석·수용 규모", "입장 줄까지의 동선", "화장실", "물품 보관", "관객 주차", "스탠딩·현장 대기", "귀가와 막차"]) assert.match(html, new RegExp(heading));
   assert.doesNotMatch(html, /주변 식사·카페/);
@@ -154,6 +163,8 @@ test("renders every requested venue section", () => {
   assert.match(html, /처음 가기 전에 먼저 정할 것/);
   assert.match(html, /공연별로 다시 확인할 것/);
   assert.match(html, /교통편과 좌석층을 먼저 정합니다/);
+  assert.match(html, /확인된 정보와 당일 확인 항목/);
+  assert.match(html, /공식 도면에서 확인한 시설입니다/);
   assert.match(html, /"@type":"Article"/);
   assert.match(html, /"@type":"BreadcrumbList"/);
   assert.doesNotMatch(html, /pagead2\.googlesyndication\.com/);

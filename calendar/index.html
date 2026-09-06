@@ -19,7 +19,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="./assets/brand/j-live-app-logo.png">
   <link rel="apple-touch-icon" href="./assets/brand/j-live-app-logo.png">
-  <link rel="stylesheet" href="./styles.css?v=20260828record-disclosure1">
+  <link rel="stylesheet" href="./styles.css?v=20260906content1">
   <script src="./site-config.js?v=20260808ea"></script>
   <script src="./site.js?v=20260825conversion1" defer></script>
 </head>
@@ -30,7 +30,7 @@
       <nav class="minimal-nav" aria-label="주요 메뉴">
         <a href="#calendar">공연 찾기</a>
         <a href="#guideTitle">예매 가이드</a>
-        <a href="#myShows">내 저장 목록</a>
+        <a id="myShowsNav" href="#myShows" hidden>내 저장 목록</a>
       </nav>
       <div class="header-actions">
         <a class="ghost-button" href="./about">사이트 소개</a>
@@ -64,7 +64,7 @@
       <div class="weekend-events" id="weekendEvents" aria-live="polite"></div>
     </section>
 
-    <main class="app">
+    <main class="app" hidden aria-busy="true">
       <section class="calendar-area">
         <div class="artist-search">
           <div class="artist-search-heading">
@@ -152,17 +152,6 @@
         <div class="seo-upcoming-heading-copy"><p>공식 예매처와 주최사 발표를 대조하고, 아티스트별 관전 포인트와 공연장 이동 계획까지 직접 작성한 일정만 모았습니다.</p><a class="seo-upcoming-all" href="#calendar">전체 일정 보기 <span aria-hidden="true">→</span></a></div>
       </div>
       <div class="seo-upcoming-grid"><article class="seo-upcoming-card">
-          <div><span class="section-kicker">J-ROCK / ROCK</span><h3><a href="./events/spyair-2026-09-05">SPYAIR</a></h3></div>
-          <dl>
-            <div><dt>공연</dt><dd>2026년 9월 5일(토) 오후 6:00</dd></div>
-            <div><dt>공연장</dt><dd>킨텍스 제2전시장 후면광장</dd></div>
-            <div><dt>일반예매</dt><dd>2026년 5월 29일(금) 오후 8:00</dd></div>
-            <div><dt>선예매</dt><dd>공식 발표 없음</dd></div>
-          </dl>
-          <p>공식 출처 마지막 확인 2026-08-24</p>
-          <a class="seo-upcoming-link" href="./events/spyair-2026-09-05">직접 작성한 공연 가이드 보기 →</a>
-        </article>
-<article class="seo-upcoming-card">
           <div><span class="section-kicker">J-POP / ROCK</span><h3><a href="./events/back-number-2026-09-12">back number</a></h3></div>
           <dl>
             <div><dt>공연</dt><dd>2026년 9월 12일(토) 오후 6:00</dd></div>
@@ -170,7 +159,7 @@
             <div><dt>일반예매</dt><dd>2026년 4월 22일(수) 오후 7:00</dd></div>
             <div><dt>선예매</dt><dd>공식 발표 없음</dd></div>
           </dl>
-          <p>공식 출처 마지막 확인 2026-08-24</p>
+          <p>공식 출처 마지막 확인 2026-09-06</p>
           <a class="seo-upcoming-link" href="./events/back-number-2026-09-12">직접 작성한 공연 가이드 보기 →</a>
         </article>
 <article class="seo-upcoming-card">
@@ -181,7 +170,7 @@
             <div><dt>일반예매</dt><dd>2026년 6월 8일(월) 오후 6:00</dd></div>
             <div><dt>선예매</dt><dd>공식 발표 없음</dd></div>
           </dl>
-          <p>공식 출처 마지막 확인 2026-08-24</p>
+          <p>공식 출처 마지막 확인 2026-09-06</p>
           <a class="seo-upcoming-link" href="./events/ryosuke-yamada-2026-09-13">직접 작성한 공연 가이드 보기 →</a>
         </article>
 <article class="seo-upcoming-card">
@@ -192,7 +181,7 @@
             <div><dt>일반예매</dt><dd>2026년 3월 11일(수) 오후 8:00</dd></div>
             <div><dt>선예매</dt><dd>공식 발표 없음</dd></div>
           </dl>
-          <p>공식 출처 마지막 확인 2026-08-17</p>
+          <p>공식 출처 마지막 확인 2026-09-06</p>
           <a class="seo-upcoming-link" href="./events/vaundy-2026-09-19">직접 작성한 공연 가이드 보기 →</a>
         </article>
 <article class="seo-upcoming-card">
@@ -238,11 +227,22 @@
           </dl>
           <p>공식 출처 마지막 확인 2026-07-25</p>
           <a class="seo-upcoming-link" href="./events/t-square-2026-10-11">직접 작성한 공연 가이드 보기 →</a>
+        </article>
+<article class="seo-upcoming-card">
+          <div><span class="section-kicker">J-POP / ALT-POP</span><h3><a href="./events/ano-2026-10-17">ano</a></h3></div>
+          <dl>
+            <div><dt>공연</dt><dd>2026년 10월 17일(토) 오후 6:00</dd></div>
+            <div><dt>공연장</dt><dd>블루스퀘어 우리WON뱅킹홀</dd></div>
+            <div><dt>일반예매</dt><dd>2026년 7월 21일(화) 오후 8:00</dd></div>
+            <div><dt>선예매</dt><dd>공식 발표 없음</dd></div>
+          </dl>
+          <p>공식 출처 마지막 확인 2026-07-25</p>
+          <a class="seo-upcoming-link" href="./events/ano-2026-10-17">직접 작성한 공연 가이드 보기 →</a>
         </article></div>
     </section>
     <!-- SEO_UPCOMING_END -->
 
-    <section class="my-shows" id="myShows" aria-labelledby="myShowsTitle">
+    <section class="my-shows" id="myShows" aria-labelledby="myShowsTitle" hidden>
       <div class="my-shows-overview">
         <div class="my-shows-heading">
           <div>
@@ -323,7 +323,7 @@
       </section>
       </details>
     </section>
-    <section class="attendance-board" aria-labelledby="attendanceTitle">
+    <section class="attendance-board" id="attendanceBoard" aria-labelledby="attendanceTitle" hidden>
       <div class="attendance-board-heading">
         <div>
           <span class="section-kicker">2026 AUDIENCE</span>
@@ -379,6 +379,6 @@
   <script src="./attendance.js?v=20260813" defer></script>
   <script src="./alerts.js?v=20260729" defer></script>
   <script src="./search-utils.js?v=20260825conversion1" defer></script>
-  <script src="./app.js?v=20260828wonderlivet-calendar1" defer></script>
+  <script src="./app.js?v=20260906content1" defer></script>
 </body>
 </html>
