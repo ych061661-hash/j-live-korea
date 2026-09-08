@@ -148,8 +148,11 @@ function checklistMarkup(event) {
   return items.map(item => `<li>${escapeHtml(item)}</li>`).join("\n");
 }
 
-function songsMarkup(event) {
-  return (event.songs || []).map(song => `<a class="song" href="${escapeHtml(song[2])}" target="_blank" rel="noopener noreferrer"><span class="play">▶</span><span>${escapeHtml(song[0])}</span><em>${escapeHtml(song[1] || "")}</em></a>`).join("\n");
+function songsMarkup(event, songGuides = []) {
+  return (event.songs || []).map((song, index) => {
+    const guide = songGuides[index];
+    return `<a class="song" href="${escapeHtml(song[2])}" target="_blank" rel="noopener noreferrer"><span class="play">▶</span><span>${escapeHtml(song[0])}</span><em>${escapeHtml(guide?.note || song[1] || "")}</em></a>`;
+  }).join("\n");
 }
 
 function sourcesMarkup(event) {
@@ -210,7 +213,6 @@ function venueGuideLink(event, editorial) {
 function richEventGuideMarkup(event, editorial) {
   const guide = editorial.eventGuides?.[event.artist];
   if (!guide) return "";
-  const songs = editorial.songGuides?.[event.artist] || [];
   const optionalSection = (title, value) => value ? `<h3>${title}</h3><p>${escapeHtml(value)}</p>` : "";
   return `<section class="editorial-section deep-guide">
               <div class="section-kicker">J-LIVE ORIGINAL</div>
@@ -219,8 +221,6 @@ function richEventGuideMarkup(event, editorial) {
               <h3>이번 공연의 관전 포인트</h3>
               <p>${escapeHtml(guide.focus)}</p>
               ${optionalSection("공연 전에 듣는 순서", guide.listening)}
-              <h3>입문용 추천곡 3곡</h3>
-              <ol class="track-guide">${songs.map(song => `<li><strong>${escapeHtml(song.title)}</strong><p>${escapeHtml(song.note)}</p></li>`).join("")}</ol>
               ${optionalSection("공연장 도착과 귀가 계획", guide.plan)}
             </section>`;
 }
@@ -358,7 +358,7 @@ function renderEventPage({ event, events, group, primary, editorial, siteUrl, te
     .replace('<!-- EVENT_TICKET_ANALYSIS -->', ticketAnalysis || "<!-- no event-specific ticket analysis -->")
     .replace('<ul class="check-list" id="dayChecklist"></ul>', `<ul class="check-list" id="dayChecklist">${checklistMarkup(event)}</ul>`)
     .replace('<p id="songGuide"></p>', `<p id="songGuide">${escapeHtml(songGuide)}</p>`)
-    .replace('<div class="song-list" id="eventSongs"></div>', `<div class="song-list" id="eventSongs">${songsMarkup(event)}</div>`)
+    .replace('<div class="song-list" id="eventSongs"></div>', `<div class="song-list" id="eventSongs">${songsMarkup(event, editorial.songGuides?.[event.artist] || [])}</div>`)
     .replace('<div class="related-event-grid" id="relatedEvents"></div>', `<div class="related-event-grid" id="relatedEvents">${relatedEventsMarkup(event, events, today)}</div>`)
     .replace(/<section class="editorial-section">\s*<div class="section-kicker">SOURCES<\/div>/, `${detailGuides ? `${detailGuides}\n            ` : ""}<section class="editorial-section">\n              <div class="section-kicker">SOURCES</div>`)
     .replace('<div class="source-links" id="eventSources"></div>', `<div class="source-links" id="eventSources">${sourcesMarkup(event)}</div>`)
