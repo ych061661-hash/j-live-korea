@@ -1,4 +1,13 @@
 /  /calendar/  301
+/contact  /calendar/contact  301
+/corrections  /calendar/corrections  301
+/calendar/guides/yes24-ticketing  /calendar/guides/verification  301
+/calendar/guides/yes24-ticketing.html  /calendar/guides/verification  301
+/calendar/guides/ticketing  /calendar/guides/verification  301
+/calendar/guides/ticketing.html  /calendar/guides/verification  301
+/calendar/guides/first-jpop-concert.html  /calendar/guides/verification  301
+/calendar/guides/olympic-park  /calendar/guides/venues/olympic-hall  301
+/calendar/guides/olympic-park.html  /calendar/guides/venues/olympic-hall  301
 /calendar/admin*  /404  404!
 /calendar/months/*  /calendar/  301
 /calendar/guides/venues.html  /calendar/guides/venues/  301
