@@ -3083,5 +3083,56 @@
     ],
     "priceVerifiedAt": "2026-08-17",
     "youtubeProfileImage": "./assets/artists/kawasaki-takaya.jpg"
+  },
+  {
+    "id": "homecomings-2026-12-13",
+    "artist": "Homecomings",
+    "genre": "J-POP / INDIE ROCK",
+    "concertDate": "2026-12-13",
+    "time": "오후 5:00",
+    "venue": "무신사 개러지",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "2026-08-31",
+    "ticketTime": "오후 7:00",
+    "price": 88000,
+    "priceCurrency": "KRW",
+    "vendor": "멜론티켓",
+    "vendorUrl": "https://ticket.melon.com/performance/index.htm?prodId=213806",
+    "youtubeChannel": "@homecomingsch",
+    "songs": [
+      [
+        "angel near you",
+        "",
+        "https://www.youtube.com/watch?v=vGtRxwQOzlo"
+      ],
+      [
+        "slowboat",
+        "",
+        "https://www.youtube.com/watch?v=ztZEy5htxLI"
+      ],
+      [
+        "US",
+        "",
+        "https://www.youtube.com/watch?v=f191jgQX1UA"
+      ]
+    ],
+    "status": "pending",
+    "sources": [
+      "https://ticket.melon.com/csoon/detail.htm?csoonId=12775",
+      "https://ticket.melon.com/performance/index.htm?prodId=213806",
+      "https://ponycanyon.us/musician/homecomings/",
+      "https://www.youtube.com/@homecomingsch"
+    ],
+    "verifiedAt": "2026-09-08",
+    "createdAt": "2026-09-08T00:00:00+09:00",
+    "seatPrices": [
+      {
+        "name": "전석 스탠딩",
+        "price": 88000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "priceVerifiedAt": "2026-09-08"
   }
 ]

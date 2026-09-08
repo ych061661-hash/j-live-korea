@@ -1,5 +1,33 @@
 [
   {
+    "id": "2026-09-08-ticket-open-homecomings-2026-12-13",
+    "date": "2026-09-08",
+    "kind": "ticket-open",
+    "label": "티켓 오픈",
+    "artist": "Homecomings",
+    "eventId": "homecomings-2026-12-13",
+    "concertDate": "2026-12-13",
+    "summary": "예매 일정이 공개됐습니다. 일반예매 2026년 8월 31일(월) 오후 7:00.",
+    "url": "https://ticket.melon.com/csoon/detail.htm?csoonId=12775",
+    "verifiedAt": "2026-09-08",
+    "recordedAt": "2026-09-08",
+    "dateMeaning": "recorded"
+  },
+  {
+    "id": "2026-09-08-announcement-homecomings-2026-12-13",
+    "date": "2026-09-08",
+    "kind": "announcement",
+    "label": "신규 공연",
+    "artist": "Homecomings",
+    "eventId": "homecomings-2026-12-13",
+    "concertDate": "2026-12-13",
+    "summary": "2026년 12월 13일(일) 오후 5:00 무신사 개러지 공연이 발표됐습니다.",
+    "url": "https://ticket.melon.com/csoon/detail.htm?csoonId=12775",
+    "verifiedAt": "2026-09-08",
+    "recordedAt": "2026-09-08",
+    "dateMeaning": "recorded"
+  },
+  {
     "id": "2026-08-17-ticket-open-kawasaki-takaya-2026-12-20",
     "date": "2026-08-17",
     "kind": "ticket-open",
