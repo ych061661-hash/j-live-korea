@@ -97,7 +97,7 @@ test("renders crawlable upcoming concert facts on the homepage", () => {
   }], "2026-09-01");
   assert.match(html, /직접 확인한 다가오는 공연/);
   assert.match(html, /2026년 9월 1일/);
-  assert.match(html, /공식 발표 없음/);
+  assert.match(html, /공지 미확인/);
   assert.match(html, /\.\/events\/artist-2026-09-01/);
 });
 
@@ -118,11 +118,13 @@ test("publishes an original annual data report without double-counting multi-dat
     { ...shared, id: "other", artist: "Other", vendorUrl: "https://ticket.example/other", concertDate: "2026-04-01", price: 88000, presaleDate: "" }
   ], "https://j-live.kr", "2026-08-15");
   assert.match(html, /확인된 공연 시리즈<\/span><strong>2<\/strong>/);
-  assert.match(html, /실제 공연일<\/span><strong>3<\/strong>/);
+  assert.match(html, /확인된 공연 회차<\/span><strong>3<\/strong>/);
   assert.match(html, /참여 아티스트<\/span><strong>2<\/strong>/);
   assert.match(html, /선예매는 1\/2개 시리즈/);
   assert.match(html, /93,500원/);
   assert.match(html, /"@type":"Dataset"/);
+  assert.match(html, /3월<\/strong><span>2회차/);
+  assert.match(html, /분석에 사용한 전체 공연 기록/);
   assert.doesNotMatch(html, /pagead2\.googlesyndication\.com/);
 });
 

@@ -196,13 +196,14 @@ const updateLabels = {
   announcement: "신규 공연", "ticket-open": "티켓 오픈", "ticket-change": "예매 일정 변경", "extra-show": "추가 회차",
   "extra-seat": "추가 좌석", restock: "취소표", cancellation: "취소", postponement: "연기"
 };
-const snapshotFields = ["artist", "concertDate", "time", "venue", "vendor", "vendorUrl", "ticketDate", "ticketTime", "presaleDate", "presaleTime", "status", "ticketLabel", "verifiedAt", "sources"];
+const snapshotFields = ["artist", "concertDate", "time", "venue", "vendor", "vendorUrl", "ticketDate", "ticketTime", "presaleDate", "presaleTime", "presaleStatus", "status", "ticketLabel", "verifiedAt", "sources"];
 const snapshotEvents = events => Object.fromEntries(events.map(event => [event.id, Object.fromEntries(snapshotFields.map(field => [field, event[field] ?? null]))]));
 const updateId = (event, kind, date) => `${date}-${kind}-${event.id}`.replace(/[^a-zA-Z0-9가-힣._-]+/g, "-");
 const makeUpdate = (event, kind, date, summary) => ({
   id: updateId(event, kind, date), date, kind, label: updateLabels[kind], artist: event.artist,
   eventId: event.id, concertDate: event.concertDate, summary,
-  url: event.sources?.[0] || event.vendorUrl || "", verifiedAt: event.verifiedAt || date
+  url: event.sources?.[0] || event.vendorUrl || "", verifiedAt: event.verifiedAt || date,
+  recordedAt: date, dateMeaning: "recorded"
 });
 
 function classifyTicketLabel(label = "") {
@@ -262,7 +263,9 @@ function buildUpdateHistory(events, previousSnapshot = {}, previousUpdates = [],
       if (special && before.ticketLabel !== event.ticketLabel) additions.push(makeUpdate(event, special, date, `${event.ticketLabel} 일정이 ${humanDate(event.ticketDate, event.ticketTime)}로 확인됐습니다.`));
     }
   }
-  const merged = new Map(previousUpdates.map(update => [update.id, update]));
+  const merged = new Map(previousUpdates.map(update => [update.id, update.dateMeaning ? update : {
+    ...update, recordedAt: update.date, dateMeaning: "recorded"
+  }]));
   for (const update of additions) merged.set(update.id, update);
   const deduped = new Map();
   for (const update of merged.values()) {
@@ -274,12 +277,23 @@ function buildUpdateHistory(events, previousSnapshot = {}, previousUpdates = [],
 
 function updatesPageHtml({ updates, siteUrl, validEventIds = null }) {
   const hasPage = eventId => eventId && (!validEventIds || validEventIds.has(eventId));
-  const cards = updates.slice(0, 100).map(update => `<article class="update-card" data-kind="${escapeHtml(update.kind)}"><time>${escapeHtml(humanDate(update.date))}</time><span>${escapeHtml(update.label)}</span><h2>${escapeHtml(update.artist)}</h2><p>${escapeHtml(update.summary)}</p><div>${hasPage(update.eventId) ? `<a href="./events/${encodeURIComponent(update.eventId)}">공연 정보</a>` : update.eventId ? '<span class="update-pending">상세 검증 중</span>' : ""}${update.url ? `<a href="${escapeHtml(update.url)}" target="_blank" rel="noopener noreferrer">공식 출처 ↗</a>` : ""}</div></article>`).join("");
+  const cards = updates.slice(0, 100).map(update => {
+    const date = update.recordedAt || update.date;
+    const recorded = update.dateMeaning === "recorded" || !update.dateMeaning;
+    const label = recorded && ["announcement", "ticket-open"].includes(update.kind) ? "J-LIVE 기록" : update.label;
+    const dateNote = recorded ? "J-LIVE에 정보를 추가하거나 공식 내용을 다시 확인한 날" : "공식 발표·변경일";
+    const summary = recorded && update.kind === "announcement"
+      ? update.summary.replace(/공연이 (?:발표됐습니다|공식 확인됐습니다)\.?$/, "공연 정보를 J-LIVE에 추가했습니다. 공식 발표일은 출처에서 확인하세요.")
+      : recorded && update.kind === "ticket-open"
+        ? update.summary.replace(/^예매 일정이 공개됐습니다\./, "예매 일정을 J-LIVE에 기록했습니다.")
+        : update.summary;
+    return `<article class="update-card" data-kind="${escapeHtml(update.kind)}"><time datetime="${escapeHtml(date)}">${escapeHtml(humanDate(date))}</time><span>${escapeHtml(label)}</span><h2>${escapeHtml(update.artist)}</h2><p>${escapeHtml(summary)}</p><small class="update-date-note">${escapeHtml(dateNote)}</small><div>${hasPage(update.eventId) ? `<a href="./events/${encodeURIComponent(update.eventId)}">공연 정보</a>` : update.eventId ? '<span class="update-pending">상세 검증 중</span>' : ""}${update.url ? `<a href="${escapeHtml(update.url)}" target="_blank" rel="noopener noreferrer">공식 출처 ↗</a>` : ""}</div></article>`;
+  }).join("");
   return pageShell({
     title: "J-POP 내한 공연 업데이트 | 제이라이브 코리아",
     description: "신규 공연, 예매 일정 변경, 추가 좌석·회차와 공연 취소·연기 기록을 날짜순으로 확인하세요.",
     canonical: `${siteUrl}/calendar/updates`,
-    body: `<main class="updates-page"><span class="section-kicker">CHANGELOG</span><h1>공연 업데이트</h1><p class="guide-lead">무엇이 언제 바뀌었는지 공식 출처와 함께 기록합니다.</p><div class="update-feed">${cards || '<p class="empty-row">기록된 변경 사항이 없습니다.</p>'}</div></main>`,
+    body: `<main class="updates-page"><span class="section-kicker">CHANGELOG</span><h1>공연 업데이트</h1><p class="guide-lead">공식 발표일과 J-LIVE 기록일을 구분해, 무엇이 언제 확인·변경됐는지 공식 출처와 함께 남깁니다.</p><div class="update-feed">${cards || '<p class="empty-row">기록된 변경 사항이 없습니다.</p>'}</div></main>`,
     siteUrl,
     depth: ".",
     robots: "noindex,follow",

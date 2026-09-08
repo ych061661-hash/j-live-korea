@@ -1,0 +1,28 @@
+name: Refresh weekly calendar
+
+on:
+  schedule:
+    # 00:10 Asia/Seoul (15:10 UTC on the previous day)
+    - cron: "10 15 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Regenerate static calendar using Korea date
+        run: TZ=Asia/Seoul BUILD_DATE="$(TZ=Asia/Seoul date +%F)" node tools/generate-seo-pages.js
+      - name: Commit current weekly page when changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add calendar/weekly calendar/index.html calendar/updates.html calendar/data/updates.json calendar/reports sitemap.xml robots.txt calendar/events calendar/artists calendar/guides
+          git diff --cached --quiet || git commit -m "Refresh weekly calendar"
+          git push

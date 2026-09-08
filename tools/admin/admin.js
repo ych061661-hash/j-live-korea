@@ -53,7 +53,7 @@ function setField(name, value = "") {
 function editEvent(event) {
   state.selectedId = event?.id || null;
   form.reset();
-  for (const name of ["id", "artist", "genre", "concertDate", "time", "venue", "ticketDate", "ticketTime", "presaleDate", "presaleTime", "vendor", "vendorUrl", "price", "priceCurrency", "youtubeChannel", "verifiedAt", "status", "cancellationReason"]) {
+  for (const name of ["id", "artist", "genre", "concertDate", "time", "venue", "ticketDate", "ticketTime", "presaleDate", "presaleTime", "presaleStatus", "vendor", "vendorUrl", "price", "priceCurrency", "youtubeChannel", "verifiedAt", "status", "cancellationReason"]) {
     setField(name, event?.[name] ?? (name === "status" ? "pending" : name === "priceCurrency" ? "KRW" : ""));
   }
   setField("sources", (event?.sources || []).join("\n"));

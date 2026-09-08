@@ -25,6 +25,12 @@ test("accepts a complete confirmed event", () => {
   assert.deepEqual(validateEvent(normalizeEvent(valid)), []);
 });
 
+test("preserves supported presale status values and clears unsupported values", () => {
+  assert.equal(normalizeEvent({ ...valid, presaleStatus: "none" }).presaleStatus, "none");
+  assert.equal(normalizeEvent({ ...valid, presaleStatus: "checking" }).presaleStatus, "checking");
+  assert.equal(normalizeEvent({ ...valid, presaleStatus: "unknown" }).presaleStatus, "");
+});
+
 test("blocks incomplete approval and duplicate concerts", () => {
   const event = normalizeEvent({ ...valid, songs: [], ticketTime: "" });
   const errors = validateEvent(event, [{ ...event, id: "duplicate" }]);

@@ -22,6 +22,13 @@ function humanDate(value, time = "") {
   return time ? `${text} ${time}` : text;
 }
 
+function presaleDisplay(event) {
+  if (event.presaleDate) return humanDate(event.presaleDate, event.presaleTime);
+  if (event.presaleStatus === "none") return "없음";
+  if (event.presaleStatus === "checking") return "확인 중";
+  return "공지 미확인";
+}
+
 function songTitles(event) {
   return (event.songs || [])
     .map(song => song[0])
@@ -186,7 +193,7 @@ function renderEvent(event, events) {
 
   document.querySelector("#factDate").textContent = humanDate(event.concertDate, event.time);
   document.querySelector("#factVenue").textContent = event.venue;
-  document.querySelector("#factPresale").textContent = humanDate(event.presaleDate, event.presaleTime);
+  document.querySelector("#factPresale").textContent = presaleDisplay(event);
   document.querySelector("#factTicket").textContent = humanDate(event.ticketDate, event.ticketTime);
   document.querySelector("#factVendor").textContent = event.vendor || "미정";
   document.querySelector("#factAvailability").textContent = event.ticketAvailability === "sold_out"
@@ -194,9 +201,7 @@ function renderEvent(event, events) {
     : event.ticketAvailability === "in_stock"
       ? "판매 중"
       : "공식 예매처 확인";
-  document.querySelector("#eventVerified").textContent = event.verifiedAt
-    ? `마지막 검증일: ${event.verifiedAt} · 이후 공식 발표로 정보가 변경될 수 있습니다.`
-    : "검증일이 기록되지 않았습니다.";
+  document.querySelector("#eventVerified").textContent = `일정 확인 ${event.scheduleVerifiedAt || event.verifiedAt || "미확인"} · 가격 확인 ${event.priceVerifiedAt || "미확인"} · 판매 상태 확인 ${event.ticketStatusVerifiedAt || "미확인"} · 글 수정 ${event.articleUpdatedAt || event.verifiedAt || "미확인"}`;
 
   const ticket = document.querySelector("#eventTicket");
   ticket.hidden = !event.vendorUrl;

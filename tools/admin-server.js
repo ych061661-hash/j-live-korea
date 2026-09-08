@@ -71,6 +71,7 @@ function normalizeEvent(input, previous = {}) {
     venue: text("venue"),
     presaleDate: text("presaleDate"),
     presaleTime: text("presaleTime"),
+    presaleStatus: ["", "none", "checking"].includes(text("presaleStatus")) ? text("presaleStatus") : "",
     ticketDate: text("ticketDate"),
     ticketTime: text("ticketTime"),
     vendor: text("vendor"),

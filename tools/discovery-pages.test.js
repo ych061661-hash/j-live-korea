@@ -141,6 +141,14 @@ test("uses calendar-relative assets on the update page", () => {
   const html = updatesPageHtml({ updates: [], siteUrl: "https://j-live.kr" });
   assert.match(html, /href="\.\/styles\.css/);
   assert.match(html, /src="\.\/site\.js\?v=20260825conversion1"/);
+  assert.match(html, /공식 발표일과 J-LIVE 기록일을 구분/);
+});
+
+test("labels inferred historical dates as J-LIVE records", () => {
+  const html = updatesPageHtml({ updates: [{ date: "2026-08-13", kind: "ticket-open", label: "티켓 오픈", artist: "Band", summary: "예매 일정이 공개됐습니다. 일반예매 확인", eventId: "band", url: "" }], siteUrl: "https://j-live.kr" });
+  assert.match(html, /J-LIVE 기록/);
+  assert.match(html, /J-LIVE에 정보를 추가하거나 공식 내용을 다시 확인한 날/);
+  assert.match(html, /예매 일정을 J-LIVE에 기록했습니다/);
 });
 
 test("does not link update cards to events without a generated detail page", () => {

@@ -71,6 +71,8 @@ let alertSettings = window.JLIVE_ALERTS.read();
 let emptySearchTimer = 0;
 let myShowsFeatureSchedules = [];
 let myShowsFeatureIndex = 0;
+let mobileDetailHistoryActive = false;
+let mobileDetailScrollY = 0;
 const mobileQuery = window.matchMedia("(max-width: 820px)");
 
 const escapeHtml = (value = "") => String(value).replace(/[&<>"']/g, char => ({
@@ -135,6 +137,13 @@ function eventsForDate(key) {
     seenTicketEvents.add(eventKey);
     return true;
   });
+}
+
+function presaleDisplay(schedule) {
+  if (schedule.presaleDate) return formatScheduleDate(schedule.presaleDate, schedule.presaleTime);
+  if (schedule.presaleStatus === "none") return "없음";
+  if (schedule.presaleStatus === "checking") return "확인 중";
+  return "공지 미확인";
 }
 
 const formatWon = value => `${Math.max(0, Number(value) || 0).toLocaleString("ko-KR")}원`;
@@ -658,7 +667,7 @@ function renderMyShows() {
           <strong>${escapeHtml(schedule.artist)}</strong>
           <em>${escapeHtml(schedule.venue)} · ${escapeHtml(schedule.time || "시간 미정")}</em>
           <span class="my-show-sales">
-            <span><i class="presale"></i>선예매 <b>${escapeHtml(formatScheduleDate(schedule.presaleDate, schedule.presaleTime))}</b></span>
+            <span><i class="presale"></i>선예매 <b>${escapeHtml(presaleDisplay(schedule))}</b></span>
             <span><i class="ticket"></i>일반예매 <b>${escapeHtml(formatScheduleDate(schedule.ticketDate, schedule.ticketTime))}</b></span>
           </span>
         </button>
@@ -809,7 +818,7 @@ function renderDetail(schedule, type) {
   document.querySelector("#detailArtist").textContent = schedule.artist;
   document.querySelector("#detailDate").textContent = `${formatDate(schedule.concertDate)} · ${schedule.time || "시간 미정"}`;
   document.querySelector("#detailVenue").textContent = schedule.venue;
-  document.querySelector("#detailPresale").textContent = formatScheduleDate(schedule.presaleDate, schedule.presaleTime);
+  document.querySelector("#detailPresale").textContent = presaleDisplay(schedule);
   document.querySelector("#detailTicket").textContent = formatScheduleDate(schedule.ticketDate, schedule.ticketTime);
   document.querySelector("#detailVendor").textContent = schedule.vendor || "미정";
   document.querySelector("#verifiedAt").textContent = schedule.verifiedAt ? `마지막 확인 ${schedule.verifiedAt}` : "";
@@ -848,13 +857,24 @@ function renderDetail(schedule, type) {
   updateSaveButtons(schedule);
 }
 
-function openMobileDetail() {
+function openMobileDetail(schedule) {
   if (!mobileQuery.matches) return;
+  mobileDetailScrollY = window.scrollY;
+  if (!mobileDetailHistoryActive) {
+    mobileDetailHistoryActive = true;
+    history.pushState({ jLiveMobileDetail: true, eventId: schedule?.id || "" }, "", `#show-${encodeURIComponent(schedule?.id || "detail")}`);
+  }
   document.body.classList.add("mobile-detail-open");
 }
 
-function closeMobileDetail() {
+function closeMobileDetail({ fromHistory = false } = {}) {
   document.body.classList.remove("mobile-detail-open");
+  if (mobileDetailHistoryActive && !fromHistory) {
+    history.back();
+    return;
+  }
+  mobileDetailHistoryActive = false;
+  requestAnimationFrame(() => window.scrollTo({ top: mobileDetailScrollY, behavior: "auto" }));
 }
 
 function selectSchedule(schedule, type = "concert", key = schedule.concertDate, openDetail = true) {
@@ -864,7 +884,7 @@ function selectSchedule(schedule, type = "concert", key = schedule.concertDate, 
   renderDetail(schedule, type);
   renderLineup(key);
   renderCalendar();
-  if (openDetail) openMobileDetail();
+  if (openDetail) openMobileDetail(schedule);
 }
 
 function selectCalendarDate(key) {
@@ -1154,6 +1174,10 @@ document.querySelector("#notifyButton").addEventListener("click", async event =>
 });
 document.querySelector("#closeDetail").addEventListener("click", closeMobileDetail);
 document.querySelector("#mobileDetailBackdrop").addEventListener("click", closeMobileDetail);
+window.addEventListener("popstate", () => {
+  if (!mobileDetailHistoryActive && !document.body.classList.contains("mobile-detail-open")) return;
+  closeMobileDetail({ fromHistory: true });
+});
 document.addEventListener("keydown", event => {
   if (event.key === "Escape") closeMobileDetail();
 });
