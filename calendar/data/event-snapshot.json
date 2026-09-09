@@ -347,24 +347,25 @@
     "venue": "인스파이어 아레나",
     "vendor": "NOL 티켓",
     "vendorUrl": "https://tickets.interpark.com/goods/26003199",
-    "ticketDate": "",
-    "ticketTime": "",
+    "ticketDate": "2026-03-11",
+    "ticketTime": "오후 8:00",
     "presaleDate": "",
     "presaleTime": null,
     "presaleStatus": null,
-    "status": "pending",
+    "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-09-10",
     "sources": [
       "https://member.vaundy.jp/feature/ASIAARENATOUR_2026",
-      "https://tickets.interpark.com/goods/26003199"
+      "https://tickets.interpark.com/goods/26003199",
+      "https://tickets.interpark.com/contents/notice/detail/12910"
     ],
     "price": 154000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
     "seriesId": null,
     "hostingStatus": "confirmed",
-    "ticketingStatus": "pending_announcement"
+    "ticketingStatus": "confirmed"
   },
   "vaundy-2026-09-20": {
     "artist": "Vaundy",
@@ -373,24 +374,25 @@
     "venue": "인스파이어 아레나",
     "vendor": "NOL 티켓",
     "vendorUrl": "https://tickets.interpark.com/goods/26003199",
-    "ticketDate": "",
-    "ticketTime": "",
+    "ticketDate": "2026-03-11",
+    "ticketTime": "오후 8:00",
     "presaleDate": "",
     "presaleTime": null,
     "presaleStatus": null,
-    "status": "pending",
+    "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-09-10",
     "sources": [
       "https://member.vaundy.jp/feature/ASIAARENATOUR_2026",
-      "https://tickets.interpark.com/goods/26003199"
+      "https://tickets.interpark.com/goods/26003199",
+      "https://tickets.interpark.com/contents/notice/detail/12910"
     ],
     "price": 154000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
     "seriesId": null,
     "hostingStatus": "confirmed",
-    "ticketingStatus": "pending_announcement"
+    "ticketingStatus": "confirmed"
   },
   "takuya-kimura-2026-09-26": {
     "artist": "Takuya Kimura",

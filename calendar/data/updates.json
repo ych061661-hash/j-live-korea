@@ -1,5 +1,19 @@
 [
   {
+    "id": "2026-09-10-ticket-open-vaundy-2026-09-19",
+    "date": "2026-09-10",
+    "kind": "ticket-open",
+    "label": "티켓 오픈",
+    "artist": "Vaundy",
+    "eventId": "vaundy-2026-09-19",
+    "concertDate": "2026-09-19",
+    "summary": "예매 일정이 공개됐습니다. 일반예매 2026년 3월 11일(수) 오후 8:00.",
+    "url": "https://member.vaundy.jp/feature/ASIAARENATOUR_2026",
+    "verifiedAt": "2026-09-10",
+    "recordedAt": "2026-09-10",
+    "dateMeaning": "recorded"
+  },
+  {
     "id": "2026-09-10-ticket-change-vaundy-2026-09-19",
     "date": "2026-09-10",
     "kind": "ticket-change",

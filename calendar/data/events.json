@@ -800,8 +800,8 @@
     "time": "오후 5:00",
     "venue": "인스파이어 아레나",
     "presaleDate": "",
-    "ticketDate": "",
-    "ticketTime": "",
+    "ticketDate": "2026-03-11",
+    "ticketTime": "오후 8:00",
     "price": 154000,
     "priceCurrency": "KRW",
     "vendor": "NOL 티켓",
@@ -824,14 +824,15 @@
         "https://www.youtube.com/watch?v=WcaSSvtHFeM"
       ]
     ],
-    "status": "pending",
+    "status": "confirmed",
     "hostingStatus": "confirmed",
     "sources": [
       "https://member.vaundy.jp/feature/ASIAARENATOUR_2026",
-      "https://tickets.interpark.com/goods/26003199"
+      "https://tickets.interpark.com/goods/26003199",
+      "https://tickets.interpark.com/contents/notice/detail/12910"
     ],
     "verifiedAt": "2026-09-10",
-    "ticketingStatus": "pending_announcement",
+    "ticketingStatus": "confirmed",
     "createdAt": "2026-06-11T09:00:00+09:00",
     "seatPrices": [
       {
@@ -860,8 +861,8 @@
     "time": "오후 4:00",
     "venue": "인스파이어 아레나",
     "presaleDate": "",
-    "ticketDate": "",
-    "ticketTime": "",
+    "ticketDate": "2026-03-11",
+    "ticketTime": "오후 8:00",
     "price": 154000,
     "priceCurrency": "KRW",
     "vendor": "NOL 티켓",
@@ -884,14 +885,15 @@
         "https://www.youtube.com/watch?v=WcaSSvtHFeM"
       ]
     ],
-    "status": "pending",
+    "status": "confirmed",
     "hostingStatus": "confirmed",
     "sources": [
       "https://member.vaundy.jp/feature/ASIAARENATOUR_2026",
-      "https://tickets.interpark.com/goods/26003199"
+      "https://tickets.interpark.com/goods/26003199",
+      "https://tickets.interpark.com/contents/notice/detail/12910"
     ],
     "verifiedAt": "2026-09-10",
-    "ticketingStatus": "pending_announcement",
+    "ticketingStatus": "confirmed",
     "createdAt": "2026-06-11T09:00:00+09:00",
     "seatPrices": [
       {
