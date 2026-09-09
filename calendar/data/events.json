@@ -825,6 +825,7 @@
       ]
     ],
     "status": "confirmed",
+    "hostingStatus": "confirmed",
     "sources": [
       "https://member.vaundy.jp/feature/ASIAARENATOUR_2026",
       "https://tickets.interpark.com/goods/26003199"
@@ -884,6 +885,7 @@
       ]
     ],
     "status": "confirmed",
+    "hostingStatus": "confirmed",
     "sources": [
       "https://member.vaundy.jp/feature/ASIAARENATOUR_2026",
       "https://tickets.interpark.com/goods/26003199"

@@ -363,7 +363,7 @@
     "priceCurrency": "KRW",
     "ticketAvailability": null,
     "seriesId": null,
-    "hostingStatus": null,
+    "hostingStatus": "confirmed",
     "ticketingStatus": "pending_announcement"
   },
   "vaundy-2026-09-20": {
@@ -389,7 +389,7 @@
     "priceCurrency": "KRW",
     "ticketAvailability": null,
     "seriesId": null,
-    "hostingStatus": null,
+    "hostingStatus": "confirmed",
     "ticketingStatus": "pending_announcement"
   },
   "takuya-kimura-2026-09-26": {
