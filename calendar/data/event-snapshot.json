@@ -352,7 +352,7 @@
     "presaleDate": "",
     "presaleTime": null,
     "presaleStatus": null,
-    "status": "confirmed",
+    "status": "pending",
     "ticketLabel": null,
     "verifiedAt": "2026-09-10",
     "sources": [
@@ -378,7 +378,7 @@
     "presaleDate": "",
     "presaleTime": null,
     "presaleStatus": null,
-    "status": "confirmed",
+    "status": "pending",
     "ticketLabel": null,
     "verifiedAt": "2026-09-10",
     "sources": [
