@@ -636,7 +636,9 @@
       ]
     ],
     "status": "confirmed",
-    "ticketAvailability": "sold_out",
+    "ticketAvailability": "in_stock",
+    "ticketStatusVerifiedAt": "2026-09-09T04:03:32+09:00",
+    "ticketStatusSource": "https://ticket.yes24.com/Perf/58079",
     "sources": [
       "https://backnumber.info/feature/stadiumtour2026?lang=ko",
       "https://backnumber.info/feature/stadiumtour2026_ticket?_normalbrowse_=1&lang=en",
@@ -696,7 +698,9 @@
       ]
     ],
     "status": "confirmed",
-    "ticketAvailability": "sold_out",
+    "ticketAvailability": "in_stock",
+    "ticketStatusVerifiedAt": "2026-09-09T04:03:32+09:00",
+    "ticketStatusSource": "https://ticket.yes24.com/Perf/58079",
     "sources": [
       "https://backnumber.info/feature/stadiumtour2026?lang=ko",
       "https://backnumber.info/feature/stadiumtour2026_ticket?_normalbrowse_=1&lang=en",

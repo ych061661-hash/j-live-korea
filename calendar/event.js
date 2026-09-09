@@ -29,6 +29,24 @@ function presaleDisplay(event) {
   return "공지 미확인";
 }
 
+function verifiedTicketAvailability(event) {
+  return "";
+}
+
+function ticketAvailabilityDisplay(event) {
+  return "공식 예매처 확인";
+}
+
+function sourceLabel(source) {
+  if (source && typeof source === "object") return source.label || source.url || "출처 URL";
+  try {
+    const host = new URL(source).hostname.replace(/^(www|m)\./i, "");
+    return ({ "ticket.yes24.com": "YES24 예매 페이지", "ticket.melon.com": "멜론티켓 예매 페이지", "tickets.interpark.com": "NOL 티켓 공지", "ticketlink.co.kr": "티켓링크 예매 페이지", "youtube.com": "YouTube" })[host] || host;
+  } catch {
+    return String(source);
+  }
+}
+
 function songTitles(event) {
   return (event.songs || [])
     .map(song => song[0])
@@ -51,9 +69,9 @@ function buildChecklist(event) {
     ? `선예매가 있다면 ${humanDate(event.presaleDate, event.presaleTime)} 일정과 대상 조건을 먼저 확인하세요.`
     : "선예매 정보가 없는 공연은 공식 팬클럽, 주최사, 예매처 공지가 추가로 나오는지 확인하세요.";
   return [
-    `${humanDate(event.concertDate, event.time)} 공연 기준으로 최소 1시간 전 도착을 목표로 잡으면 입장 대기와 물품보관에 여유가 있습니다.`,
-    `${event.venue}까지의 대중교통 막차, 환승 경로, 공연 종료 후 이동 시간을 미리 확인하세요.`,
-    ticketText,
+    `${humanDate(event.concertDate, event.time)} 공연으로 공식 일정에 기록되어 있습니다. 입장·티켓 수령 방법은 주최사와 예매처의 최신 공지를 확인하세요.`,
+    `${event.venue}의 위치·교통·출입 안내는 공식 공연장 안내에서 확인하세요.`,
+    ticketText.replace("로그인, 본인인증, 결제수단을 미리 확인하세요.", "최신 공지를 다시 확인하세요."),
     presaleText,
     "공식 출처와 마지막 검증일을 확인하고, 일정이나 예매 방식이 바뀐 경우 정보 수정 요청으로 알려주세요."
   ];
@@ -110,7 +128,7 @@ function renderRelatedEvents(event, events) {
 
 function renderSeries(event, events) {
   const series = events
-    .filter(item => item.status === "confirmed" && sameSeries(item, event))
+    .filter(item => ["confirmed", "cancelled", "postponed"].includes(item.status) && sameSeries(item, event))
     .sort((a, b) => a.concertDate.localeCompare(b.concertDate) || (a.time || "").localeCompare(b.time || ""));
   document.querySelector("#seriesSummary").textContent = series.length > 1
     ? `이번 내한은 ${series.length}회 공연으로 진행됩니다. 날짜별 공연 시각과 예매 조건을 확인하세요.`
@@ -133,17 +151,13 @@ function addStructuredData(event) {
   const script = existingScript || document.createElement("script");
   script.type = "application/ld+json";
   script.id = "eventStructuredData";
-  const availability = event.ticketAvailability === "sold_out"
-    ? "https://schema.org/SoldOut"
-    : event.ticketAvailability === "in_stock"
-      ? "https://schema.org/InStock"
-      : undefined;
+  const eventStatus = event.status === "cancelled" ? "https://schema.org/EventCancelled" : event.status === "postponed" ? "https://schema.org/EventPostponed" : "https://schema.org/EventScheduled";
   script.textContent = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "MusicEvent",
     name: `${event.artist} 내한 공연`,
     startDate: isoDateTime(event.concertDate, event.time),
-    eventStatus: "https://schema.org/EventScheduled",
+    eventStatus,
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
     location: {
       "@type": "Place",
@@ -154,7 +168,6 @@ function addStructuredData(event) {
     offers: event.vendorUrl ? {
       "@type": "Offer",
       url: event.vendorUrl,
-      ...(availability ? { availability } : {}),
       validFrom: isoDateTime(event.ticketDate, event.ticketTime)
     } : undefined,
     url: canonical
@@ -177,7 +190,8 @@ function renderEvent(event, events) {
 
   document.querySelector("#eventArtist").textContent = event.artist;
   document.querySelector("#eventGenre").textContent = event.genre || "J-POP";
-  document.querySelector("#eventSummary").textContent = `${humanDate(event.concertDate, event.time)} · ${event.venue}`;
+  const statusPrefix = event.status === "cancelled" ? "공식 취소 · " : event.status === "postponed" ? "공식 연기 · " : "";
+  document.querySelector("#eventSummary").textContent = `${statusPrefix}${humanDate(event.concertDate, event.time)} · ${event.venue}`;
   renderSeries(event, events);
   document.querySelector("#artistIntro").textContent = editorial.artists[event.artist] ||
     `${event.artist}의 한국 공연입니다. 제이라이브 코리아는 공식 발표와 예매처 정보를 기준으로 공연 일정을 정리합니다.`;
@@ -196,11 +210,7 @@ function renderEvent(event, events) {
   document.querySelector("#factPresale").textContent = presaleDisplay(event);
   document.querySelector("#factTicket").textContent = humanDate(event.ticketDate, event.ticketTime);
   document.querySelector("#factVendor").textContent = event.vendor || "미정";
-  document.querySelector("#factAvailability").textContent = event.ticketAvailability === "sold_out"
-    ? "매진"
-    : event.ticketAvailability === "in_stock"
-      ? "판매 중"
-      : "공식 예매처 확인";
+  document.querySelector("#factAvailability").textContent = "공식 예매처 확인";
   document.querySelector("#eventVerified").textContent = `일정 확인 ${event.scheduleVerifiedAt || event.verifiedAt || "미확인"} · 가격 확인 ${event.priceVerifiedAt || "미확인"} · 판매 상태 확인 ${event.ticketStatusVerifiedAt || "미확인"} · 글 수정 ${event.articleUpdatedAt || event.verifiedAt || "미확인"}`;
 
   const ticket = document.querySelector("#eventTicket");
@@ -214,9 +224,10 @@ function renderEvent(event, events) {
     <a class="song" href="${escapeHtml(song[2])}" target="_blank" rel="noopener noreferrer">
       <span class="play">▶</span><span>${escapeHtml(song[0])}</span><em>${escapeHtml(song[1] || "")}</em>
     </a>`).join("");
-  document.querySelector("#eventSources").innerHTML = (event.sources || []).map((source, index) =>
-    `<a class="source-link" href="${escapeHtml(source)}" target="_blank" rel="noopener noreferrer">공식 출처 ${index + 1} 확인 ↗</a>`
-  ).join("");
+  document.querySelector("#eventSources").innerHTML = (event.sources || []).map(source => {
+    const url = typeof source === "object" ? source.url : source;
+    return `<a class="source-link" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(sourceLabel(source))} ↗</a>`;
+  }).join("");
   renderRelatedEvents(event, events);
 
   const photo = document.querySelector("#eventPhoto");
@@ -259,7 +270,7 @@ async function initializeEvent() {
   }
   if (!response.ok) throw new Error("공연 데이터를 불러오지 못했습니다.");
   const events = await response.json();
-  const event = events.find(item => item.id === eventId && item.status === "confirmed");
+  const event = events.find(item => item.id === eventId && ["confirmed", "cancelled", "postponed"].includes(item.status));
   if (!event) throw new Error("공연을 찾을 수 없습니다.");
   renderEvent(event, events);
 }

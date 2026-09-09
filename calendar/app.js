@@ -146,6 +146,29 @@ function presaleDisplay(schedule) {
   return "공지 미확인";
 }
 
+function verifiedTicketAvailability(schedule) {
+  return ["sold_out", "in_stock"].includes(schedule.ticketAvailability)
+    && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$/.test(String(schedule.ticketStatusVerifiedAt || ""))
+    && /^https:\/\//i.test(String(schedule.ticketStatusSource || ""))
+    ? schedule.ticketAvailability
+    : "";
+}
+
+function ticketAvailabilityDisplay(schedule) {
+  const status = verifiedTicketAvailability(schedule);
+  return status ? `${status === "sold_out" ? "매진" : "판매 중"} · 확인 시점 기준 ${schedule.ticketStatusVerifiedAt.slice(0, 10)}` : "공식 예매처 확인";
+}
+
+function sourceLabel(source) {
+  if (source && typeof source === "object") return source.label || source.url || "출처 URL";
+  try {
+    const host = new URL(source).hostname.replace(/^(www|m)\./i, "");
+    return ({ "ticket.yes24.com": "YES24 예매 페이지", "ticket.melon.com": "멜론티켓 예매 페이지", "tickets.interpark.com": "NOL 티켓 공지", "ticketlink.co.kr": "티켓링크 예매 페이지", "youtube.com": "YouTube" })[host] || host;
+  } catch {
+    return String(source);
+  }
+}
+
 const formatWon = value => `${Math.max(0, Number(value) || 0).toLocaleString("ko-KR")}원`;
 
 function eligibleAttendanceEvents() {
@@ -821,10 +844,12 @@ function renderDetail(schedule, type) {
   document.querySelector("#detailPresale").textContent = presaleDisplay(schedule);
   document.querySelector("#detailTicket").textContent = formatScheduleDate(schedule.ticketDate, schedule.ticketTime);
   document.querySelector("#detailVendor").textContent = schedule.vendor || "미정";
+  document.querySelector("#detailAvailability").textContent = ticketAvailabilityDisplay(schedule);
   document.querySelector("#verifiedAt").textContent = schedule.verifiedAt ? `마지막 확인 ${schedule.verifiedAt}` : "";
-  document.querySelector("#sourceLinks").innerHTML = (schedule.sources || []).map((url, index) =>
-    `<a class="source-link" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">공식 출처 ${index + 1} ↗</a>`
-  ).join("");
+  document.querySelector("#sourceLinks").innerHTML = (schedule.sources || []).map(source => {
+    const url = typeof source === "object" ? source.url : source;
+    return `<a class="source-link" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(sourceLabel(source))} ↗</a>`;
+  }).join("");
 
   const photo = document.querySelector("#artistPhoto");
   photo.alt = `${schedule.artist} YouTube 프로필`;

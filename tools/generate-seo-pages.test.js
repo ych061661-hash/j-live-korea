@@ -2,7 +2,7 @@
 
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { articleStructuredData, buildSeries, dataReportHtml, hasEditorialGuide, hasIndexableEventContent, homepageUpcomingMarkup, humanDate, relatedEvents, richEventGuideMarkup, seoulDateKey, seriesDatesMarkup, structuredData, ticketGuideMarkup, venueGuideForEvent, venueIndexHtml, venuePageHtml } = require("./generate-seo-pages");
+const { articleStructuredData, buildSeries, dataReportHtml, hasEditorialGuide, hasIndexableEventContent, homepageUpcomingMarkup, humanDate, relatedEvents, richEventGuideMarkup, seoulDateKey, seriesDatesMarkup, songsMarkup, sourceLabel, structuredData, ticketGuideMarkup, venueGuideForEvent, venueIndexHtml, venuePageHtml } = require("./generate-seo-pages");
 
 test("groups consecutive dates and selects the first future performance", () => {
   const base = { artist: "Artist", venue: "Venue", vendorUrl: "https://tickets.example/event" };
@@ -82,12 +82,24 @@ test("attributes indexable event articles to the named author and policy", () =>
   assert.match(guide, /href="\.\.\/guides\/verification">편집·검증 기준/);
 });
 
-test("publishes ticket availability only when it was explicitly verified", () => {
+test("does not publish unverified ticket inventory in structured data", () => {
   const base = { artist: "Artist", concertDate: "2026-09-01", time: "오후 7:00", venue: "Hall", vendorUrl: "https://tickets.example/show", ticketDate: "2026-08-01", ticketTime: "오후 8:00", price: 99000 };
   const unknown = JSON.parse(structuredData(base, [base], "https://j-live.kr/calendar/events/artist", "https://j-live.kr"));
-  const soldOut = JSON.parse(structuredData({ ...base, ticketAvailability: "sold_out" }, [base], "https://j-live.kr/calendar/events/artist", "https://j-live.kr"));
   assert.equal(unknown.offers.availability, undefined);
-  assert.equal(soldOut.offers.availability, "https://schema.org/SoldOut");
+  const soldOut = JSON.parse(structuredData({ ...base, ticketAvailability: "sold_out" }, [base], "https://j-live.kr/calendar/events/artist", "https://j-live.kr"));
+  assert.equal(soldOut.offers.availability, undefined);
+  const verifiedSoldOut = JSON.parse(structuredData({ ...base, ticketAvailability: "sold_out", ticketStatusVerifiedAt: "2026-08-15T10:00:00+09:00", ticketStatusSource: "https://tickets.example/show" }, [base], "https://j-live.kr/calendar/events/artist", "https://j-live.kr"));
+  assert.equal(verifiedSoldOut.offers.availability, "https://schema.org/SoldOut");
+  assert.equal(JSON.parse(structuredData({ ...base, status: "cancelled" }, [base], "https://j-live.kr/calendar/events/artist", "https://j-live.kr")).eventStatus, "https://schema.org/EventCancelled");
+});
+
+test("matches song notes by title and labels sources by verified vendor or exact domain", () => {
+  const html = songsMarkup({ songs: [["B", "기본 B", "https://www.youtube.com/watch?v=b"], ["A", "기본 A", "https://www.youtube.com/watch?v=a"]] }, [{ title: "A", note: "A에 맞는 설명" }, { title: "B", note: "B에 맞는 설명" }]);
+  assert.match(html, /B에 맞는 설명/);
+  assert.match(html, /A에 맞는 설명/);
+  assert.doesNotMatch(html, /기본 [AB]/);
+  assert.equal(sourceLabel("https://ticket.yes24.com/Perf/1"), "YES24 예매 페이지");
+  assert.equal(sourceLabel("https://official.example/path"), "official.example");
 });
 
 test("renders crawlable upcoming concert facts on the homepage", () => {

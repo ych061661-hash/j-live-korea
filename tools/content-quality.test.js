@@ -59,6 +59,15 @@ test("keeps every indexed event substantial and distinct", () => {
   }
 });
 
+test("keeps pending records out of the confirmed sitemap and generated pages", () => {
+  const events = JSON.parse(read("calendar/data/events.json"));
+  const sitemap = read("sitemap.xml");
+  for (const event of events.filter(item => item.status === "pending")) {
+    assert.doesNotMatch(sitemap, new RegExp(`/calendar/events/${event.id}(?:<|\\/)`));
+    assert.equal(fs.existsSync(path.join(root, "calendar", "events", `${event.id}.html`)), false);
+  }
+});
+
 test("keeps every indexed venue guide practical and substantial", () => {
   const sitemap = read("sitemap.xml");
   const urls = [...sitemap.matchAll(/<loc>(https:\/\/j-live\.kr\/calendar\/guides\/venues\/[^<]+)<\/loc>/g)]
