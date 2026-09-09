@@ -73,6 +73,7 @@ let myShowsFeatureSchedules = [];
 let myShowsFeatureIndex = 0;
 let mobileDetailHistoryActive = false;
 let mobileDetailScrollY = 0;
+let mobileDetailReturnFocus = null;
 const mobileQuery = window.matchMedia("(max-width: 820px)");
 
 const escapeHtml = (value = "") => String(value).replace(/[&<>"']/g, char => ({
@@ -881,24 +882,46 @@ function renderDetail(schedule, type) {
   updateSaveButtons(schedule);
 }
 
+function setMobileDetailIsolation(open) {
+  const calendarArea = document.querySelector(".calendar-area");
+  const panel = document.querySelector("#detailPanel");
+  calendarArea?.toggleAttribute("inert", open);
+  document.querySelectorAll(".shell > :not(.app)").forEach(element => element.toggleAttribute("inert", open));
+  if (open) {
+    panel?.setAttribute("role", "dialog");
+    panel?.setAttribute("aria-modal", "true");
+  } else {
+    panel?.removeAttribute("role");
+    panel?.removeAttribute("aria-modal");
+  }
+}
+
 function openMobileDetail(schedule) {
   if (!mobileQuery.matches) return;
   mobileDetailScrollY = window.scrollY;
+  mobileDetailReturnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
   if (!mobileDetailHistoryActive) {
     mobileDetailHistoryActive = true;
     history.pushState({ jLiveMobileDetail: true, eventId: schedule?.id || "" }, "", `#show-${encodeURIComponent(schedule?.id || "detail")}`);
   }
+  setMobileDetailIsolation(true);
   document.body.classList.add("mobile-detail-open");
+  requestAnimationFrame(() => document.querySelector("#closeDetail")?.focus({ preventScroll: true }));
 }
 
 function closeMobileDetail({ fromHistory = false } = {}) {
   document.body.classList.remove("mobile-detail-open");
+  setMobileDetailIsolation(false);
   if (mobileDetailHistoryActive && !fromHistory) {
     history.back();
     return;
   }
   mobileDetailHistoryActive = false;
-  requestAnimationFrame(() => window.scrollTo({ top: mobileDetailScrollY, behavior: "auto" }));
+  requestAnimationFrame(() => {
+    window.scrollTo({ top: mobileDetailScrollY, behavior: "auto" });
+    mobileDetailReturnFocus?.focus({ preventScroll: true });
+    mobileDetailReturnFocus = null;
+  });
 }
 
 function selectSchedule(schedule, type = "concert", key = schedule.concertDate, openDetail = true) {

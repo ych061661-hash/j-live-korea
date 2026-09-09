@@ -1045,7 +1045,7 @@ footer { padding:22px 0 34px; color:#686970; font-size:11px; text-align:center; 
     top:0;
     z-index:5;
     display:grid;
-    grid-template-columns:32px 1fr 32px;
+    grid-template-columns:44px 1fr 44px;
     align-items:center;
     min-height:48px;
     padding:4px 12px;
@@ -1054,12 +1054,13 @@ footer { padding:22px 0 34px; color:#686970; font-size:11px; text-align:center; 
   }
   .mobile-detail-handle span { justify-self:center; width:26px; height:4px; border-radius:99px; background:#45464c; }
   .mobile-detail-handle strong { text-align:center; font-size:12px; }
-  .mobile-detail-handle button { width:32px; height:32px; padding:0; border:0; color:#aaa; background:transparent; cursor:pointer; font-size:25px; }
+  .mobile-detail-handle button { width:44px; height:44px; padding:0; border:0; border-radius:10px; color:#aaa; background:transparent; cursor:pointer; font-size:25px; }
+  .mobile-detail-handle button:hover,.mobile-detail-handle button:focus-visible { color:#111; background:var(--lime); outline:none; }
   .detail-empty { min-height:260px; }
   .detail-visual { min-height:230px; }
-  .detail-content { padding:20px 18px calc(24px + env(safe-area-inset-bottom)); }
+  .detail-content { padding:20px 18px calc(24px + env(safe-area-inset-bottom)); scroll-padding-bottom:96px; }
   .artist-heading h3 { font-size:32px; }
-  .ticket-button { position:sticky; bottom:10px; box-shadow:0 10px 28px rgba(0,0,0,.4); }
+  .ticket-button { position:sticky; bottom:max(10px,env(safe-area-inset-bottom)); z-index:2; box-shadow:0 10px 28px rgba(0,0,0,.4); }
   footer { padding:22px 16px calc(28px + env(safe-area-inset-bottom)); line-height:1.6; }
   .event-page { padding:20px 12px 50px; }
   .guide-preview { margin:16px 12px 0; padding:22px 18px; }

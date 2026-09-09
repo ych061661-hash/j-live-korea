@@ -228,10 +228,26 @@ test("publishes the required ads.txt record and Google privacy disclosures", () 
   assert.match(privacy, /쿠키/);
   assert.match(privacy, /웹 비콘/);
   assert.match(privacy, /IP 주소/);
-  assert.match(privacy, /최대 1년간 보관한 뒤 삭제/);
+  assert.match(privacy, /최대 1년 이내 삭제를 목표로 관리/);
+  assert.match(privacy, /자동 보관·삭제 기능은 현재 구현되어 있지 않습니다/);
+  assert.doesNotMatch(privacy, /FormSubmit은 제출 기록을 최대 30일/);
+  const alertsWorker = read("alerts-worker/src/index.mjs");
+  assert.match(alertsWorker, /DELETE FROM subscriptions WHERE verified_at IS NULL AND created_at < \?1/);
+  assert.match(alertsWorker, /DELETE FROM signup_attempts WHERE created_at < \?1/);
+  assert.match(alertsWorker, /https:\/\/api\.resend\.com\/emails/);
   for (const page of ["calendar/contact.html", "calendar/corrections.html"]) {
     assert.match(read(page), /name="privacy_consent" value="동의함" required/, page);
   }
+});
+
+test("keeps the AdSense loader separate from display ad units", () => {
+  const pages = ["calendar/index.html", ...fs.readdirSync(path.join(root, "calendar", "events")).filter(file => file.endsWith(".html")).map(file => `calendar/events/${file}`)];
+  for (const page of pages) {
+    const html = read(page);
+    assert.doesNotMatch(html, /<ins[^>]+adsbygoogle/i, page);
+    assert.doesNotMatch(html, /data-ad-slot=/i, page);
+  }
+  assert.match(read("calendar/index.html"), /pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-3081918168688274/);
 });
 
 test("reserves image space on every indexed page", () => {

@@ -20,5 +20,16 @@ test("gives mobile detail a browser-back state and restores scroll", () => {
   assert.match(app, /history\.pushState\(\{ jLiveMobileDetail: true/);
   assert.match(app, /window\.addEventListener\("popstate"/);
   assert.match(app, /window\.scrollTo\(\{ top: mobileDetailScrollY/);
+  assert.match(app, /setMobileDetailIsolation\(true\)/);
+  assert.match(app, /toggleAttribute\("inert", open\)/);
+  assert.match(app, /#closeDetail"\)\?\.focus/);
   assert.doesNotMatch(app, /beforeinstallprompt/);
+});
+
+test("keeps the mobile detail close target and ticket CTA clear of overlap", () => {
+  assert.match(styles, /\.mobile-detail-handle button \{ width:44px; height:44px;/);
+  assert.match(styles, /\.ticket-button \{ position:sticky; bottom:max\(10px,env\(safe-area-inset-bottom\)\); z-index:2;/);
+  const index = fs.readFileSync(path.join(__dirname, "..", "calendar", "index.html"), "utf8");
+  assert.match(index, /id="mobileDetailBackdrop"[^>]+tabindex="-1"/);
+  assert.ok(index.indexOf('id="detailPageButton"') < index.indexOf('id="ticketButton"'));
 });
