@@ -22,6 +22,8 @@ test("gives mobile detail a browser-back state and restores scroll", () => {
   assert.match(app, /window\.scrollTo\(\{ top: mobileDetailScrollY/);
   assert.match(app, /mobileDetailReturnFocusSelector = activeDay\?\.dataset\.date/);
   assert.match(app, /document\.querySelector\(mobileDetailReturnFocusSelector\)/);
+  assert.match(app, /const returnFocus = document\.activeElement;/);
+  assert.match(app, /openMobileDetail\(schedule, returnFocus\)/);
   assert.match(app, /setMobileDetailIsolation\(true\)/);
   assert.match(app, /toggleAttribute\("inert", open\)/);
   assert.match(app, /#closeDetail"\)\?\.focus/);

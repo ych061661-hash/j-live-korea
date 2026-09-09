@@ -897,10 +897,10 @@ function setMobileDetailIsolation(open) {
   }
 }
 
-function openMobileDetail(schedule) {
+function openMobileDetail(schedule, returnFocus = document.activeElement) {
   if (!mobileQuery.matches) return;
   mobileDetailScrollY = window.scrollY;
-  mobileDetailReturnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+  mobileDetailReturnFocus = returnFocus instanceof HTMLElement ? returnFocus : null;
   const activeDay = mobileDetailReturnFocus?.closest(".day[data-date]");
   mobileDetailReturnFocusSelector = activeDay?.dataset.date ? `.day[data-date="${activeDay.dataset.date}"]` : "";
   if (!mobileDetailHistoryActive) {
@@ -930,13 +930,14 @@ function closeMobileDetail({ fromHistory = false } = {}) {
 }
 
 function selectSchedule(schedule, type = "concert", key = schedule.concertDate, openDetail = true) {
+  const returnFocus = document.activeElement;
   selectedId = schedule.id;
   selectedType = type;
   selectedDateKey = key;
   renderDetail(schedule, type);
   renderLineup(key);
   renderCalendar();
-  if (openDetail) openMobileDetail(schedule);
+  if (openDetail) openMobileDetail(schedule, returnFocus);
 }
 
 function selectCalendarDate(key) {
