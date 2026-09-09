@@ -365,6 +365,18 @@ test("labels the homepage search and attendance inputs", () => {
   assert.match(homepage, /name="quantity"[^>]+aria-label="티켓 매수"/);
 });
 
+test("presents audience figures as scoped J-LIVE records, not a universal ranking", () => {
+  const homepage = read("calendar/index.html");
+  const app = read("calendar/app.js");
+  assert.match(homepage, /J-LIVE 공식 발표 관객 수 기록/);
+  assert.match(homepage, /전체 내한 공연의 순위가 아닙니다/);
+  assert.match(homepage, /단일 회차·양일 합산·투어 전체 범위/);
+  assert.doesNotMatch(homepage, /관객 수 TOP 1/);
+  assert.doesNotMatch(app, /\.slice\(0, 1\)/);
+  assert.match(app, /공식 발표 근거/);
+  assert.match(app, /attendanceSourceType !== "press" \|\| schedule\.attendancePublisher/);
+});
+
 test("makes the publisher experience and verification responsibility visible on the homepage", () => {
   const homepage = read("calendar/index.html");
   assert.match(homepage, /<section class="home-editorial-trust"/);

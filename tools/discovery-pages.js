@@ -23,6 +23,11 @@ const humanDate = (value, time = "") => {
   return `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일(${weekday})${time ? ` ${time}` : ""}`;
 };
 
+const verifiedAttendance = event => Number.isFinite(event.attendance)
+  && event.attendance > 0
+  && event.attendanceSource
+  && (event.attendanceSourceType !== "press" || event.attendancePublisher);
+
 function pageShell({ title, description, canonical, body, siteUrl, depth = "..", robots = "index,follow,max-image-preview:large", includeAds = true, image = "" }) {
   const socialImage = image || `${siteUrl}/calendar/assets/brand/j-live-social-card.png`;
   return `<!doctype html>
@@ -92,11 +97,11 @@ function artistPageHtml({ artist, events, aliases, editorial, siteUrl, today }) 
     group.sort((a, b) => a.concertDate.localeCompare(b.concertDate));
     const first = group[0];
     const last = group[group.length - 1];
-    const attendance = group.find(event => Number.isFinite(event.attendance) && event.attendance > 0);
+    const attendance = group.find(verifiedAttendance);
     const dates = first.concertDate === last.concertDate
       ? humanDate(first.concertDate, first.time)
       : `${humanDate(first.concertDate)} ~ ${humanDate(last.concertDate)}`;
-    return `<li><a class="artist-history-main" href="../events/${encodeURIComponent(first.id)}"><time>${escapeHtml(dates)}</time><strong>${escapeHtml(first.venue)}</strong><span>${group.length}회 공연</span></a><div class="artist-history-audience"><small>공식 관객 수</small><b>${attendance ? `${Number(attendance.attendance).toLocaleString("ko-KR")}명` : "미공개"}</b>${attendance?.attendanceScope ? `<span>${escapeHtml(attendance.attendanceScope)}</span>` : ""}${attendance?.attendanceSource ? `<a href="${escapeHtml(attendance.attendanceSource)}" target="_blank" rel="noopener noreferrer">공식 발표 확인 ↗</a>` : ""}</div></li>`;
+    return `<li><a class="artist-history-main" href="../events/${encodeURIComponent(first.id)}"><time>${escapeHtml(dates)}</time><strong>${escapeHtml(first.venue)}</strong><span>${group.length}회 공연</span></a><div class="artist-history-audience"><small>공식 관객 수</small><b>${attendance ? `${Number(attendance.attendance).toLocaleString("ko-KR")}명` : "미공개"}</b>${attendance?.attendanceScope ? `<span>${escapeHtml(attendance.attendanceScope)}</span>` : ""}${attendance?.attendanceSource ? `<a href="${escapeHtml(attendance.attendanceSource)}" target="_blank" rel="noopener noreferrer">${escapeHtml(attendance.attendancePublisher || "공식 발표")} 확인 ↗</a>` : ""}</div></li>`;
   }).join("") || '<li class="empty-row">공식 확인된 지난 내한 기록이 없습니다.</li>';
   const nextEvent = upcoming[0];
   const body = `<main class="artist-profile">

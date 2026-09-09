@@ -153,18 +153,21 @@ function ticketAvailabilityDisplay(event) {
 
 function checklistMarkup(event) {
   const items = [
-    `${humanDate(event.concertDate, event.time)} 공연으로 공식 일정에 기록되어 있습니다. 입장·티켓 수령 방법은 주최사와 예매처의 최신 공지를 확인하세요.`,
-    `${event.venue}의 위치·교통·출입 안내는 공식 공연장 안내에서 확인하세요.`,
-    event.ticketDate ? `일반예매 기록은 ${humanDate(event.ticketDate, event.ticketTime)}입니다. ${event.vendor || "공식 예매처"}의 최신 공지를 다시 확인하세요.` : "일반예매 일정은 공식 예매처의 추가 공지를 확인해야 합니다.",
-    event.presaleDate ? `선예매 기록은 ${humanDate(event.presaleDate, event.presaleTime)}입니다. 대상과 절차는 공식 공지에서 확인하세요.` : `선예매 상태는 ${presaleDisplay(event)}입니다. 팬클럽·주최사·예매처의 추가 공지를 확인하세요.`,
-    "공연일·예매일·가격·공식 출처의 확인일이 다르면 각 원문의 최신 공지를 우선해 확인하세요. 현장 운영과 티켓 수령 조건도 공연별 공지가 최종 기준입니다."
+    `${humanDate(event.concertDate, event.time)} · ${event.venue}의 입장구와 집합 시각은 당일 공식 공지를 확인하세요.`,
+    "공연별 본인 확인·티켓 수령 조건은 위 예매 분석과 공식 예매처 안내가 최종 기준입니다.",
+    "최신 판매 상태와 관람 조건은 공식 예매처에서 다시 확인하세요. 예매 페이지의 최신 공지가 이 상세 기록보다 우선합니다. 공연 직전에는 날짜, 시작 시각, 입장 번호, 수령 장소와 재입장 가능 여부도 함께 확인하세요."
   ];
   return items.map(item => `<li>${escapeHtml(item)}</li>`).join("\n");
 }
 
+function youtubeVideoId(url) {
+  try { return new URL(url).searchParams.get("v") || ""; } catch { return ""; }
+}
+
 function songsMarkup(event, songGuides = []) {
-  return (event.songs || []).map(song => {
-    const guide = songGuides.find(item => item.title === song[0]);
+  const guidesByVideo = new Map(songGuides.filter(guide => guide.videoId).map(guide => [guide.videoId, guide]));
+  return (event.songs || []).slice(0, 3).map(song => {
+    const guide = guidesByVideo.get(youtubeVideoId(song[2])) || songGuides.find(item => item.title === song[0]);
     return `<a class="song" href="${escapeHtml(song[2])}" target="_blank" rel="noopener noreferrer"><span class="play">▶</span><span>${escapeHtml(song[0])}</span><em>${escapeHtml(guide?.note || song[1] || "")}</em></a>`;
   }).join("\n");
 }
@@ -247,7 +250,12 @@ function richEventGuideMarkup(event, editorial) {
               <p class="content-note"><a href="../about" rel="author">여일육 작성</a> · <a href="../guides/verification">편집·검증 기준</a> · 마지막 일정 검증 ${escapeHtml(event.verifiedAt || "기록 없음")}</p>
               <h3>이번 공연의 관전 포인트</h3>
               <p>${escapeHtml(guide.focus)}</p>
-              ${optionalSection("공연 전에 듣는 순서", guide.listening)}
+  ${optionalSection(
+    "공연 전 더 깊게 듣는 순서",
+    guide.listening
+      ? `입문용 추천곡 3개의 순서와 다를 수 있습니다. 이 글은 공연을 더 깊게 듣기 위한 관점입니다. ${guide.listening}`
+      : "",
+  )}
               ${optionalSection("공연장 도착과 귀가 계획", guide.plan)}
             </section>`;
 }
@@ -360,7 +368,7 @@ function renderEventPage({ event, events, group, primary, editorial, siteUrl, te
   const artistIntro = editorial.artists[event.artist] || `${event.artist}의 한국 공연입니다. 공식 발표와 예매처 정보를 기준으로 일정을 정리했습니다.`;
   const venueGuide = editorial.venues[event.venue] || `${event.venue} 방문 전 공식 공연장 안내에서 대중교통, 주차와 입장 게이트를 확인하세요.`;
   const songs = (event.songs || []).map(song => song[0]).filter(Boolean);
-  const songGuide = songs.length ? `${songs.join(", ")} 순서로 들어보면 ${event.artist}의 음악 색깔을 빠르게 파악할 수 있습니다. 각 곡은 공식 YouTube 영상으로 연결됩니다.` : `${event.artist}의 공식 YouTube 채널에서 최근 대표곡과 라이브 영상을 확인하세요.`;
+  const songGuide = songs.length ? `아래 ${songs.join(", ")} 순서는 J-LIVE의 입문용 추천 순서입니다. 각 곡은 공식 YouTube 영상으로 연결됩니다.` : `${event.artist}의 공식 YouTube 채널에서 최근 대표곡과 라이브 영상을 확인하세요.`;
   const seriesSummary = event.status === "cancelled" ? "이 공연은 공식 취소 상태로 기록되어 있습니다. 자세한 변경 내용은 연결된 공식 출처를 확인하세요." : event.status === "postponed" ? "이 공연은 공식 연기 상태로 기록되어 있습니다. 새 일정은 연결된 공식 출처를 확인하세요." : group.length > 1 ? `이번 내한은 ${group.length}회 공연으로 진행됩니다. 날짜별 공연 시각과 예매 조건이 달라질 수 있으므로 선택한 회차를 확인하세요.` : "현재 공식 확인된 한국 공연은 1회입니다. 추가 회차나 운영 변경은 연결된 공식 출처에서 다시 확인합니다.";
   const robots = indexable ? "index,follow,max-image-preview:large" : "noindex,follow";
   const ticketAnalysis = ticketGuideMarkup(event, editorial);
@@ -392,6 +400,7 @@ function renderEventPage({ event, events, group, primary, editorial, siteUrl, te
     .replace('<p class="verified-copy" id="eventVerified"></p>', `<p class="verified-copy" id="eventVerified">일정 확인 ${escapeHtml(event.scheduleVerifiedAt || event.verifiedAt || "기록 없음")} · 가격 확인 ${escapeHtml(event.priceVerifiedAt || "미확인")} · 판매 상태 확인 ${escapeHtml(event.ticketStatusVerifiedAt || "미확인")} · 글 수정 ${escapeHtml(event.articleUpdatedAt || event.verifiedAt || "기록 없음")}</p>`)
     .replace('<dd id="factDate"></dd>', `<dd id="factDate">${escapeHtml(humanDate(event.concertDate, event.time))}</dd>`)
     .replace('<dd id="factVenue"></dd>', `<dd id="factVenue">${escapeHtml(event.venue)}</dd>`)
+    .replace('<dd id="factPrice"></dd>', `<dd id="factPrice">${escapeHtml(Array.isArray(event.seatPrices) && event.seatPrices.length ? event.seatPrices.map(item => `${item.name} ${Number(item.price).toLocaleString("ko-KR")}원`).join(" · ") : editorial.ticketGuides?.[event.artist]?.price || "공식 예매처 확인")}</dd>`)
     .replace('<dd id="factPresale"></dd>', `<dd id="factPresale">${escapeHtml(presaleDisplay(event))}</dd>`)
     .replace('<dd id="factTicket"></dd>', `<dd id="factTicket">${escapeHtml(humanDate(event.ticketDate, event.ticketTime))}</dd>`)
     .replace('<dd id="factVendor"></dd>', `<dd id="factVendor">${escapeHtml(event.vendor || "미정")}</dd>`)
@@ -829,4 +838,4 @@ function main() {
 }
 
 if (require.main === module) main();
-module.exports = { articleStructuredData, assertCleanText, buildSeries, checklistMarkup, dataReportHtml, hasEditorialGuide, hasIndexableEventContent, homepageUpcomingMarkup, humanDate, relatedEvents, renderEventPage, richEventGuideMarkup, songsMarkup, sourceLabel, sourcesMarkup, seoulDateKey, seriesDatesMarkup, seriesKey, structuredData, ticketGuideMarkup, venueFacilityMapMarkup, venueGuideForEvent, venuePageHtml, venueIndexHtml };
+module.exports = { articleStructuredData, assertCleanText, buildSeries, checklistMarkup, dataReportHtml, hasEditorialGuide, hasIndexableEventContent, homepageUpcomingMarkup, humanDate, relatedEvents, renderEventPage, richEventGuideMarkup, songsMarkup, sourceLabel, sourcesMarkup, seoulDateKey, seriesDatesMarkup, seriesKey, structuredData, ticketGuideMarkup, venueFacilityMapMarkup, venueGuideForEvent, venuePageHtml, venueIndexHtml, youtubeVideoId };

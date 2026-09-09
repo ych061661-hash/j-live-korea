@@ -736,17 +736,16 @@ function renderAttendanceRanking() {
     .filter(schedule => schedule.concertDate < today
       && Number.isFinite(schedule.attendance)
       && schedule.attendance > 0
-      && schedule.attendanceSource)
-    .sort((a, b) => b.attendance - a.attendance)
-    .slice(0, 1);
+      && schedule.attendanceSource
+      && (schedule.attendanceSourceType !== "press" || schedule.attendancePublisher))
+    .sort((a, b) => b.concertDate.localeCompare(a.concertDate) || a.artist.localeCompare(b.artist));
 
-  attendanceRanking.innerHTML = ranked.map((schedule, index) => `
+  attendanceRanking.innerHTML = ranked.map(schedule => `
     <li>
-      <span class="rank">${index + 1}</span>
       <div>
         <a href="./events/${encodeURIComponent(schedule.id)}"><strong>${escapeHtml(schedule.artist)}</strong></a>
-        <small>${escapeHtml(schedule.attendanceScope || formatDate(schedule.concertDate))} · ${escapeHtml(schedule.venue)}</small>
-        <a class="attendance-source" href="${escapeHtml(schedule.attendanceSource)}" target="_blank" rel="noopener noreferrer">출처 · ${escapeHtml(schedule.attendanceVerifiedAt || "검증일 미정")} ↗</a>
+        <small>${escapeHtml(schedule.attendanceScope || `단일 회차 · ${formatDate(schedule.concertDate)}`)} · ${escapeHtml(schedule.venue)}</small>
+        <a class="attendance-source" href="${escapeHtml(schedule.attendanceSource)}" target="_blank" rel="noopener noreferrer">공식 발표 근거 · ${escapeHtml(schedule.attendanceVerifiedAt || "검증일 미정")} ↗</a>
       </div>
       <b>${schedule.attendance.toLocaleString("ko-KR")}명</b>
     </li>

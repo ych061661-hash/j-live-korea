@@ -2,7 +2,7 @@
 
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { articleStructuredData, buildSeries, dataReportHtml, hasEditorialGuide, hasIndexableEventContent, homepageUpcomingMarkup, humanDate, relatedEvents, richEventGuideMarkup, seoulDateKey, seriesDatesMarkup, songsMarkup, sourceLabel, structuredData, ticketGuideMarkup, venueGuideForEvent, venueIndexHtml, venuePageHtml } = require("./generate-seo-pages");
+const { articleStructuredData, buildSeries, checklistMarkup, dataReportHtml, hasEditorialGuide, hasIndexableEventContent, homepageUpcomingMarkup, humanDate, relatedEvents, renderEventPage, richEventGuideMarkup, seoulDateKey, seriesDatesMarkup, songsMarkup, sourceLabel, structuredData, ticketGuideMarkup, venueGuideForEvent, venueIndexHtml, venuePageHtml } = require("./generate-seo-pages");
 
 test("groups consecutive dates and selects the first future performance", () => {
   const base = { artist: "Artist", venue: "Venue", vendorUrl: "https://tickets.example/event" };
@@ -36,6 +36,33 @@ test("recommends three future similar concerts without duplicate artists", () =>
     { id: "past", artist: "Past", concertDate: "2026-07-01", genre: "Rock", venue: "Hall A", vendor: "YES24", status: "confirmed" }
   ];
   assert.deepEqual(relatedEvents(event, events, "2026-08-05").map(item => item.id), ["best", "second", "third"]);
+});
+
+test("keeps only future confirmed events in the related list", () => {
+  const event = { id: "current", artist: "Current", concertDate: "2026-08-10", status: "confirmed" };
+  const events = [event, { id: "cancelled", artist: "Cancelled", concertDate: "2026-08-11", status: "cancelled" }, { id: "past", artist: "Past", concertDate: "2026-08-01", status: "confirmed" }, { id: "future", artist: "Future", concertDate: "2026-08-12", status: "confirmed" }];
+  assert.deepEqual(relatedEvents(event, events, "2026-08-10").map(item => item.id), ["future"]);
+});
+
+test("matches song notes by official video id before legacy title fallback", () => {
+  const html = songsMarkup({ songs: [["Same title", "", "https://www.youtube.com/watch?v=official-id"]] }, [
+    { title: "Same title", videoId: "wrong-id", note: "wrong title match" },
+    { title: "Different title", videoId: "official-id", note: "official video match" }
+  ]);
+  assert.match(html, /official video match/);
+  assert.doesNotMatch(html, /wrong title match/);
+  assert.equal((checklistMarkup({ concertDate: "2026-09-01", venue: "Hall" }).match(/<li>/g) || []).length, 3);
+});
+
+test("puts event-specific ticket facts before artist and listening content", () => {
+  const template = '<!-- EVENT_TICKET_ANALYSIS --><section>ARTIST</section><section>TRACKS</section><dd id="factPrice"></dd>';
+  const html = renderEventPage({
+    event: { id: "artist-2026-09-01", artist: "Artist", concertDate: "2026-09-01", time: "오후 7:00", venue: "Hall", status: "confirmed", songs: [], sources: [] },
+    events: [], group: [{ id: "artist-2026-09-01", concertDate: "2026-09-01", time: "오후 7:00" }], primary: { id: "artist-2026-09-01" },
+    editorial: { ticketGuides: { Artist: { price: "R 100원", identity: "실명 확인", ticket: "현장 수령" } }, artists: {}, venues: {} }, siteUrl: "https://j-live.kr", template, today: "2026-08-01"
+  });
+  assert.ok(html.indexOf("공연별 실제 예매 분석") < html.indexOf("ARTIST"));
+  assert.match(html, /<dd id="factPrice">R 100원<\/dd>/);
 });
 
 test("renders artist-specific editorial content only when it exists", () => {

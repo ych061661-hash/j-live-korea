@@ -30,11 +30,23 @@ function presaleDisplay(event) {
 }
 
 function verifiedTicketAvailability(event) {
-  return "";
+  return ["sold_out", "in_stock"].includes(event.ticketAvailability)
+    && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$/.test(String(event.ticketStatusVerifiedAt || ""))
+    && /^https:\/\//i.test(String(event.ticketStatusSource || ""))
+    ? event.ticketAvailability
+    : "";
 }
 
 function ticketAvailabilityDisplay(event) {
-  return "공식 예매처 확인";
+  const status = verifiedTicketAvailability(event);
+  return status ? `${status === "sold_out" ? "매진" : "판매 중"} · 확인 시점 기준 ${event.ticketStatusVerifiedAt.slice(0, 10)}` : "공식 예매처 확인";
+}
+
+function priceDisplay(event) {
+  if (Array.isArray(event.seatPrices) && event.seatPrices.length) {
+    return event.seatPrices.map(item => `${item.name} ${Number(item.price).toLocaleString("ko-KR")}원`).join(" · ");
+  }
+  return editorial.ticketGuides?.[event.artist]?.price || "공식 예매처 확인";
 }
 
 function sourceLabel(source) {
@@ -45,6 +57,10 @@ function sourceLabel(source) {
   } catch {
     return String(source);
   }
+}
+
+function youtubeVideoId(url) {
+  try { return new URL(url).searchParams.get("v") || ""; } catch { return ""; }
 }
 
 function songTitles(event) {
@@ -58,22 +74,14 @@ function buildSongGuide(event) {
   if (!songs.length) {
     return `${event.artist}의 대표곡 링크가 확인되는 대로 업데이트합니다. 공연 전에는 공식 YouTube 채널과 예매처 안내를 함께 확인하세요.`;
   }
-  return `${songs[0]}을 먼저 듣고, 이어서 ${songs.slice(1).join(", ")}까지 이어 들으면 ${event.artist}의 사운드와 무대 흐름을 빠르게 파악할 수 있습니다. 각 링크는 YouTube로 바로 연결됩니다.`;
+  return `아래 ${songs.join(", ")} 순서는 J-LIVE의 입문용 추천 순서입니다. 각 곡은 공식 YouTube 영상으로 연결됩니다.`;
 }
 
 function buildChecklist(event) {
-  const ticketText = event.ticketDate
-    ? `일반예매는 ${humanDate(event.ticketDate, event.ticketTime)} 기준으로 기록되어 있습니다. 예매 전 ${event.vendor || "공식 예매처"} 로그인, 본인인증, 결제수단을 미리 확인하세요.`
-    : "일반예매 일정은 아직 미정이거나 공식 공지에서 재확인이 필요합니다. 예매처 알림과 주최사 공지를 함께 확인하세요.";
-  const presaleText = event.presaleDate
-    ? `선예매가 있다면 ${humanDate(event.presaleDate, event.presaleTime)} 일정과 대상 조건을 먼저 확인하세요.`
-    : "선예매 정보가 없는 공연은 공식 팬클럽, 주최사, 예매처 공지가 추가로 나오는지 확인하세요.";
   return [
-    `${humanDate(event.concertDate, event.time)} 공연으로 공식 일정에 기록되어 있습니다. 입장·티켓 수령 방법은 주최사와 예매처의 최신 공지를 확인하세요.`,
-    `${event.venue}의 위치·교통·출입 안내는 공식 공연장 안내에서 확인하세요.`,
-    ticketText.replace("로그인, 본인인증, 결제수단을 미리 확인하세요.", "최신 공지를 다시 확인하세요."),
-    presaleText,
-    "공식 출처와 마지막 검증일을 확인하고, 일정이나 예매 방식이 바뀐 경우 정보 수정 요청으로 알려주세요."
+    `${humanDate(event.concertDate, event.time)} · ${event.venue}의 입장구와 집합 시각은 당일 공식 공지를 확인하세요.`,
+    "공연별 본인 확인·티켓 수령 조건은 위 예매 분석과 공식 예매처 안내가 최종 기준입니다.",
+    "최신 판매 상태와 관람 조건은 공식 예매처에서 다시 확인하세요. 예매 페이지의 최신 공지가 이 상세 기록보다 우선합니다. 공연 직전에는 날짜, 시작 시각, 입장 번호, 수령 장소와 재입장 가능 여부도 함께 확인하세요."
   ];
 }
 
@@ -210,7 +218,8 @@ function renderEvent(event, events) {
   document.querySelector("#factPresale").textContent = presaleDisplay(event);
   document.querySelector("#factTicket").textContent = humanDate(event.ticketDate, event.ticketTime);
   document.querySelector("#factVendor").textContent = event.vendor || "미정";
-  document.querySelector("#factAvailability").textContent = "공식 예매처 확인";
+  document.querySelector("#factPrice").textContent = priceDisplay(event);
+  document.querySelector("#factAvailability").textContent = ticketAvailabilityDisplay(event);
   document.querySelector("#eventVerified").textContent = `일정 확인 ${event.scheduleVerifiedAt || event.verifiedAt || "미확인"} · 가격 확인 ${event.priceVerifiedAt || "미확인"} · 판매 상태 확인 ${event.ticketStatusVerifiedAt || "미확인"} · 글 수정 ${event.articleUpdatedAt || event.verifiedAt || "미확인"}`;
 
   const ticket = document.querySelector("#eventTicket");
@@ -220,10 +229,15 @@ function renderEvent(event, events) {
   const correctionBase = location.pathname.includes("/calendar/events/") ? "../corrections" : "./corrections";
   document.querySelector("#correctionLink").href = `${correctionBase}?event=${encodeURIComponent(event.id)}&artist=${encodeURIComponent(event.artist)}`;
 
-  document.querySelector("#eventSongs").innerHTML = (event.songs || []).map(song => `
+  const guideByVideo = new Map((editorial.songGuides?.[event.artist] || []).filter(guide => guide.videoId).map(guide => [guide.videoId, guide]));
+  document.querySelector("#eventSongs").innerHTML = (event.songs || []).slice(0, 3).map(song => {
+    const videoId = youtubeVideoId(song[2]);
+    const guide = guideByVideo.get(videoId) || (editorial.songGuides?.[event.artist] || []).find(item => item.title === song[0]);
+    return `
     <a class="song" href="${escapeHtml(song[2])}" target="_blank" rel="noopener noreferrer">
-      <span class="play">▶</span><span>${escapeHtml(song[0])}</span><em>${escapeHtml(song[1] || "")}</em>
-    </a>`).join("");
+      <span class="play">▶</span><span>${escapeHtml(song[0])}</span><em>${escapeHtml(guide?.note || song[1] || "")}</em>
+    </a>`;
+  }).join("");
   document.querySelector("#eventSources").innerHTML = (event.sources || []).map(source => {
     const url = typeof source === "object" ? source.url : source;
     return `<a class="source-link" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(sourceLabel(source))} ↗</a>`;
