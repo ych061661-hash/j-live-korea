@@ -1,5 +1,19 @@
 [
   {
+    "id": "2026-09-10-ticket-change-vaundy-2026-09-19",
+    "date": "2026-09-10",
+    "kind": "ticket-change",
+    "label": "예매 일정 변경",
+    "artist": "Vaundy",
+    "eventId": "vaundy-2026-09-19",
+    "concertDate": "2026-09-19",
+    "summary": "예매 일정이 변경됐습니다. .",
+    "url": "https://member.vaundy.jp/feature/ASIAARENATOUR_2026",
+    "verifiedAt": "2026-09-10",
+    "recordedAt": "2026-09-10",
+    "dateMeaning": "recorded"
+  },
+  {
     "id": "2026-09-08-ticket-open-homecomings-2026-12-13",
     "date": "2026-09-08",
     "kind": "ticket-open",

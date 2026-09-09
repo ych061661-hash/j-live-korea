@@ -213,7 +213,7 @@ const updateLabels = {
   announcement: "신규 공연", "ticket-open": "티켓 오픈", "ticket-change": "예매 일정 변경", "extra-show": "추가 회차",
   "extra-seat": "추가 좌석", restock: "취소표", cancellation: "취소", postponement: "연기"
 };
-const snapshotFields = ["artist", "concertDate", "time", "venue", "vendor", "vendorUrl", "ticketDate", "ticketTime", "presaleDate", "presaleTime", "presaleStatus", "status", "ticketLabel", "verifiedAt", "sources"];
+const snapshotFields = ["artist", "concertDate", "time", "venue", "vendor", "vendorUrl", "ticketDate", "ticketTime", "presaleDate", "presaleTime", "presaleStatus", "status", "ticketLabel", "verifiedAt", "sources", "price", "priceCurrency", "ticketAvailability", "seriesId", "hostingStatus", "ticketingStatus"];
 const snapshotEvents = events => Object.fromEntries(events.map(event => [event.id, Object.fromEntries(snapshotFields.map(field => [field, event[field] ?? null]))]));
 const updateId = (event, kind, date) => `${date}-${kind}-${event.id}`.replace(/[^a-zA-Z0-9가-힣._-]+/g, "-");
 const makeUpdate = (event, kind, date, summary) => ({
@@ -258,6 +258,7 @@ function buildUpdateHistory(events, previousSnapshot = {}, previousUpdates = [],
     }
   } else {
     for (const event of events) {
+      if (event.status !== "confirmed") continue;
       const before = previousSnapshot[event.id];
       const date = event.verifiedAt || today;
       if (!before) {
@@ -271,6 +272,8 @@ function buildUpdateHistory(events, previousSnapshot = {}, previousUpdates = [],
       const status = String(event.status || "").toLowerCase();
       if (before.status !== event.status && /cancel|취소/.test(status)) additions.push(makeUpdate(event, "cancellation", date, `${humanDate(event.concertDate)} 공연 취소가 확인됐습니다.`));
       if (before.status !== event.status && /postpone|연기/.test(status)) additions.push(makeUpdate(event, "postponement", date, `${humanDate(event.concertDate)} 공연 연기가 확인됐습니다.`));
+      if (before.status === event.status && before.concertDate !== (event.concertDate ?? null)) additions.push(makeUpdate(event, "postponement", date, `공연일이 ${humanDate(before.concertDate)}에서 ${humanDate(event.concertDate)}로 변경됐습니다.`));
+      if (before.status === event.status && before.venue !== (event.venue ?? null)) additions.push(makeUpdate(event, "announcement", date, `공연장이 ${before.venue}에서 ${event.venue}로 변경됐습니다.`));
       if (["ticketDate", "ticketTime", "presaleDate", "presaleTime"].some(field => before[field] !== (event[field] ?? null))) {
         const hadSchedule = Boolean(before.ticketDate || before.presaleDate);
         const kind = hadSchedule ? "ticket-change" : "ticket-open";

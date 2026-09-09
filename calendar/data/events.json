@@ -800,8 +800,8 @@
     "time": "오후 5:00",
     "venue": "인스파이어 아레나",
     "presaleDate": "",
-    "ticketDate": "2026-03-11",
-    "ticketTime": "오후 8:00",
+    "ticketDate": "",
+    "ticketTime": "",
     "price": 154000,
     "priceCurrency": "KRW",
     "vendor": "NOL 티켓",
@@ -829,7 +829,8 @@
       "https://member.vaundy.jp/feature/ASIAARENATOUR_2026",
       "https://tickets.interpark.com/goods/26003199"
     ],
-    "verifiedAt": "2026-09-06",
+    "verifiedAt": "2026-09-10",
+    "ticketingStatus": "pending_announcement",
     "createdAt": "2026-06-11T09:00:00+09:00",
     "seatPrices": [
       {
@@ -858,8 +859,8 @@
     "time": "오후 4:00",
     "venue": "인스파이어 아레나",
     "presaleDate": "",
-    "ticketDate": "2026-03-11",
-    "ticketTime": "오후 8:00",
+    "ticketDate": "",
+    "ticketTime": "",
     "price": 154000,
     "priceCurrency": "KRW",
     "vendor": "NOL 티켓",
@@ -887,7 +888,8 @@
       "https://member.vaundy.jp/feature/ASIAARENATOUR_2026",
       "https://tickets.interpark.com/goods/26003199"
     ],
-    "verifiedAt": "2026-09-06",
+    "verifiedAt": "2026-09-10",
+    "ticketingStatus": "pending_announcement",
     "createdAt": "2026-06-11T09:00:00+09:00",
     "seatPrices": [
       {
@@ -3122,14 +3124,14 @@
         "https://www.youtube.com/watch?v=f191jgQX1UA"
       ]
     ],
-    "status": "pending",
+    "status": "confirmed",
     "sources": [
       "https://ticket.melon.com/csoon/detail.htm?csoonId=12775",
       "https://ticket.melon.com/performance/index.htm?prodId=213806",
       "https://ponycanyon.us/musician/homecomings/",
       "https://www.youtube.com/@homecomingsch"
     ],
-    "verifiedAt": "2026-09-08",
+    "verifiedAt": "2026-09-10",
     "createdAt": "2026-09-08T00:00:00+09:00",
     "seatPrices": [
       {

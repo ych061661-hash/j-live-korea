@@ -61,6 +61,10 @@
             <label>통화<input name="priceCurrency" value="KRW"></label>
             <label>공식 YouTube 채널<input name="youtubeChannel" placeholder="@OfficialChannel"></label>
             <label>마지막 검증일<input name="verifiedAt" type="date"></label>
+            <label>개최 확인<select name="hostingStatus"><option value="unverified">미확인</option><option value="confirmed">개최 확인</option><option value="conflict">출처 충돌·보류</option></select></label>
+            <label>예매 정보 상태<select name="ticketingStatus"><option value="unverified">미확인</option><option value="pending_announcement">발표 대기</option><option value="confirmed">예매 정보 확인</option><option value="conflict">출처 충돌·보류</option></select></label>
+            <label>공연 시리즈 ID<input name="seriesId" placeholder="artist-tour-2026"></label>
+            <label>변경 대상 ID<input name="changeOf" placeholder="기존 공연 ID"></label>
           </div>
 
           <fieldset>
@@ -71,6 +75,7 @@
           </fieldset>
 
           <label class="block">공식 출처 URL<textarea name="sources" rows="4" placeholder="한 줄에 URL 하나"></textarea></label>
+          <label class="block">변경 사유<textarea name="changeReason" rows="2" placeholder="예: 주최사 공지로 공연장이 변경됨"></textarea></label>
           <label class="block" id="cancellationField" hidden>취소 사유<textarea name="cancellationReason" rows="2"></textarea></label>
 
           <div class="form-actions">

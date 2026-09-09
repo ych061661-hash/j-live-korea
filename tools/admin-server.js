@@ -2,6 +2,7 @@ const http = require("node:http");
 const fs = require("node:fs");
 const path = require("node:path");
 const { spawnSync } = require("node:child_process");
+const { validateWorkflow, readiness, seriesKey } = require("./event-workflow");
 
 const ROOT = path.resolve(__dirname, "..");
 const EVENTS_FILE = process.env.JLIVE_EVENTS_FILE ? path.resolve(process.env.JLIVE_EVENTS_FILE) : path.join(ROOT, "calendar", "data", "events.json");
@@ -52,6 +53,7 @@ function validateEvent(event, events = []) {
     }
   }
   if (event.status === "cancelled" && !String(event.cancellationReason || "").trim()) errors.push("취소 사유가 필요합니다.");
+  errors.push(...validateWorkflow(event, events, { mode: events.some(item => item.id === event.id) ? "change" : "add" }).filter(error => !errors.includes(error)));
   return errors;
 }
 
@@ -81,8 +83,18 @@ function normalizeEvent(input, previous = {}) {
     sources: lines(input.sources),
     verifiedAt: text("verifiedAt"),
     status: text("status") || "pending",
+    seriesId: text("seriesId"),
+    changeOf: text("changeOf"),
+    changeReason: text("changeReason"),
+    hostingStatus: text("hostingStatus") || undefined,
+    ticketingStatus: text("ticketingStatus") || undefined,
     updatedAt: new Date().toISOString()
   };
+  if (event.seriesId) event.seriesId = event.seriesId;
+  else event.seriesId = seriesKey(event);
+  if (!event.hostingStatus && event.status === "confirmed") event.hostingStatus = "confirmed";
+  if (!event.ticketingStatus) event.ticketingStatus = "unverified";
+  event.workflowState = readiness(event);
   const price = input.price === "" || input.price == null ? null : Number(input.price);
   if (Number.isFinite(price)) event.price = price;
   else delete event.price;
