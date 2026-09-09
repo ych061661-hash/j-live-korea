@@ -87,6 +87,17 @@ test("keeps every indexed venue guide practical and substantial", () => {
   }
 });
 
+test("makes the standing guide actionable without inventing event rules", () => {
+  const guide = read("calendar/guides/standing-concert.html");
+  for (const required of [
+    "예매 번호", "줄 집합 시각", "입장 시작 시각", "공연 시작 시각",
+    "지각자 입장", "모바일 티켓", "실물·배송 티켓", "현장 수령",
+    "짐·물·가방·카메라·재입장", "전날", "출발 전", "현장 도착", "입장 전", "공연 후",
+    "킨텍스 제2전시장", "인스파이어 아레나", "장충체육관"
+  ]) assert.match(guide, new RegExp(required));
+  assert.doesNotMatch(guide, /venue 안내/);
+});
+
 test("keeps the indexed artist directory explanatory rather than link-only", () => {
   const html = read("calendar/artists/index.html");
   const words = visibleText(html).split(/\s+/).filter(Boolean);

@@ -413,7 +413,7 @@ function venueSourcesMarkup(guide) {
   return (guide.sources || []).map(source => `<a class="source-link" href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.label)} ↗</a>`).join("");
 }
 
-function venueFacilityMapMarkup(slug, sections) {
+function venueFacilityMapMarkup(slug, sections, verifiedAt) {
   const sectionTarget = key => {
     const index = sections.findIndex(([sectionKey]) => sectionKey === key);
     return index < 0 ? "#venue-sources" : `#venue-${index + 1}`;
@@ -449,7 +449,7 @@ function venueFacilityMapMarkup(slug, sections) {
     },
     "kintex-second-exhibition": {
       title: "킨텍스 제2전시장 9·10홀 약도",
-      note: "공식 제2전시장 안내도와 주최자 매뉴얼을 기준으로 9홀·10홀과 10홀 앞 물품보관함을 표시했습니다. WC 아이콘은 각 홀 지원 화장실의 개념 표시이며 정확한 좌표는 공식 도면을 확인해야 합니다.",
+      note: "공식 제2전시장 안내도와 편의시설 안내를 기준으로 9홀·10홀·물품보관함의 위치 관계만 표시했습니다. 화장실·게이트의 정확한 좌표와 공연 관객 이용 조건은 공연 당일 공식 도면·공지로 확인해야 합니다.",
       source: "https://www.kintex.com/web/ko/html/facility/exhibition_facility_02.do",
       sourceLabel: "킨텍스 제2전시장 공식 도면",
       svg: `<rect class="map-building" x="42" y="54" width="676" height="500" rx="24"/>
@@ -461,7 +461,7 @@ function venueFacilityMapMarkup(slug, sections) {
     },
     "jangchung-gymnasium": {
       title: "장충체육관 출입·편의시설 약도",
-      note: "공식 시설 안내의 동대입구역 연결통로와 주출입구를 단순화했습니다. WC 아이콘은 공식 안내된 1층 장애인 전용 화장실 2개소를 뜻하며 정확한 좌표는 아닙니다.",
+      note: "공식 시설 안내의 동대입구역 연결통로·주출입구·2층 물품보관실 표기를 단순화했습니다. 물품보관실의 콘서트 관객 이용 조건과 화장실의 정확한 좌표는 행사 당일 확인해야 합니다.",
       source: "https://www.sisul.or.kr/open_content/jangchung/introduce/facility.jsp",
       sourceLabel: "장충체육관 공식 시설 안내",
       svg: `<path class="map-flow" d="M40 300 H174"/><text class="map-small-label" x="106" y="276">동대입구역 5번 출구</text>
@@ -471,10 +471,10 @@ function venueFacilityMapMarkup(slug, sections) {
     },
     "inspire-arena": {
       title: "인스파이어 아레나 리조트 동선 약도",
-      note: "공식 리조트 교통·아레나 안내를 기준으로 셔틀 도착부터 아레나까지의 실내 이동 관계를 표시했습니다. 화장실 세부 좌표는 공개되지 않았습니다.",
+      note: "공식 리조트 교통·아레나 안내를 기준으로 리조트 교통 서비스와 아레나의 관계를 단순화했습니다. 공연별 도심 셔틀, 실제 하차 지점·게이트·화장실 위치는 해당 공연 공지에서 확인해야 합니다.",
       source: "https://www.inspireresorts.com/ko/entertainment/inspire-arena",
       sourceLabel: "인스파이어 아레나 공식 안내",
-      svg: `<rect class="map-zone service" x="48" y="228" width="150" height="92" rx="28"/><text class="map-zone-label" x="123" y="266">셔틀 하차</text><text class="map-zone-sub" x="123" y="292">오션타워</text>
+      svg: `<rect class="map-zone service" x="48" y="228" width="150" height="92" rx="28"/><text class="map-zone-label" x="123" y="266">리조트 교통</text><text class="map-zone-sub" x="123" y="292">당일 안내 확인</text>
         <path class="map-flow" d="M198 274 H310"/><rect class="map-zone secondary" x="310" y="190" width="172" height="168" rx="34"/><text class="map-zone-label" x="396" y="266">리조트 내부</text><text class="map-zone-sub" x="396" y="292">오로라 통로</text>
         <path class="map-flow" d="M482 274 H552"/><rect class="map-zone primary" x="552" y="90" width="160" height="368" rx="64"/><rect class="map-detail-box dark" x="576" y="124" width="112" height="64" rx="16"/><text class="map-detail-label light" x="632" y="153">2~4F</text><text class="map-zone-sub light" x="632" y="174">스탠드</text><rect class="map-detail-box dark" x="576" y="214" width="112" height="116" rx="22"/><text class="map-detail-label light" x="632" y="265">1F 플로어</text><text class="map-zone-sub light" x="632" y="290">공연별 배치</text><text class="map-zone-sub light" x="632" y="390">아레나 로비</text>
         ${gate(520, 257, "GATE", "아레나 관객 입구")}${wc(396, 394, "리조트 공용 화장실 위치 현장 확인")}
@@ -520,7 +520,7 @@ function venueFacilityMapMarkup(slug, sections) {
   const map = maps[slug];
   if (!map) return "";
   return `<section class="venue-site-map" id="facility-map" aria-labelledby="facility-map-title">
-      <div class="site-map-heading"><div><span class="section-kicker">VENUE SITE MAP</span><h2 id="facility-map-title">${escapeHtml(map.title)}</h2></div><span>축척 아님 · 2026-07-28 확인</span></div>
+      <div class="site-map-heading"><div><span class="section-kicker">VENUE SITE MAP</span><h2 id="facility-map-title">${escapeHtml(map.title)}</h2></div><span>축척 아님 · ${escapeHtml(verifiedAt || "확인일 미표기")} 확인</span></div>
       <p class="site-map-note">${escapeHtml(map.note)}</p>
       <div class="site-map-layout">
         <ul class="site-map-legend" aria-label="약도 범례">
@@ -565,7 +565,7 @@ function venuePageHtml(slug, guide, siteUrl) {
   ].filter(([, , body]) => body);
   const description = guide.seoDescription || `${guide.name} 교통, 입장 동선, 화장실, 물품 보관과 귀가 정보를 공식 출처 기준으로 정리했습니다.`;
   const title = guide.seoTitle || `${guide.name} 교통·화장실·물품보관 가이드`;
-  const facilityMap = venueFacilityMapMarkup(slug, sections);
+  const facilityMap = venueFacilityMapMarkup(slug, sections, guide.verifiedAt);
   const decisionGuide = guide.firstDecision && guide.variable ? `<section class="venue-decision-guide">
       <span class="section-kicker">BEFORE YOU GO</span><h2>처음 가기 전에 먼저 정할 것</h2><p>${escapeHtml(guide.firstDecision)}</p>
       <h3>공연별로 다시 확인할 것</h3><p>${escapeHtml(guide.variable)}</p>
