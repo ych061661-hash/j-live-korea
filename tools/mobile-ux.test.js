@@ -33,3 +33,9 @@ test("keeps the mobile detail close target and ticket CTA clear of overlap", () 
   assert.match(index, /id="mobileDetailBackdrop"[^>]+tabindex="-1"/);
   assert.ok(index.indexOf('id="detailPageButton"') < index.indexOf('id="ticketButton"'));
 });
+
+test("keeps the homepage hero within narrow mobile viewports", () => {
+  assert.match(styles, /\.home-page \.hero-main \{ width:min\(100%,900px\); min-width:0;/);
+  assert.match(styles, /\.home-page \.hero h1 \{ max-width:620px; margin-top:16px; font-size:clamp\(46px,12vw,66px\); overflow-wrap:anywhere;/);
+  assert.match(styles, /\.home-page \.hero-copy \{ width:100%; max-width:620px; margin-top:20px; overflow-wrap:anywhere;/);
+});
