@@ -158,12 +158,15 @@ test("publishes an original annual data report without double-counting multi-dat
   ], "https://j-live.kr", "2026-08-15");
   assert.match(html, /확인된 공연 시리즈<\/span><strong>2<\/strong>/);
   assert.match(html, /확인된 공연 회차<\/span><strong>3<\/strong>/);
+  assert.match(html, /서로 다른 공연 날짜<\/span><strong>3<\/strong>/);
   assert.match(html, /참여 아티스트<\/span><strong>2<\/strong>/);
   assert.match(html, /선예매는 1\/2개 시리즈/);
   assert.match(html, /93,500원/);
   assert.match(html, /"@type":"Dataset"/);
   assert.match(html, /3월<\/strong><span>2회차/);
   assert.match(html, /분석에 사용한 전체 공연 기록/);
+  assert.match(html, /원자료 생성일/);
+  assert.match(html, /전체 한국 공연 시장 통계가 아닙니다/);
   assert.doesNotMatch(html, /pagead2\.googlesyndication\.com/);
 });
 

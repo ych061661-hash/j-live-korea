@@ -6,6 +6,8 @@ const {
   artistIndexHtml,
   artistPageHtml,
   buildUpdateHistory,
+  mondayFor,
+  timeMinutes,
   updatesPageHtml,
   weeklyPageHtml
 } = require("./discovery-pages");
@@ -40,7 +42,7 @@ test("renders artist pages with three songs and correct directory links", () => 
     today: "2026-07-29"
   });
   assert.equal((html.match(/youtube\.com\/watch/g) || []).length, 3);
-  assert.match(html, /<meta name="robots" content="noindex,follow">/);
+  assert.match(html, /<meta name="robots" content="index,follow,max-image-preview:large">/);
   assert.doesNotMatch(html, /pagead2\.googlesyndication\.com/);
 
   const directory = artistIndexHtml({
@@ -111,6 +113,21 @@ test("renders the current Monday-to-Sunday weekly page", () => {
   assert.equal(page.start, "2026-07-27");
   assert.match(page.html, /Band/);
   assert.match(page.html, /https:\/\/tickets\.example\/show/);
+});
+
+test("uses Seoul calendar weeks across year boundaries and sorts same-day shows by start time", () => {
+  const localDate = value => `${value.getFullYear()}-${String(value.getMonth() + 1).padStart(2, "0")}-${String(value.getDate()).padStart(2, "0")}`;
+  assert.equal(localDate(mondayFor("2026-01-01")), "2025-12-29");
+  assert.equal(localDate(mondayFor("2026-12-31")), "2026-12-28");
+  assert.equal(timeMinutes("오후 5:00"), 17 * 60);
+  assert.equal(timeMinutes("오후 6:00"), 18 * 60);
+  const page = weeklyPageHtml({
+    events: [
+      { ...event, id: "later", artist: "Later", concertDate: "2026-08-01", time: "오후 6:00" },
+      { ...event, id: "earlier", artist: "Earlier", concertDate: "2026-08-01", time: "오후 5:00" }
+    ], aliases: {}, editorial: {}, siteUrl: "https://j-live.kr", today: "2026-08-01"
+  });
+  assert.ok(page.html.indexOf("Earlier") < page.html.indexOf("Later"));
 });
 
 test("deduplicates identical series-level ticket updates", () => {

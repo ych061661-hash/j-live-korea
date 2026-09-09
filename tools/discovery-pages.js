@@ -16,6 +16,16 @@ const parseDate = value => {
   return new Date(year, month - 1, day);
 };
 const dateKey = date => `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+const timeMinutes = value => {
+  const text = String(value || "").trim();
+  const numeric = text.match(/^(\d{1,2}):(\d{2})$/);
+  if (numeric) return Number(numeric[1]) * 60 + Number(numeric[2]);
+  const korean = text.match(/^(오전|오후)\s*(\d{1,2}):(\d{2})$/);
+  if (!korean) return Number.MAX_SAFE_INTEGER;
+  let hour = Number(korean[2]) % 12;
+  if (korean[1] === "오후") hour += 12;
+  return hour * 60 + Number(korean[3]);
+};
 const humanDate = (value, time = "") => {
   if (!value) return "미정";
   const date = parseDate(value);
@@ -119,7 +129,7 @@ function artistPageHtml({ artist, events, aliases, editorial, siteUrl, today }) 
     description: `${artist}의 예정된 한국 공연, 지난 내한 기록, 대표곡 3개와 관련 공연장·예매처를 확인하세요.`,
     canonical: `${siteUrl}/calendar/artists/${encodeURIComponent(slug)}`,
     body, siteUrl,
-    robots: "noindex,follow",
+    robots: "index,follow,max-image-preview:large",
     includeAds: false,
     image: imageUrl(latest, siteUrl)
   });
@@ -164,7 +174,9 @@ function weeklyPageHtml({ events, aliases, editorial, siteUrl, today }) {
   sunday.setDate(monday.getDate() + 6);
   const start = dateKey(monday);
   const end = dateKey(sunday);
-  const concerts = events.filter(event => event.concertDate >= start && event.concertDate <= end);
+  const concerts = events
+    .filter(event => event.concertDate >= start && event.concertDate <= end)
+    .sort((a, b) => a.concertDate.localeCompare(b.concertDate) || timeMinutes(a.time) - timeMinutes(b.time) || a.id.localeCompare(b.id));
   const ticketItems = [];
   const seen = new Set();
   for (const event of events) {
@@ -175,7 +187,7 @@ function weeklyPageHtml({ events, aliases, editorial, siteUrl, today }) {
       ticketItems.push({ event, type, date, time });
     }
   }
-  ticketItems.sort((a, b) => a.date.localeCompare(b.date) || (a.time || "").localeCompare(b.time || ""));
+  ticketItems.sort((a, b) => a.date.localeCompare(b.date) || timeMinutes(a.time) - timeMinutes(b.time) || a.event.id.localeCompare(b.event.id));
   const eventCard = event => {
     const slug = artistSlug(event);
     return `<article class="weekly-card"><div><span class="section-kicker">${escapeHtml(humanDate(event.concertDate, event.time))}</span><h3><a href="../artists/${encodeURIComponent(slug)}">${escapeHtml(event.artist)}</a></h3><p>${escapeHtml(event.venue)} · ${escapeHtml(event.vendor || "예매처 미정")}</p></div><div class="weekly-songs">${(event.songs || []).slice(0, 3).map(song => `<a href="${escapeHtml(song[2])}" target="_blank" rel="noopener noreferrer">▶ ${escapeHtml(song[0])}</a>`).join("")}</div><div class="weekly-actions"><a href="../events/${encodeURIComponent(event.id)}">공연 정보</a>${event.vendorUrl ? `<a href="${escapeHtml(event.vendorUrl)}" target="_blank" rel="noopener noreferrer" data-track-vendor="${escapeHtml(event.vendor || "미정")}">예매처 ↗</a>` : ""}</div></article>`;
@@ -308,5 +320,5 @@ function updatesPageHtml({ updates, siteUrl, validEventIds = null }) {
 
 module.exports = {
   artistIndexHtml, artistPageHtml, artistSlug, buildUpdateHistory, dateKey, humanDate,
-  mondayFor, snapshotEvents, updatesPageHtml, weeklyPageHtml
+  mondayFor, snapshotEvents, timeMinutes, updatesPageHtml, weeklyPageHtml
 };

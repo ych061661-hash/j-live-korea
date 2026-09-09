@@ -129,6 +129,33 @@ test("keeps complete Event structured data after client rendering", () => {
   assert.match(client, /document\.body\.dataset\.eventId && existingScript\?\.textContent\.trim\(\)/);
 });
 
+test("keeps rendered event facts aligned with Event structured data", () => {
+  const events = JSON.parse(read("calendar/data/events.json"));
+  const sitemap = read("sitemap.xml");
+  const indexedIds = new Set([...sitemap.matchAll(/<loc>https:\/\/j-live\.kr\/calendar\/events\/([^<]+)<\/loc>/g)]
+    .map(match => decodeURIComponent(match[1])));
+  const statusBySource = {
+    cancelled: "https://schema.org/EventCancelled",
+    postponed: "https://schema.org/EventPostponed",
+    rescheduled: "https://schema.org/EventRescheduled"
+  };
+
+  for (const source of events.filter(event => indexedIds.has(event.id))) {
+    const html = read(`calendar/events/${source.id}.html`);
+    const encoded = (html.match(/id="eventStructuredData">([\s\S]*?)<\/script>/) || [])[1];
+    const schema = JSON.parse(encoded);
+    const expectedStatus = statusBySource[source.status] || "https://schema.org/EventScheduled";
+
+    assert.match(schema.startDate, new RegExp(`^${source.concertDate}`), `${source.id} has a different structured date`);
+    assert.equal(schema.location.name, source.venue, `${source.id} has a different structured venue`);
+    assert.equal(schema.eventStatus, expectedStatus, `${source.id} has a different structured status`);
+    assert.equal(schema.offers.price, source.price, `${source.id} has a different structured price`);
+    assert.match(html, new RegExp(source.venue.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")), `${source.id} does not render its venue`);
+    const [year, month, day] = source.concertDate.split("-");
+    assert.match(html, new RegExp(`${year}년 ${Number(month)}월 ${Number(day)}일`), `${source.id} does not render its concert date`);
+  }
+});
+
 test("keeps indexed events free of unfinished-state copy", () => {
   const sitemap = read("sitemap.xml");
   const ids = [...sitemap.matchAll(/<loc>https:\/\/j-live\.kr\/calendar\/events\/([^<]+)<\/loc>/g)].map(match => decodeURIComponent(match[1]));
