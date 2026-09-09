@@ -20,6 +20,8 @@ test("gives mobile detail a browser-back state and restores scroll", () => {
   assert.match(app, /history\.pushState\(\{ jLiveMobileDetail: true/);
   assert.match(app, /window\.addEventListener\("popstate"/);
   assert.match(app, /window\.scrollTo\(\{ top: mobileDetailScrollY/);
+  assert.match(app, /mobileDetailReturnFocusSelector = activeDay\?\.dataset\.date/);
+  assert.match(app, /document\.querySelector\(mobileDetailReturnFocusSelector\)/);
   assert.match(app, /setMobileDetailIsolation\(true\)/);
   assert.match(app, /toggleAttribute\("inert", open\)/);
   assert.match(app, /#closeDetail"\)\?\.focus/);

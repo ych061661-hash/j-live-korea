@@ -74,6 +74,7 @@ let myShowsFeatureIndex = 0;
 let mobileDetailHistoryActive = false;
 let mobileDetailScrollY = 0;
 let mobileDetailReturnFocus = null;
+let mobileDetailReturnFocusSelector = "";
 const mobileQuery = window.matchMedia("(max-width: 820px)");
 
 const escapeHtml = (value = "") => String(value).replace(/[&<>"']/g, char => ({
@@ -900,6 +901,8 @@ function openMobileDetail(schedule) {
   if (!mobileQuery.matches) return;
   mobileDetailScrollY = window.scrollY;
   mobileDetailReturnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+  const activeDay = mobileDetailReturnFocus?.closest(".day[data-date]");
+  mobileDetailReturnFocusSelector = activeDay?.dataset.date ? `.day[data-date="${activeDay.dataset.date}"]` : "";
   if (!mobileDetailHistoryActive) {
     mobileDetailHistoryActive = true;
     history.pushState({ jLiveMobileDetail: true, eventId: schedule?.id || "" }, "", `#show-${encodeURIComponent(schedule?.id || "detail")}`);
@@ -919,8 +922,10 @@ function closeMobileDetail({ fromHistory = false } = {}) {
   mobileDetailHistoryActive = false;
   requestAnimationFrame(() => {
     window.scrollTo({ top: mobileDetailScrollY, behavior: "auto" });
-    mobileDetailReturnFocus?.focus({ preventScroll: true });
+    const returnTarget = mobileDetailReturnFocusSelector ? document.querySelector(mobileDetailReturnFocusSelector) : mobileDetailReturnFocus;
+    returnTarget?.focus({ preventScroll: true });
     mobileDetailReturnFocus = null;
+    mobileDetailReturnFocusSelector = "";
   });
 }
 
