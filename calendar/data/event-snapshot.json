@@ -351,14 +351,23 @@
     "ticketTime": "오후 8:00",
     "presaleDate": "",
     "presaleTime": null,
-    "presaleStatus": null,
+    "presaleStatus": "none",
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-09-10",
     "sources": [
-      "https://member.vaundy.jp/feature/ASIAARENATOUR_2026",
-      "https://tickets.interpark.com/goods/26003199",
-      "https://tickets.interpark.com/contents/notice/detail/12910"
+      {
+        "label": "아티스트 투어 발표",
+        "url": "https://member.vaundy.jp/feature/ASIAARENATOUR_2026"
+      },
+      {
+        "label": "NOL 공연 상세",
+        "url": "https://tickets.interpark.com/goods/26003199"
+      },
+      {
+        "label": "예매 오픈 공지",
+        "url": "https://tickets.interpark.com/contents/notice/detail/12910"
+      }
     ],
     "price": 154000,
     "priceCurrency": "KRW",
@@ -378,14 +387,23 @@
     "ticketTime": "오후 8:00",
     "presaleDate": "",
     "presaleTime": null,
-    "presaleStatus": null,
+    "presaleStatus": "none",
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-09-10",
     "sources": [
-      "https://member.vaundy.jp/feature/ASIAARENATOUR_2026",
-      "https://tickets.interpark.com/goods/26003199",
-      "https://tickets.interpark.com/contents/notice/detail/12910"
+      {
+        "label": "아티스트 투어 발표",
+        "url": "https://member.vaundy.jp/feature/ASIAARENATOUR_2026"
+      },
+      {
+        "label": "NOL 공연 상세",
+        "url": "https://tickets.interpark.com/goods/26003199"
+      },
+      {
+        "label": "예매 오픈 공지",
+        "url": "https://tickets.interpark.com/contents/notice/detail/12910"
+      }
     ],
     "price": 154000,
     "priceCurrency": "KRW",

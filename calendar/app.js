@@ -110,6 +110,16 @@ function formatScheduleDate(key, time = "") {
   return key && time ? `${formatted} · ${time}` : formatted;
 }
 
+function timeMinutes(value = "") {
+  const match = String(value).match(/(오전|오후|낮|밤)?\s*(\d{1,2})(?::(\d{2}))?/);
+  if (!match) return Number.MAX_SAFE_INTEGER;
+  let hour = Number(match[2]);
+  const minute = Number(match[3] || 0);
+  if (["오후", "밤"].includes(match[1]) && hour < 12) hour += 12;
+  if (match[1] === "오전" && hour === 12) hour = 0;
+  return hour * 60 + minute;
+}
+
 function eventsForDate(key) {
   const events = schedules.flatMap(schedule => [
     schedule.concertDate === key && { type: "concert", schedule },
@@ -138,6 +148,14 @@ function eventsForDate(key) {
     if (seenTicketEvents.has(eventKey)) return false;
     seenTicketEvents.add(eventKey);
     return true;
+  }).sort((left, right) => {
+    const leftTime = left.type === "concert" ? left.schedule.time
+      : left.type === "ticket" ? left.schedule.ticketTime : left.schedule.presaleTime;
+    const rightTime = right.type === "concert" ? right.schedule.time
+      : right.type === "ticket" ? right.schedule.ticketTime : right.schedule.presaleTime;
+    return timeMinutes(leftTime) - timeMinutes(rightTime)
+      || left.schedule.artist.localeCompare(right.schedule.artist)
+      || left.schedule.id.localeCompare(right.schedule.id);
   });
 }
 

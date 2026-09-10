@@ -376,13 +376,15 @@ test("keeps confirmed concert evidence direct, secure, and non-aggregated", () =
     assert.match(event.verifiedAt || "", /^\d{4}-\d{2}-\d{2}$/, `${event.id} needs a verification date`);
     assert.match(event.vendorUrl || "", /^https:\/\//, `${event.id} needs a secure official ticket URL`);
     assert.ok(Array.isArray(event.sources) && event.sources.length > 0, `${event.id} needs official sources`);
-    assert.equal(new Set(event.sources).size, event.sources.length, `${event.id} has duplicate sources`);
+    const sourceUrls = event.sources.map(source => typeof source === "object" ? source.url : source);
+    assert.equal(new Set(sourceUrls).size, sourceUrls.length, `${event.id} has duplicate sources`);
 
     for (const source of event.sources) {
-      const url = new URL(source);
-      assert.equal(url.protocol, "https:", `${event.id} has an insecure source: ${source}`);
-      assert.ok(!discoveryOnlyDomains.has(url.hostname), `${event.id} uses a discovery-only source: ${source}`);
-      assert.doesNotMatch(url.pathname, /\/search(?:\/|$)/i, `${event.id} links to search results: ${source}`);
+      const sourceUrl = typeof source === "object" ? source.url : source;
+      const url = new URL(sourceUrl);
+      assert.equal(url.protocol, "https:", `${event.id} has an insecure source: ${sourceUrl}`);
+      assert.ok(!discoveryOnlyDomains.has(url.hostname), `${event.id} uses a discovery-only source: ${sourceUrl}`);
+      assert.doesNotMatch(url.pathname, /\/search(?:\/|$)/i, `${event.id} links to search results: ${sourceUrl}`);
     }
 
     assert.equal(event.songs?.length, 3, `${event.id} needs exactly three representative songs`);
