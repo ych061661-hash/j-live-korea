@@ -89,6 +89,15 @@ function isPublicEvent(event) {
     || isHostingConfirmedPending(event);
 }
 
+const INDEX_FRESHNESS_DAYS = 30;
+
+function isFreshlyVerified(event, today, maxDays = INDEX_FRESHNESS_DAYS) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(String(event.verifiedAt || "")) || !/^\d{4}-\d{2}-\d{2}$/.test(String(today || ""))) return false;
+  const toUtc = value => Date.UTC(...value.split("-").map((part, index) => index === 1 ? Number(part) - 1 : Number(part)));
+  const age = Math.floor((toUtc(today) - toUtc(event.verifiedAt)) / 86400000);
+  return age >= 0 && age <= maxDays;
+}
+
 function ticketDateDisplay(event) {
   if (!event.ticketDate && event.ticketingStatus === "pending_announcement") return "발표 대기";
   return humanDate(event.ticketDate, event.ticketTime);
@@ -310,8 +319,8 @@ function homepageUpcomingMarkup(events, today = "") {
   if (!cards) return "";
   return `<section class="seo-upcoming" aria-labelledby="seoUpcomingTitle">
       <div class="seo-upcoming-heading">
-        <div><span class="section-kicker">EDITOR'S VERIFIED PICKS</span><h2 id="seoUpcomingTitle"><span class="seo-upcoming-title-full">직접 확인한 다가오는 공연</span><span class="seo-upcoming-title-mobile">직접 확인한 공연</span></h2></div>
-        <div class="seo-upcoming-heading-copy"><p>공식 예매처와 주최사 발표를 대조하고, 아티스트별 관전 포인트와 공연장 이동 계획까지 직접 작성한 일정만 모았습니다.</p><a class="seo-upcoming-all" href="#calendar">전체 일정 보기 <span aria-hidden="true">→</span></a></div>
+        <div><span class="section-kicker">RECENTLY REVERIFIED PICKS</span><h2 id="seoUpcomingTitle"><span class="seo-upcoming-title-full">최근 다시 확인한 다가오는 공연</span><span class="seo-upcoming-title-mobile">최근 확인한 공연</span></h2></div>
+        <div class="seo-upcoming-heading-copy"><p>최근 30일 안에 공식 예매처와 주최사 발표를 다시 대조하고, 아티스트별 관전 포인트와 공연장 이동 계획까지 작성한 일정만 표시합니다.</p><a class="seo-upcoming-all" href="#calendar">전체 일정 보기 <span aria-hidden="true">→</span></a></div>
       </div>
       <div class="seo-upcoming-grid">${cards}</div>
     </section>`;
@@ -373,7 +382,7 @@ function renderEventPage({ event, events, group, primary, editorial, siteUrl, te
   const imageAlt = image.fallback ? "J-LIVE 기본 공연 이미지" : `${event.artist} 공식 프로필`;
   const imageSize = image.fallback ? 'width="512" height="512"' : 'width="1200" height="675"';
   const imageClass = image.fallback ? ' class="event-photo-fallback"' : "";
-  const indexable = event.status === "confirmed" && event.id === primary.id && group.some(item => item.concertDate >= today) && hasIndexableEventContent(event, editorial);
+  const indexable = event.status === "confirmed" && event.id === primary.id && group.some(item => item.concertDate >= today) && hasIndexableEventContent(event, editorial) && isFreshlyVerified(event, today);
   const years = [...new Set(group.map(item => item.concertDate.slice(0, 4)))].join("·");
   const [, month, day] = event.concertDate.split("-").map(Number);
   const title = `${event.artist} 내한 ${years} 예매 일정 | ${month}월 ${day}일 공연 정보`;
@@ -649,8 +658,6 @@ function venueIndexHtml(venueGuides, siteUrl) {
   const comparisonRows = guides.map(([slug, guide]) => `<tr><th scope="row"><a href="./${encodeURIComponent(slug)}">${escapeHtml(guide.name)}</a></th><td>${escapeHtml(brief(guide.transit))}</td><td>${escapeHtml(brief(guide.storage))}</td><td>${escapeHtml(guide.verifiedAt)}</td></tr>`).join("");
   return `<!doctype html>
 <html lang="ko"><head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3081918168688274" crossorigin="anonymous"></script>
-${fundingChoicesSnippet}
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="${escapeHtml(description)}">
   <meta property="og:locale" content="ko_KR"><meta property="og:site_name" content="제이라이브 코리아">
@@ -817,8 +824,10 @@ function main() {
   const artistDirectory = path.join(calendar, "artists");
   fs.mkdirSync(artistDirectory, { recursive: true });
   for (const filename of fs.readdirSync(artistDirectory)) if (filename.endsWith(".html")) fs.unlinkSync(path.join(artistDirectory, filename));
+  const indexablePrimaryEvents = futurePrimaryEvents.filter(event => hasIndexableEventContent(event, editorial) && isFreshlyVerified(event, today));
+  const indexableArtists = new Set(indexablePrimaryEvents.map(event => event.artist));
   for (const [artist, artistEvents] of artistGroups) {
-    writeUtf8(path.join(artistDirectory, `${artistSlug(artistEvents[0])}.html`), artistPageHtml({ artist, events: artistEvents, aliases, editorial, siteUrl, today }));
+    writeUtf8(path.join(artistDirectory, `${artistSlug(artistEvents[0])}.html`), artistPageHtml({ artist, events: artistEvents, aliases, editorial, siteUrl, today, indexable: indexableArtists.has(artist) }));
   }
   writeUtf8(path.join(artistDirectory, "index.html"), artistIndexHtml({ groups: artistGroups, aliases, siteUrl, today }));
 
@@ -842,7 +851,7 @@ function main() {
     path: `/calendar/guides/venues/${encodeURIComponent(slug)}`,
     lastmod: guide.verifiedAt || today
   }));
-  const artistPaths = [...artistGroups.entries()].map(([artist, artistEvents]) => ({
+  const artistPaths = [...artistGroups.entries()].filter(([artist]) => indexableArtists.has(artist)).map(([artist, artistEvents]) => ({
     path: `/calendar/artists/${encodeURIComponent(artistSlug(artistEvents[0]))}`,
     lastmod: artistEvents.map(event => event.verifiedAt).filter(Boolean).sort().at(-1)
   }));
@@ -858,7 +867,7 @@ function main() {
     { path: "/calendar/reports/2026-jpop-live", lastmod: today },
     { path: "/calendar/stories/why-j-live" }
   ];
-  const primaryEvents = futurePrimaryEvents.filter(event => hasIndexableEventContent(event, editorial));
+  const primaryEvents = indexablePrimaryEvents;
   const homepage = homepageTemplate.replace(
     /<!-- SEO_UPCOMING_START -->[\s\S]*?<!-- SEO_UPCOMING_END -->/,
     `<!-- SEO_UPCOMING_START -->\n    ${homepageUpcomingMarkup(primaryEvents, today)}\n    <!-- SEO_UPCOMING_END -->`
@@ -878,4 +887,4 @@ function main() {
 }
 
 if (require.main === module) main();
-module.exports = { articleStructuredData, assertCleanText, buildSeries, checklistMarkup, dataReportHtml, hasEditorialGuide, hasIndexableEventContent, homepageUpcomingMarkup, humanDate, isHostingConfirmedPending, isPublicEvent, relatedEvents, renderEventPage, richEventGuideMarkup, songsMarkup, sourceLabel, sourcesMarkup, seoulDateKey, seriesDatesMarkup, seriesKey, structuredData, ticketDateDisplay, ticketGuideMarkup, venueFacilityMapMarkup, venueGuideForEvent, venuePageHtml, venueIndexHtml, youtubeVideoId };
+module.exports = { articleStructuredData, assertCleanText, buildSeries, checklistMarkup, dataReportHtml, hasEditorialGuide, hasIndexableEventContent, homepageUpcomingMarkup, humanDate, isFreshlyVerified, isHostingConfirmedPending, isPublicEvent, relatedEvents, renderEventPage, richEventGuideMarkup, songsMarkup, sourceLabel, sourcesMarkup, seoulDateKey, seriesDatesMarkup, seriesKey, structuredData, ticketDateDisplay, ticketGuideMarkup, venueFacilityMapMarkup, venueGuideForEvent, venuePageHtml, venueIndexHtml, youtubeVideoId };

@@ -2,7 +2,7 @@
 
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { articleStructuredData, buildSeries, checklistMarkup, dataReportHtml, hasEditorialGuide, hasIndexableEventContent, homepageUpcomingMarkup, humanDate, relatedEvents, renderEventPage, richEventGuideMarkup, seoulDateKey, seriesDatesMarkup, songsMarkup, sourceLabel, structuredData, ticketGuideMarkup, venueGuideForEvent, venueIndexHtml, venuePageHtml } = require("./generate-seo-pages");
+const { articleStructuredData, buildSeries, checklistMarkup, dataReportHtml, hasEditorialGuide, hasIndexableEventContent, homepageUpcomingMarkup, humanDate, isFreshlyVerified, relatedEvents, renderEventPage, richEventGuideMarkup, seoulDateKey, seriesDatesMarkup, songsMarkup, sourceLabel, structuredData, ticketGuideMarkup, venueGuideForEvent, venueIndexHtml, venuePageHtml } = require("./generate-seo-pages");
 
 test("groups consecutive dates and selects the first future performance", () => {
   const base = { artist: "Artist", venue: "Venue", vendorUrl: "https://tickets.example/event" };
@@ -22,6 +22,12 @@ test("formats Korean dates without relying on UTC conversion", () => {
   assert.equal(humanDate("2026-07-18", "오후 6:00"), "2026년 7월 18일(토) 오후 6:00");
   assert.equal(humanDate(null), "미정");
   assert.equal(seoulDateKey(new Date("2026-08-14T16:00:00Z")), "2026-08-15");
+});
+
+test("indexes and monetizes only recently reverified event guides", () => {
+  assert.equal(isFreshlyVerified({ verifiedAt: "2026-09-18" }, "2026-09-19"), true);
+  assert.equal(isFreshlyVerified({ verifiedAt: "2026-08-19" }, "2026-09-19"), false);
+  assert.equal(isFreshlyVerified({ verifiedAt: "" }, "2026-09-19"), false);
 });
 
 test("recommends three future similar concerts without duplicate artists", () => {
@@ -134,7 +140,7 @@ test("renders crawlable upcoming concert facts on the homepage", () => {
     id: "artist-2026-09-01", artist: "Artist", genre: "J-POP", concertDate: "2026-09-01", time: "오후 7:00",
     venue: "Venue", ticketDate: "2026-08-01", ticketTime: "오후 8:00", presaleDate: "", verifiedAt: "2026-08-15"
   }], "2026-09-01");
-  assert.match(html, /직접 확인한 다가오는 공연/);
+  assert.match(html, /최근 다시 확인한 다가오는 공연/);
   assert.match(html, /2026년 9월 1일/);
   assert.match(html, /공지 미확인/);
   assert.match(html, /\.\/events\/artist-2026-09-01/);
@@ -225,6 +231,7 @@ test("renders a useful venue comparison table on the venue index", () => {
   assert.match(html, /href="\.\.\/\.\.\/about"/);
   assert.match(html, /지하철역에서 공연장까지/);
   assert.match(html, /물품보관함/);
+  assert.doesNotMatch(html, /pagead2\.googlesyndication\.com/);
 });
 
 test("renders the verified KSPO DOME site map", () => {

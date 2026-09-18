@@ -84,7 +84,7 @@ function hasArtistImage(event) {
   return Boolean(channel && fs.existsSync(path.join(artistAssets, `${channel}.jpg`)));
 }
 
-function artistPageHtml({ artist, events, aliases, editorial, siteUrl, today }) {
+function artistPageHtml({ artist, events, aliases, editorial, siteUrl, today, indexable = true }) {
   const sorted = [...events].sort((a, b) => a.concertDate.localeCompare(b.concertDate));
   const latest = [...sorted].reverse().find(event => event.songs?.length) || sorted[sorted.length - 1];
   const slug = artistSlug(sorted[0]);
@@ -129,7 +129,7 @@ function artistPageHtml({ artist, events, aliases, editorial, siteUrl, today }) 
     description: `${artist}의 예정된 한국 공연, 지난 내한 기록, 대표곡 3개와 관련 공연장·예매처를 확인하세요.`,
     canonical: `${siteUrl}/calendar/artists/${encodeURIComponent(slug)}`,
     body, siteUrl,
-    robots: "index,follow,max-image-preview:large",
+    robots: indexable ? "index,follow,max-image-preview:large" : "noindex,follow",
     includeAds: false,
     image: imageUrl(latest, siteUrl)
   });

@@ -247,7 +247,8 @@ test("keeps the AdSense loader separate from display ad units", () => {
     assert.doesNotMatch(html, /<ins[^>]+adsbygoogle/i, page);
     assert.doesNotMatch(html, /data-ad-slot=/i, page);
   }
-  assert.match(read("calendar/index.html"), /pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-3081918168688274/);
+  assert.doesNotMatch(read("calendar/index.html"), /pagead2\.googlesyndication\.com/);
+  assert.doesNotMatch(read("calendar/guides/venues/index.html"), /pagead2\.googlesyndication\.com/);
 });
 
 test("reserves image space on every indexed page", () => {
@@ -397,12 +398,13 @@ test("keeps confirmed concert evidence direct, secure, and non-aggregated", () =
   }
 });
 
-test("keeps concerts within two weeks freshly reverified", () => {
+test("keeps indexable concerts within two weeks freshly reverified", () => {
   const todayKey = new Intl.DateTimeFormat("sv-SE", {
     timeZone: "Asia/Seoul", year: "numeric", month: "2-digit", day: "2-digit"
   }).format(new Date());
   const today = new Date(`${todayKey}T00:00:00Z`);
-  const events = JSON.parse(read("calendar/data/events.json")).filter(event => event.status === "confirmed");
+  const indexedIds = new Set([...read("sitemap.xml").matchAll(/<loc>https:\/\/j-live\.kr\/calendar\/events\/([^<]+)<\/loc>/g)].map(match => decodeURIComponent(match[1])));
+  const events = JSON.parse(read("calendar/data/events.json")).filter(event => event.status === "confirmed" && indexedIds.has(event.id));
 
   for (const event of events) {
     const concert = new Date(`${event.concertDate}T00:00:00Z`);
