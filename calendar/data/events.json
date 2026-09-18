@@ -832,27 +832,27 @@
       { "label": "NOL 공연 상세", "url": "https://tickets.interpark.com/goods/26003199" },
       { "label": "예매 오픈 공지", "url": "https://tickets.interpark.com/contents/notice/detail/12910" }
     ],
-    "verifiedAt": "2026-09-10",
+    "verifiedAt": "2026-09-18",
     "ticketingStatus": "confirmed",
     "createdAt": "2026-06-11T09:00:00+09:00",
     "seatPrices": [
       {
-        "name": "플로어 스탠딩",
+        "name": "스탠딩석",
         "price": 165000,
         "priceCurrency": "KRW"
       },
       {
-        "name": "지정석 R",
+        "name": "R석",
         "price": 165000,
         "priceCurrency": "KRW"
       },
       {
-        "name": "지정석 S",
+        "name": "S석",
         "price": 154000,
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-09-06"
+    "priceVerifiedAt": "2026-09-18"
   },
   {
     "id": "vaundy-2026-09-20",
@@ -894,27 +894,27 @@
       { "label": "NOL 공연 상세", "url": "https://tickets.interpark.com/goods/26003199" },
       { "label": "예매 오픈 공지", "url": "https://tickets.interpark.com/contents/notice/detail/12910" }
     ],
-    "verifiedAt": "2026-09-10",
+    "verifiedAt": "2026-09-18",
     "ticketingStatus": "confirmed",
     "createdAt": "2026-06-11T09:00:00+09:00",
     "seatPrices": [
       {
-        "name": "플로어 스탠딩",
+        "name": "스탠딩석",
         "price": 165000,
         "priceCurrency": "KRW"
       },
       {
-        "name": "지정석 R",
+        "name": "R석",
         "price": 165000,
         "priceCurrency": "KRW"
       },
       {
-        "name": "지정석 S",
+        "name": "S석",
         "price": 154000,
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-09-06"
+    "priceVerifiedAt": "2026-09-18"
   },
   {
     "id": "takuya-kimura-2026-09-26",
@@ -971,8 +971,8 @@
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-08-12",
-    "verifiedAt": "2026-08-17",
+    "priceVerifiedAt": "2026-09-18",
+    "verifiedAt": "2026-09-18",
     "createdAt": "2026-06-11T09:00:00+09:00"
   },
   {

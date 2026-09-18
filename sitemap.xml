@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://j-live.kr/calendar/</loc><lastmod>2026-09-18</lastmod></url>
   <url><loc>https://j-live.kr/calendar/about</loc></url>
-  <url><loc>https://j-live.kr/calendar/artists/</loc><lastmod>2026-09-10</lastmod></url>
+  <url><loc>https://j-live.kr/calendar/artists/</loc><lastmod>2026-09-18</lastmod></url>
   <url><loc>https://j-live.kr/calendar/fanclubs/</loc></url>
   <url><loc>https://j-live.kr/calendar/festivals/wonderlivet-2026</loc></url>
   <url><loc>https://j-live.kr/calendar/guides/venues/</loc></url>
@@ -25,8 +25,8 @@
   <url><loc>https://j-live.kr/calendar/artists/ash-da-hero</loc><lastmod>2026-07-27</lastmod></url>
   <url><loc>https://j-live.kr/calendar/artists/back-number</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://j-live.kr/calendar/artists/ryosuke-yamada</loc><lastmod>2026-09-06</lastmod></url>
-  <url><loc>https://j-live.kr/calendar/artists/vaundy</loc><lastmod>2026-09-10</lastmod></url>
-  <url><loc>https://j-live.kr/calendar/artists/takuya-kimura</loc><lastmod>2026-08-17</lastmod></url>
+  <url><loc>https://j-live.kr/calendar/artists/vaundy</loc><lastmod>2026-09-18</lastmod></url>
+  <url><loc>https://j-live.kr/calendar/artists/takuya-kimura</loc><lastmod>2026-09-18</lastmod></url>
   <url><loc>https://j-live.kr/calendar/artists/echoes-aooo</loc><lastmod>2026-06-11</lastmod></url>
   <url><loc>https://j-live.kr/calendar/artists/echoes-nomelon-nolemon</loc><lastmod>2026-06-11</lastmod></url>
   <url><loc>https://j-live.kr/calendar/artists/echoes-asmi</loc><lastmod>2026-06-11</lastmod></url>
@@ -59,8 +59,8 @@
   <url><loc>https://j-live.kr/calendar/artists/luv</loc><lastmod>2026-08-13</lastmod></url>
   <url><loc>https://j-live.kr/calendar/artists/kawasaki-takaya</loc><lastmod>2026-08-17</lastmod></url>
   <url><loc>https://j-live.kr/calendar/artists/homecomings</loc><lastmod>2026-09-10</lastmod></url>
-  <url><loc>https://j-live.kr/calendar/events/vaundy-2026-09-19</loc><lastmod>2026-09-10</lastmod></url>
-  <url><loc>https://j-live.kr/calendar/events/takuya-kimura-2026-09-26</loc><lastmod>2026-08-17</lastmod></url>
+  <url><loc>https://j-live.kr/calendar/events/vaundy-2026-09-19</loc><lastmod>2026-09-18</lastmod></url>
+  <url><loc>https://j-live.kr/calendar/events/takuya-kimura-2026-09-26</loc><lastmod>2026-09-18</lastmod></url>
   <url><loc>https://j-live.kr/calendar/events/omoinotake-2026-10-17</loc><lastmod>2026-07-25</lastmod></url>
   <url><loc>https://j-live.kr/calendar/events/fujii-kaze-2027-01-09</loc><lastmod>2026-08-17</lastmod></url>
   <url><loc>https://j-live.kr/calendar/events/kento-nakajima-2026-10-03</loc><lastmod>2026-08-17</lastmod></url>

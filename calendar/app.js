@@ -110,6 +110,16 @@ function formatScheduleDate(key, time = "") {
   return key && time ? `${formatted} · ${time}` : formatted;
 }
 
+function isPublicSchedule(schedule) {
+  return schedule.status === "confirmed"
+    || (schedule.status === "pending" && schedule.hostingStatus === "confirmed");
+}
+
+function ticketDateDisplay(schedule) {
+  if (!schedule.ticketDate && schedule.ticketingStatus === "pending_announcement") return "발표 대기";
+  return formatScheduleDate(schedule.ticketDate, schedule.ticketTime);
+}
+
 function timeMinutes(value = "") {
   const match = String(value).match(/(오전|오후|낮|밤)?\s*(\d{1,2})(?::(\d{2}))?/);
   if (!match) return Number.MAX_SAFE_INTEGER;
@@ -861,7 +871,7 @@ function renderDetail(schedule, type) {
   document.querySelector("#detailDate").textContent = `${formatDate(schedule.concertDate)} · ${schedule.time || "시간 미정"}`;
   document.querySelector("#detailVenue").textContent = schedule.venue;
   document.querySelector("#detailPresale").textContent = presaleDisplay(schedule);
-  document.querySelector("#detailTicket").textContent = formatScheduleDate(schedule.ticketDate, schedule.ticketTime);
+  document.querySelector("#detailTicket").textContent = ticketDateDisplay(schedule);
   document.querySelector("#detailVendor").textContent = schedule.vendor || "미정";
   document.querySelector("#detailAvailability").textContent = ticketAvailabilityDisplay(schedule);
   document.querySelector("#verifiedAt").textContent = schedule.verifiedAt ? `마지막 확인 ${schedule.verifiedAt}` : "";
@@ -1327,7 +1337,7 @@ async function initialize() {
         priceCurrency: event.priceCurrency || staticEvent.priceCurrency,
         priceVerifiedAt: event.priceVerifiedAt || staticEvent.priceVerifiedAt
       };
-    }).filter(event => event.status === "confirmed");
+    }).filter(isPublicSchedule);
     const [aliasResponse, updateResponse, historicalResponse, historical2023Response, festivalResponse] = await Promise.all([
       fetch("./data/artist-aliases.json", { cache: "no-store" }).catch(() => null),
       fetch("./data/updates.json", { cache: "no-store" }).catch(() => null),

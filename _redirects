@@ -1,6 +1,15 @@
 /  /calendar/  301
+/about  /calendar/about  301
+/privacy  /calendar/privacy  301
+/terms  /calendar/terms  301
 /contact  /calendar/contact  301
 /corrections  /calendar/corrections  301
+/calendar/index.html  /calendar/  301
+/calendar/about.html  /calendar/about  301
+/calendar/contact.html  /calendar/contact  301
+/calendar/corrections.html  /calendar/corrections  301
+/calendar/privacy.html  /calendar/privacy  301
+/calendar/terms.html  /calendar/terms  301
 /calendar/guides/yes24-ticketing  /calendar/guides/verification  301
 /calendar/guides/yes24-ticketing.html  /calendar/guides/verification  301
 /calendar/guides/ticketing  /calendar/guides/verification  301
@@ -11,6 +20,9 @@
 /calendar/admin*  /404  404!
 /calendar/months/*  /calendar/  301
 /calendar/guides/venues.html  /calendar/guides/venues/  301
+/calendar/guides/venues/:venue.html  /calendar/guides/venues/:venue  301
+/calendar/events/:event.html  /calendar/events/:event  301
+/calendar/artists/:artist.html  /calendar/artists/:artist  301
 /demo/admin*  /404  404!
 /demo/*  /calendar/:splat  301
 /api/events  /calendar/data/events.json  200

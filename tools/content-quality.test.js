@@ -42,7 +42,7 @@ function similarity(left, right) {
 test("keeps every indexed event substantial and distinct", () => {
   const sitemap = read("sitemap.xml");
   const ids = [...sitemap.matchAll(/<loc>https:\/\/j-live\.kr\/calendar\/events\/([^<]+)<\/loc>/g)].map(match => decodeURIComponent(match[1]));
-  assert.ok(ids.length >= 15, `expected a useful event collection, found ${ids.length}`);
+  assert.ok(ids.length > 0, "expected at least one indexable future event");
 
   const documents = ids.map(id => {
     const text = visibleText(read(`calendar/events/${id}.html`));

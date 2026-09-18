@@ -80,6 +80,20 @@ function humanDate(value, time = "") {
   return `${year}년 ${month}월 ${day}일(${weekday})${time ? ` ${time}` : ""}`;
 }
 
+function isHostingConfirmedPending(event) {
+  return event.status === "pending" && event.hostingStatus === "confirmed";
+}
+
+function isPublicEvent(event) {
+  return ["confirmed", "cancelled", "postponed"].includes(event.status)
+    || isHostingConfirmedPending(event);
+}
+
+function ticketDateDisplay(event) {
+  if (!event.ticketDate && event.ticketingStatus === "pending_announcement") return "발표 대기";
+  return humanDate(event.ticketDate, event.ticketTime);
+}
+
 function isoDateTime(date, time) {
   if (!date) return "";
   const matched = String(time || "").match(/(오전|오후|낮)\s*(\d{1,2}):(\d{2})/);
@@ -287,7 +301,7 @@ function homepageUpcomingMarkup(events, today = "") {
           <dl>
             <div><dt>공연</dt><dd>${escapeHtml(humanDate(event.concertDate, event.time))}</dd></div>
             <div><dt>공연장</dt><dd>${escapeHtml(event.venue)}</dd></div>
-            <div><dt>일반예매</dt><dd>${escapeHtml(humanDate(event.ticketDate, event.ticketTime))}</dd></div>
+            <div><dt>일반예매</dt><dd>${escapeHtml(ticketDateDisplay(event))}</dd></div>
             <div><dt>선예매</dt><dd>${escapeHtml(presaleDisplay(event))}</dd></div>
           </dl>
           <p>공식 출처 마지막 확인 ${escapeHtml(event.verifiedAt || "기록 없음")}</p>
@@ -402,7 +416,7 @@ function renderEventPage({ event, events, group, primary, editorial, siteUrl, te
     .replace('<dd id="factVenue"></dd>', `<dd id="factVenue">${escapeHtml(event.venue)}</dd>`)
     .replace('<dd id="factPrice"></dd>', `<dd id="factPrice">${escapeHtml(Array.isArray(event.seatPrices) && event.seatPrices.length ? event.seatPrices.map(item => `${item.name} ${Number(item.price).toLocaleString("ko-KR")}원`).join(" · ") : editorial.ticketGuides?.[event.artist]?.price || "공식 예매처 확인")}</dd>`)
     .replace('<dd id="factPresale"></dd>', `<dd id="factPresale">${escapeHtml(presaleDisplay(event))}</dd>`)
-    .replace('<dd id="factTicket"></dd>', `<dd id="factTicket">${escapeHtml(humanDate(event.ticketDate, event.ticketTime))}</dd>`)
+    .replace('<dd id="factTicket"></dd>', `<dd id="factTicket">${escapeHtml(ticketDateDisplay(event))}</dd>`)
     .replace('<dd id="factVendor"></dd>', `<dd id="factVendor">${escapeHtml(event.vendor || "미정")}</dd>`)
     .replace('<dd id="factAvailability"></dd>', `<dd id="factAvailability">${escapeHtml(ticketAvailabilityDisplay(event))}</dd>`)
     .replace('id="eventTicket" target=', `id="eventTicket" href="${escapeHtml(event.vendorUrl || "#")}" data-track-vendor="${escapeHtml(event.vendor || "미정")}" target=`)
@@ -765,11 +779,22 @@ function main() {
   fs.mkdirSync(eventsDirectory, { recursive: true });
   for (const filename of fs.readdirSync(eventsDirectory)) if (filename.endsWith(".html")) fs.unlinkSync(path.join(eventsDirectory, filename));
 
-  const pageEvents = allEvents.filter(event => ["confirmed", "cancelled", "postponed"].includes(event.status));
+  const pageEvents = allEvents.filter(isPublicEvent);
   const { primaryById, groupById } = buildSeries(pageEvents, today);
-  const futurePrimaryEvents = events.filter(event => primaryById.get(event.id).id === event.id && groupById.get(event.id).some(item => item.concertDate >= today));
+  const confirmedSeries = buildSeries(events, today);
+  const futurePrimaryEvents = events.filter(event => confirmedSeries.primaryById.get(event.id).id === event.id && confirmedSeries.groupById.get(event.id).some(item => item.concertDate >= today));
   for (const event of pageEvents) {
-    const html = renderEventPage({ event, events: futurePrimaryEvents, group: groupById.get(event.id), primary: primaryById.get(event.id), editorial, siteUrl, template, today });
+    const confirmed = event.status === "confirmed";
+    const html = renderEventPage({
+      event,
+      events: futurePrimaryEvents,
+      group: confirmed ? confirmedSeries.groupById.get(event.id) : groupById.get(event.id),
+      primary: confirmed ? confirmedSeries.primaryById.get(event.id) : primaryById.get(event.id),
+      editorial,
+      siteUrl,
+      template,
+      today
+    });
     writeUtf8(path.join(eventsDirectory, `${event.id}.html`), html);
   }
 
@@ -853,4 +878,4 @@ function main() {
 }
 
 if (require.main === module) main();
-module.exports = { articleStructuredData, assertCleanText, buildSeries, checklistMarkup, dataReportHtml, hasEditorialGuide, hasIndexableEventContent, homepageUpcomingMarkup, humanDate, relatedEvents, renderEventPage, richEventGuideMarkup, songsMarkup, sourceLabel, sourcesMarkup, seoulDateKey, seriesDatesMarkup, seriesKey, structuredData, ticketGuideMarkup, venueFacilityMapMarkup, venueGuideForEvent, venuePageHtml, venueIndexHtml, youtubeVideoId };
+module.exports = { articleStructuredData, assertCleanText, buildSeries, checklistMarkup, dataReportHtml, hasEditorialGuide, hasIndexableEventContent, homepageUpcomingMarkup, humanDate, isHostingConfirmedPending, isPublicEvent, relatedEvents, renderEventPage, richEventGuideMarkup, songsMarkup, sourceLabel, sourcesMarkup, seoulDateKey, seriesDatesMarkup, seriesKey, structuredData, ticketDateDisplay, ticketGuideMarkup, venueFacilityMapMarkup, venueGuideForEvent, venuePageHtml, venueIndexHtml, youtubeVideoId };

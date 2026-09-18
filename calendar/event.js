@@ -22,6 +22,16 @@ function humanDate(value, time = "") {
   return time ? `${text} ${time}` : text;
 }
 
+function isPublicEvent(event) {
+  return ["confirmed", "cancelled", "postponed"].includes(event.status)
+    || (event.status === "pending" && event.hostingStatus === "confirmed");
+}
+
+function ticketDateDisplay(event) {
+  if (!event.ticketDate && event.ticketingStatus === "pending_announcement") return "발표 대기";
+  return humanDate(event.ticketDate, event.ticketTime);
+}
+
 function presaleDisplay(event) {
   if (event.presaleDate) return humanDate(event.presaleDate, event.presaleTime);
   if (event.presaleStatus === "none") return "없음";
@@ -136,7 +146,7 @@ function renderRelatedEvents(event, events) {
 
 function renderSeries(event, events) {
   const series = events
-    .filter(item => ["confirmed", "cancelled", "postponed"].includes(item.status) && sameSeries(item, event))
+    .filter(item => isPublicEvent(item) && sameSeries(item, event))
     .sort((a, b) => a.concertDate.localeCompare(b.concertDate) || (a.time || "").localeCompare(b.time || ""));
   document.querySelector("#seriesSummary").textContent = series.length > 1
     ? `이번 내한은 ${series.length}회 공연으로 진행됩니다. 날짜별 공연 시각과 예매 조건을 확인하세요.`
@@ -216,7 +226,7 @@ function renderEvent(event, events) {
   document.querySelector("#factDate").textContent = humanDate(event.concertDate, event.time);
   document.querySelector("#factVenue").textContent = event.venue;
   document.querySelector("#factPresale").textContent = presaleDisplay(event);
-  document.querySelector("#factTicket").textContent = humanDate(event.ticketDate, event.ticketTime);
+  document.querySelector("#factTicket").textContent = ticketDateDisplay(event);
   document.querySelector("#factVendor").textContent = event.vendor || "미정";
   document.querySelector("#factPrice").textContent = priceDisplay(event);
   document.querySelector("#factAvailability").textContent = ticketAvailabilityDisplay(event);
@@ -284,7 +294,7 @@ async function initializeEvent() {
   }
   if (!response.ok) throw new Error("공연 데이터를 불러오지 못했습니다.");
   const events = await response.json();
-  const event = events.find(item => item.id === eventId && ["confirmed", "cancelled", "postponed"].includes(item.status));
+  const event = events.find(item => item.id === eventId && isPublicEvent(item));
   if (!event) throw new Error("공연을 찾을 수 없습니다.");
   renderEvent(event, events);
 }
