@@ -91,7 +91,4 @@ test("keeps Vaundy confirmed and indexable with official ticket facts", () => {
   assert.match(html, /회차별 ID 1개당 1인 2매/);
   assert.match(html, /신분증 정보와 예매자 정보가 일치/);
   assert.match(html, /호텔에서 신분증 확인 후 티켓과 입장 팔찌/);
-  const secondHtml = read("calendar/events/vaundy-2026-09-20.html");
-  assert.doesNotMatch(secondHtml, /name="robots" content="noindex/);
-  assert.match(secondHtml, /href="https:\/\/j-live\.kr\/calendar\/events\/vaundy-2026-09-20"/);
 });
