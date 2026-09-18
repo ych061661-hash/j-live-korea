@@ -362,7 +362,7 @@ function articleStructuredData(event, canonical, siteUrl) {
 }
 
 function renderEventPage({ event, events, group, primary, editorial, siteUrl, template, today }) {
-  const canonical = `${siteUrl}/calendar/events/${encodeURIComponent(primary.id)}`;
+  const canonical = `${siteUrl}/calendar/events/${encodeURIComponent(event.id)}`;
   const image = artistImageInfo(event, siteUrl);
   const socialImage = image.url;
   const pageImage = image.fallback
@@ -373,7 +373,7 @@ function renderEventPage({ event, events, group, primary, editorial, siteUrl, te
   const imageAlt = image.fallback ? "J-LIVE 기본 공연 이미지" : `${event.artist} 공식 프로필`;
   const imageSize = image.fallback ? 'width="512" height="512"' : 'width="1200" height="675"';
   const imageClass = image.fallback ? ' class="event-photo-fallback"' : "";
-  const indexable = event.status === "confirmed" && event.id === primary.id && group.some(item => item.concertDate >= today) && hasIndexableEventContent(event, editorial);
+  const indexable = event.status === "confirmed" && group.some(item => item.concertDate >= today) && hasIndexableEventContent(event, editorial);
   const years = [...new Set(group.map(item => item.concertDate.slice(0, 4)))].join("·");
   const [, month, day] = event.concertDate.split("-").map(Number);
   const title = `${event.artist} 내한 ${years} 예매 일정 | ${month}월 ${day}일 공연 정보`;
