@@ -1,6 +1,6 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { buildRecheckQueue, hostingState, meaningfulChanges, readiness, validateWorkflow } = require("./event-workflow");
+const { buildRecheckQueue, fieldStatus, hostingState, meaningfulChanges, readiness, validateWorkflow } = require("./event-workflow");
 
 const base = { id: "artist-2026-10-01", artist: "Artist", concertDate: "2026-10-01", venue: "Hall", status: "pending" };
 
@@ -25,4 +25,18 @@ test("재확인 큐는 오래된 검증·임박 일정·미확인 예매 정보�
   assert.equal(queue.length, 1);
   assert.ok(queue[0].reasons.includes("확인일 오래됨"));
   assert.ok(queue[0].reasons.includes("예매 세부정보 미확인"));
+});
+
+test("항목별 확정은 출처와 확인일이 함께 있을 때만 인정한다", () => {
+  const event = {
+    ...base,
+    verification: {
+      price: { status: "confirmed", verifiedAt: "2026-09-19", sources: ["https://example.com/ticket"] },
+      ticketDate: { status: "confirmed", verifiedAt: "2026-09-19", sources: [] },
+      availability: { status: "unverified", checkedAt: "2026-09-19", sources: ["https://example.com/ticket"] }
+    }
+  };
+  assert.equal(fieldStatus(event, "price"), "confirmed");
+  assert.equal(fieldStatus(event, "ticketDate"), "unverified");
+  assert.equal(fieldStatus(event, "availability"), "unverified");
 });

@@ -16,7 +16,12 @@ function sourcesFor(event, field) {
 }
 
 function fieldStatus(event, field) {
-  const explicit = event?.verification?.[field]?.status;
+  const record = event?.verification?.[field];
+  const explicit = record?.status;
+  if (explicit === "confirmed") {
+    const checked = record?.verifiedAt || record?.checkedAt;
+    return checked && /^\d{4}-\d{2}-\d{2}$/.test(checked) && sourcesFor(event, field).length ? "confirmed" : "unverified";
+  }
   if (explicit) return explicit;
   if (["artist", "concertDate", "venue"].includes(field)) {
     return event.status === "confirmed" && event.verifiedAt && event.sources?.length ? "confirmed" : "unverified";

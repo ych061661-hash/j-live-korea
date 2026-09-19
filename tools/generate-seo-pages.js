@@ -289,7 +289,9 @@ function hasIndexableEventContent(event, editorial) {
   const guide = editorial.eventGuides?.[event.artist];
   const songGuides = editorial.songGuides?.[event.artist] || [];
   const songs = event.songs || [];
-  return String(editorial.artists?.[event.artist] || "").length >= 40
+  return event.ticketingStatus !== "conflict"
+    && event.verification?.ticketing?.status !== "conflict"
+    && String(editorial.artists?.[event.artist] || "").length >= 40
     && [guide?.focus, guide?.listening, guide?.plan].every(value => String(value || "").length >= 100)
     && songGuides.length === 3
     && songGuides.every(song => String(song.title || "").trim() && String(song.note || "").length >= 35)

@@ -213,7 +213,7 @@ const updateLabels = {
   announcement: "신규 공연", "ticket-open": "티켓 오픈", "ticket-change": "예매 일정 변경", "extra-show": "추가 회차",
   "extra-seat": "추가 좌석", restock: "취소표", cancellation: "취소", postponement: "연기"
 };
-const snapshotFields = ["artist", "concertDate", "time", "venue", "vendor", "vendorUrl", "ticketDate", "ticketTime", "presaleDate", "presaleTime", "presaleStatus", "status", "ticketLabel", "verifiedAt", "sources", "price", "priceCurrency", "ticketAvailability", "seriesId", "hostingStatus", "ticketingStatus"];
+const snapshotFields = ["artist", "concertDate", "time", "venue", "vendor", "vendorUrl", "ticketDate", "ticketTime", "presaleDate", "presaleTime", "presaleStatus", "status", "ticketLabel", "verifiedAt", "scheduleVerifiedAt", "priceVerifiedAt", "sources", "price", "priceCurrency", "ticketAvailability", "ticketStatusVerifiedAt", "ticketStatusSource", "seriesId", "hostingStatus", "ticketingStatus"];
 const snapshotEvents = events => Object.fromEntries(events.map(event => [event.id, Object.fromEntries(snapshotFields.map(field => [field, event[field] ?? null]))]));
 const updateId = (event, kind, date) => `${date}-${kind}-${event.id}`.replace(/[^a-zA-Z0-9가-힣._-]+/g, "-");
 const makeUpdate = (event, kind, date, summary) => ({

@@ -14,6 +14,8 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-06-17",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://kinggnu.jp/news/in.html?id=577778",
       "https://ticket.yes24.com/Perf/57563"
@@ -21,6 +23,8 @@
     "price": 154000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -40,6 +44,8 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-06-17",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://kinggnu.jp/news/in.html?id=577778",
       "https://ticket.yes24.com/Perf/57563"
@@ -47,6 +53,8 @@
     "price": 154000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -66,12 +74,16 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-06-17",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://tickets.interpark.com/contents/notice/detail/13423"
     ],
     "price": 121000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -91,6 +103,8 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-06-15",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://ticket.yes24.com/Perf/58180",
       "https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17768"
@@ -98,6 +112,8 @@
     "price": 99000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -117,6 +133,8 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-06-15",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://ticket.yes24.com/Perf/58180",
       "https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17768"
@@ -124,6 +142,8 @@
     "price": 99000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -143,6 +163,8 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-07-20",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://www.ticketlink.co.kr/product/63100",
       "https://www.ticketlink.co.kr/help/notice/64824"
@@ -150,6 +172,8 @@
     "price": 154000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -169,6 +193,8 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-07-20",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://www.ticketlink.co.kr/product/63100",
       "https://www.ticketlink.co.kr/help/notice/64824"
@@ -176,6 +202,8 @@
     "price": 154000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -195,6 +223,8 @@
     "status": "confirmed",
     "ticketLabel": "추가 티켓",
     "verifiedAt": "2026-07-25",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://event.higedan.com/feature/asiatour2026",
       "https://nol.yanolja.com/ticket/products/26005670"
@@ -202,6 +232,8 @@
     "price": 132000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -221,6 +253,8 @@
     "status": "confirmed",
     "ticketLabel": "추가 티켓",
     "verifiedAt": "2026-07-25",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://event.higedan.com/feature/asiatour2026",
       "https://nol.yanolja.com/ticket/products/26005670"
@@ -228,6 +262,8 @@
     "price": 132000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -247,6 +283,8 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-07-27",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://ashdahero.com/contents/15044",
       "https://m.ticket.yes24.com/Notice/Detail.aspx?bid=17968&order=1&type=1",
@@ -255,6 +293,8 @@
     "price": 99000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -274,6 +314,8 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-09-06",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-24",
     "sources": [
       "https://backnumber.info/feature/stadiumtour2026?lang=ko",
       "https://backnumber.info/feature/stadiumtour2026_ticket?_normalbrowse_=1&lang=en",
@@ -282,6 +324,8 @@
     "price": 143000,
     "priceCurrency": "KRW",
     "ticketAvailability": "in_stock",
+    "ticketStatusVerifiedAt": "2026-09-09T04:03:32+09:00",
+    "ticketStatusSource": "https://ticket.yes24.com/Perf/58079",
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -301,6 +345,8 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-09-06",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-24",
     "sources": [
       "https://backnumber.info/feature/stadiumtour2026?lang=ko",
       "https://backnumber.info/feature/stadiumtour2026_ticket?_normalbrowse_=1&lang=en",
@@ -309,6 +355,8 @@
     "price": 143000,
     "priceCurrency": "KRW",
     "ticketAvailability": "in_stock",
+    "ticketStatusVerifiedAt": "2026-09-09T04:03:32+09:00",
+    "ticketStatusSource": "https://ticket.yes24.com/Perf/58079",
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -328,6 +376,8 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-09-06",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-09-06",
     "sources": [
       "https://starto.jp/s/p/live/10506?ima=1208&lang=en",
       "https://ticket.yes24.com/Perf/58751",
@@ -336,6 +386,8 @@
     "price": 143000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -354,7 +406,9 @@
     "presaleStatus": "none",
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-09-18",
+    "verifiedAt": "2026-09-19",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-09-19",
     "sources": [
       {
         "label": "아티스트 투어 발표",
@@ -371,7 +425,9 @@
     ],
     "price": 154000,
     "priceCurrency": "KRW",
-    "ticketAvailability": null,
+    "ticketAvailability": "sold_out",
+    "ticketStatusVerifiedAt": "2026-09-19T09:00:00+09:00",
+    "ticketStatusSource": "https://member.vaundy.jp/feature/ASIAARENATOUR_2026",
     "seriesId": null,
     "hostingStatus": "confirmed",
     "ticketingStatus": "confirmed"
@@ -390,7 +446,9 @@
     "presaleStatus": "none",
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-09-18",
+    "verifiedAt": "2026-09-19",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-09-19",
     "sources": [
       {
         "label": "아티스트 투어 발표",
@@ -407,7 +465,9 @@
     ],
     "price": 154000,
     "priceCurrency": "KRW",
-    "ticketAvailability": null,
+    "ticketAvailability": "sold_out",
+    "ticketStatusVerifiedAt": "2026-09-19T09:00:00+09:00",
+    "ticketStatusSource": "https://member.vaundy.jp/feature/ASIAARENATOUR_2026",
     "seriesId": null,
     "hostingStatus": "confirmed",
     "ticketingStatus": "confirmed"
@@ -418,7 +478,7 @@
     "time": "오후 4:00",
     "venue": "인스파이어 아레나",
     "vendor": "NOL 티켓",
-    "vendorUrl": "https://tickets.interpark.com/goods/26008115",
+    "vendorUrl": "https://world.nol.com/ja/ticket/places/26000661/products/26008115",
     "ticketDate": "2026-06-29",
     "ticketTime": "오후 7:00",
     "presaleDate": "",
@@ -426,15 +486,19 @@
     "presaleStatus": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-09-18",
+    "verifiedAt": "2026-09-19",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-09-19",
     "sources": [
-      "https://tickets.interpark.com/goods/26008115",
-      "https://tickets.interpark.com/contents/notice/detail/14058",
-      "https://takuya-kimura.jp/"
+      "https://starto.jp/s/p/live/10520?ima=1216&lang=en",
+      "https://candcstage.com/live/tour.php?id=1003026",
+      "https://world.nol.com/ja/ticket/places/26000661/products/26008115"
     ],
     "price": 165000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -454,12 +518,16 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-06-11",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://ticket.yes24.com/Perf/57214"
     ],
     "price": 99000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -479,12 +547,16 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-06-11",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://ticket.yes24.com/Perf/57214"
     ],
     "price": 99000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -504,12 +576,16 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-06-11",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://ticket.yes24.com/Perf/57214"
     ],
     "price": 99000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -529,12 +605,16 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-06-17",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://ticket.yes24.com/Perf/57807"
     ],
     "price": 105000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -554,12 +634,16 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-06-17",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://ticket.yes24.com/Perf/57807"
     ],
     "price": 105000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -579,12 +663,16 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-06-15",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": null,
     "sources": [
       "https://www.kopis.or.kr/por/db/pblprfr/pblprfrView.do?menuId=MNU_00020&mt20Id=PF288369"
     ],
     "price": null,
     "priceCurrency": null,
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -604,12 +692,16 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-06-15",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": null,
     "sources": [
       "https://ticket.yes24.com/Perf/57553"
     ],
     "price": null,
     "priceCurrency": null,
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -629,12 +721,16 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-06-16",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://ticket.melon.com/performance/index.htm?prodId=213098"
     ],
     "price": 124000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -654,12 +750,16 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-06-16",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://ticket.melon.com/performance/index.htm?prodId=213098"
     ],
     "price": 124000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -679,6 +779,8 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-08-24",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-24",
     "sources": [
       "https://www.spyair.net/justlikethis2026/",
       "https://ticket.yes24.com/Perf/58592",
@@ -687,6 +789,8 @@
     "price": 138000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -705,14 +809,19 @@
     "presaleStatus": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-07-25",
+    "verifiedAt": "2026-09-19",
+    "scheduleVerifiedAt": "2026-09-19",
+    "priceVerifiedAt": "2026-09-19",
     "sources": [
+      "https://omoinotake.com/info/2196/",
       "https://ticket.yes24.com/Perf/58335",
-      "https://www.highjinkx.com/show-list/omoinotake-2026"
+      "https://www.highjinkx.com/omoinotake-2026"
     ],
     "price": 99000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -732,12 +841,16 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-07-20",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://ticket.yes24.com/Perf/58454"
     ],
     "price": 99000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -757,12 +870,16 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-06-22",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://ticket.yes24.com/Perf/58258"
     ],
     "price": 99000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -782,6 +899,8 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-08-17",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://fujiikaze.com/news-article/news260610/",
       "https://ticket.melon.com/csoon/detail.htm?csoonId=12366"
@@ -789,6 +908,8 @@
     "price": 132000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -808,6 +929,8 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-06-17",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://the-novembers.com/26-7-17fritour-2026%E3%80%8Cthe-singing-engines-in-seoul-br%E9%9F%93%E5%9B%BD%E3%83%BB%E3%82%BD%E3%82%A6%E3%83%ABktg-sangsang-madang%E5%BC%98%E5%A4%A7",
       "https://tickets.interpark.com/goods/26008207"
@@ -815,6 +938,8 @@
     "price": 77000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -834,6 +959,8 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-06-17",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://muque.jp/live/live-1273-3-2/",
       "https://ticket.yes24.com/Perf/57606",
@@ -842,6 +969,8 @@
     "price": 99000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -861,6 +990,8 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-06-17",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://gogovanillas.com/news/detail/5569",
       "https://ggv-asiatour2026.jp/",
@@ -869,6 +1000,8 @@
     "price": 110000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -887,16 +1020,20 @@
     "presaleStatus": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-08-17",
+    "verifiedAt": "2026-09-19",
+    "scheduleVerifiedAt": "2026-09-19",
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://starto.jp/s/p/live/10494?artist=156&lang=en",
-      "https://kentonakajima.lnk.to/ASIATOUR2026",
-      "https://www.nakajimakento.com/news/detail/?id=583773",
-      "https://ticket.yes24.com/New/Notice/NoticeMain.aspx?Gcode=009_208_002#id=17913"
+      "https://www.sonymusic.co.jp/artist/KentoNakajima/info/583773",
+      "https://ticket.yes24.com/Perf/58653",
+      "https://m.ticket.yes24.com/Notice/17913"
     ],
     "price": 132000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -915,16 +1052,20 @@
     "presaleStatus": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-08-17",
+    "verifiedAt": "2026-09-19",
+    "scheduleVerifiedAt": "2026-09-19",
+    "priceVerifiedAt": "2026-09-19",
     "sources": [
       "https://starto.jp/s/p/live/10494?artist=156&lang=en",
-      "https://kentonakajima.lnk.to/ASIATOUR2026",
-      "https://www.nakajimakento.com/news/detail/?id=583773",
-      "https://ticket.yes24.com/New/Notice/NoticeMain.aspx?Gcode=009_208_002#id=17913"
+      "https://www.sonymusic.co.jp/artist/KentoNakajima/info/583773",
+      "https://ticket.yes24.com/Perf/58653",
+      "https://m.ticket.yes24.com/Notice/17913"
     ],
     "price": 132000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -944,6 +1085,8 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-08-15",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://danniemay.com/%E3%80%90oneman%E3%80%91dannie-may-one-shot-vacation-in-seoul/",
       "https://tickets.interpark.com/contents/notice/detail/13934"
@@ -951,6 +1094,8 @@
     "price": 88000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -970,6 +1115,8 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-08-17",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/",
       "https://letmeknowmusic.jp/news/3422/"
@@ -977,6 +1124,8 @@
     "price": 99000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -996,6 +1145,8 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-08-15",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://www.hitorie.jp/contents/1081323",
       "https://www.highjinkx.com/hitorie-2026",
@@ -1004,6 +1155,8 @@
     "price": 66000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -1022,18 +1175,22 @@
     "presaleStatus": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-07-25",
+    "verifiedAt": "2026-09-19",
+    "scheduleVerifiedAt": "2026-09-19",
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
-      "https://tickets.interpark.com/contents/notice/detail/14430",
+      "https://facility.ticketlink.co.kr/global/en/help/notice/65295",
       "https://nol.yanolja.com/ticket/products/26009558",
       "https://www.tsquare.jp/"
     ],
     "price": 77000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": "conflict"
   },
   "ano-2026-10-17": {
     "artist": "ano",
@@ -1049,15 +1206,19 @@
     "presaleStatus": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-07-25",
+    "verifiedAt": "2026-09-19",
+    "scheduleVerifiedAt": "2026-09-19",
+    "priceVerifiedAt": "2026-09-19",
     "sources": [
-      "https://www.toysfactory.co.jp/artist/ano/live/detail/13680",
-      "https://tickets.interpark.com/contents/notice/detail/14615",
+      "https://ano-official.com/live_information/detail/42411",
+      "https://world.nol.com/ja/ticket/places/26000166/products/26010474",
       "https://nol.yanolja.com/ticket/products/26010474"
     ],
     "price": 138000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -1076,15 +1237,19 @@
     "presaleStatus": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-07-25",
+    "verifiedAt": "2026-09-19",
+    "scheduleVerifiedAt": "2026-09-19",
+    "priceVerifiedAt": "2026-09-19",
     "sources": [
-      "https://www.toysfactory.co.jp/artist/ano/live/detail/13680",
-      "https://tickets.interpark.com/contents/notice/detail/14615",
+      "https://ano-official.com/news/detail/84837",
+      "https://world.nol.com/ja/ticket/places/26000166/products/26010474",
       "https://nol.yanolja.com/ticket/products/26010474"
     ],
     "price": 138000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -1095,7 +1260,7 @@
     "time": "오후 6:00",
     "venue": "KSPO DOME",
     "vendor": "NOL 티켓",
-    "vendorUrl": "https://tickets.interpark.com/contents/notice/detail/14782",
+    "vendorUrl": "https://world.nol.com/en/ticket/places/26000892/products/26011092",
     "ticketDate": "2026-08-11",
     "ticketTime": "오후 8:00",
     "presaleDate": "2026-08-10",
@@ -1103,15 +1268,19 @@
     "presaleStatus": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-08-17",
+    "verifiedAt": "2026-09-19",
+    "scheduleVerifiedAt": "2026-09-19",
+    "priceVerifiedAt": "2026-09-19",
     "sources": [
-      "https://tickets.interpark.com/contents/notice/detail/14782",
-      "https://www.andteam-official.jp/",
+      "https://weverse.io/andteam/notice/37990",
+      "https://world.nol.com/en/ticket/places/26000892/products/26011092",
       "https://www.youtube.com/@andTEAM_official/videos"
     ],
     "price": 165000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -1122,7 +1291,7 @@
     "time": "오후 5:00",
     "venue": "KSPO DOME",
     "vendor": "NOL 티켓",
-    "vendorUrl": "https://tickets.interpark.com/contents/notice/detail/14782",
+    "vendorUrl": "https://world.nol.com/en/ticket/places/26000892/products/26011092",
     "ticketDate": "2026-08-11",
     "ticketTime": "오후 8:00",
     "presaleDate": "2026-08-10",
@@ -1130,15 +1299,19 @@
     "presaleStatus": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-08-17",
+    "verifiedAt": "2026-09-19",
+    "scheduleVerifiedAt": "2026-09-19",
+    "priceVerifiedAt": "2026-09-19",
     "sources": [
-      "https://tickets.interpark.com/contents/notice/detail/14782",
-      "https://www.andteam-official.jp/",
+      "https://weverse.io/andteam/notice/37990",
+      "https://world.nol.com/en/ticket/places/26000892/products/26011092",
       "https://www.youtube.com/@andTEAM_official/videos"
     ],
     "price": 165000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -1157,16 +1330,19 @@
     "presaleStatus": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-08-05",
+    "verifiedAt": "2026-09-19",
+    "scheduleVerifiedAt": "2026-09-19",
+    "priceVerifiedAt": "2026-09-19",
     "sources": [
-      "https://cero-web.jp/",
-      "https://kakubarhythm.com/news/cero",
+      "https://cero-web.jp/category/live/",
       "https://www.highjinkx.com/show-list/cero",
       "https://ticket.yes24.com/Perf/59471"
     ],
     "price": 77000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -1186,6 +1362,8 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-07-25",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://www.office-augusta.com/regallily/live/?post=20261107",
       "https://www.highjinkx.com/show-list/regallily",
@@ -1194,6 +1372,8 @@
     "price": 88000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -1213,6 +1393,8 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-08-13",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://tickets.interpark.com/goods/26011116",
       "https://www.sokabekeiichi.com/",
@@ -1221,6 +1403,8 @@
     "price": 88000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -1240,12 +1424,16 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-07-25",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://tickets.interpark.com/contents/notice/detail/14619"
     ],
     "price": 143000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -1265,12 +1453,16 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-07-25",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://tickets.interpark.com/contents/notice/detail/14619"
     ],
     "price": 143000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -1290,6 +1482,8 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-08-05",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://m.ticket.yes24.com/Notice/18262",
       "https://ticket.yes24.com/Perf/59553",
@@ -1298,6 +1492,8 @@
     "price": 138000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -1317,6 +1513,8 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-08-17",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-13",
     "sources": [
       "https://ticket.melon.com/csoon/detail.htm?csoonId=12672",
       "https://ticket.melon.com/performance/index.htm?prodId=213705",
@@ -1325,6 +1523,8 @@
     "price": 135000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -1344,6 +1544,8 @@
     "status": "pending",
     "ticketLabel": null,
     "verifiedAt": "2026-08-12",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://tickets.interpark.com/goods/26011570",
       "https://www.jvcmusic.co.jp/parismatch/profile.html",
@@ -1352,6 +1554,8 @@
     "price": 77000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -1362,7 +1566,7 @@
     "time": "오후 8:00",
     "venue": "웨스트브릿지 라이브홀",
     "vendor": "NOL 티켓",
-    "vendorUrl": "https://tickets.interpark.com/goods/26011287",
+    "vendorUrl": "https://nol.yanolja.com/ticket/products/26011287",
     "ticketDate": "2026-08-13",
     "ticketTime": "오후 6:00",
     "presaleDate": "",
@@ -1371,13 +1575,17 @@
     "status": "pending",
     "ticketLabel": null,
     "verifiedAt": "2026-08-13",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-09-19",
     "sources": [
-      "https://tickets.interpark.com/goods/26011287",
+      "https://nol.yanolja.com/ticket/products/26011287",
       "https://www.youtube.com/@paruchan86/videos"
     ],
     "price": 77000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -1397,6 +1605,8 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-08-12",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://tickets.interpark.com/goods/26011629",
       "https://kazumitateishi-trio.com/",
@@ -1406,6 +1616,8 @@
     "price": 55000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -1425,6 +1637,8 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-08-13",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-12",
     "sources": [
       "https://tickets.interpark.com/contents/notice/detail/11964",
       "https://luv-band.com/",
@@ -1433,6 +1647,8 @@
     "price": 77000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -1452,6 +1668,8 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-08-17",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-08-17",
     "sources": [
       "https://kawasaki-takaya.com/live/live-in-seoul-2026/",
       "https://ticket.yes24.com/Perf/59669"
@@ -1459,6 +1677,8 @@
     "price": 110000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null
@@ -1478,6 +1698,8 @@
     "status": "confirmed",
     "ticketLabel": null,
     "verifiedAt": "2026-09-10",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-09-08",
     "sources": [
       "https://ticket.melon.com/csoon/detail.htm?csoonId=12775",
       "https://ticket.melon.com/performance/index.htm?prodId=213806",
@@ -1487,6 +1709,8 @@
     "price": 88000,
     "priceCurrency": "KRW",
     "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null

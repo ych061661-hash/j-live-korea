@@ -3,6 +3,11 @@
 const typeLabels = { concert: "공연", ticket: "일반예매", presale: "선예매", festival: "페스티벌" };
 const weekdays = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
 const filters = new Set(Object.keys(typeLabels));
+const personalToolsTemplate = document.querySelector("#personalToolsTemplate");
+if (personalToolsTemplate && !document.querySelector("#myShows")) {
+  personalToolsTemplate.replaceWith(personalToolsTemplate.content.cloneNode(true));
+}
+
 const calendar = document.querySelector("#calendar");
 const weekendEvents = document.querySelector("#weekendEvents");
 const weekendSpotlight = document.querySelector(".weekend-spotlight");

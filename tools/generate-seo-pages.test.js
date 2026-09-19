@@ -103,6 +103,7 @@ test("indexes only events with complete original editorial content", () => {
   assert.equal(hasIndexableEventContent(event, editorial), true);
   assert.equal(hasIndexableEventContent(event, { ...editorial, songGuides: {} }), false);
   assert.equal(hasIndexableEventContent({ ...event, sources: [] }, editorial), false);
+  assert.equal(hasIndexableEventContent({ ...event, ticketingStatus: "conflict" }, editorial), false);
 });
 
 test("attributes indexable event articles to the named author and policy", () => {

@@ -24,7 +24,10 @@ test("keeps the WONDERLIVET lineup at three days and 42 unique artists", () => {
   assert.ok(festival.officialUrl);
   assert.ok(festival.ticketUrl);
   assert.equal(festival.ticketStatus, "official_page_open");
-  assert.equal(festival.ticketStatusVerifiedAt, "2026-09-06");
+  assert.equal(festival.ticketStatusVerifiedAt, "2026-09-19");
+  assert.equal(festival.ticketConditionsVerifiedAt, "2026-09-19");
+  assert.equal(festival.entryFormat, "mobile_ticket_only");
+  assert.equal(festival.reentryStatus, "unconfirmed");
 });
 
 test("registers every WONDERLIVET artist in the searchable alias catalog", () => {
@@ -40,10 +43,12 @@ test("publishes every WONDERLIVET artist and official action on the lineup page"
     assert.match(page, new RegExp(htmlArtist.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
   });
   assert.match(page, /ticket\.melon\.com\/performance\/index\.htm\?prodId=213793/);
-  assert.match(page, /공식 예매 페이지 공개/);
+  assert.match(page, /공식 판매 상품 페이지가 공개된 사실만 기록/);
   assert.match(page, /3일권 329,000원/);
+  assert.match(page, /재입장 가능 여부는 이번 공식 확인 범위에서 찾지 못했/);
   assert.match(page, /litt\.ly\/wonderlivet/);
   assert.match(page, /festflow\.kr\/festivals\/wonderlivet-2026/);
+  assert.match(page, /페스플로우 참고 정보/);
   assert.match(page, /src="\/calendar\/assets\/festivals\/wonderlivet-2026-mark\.png"/);
   assert.match(page, /src="\/calendar\/assets\/festivals\/wonderlivet-2026-lineup\.png"/);
   assert.match(page, /WONDERLIVET 2026 11월 20일, 21일, 22일 KINTEX 공연 라인업 포스터/);
