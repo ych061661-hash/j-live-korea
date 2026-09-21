@@ -43,3 +43,33 @@ test("requires a cancellation reason", () => {
   const event = normalizeEvent({ ...valid, status: "cancelled", cancellationReason: "" });
   assert.ok(validateEvent(event).some(error => error.includes("취소 사유")));
 });
+
+test("partial edits preserve prices, songs, structured sources and verification dates", () => {
+  const previous = { ...valid, price: 88000, priceCurrency: "KRW", seatPrices: [{ name: "전석", price: 88000, priceCurrency: "KRW" }], sources: [{ label: "공식", url: valid.sources[0] }], priceVerifiedAt: "2026-08-08", verification: { price: { status: "confirmed", verifiedAt: "2026-08-08", sources: valid.sources } } };
+  const result = normalizeEvent({ genre: "J-POP" }, previous);
+  for (const key of ["price", "priceCurrency", "seatPrices", "songs", "sources", "verification", "verifiedAt", "priceVerifiedAt"]) assert.deepEqual(result[key], previous[key]);
+  assert.deepEqual(validateEvent(result), []);
+});
+
+test("new seat tiers and field verification are accepted without erasing unrelated evidence", () => {
+  const seatPrices = [{ name: "R석", price: 110000, priceCurrency: "KRW" }];
+  const previous = { ...valid, verification: { artist: { status: "confirmed", verifiedAt: "2026-08-08", sources: valid.sources } } };
+  const result = normalizeEvent({ seatPrices, price: 110000, priceVerifiedAt: "2026-09-21", verification: { price: { status: "confirmed", verifiedAt: "2026-09-21", sources: valid.sources } } }, previous);
+  assert.deepEqual(result.seatPrices, seatPrices);
+  assert.deepEqual(result.verification.artist, previous.verification.artist);
+  assert.equal(result.priceVerifiedAt, "2026-09-21");
+  assert.equal(result.verifiedAt, previous.verifiedAt);
+  assert.deepEqual(validateEvent(result), []);
+});
+
+test("invalid seat prices and deceptive YouTube hosts are rejected", () => {
+  const result = normalizeEvent({ ...valid, seatPrices: [{ name: "R", price: "10000", priceCurrency: "KRW" }], songs: [["fake", "", "https://evil.example/youtube.com/watch?v=x"], ...valid.songs.slice(1)] });
+  assert.match(validateEvent(result).join(" "), /좌석 등급/);
+  assert.match(validateEvent(result).join(" "), /YouTube/);
+});
+
+test("postponements require a reason and conflicts can be saved pending", () => {
+  assert.deepEqual(validateEvent(normalizeEvent({ ...valid, status: "postponed", changeReason: "공식 일정 연기" })), []);
+  assert.match(validateEvent(normalizeEvent({ ...valid, status: "postponed" })).join(" "), /연기 사유/);
+  assert.deepEqual(validateEvent(normalizeEvent({ ...valid, status: "pending", hostingStatus: "conflict" })), []);
+});

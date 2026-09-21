@@ -68,7 +68,7 @@ function validateWorkflow(event, existing = [], { mode = "add" } = {}) {
   for (const field of ["artist", "concertDate", "venue"]) if (!String(event[field] || "").trim()) errors.push(`${field} 값이 필요합니다.`);
   if (event.concertDate && !/^\d{4}-\d{2}-\d{2}$/.test(event.concertDate)) errors.push("concertDate는 YYYY-MM-DD 형식이어야 합니다.");
   if (existing.some(item => item.id !== event.id && item.artist === event.artist && item.concertDate === event.concertDate && item.venue === event.venue)) errors.push("같은 아티스트·공연일·공연장의 일정이 이미 있습니다.");
-  if (hostingState(event) === "conflict" || ticketingState(event) === "conflict") errors.push("공식 출처 충돌 상태는 보류 후 확인해야 합니다.");
+  if (event.status === "confirmed" && (hostingState(event) === "conflict" || ticketingState(event) === "conflict")) errors.push("공식 출처 충돌 상태는 보류 후 확인해야 합니다.");
   if (event.status === "confirmed" && readiness(event) === "candidate") errors.push("공개 승인 전 아티스트·날짜·공연장 개최 확인이 필요합니다.");
   return errors;
 }

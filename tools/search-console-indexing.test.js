@@ -4,6 +4,7 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
+const vm = require("node:vm");
 const { buildSeries, isPublicEvent, renderEventPage, ticketDateDisplay } = require("./generate-seo-pages");
 
 const root = path.resolve(__dirname, "..");
@@ -70,7 +71,7 @@ test("publishes hosting-confirmed pending events as noindex pages without ads", 
   assert.equal(isPublicEvent({ ...event, hostingStatus: "unverified" }), false);
 });
 
-test("keeps Vaundy confirmed and indexable with official ticket facts", () => {
+test("keeps Vaundy confirmed with official facts and excludes ended series from indexing", () => {
   const events = JSON.parse(read("calendar/data/events.json"));
   const sitemap = read("sitemap.xml");
   for (const id of ["vaundy-2026-09-19", "vaundy-2026-09-20"]) {
@@ -83,9 +84,18 @@ test("keeps Vaundy confirmed and indexable with official ticket facts", () => {
     assert.equal(event.presaleStatus, "none");
     assert.deepEqual(event.seatPrices.map(item => item.name), ["스탠딩석", "R석", "S석"]);
   }
-  assert.match(sitemap, /\/calendar\/events\/vaundy-2026-09-19/);
   const html = read("calendar/events/vaundy-2026-09-19.html");
-  assert.doesNotMatch(html, /name="robots" content="noindex/);
+  assert.equal(sitemap.includes("/calendar/events/vaundy-2026-09-19"), !html.includes('name="robots" content="noindex'));
+  const series = events.filter(event => event.artist === "Vaundy");
+  const event = events.find(item => item.id === "vaundy-2026-09-19");
+  const { primaryById, groupById } = buildSeries(series, "2026-09-21");
+  const context = { window: {} };
+  vm.runInNewContext(read("calendar/content.js"), context);
+  const options = { event, events: series, group: groupById.get(event.id), primary: primaryById.get(event.id), editorial: context.window.JLIVE_CONTENT, siteUrl: "https://j-live.kr", template: read("calendar/event.html") };
+  const endedHtml = renderEventPage({ ...options, today: "2026-09-21" });
+  assert.match(endedHtml, /name="robots" content="noindex/);
+  const upcoming = buildSeries(series, "2026-09-19");
+  assert.doesNotMatch(renderEventPage({ ...options, primary: upcoming.primaryById.get(event.id), group: upcoming.groupById.get(event.id), today: "2026-09-19" }), /name="robots" content="noindex/);
   assert.match(html, /2026년 3월 11일\(수\) 오후 8:00/);
   assert.match(html, /일반·글로벌 예매와 Play&amp;Stay 상품/);
   assert.match(html, /회차별 ID 1개당 1인 2매/);

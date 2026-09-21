@@ -1,7 +1,7 @@
 const state = { events: [], filter: "pending", selectedId: null };
 const $ = selector => document.querySelector(selector);
 const form = $("#eventForm");
-const labels = { pending: "승인 대기", confirmed: "공개", cancelled: "취소", rejected: "반려" };
+const labels = { pending: "승인 대기", confirmed: "공개", cancelled: "취소", postponed: "연기", rejected: "반려" };
 
 function escapeHtml(value) {
   return String(value ?? "").replace(/[&<>'"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[char]);
@@ -56,7 +56,7 @@ function editEvent(event) {
   for (const name of ["id", "artist", "genre", "concertDate", "time", "venue", "ticketDate", "ticketTime", "presaleDate", "presaleTime", "presaleStatus", "vendor", "vendorUrl", "price", "priceCurrency", "youtubeChannel", "verifiedAt", "hostingStatus", "ticketingStatus", "seriesId", "changeOf", "changeReason", "status", "cancellationReason"]) {
     setField(name, event?.[name] ?? (name === "status" ? "pending" : name === "priceCurrency" ? "KRW" : ""));
   }
-  setField("sources", (event?.sources || []).join("\n"));
+  setField("sources", (event?.sources || []).map(source => typeof source === "string" ? source : source.url).join("\n"));
   document.querySelectorAll("[data-song]").forEach((row, index) => {
     row.querySelector("[data-song-title]").value = event?.songs?.[index]?.[0] || "";
     row.querySelector("[data-song-duration]").value = event?.songs?.[index]?.[1] || "";
@@ -78,6 +78,8 @@ function editEvent(event) {
 function formData() {
   const data = Object.fromEntries(new FormData(form));
   data.sources = data.sources.split(/\r?\n/).map(value => value.trim()).filter(Boolean);
+  const previous = state.events.find(event => event.id === state.selectedId);
+  data.sources = data.sources.map(url => previous?.sources?.find(source => source?.url === url) || url);
   data.songs = [...document.querySelectorAll("[data-song]")].map(row => [
     row.querySelector("[data-song-title]").value.trim(),
     row.querySelector("[data-song-duration]").value.trim(),

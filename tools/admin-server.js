@@ -7,7 +7,7 @@ const { validateWorkflow, readiness, seriesKey } = require("./event-workflow");
 const ROOT = path.resolve(__dirname, "..");
 const EVENTS_FILE = process.env.JLIVE_EVENTS_FILE ? path.resolve(process.env.JLIVE_EVENTS_FILE) : path.join(ROOT, "calendar", "data", "events.json");
 const ADMIN_DIR = path.join(__dirname, "admin");
-const STATUSES = new Set(["pending", "confirmed", "cancelled", "rejected"]);
+const STATUSES = new Set(["pending", "confirmed", "cancelled", "postponed", "rejected"]);
 
 function readEvents() {
   return JSON.parse(fs.readFileSync(EVENTS_FILE, "utf8"));
@@ -31,6 +31,19 @@ function validateEvent(event, events = []) {
   if (!/^[a-z0-9][a-z0-9-]*$/.test(event.id || "")) errors.push("id는 영문 소문자, 숫자, 하이픈만 사용할 수 있습니다.");
   if (!/^\d{4}-\d{2}-\d{2}$/.test(event.concertDate || "")) errors.push("concertDate는 YYYY-MM-DD 형식이어야 합니다.");
   if (!STATUSES.has(event.status)) errors.push("지원하지 않는 상태입니다.");
+  if (event.price != null && (!Number.isFinite(event.price) || event.price < 0)) errors.push("가격은 0 이상의 숫자여야 합니다.");
+  if (event.seatPrices !== undefined) {
+    if (!Array.isArray(event.seatPrices)) errors.push("seatPrices는 배열이어야 합니다.");
+    else {
+      const names = new Set();
+      for (const tier of event.seatPrices) {
+        if (!tier?.name?.trim?.() || !Number.isFinite(tier.price) || tier.price < 0 || !/^[A-Z]{3}$/.test(tier.priceCurrency || "")) errors.push("좌석 등급명·숫자 가격·통화가 필요합니다.");
+        if (names.has(tier?.name)) errors.push("좌석 등급명이 중복되었습니다.");
+        names.add(tier?.name);
+      }
+    }
+  }
+  if (!Array.isArray(event.songs) || !Array.isArray(event.sources)) return [...errors, "대표곡과 출처는 배열이어야 합니다."];
   if (event.vendorUrl && !isUrl(event.vendorUrl)) errors.push("예매처 URL이 올바르지 않습니다.");
   if ((event.ticketDate && !event.ticketTime) || (!event.ticketDate && event.ticketTime)) errors.push("일반예매 날짜와 시각은 함께 입력해야 합니다.");
   if ((event.presaleDate && !event.presaleTime) || (!event.presaleDate && event.presaleTime)) errors.push("선예매 날짜와 시각은 함께 입력해야 합니다.");
@@ -44,25 +57,25 @@ function validateEvent(event, events = []) {
     if (!event.verifiedAt) errors.push("승인하려면 마지막 검증일이 필요합니다.");
     if (!Array.isArray(event.songs) || event.songs.length !== 3) errors.push("승인하려면 대표곡이 정확히 3개 필요합니다.");
     for (const [index, song] of (event.songs || []).entries()) {
-      if (!song?.[0] || !isUrl(song?.[2] || "") || !String(song?.[2] || "").includes("youtube.com/watch")) {
+      const url = isUrl(song?.[2]) ? new URL(song[2]) : null;
+      if (!song?.[0] || !url || !["youtube.com", "www.youtube.com"].includes(url.hostname) || url.pathname !== "/watch" || !url.searchParams.get("v")) {
         errors.push(`대표곡 ${index + 1}은 곡명과 YouTube watch URL이 필요합니다.`);
       }
     }
     for (const source of event.sources || []) {
-      if (!isUrl(source)) errors.push(`출처 URL이 올바르지 않습니다: ${source}`);
+      if (!isUrl(typeof source === "string" ? source : source?.url)) errors.push("출처 URL이 올바르지 않습니다.");
     }
   }
   if (event.status === "cancelled" && !String(event.cancellationReason || "").trim()) errors.push("취소 사유가 필요합니다.");
+  if (event.status === "postponed" && !String(event.changeReason || "").trim()) errors.push("연기 사유가 필요합니다.");
   errors.push(...validateWorkflow(event, events, { mode: events.some(item => item.id === event.id) ? "change" : "add" }).filter(error => !errors.includes(error)));
   return errors;
 }
 
 function normalizeEvent(input, previous = {}) {
   const text = key => String(input[key] ?? previous[key] ?? "").trim();
-  const lines = value => Array.isArray(value) ? value.map(item => String(item).trim()).filter(Boolean) : [];
-  const songs = Array.isArray(input.songs)
-    ? input.songs.map(song => [String(song?.[0] || "").trim(), String(song?.[1] || "").trim(), String(song?.[2] || "").trim()]).filter(song => song[0] || song[2])
-    : [];
+  const own = key => Object.hasOwn(input, key);
+  const songs = structuredClone(own("songs") ? input.songs : previous.songs || []);
   const event = {
     ...previous,
     id: text("id"),
@@ -80,7 +93,7 @@ function normalizeEvent(input, previous = {}) {
     vendorUrl: text("vendorUrl"),
     youtubeChannel: text("youtubeChannel"),
     songs,
-    sources: lines(input.sources),
+    sources: structuredClone(own("sources") ? input.sources : previous.sources || []),
     verifiedAt: text("verifiedAt"),
     status: text("status") || "pending",
     seriesId: text("seriesId"),
@@ -94,10 +107,17 @@ function normalizeEvent(input, previous = {}) {
   else event.seriesId = seriesKey(event);
   if (!event.hostingStatus && event.status === "confirmed") event.hostingStatus = "confirmed";
   if (!event.ticketingStatus) event.ticketingStatus = "unverified";
+  if (own("price")) {
+    if (input.price === "" || input.price == null) delete event.price;
+    else event.price = Number(input.price);
+  }
+  for (const key of ["seatPrices", "priceVerifiedAt", "ticketStatusVerifiedAt", "ticketAvailability", "priceHistory", "verificationHistory", "changeHistory"]) {
+    if (own(key)) event[key] = structuredClone(input[key]);
+  }
+  if (own("verification")) {
+    event.verification = { ...previous.verification, ...structuredClone(input.verification) };
+  }
   event.workflowState = readiness(event);
-  const price = input.price === "" || input.price == null ? null : Number(input.price);
-  if (Number.isFinite(price)) event.price = price;
-  else delete event.price;
   const currency = text("priceCurrency");
   if (currency) event.priceCurrency = currency;
   else delete event.priceCurrency;
@@ -159,7 +179,7 @@ async function handle(req, res) {
       if (errors.length) return sendJson(res, 422, { errors });
       events.push(event);
       writeEvents(events);
-      if (event.status !== "pending") regenerate();
+      regenerate();
       return sendJson(res, 201, { event });
     }
     const match = url.pathname.match(/^\/api\/events\/([^/]+)$/);
@@ -173,7 +193,7 @@ async function handle(req, res) {
       if (errors.length) return sendJson(res, 422, { errors });
       events[index] = event;
       writeEvents(events);
-      if (event.status !== "pending") regenerate();
+      regenerate();
       return sendJson(res, 200, { event });
     }
     if (req.method === "GET" && (url.pathname === "/" || url.pathname === "/index.html")) return serveFile(res, path.join(ADMIN_DIR, "index.html"), "text/html; charset=utf-8");
