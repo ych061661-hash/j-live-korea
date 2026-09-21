@@ -1,11 +1,11 @@
 "use strict";
 
-const CACHE_VERSION = "j-live-pwa-v91-mobile-focus";
+const CACHE_VERSION = "j-live-pwa-v97-schedule-return";
 const APP_SHELL = [
   "/calendar/",
   "/calendar/index.html",
   "/calendar/offline.html",
-  "/calendar/styles.css?v=20260910mobile3",
+  "/calendar/styles.css?v=20260921schedule6",
   "/calendar/site-config.js?v=20260808ea",
   "/calendar/site.js?v=20260825conversion1",
   "/calendar/analytics.js",
@@ -18,7 +18,7 @@ const APP_SHELL = [
   "/calendar/original-calendar-frame.html",
   "/calendar/original-calendar-frame.css?v=20260825conversion1",
   "/calendar/search-utils.js?v=20260825conversion1",
-  "/calendar/app.js?v=20260910mobile5",
+  "/calendar/app.js?v=20260921schedule6",
   "/calendar/content.js",
   "/calendar/event.js?v=20260909content2",
   "/calendar/data/events.json",

@@ -419,8 +419,42 @@ test("keeps indexable concerts within two weeks freshly reverified", () => {
 test("labels the homepage search and attendance inputs", () => {
   const homepage = read("calendar/index.html");
   assert.match(homepage, /id="artistSearch"[^>]+aria-label="아티스트 이름 검색"/);
+  assert.match(homepage, /id="artistSearchReset"[^>]+hidden/);
   assert.match(homepage, /name="unitPrice"[^>]+aria-label="티켓 1매 가격"/);
   assert.match(homepage, /name="quantity"[^>]+aria-label="티켓 매수"/);
+});
+
+test("keeps every public upcoming show and its detail link in initial homepage HTML", () => {
+  const homepage = read("calendar/index.html");
+  const today = new Intl.DateTimeFormat("sv-SE", { timeZone: "Asia/Seoul", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+  const events = JSON.parse(read("calendar/data/events.json")).filter(event => (
+    (event.status === "confirmed" || (event.status === "pending" && event.hostingStatus === "confirmed"))
+    && event.ticketingStatus !== "conflict"
+    && event.verification?.ticketing?.status !== "conflict"
+    && event.concertDate >= today
+  ));
+  assert.match(homepage, new RegExp(`${today.slice(0, 4)} J-POP 내한 공연·티켓팅 일정`));
+  assert.match(homepage, /id="homeScheduleList"/);
+  assert.match(homepage, /data-home-view="concert"[^>]+aria-pressed="true"/);
+  assert.match(homepage, /data-home-view="ticket"[^>]+aria-pressed="false"/);
+  assert.match(homepage, /예매 오픈 예정도 보기/);
+  for (const event of events) assert.match(homepage, new RegExp(`href="\\.\\/events\\/${event.id}"`), `${event.id} is missing from initial homepage HTML`);
+});
+
+test("uses accessible home schedule controls and replaces the static list after JavaScript loads", () => {
+  const homepage = read("calendar/index.html");
+  const app = read("calendar/app.js");
+  const styles = read("calendar/styles.css");
+  assert.match(homepage, /role="group" aria-label="목록 기준 선택"/);
+  assert.match(homepage, /id="homeScheduleStatus" aria-live="polite"/);
+  assert.match(styles, /\.home-schedule-switch button \{ min-height:44px;/);
+  assert.match(app, /homeScheduleList\.innerHTML = cards/);
+  assert.match(app, /homeTicketFallback\) homeTicketFallback\.hidden = true/);
+  assert.match(app, /artistSearchReset\?\.addEventListener\("click"/);
+  assert.match(app, /homeScheduleStateKey/);
+  assert.match(app, /history\.replaceState\(\{ \.\.\.\(history\.state \|\| \{\}\), homeSchedule: state \}, ""\)/);
+  assert.match(app, /location\.assign\(link\.href\)/);
+  assert.match(app, /window\.addEventListener\("pagehide", saveHomeScheduleState\)/);
 });
 
 test("presents audience figures as scoped J-LIVE records, not a universal ranking", () => {

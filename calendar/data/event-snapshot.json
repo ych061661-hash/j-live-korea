@@ -22,12 +22,30 @@
     ],
     "price": 154000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "아레나 스탠딩",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 R석",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 S석",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "king-gnu-2026-06-21": {
     "artist": "King Gnu",
@@ -52,12 +70,30 @@
     ],
     "price": 154000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "아레나 스탠딩",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 R석",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 S석",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "yuika-2026-06-20": {
     "artist": "『ユイカ』",
@@ -81,12 +117,25 @@
     ],
     "price": 121000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "VIP 패키지",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "스탠딩/지정석",
+        "price": 121000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "reol-2026-07-18": {
     "artist": "Reol",
@@ -111,12 +160,20 @@
     ],
     "price": 99000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "전석",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "reol-2026-07-19": {
     "artist": "Reol",
@@ -141,12 +198,20 @@
     ],
     "price": 99000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "전석",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "novelbright-2026-08-01": {
     "artist": "Novelbright",
@@ -171,12 +236,40 @@
     ],
     "price": 154000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "스탠딩 VIP",
+        "price": 220000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "스탠딩 R",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "스탠딩 S",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 R",
+        "price": 176000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 S",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "novelbright-2026-08-02": {
     "artist": "Novelbright",
@@ -201,12 +294,40 @@
     ],
     "price": 154000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "스탠딩 VIP",
+        "price": 220000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "스탠딩 R",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "스탠딩 S",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 R",
+        "price": 176000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 S",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "official-hige-dandism-2026-08-08": {
     "artist": "Official髭男dism",
@@ -231,12 +352,45 @@
     ],
     "price": 132000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "스탠딩 R",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "스탠딩 S",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 R",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 S",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 A",
+        "price": 143000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 B",
+        "price": 132000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "official-hige-dandism-2026-08-09": {
     "artist": "Official髭男dism",
@@ -261,12 +415,45 @@
     ],
     "price": 132000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "스탠딩 R",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "스탠딩 S",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 R",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 S",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 A",
+        "price": 143000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 B",
+        "price": 132000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "ash-da-hero-2026-08-08": {
     "artist": "ASH DA HERO",
@@ -292,12 +479,20 @@
     ],
     "price": 99000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "1+1 티켓",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "back-number-2026-09-12": {
     "artist": "back number",
@@ -323,12 +518,30 @@
     ],
     "price": 143000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "스탠딩 R석",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "스탠딩 S석",
+        "price": 143000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 R석",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": "in_stock",
     "ticketStatusVerifiedAt": "2026-09-09T04:03:32+09:00",
     "ticketStatusSource": "https://ticket.yes24.com/Perf/58079",
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "back-number-2026-09-13": {
     "artist": "back number",
@@ -354,12 +567,30 @@
     ],
     "price": 143000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "스탠딩 R석",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "스탠딩 S석",
+        "price": 143000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 R석",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": "in_stock",
     "ticketStatusVerifiedAt": "2026-09-09T04:03:32+09:00",
     "ticketStatusSource": "https://ticket.yes24.com/Perf/58079",
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "ryosuke-yamada-2026-09-13": {
     "artist": "Ryosuke Yamada",
@@ -385,12 +616,35 @@
     ],
     "price": 143000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "PL 1 STANDING",
+        "price": 187000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "PL 2 SEATED",
+        "price": 187000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "PL 3 SEATED",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "PL 4 SEATED",
+        "price": 143000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "vaundy-2026-09-19": {
     "artist": "Vaundy",
@@ -425,12 +679,30 @@
     ],
     "price": 154000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "스탠딩석",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "R석",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "S석",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": "sold_out",
     "ticketStatusVerifiedAt": "2026-09-19T09:00:00+09:00",
     "ticketStatusSource": "https://member.vaundy.jp/feature/ASIAARENATOUR_2026",
     "seriesId": null,
     "hostingStatus": "confirmed",
-    "ticketingStatus": "confirmed"
+    "ticketingStatus": "confirmed",
+    "verification": null
   },
   "vaundy-2026-09-20": {
     "artist": "Vaundy",
@@ -465,12 +737,30 @@
     ],
     "price": 154000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "스탠딩석",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "R석",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "S석",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": "sold_out",
     "ticketStatusVerifiedAt": "2026-09-19T09:00:00+09:00",
     "ticketStatusSource": "https://member.vaundy.jp/feature/ASIAARENATOUR_2026",
     "seriesId": null,
     "hostingStatus": "confirmed",
-    "ticketingStatus": "confirmed"
+    "ticketingStatus": "confirmed",
+    "verification": null
   },
   "takuya-kimura-2026-09-26": {
     "artist": "Takuya Kimura",
@@ -496,12 +786,80 @@
     ],
     "price": 165000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "VIP석",
+        "price": 242000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "R석",
+        "price": 187000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "S석",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": {
+      "artist": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://starto.jp/s/p/live/10520?ima=1216&lang=en"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://starto.jp/s/p/live/10520?ima=1216&lang=en"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://starto.jp/s/p/live/10520?ima=1216&lang=en"
+        ]
+      },
+      "ticketDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://world.nol.com/ja/ticket/places/26000661/products/26008115"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://world.nol.com/ja/ticket/places/26000661/products/26008115"
+        ]
+      },
+      "ticketConditions": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://world.nol.com/ja/ticket/places/26000661/products/26008115"
+        ]
+      },
+      "availability": {
+        "status": "unverified",
+        "checkedAt": "2026-09-19",
+        "sources": [
+          "https://world.nol.com/ja/ticket/places/26000661/products/26008115"
+        ]
+      }
+    }
   },
   "echoes-aooo-2026-06-12": {
     "artist": "Aooo",
@@ -525,12 +883,25 @@
     ],
     "price": 99000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "3일권",
+        "price": 258000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "1일권",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "echoes-nomelon-nolemon-2026-06-13": {
     "artist": "NOMELON NOLEMON",
@@ -554,12 +925,25 @@
     ],
     "price": 99000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "3일권",
+        "price": 258000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "1일권",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "echoes-asmi-2026-06-14": {
     "artist": "asmi",
@@ -583,12 +967,25 @@
     ],
     "price": 99000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "3일권",
+        "price": 258000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "1일권",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "sukimaswitch-2026-06-20": {
     "artist": "SUKIMASWITCH",
@@ -612,12 +1009,20 @@
     ],
     "price": 105000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "전석",
+        "price": 105000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "sukimaswitch-2026-06-21": {
     "artist": "SUKIMASWITCH",
@@ -641,12 +1046,20 @@
     ],
     "price": 105000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "전석",
+        "price": 105000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "yutori-2026-06-27": {
     "artist": "yutori",
@@ -670,12 +1083,14 @@
     ],
     "price": null,
     "priceCurrency": null,
+    "seatPrices": null,
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "sou-2026-07-04": {
     "artist": "Sou",
@@ -699,12 +1114,14 @@
     ],
     "price": null,
     "priceCurrency": null,
+    "seatPrices": null,
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "natori-2026-07-18": {
     "artist": "natori",
@@ -728,12 +1145,25 @@
     ],
     "price": 124000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "일반석",
+        "price": 138000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "시야제한석",
+        "price": 124000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "natori-2026-07-19": {
     "artist": "natori",
@@ -757,12 +1187,25 @@
     ],
     "price": 124000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "일반석",
+        "price": 138000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "시야제한석",
+        "price": 124000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "spyair-2026-09-05": {
     "artist": "SPYAIR",
@@ -788,12 +1231,30 @@
     ],
     "price": 138000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "VIP A (T-shirt)",
+        "price": 187000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "VIP B (Towel)",
+        "price": 172000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "일반석",
+        "price": 138000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "omoinotake-2026-10-17": {
     "artist": "Omoinotake",
@@ -819,12 +1280,75 @@
     ],
     "price": 99000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "VIP",
+        "price": 132000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "일반",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": {
+      "artist": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://omoinotake.com/info/2196/"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://omoinotake.com/info/2196/"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://omoinotake.com/info/2196/"
+        ]
+      },
+      "ticketDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://ticket.yes24.com/Perf/58335"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://www.highjinkx.com/omoinotake-2026"
+        ]
+      },
+      "ticketConditions": {
+        "status": "unverified",
+        "checkedAt": "2026-09-19",
+        "sources": [
+          "https://ticket.yes24.com/Perf/58335"
+        ]
+      },
+      "availability": {
+        "status": "unverified",
+        "checkedAt": "2026-09-19",
+        "sources": [
+          "https://ticket.yes24.com/Perf/58335"
+        ]
+      }
+    }
   },
   "chilli-beans-2026-08-08": {
     "artist": "Chilli Beans.",
@@ -848,12 +1372,20 @@
     ],
     "price": 99000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "전석",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "tk-ling-tosite-sigure-2026-07-12": {
     "artist": "TK from Ling tosite sigure",
@@ -877,12 +1409,20 @@
     ],
     "price": 99000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "전석",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "fujii-kaze-2027-01-09": {
     "artist": "Fujii Kaze",
@@ -907,12 +1447,45 @@
     ],
     "price": 132000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "플로어 FR",
+        "price": 210000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "플로어 SR",
+        "price": 198000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "플로어 R",
+        "price": 187000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 S",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 A",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 B",
+        "price": 132000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "the-novembers-2026-07-17": {
     "artist": "THE NOVEMBERS",
@@ -937,12 +1510,20 @@
     ],
     "price": 77000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "예매 (전석 스탠딩)",
+        "price": 77000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "muque-2026-07-11": {
     "artist": "muque",
@@ -968,12 +1549,25 @@
     ],
     "price": 99000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "1층 스탠딩",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "2층 지정좌석",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "go-go-vanillas-2026-07-12": {
     "artist": "go!go!vanillas",
@@ -999,12 +1593,25 @@
     ],
     "price": 110000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "VIP (스탠딩/지정석)",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "일반 (스탠딩/지정석)",
+        "price": 110000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "kento-nakajima-2026-10-03": {
     "artist": "Kento Nakajima",
@@ -1031,12 +1638,85 @@
     ],
     "price": 132000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "VIP석",
+        "price": 250000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "R석",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "S석",
+        "price": 143000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "A석",
+        "price": 132000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": {
+      "artist": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://www.sonymusic.co.jp/artist/KentoNakajima/info/583773"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://www.sonymusic.co.jp/artist/KentoNakajima/info/583773"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://starto.jp/s/p/live/10494?artist=156&lang=en"
+        ]
+      },
+      "ticketDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://ticket.yes24.com/Perf/58653"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://ticket.yes24.com/Perf/58653"
+        ]
+      },
+      "ticketConditions": {
+        "status": "unverified",
+        "checkedAt": "2026-09-19",
+        "sources": [
+          "https://m.ticket.yes24.com/Notice/17913"
+        ]
+      },
+      "availability": {
+        "status": "unverified",
+        "checkedAt": "2026-09-19",
+        "sources": [
+          "https://ticket.yes24.com/Perf/58653"
+        ]
+      }
+    }
   },
   "kento-nakajima-2026-10-04": {
     "artist": "Kento Nakajima",
@@ -1063,12 +1743,85 @@
     ],
     "price": 132000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "VIP석",
+        "price": 250000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "R석",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "S석",
+        "price": 143000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "A석",
+        "price": 132000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": {
+      "artist": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://www.sonymusic.co.jp/artist/KentoNakajima/info/583773"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://www.sonymusic.co.jp/artist/KentoNakajima/info/583773"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://starto.jp/s/p/live/10494?artist=156&lang=en"
+        ]
+      },
+      "ticketDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://ticket.yes24.com/Perf/58653"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://ticket.yes24.com/Perf/58653"
+        ]
+      },
+      "ticketConditions": {
+        "status": "unverified",
+        "checkedAt": "2026-09-19",
+        "sources": [
+          "https://m.ticket.yes24.com/Notice/17913"
+        ]
+      },
+      "availability": {
+        "status": "unverified",
+        "checkedAt": "2026-09-19",
+        "sources": [
+          "https://ticket.yes24.com/Perf/58653"
+        ]
+      }
+    }
   },
   "dannie-may-2026-08-21": {
     "artist": "Dannie May",
@@ -1093,12 +1846,20 @@
     ],
     "price": 88000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "전석 스탠딩",
+        "price": 88000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "let-me-know-2026-11-28": {
     "artist": "LET ME KNOW",
@@ -1123,12 +1884,20 @@
     ],
     "price": 99000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "전석",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "hitorie-2026-08-23": {
     "artist": "HITORIE",
@@ -1154,12 +1923,25 @@
     ],
     "price": 66000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "VIP (전석 스탠딩)",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "일반 (전석 스탠딩)",
+        "price": 66000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "t-square-2026-10-11": {
     "artist": "T-SQUARE",
@@ -1185,12 +1967,56 @@
     ],
     "price": 77000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "VIP",
+        "price": 143000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "R",
+        "price": 121000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "S",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "A",
+        "price": 77000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "W",
+        "price": 88000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": "conflict"
+    "ticketingStatus": "conflict",
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://facility.ticketlink.co.kr/global/en/help/notice/65295"
+        ]
+      },
+      "ticketing": {
+        "status": "conflict",
+        "checkedAt": "2026-09-19",
+        "sources": [
+          "https://facility.ticketlink.co.kr/global/en/help/notice/65295",
+          "https://nol.yanolja.com/ticket/products/26009558"
+        ]
+      }
+    }
   },
   "ano-2026-10-17": {
     "artist": "ano",
@@ -1216,12 +2042,70 @@
     ],
     "price": 138000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "전석",
+        "price": 138000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": {
+      "artist": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://ano-official.com/live_information/detail/42411"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://ano-official.com/live_information/detail/42411"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://world.nol.com/ja/ticket/places/26000166/products/26010474"
+        ]
+      },
+      "ticketDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://world.nol.com/ja/ticket/places/26000166/products/26010474"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://world.nol.com/ja/ticket/places/26000166/products/26010474"
+        ]
+      },
+      "ticketConditions": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://world.nol.com/ja/ticket/places/26000166/products/26010474"
+        ]
+      },
+      "availability": {
+        "status": "unverified",
+        "checkedAt": "2026-09-19",
+        "sources": [
+          "https://world.nol.com/ja/ticket/places/26000166/products/26010474"
+        ]
+      }
+    }
   },
   "ano-2026-10-18": {
     "artist": "ano",
@@ -1247,12 +2131,70 @@
     ],
     "price": 138000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "전석",
+        "price": 138000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": {
+      "artist": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://ano-official.com/news/detail/84837"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://ano-official.com/news/detail/84837"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://ano-official.com/news/detail/84837"
+        ]
+      },
+      "ticketDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://world.nol.com/ja/ticket/places/26000166/products/26010474"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://world.nol.com/ja/ticket/places/26000166/products/26010474"
+        ]
+      },
+      "ticketConditions": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://world.nol.com/ja/ticket/places/26000166/products/26010474"
+        ]
+      },
+      "availability": {
+        "status": "unverified",
+        "checkedAt": "2026-09-19",
+        "sources": [
+          "https://world.nol.com/ja/ticket/places/26000166/products/26010474"
+        ]
+      }
+    }
   },
   "andteam-2026-10-03": {
     "artist": "&TEAM",
@@ -1278,12 +2220,87 @@
     ],
     "price": 165000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "M&G석",
+        "price": 253000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "SOUND CHECK석",
+        "price": 220000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "일반석",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": {
+      "artist": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://weverse.io/andteam/notice/37990"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://weverse.io/andteam/notice/37990"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://weverse.io/andteam/notice/37990"
+        ]
+      },
+      "presaleDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://weverse.io/andteam/notice/37990"
+        ]
+      },
+      "ticketDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://world.nol.com/en/ticket/places/26000892/products/26011092"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://world.nol.com/en/ticket/places/26000892/products/26011092"
+        ]
+      },
+      "ticketConditions": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://weverse.io/andteam/notice/37990"
+        ]
+      },
+      "availability": {
+        "status": "unverified",
+        "checkedAt": "2026-09-19",
+        "sources": [
+          "https://world.nol.com/en/ticket/places/26000892/products/26011092"
+        ]
+      }
+    }
   },
   "andteam-2026-10-04": {
     "artist": "&TEAM",
@@ -1309,12 +2326,87 @@
     ],
     "price": 165000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "M&G석",
+        "price": 253000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "SOUND CHECK석",
+        "price": 220000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "일반석",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": {
+      "artist": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://weverse.io/andteam/notice/37990"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://weverse.io/andteam/notice/37990"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://weverse.io/andteam/notice/37990"
+        ]
+      },
+      "presaleDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://weverse.io/andteam/notice/37990"
+        ]
+      },
+      "ticketDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://world.nol.com/en/ticket/places/26000892/products/26011092"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://world.nol.com/en/ticket/places/26000892/products/26011092"
+        ]
+      },
+      "ticketConditions": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://weverse.io/andteam/notice/37990"
+        ]
+      },
+      "availability": {
+        "status": "unverified",
+        "checkedAt": "2026-09-19",
+        "sources": [
+          "https://world.nol.com/en/ticket/places/26000892/products/26011092"
+        ]
+      }
+    }
   },
   "cero-2026-10-10": {
     "artist": "cero",
@@ -1340,12 +2432,70 @@
     ],
     "price": 77000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "전석 스탠딩",
+        "price": 77000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": {
+      "artist": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://cero-web.jp/category/live/"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://cero-web.jp/category/live/"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://cero-web.jp/category/live/"
+        ]
+      },
+      "ticketDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://cero-web.jp/category/live/"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://cero-web.jp/category/live/"
+        ]
+      },
+      "ticketConditions": {
+        "status": "unverified",
+        "checkedAt": "2026-09-19",
+        "sources": [
+          "https://ticket.yes24.com/Perf/59471"
+        ]
+      },
+      "availability": {
+        "status": "unverified",
+        "checkedAt": "2026-09-19",
+        "sources": [
+          "https://ticket.yes24.com/Perf/59471"
+        ]
+      }
+    }
   },
   "regallily-2026-11-07": {
     "artist": "Regallily",
@@ -1371,12 +2521,20 @@
     ],
     "price": 88000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "전석 스탠딩",
+        "price": 88000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "sunny-day-service-2026-12-03": {
     "artist": "Sunny Day Service",
@@ -1402,12 +2560,20 @@
     ],
     "price": 88000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "스탠딩",
+        "price": 88000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "yuuri-2026-12-05": {
     "artist": "YUURI",
@@ -1431,12 +2597,30 @@
     ],
     "price": 143000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "R석",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "S석",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "A석",
+        "price": 143000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "yuuri-2026-12-06": {
     "artist": "YUURI",
@@ -1460,12 +2644,30 @@
     ],
     "price": 143000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "R석",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "S석",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "A석",
+        "price": 143000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "kana-boon-2026-12-05": {
     "artist": "KANA-BOON",
@@ -1491,12 +2693,20 @@
     ],
     "price": 138000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "전석",
+        "price": 138000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "cutie-street-2027-01-23": {
     "artist": "CUTIE STREET",
@@ -1522,12 +2732,20 @@
     ],
     "price": 135000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "전석",
+        "price": 135000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "paris-match-2026-10-31": {
     "artist": "paris match",
@@ -1553,12 +2771,35 @@
     ],
     "price": 77000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "VIP석",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "R석",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "A석",
+        "price": 88000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "시야제한석",
+        "price": 77000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "hamano-haruki-2026-10-16": {
     "artist": "Hamano Haruki",
@@ -1583,12 +2824,81 @@
     ],
     "price": 77000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "사전예매 VVIP",
+        "price": 120000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "사전예매 VIP",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "사전예매 일반",
+        "price": 77000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "현장예매 VVIP",
+        "price": 130000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "현장예매 VIP",
+        "price": 110000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "현장예매 일반",
+        "price": 88000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": {
+      "hosting": {
+        "status": "unverified",
+        "checkedAt": "2026-09-19",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26011287"
+        ]
+      },
+      "ticketDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26011287"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26011287"
+        ]
+      },
+      "ticketConditions": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26011287"
+        ]
+      },
+      "availability": {
+        "status": "unverified",
+        "checkedAt": "2026-09-19",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26011287"
+        ]
+      }
+    }
   },
   "kazumi-tateishi-trio-2026-12-26": {
     "artist": "Kazumi Tateishi Trio",
@@ -1615,12 +2925,35 @@
     ],
     "price": 55000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "VIP석",
+        "price": 88000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "R석",
+        "price": 77000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "S석",
+        "price": 66000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "A석",
+        "price": 55000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "luv-2026-03-21": {
     "artist": "luv",
@@ -1646,12 +2979,20 @@
     ],
     "price": 77000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "전석 스탠딩",
+        "price": 77000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "kawasaki-takaya-2026-12-20": {
     "artist": "Kawasaki Takaya",
@@ -1676,12 +3017,25 @@
     ],
     "price": 110000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "1층 스탠딩",
+        "price": 110000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "2층 지정석",
+        "price": 121000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   },
   "homecomings-2026-12-13": {
     "artist": "Homecomings",
@@ -1708,11 +3062,19 @@
     ],
     "price": 88000,
     "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "전석 스탠딩",
+        "price": 88000,
+        "priceCurrency": "KRW"
+      }
+    ],
     "ticketAvailability": null,
     "ticketStatusVerifiedAt": null,
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": null,
-    "ticketingStatus": null
+    "ticketingStatus": null,
+    "verification": null
   }
 }

@@ -1383,6 +1383,36 @@ footer { padding:22px 0 34px; color:#686970; font-size:11px; text-align:center; 
 .home-page .weekend-heading h2 { font-size:32px; letter-spacing:-.055em; }
 .home-page .weekend-card { min-height:154px; border-radius:20px; background:rgba(255,255,255,.032); box-shadow:none; }
 .home-page .weekend-events:has(.weekend-card:only-child) { grid-template-columns:minmax(240px,360px); }
+.hero-subtitle { margin:14px 0 0; color:var(--lime); font-size:14px; font-weight:800; letter-spacing:.02em; }
+.artist-search-field { position:relative; }
+#artistSearchReset { position:absolute; top:50%; right:10px; min-height:32px; transform:translateY(-50%); padding:0 9px; border:1px solid rgba(255,255,255,.16); border-radius:8px; color:#dedee2; background:#1a1b20; font-size:10px; font-weight:700; cursor:pointer; }
+#artistSearchReset:hover,#artistSearchReset:focus-visible { border-color:var(--lime); color:#111; background:var(--lime); outline:none; }
+.home-page .home-schedule { margin-top:22px; padding:34px; border:1px solid var(--line); border-radius:30px; background:rgba(255,255,255,.026); }
+.home-schedule-heading { display:flex; align-items:end; justify-content:space-between; gap:32px; }
+.home-schedule-heading h2 { margin:7px 0 0; font-size:35px; letter-spacing:-.055em; }
+.home-schedule-heading p { max-width:620px; margin:12px 0 0; color:var(--muted); font-size:13px; line-height:1.65; }
+.home-schedule-heading > a,.home-schedule-links a,.home-ticket-card a { min-height:44px; color:var(--lime); font-size:11px; font-weight:800; text-decoration:none; }
+.home-schedule-heading > a { display:inline-flex; align-items:center; flex:0 0 auto; }
+.home-schedule-heading > a:hover,.home-schedule-heading > a:focus-visible,.home-schedule-links a:hover,.home-schedule-links a:focus-visible,.home-ticket-card a:hover,.home-ticket-card a:focus-visible { text-decoration:underline; outline:none; }
+.home-schedule-switch { display:flex; gap:8px; margin-top:24px; }
+.home-schedule-switch button { min-height:44px; padding:0 15px; border:1px solid rgba(255,255,255,.18); border-radius:999px; color:#c9cad0; background:rgba(255,255,255,.025); cursor:pointer; font:inherit; font-size:12px; font-weight:800; }
+.home-schedule-switch button[aria-pressed="true"] { border-color:var(--lime); color:#111; background:var(--lime); }
+.home-schedule-switch button:focus-visible { outline:3px solid rgba(215,255,79,.45); outline-offset:2px; }
+.home-schedule-status { margin:14px 0 0; color:#a5a6ad; font-size:11px; line-height:1.55; }
+.home-schedule-list { margin-top:26px; }
+.home-schedule-month + .home-schedule-month { margin-top:38px; padding-top:30px; border-top:1px solid var(--line); }
+.home-schedule-month > h3 { margin:0 0 14px; font-size:22px; letter-spacing:-.04em; }
+.home-schedule-grid,.home-ticket-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+.home-schedule-card,.home-ticket-card { display:flex; min-width:0; min-height:270px; flex-direction:column; padding:20px; border:1px solid rgba(255,255,255,.1); border-radius:18px; background:rgba(255,255,255,.025); }
+.home-schedule-card h3,.home-ticket-card h3 { margin:8px 0 0; font-size:21px; line-height:1.15; letter-spacing:-.04em; overflow-wrap:anywhere; }
+.home-schedule-card h3 a { color:var(--text); text-decoration:none; }
+.home-schedule-card h3 a:hover,.home-schedule-card h3 a:focus-visible { color:var(--lime); outline:none; }
+.home-schedule-card dl { display:grid; gap:8px; margin:19px 0 0; }
+.home-schedule-card dl > div { display:grid; grid-template-columns:58px minmax(0,1fr); gap:8px; }
+.home-schedule-card dt { color:#85868d; font-size:10px; }.home-schedule-card dd { margin:0; color:#dedee2; font-size:11px; line-height:1.5; overflow-wrap:anywhere; }.home-schedule-card dd details { margin-top:5px; }.home-schedule-card dd summary { cursor:pointer; color:#aeb0b7; }
+.home-schedule-verified { margin:auto 0 0; padding-top:17px; color:#85868d; font-size:9px; }.home-schedule-links { display:flex; flex-wrap:wrap; gap:5px 13px; margin-top:10px; }.home-schedule-links a { display:inline-flex; align-items:center; }
+.home-ticket-fallback { margin-top:26px; padding-top:20px; border-top:1px solid var(--line); }.home-ticket-fallback summary { min-height:44px; color:var(--lime); cursor:pointer; font-size:12px; font-weight:800; }.home-ticket-fallback .home-ticket-grid { margin-top:14px; }
+.home-ticket-card p { margin:15px 0 0; color:#b7b8be; font-size:11px; line-height:1.55; }.home-ticket-card p + p { margin-top:8px; }.home-ticket-card a { display:inline-flex; align-items:center; margin-top:auto; padding-top:16px; }.home-schedule-empty { margin:0; padding:24px; border:1px dashed rgba(255,255,255,.18); border-radius:16px; color:var(--muted); font-size:13px; line-height:1.6; text-align:center; }
 .home-page .seo-upcoming {
   margin-top:22px;
   padding:34px;
@@ -1521,6 +1551,8 @@ footer { padding:22px 0 34px; color:#686970; font-size:11px; text-align:center; 
   .home-page .email-alerts-top { grid-template-columns:1fr; margin:0 12px 14px; padding:22px; border-radius:24px; }
   .home-page .weekend-spotlight { margin:14px 12px 0; padding:24px 20px; border-radius:24px; }
   .home-page .seo-upcoming { margin:16px 12px 0; padding:24px 20px; border-radius:24px; }
+  .home-page .home-schedule { margin:16px 12px 0; padding:24px 20px; border-radius:24px; }
+  .home-schedule-heading { display:block; }.home-schedule-heading h2 { font-size:29px; }.home-schedule-heading > a { margin-top:12px; }.home-schedule-switch { overflow-x:auto; padding-bottom:2px; scrollbar-width:none; }.home-schedule-switch button { flex:0 0 auto; }.home-schedule-grid,.home-ticket-grid { grid-template-columns:1fr; }.home-schedule-card,.home-ticket-card { min-height:0; }.home-schedule-month + .home-schedule-month { margin-top:28px; padding-top:24px; }.home-schedule-month > h3 { font-size:20px; }
   .home-page .seo-upcoming-heading { display:block; }
   .home-page .seo-upcoming-heading h2 { font-size:28px; }
   .home-page .seo-upcoming-title-full { display:none; }

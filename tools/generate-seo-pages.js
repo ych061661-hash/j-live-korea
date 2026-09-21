@@ -302,30 +302,108 @@ function hasIndexableEventContent(event, editorial) {
     && event.sources.length > 0;
 }
 
-function homepageUpcomingMarkup(events, today = "") {
-  const cards = [...events]
-    .filter(event => event.concertDate >= today)
-    .sort((a, b) => a.concertDate.localeCompare(b.concertDate) || (a.time || "").localeCompare(b.time || ""))
-    .slice(0, 8)
-    .map(event => `<article class="seo-upcoming-card">
-          <div><span class="section-kicker">${escapeHtml(event.genre || "J-POP")}</span><h3><a href="./events/${encodeURIComponent(event.id)}">${escapeHtml(event.artist)}</a></h3></div>
-          <dl>
-            <div><dt>공연</dt><dd>${escapeHtml(humanDate(event.concertDate, event.time))}</dd></div>
-            <div><dt>공연장</dt><dd>${escapeHtml(event.venue)}</dd></div>
-            <div><dt>일반예매</dt><dd>${escapeHtml(ticketDateDisplay(event))}</dd></div>
-            <div><dt>선예매</dt><dd>${escapeHtml(presaleDisplay(event))}</dd></div>
-          </dl>
-          <p>공식 출처 마지막 확인 ${escapeHtml(event.verifiedAt || "기록 없음")}</p>
-          <a class="seo-upcoming-link" href="./events/${encodeURIComponent(event.id)}">직접 작성한 공연 가이드 보기 →</a>
-        </article>`).join("\n");
-  if (!cards) return "";
-  return `<section class="seo-upcoming" aria-labelledby="seoUpcomingTitle">
-      <div class="seo-upcoming-heading">
-        <div><span class="section-kicker">RECENTLY REVERIFIED PICKS</span><h2 id="seoUpcomingTitle"><span class="seo-upcoming-title-full">최근 다시 확인한 다가오는 공연</span><span class="seo-upcoming-title-mobile">최근 확인한 공연</span></h2></div>
-        <div class="seo-upcoming-heading-copy"><p>최근 30일 안에 공식 예매처와 주최사 발표를 다시 대조하고, 아티스트별 관전 포인트와 공연장 이동 계획까지 작성한 일정만 표시합니다.</p><a class="seo-upcoming-all" href="#calendar">전체 일정 보기 <span aria-hidden="true">→</span></a></div>
-      </div>
-      <div class="seo-upcoming-grid">${cards}</div>
-    </section>`;
+function isHomepageEvent(event, today = "") {
+  return isPublicEvent(event)
+    && event.ticketingStatus !== "conflict"
+    && event.verification?.ticketing?.status !== "conflict"
+    && event.concertDate >= today;
+}
+
+function homeArtistName(event, aliases = {}) {
+  const names = [event.artist, ...(aliases[event.artist] || [])]
+    .map(value => String(value || "").trim())
+    .filter((value, index, all) => value && all.indexOf(value) === index);
+  const korean = names.find(value => /[가-힣]/.test(value));
+  return korean && korean !== event.artist ? `${korean} (${event.artist})` : event.artist;
+}
+
+function seatPriceMarkup(event) {
+  const prices = (event.seatPrices || []).filter(item => Number.isFinite(Number(item.price)) && item.price > 0);
+  if (!prices.length) return event.ticketingStatus === "pending_announcement" ? "발표 대기" : "가격 미확인";
+  const currencies = [...new Set(prices.map(item => item.priceCurrency || event.priceCurrency || "KRW"))];
+  if (currencies.length !== 1 || currencies[0] !== "KRW") return prices.map(item => `${item.name} ${Number(item.price).toLocaleString("ko-KR")} ${item.priceCurrency || event.priceCurrency || ""}`.trim()).join(" · ");
+  const minimum = Math.min(...prices.map(item => Number(item.price)));
+  const detail = prices.map(item => `${item.name} ${Number(item.price).toLocaleString("ko-KR")}원`).join(" · ");
+  return prices.length === 1 ? detail : `<span>최저 ${minimum.toLocaleString("ko-KR")}원</span><details><summary>좌석별 가격 ${prices.length}개</summary><span>${escapeHtml(detail)}</span></details>`;
+}
+
+function eventCardMarkup(event, aliases) {
+  const status = event.status === "cancelled" ? "공식 취소" : event.status === "postponed" ? "공식 연기" : "";
+  return `<article class="home-schedule-card" data-home-event-id="${escapeHtml(event.id)}">
+    <div><span class="section-kicker">${escapeHtml(event.genre || "J-POP")}</span><h3><a href="./events/${encodeURIComponent(event.id)}">${escapeHtml(homeArtistName(event, aliases))}</a></h3>${status ? `<p class="home-schedule-status">${status}</p>` : ""}</div>
+    <dl>
+      <div><dt>공연</dt><dd>${escapeHtml(humanDate(event.concertDate, event.time || "시간 미확인"))}</dd></div>
+      <div><dt>공연장</dt><dd>${escapeHtml(event.venue || "미확인")}</dd></div>
+      <div><dt>일반예매</dt><dd>${escapeHtml(ticketDateDisplay(event))}</dd></div>
+${event.presaleDate || event.presaleStatus ? `      <div><dt>선예매</dt><dd>${escapeHtml(presaleDisplay(event))}</dd></div>\n` : ""}
+      <div><dt>가격</dt><dd>${seatPriceMarkup(event)}</dd></div>
+    </dl>
+    <p class="home-schedule-verified">관련 정보 확인 ${escapeHtml(event.priceVerifiedAt || event.scheduleVerifiedAt || event.verifiedAt || "기록 없음")}</p>
+    <div class="home-schedule-links"><a href="./events/${encodeURIComponent(event.id)}">공연 상세 보기 <span aria-hidden="true">→</span></a>${event.vendorUrl ? `<a href="${escapeHtml(event.vendorUrl)}" target="_blank" rel="noopener noreferrer">공식 예매처 <span aria-hidden="true">↗</span></a>` : ""}</div>
+  </article>`;
+}
+
+function monthGroupsMarkup(events, aliases) {
+  const groups = new Map();
+  for (const event of events) {
+    const key = event.concertDate.slice(0, 7);
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(event);
+  }
+  return [...groups.entries()].sort(([left], [right]) => left.localeCompare(right)).map(([key, entries]) => {
+    const [year, month] = key.split("-").map(Number);
+    const cards = entries.sort((a, b) => a.concertDate.localeCompare(b.concertDate) || (a.time || "").localeCompare(b.time || "") || a.id.localeCompare(b.id)).map(event => eventCardMarkup(event, aliases)).join("\n");
+    return `<section class="home-schedule-month"><h3>${year}년 ${month}월</h3><div class="home-schedule-grid">${cards}</div></section>`;
+  }).join("\n");
+}
+
+function ticketGroups(events, today) {
+  const entries = [];
+  for (const event of events) {
+    if (["cancelled", "postponed"].includes(event.status)) continue;
+    for (const [type, date, time] of [["presale", event.presaleDate, event.presaleTime], ["ticket", event.ticketDate, event.ticketTime]]) {
+      if (!date || date < today) continue;
+      entries.push({ event, type, date, time: time || "", label: type === "presale" ? "선예매" : (event.ticketLabel || "일반예매") });
+    }
+  }
+  const groups = new Map();
+  for (const entry of entries) {
+    const key = [seriesKey(entry.event), entry.type, entry.date, entry.time, entry.label, entry.event.presaleStatus || "", entry.event.presaleCondition || entry.event.presaleEligibility || entry.event.presaleAudience || ""].join("\u0000");
+    if (!groups.has(key)) groups.set(key, { ...entry, events: [] });
+    groups.get(key).events.push(entry.event);
+  }
+  return [...groups.values()].sort((a, b) => a.date.localeCompare(b.date) || a.time.localeCompare(b.time) || a.event.artist.localeCompare(b.event.artist));
+}
+
+function ticketGroupsMarkup(events, aliases, today) {
+  const cards = ticketGroups(events, today).map(group => {
+    const targets = group.events.map(event => humanDate(event.concertDate, event.time || "시간 미확인")).join(" · ");
+    return `<article class="home-ticket-card"><span class="section-kicker">${escapeHtml(group.label)}</span><h3>${escapeHtml(homeArtistName(group.event, aliases))}</h3><p><strong>${escapeHtml(humanDate(group.date, group.time || "시간 미확인"))}</strong></p><p>대상 공연: ${escapeHtml(targets)}</p><a href="./events/${encodeURIComponent(group.event.id)}">공연·예매 조건 보기 <span aria-hidden="true">→</span></a></article>`;
+  }).join("\n");
+  return cards || "<p class=\"home-schedule-empty\">현재 발표된 예매 오픈 일정이 없습니다. 예매일이 발표 대기인 공연은 공연 목록에서 확인할 수 있습니다.</p>";
+}
+
+function homepageScheduleMarkup(events, aliases, today = "") {
+  const publicEvents = events.filter(event => isHomepageEvent(event, today));
+  const upcoming = monthGroupsMarkup(publicEvents, aliases) || "<p class=\"home-schedule-empty\">현재 공개 가능한 예정 공연이 없습니다.</p>";
+  const tickets = ticketGroupsMarkup(publicEvents, aliases, today);
+  return `<section class="home-schedule" id="homeSchedule" aria-labelledby="homeScheduleTitle">
+    <div class="home-schedule-heading"><div><span class="section-kicker">ALL UPCOMING SHOWS</span><h2 id="homeScheduleTitle">전체 예정 공연</h2><p>공식 개최 정보가 확인된 공연을 공연일 순으로 제공합니다. 달력의 범례·필터는 월간 그리드에만 적용되고, 아래 전환은 목록의 날짜 기준을 바꿉니다. 마지막 확인일이 오래된 정보는 예매 전 공식 출처를 다시 확인하세요.</p></div><a href="#calendar">달력에서 날짜 찾기 <span aria-hidden="true">↓</span></a></div>
+    <div class="home-schedule-switch" role="group" aria-label="목록 기준 선택"><button type="button" data-home-view="concert" aria-pressed="true">다가오는 공연</button><button type="button" data-home-view="ticket" aria-pressed="false">예매 오픈 예정</button></div>
+    <p class="home-schedule-status" id="homeScheduleStatus" aria-live="polite">다가오는 공연을 공연일과 시작 시각 순으로 보여줍니다.</p>
+    <div class="home-schedule-list" id="homeScheduleList" data-home-schedule-static="concert">${upcoming}</div>
+    <details class="home-ticket-fallback" id="homeTicketFallback"><summary>예매 오픈 예정도 보기</summary><div class="home-ticket-grid">${tickets}</div></details>
+  </section>`;
+}
+
+function homepageMeta(today) {
+  const year = Number(String(today).slice(0, 4));
+  return {
+    year,
+    title: `${year} J-POP 내한 공연·티켓팅 일정 | J-LIVE`,
+    description: `${year}년 한국에서 열리는 J-POP 내한 공연과 예매 오픈 일정을 공식 출처 기준으로 확인하세요.`,
+    ogDescription: `${year}년 J-POP 내한 공연일과 예매 오픈 일정을 공식 출처 기준으로 확인하세요.`
+  };
 }
 
 function structuredData(event, group, canonical, siteUrl) {
@@ -870,9 +948,16 @@ function main() {
     { path: "/calendar/stories/why-j-live" }
   ];
   const primaryEvents = indexablePrimaryEvents;
-  const homepage = homepageTemplate.replace(
+  const homeMeta = homepageMeta(today);
+  const homepage = homepageTemplate
+    .replace("<!-- HOME_YEAR -->", String(homeMeta.year))
+    .replace("<!-- HOME_TITLE -->", homeMeta.title)
+    .replace("<!-- HOME_TITLE -->", homeMeta.title)
+    .replace("<!-- HOME_DESCRIPTION -->", homeMeta.description)
+    .replace("<!-- HOME_OG_DESCRIPTION -->", homeMeta.ogDescription)
+    .replace(
     /<!-- SEO_UPCOMING_START -->[\s\S]*?<!-- SEO_UPCOMING_END -->/,
-    `<!-- SEO_UPCOMING_START -->\n    ${homepageUpcomingMarkup(primaryEvents, today)}\n    <!-- SEO_UPCOMING_END -->`
+    `<!-- SEO_UPCOMING_START -->\n    ${homepageScheduleMarkup(pageEvents, aliases, today)}\n    <!-- SEO_UPCOMING_END -->`
   );
   writeUtf8(path.join(calendar, "index.html"), homepage);
   const lastmod = today;
@@ -889,4 +974,4 @@ function main() {
 }
 
 if (require.main === module) main();
-module.exports = { articleStructuredData, assertCleanText, buildSeries, checklistMarkup, dataReportHtml, hasEditorialGuide, hasIndexableEventContent, homepageUpcomingMarkup, humanDate, isFreshlyVerified, isHostingConfirmedPending, isPublicEvent, relatedEvents, renderEventPage, richEventGuideMarkup, songsMarkup, sourceLabel, sourcesMarkup, seoulDateKey, seriesDatesMarkup, seriesKey, structuredData, ticketDateDisplay, ticketGuideMarkup, venueFacilityMapMarkup, venueGuideForEvent, venuePageHtml, venueIndexHtml, youtubeVideoId };
+module.exports = { articleStructuredData, assertCleanText, buildSeries, checklistMarkup, dataReportHtml, hasEditorialGuide, hasIndexableEventContent, homepageMeta, homepageScheduleMarkup, humanDate, isFreshlyVerified, isHomepageEvent, isHostingConfirmedPending, isPublicEvent, monthGroupsMarkup, relatedEvents, renderEventPage, richEventGuideMarkup, seatPriceMarkup, songsMarkup, sourceLabel, sourcesMarkup, ticketGroups, ticketGroupsMarkup, seoulDateKey, seriesDatesMarkup, seriesKey, structuredData, ticketDateDisplay, ticketGuideMarkup, venueFacilityMapMarkup, venueGuideForEvent, venueIndexHtml, venuePageHtml, youtubeVideoId };

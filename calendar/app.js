@@ -21,6 +21,11 @@ const attendanceEmpty = document.querySelector("#attendanceEmpty");
 const attendanceBoard = document.querySelector("#attendanceBoard");
 const artistSearch = document.querySelector("#artistSearch");
 const artistSearchResults = document.querySelector("#artistSearchResults");
+const artistSearchReset = document.querySelector("#artistSearchReset");
+const homeSchedule = document.querySelector("#homeSchedule");
+const homeScheduleList = document.querySelector("#homeScheduleList");
+const homeScheduleStatus = document.querySelector("#homeScheduleStatus");
+const homeTicketFallback = document.querySelector("#homeTicketFallback");
 const myShowEvents = document.querySelector("#myShowEvents");
 const myShowsEmpty = document.querySelector("#myShowsEmpty");
 const myShows = document.querySelector("#myShows");
@@ -80,6 +85,8 @@ let mobileDetailHistoryActive = false;
 let mobileDetailScrollY = 0;
 let mobileDetailReturnFocus = null;
 let mobileDetailReturnFocusSelector = "";
+let homeScheduleView = "concert";
+const homeScheduleStateKey = "j-live-home-schedule-state";
 const mobileQuery = window.matchMedia("(max-width: 820px)");
 
 const escapeHtml = (value = "") => String(value).replace(/[&<>"']/g, char => ({
@@ -133,6 +140,106 @@ function timeMinutes(value = "") {
   if (["오후", "밤"].includes(match[1]) && hour < 12) hour += 12;
   if (match[1] === "오전" && hour === 12) hour = 0;
   return hour * 60 + minute;
+}
+
+function seoulDateParts(now = new Date()) {
+  const parts = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Seoul", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).formatToParts(now);
+  const value = type => parts.find(part => part.type === type)?.value || "";
+  return { date: `${value("year")}-${value("month")}-${value("day")}`, minutes: Number(value("hour")) * 60 + Number(value("minute")) };
+}
+
+function hasStarted(schedule, now = new Date()) {
+  const current = seoulDateParts(now);
+  if (schedule.concertDate < current.date) return true;
+  if (schedule.concertDate > current.date || !schedule.time) return false;
+  return timeMinutes(schedule.time) <= current.minutes;
+}
+
+function homeScheduleIsPublic(schedule) {
+  return isPublicSchedule(schedule)
+    && schedule.ticketingStatus !== "conflict"
+    && schedule.verification?.ticketing?.status !== "conflict";
+}
+
+function homeArtistName(schedule) {
+  const names = [schedule.artist, ...(artistAliases[schedule.artist] || [])]
+    .map(name => String(name || "").trim())
+    .filter((name, index, all) => name && all.indexOf(name) === index);
+  const korean = names.find(name => /[가-힣]/.test(name));
+  return korean && korean !== schedule.artist ? `${korean} (${schedule.artist})` : schedule.artist;
+}
+
+function homePriceMarkup(schedule) {
+  const prices = (schedule.seatPrices || []).filter(price => Number.isFinite(Number(price.price)) && price.price > 0);
+  if (!prices.length) return schedule.ticketingStatus === "pending_announcement" ? "발표 대기" : "가격 미확인";
+  const minimum = Math.min(...prices.map(price => Number(price.price)));
+  const detail = prices.map(price => `${price.name} ${Number(price.price).toLocaleString("ko-KR")}원`).join(" · ");
+  return prices.length === 1 ? escapeHtml(detail) : `<span>최저 ${minimum.toLocaleString("ko-KR")}원</span><details><summary>좌석별 가격 ${prices.length}개</summary><span>${escapeHtml(detail)}</span></details>`;
+}
+
+function homeMatchesSearch(schedule, query) {
+  if (!query) return true;
+  return [schedule.artist, ...(artistAliases[schedule.artist] || []), schedule.venue, schedule.concertDate]
+    .some(value => normalizeSearchText(value).includes(query));
+}
+
+function renderHomeConcertCard(schedule) {
+  const status = schedule.status === "cancelled" ? "공식 취소" : schedule.status === "postponed" ? "공식 연기 · 새 일정은 상세의 공식 출처에서 확인하세요" : "";
+  return `<article class="home-schedule-card" data-home-event-id="${escapeHtml(schedule.id)}"><div><span class="section-kicker">${escapeHtml(schedule.genre || "J-POP")}</span><h3><a href="./events/${encodeURIComponent(schedule.id)}">${escapeHtml(homeArtistName(schedule))}</a></h3>${status ? `<p class="home-schedule-status">${status}</p>` : ""}</div><dl><div><dt>공연</dt><dd>${escapeHtml(formatAttendanceDate(schedule.concertDate))}${schedule.time ? ` · ${escapeHtml(schedule.time)}` : " · 시간 미확인"}</dd></div><div><dt>공연장</dt><dd>${escapeHtml(schedule.venue || "미확인")}</dd></div><div><dt>일반예매</dt><dd>${escapeHtml(ticketDateDisplay(schedule))}</dd></div>${schedule.presaleDate || schedule.presaleStatus ? `<div><dt>선예매</dt><dd>${escapeHtml(presaleDisplay(schedule))}</dd></div>` : ""}<div><dt>가격</dt><dd>${homePriceMarkup(schedule)}</dd></div></dl><p class="home-schedule-verified">관련 정보 확인 ${escapeHtml(schedule.priceVerifiedAt || schedule.scheduleVerifiedAt || schedule.verifiedAt || "기록 없음")}</p><div class="home-schedule-links"><a href="./events/${encodeURIComponent(schedule.id)}">공연 상세 보기 <span aria-hidden="true">→</span></a>${schedule.vendorUrl ? `<a href="${escapeHtml(schedule.vendorUrl)}" target="_blank" rel="noopener noreferrer">공식 예매처 <span aria-hidden="true">↗</span></a>` : ""}</div></article>`;
+}
+
+function renderHomeSchedule() {
+  if (!homeSchedule || !homeScheduleList) return;
+  const query = normalizeSearchText(artistSearch?.value || "");
+  const current = seoulDateParts();
+  const publicSchedules = schedules.filter(schedule => homeScheduleIsPublic(schedule) && homeMatchesSearch(schedule, query));
+  document.querySelectorAll("[data-home-view]").forEach(button => button.setAttribute("aria-pressed", String(button.dataset.homeView === homeScheduleView)));
+  if (homeTicketFallback) homeTicketFallback.hidden = true;
+  if (homeScheduleView === "ticket") {
+    const ticketRows = publicSchedules.flatMap(schedule => [["선예매", schedule.presaleDate, schedule.presaleTime], [schedule.ticketLabel || "일반예매", schedule.ticketDate, schedule.ticketTime]].map(([label, date, time]) => ({ schedule, label, date, time: time || "" }))).filter(item => item.date && !["cancelled", "postponed"].includes(item.schedule.status) && (item.date > current.date || (item.date === current.date && (item.time ? timeMinutes(item.time) > current.minutes : true))) && !hasStarted(item.schedule));
+    const groups = new Map();
+    for (const item of ticketRows) {
+      const key = [item.schedule.artist, item.schedule.venue, item.schedule.vendorUrl || "", item.label, item.date, item.time, item.schedule.presaleStatus || "", item.schedule.presaleCondition || item.schedule.presaleEligibility || item.schedule.presaleAudience || ""].join("\u0000");
+      if (!groups.has(key)) groups.set(key, { ...item, schedules: [] });
+      groups.get(key).schedules.push(item.schedule);
+    }
+    const cards = [...groups.values()].sort((a, b) => a.date.localeCompare(b.date) || a.time.localeCompare(b.time) || a.schedule.artist.localeCompare(b.schedule.artist)).map(group => `<article class="home-ticket-card"><span class="section-kicker">${escapeHtml(group.label)}</span><h3>${escapeHtml(homeArtistName(group.schedule))}</h3><p><strong>${escapeHtml(formatAttendanceDate(group.date))}${group.time ? ` · ${escapeHtml(group.time)}` : " · 시간 미확인"}</strong></p><p>대상 공연: ${escapeHtml(group.schedules.map(schedule => `${formatDate(schedule.concertDate)}${schedule.time ? ` ${schedule.time}` : " 시간 미확인"}`).join(" · "))}</p><a href="./events/${encodeURIComponent(group.schedule.id)}">공연·예매 조건 보기 <span aria-hidden="true">→</span></a></article>`).join("");
+    homeScheduleList.innerHTML = cards ? `<div class="home-ticket-grid">${cards}</div>` : `<p class="home-schedule-empty">${query ? "검색어와 일치하는 예매 오픈 예정 일정이 없습니다." : "현재 예매 오픈 예정으로 확인된 일정이 없습니다. 예매일이 발표 대기인 공연은 다가오는 공연에서 확인할 수 있습니다."}</p>`;
+    homeScheduleStatus.textContent = "예매 시작 날짜와 시각 순으로 보여줍니다. 시간이 미확인인 당일 일정은 이미 오픈했다고 단정하지 않습니다.";
+    return;
+  }
+  const upcoming = publicSchedules.filter(schedule => !hasStarted(schedule)).sort((a, b) => a.concertDate.localeCompare(b.concertDate) || timeMinutes(a.time) - timeMinutes(b.time) || a.id.localeCompare(b.id));
+  const months = new Map();
+  for (const schedule of upcoming) {
+    const key = schedule.concertDate.slice(0, 7);
+    if (!months.has(key)) months.set(key, []);
+    months.get(key).push(schedule);
+  }
+  homeScheduleList.innerHTML = months.size ? [...months.entries()].map(([key, entries]) => { const [year, month] = key.split("-").map(Number); return `<section class="home-schedule-month"><h3>${year}년 ${month}월</h3><div class="home-schedule-grid">${entries.map(renderHomeConcertCard).join("")}</div></section>`; }).join("") : `<p class="home-schedule-empty">${query ? "검색어와 일치하는 예정 공연이 없습니다." : "현재 공개 가능한 예정 공연이 없습니다."}</p>`;
+  homeScheduleStatus.textContent = query ? `“${artistSearch.value.trim()}” 검색 결과를 공연일과 시작 시각 순으로 보여줍니다.` : "다가오는 공연을 공연일과 시작 시각 순으로 보여줍니다.";
+}
+
+function saveHomeScheduleState() {
+  const state = {
+    query: artistSearch?.value || "",
+    view: homeScheduleView,
+    scrollY: window.scrollY
+  };
+  try {
+    history.replaceState({ ...(history.state || {}), homeSchedule: state }, "");
+  } catch {}
+  try { sessionStorage.setItem(homeScheduleStateKey, JSON.stringify(state)); } catch {}
+  return state;
+}
+
+function restoreHomeScheduleState() {
+  try {
+    const state = history.state?.homeSchedule || JSON.parse(sessionStorage.getItem(homeScheduleStateKey) || "{}");
+    if (typeof state.query === "string") artistSearch.value = state.query;
+    if (state.view === "ticket" || state.view === "concert") homeScheduleView = state.view;
+    artistSearchReset.hidden = !artistSearch.value.trim();
+    if (Number.isFinite(state.scrollY) && state.scrollY > 0) requestAnimationFrame(() => window.scrollTo(0, state.scrollY));
+  } catch {}
 }
 
 function eventsForDate(key) {
@@ -1174,6 +1281,9 @@ attendanceRecords.addEventListener("click", event => {
 
 artistSearch.addEventListener("input", renderArtistSearch);
 artistSearch.addEventListener("input", () => {
+  artistSearchReset.hidden = !artistSearch.value.trim();
+  renderHomeSchedule();
+  saveHomeScheduleState();
   clearTimeout(emptySearchTimer);
   const value = artistSearch.value.trim();
   emptySearchTimer = setTimeout(() => {
@@ -1196,8 +1306,32 @@ artistSearch.addEventListener("focus", renderArtistSearch);
 artistSearch.addEventListener("keydown", event => {
   if (event.key !== "Escape") return;
   artistSearch.value = "";
+  artistSearchReset.hidden = true;
   renderArtistSearch();
+  renderHomeSchedule();
+  saveHomeScheduleState();
 });
+artistSearchReset?.addEventListener("click", () => {
+  artistSearch.value = "";
+  artistSearchReset.hidden = true;
+  renderArtistSearch();
+  renderHomeSchedule();
+  saveHomeScheduleState();
+  artistSearch.focus();
+});
+document.querySelectorAll("[data-home-view]").forEach(button => button.addEventListener("click", () => {
+  homeScheduleView = button.dataset.homeView === "ticket" ? "ticket" : "concert";
+  renderHomeSchedule();
+  saveHomeScheduleState();
+}));
+homeSchedule?.addEventListener("click", event => {
+  const link = event.target.closest("a[href*='./events/']");
+  if (!link || (event.button && event.button !== 0) || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  event.preventDefault();
+  saveHomeScheduleState();
+  location.assign(link.href);
+});
+window.addEventListener("pagehide", saveHomeScheduleState);
 artistSearchResults.addEventListener("click", event => {
   const ticketLink = event.target.closest("[data-search-ticket]");
   if (ticketLink) {
@@ -1359,6 +1493,8 @@ async function initialize() {
     attendanceSchedules = [...schedules, ...[...historical2023Events, ...historicalEvents].filter(event =>
       event.status === "confirmed" && !scheduleIds.has(event.id)).map(event => ({ ...event, historical: true }))];
     schedules.sort((a, b) => a.concertDate.localeCompare(b.concertDate));
+    restoreHomeScheduleState();
+    renderHomeSchedule();
     window.JLIVE_ARTIST_IMAGES.preload(schedules);
     renderWeekendSpotlight();
     renderMyShows();
