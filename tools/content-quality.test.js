@@ -469,13 +469,12 @@ test("presents audience figures as scoped J-LIVE records, not a universal rankin
   assert.match(app, /attendanceSourceType !== "press" \|\| schedule\.attendancePublisher/);
 });
 
-test("makes the publisher experience and verification responsibility visible on the homepage", () => {
+test("keeps the verification standard available from the homepage footer without promoting the founder story", () => {
   const homepage = read("calendar/index.html");
-  assert.match(homepage, /<section class="home-editorial-trust"/);
-  assert.match(homepage, /팬이 직접 확인하고 씁니다/);
-  assert.match(homepage, /href="\.\/stories\/why-j-live" rel="author"/);
-  assert.match(homepage, /href="\.\/guides\/verification"/);
-  assert.match(homepage, /확인되지 않은 일정은 확정 캘린더와 검색 색인에서 제외/);
+  assert.doesNotMatch(homepage, /<section class="home-editorial-trust"/);
+  assert.doesNotMatch(homepage, /J-LIVE를 만든 이야기 읽기/);
+  assert.doesNotMatch(homepage, /J-LIVE를 만든 이유/);
+  assert.match(homepage, /<footer class="site-footer">[\s\S]*href="\.\/guides\/verification"[\s\S]*편집·검증 기준/);
 });
 
 test("publishes a substantial first-hand story without invented experience claims", () => {
