@@ -73,6 +73,15 @@ Discovered but NOT investigated this run (discovery-only, over the 5-candidate c
 - 신규 상세 후보 상한 5건을 적용함. 다음 확인 대기: BLU-SWING, Coaltar of the Deepers, Mulasaki Ima, Kazumi Tateishi Trio 수원 회차, Hump Back, AKASAKI. 후속 실행에서 공식 판매·가격·회차 확인 및 중복 검토 필요.
 - 미확인 가격을 추정하지 않았고 좌석 재고를 조회하지 않음.
 
+## Run: 2026-09-24 (KST, additional missing-event registration)
+
+- 원래 작업 폴더의 변경을 보존하기 위해 깨끗한 임시 worktree `j-live-cloudflare-deploy-scout-worktree` (`origin/main` 기준)에서만 작업.
+- origin/main 데이터와 대조한 신규 5건: Coaltar of the Deepers(2026-10-24), BLU-SWING(2026-11-15), Kazumi Tateishi Trio 수원(2026-11-22), 紫 今 / Mulasaki Ima(2026-12-12), Hump Back(2027-01-23). 전부 `pending`/`hostingStatus: confirmed`로 추가; 티켓 오픈일 미확인 공연은 값을 비워 두고 `ticketingStatus: unverified`로 유지.
+- 검증 가격: Coaltar 스탠딩석 77,000원; BLU-SWING 전석 스탠딩 66,000원; Kazumi 수원 VIP석 88,000원/R석 77,000원/S석 66,000원; 紫 今 스탠딩석·지정석 각 99,000원; Hump Back 스탠딩석·지정석 각 132,000원. Hump Back 일반예매 2026-10-07 12:00 KST.
+- 대표곡: Hump Back `拝啓、少年よ` 1곡, Coaltar of the Deepers `SUMMER GAZER '92` 1곡, BLU-SWING `クラゲ (Kurage)` 1곡, 紫 今 `魔性の女A` 1곡을 반영. Kazumi는 동일 아티스트의 기존 검증 채널/곡 3개를 재사용. Coaltar 업로더는 레이블 U-desper Records로 표시된 공식 MV, BLU-SWING은 아티스트 공식 사이트의 MV 공지·영상 링크로 확인.
+- 공식 출처: https://ticket.yes24.com/Perf/59686 ; https://www.highjinkx.com/show-list/cotd ; https://ticket.yes24.com/English/Perf/59831 ; https://www.highjinkx.com/show-list/blu-swing2026 ; https://nol.yanolja.com/ticket/products/26009224 ; https://www.ggac.or.kr/ggac/M0000281/show/view.do?idx=SM000135 ; https://ticket.yes24.com/Perf/60203 ; https://www.sonymusic.com.tw/artist/mulasaki-ima/ ; https://ticket.yes24.com/Perf/60207 ; https://humpback.jp/contents/1073598 ; https://humpback.jp/movies/categories/youtube .
+- 다음 재확인: Coaltar, BLU-SWING 대표곡/예매일시; Kazumi 수원 예매일시; 紫 今 공연시각/예매일시; Hump Back 공식 채널 URL 및 추가 대표곡. 다음 신규 상세 후보는 이전 대기열의 AKASAKI이며, 이번 실행의 신규 후보 상한 5건을 소진함.
+
 ## Run: 2026-09-23 (KST, candidate registration and deployment attempt)
 
 - 격리 worktree의 origin/main 기준 데이터와 대조해 5개 신규 이벤트 레코드를 `pending`으로 추가함: H△G(10/17), TAKASE TOYA(10/18), FLOW(10/28), ZAZEN BOYS(12/06), Penthouse(12/19). 대표곡 3개/공식 채널 등 필수 요건이 미완료라 확정 공개 대상으로 지정하지 않음.

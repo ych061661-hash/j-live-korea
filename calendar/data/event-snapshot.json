@@ -3474,5 +3474,413 @@
         "sources": []
       }
     }
+  },
+  "coaltar-of-the-deepers-2026-10-24": {
+    "artist": "Coaltar of the Deepers",
+    "concertDate": "2026-10-24",
+    "time": "오후 7:00",
+    "venue": "홍대 롤링홀",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/59686",
+    "ticketDate": "",
+    "ticketTime": "",
+    "presaleDate": "",
+    "presaleTime": "",
+    "presaleStatus": "checking",
+    "status": "pending",
+    "ticketLabel": null,
+    "verifiedAt": "2026-09-24",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-09-24",
+    "sources": [
+      "https://ticket.yes24.com/Perf/59686",
+      "https://www.highjinkx.com/show-list/cotd",
+      "https://www.youtube.com/watch?v=j5TXz9wCsMk"
+    ],
+    "price": 77000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "스탠딩석",
+        "price": 77000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
+    "seriesId": null,
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "unverified",
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://ticket.yes24.com/Perf/59686",
+          "https://www.highjinkx.com/show-list/cotd"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://ticket.yes24.com/Perf/59686",
+          "https://www.highjinkx.com/show-list/cotd"
+        ]
+      },
+      "ticketing": {
+        "status": "unverified",
+        "checkedAt": "2026-09-24",
+        "sources": [
+          "https://ticket.yes24.com/Perf/59686"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://ticket.yes24.com/Perf/59686"
+        ]
+      },
+      "representativeSongs": {
+        "status": "partial",
+        "checkedAt": "2026-09-24",
+        "sources": [
+          "https://www.youtube.com/watch?v=j5TXz9wCsMk"
+        ]
+      }
+    }
+  },
+  "blu-swing-2026-11-15": {
+    "artist": "BLU-SWING",
+    "concertDate": "2026-11-15",
+    "time": "오후 5:00",
+    "venue": "홍대 롤링홀",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/English/Perf/59831",
+    "ticketDate": "",
+    "ticketTime": "",
+    "presaleDate": "",
+    "presaleTime": "",
+    "presaleStatus": "checking",
+    "status": "pending",
+    "ticketLabel": null,
+    "verifiedAt": "2026-09-24",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-09-24",
+    "sources": [
+      "https://ticket.yes24.com/English/Perf/59831",
+      "https://www.highjinkx.com/show-list/blu-swing2026",
+      "https://www.blu-swing.com/posts/12835400/"
+    ],
+    "price": 66000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "전석 스탠딩",
+        "price": 66000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
+    "seriesId": null,
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "unverified",
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://ticket.yes24.com/English/Perf/59831",
+          "https://www.highjinkx.com/show-list/blu-swing2026"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://www.highjinkx.com/show-list/blu-swing2026"
+        ]
+      },
+      "ticketing": {
+        "status": "unverified",
+        "checkedAt": "2026-09-24",
+        "sources": [
+          "https://www.highjinkx.com/show-list/blu-swing2026",
+          "https://ticket.yes24.com/English/Perf/59831"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://www.highjinkx.com/show-list/blu-swing2026",
+          "https://ticket.yes24.com/English/Perf/59831"
+        ]
+      },
+      "representativeSongs": {
+        "status": "partial",
+        "checkedAt": "2026-09-24",
+        "sources": [
+          "https://www.blu-swing.com/posts/12835400/"
+        ]
+      }
+    }
+  },
+  "kazumi-tateishi-trio-2026-11-22-suwon": {
+    "artist": "Kazumi Tateishi Trio",
+    "concertDate": "2026-11-22",
+    "time": "오후 5:00",
+    "venue": "경기아트센터 소극장",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://nol.yanolja.com/ticket/products/26009224",
+    "ticketDate": "",
+    "ticketTime": "",
+    "presaleDate": "",
+    "presaleTime": "",
+    "presaleStatus": "checking",
+    "status": "pending",
+    "ticketLabel": null,
+    "verifiedAt": "2026-09-24",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-09-24",
+    "sources": [
+      "https://nol.yanolja.com/ticket/products/26009224",
+      "https://www.ggac.or.kr/ggac/M0000281/show/view.do?idx=SM000135",
+      "https://kazumitateishi-trio.com/",
+      "https://www.jvcmusic.co.jp/-/Artist/A023203.html"
+    ],
+    "price": 66000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "VIP석",
+        "price": 88000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "R석",
+        "price": 77000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "S석",
+        "price": 66000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
+    "seriesId": null,
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "unverified",
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26009224",
+          "https://www.ggac.or.kr/ggac/M0000281/show/view.do?idx=SM000135"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://www.ggac.or.kr/ggac/M0000281/show/view.do?idx=SM000135"
+        ]
+      },
+      "ticketing": {
+        "status": "unverified",
+        "checkedAt": "2026-09-24",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26009224"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26009224",
+          "https://www.ggac.or.kr/ggac/M0000281/show/view.do?idx=SM000135"
+        ]
+      },
+      "representativeSongs": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://kazumitateishi-trio.com/",
+          "https://www.jvcmusic.co.jp/-/Artist/A023203.html"
+        ]
+      }
+    }
+  },
+  "mulasaki-ima-2026-12-12": {
+    "artist": "紫 今",
+    "concertDate": "2026-12-12",
+    "time": "",
+    "venue": "YES24 WANDERLOCH HALL",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/60203",
+    "ticketDate": "",
+    "ticketTime": "",
+    "presaleDate": "",
+    "presaleTime": "",
+    "presaleStatus": "checking",
+    "status": "pending",
+    "ticketLabel": null,
+    "verifiedAt": "2026-09-24",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-09-24",
+    "sources": [
+      "https://ticket.yes24.com/Perf/60203",
+      "https://www.sonymusic.com.tw/artist/mulasaki-ima/"
+    ],
+    "price": 99000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "스탠딩석",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
+    "seriesId": null,
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "unverified",
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://ticket.yes24.com/Perf/60203"
+        ]
+      },
+      "concertTime": {
+        "status": "unverified",
+        "checkedAt": "2026-09-24",
+        "sources": [
+          "https://ticket.yes24.com/Perf/60203"
+        ]
+      },
+      "ticketing": {
+        "status": "unverified",
+        "checkedAt": "2026-09-24",
+        "sources": [
+          "https://ticket.yes24.com/Perf/60203"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://ticket.yes24.com/Perf/60203"
+        ]
+      },
+      "representativeSongs": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://www.sonymusic.com.tw/artist/mulasaki-ima/"
+        ]
+      }
+    }
+  },
+  "hump-back-2027-01-23": {
+    "artist": "Hump Back",
+    "concertDate": "2027-01-23",
+    "time": "오후 6:00",
+    "venue": "YES24 LIVE HALL",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/60207",
+    "ticketDate": "2026-10-07",
+    "ticketTime": "오후 12:00",
+    "presaleDate": "",
+    "presaleTime": "",
+    "presaleStatus": "checking",
+    "status": "pending",
+    "ticketLabel": null,
+    "verifiedAt": "2026-09-24",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-09-24",
+    "sources": [
+      "https://ticket.yes24.com/Perf/60207",
+      "https://humpback.jp/contents/1073598",
+      "https://humpback.jp/movies/categories/youtube"
+    ],
+    "price": 132000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "스탠딩석",
+        "price": 132000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석",
+        "price": 132000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
+    "seriesId": null,
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "confirmed",
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://ticket.yes24.com/Perf/60207",
+          "https://humpback.jp/contents/1073598"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://ticket.yes24.com/Perf/60207",
+          "https://humpback.jp/contents/1073598"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://ticket.yes24.com/Perf/60207",
+          "https://humpback.jp/contents/1073598"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://ticket.yes24.com/Perf/60207",
+          "https://humpback.jp/contents/1073598"
+        ]
+      },
+      "representativeSongs": {
+        "status": "partial",
+        "checkedAt": "2026-09-24",
+        "sources": [
+          "https://humpback.jp/movies/categories/youtube",
+          "https://www.youtube.com/watch?v=d6i4AtCxrDo"
+        ]
+      }
+    }
   }
 }
