@@ -74,28 +74,6 @@ function youtubeVideoId(url) {
   try { return new URL(url).searchParams.get("v") || ""; } catch { return ""; }
 }
 
-function songTitles(event) {
-  return (event.songs || [])
-    .map(song => song[0])
-    .filter(Boolean);
-}
-
-function buildSongGuide(event) {
-  const songs = songTitles(event);
-  if (!songs.length) {
-    return `${event.artist}의 대표곡 링크가 확인되는 대로 업데이트합니다. 공연 전에는 공식 YouTube 채널과 예매처 안내를 함께 확인하세요.`;
-  }
-  return `아래 ${songs.join(", ")} 순서는 J-LIVE의 입문용 추천 순서입니다. 각 곡은 공식 YouTube 영상으로 연결됩니다.`;
-}
-
-function buildChecklist(event) {
-  return [
-    `${humanDate(event.concertDate, event.time)} · ${event.venue}의 입장구와 집합 시각은 당일 공식 공지를 확인하세요.`,
-    "공연별 본인 확인·티켓 수령 조건은 위 예매 분석과 공식 예매처 안내가 최종 기준입니다.",
-    "최신 판매 상태와 관람 조건은 공식 예매처에서 다시 확인하세요. 예매 페이지의 최신 공지가 이 상세 기록보다 우선합니다. 공연 직전에는 날짜, 시작 시각, 입장 번호, 수령 장소와 재입장 가능 여부도 함께 확인하세요."
-  ];
-}
-
 function isoDateTime(date, time) {
   if (!date) return "";
   const matched = String(time || "").match(/(오전|오후|낮)\s*(\d{1,2}):(\d{2})/);
@@ -212,17 +190,13 @@ function renderEvent(event, events) {
   const statusPrefix = event.status === "cancelled" ? "공식 취소 · " : event.status === "postponed" ? "공식 연기 · " : "";
   document.querySelector("#eventSummary").textContent = `${statusPrefix}${humanDate(event.concertDate, event.time)} · ${event.venue}`;
   renderSeries(event, events);
-  document.querySelector("#artistIntro").textContent = editorial.artists[event.artist] ||
-    `${event.artist}의 한국 공연입니다. 제이라이브 코리아는 공식 발표와 예매처 정보를 기준으로 공연 일정을 정리합니다.`;
-  document.querySelector("#venueGuide").textContent = editorial.venues[event.venue] ||
-    `${event.venue} 방문 전 공식 공연장 안내에서 대중교통, 주차와 입장 게이트를 확인하세요.`;
+  const artistIntro = document.querySelector("#artistIntro");
+  if (artistIntro) artistIntro.textContent = editorial.artists[event.artist] || "";
+  const venueGuide = document.querySelector("#venueGuide");
+  if (venueGuide) venueGuide.textContent = editorial.venues[event.venue] || "";
   const ticketTip = document.querySelector("#ticketTip");
   if (ticketTip) ticketTip.textContent = editorial.ticketTips[event.vendor] ||
     "공식 예매처 로그인과 본인인증, 결제수단을 미리 점검하고 공지된 예매 시작 시각보다 여유 있게 접속하세요.";
-  document.querySelector("#songGuide").textContent = buildSongGuide(event);
-  document.querySelector("#dayChecklist").innerHTML = buildChecklist(event)
-    .map(item => `<li>${escapeHtml(item)}</li>`)
-    .join("");
 
   document.querySelector("#factDate").textContent = humanDate(event.concertDate, event.time);
   document.querySelector("#factVenue").textContent = event.venue;
@@ -244,13 +218,15 @@ function renderEvent(event, events) {
   const correctionBase = location.pathname.includes("/calendar/events/") ? "../corrections" : "./corrections";
   document.querySelector("#correctionLink").href = `${correctionBase}?event=${encodeURIComponent(event.id)}&artist=${encodeURIComponent(event.artist)}`;
 
+  const songsElement = document.querySelector("#eventSongs");
   const guideByVideo = new Map((editorial.songGuides?.[event.artist] || []).filter(guide => guide.videoId).map(guide => [guide.videoId, guide]));
-  document.querySelector("#eventSongs").innerHTML = (event.songs || []).slice(0, 3).map(song => {
+  if (songsElement) songsElement.innerHTML = (event.songs || []).slice(0, 3).map(song => {
     const videoId = youtubeVideoId(song[2]);
     const guide = guideByVideo.get(videoId) || (editorial.songGuides?.[event.artist] || []).find(item => item.title === song[0]);
+    const note = guide?.note || song[1];
     return `
     <a class="song" href="${escapeHtml(song[2])}" target="_blank" rel="noopener noreferrer">
-      <span class="play">▶</span><span>${escapeHtml(song[0])}</span><em>${escapeHtml(guide?.note || song[1] || "")}</em>
+      <span class="play">▶</span><span>${escapeHtml(song[0])}</span>${note ? `<em>${escapeHtml(note)}</em>` : ""}
     </a>`;
   }).join("");
   document.querySelector("#eventSources").innerHTML = (event.sources || []).map(source => {

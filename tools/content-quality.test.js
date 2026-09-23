@@ -54,7 +54,10 @@ test("keeps indexed event pages distinct and backed by documented editorial revi
     assert.ok(review.readerTasks.length, `${id} has no user task rationale`);
     assert.ok(review.specificValue.length, `${id} has no event-specific value rationale`);
     assert.ok(review.evidenceSources.length, `${id} has no editorial evidence links`);
-    assert.match(text, /공연별 실제 예매 분석|이번 공연의 관전 포인트|공연 정보/, id);
+    assert.match(text, /예매 조건·티켓 안내|이번 공연의 관전 포인트|공연 정보/, id);
+    assert.doesNotMatch(text, /의 한국 공연입니다|입문용 추천 순서입니다|공식 YouTube 채널에서 최근 대표곡과 라이브 영상을 확인하세요/, id);
+    assert.match(read(`calendar/events/${id}.html`), /\.\.\/guides\/standing-concert/ , `${id} must link to shared show-day guidance`);
+    assert.doesNotMatch(text, /위 예매 분석과 공식 예매처 안내가 최종 기준입니다|최신 판매 상태와 관람 조건은 공식 예매처에서 다시 확인하세요/, id);
     return { id, values: shingles(text) };
   });
 
@@ -480,6 +483,19 @@ test("presents audience figures as scoped J-LIVE records, not a universal rankin
   assert.doesNotMatch(app, /\.slice\(0, 1\)/);
   assert.match(app, /공식 발표 근거/);
   assert.match(app, /attendanceSourceType !== "press" \|\| schedule\.attendancePublisher/);
+});
+
+test("keeps generated event pages free of filler and links shared show-day guidance", () => {
+  const directory = path.join(root, "calendar", "events");
+  const pages = fs.readdirSync(directory).filter(file => file.endsWith(".html"));
+  assert.ok(pages.length > 0);
+  for (const file of pages) {
+    const html = fs.readFileSync(path.join(directory, file), "utf8");
+    assert.doesNotMatch(html, /의 한국 공연입니다|입문용 추천 순서입니다|최근 대표곡과 라이브 영상을 확인하세요/, file);
+    assert.doesNotMatch(html, /공연별 본인 확인·티켓 수령 조건은 위 예매 분석|최신 판매 상태와 관람 조건은 공식 예매처에서 다시 확인/, file);
+    assert.match(html, /\.\.\/guides\/standing-concert/, `${file} needs a shared practical guide link`);
+    assert.doesNotMatch(html, /<em>\s*<\/em>/, `${file} has an empty song recommendation`);
+  }
 });
 
 test("puts an accessible venue/date search and the two list actions in the homepage hero", () => {

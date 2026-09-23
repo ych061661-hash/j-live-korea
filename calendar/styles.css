@@ -1651,7 +1651,7 @@ footer { padding:22px 0 34px; color:#686970; font-size:11px; text-align:center; 
 .home-page .hero h1 {
   width:100%;
   max-width:760px;
-  margin:18px 0 22px;
+  margin:18px auto 22px;
   font-size:clamp(52px,6.8vw,84px);
   line-height:.98;
   text-wrap:balance;

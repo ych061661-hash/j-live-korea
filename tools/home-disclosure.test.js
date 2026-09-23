@@ -19,6 +19,6 @@ test("keeps attendance and spending behind an explicit accessible disclosure", (
   assert.match(styles, /\.attendance-ledger-disclosure > summary:focus-visible/);
   assert.match(page, /<section class="my-shows" id="myShows" aria-labelledby="myShowsTitle" hidden>/);
   assert.match(page, /id="attendanceBoard" aria-labelledby="attendanceTitle" hidden/);
-  assert.match(serviceWorker, /j-live-pwa-v97-schedule-return/);
-  assert.match(serviceWorker, /styles\.css\?v=20260921schedule6/);
+  assert.match(serviceWorker, /j-live-pwa-v98-herocenter/);
+  assert.match(serviceWorker, /styles\.css\?v=20260924herocenter1/);
 });

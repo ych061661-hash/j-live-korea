@@ -2,7 +2,7 @@
 
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { articleStructuredData, buildSeries, checklistMarkup, dataReportHtml, eventPageDecision, hasEditorialGuide, hasIndexableEventContent, homepageMeta, homepageScheduleMarkup, humanDate, isFreshlyVerified, relatedEvents, renderEventPage, richEventGuideMarkup, seoulDateKey, seriesDatesMarkup, songsMarkup, sourceLabel, structuredData, ticketGuideMarkup, ticketGroups, ticketGroupsMarkup, venueGuideForEvent, venueIndexHtml, venuePageHtml } = require("./generate-seo-pages");
+const { articleStructuredData, buildSeries, dataReportHtml, eventPageDecision, hasEditorialGuide, hasIndexableEventContent, homepageMeta, homepageScheduleMarkup, humanDate, isFreshlyVerified, relatedEvents, renderEventPage, richEventGuideMarkup, seoulDateKey, seriesDatesMarkup, songsMarkup, sourceLabel, structuredData, ticketGuideMarkup, ticketGroups, ticketGroupsMarkup, venueGuideForEvent, venueIndexHtml, venuePageHtml } = require("./generate-seo-pages");
 
 test("groups consecutive dates and selects the first future performance", () => {
   const base = { artist: "Artist", venue: "Venue", vendorUrl: "https://tickets.example/event" };
@@ -63,18 +63,36 @@ test("matches song notes by official video id before legacy title fallback", () 
   ]);
   assert.match(html, /official video match/);
   assert.doesNotMatch(html, /wrong title match/);
-  assert.equal((checklistMarkup({ concertDate: "2026-09-01", venue: "Hall" }).match(/<li>/g) || []).length, 3);
+  const noReasons = songsMarkup({ songs: [["Song", "", "https://www.youtube.com/watch?v=id"]] });
+  assert.match(noReasons, /Song/);
+  assert.doesNotMatch(noReasons, /<em>/);
 });
 
-test("puts event-specific ticket facts before artist and listening content", () => {
-  const template = '<!-- EVENT_TICKET_ANALYSIS --><section>ARTIST</section><section>TRACKS</section><dd id="factPrice"></dd>';
+test("keeps event-specific ticket conditions, omits price duplication, and skips generic artist/song sections", () => {
+  const template = '<!-- EVENT_TICKET_ANALYSIS --><!-- EVENT_ARTIST_INTRO --><!-- EVENT_VENUE_GUIDE --><!-- EVENT_SONGS --><dd id="factPrice"></dd>';
   const html = renderEventPage({
     event: { id: "artist-2026-09-01", artist: "Artist", concertDate: "2026-09-01", time: "오후 7:00", venue: "Hall", status: "confirmed", songs: [], sources: [] },
     events: [], group: [{ id: "artist-2026-09-01", concertDate: "2026-09-01", time: "오후 7:00" }], primary: { id: "artist-2026-09-01" },
-    editorial: { ticketGuides: { Artist: { price: "R 100원", identity: "실명 확인", ticket: "현장 수령" } }, artists: {}, venues: {} }, siteUrl: "https://j-live.kr", template, today: "2026-08-01"
+    editorial: { ticketGuides: { Artist: { price: "R 100원", identity: "실명 확인", ticket: "현장 수령" } }, artists: {}, venues: {}, songGuides: {} }, siteUrl: "https://j-live.kr", template, today: "2026-08-01"
   });
-  assert.ok(html.indexOf("공연별 실제 예매 분석") < html.indexOf("ARTIST"));
+  assert.match(html, /예매 조건·티켓 안내/);
+  assert.match(html, /실명 확인/);
+  assert.doesNotMatch(html, /공연별 실제 예매 분석|Artist의 한국 공연입니다|입문용 추천 순서/);
+  assert.doesNotMatch(ticketGuideMarkup({ artist: "Artist", seatPrices: [{ name: "R", price: 100000 }] }, { ticketGuides: { Artist: { price: "R 100,000원" } } }), /R 100/);
   assert.match(html, /<dd id="factPrice">R 100원<\/dd>/);
+});
+
+test("uses an existing artist introduction and leaves shared show-day guidance as one link", () => {
+  const template = '<!-- EVENT_TICKET_ANALYSIS --><!-- EVENT_ARTIST_INTRO --><!-- EVENT_VENUE_GUIDE --><!-- EVENT_SONGS --><section><a href="../guides/standing-concert">공연 당일 공통 준비 체크리스트</a></section>';
+  const html = renderEventPage({
+    event: { id: "artist-2026-09-01", artist: "Artist", concertDate: "2026-09-01", time: "오후 7:00", venue: "Hall", status: "confirmed", songs: [["Track", "", "https://www.youtube.com/watch?v=track-id"]], sources: ["https://official.example/show"] },
+    events: [], group: [{ id: "artist-2026-09-01", concertDate: "2026-09-01", time: "오후 7:00" }], primary: { id: "artist-2026-09-01" },
+    editorial: { artists: { Artist: "저장소에 이미 등록된 편집자 소개입니다." }, venues: {}, songGuides: {} }, siteUrl: "https://j-live.kr", template, today: "2026-08-01"
+  });
+  assert.match(html, /저장소에 이미 등록된 편집자 소개입니다\./);
+  assert.match(html, /공식 대표곡 영상/);
+  assert.match(html, /공연 당일 공통 준비 체크리스트/);
+  assert.doesNotMatch(html, /입장구와 집합 시각|최신 판매 상태와 관람 조건|위 예매 분석/);
 });
 
 test("renders artist-specific editorial content only when it exists", () => {
@@ -216,7 +234,8 @@ test("renders ticket analysis and resolves a venue field guide", () => {
     ticketGuides: { Band: { price: "R 100원", presale: "없음", identity: "확인", ticket: "현장수령", cancellation: "고정 시각 없음", verifiedAt: "2026-07-20" } },
     venueGuides: { hall: { name: "Hall", venues: ["Hall"] } }
   };
-  assert.match(ticketGuideMarkup(event, editorial), /좌석 등급과 가격/);
+  assert.match(ticketGuideMarkup(event, editorial), /예매 조건·티켓 안내/);
+  assert.doesNotMatch(ticketGuideMarkup(event, editorial), /좌석 등급과 가격|R 100원/);
   assert.equal(venueGuideForEvent(event, editorial)[0], "hall");
 });
 
@@ -243,15 +262,14 @@ test("compares showtimes and named ticket tiers without inventing benefits", () 
   ];
   const event = { artist: "Band", seatPrices: [{ name: "M&G석", price: 253000 }, { name: "일반석", price: 165000 }] };
   const html = ticketGuideMarkup(event, {}, group);
-  assert.match(html, /회차별 시작 시각 비교/);
+  assert.match(html, /회차별 시작 시각/);
   assert.match(html, /오후 6:00/);
   assert.match(html, /오후 5:00/);
-  assert.match(html, /M&amp;G석 253,000원/);
-  assert.match(html, /88,000원 높음/);
+  assert.doesNotMatch(html, /M&amp;G석|88,000원 높음/);
   assert.doesNotMatch(html, /특전 제공|사운드체크 참여권 제공/);
 });
 
-test("renders verified seat prices without a handwritten ticket guide", () => {
+test("does not duplicate verified seat prices in the ticket-conditions section", () => {
   const event = {
     artist: "Band",
     priceVerifiedAt: "2026-08-12",
@@ -261,8 +279,7 @@ test("renders verified seat prices without a handwritten ticket guide", () => {
     ]
   };
   const html = ticketGuideMarkup(event, {});
-  assert.match(html, /VIP 132,000원 · 일반 99,000원/);
-  assert.match(html, /마지막 확인 2026-08-12/);
+  assert.equal(html, "");
 });
 
 test("renders every requested venue section", () => {
