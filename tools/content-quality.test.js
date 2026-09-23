@@ -64,7 +64,15 @@ test("keeps pending records out of the confirmed sitemap and generated pages", (
   const sitemap = read("sitemap.xml");
   for (const event of events.filter(item => item.status === "pending")) {
     assert.doesNotMatch(sitemap, new RegExp(`/calendar/events/${event.id}(?:<|\\/)`));
-    assert.equal(fs.existsSync(path.join(root, "calendar", "events", `${event.id}.html`)), false);
+    const pagePath = path.join(root, "calendar", "events", `${event.id}.html`);
+    if (event.hostingStatus === "confirmed") {
+      assert.equal(fs.existsSync(pagePath), true, `${event.id} needs a noindex pending guide`);
+      const html = fs.readFileSync(pagePath, "utf8");
+      assert.match(html, /<meta name="robots" content="noindex,follow"/);
+      assert.doesNotMatch(html, /adsbygoogle|pagead2\.googlesyndication/);
+    } else {
+      assert.equal(fs.existsSync(pagePath), false, `${event.id} must not publish before hosting is confirmed`);
+    }
   }
 });
 

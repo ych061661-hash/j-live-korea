@@ -60,3 +60,24 @@ Discovered but NOT investigated this run (discovery-only, over the 5-candidate c
 - 개최만 확인된 `pending` 공연은 달력과 noindex 상세에서 공개할 수 있도록 생성·로딩 규칙을 분리함. 예매 발표 대기는 `발표 대기`로 표시하고, 해당 상세에는 광고를 넣지 않으며 사이트맵에서는 제외함. 개최 미확인 pending 후보는 계속 비공개임.
 - 과거 `.html` 및 루트 정책 URL의 정식 301 규칙을 추가하고 구체적인 가이드 규칙이 와일드카드보다 앞서도록 유지함.
 - 재검증일만 바뀐 사실로 신규 업데이트 기록을 만들지 않았으며 `calendar/data/updates.json`에는 의미 없는 변경이 발생하지 않음.
+
+## Run: 2026-09-23 (KST, user-requested candidate registration)
+
+- 깨끗한 격리 worktree를 `origin/main` (`53bf726`) 기준으로 생성해 작업함. 원래 작업 폴더의 사용자 변경사항은 수정·스테이징하지 않음.
+- 오늘 이후 이벤트를 기준 데이터와 대조함. 아래 후보 다섯 건은 origin/main에 동일 공연 레코드가 없어 중복 아님.
+- `hag-2026-10-17` — pending 등록. YES24에서 2026-10-17, WESTBRIDGE, VIP section 132000원, General section 99000원 확인. 공연 시작 시각·일반예매/선예매 일정·공식 YouTube 채널 및 대표곡 3개 미확인.
+- `takase-toya-2026-10-18` — pending 등록. YES24 공식 목록에서 2026-10-18, YES24 WANDERLOCH HALL 확인. 개별 상품 페이지 접근이 Bot Manager에 의해 차단되어 공연 시작 시각·가격·예매 일정·공식 YouTube 정보 미확인.
+- `flow-2026-10-28` — pending 등록. YES24 한국어 상품 페이지에서 2026-10-28 20:00, YES24 LIVE HALL 및 스탠딩 VIP석 165000원/지정석 110000원/스탠딩 일반석 99000원 확인. FLOW 공식 공지에서 일반예매 2026-09-10 12:00 확인. 공식 YouTube 채널/대표곡 3개 미확인.
+- `zazen-boys-2026-12-06` — pending 등록. YES24 및 주최사 Highjinkx에서 2026-12-06 17:00, 무신사 개러지, 스탠딩석 99000원 확인. 예매 오픈 일정과 공식 YouTube 채널/대표곡 3개 미확인.
+- `penthouse-2026-12-19` — pending 등록. YES24 한국어 상품 페이지에서 2026-12-19 19:00, YES24 LIVE HALL, 지정석 121000원/스탠딩석 110000원 확인. 예매 오픈 일정과 공식 YouTube 정보 미확인.
+- 신규 상세 후보 상한 5건을 적용함. 다음 확인 대기: BLU-SWING, Coaltar of the Deepers, Mulasaki Ima, Kazumi Tateishi Trio 수원 회차, Hump Back, AKASAKI. 후속 실행에서 공식 판매·가격·회차 확인 및 중복 검토 필요.
+- 미확인 가격을 추정하지 않았고 좌석 재고를 조회하지 않음.
+
+## Run: 2026-09-23 (KST, candidate registration and deployment attempt)
+
+- 격리 worktree의 origin/main 기준 데이터와 대조해 5개 신규 이벤트 레코드를 `pending`으로 추가함: H△G(10/17), TAKASE TOYA(10/18), FLOW(10/28), ZAZEN BOYS(12/06), Penthouse(12/19). 대표곡 3개/공식 채널 등 필수 요건이 미완료라 확정 공개 대상으로 지정하지 않음.
+- FLOW YES24 한국어 상품 페이지에서 20:00, 스탠딩 VIP석 165000원/지정석 110000원/스탠딩 일반석 99000원 및 공식 공지상 일반예매 2026-09-10 12:00 확인. Penthouse YES24 한국어 상품 페이지에서 19:00, 지정석 121000원/스탠딩석 110000원 확인. H△G YES24 영문 상품 페이지에서 VIP section 132000원/General section 99000원 확인. ZAZEN BOYS 한국어 YES24 상품 페이지에서 스탠딩석 99000원, 17:00 확인. 공식 페이지에서 확인한 가격이며 실시간 재고는 조회하지 않음.
+- TAKASE TOYA 개별 상품은 YES24 Bot Manager 제한으로 시간·예매 일정·가격 접근 실패. H△G 예매 일정/공연 시각, ZAZEN BOYS 예매 일정, Penthouse 예매 일정, 다섯 아티스트의 공식 YouTube 대표곡/채널은 미확인.
+- 확인한 원문: https://ticket.yes24.com/English/Perf/59841, https://hag-official.com/, https://ticket.yes24.com/English/Perf/60065, https://ticket.yes24.com/Perf/59986, https://www.flow-official.jp/news/detail.php?id=2830, https://www.flow-official.jp/biography/, https://ticket.yes24.com/Perf/59963, https://www.highjinkx.com/show-list/zazen-boys, https://ticket.yes24.com/Perf/59886, https://www.jvcmusic.co.jp/sf/penthouse/.
+- 후보 상세 조사 상한 5건을 넘긴 상태에서 BLU-SWING 공식 상품 링크를 추가로 열었음. 이를 등록하지 않고 다음 실행 대기열로 이관: BLU-SWING(11/15), Coaltar of the Deepers, Mulasaki Ima(12/12), Kazumi Tateishi Trio 수원(11/22), Hump Back(2027-01-23), AKASAKI(11/21).
+- 기존 dirty worktree와 분리해 작업함. pending은 상세/검색 공개에서 제외. FLOW 및 Penthouse의 공식 가격/시간 누락을 보완함. 생성 결과에 이전 기준일로 갱신된 다수 HTML이 포함되어 있어 전체 검사와 diff 검토 통과 전 커밋/푸시/배포 금지.

@@ -6,13 +6,24 @@ const events = require("../calendar/data/events.json");
 const aliases = require("../calendar/data/artist-aliases.json");
 const search = require("../calendar/search-utils.js");
 
-test("every calendar artist is searchable in Korean, Latin and Japanese scripts", () => {
-  const artists = [...new Set(events.map(event => event.artist))];
+test("every confirmed calendar artist has Korean, Latin and Japanese aliases", () => {
+  const publiclySearchable = events.filter(event => (
+    event.status === "confirmed"
+  ));
+  const artists = [...new Set(publiclySearchable.map(event => event.artist))];
   const missing = artists.filter(artist => {
     const names = [artist, ...(aliases[artist] || [])].join(" ");
     return !/[가-힣]/.test(names) || !/[A-Za-z]/.test(names) || !/[ぁ-んァ-ヶ一-龠々]/.test(names);
   });
   assert.deepEqual(missing, []);
+});
+
+test("new pending artists match every officially verified alias", () => {
+  for (const event of events.filter(item => item.status === "pending" && item.hostingStatus === "confirmed")) {
+    for (const alias of aliases[event.artist] || []) {
+      assert.ok(search.findMatches([event], aliases, alias).some(match => match.id === event.id), `${event.id} does not match alias ${alias}`);
+    }
+  }
 });
 
 test("matches aliases and venue/date fields", () => {
