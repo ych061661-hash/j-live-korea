@@ -182,15 +182,6 @@ function ticketAvailabilityDisplay(event) {
   return status ? `${status === "sold_out" ? "매진" : "판매 중"} · 확인 시점 기준 ${event.ticketStatusVerifiedAt.slice(0, 10)}` : "공식 예매처 확인";
 }
 
-function checklistMarkup(event) {
-  const items = [
-    `${humanDate(event.concertDate, event.time)} · ${event.venue}의 입장구와 집합 시각은 당일 공식 공지를 확인하세요.`,
-    "공연별 본인 확인·티켓 수령 조건은 위 예매 분석과 공식 예매처 안내가 최종 기준입니다.",
-    "최신 판매 상태와 관람 조건은 공식 예매처에서 다시 확인하세요. 예매 페이지의 최신 공지가 이 상세 기록보다 우선합니다. 공연 직전에는 날짜, 시작 시각, 입장 번호, 수령 장소와 재입장 가능 여부도 함께 확인하세요."
-  ];
-  return items.map(item => `<li>${escapeHtml(item)}</li>`).join("\n");
-}
-
 function youtubeVideoId(url) {
   try { return new URL(url).searchParams.get("v") || ""; } catch { return ""; }
 }
@@ -199,7 +190,8 @@ function songsMarkup(event, songGuides = []) {
   const guidesByVideo = new Map(songGuides.filter(guide => guide.videoId).map(guide => [guide.videoId, guide]));
   return (event.songs || []).slice(0, 3).map(song => {
     const guide = guidesByVideo.get(youtubeVideoId(song[2])) || songGuides.find(item => item.title === song[0]);
-    return `<a class="song" href="${escapeHtml(song[2])}" target="_blank" rel="noopener noreferrer"><span class="play">▶</span><span>${escapeHtml(song[0])}</span><em>${escapeHtml(guide?.note || song[1] || "")}</em></a>`;
+    const note = guide?.note || song[1];
+    return `<a class="song" href="${escapeHtml(song[2])}" target="_blank" rel="noopener noreferrer"><span class="play">▶</span><span>${escapeHtml(song[0])}</span>${note ? `<em>${escapeHtml(note)}</em>` : ""}</a>`;
   }).join("\n");
 }
 
@@ -244,38 +236,24 @@ function relatedEventsMarkup(event, events, today) {
 function seriesComparisonMarkup(event, group = []) {
   if (group.length < 2) return "";
   const dates = group.map(item => `<tr><th scope="row">${escapeHtml(humanDate(item.concertDate))}</th><td>${escapeHtml(item.time || "시간 미확인")}</td></tr>`).join("");
-  const seatPrices = (event.seatPrices || []).filter(item => Number(item.price) > 0 && (!item.priceCurrency || item.priceCurrency === "KRW"));
-  const baseline = seatPrices.length ? Math.min(...seatPrices.map(item => Number(item.price))) : 0;
-  const prices = seatPrices.length
-    ? `<p>권종별 액면가: ${seatPrices.map(item => {
-      const amount = Number(item.price);
-      const difference = amount > baseline ? ` (최저 확인가보다 ${ (amount - baseline).toLocaleString("ko-KR")}원 높음)` : " (최저 확인가)";
-      return `${escapeHtml(item.name)} ${amount.toLocaleString("ko-KR")}원${difference}`;
-    }).join(" · ")}</p>`
-    : "";
-  return `<div class="series-comparison"><h3>회차별 시작 시각 비교</h3><div class="venue-table-wrap"><table class="venue-compare-table"><thead><tr><th scope="col">공연일</th><th scope="col">시작 시각</th></tr></thead><tbody>${dates}</tbody></table></div>${prices}<p class="content-note">권종 가격은 공연별 공식 예매 안내 기준입니다. 금액 차이만 비교했으며 등급별 좌석 위치·특전은 공식 상품 안내에서 확인되는 범위만 표시합니다.</p></div>`;
+  return `<div class="series-comparison"><h3>회차별 시작 시각</h3><div class="venue-table-wrap"><table class="venue-compare-table"><thead><tr><th scope="col">공연일</th><th scope="col">시작 시각</th></tr></thead><tbody>${dates}</tbody></table></div></div>`;
 }
 
 function ticketGuideMarkup(event, editorial, group = []) {
   const guide = editorial.ticketGuides?.[event.artist];
-  const verifiedPrices = Array.isArray(event.seatPrices) && event.seatPrices.length
-    ? event.seatPrices.map(item => `${item.name} ${Number(item.price).toLocaleString("ko-KR")}원`).join(" · ")
-    : "";
-  if (!guide && !verifiedPrices) return "";
   const rows = [
-    ["좌석 등급과 가격", verifiedPrices || guide?.price],
     ["선예매·일반예매 조건", guide?.presale],
     ["본인 확인", guide?.identity],
     ["티켓 수령·모바일 티켓", guide?.ticket],
     ["취소표가 풀리는 방식", guide?.cancellation]
   ].filter(([, value]) => value);
-  const displayedRows = group.length > 1 ? rows.filter(([label]) => label !== "좌석 등급과 가격") : rows;
+  if (!rows.length && group.length < 2) return "";
   return `<section class="editorial-section ticket-analysis">
-              <div class="section-kicker">TICKET ANALYSIS</div>
-              <h2>공연별 실제 예매 분석</h2>
-              <p class="content-note">공식 예매처 기준 · 마지막 확인 ${escapeHtml(event.priceVerifiedAt || guide?.verifiedAt || event.verifiedAt || "기록 없음")}</p>
+              <div class="section-kicker">TICKETING DETAILS</div>
+              <h2>예매 조건·티켓 안내</h2>
+              <p class="content-note">확인된 공연별 조건입니다. 가격은 공연 정보 요약에서 확인할 수 있습니다. · 마지막 확인 ${escapeHtml(guide?.verifiedAt || event.priceVerifiedAt || event.verifiedAt || "기록 없음")}</p>
               ${seriesComparisonMarkup(event, group)}
-              <dl class="analysis-list">${displayedRows.map(([label, value]) => `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>`).join("")}</dl>
+              ${rows.length ? `<dl class="analysis-list">${rows.map(([label, value]) => `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>`).join("")}</dl>` : ""}
             </section>`;
 }
 
@@ -521,11 +499,10 @@ function renderEventPage({ event, events, group, primary, editorial, review, sit
   const [, month, day] = event.concertDate.split("-").map(Number);
   const title = `${event.artist} 내한 ${years} 예매 일정 | ${month}월 ${day}일 공연 정보`;
   const dates = group.map(item => humanDate(item.concertDate, item.time)).join(", ");
-  const description = `${event.artist} 내한 공연은 ${dates} ${event.venue}에서 열립니다. 예매 일정, 대표곡과 공식 출처를 확인하세요.`;
-  const artistIntro = editorial.artists[event.artist] || `${event.artist}의 한국 공연입니다. 공식 발표와 예매처 정보를 기준으로 일정을 정리했습니다.`;
-  const venueGuide = editorial.venues[event.venue] || `${event.venue} 방문 전 공식 공연장 안내에서 대중교통, 주차와 입장 게이트를 확인하세요.`;
-  const songs = (event.songs || []).map(song => song[0]).filter(Boolean);
-  const songGuide = songs.length ? `아래 ${songs.join(", ")} 순서는 J-LIVE의 입문용 추천 순서입니다. 각 곡은 공식 YouTube 영상으로 연결됩니다.` : `${event.artist}의 공식 YouTube 채널에서 최근 대표곡과 라이브 영상을 확인하세요.`;
+  const description = `${event.artist} 내한 공연은 ${dates} ${event.venue}에서 열립니다. 예매 정보와 공식 출처를 확인하세요.`;
+  const artistIntro = editorial.artists[event.artist] || "";
+  const venueGuide = editorial.venues[event.venue] || "";
+  const songs = (event.songs || []).filter(song => song[0] && song[2]);
   const seriesSummary = event.status === "cancelled" ? "이 공연은 공식 취소 상태로 기록되어 있습니다. 자세한 변경 내용은 연결된 공식 출처를 확인하세요." : event.status === "postponed" ? "이 공연은 공식 연기 상태로 기록되어 있습니다. 새 일정은 연결된 공식 출처를 확인하세요." : pageDecision.archive || event.concertDate < today ? `지난 공연 기록입니다. 일정과 예매 조건은 당시의 기록이며 현재 판매 상태를 나타내지 않습니다. 동일 시리즈에는 ${group.length}회 공연 기록이 있습니다.` : group.length > 1 ? `이번 내한은 ${group.length}회 공연으로 진행됩니다. 날짜별 공연 시각과 예매 조건이 달라질 수 있으므로 선택한 회차를 확인하세요.` : "현재 공식 확인된 한국 공연은 1회입니다. 추가 회차나 운영 변경은 연결된 공식 출처에서 다시 확인합니다.";
   const robots = indexable ? "index,follow,max-image-preview:large" : "noindex,follow";
   const ticketAnalysis = ticketGuideMarkup(event, editorial, group);
@@ -545,12 +522,10 @@ function renderEventPage({ event, events, group, primary, editorial, review, sit
     .replace('<strong id="eventSummary"></strong>', `<strong id="eventSummary">${escapeHtml(`${event.status === "cancelled" ? "공식 취소 · " : event.status === "postponed" ? "공식 연기 · " : ""}${dates} · ${event.venue}`)}</strong>`)
     .replace('<p id="seriesSummary"></p>', `<p id="seriesSummary">${escapeHtml(seriesSummary)}</p>`)
     .replace('<ul class="series-date-list" id="seriesDates"></ul>', `<ul class="series-date-list" id="seriesDates">${seriesDatesMarkup(group, event.id)}</ul>`)
-    .replace('<p id="artistIntro"></p>', `<p id="artistIntro">${escapeHtml(artistIntro)}</p><a class="artist-profile-link" href="../artists/${encodeURIComponent(artistSlug(event))}">${escapeHtml(event.artist)} 아티스트 페이지 →</a>`)
-    .replace('<p id="venueGuide"></p>', `<p id="venueGuide">${escapeHtml(venueGuide)}</p>${venueGuideLink(event, editorial)}`)
+    .replace('<!-- EVENT_ARTIST_INTRO -->', artistIntro ? `<section class="editorial-section" id="artistIntroSection"><div class="section-kicker">ARTIST</div><h2>아티스트 소개</h2><p id="artistIntro">${escapeHtml(artistIntro)}</p><a class="artist-profile-link" href="../artists/${encodeURIComponent(artistSlug(event))}">${escapeHtml(event.artist)} 아티스트 페이지 →</a></section>` : "")
+    .replace('<!-- EVENT_VENUE_GUIDE -->', venueGuide || venueGuideLink(event, editorial) ? `<section class="editorial-section" id="venueGuideSection"><div class="section-kicker">VENUE GUIDE</div><h2>공연장 안내</h2>${venueGuide ? `<p id="venueGuide">${escapeHtml(venueGuide)}</p>` : ""}${venueGuideLink(event, editorial)}</section>` : "")
     .replace('<!-- EVENT_TICKET_ANALYSIS -->', ticketAnalysis || "<!-- no event-specific ticket analysis -->")
-    .replace('<ul class="check-list" id="dayChecklist"></ul>', `<ul class="check-list" id="dayChecklist">${checklistMarkup(event)}</ul>`)
-    .replace('<p id="songGuide"></p>', `<p id="songGuide">${escapeHtml(songGuide)}</p>`)
-    .replace('<div class="song-list" id="eventSongs"></div>', `<div class="song-list" id="eventSongs">${songsMarkup(event, editorial.songGuides?.[event.artist] || [])}</div>`)
+    .replace('<!-- EVENT_SONGS -->', songs.length ? `<section class="editorial-section"><div class="section-kicker">ARTIST TRACKS</div><h2>공식 대표곡 영상</h2><div class="song-list" id="eventSongs">${songsMarkup({ ...event, songs }, editorial.songGuides?.[event.artist] || [])}</div></section>` : "")
     .replace('<div class="related-event-grid" id="relatedEvents"></div>', `<div class="related-event-grid" id="relatedEvents">${relatedEventsMarkup(event, events, today)}</div>`)
     .replace(/<section class="editorial-section">\s*<div class="section-kicker">SOURCES<\/div>/, `${detailGuides ? `${detailGuides}\n            ` : ""}<section class="editorial-section">\n              <div class="section-kicker">SOURCES</div>`)
     .replace('<div class="source-links" id="eventSources"></div>', `<div class="source-links" id="eventSources">${sourcesMarkup(event)}</div>`)
@@ -1063,4 +1038,4 @@ function main() {
 }
 
 if (require.main === module) main();
-module.exports = { articleStructuredData, assertCleanText, buildSeries, checklistMarkup, dataReportHtml, eventPageDecision, hasEditorialGuide, hasIndexableEventContent, hasReviewedEventQuality, homepageMeta, homepageScheduleMarkup, humanDate, isFreshlyVerified, isHomepageEvent, isHostingConfirmedPending, isPublicEvent, monthGroupsMarkup, relatedEvents, renderEventPage, richEventGuideMarkup, seatPriceMarkup, songsMarkup, sourceLabel, sourcesMarkup, ticketGroups, ticketGroupsMarkup, seoulDateKey, seriesDatesMarkup, seriesKey, structuredData, ticketDateDisplay, ticketGuideMarkup, venueFacilityMapMarkup, venueGuideForEvent, venueIndexHtml, venuePageHtml, youtubeVideoId };
+module.exports = { articleStructuredData, assertCleanText, buildSeries, dataReportHtml, eventPageDecision, hasEditorialGuide, hasIndexableEventContent, hasReviewedEventQuality, homepageMeta, homepageScheduleMarkup, humanDate, isFreshlyVerified, isHomepageEvent, isHostingConfirmedPending, isPublicEvent, monthGroupsMarkup, relatedEvents, renderEventPage, richEventGuideMarkup, seatPriceMarkup, songsMarkup, sourceLabel, sourcesMarkup, ticketGroups, ticketGroupsMarkup, seoulDateKey, seriesDatesMarkup, seriesKey, structuredData, ticketDateDisplay, ticketGuideMarkup, venueFacilityMapMarkup, venueGuideForEvent, venueIndexHtml, venuePageHtml, youtubeVideoId };
