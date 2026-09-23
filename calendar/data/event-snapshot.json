@@ -3076,5 +3076,393 @@
     "hostingStatus": null,
     "ticketingStatus": null,
     "verification": null
+  },
+  "hag-2026-10-17": {
+    "artist": "H△G",
+    "concertDate": "2026-10-17",
+    "time": "",
+    "venue": "WESTBRIDGE",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/English/Perf/59841",
+    "ticketDate": "",
+    "ticketTime": "",
+    "presaleDate": "",
+    "presaleTime": "",
+    "presaleStatus": "checking",
+    "status": "pending",
+    "ticketLabel": null,
+    "verifiedAt": "2026-09-23",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-09-23",
+    "sources": [
+      "https://ticket.yes24.com/English/Perf/59841",
+      "https://hag-official.com/"
+    ],
+    "price": 99000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "VIP section",
+        "price": 132000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "General section",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
+    "seriesId": null,
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "unverified",
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/English/Perf/59841"
+        ]
+      },
+      "concertTime": {
+        "status": "unverified",
+        "checkedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/English/Perf/59841"
+        ]
+      },
+      "ticketing": {
+        "status": "unverified",
+        "checkedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/English/Perf/59841"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/English/Perf/59841"
+        ]
+      },
+      "representativeSongs": {
+        "status": "unverified",
+        "checkedAt": "2026-09-23",
+        "sources": []
+      }
+    }
+  },
+  "takase-toya-2026-10-18": {
+    "artist": "TAKASE TOYA",
+    "concertDate": "2026-10-18",
+    "time": "",
+    "venue": "YES24 WANDERLOCH HALL",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/English/Perf/60065",
+    "ticketDate": "",
+    "ticketTime": "",
+    "presaleDate": "",
+    "presaleTime": "",
+    "presaleStatus": "checking",
+    "status": "pending",
+    "ticketLabel": null,
+    "verifiedAt": "2026-09-23",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": null,
+    "sources": [
+      "https://ticket.yes24.com/english",
+      "https://ticket.yes24.com/English/Perf/60065"
+    ],
+    "price": null,
+    "priceCurrency": null,
+    "seatPrices": [],
+    "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
+    "seriesId": null,
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "unverified",
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/english"
+        ]
+      },
+      "concertTime": {
+        "status": "unverified",
+        "checkedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/English/Perf/60065"
+        ]
+      },
+      "ticketing": {
+        "status": "access_failed",
+        "checkedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/English/Perf/60065"
+        ]
+      },
+      "price": {
+        "status": "access_failed",
+        "checkedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/English/Perf/60065"
+        ]
+      },
+      "representativeSongs": {
+        "status": "unverified",
+        "checkedAt": "2026-09-23",
+        "sources": []
+      }
+    }
+  },
+  "flow-2026-10-28": {
+    "artist": "FLOW",
+    "concertDate": "2026-10-28",
+    "time": "오후 8:00",
+    "venue": "YES24 LIVE HALL",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/59986",
+    "ticketDate": "2026-09-10",
+    "ticketTime": "오후 12:00",
+    "presaleDate": "",
+    "presaleTime": "",
+    "presaleStatus": "checking",
+    "status": "pending",
+    "ticketLabel": null,
+    "verifiedAt": "2026-09-23",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-09-23",
+    "sources": [
+      "https://ticket.yes24.com/Perf/59986",
+      "https://www.flow-official.jp/news/detail.php?id=2830",
+      "https://www.flow-official.jp/biography/"
+    ],
+    "price": 99000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "스탠딩 VIP석",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석",
+        "price": 110000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "스탠딩 일반석",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
+    "seriesId": null,
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "unverified",
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/Perf/59986",
+          "https://www.flow-official.jp/news/detail.php?id=2830"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/Perf/59986"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://www.flow-official.jp/news/detail.php?id=2830"
+        ]
+      },
+      "presale": {
+        "status": "unverified",
+        "checkedAt": "2026-09-23",
+        "sources": [
+          "https://www.flow-official.jp/news/detail.php?id=2830",
+          "https://ticket.yes24.com/Perf/59986"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/Perf/59986"
+        ]
+      },
+      "representativeSongs": {
+        "status": "unverified",
+        "checkedAt": "2026-09-23",
+        "sources": []
+      }
+    }
+  },
+  "zazen-boys-2026-12-06": {
+    "artist": "ZAZEN BOYS",
+    "concertDate": "2026-12-06",
+    "time": "오후 5:00",
+    "venue": "무신사 개러지",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/59963",
+    "ticketDate": "",
+    "ticketTime": "",
+    "presaleDate": "",
+    "presaleTime": "",
+    "presaleStatus": "checking",
+    "status": "pending",
+    "ticketLabel": null,
+    "verifiedAt": "2026-09-23",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-09-23",
+    "sources": [
+      "https://ticket.yes24.com/Perf/59963",
+      "https://www.highjinkx.com/show-list/zazen-boys"
+    ],
+    "price": 99000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "스탠딩석",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
+    "seriesId": null,
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "unverified",
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/Perf/59963",
+          "https://www.highjinkx.com/show-list/zazen-boys"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://www.highjinkx.com/show-list/zazen-boys"
+        ]
+      },
+      "ticketing": {
+        "status": "unverified",
+        "checkedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/Perf/59963",
+          "https://www.highjinkx.com/show-list/zazen-boys"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/Perf/59963",
+          "https://www.highjinkx.com/show-list/zazen-boys"
+        ]
+      },
+      "representativeSongs": {
+        "status": "unverified",
+        "checkedAt": "2026-09-23",
+        "sources": []
+      }
+    }
+  },
+  "penthouse-2026-12-19": {
+    "artist": "Penthouse",
+    "concertDate": "2026-12-19",
+    "time": "오후 7:00",
+    "venue": "YES24 LIVE HALL",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/59886",
+    "ticketDate": "",
+    "ticketTime": "",
+    "presaleDate": "",
+    "presaleTime": "",
+    "presaleStatus": "checking",
+    "status": "pending",
+    "ticketLabel": null,
+    "verifiedAt": "2026-09-23",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-09-23",
+    "sources": [
+      "https://ticket.yes24.com/Perf/59886",
+      "https://www.jvcmusic.co.jp/sf/penthouse/"
+    ],
+    "price": 110000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "지정석",
+        "price": 121000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "스탠딩석",
+        "price": 110000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
+    "seriesId": null,
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "unverified",
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/Perf/59886",
+          "https://www.jvcmusic.co.jp/sf/penthouse/"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/Perf/59886"
+        ]
+      },
+      "ticketing": {
+        "status": "access_failed",
+        "checkedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/English/Perf/59886"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/Perf/59886"
+        ]
+      },
+      "representativeSongs": {
+        "status": "unverified",
+        "checkedAt": "2026-09-23",
+        "sources": []
+      }
+    }
   }
 }
