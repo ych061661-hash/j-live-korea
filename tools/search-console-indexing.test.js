@@ -64,9 +64,9 @@ test("publishes hosting-confirmed pending events as noindex pages without ads", 
   });
 
   assert.equal(isPublicEvent(event), true);
-  assert.equal(ticketDateDisplay(event), "공식 발표 대기");
+  assert.equal(ticketDateDisplay(event), "예매 일정 발표 대기");
   assert.match(html, /<meta name="robots" content="noindex,follow">/);
-  assert.match(html, /<dd id="factTicket">공식 발표 대기<\/dd>/);
+  assert.match(html, /<dd id="factTicket">예매 일정 발표 대기<\/dd>/);
   assert.doesNotMatch(html, /pagead2\.googlesyndication\.com/);
   assert.equal(isPublicEvent({ ...event, hostingStatus: "unverified" }), false);
 });

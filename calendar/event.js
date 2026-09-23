@@ -29,35 +29,29 @@ function isPublicEvent(event) {
 
 function ticketDateDisplay(event) {
   if (!event.ticketDate) return window.JLIVE_VISITOR?.ticketStatus(event).label || "정보 미확인";
-  if (!window.JLIVE_VISITOR?.isVerifiedDate(event, "ticketDate")) return "정보 미확인";
+  if (!window.JLIVE_VISITOR?.isVerifiedDate(event, "ticketDate")) return "예매 일정 미확인";
   return humanDate(event.ticketDate, event.ticketTime);
 }
 
 function presaleDisplay(event) {
-  if (event.presaleDate) return window.JLIVE_VISITOR?.isVerifiedDate(event, "presaleDate") ? humanDate(event.presaleDate, event.presaleTime) : "정보 미확인";
+  if (event.presaleDate) return window.JLIVE_VISITOR?.isVerifiedDate(event, "presaleDate") ? humanDate(event.presaleDate, event.presaleTime) : "예매 일정 미확인";
   if (event.presaleStatus === "none") return "없음";
-  if (event.presaleStatus === "checking") return "확인 중";
-  return event.ticketingStatus === "pending_announcement" ? "공식 발표 대기" : "정보 미확인";
-}
-
-function verifiedTicketAvailability(event) {
-  return ["sold_out", "in_stock"].includes(event.ticketAvailability)
-    && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$/.test(String(event.ticketStatusVerifiedAt || ""))
-    && /^https:\/\//i.test(String(event.ticketStatusSource || ""))
-    ? event.ticketAvailability
-    : "";
+  if (event.presaleStatus === "checking") return "예매 일정 확인 중";
+  if (event.ticketingStatus === "pending_announcement" || event.verification?.ticketing?.status === "pending_announcement") return "예매 일정 발표 대기";
+  if (event.ticketingStatus === "conflict" || event.verification?.ticketing?.status === "conflict") return "예매 일정 확인 중";
+  return "예매 일정 미확인";
 }
 
 function ticketAvailabilityDisplay(event) {
-  const status = verifiedTicketAvailability(event);
-  return status ? `${status === "sold_out" ? "매진" : "판매 중"} · 확인 시점 기준 ${event.ticketStatusVerifiedAt.slice(0, 10)}` : "공식 예매처 확인";
+  const status = window.JLIVE_VISITOR?.ticketAvailability(event);
+  return status ? `${status.label}${status.note ? ` · ${status.note}` : ""}` : "현재 판매 상태는 공식 예매처에서 확인";
 }
 
 function priceDisplay(event) {
   if (Array.isArray(event.seatPrices) && event.seatPrices.length) {
     return event.seatPrices.map(item => `${item.name} ${Number(item.price).toLocaleString("ko-KR")}원`).join(" · ");
   }
-  return editorial.ticketGuides?.[event.artist]?.price || "공식 예매처 확인";
+  return editorial.ticketGuides?.[event.artist]?.price || window.JLIVE_VISITOR?.priceStatus(event).label || "가격 미확인";
 }
 
 function sourceLabel(source) {
@@ -204,11 +198,11 @@ function renderEvent(event, events) {
   document.querySelector("#factTicket").textContent = ticketDateDisplay(event);
   document.querySelector("#factVendor").textContent = event.vendor || "미정";
   document.querySelector("#factPrice").textContent = priceDisplay(event);
-  const ticketState = window.JLIVE_VISITOR?.ticketStatus(event);
-  document.querySelector("#factAvailability").textContent = ticketState?.label || ticketAvailabilityDisplay(event);
-  document.querySelector("#factScheduleVerified").textContent = event.scheduleVerifiedAt || event.verifiedAt || "기록 없음";
-  document.querySelector("#factPriceVerified").textContent = event.priceVerifiedAt || "기록 없음";
-  document.querySelector("#eventVerified").textContent = `일정 확인 ${event.scheduleVerifiedAt || event.verifiedAt || "미확인"} · 가격 확인 ${event.priceVerifiedAt || "미확인"} · 판매 상태 확인 ${event.ticketStatusVerifiedAt || "미확인"} · 글 수정 ${event.articleUpdatedAt || event.verifiedAt || "미확인"}`;
+  document.querySelector("#factAvailability").textContent = ticketAvailabilityDisplay(event);
+  const verificationDates = window.JLIVE_VISITOR?.verificationDates(event) || {};
+  document.querySelector("#factScheduleVerified").textContent = verificationDates.schedule || "미기록";
+  document.querySelector("#factPriceVerified").textContent = verificationDates.price || "미기록";
+  document.querySelector("#eventVerified").textContent = `일정 확인 ${verificationDates.schedule || "미기록"} · 가격 확인 ${verificationDates.price || "미기록"} · 판매 상태 확인 ${verificationDates.availability || "미확인"} · 본문 수정 ${verificationDates.article || "미기록"}`;
 
   const ticket = document.querySelector("#eventTicket");
   ticket.hidden = !event.vendorUrl;

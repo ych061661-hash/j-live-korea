@@ -102,6 +102,25 @@ test("renders the next concert and verified Korea attendance history", () => {
   assert.match(html, /https:\/\/artist\.example\/news/);
 });
 
+test("artist pages share ticket-state wording and show only recorded verification dates", () => {
+  const html = artistPageHtml({
+    artist: "Band",
+    events: [{
+      ...event,
+      id: "band-2026-10-01",
+      concertDate: "2026-10-01",
+      ticketingStatus: "pending_announcement",
+      verifiedAt: "2026-09-20",
+      priceVerifiedAt: "2026-09-21"
+    }],
+    aliases: {}, editorial: {}, siteUrl: "https://j-live.kr", today: "2026-09-24"
+  });
+  assert.match(html, /<span class="artist-event-ticket-status">예매 일정 발표 대기 · 판매 상태 현재 판매 상태는 공식 예매처에서 확인/);
+  assert.match(html, /판매 상태 현재 판매 상태는 공식 예매처에서 확인/);
+  assert.match(html, /일정 확인 2026-09-20 · 가격 확인 2026-09-21 · 판매 상태 확인 미확인/);
+  assert.doesNotMatch(html, /본문 수정 2026-09-20/);
+});
+
 test("provides a useful route when the artist directory has no confirmed entries", () => {
   const html = artistIndexHtml({ groups: new Map(), aliases: {}, siteUrl: "https://j-live.kr", today: "2026-09-23" });
   assert.match(html, /현재 공식 확인된 아티스트 공연 기록이 없습니다/);

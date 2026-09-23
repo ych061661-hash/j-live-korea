@@ -2,7 +2,7 @@
 
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { articleStructuredData, buildSeries, dataReportHtml, eventPageDecision, hasEditorialGuide, hasIndexableEventContent, homepageMeta, homepageScheduleMarkup, humanDate, isFreshlyVerified, relatedEvents, renderEventPage, richEventGuideMarkup, seoulDateKey, seriesDatesMarkup, songsMarkup, sourceLabel, structuredData, ticketGuideMarkup, ticketGroups, ticketGroupsMarkup, venueGuideForEvent, venueIndexHtml, venuePageHtml } = require("./generate-seo-pages");
+const { articleStructuredData, buildSeries, dataReportHtml, eventPageDecision, hasEditorialGuide, hasIndexableEventContent, homepageMeta, homepageScheduleMarkup, humanDate, isFreshlyVerified, relatedEvents, renderEventPage, richEventGuideMarkup, seoulDateKey, seriesDatesMarkup, songsMarkup, sourceLabel, structuredData, ticketGuideMarkup, ticketGroups, ticketGroupsMarkup, venueGuideForEvent, venueIndexHtml, venuePageHtml, venueRelatedEventsMarkup } = require("./generate-seo-pages");
 
 test("groups consecutive dates and selects the first future performance", () => {
   const base = { artist: "Artist", venue: "Venue", vendorUrl: "https://tickets.example/event" };
@@ -145,19 +145,28 @@ test("attributes indexable event articles to the named author and policy", () =>
   const guide = richEventGuideMarkup(event, { eventGuides: { Artist: { focus: "관전", listening: "대표곡 내용을 반복하는 설명", plan: "동선" } }, songGuides: { Artist: [] } });
   assert.match(article, /"@type":"Article"/);
   assert.match(article, /"name":"여일육"/);
+  assert.doesNotMatch(article, /"dateModified"/);
+  assert.match(articleStructuredData({ ...event, articleUpdatedAt: "2026-09-22" }, "https://j-live.kr/calendar/events/artist-2026-09-01", "https://j-live.kr"), /"dateModified":"2026-09-22"/);
   assert.match(guide, /rel="author">여일육 작성/);
   assert.match(guide, /href="\.\.\/guides\/verification">편집·검증 기준/);
   assert.doesNotMatch(guide, /대표곡 내용을 반복하는 설명/);
 });
 
-test("does not publish unverified ticket inventory in structured data", () => {
-  const base = { artist: "Artist", concertDate: "2026-09-01", time: "오후 7:00", venue: "Hall", vendorUrl: "https://tickets.example/show", ticketDate: "2026-08-01", ticketTime: "오후 8:00", price: 99000 };
+test("does not publish unverified or historical ticket inventory in structured data", () => {
+  const base = { artist: "Artist", concertDate: "2026-10-10", time: "오후 7:00", venue: "Hall", vendorUrl: "https://tickets.example/show", ticketDate: "2026-08-01", ticketTime: "오후 8:00", price: 99000 };
   const unknown = JSON.parse(structuredData(base, [base], "https://j-live.kr/calendar/events/artist", "https://j-live.kr"));
   assert.equal(unknown.offers.availability, undefined);
+  assert.equal(unknown.offers.validFrom, undefined);
+  assert.equal(unknown.offers.price, undefined);
+  const verifiedOffer = JSON.parse(structuredData({ ...base, ticketingStatus: "confirmed" }, [base], "https://j-live.kr/calendar/events/artist", "https://j-live.kr"));
+  assert.equal(verifiedOffer.offers.validFrom, "2026-08-01T20:00:00+09:00");
+  assert.equal(verifiedOffer.offers.price, 99000);
   const soldOut = JSON.parse(structuredData({ ...base, ticketAvailability: "sold_out" }, [base], "https://j-live.kr/calendar/events/artist", "https://j-live.kr"));
   assert.equal(soldOut.offers.availability, undefined);
   const verifiedSoldOut = JSON.parse(structuredData({ ...base, ticketAvailability: "sold_out", ticketStatusVerifiedAt: "2026-08-15T10:00:00+09:00", ticketStatusSource: "https://tickets.example/show" }, [base], "https://j-live.kr/calendar/events/artist", "https://j-live.kr"));
   assert.equal(verifiedSoldOut.offers.availability, "https://schema.org/SoldOut");
+  const pastSoldOut = JSON.parse(structuredData({ ...base, concertDate: "2026-09-01", ticketAvailability: "sold_out", ticketStatusVerifiedAt: "2026-08-15T10:00:00+09:00", ticketStatusSource: "https://tickets.example/show" }, [base], "https://j-live.kr/calendar/events/artist", "https://j-live.kr"));
+  assert.equal(pastSoldOut.offers.availability, undefined);
   assert.equal(JSON.parse(structuredData({ ...base, status: "cancelled" }, [base], "https://j-live.kr/calendar/events/artist", "https://j-live.kr")).eventStatus, "https://schema.org/EventCancelled");
 });
 
@@ -239,6 +248,20 @@ test("renders ticket analysis and resolves a venue field guide", () => {
   assert.equal(venueGuideForEvent(event, editorial)[0], "hall");
 });
 
+test("homepage labels announcement wait separately from unknown prices and unverified sales", () => {
+  const event = {
+    id: "wait-2026-10-10", artist: "Wait Artist", concertDate: "2026-10-10", time: "오후 7:00", venue: "Hall",
+    status: "pending", hostingStatus: "confirmed", ticketingStatus: "pending_announcement", ticketDate: "", ticketTime: "",
+    price: 0, vendorUrl: "https://tickets.example/wait", verifiedAt: "2026-09-20", sources: ["https://official.example/wait"]
+  };
+  const html = homepageScheduleMarkup([event], {}, "2026-09-24");
+  assert.match(html, /예매 일정 발표 대기/);
+  assert.match(html, /가격 미확인/);
+  assert.match(html, /현재 판매 상태는 공식 예매처에서 확인/);
+  assert.match(html, /일정 확인 2026-09-20 · 가격 확인 미기록 · 판매 상태 확인 미확인/);
+  assert.doesNotMatch(html, /본문 수정 2026-09-20/);
+});
+
 test("groups the same multi-date show while preserving one detail link per occurrence", () => {
   const html = homepageScheduleMarkup([
     { id: "series-1", artist: "Series", venue: "Hall", vendorUrl: "https://ticket.example/series", concertDate: "2026-10-03", time: "오후 6:00", ticketingStatus: "confirmed", status: "confirmed", seatPrices: [{ name: "일반", price: 10000 }] },
@@ -305,7 +328,7 @@ test("renders every requested venue section", () => {
 
 test("renders a useful venue comparison table on the venue index", () => {
   const html = venueIndexHtml({ hall: { name: "Hall", venues: ["Hall"], summary: "요약", transit: "지하철역에서 공연장까지 공식 이동 경로를 확인한 내용입니다.", storage: "공식 안내에서 물품보관함을 확인했습니다.", verifiedAt: "2026-08-15" } }, "https://j-live.kr");
-  assert.match(html, /공연장별 접근·물품 보관 한눈에 비교/);
+  assert.match(html, /공연장별 접근·시설 정보 한눈에 비교/);
   assert.match(html, /venue-compare-table/);
   assert.match(html, /canonical" href="https:\/\/j-live\.kr\/calendar\/guides\/venues\/"/);
   assert.match(html, /href="\.\/hall"/);
@@ -316,30 +339,47 @@ test("renders a useful venue comparison table on the venue index", () => {
   assert.doesNotMatch(html, /pagead2\.googlesyndication\.com/);
 });
 
-test("renders the verified KSPO DOME site map", () => {
-  const guide = { name: "KSPO DOME", summary: "요약", transit: "교통", arrival: "입장", restroom: "화장실", storage: "보관", waiting: "대기", nearby: "식사", return: "귀가", verifiedAt: "2026-07-28", sources: [] };
+test("uses the official KSPO DOME location map instead of an inferred event layout", () => {
+  const guide = { name: "KSPO DOME", summary: "요약", officialMapUrl: "https://official.example/map", officialMapLabel: "공식 위치도", transit: "교통", arrival: "입장", restroom: "화장실", storage: "보관", waiting: "대기", nearby: "식사", return: "귀가", verifiedAt: "2026-07-28", sources: [] };
   const html = venuePageHtml("kspo-dome", guide, "https://j-live.kr");
-  assert.match(html, /KSPO DOME 화장실·게이트 약도/);
-  assert.match(html, /venue-site-map-svg/);
-  assert.match(html, /올림픽수영장/);
-  assert.match(html, /href="#venue-3"/);
-  assert.match(html, /올림픽공원 공식 지도/);
+  assert.match(html, /공식 위치도 ↗/);
+  assert.match(html, /href="https:\/\/official\.example\/map"/);
+  assert.doesNotMatch(html, /venue-site-map-svg|map-wc|map-gate/);
 });
 
-test("renders site maps for every supported venue", () => {
+test("uses official maps for target venues and retains documented diagrams elsewhere", () => {
   const guide = { name: "공연장", summary: "요약", transit: "교통", arrival: "입장", restroom: "화장실", storage: "보관", waiting: "대기", nearby: "식사", return: "귀가", verifiedAt: "2026-07-28", sources: [] };
-  for (const slug of ["kintex-second-exhibition", "kspo-dome", "olympic-hall", "jangchung-gymnasium", "inspire-arena", "gonggam-hall", "wanderloch-hall", "gocheok-sky-dome"]) {
+  for (const slug of ["olympic-hall", "jangchung-gymnasium", "gonggam-hall", "wanderloch-hall", "gocheok-sky-dome"]) {
     const html = venuePageHtml(slug, guide, "https://j-live.kr");
     assert.match(html, /venue-site-map-svg/, slug);
     assert.match(html, /화장실 안내 보기/, slug);
     assert.match(html, /전체 출처 보기/, slug);
   }
-  assert.match(venuePageHtml("kintex-second-exhibition", guide, "https://j-live.kr"), /10홀 앞 물품보관함/);
+  for (const slug of ["kintex-second-exhibition", "kspo-dome", "inspire-arena"]) {
+    assert.doesNotMatch(venuePageHtml(slug, guide, "https://j-live.kr"), /venue-site-map-svg|map-wc|map-gate/);
+  }
+  assert.doesNotMatch(venuePageHtml("kintex-second-exhibition", guide, "https://j-live.kr"), /10홀 앞 물품보관함/);
   assert.match(venuePageHtml("jangchung-gymnasium", guide, "https://j-live.kr"), /2F 안내·매표·물품보관/);
   assert.doesNotMatch(venuePageHtml("gonggam-hall", guide, "https://j-live.kr"), /승강기/);
   for (const slug of ["olympic-hall", "jangchung-gymnasium", "inspire-arena", "gonggam-hall", "wanderloch-hall", "gocheok-sky-dome"]) {
     assert.doesNotMatch(venuePageHtml(slug, guide, "https://j-live.kr"), /매점|카페|카페테리아|편의점|식사|자판기/, slug);
   }
+});
+
+test("links venue guides to matching public confirmed concert detail pages", () => {
+  const guide = { name: "KSPO DOME", venues: ["KSPO DOME"] };
+  const events = [
+    { id: "andteam-2026-10-03", artist: "&TEAM", concertDate: "2026-10-03", time: "오후 6:00", venue: "KSPO DOME", status: "confirmed" },
+    { id: "past-show", artist: "Past Act", concertDate: "2026-09-01", time: "오후 7:00", venue: "KSPO DOME", status: "confirmed" },
+    { id: "other-venue", artist: "Other", concertDate: "2026-10-04", venue: "Other Hall", status: "confirmed" },
+    { id: "pending", artist: "Candidate", concertDate: "2026-10-05", venue: "KSPO DOME", status: "pending" }
+  ];
+  const html = venueRelatedEventsMarkup(guide, events, "2026-09-24");
+  assert.match(html, /href="\.\.\/\.\.\/events\/andteam-2026-10-03"/);
+  assert.match(html, /지난 공연 상세 1건 보기/);
+  assert.match(html, /href="\.\.\/\.\.\/events\/past-show"/);
+  assert.doesNotMatch(html, /other-venue|pending/);
+  assert.match(html, /2026년 10월 3일/);
 });
 
 test("generates extensionless public links", () => {

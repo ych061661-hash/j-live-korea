@@ -3,6 +3,7 @@
 const fs = require("fs");
 const path = require("path");
 const { festflowFestivalsFor } = require("./festflow-links");
+const visitor = require("../calendar/visitor-utils");
 
 const artistAssets = path.resolve(__dirname, "../calendar/assets/artists");
 
@@ -31,6 +32,13 @@ const humanDate = (value, time = "") => {
   const date = parseDate(value);
   const weekday = ["일", "월", "화", "수", "목", "금", "토"][date.getDay()];
   return `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일(${weekday})${time ? ` ${time}` : ""}`;
+};
+
+const ticketDateDisplay = event => {
+  if (!event.ticketDate) return "";
+  return visitor.isVerifiedDate(event, "ticketDate")
+    ? humanDate(event.ticketDate, event.ticketTime)
+    : "예매 일정 미확인";
 };
 
 const verifiedAttendance = event => Number.isFinite(event.attendance)
@@ -97,7 +105,14 @@ function artistPageHtml({ artist, events, aliases, editorial, siteUrl, today, in
   const festflowFestivals = festflowFestivalsFor(artist);
   const vendors = [...new Map(sorted.filter(event => event.vendorUrl).map(event => [event.vendor, event.vendorUrl])).entries()];
   const intro = editorial.artists?.[artist] || `${artist}의 한국 내한 공연과 예매 기록을 공식 출처 기준으로 정리합니다.`;
-  const eventRows = list => list.length ? list.map(event => `<li><a href="../events/${encodeURIComponent(event.id)}"><strong>${escapeHtml(humanDate(event.concertDate, event.time))}</strong><span>${escapeHtml(event.venue)} · ${escapeHtml(event.vendor || "예매처 미정")}</span></a></li>`).join("") : "<li class=\"empty-row\">확인된 일정이 없습니다.</li>";
+  const eventRows = list => list.length ? list.map(event => {
+    const dates = visitor.verificationDates(event);
+    const now = new Date(`${today}T12:00:00+09:00`);
+    const ticketStatus = visitor.ticketStatus(event, now);
+    const availability = visitor.ticketAvailability(event, now);
+    const ticketDate = ticketDateDisplay(event);
+    return `<li><a href="../events/${encodeURIComponent(event.id)}"><strong>${escapeHtml(humanDate(event.concertDate, event.time))}</strong><span>${escapeHtml(event.venue)} · ${escapeHtml(event.vendor || "예매처 미정")}</span><span class="artist-event-ticket-status">${escapeHtml(ticketStatus.label)}${ticketDate ? ` · 일반예매 ${escapeHtml(ticketDate)}` : ""} · 판매 상태 ${escapeHtml(availability.label)}</span><small>일정 확인 ${escapeHtml(dates.schedule || "미기록")} · 가격 확인 ${escapeHtml(dates.price || "미기록")} · 판매 상태 확인 ${escapeHtml(dates.availability || "미확인")}</small></a></li>`;
+  }).join("") : "<li class=\"empty-row\">확인된 일정이 없습니다.</li>";
   const historyGroups = new Map();
   for (const event of past) {
     const key = `${event.venue}\u0000${event.vendorUrl || event.vendor || event.id}`;
