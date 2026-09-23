@@ -3452,5 +3452,226 @@
     "priceVerifiedAt": "2026-09-23",
     "verifiedAt": "2026-09-23",
     "createdAt": "2026-09-23T16:19:43+09:00"
+  },
+  {
+    "id": "coaltar-of-the-deepers-2026-10-24",
+    "artist": "Coaltar of the Deepers",
+    "title": "Coaltar of the Deepers 35th Anniversary Live in Seoul",
+    "genre": "J-ROCK",
+    "concertDate": "2026-10-24",
+    "time": "오후 7:00",
+    "venue": "홍대 롤링홀",
+    "presaleStatus": "checking",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "",
+    "ticketTime": "",
+    "price": 77000,
+    "priceCurrency": "KRW",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/59686",
+    "youtubeChannel": "",
+    "songs": [
+      ["SUMMER GAZER '92", "", "https://www.youtube.com/watch?v=j5TXz9wCsMk"]
+    ],
+    "status": "pending",
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "unverified",
+    "seatPrices": [
+      { "name": "스탠딩석", "price": 77000, "priceCurrency": "KRW" }
+    ],
+    "sources": [
+      "https://ticket.yes24.com/Perf/59686",
+      "https://www.highjinkx.com/show-list/cotd",
+      "https://www.youtube.com/watch?v=j5TXz9wCsMk"
+    ],
+    "verification": {
+      "hosting": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://ticket.yes24.com/Perf/59686", "https://www.highjinkx.com/show-list/cotd"] },
+      "concertTime": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://ticket.yes24.com/Perf/59686", "https://www.highjinkx.com/show-list/cotd"] },
+      "ticketing": { "status": "unverified", "checkedAt": "2026-09-24", "sources": ["https://ticket.yes24.com/Perf/59686"] },
+      "price": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://ticket.yes24.com/Perf/59686"] },
+      "representativeSongs": { "status": "partial", "checkedAt": "2026-09-24", "sources": ["https://www.youtube.com/watch?v=j5TXz9wCsMk"] }
+    },
+    "priceVerifiedAt": "2026-09-24",
+    "verifiedAt": "2026-09-24",
+    "createdAt": "2026-09-24T03:10:12+09:00"
+  },
+  {
+    "id": "blu-swing-2026-11-15",
+    "artist": "BLU-SWING",
+    "title": "BLU-SWING “Across the Blue” Tour in Seoul",
+    "genre": "J-POP",
+    "concertDate": "2026-11-15",
+    "time": "오후 5:00",
+    "venue": "홍대 롤링홀",
+    "presaleStatus": "checking",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "",
+    "ticketTime": "",
+    "price": 66000,
+    "priceCurrency": "KRW",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/English/Perf/59831",
+    "youtubeChannel": "",
+    "songs": [
+      ["クラゲ (Kurage)", "", "https://www.youtube.com/watch?v=Vy7cxw8PaT0"]
+    ],
+    "status": "pending",
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "unverified",
+    "seatPrices": [
+      { "name": "전석 스탠딩", "price": 66000, "priceCurrency": "KRW" }
+    ],
+    "sources": [
+      "https://ticket.yes24.com/English/Perf/59831",
+      "https://www.highjinkx.com/show-list/blu-swing2026",
+      "https://www.blu-swing.com/posts/12835400/"
+    ],
+    "verification": {
+      "hosting": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://ticket.yes24.com/English/Perf/59831", "https://www.highjinkx.com/show-list/blu-swing2026"] },
+      "concertTime": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://www.highjinkx.com/show-list/blu-swing2026"] },
+      "ticketing": { "status": "unverified", "checkedAt": "2026-09-24", "sources": ["https://www.highjinkx.com/show-list/blu-swing2026", "https://ticket.yes24.com/English/Perf/59831"] },
+      "price": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://www.highjinkx.com/show-list/blu-swing2026", "https://ticket.yes24.com/English/Perf/59831"] },
+      "representativeSongs": { "status": "partial", "checkedAt": "2026-09-24", "sources": ["https://www.blu-swing.com/posts/12835400/"] }
+    },
+    "priceVerifiedAt": "2026-09-24",
+    "verifiedAt": "2026-09-24",
+    "createdAt": "2026-09-24T03:10:12+09:00"
+  },
+  {
+    "id": "kazumi-tateishi-trio-2026-11-22-suwon",
+    "artist": "Kazumi Tateishi Trio",
+    "title": "Kazumi Tateishi Trio 2026 Live in Korea",
+    "genre": "JAZZ",
+    "concertDate": "2026-11-22",
+    "time": "오후 5:00",
+    "venue": "경기아트센터 소극장",
+    "presaleStatus": "checking",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "",
+    "ticketTime": "",
+    "price": 66000,
+    "priceCurrency": "KRW",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://nol.yanolja.com/ticket/products/26009224",
+    "youtubeChannel": "https://www.youtube.com/channel/UC-AiP1NoABhE6hVssW3rXng",
+    "songs": [
+      ["人生のメリーゴーランド (하울의 움직이는 성)", "", "https://www.youtube.com/watch?v=-KVdLKPIMHQ"],
+      ["海の見える街 (마녀 배달부 키키)", "", "https://www.youtube.com/watch?v=tR4zJlwhPjs"],
+      ["となりのトトロ (이웃집 토토로)", "", "https://www.youtube.com/watch?v=XQ-kj4VnXzs"]
+    ],
+    "status": "pending",
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "unverified",
+    "seatPrices": [
+      { "name": "VIP석", "price": 88000, "priceCurrency": "KRW" },
+      { "name": "R석", "price": 77000, "priceCurrency": "KRW" },
+      { "name": "S석", "price": 66000, "priceCurrency": "KRW" }
+    ],
+    "sources": [
+      "https://nol.yanolja.com/ticket/products/26009224",
+      "https://www.ggac.or.kr/ggac/M0000281/show/view.do?idx=SM000135",
+      "https://kazumitateishi-trio.com/",
+      "https://www.jvcmusic.co.jp/-/Artist/A023203.html"
+    ],
+    "verification": {
+      "hosting": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://nol.yanolja.com/ticket/products/26009224", "https://www.ggac.or.kr/ggac/M0000281/show/view.do?idx=SM000135"] },
+      "concertTime": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://www.ggac.or.kr/ggac/M0000281/show/view.do?idx=SM000135"] },
+      "ticketing": { "status": "unverified", "checkedAt": "2026-09-24", "sources": ["https://nol.yanolja.com/ticket/products/26009224"] },
+      "price": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://nol.yanolja.com/ticket/products/26009224", "https://www.ggac.or.kr/ggac/M0000281/show/view.do?idx=SM000135"] },
+      "representativeSongs": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://kazumitateishi-trio.com/", "https://www.jvcmusic.co.jp/-/Artist/A023203.html"] }
+    },
+    "priceVerifiedAt": "2026-09-24",
+    "verifiedAt": "2026-09-24",
+    "createdAt": "2026-09-24T03:10:12+09:00"
+  },
+  {
+    "id": "mulasaki-ima-2026-12-12",
+    "artist": "紫 今",
+    "title": "Mulasaki Ima ONE MAN TOUR 2026 『PURPLE SHELTER -ep.1- EXTRA』in Seoul",
+    "genre": "J-POP",
+    "concertDate": "2026-12-12",
+    "time": "",
+    "venue": "YES24 WANDERLOCH HALL",
+    "presaleStatus": "checking",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "",
+    "ticketTime": "",
+    "price": 99000,
+    "priceCurrency": "KRW",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/60203",
+    "youtubeChannel": "https://www.youtube.com/@mulasakiima",
+    "songs": [
+      ["魔性の女A", "", "https://www.youtube.com/watch?v=XWSU6H1g4qE"]
+    ],
+    "status": "pending",
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "unverified",
+    "seatPrices": [
+      { "name": "스탠딩석", "price": 99000, "priceCurrency": "KRW" },
+      { "name": "지정석", "price": 99000, "priceCurrency": "KRW" }
+    ],
+    "sources": [
+      "https://ticket.yes24.com/Perf/60203",
+      "https://www.sonymusic.com.tw/artist/mulasaki-ima/"
+    ],
+    "verification": {
+      "hosting": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://ticket.yes24.com/Perf/60203"] },
+      "concertTime": { "status": "unverified", "checkedAt": "2026-09-24", "sources": ["https://ticket.yes24.com/Perf/60203"] },
+      "ticketing": { "status": "unverified", "checkedAt": "2026-09-24", "sources": ["https://ticket.yes24.com/Perf/60203"] },
+      "price": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://ticket.yes24.com/Perf/60203"] },
+      "representativeSongs": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://www.sonymusic.com.tw/artist/mulasaki-ima/"] }
+    },
+    "priceVerifiedAt": "2026-09-24",
+    "verifiedAt": "2026-09-24",
+    "createdAt": "2026-09-24T03:10:12+09:00"
+  },
+  {
+    "id": "hump-back-2027-01-23",
+    "artist": "Hump Back",
+    "title": "Hump Back “HELLO ANEW TOUR SEOUL 2027”",
+    "genre": "J-ROCK",
+    "concertDate": "2027-01-23",
+    "time": "오후 6:00",
+    "venue": "YES24 LIVE HALL",
+    "presaleStatus": "checking",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "2026-10-07",
+    "ticketTime": "오후 12:00",
+    "price": 132000,
+    "priceCurrency": "KRW",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/60207",
+    "youtubeChannel": "",
+    "songs": [
+      ["拝啓、少年よ", "", "https://www.youtube.com/watch?v=d6i4AtCxrDo"]
+    ],
+    "status": "pending",
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "confirmed",
+    "seatPrices": [
+      { "name": "스탠딩석", "price": 132000, "priceCurrency": "KRW" },
+      { "name": "지정석", "price": 132000, "priceCurrency": "KRW" }
+    ],
+    "sources": [
+      "https://ticket.yes24.com/Perf/60207",
+      "https://humpback.jp/contents/1073598",
+      "https://humpback.jp/movies/categories/youtube"
+    ],
+    "verification": {
+      "hosting": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://ticket.yes24.com/Perf/60207", "https://humpback.jp/contents/1073598"] },
+      "concertTime": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://ticket.yes24.com/Perf/60207", "https://humpback.jp/contents/1073598"] },
+      "ticketing": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://ticket.yes24.com/Perf/60207", "https://humpback.jp/contents/1073598"] },
+      "price": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://ticket.yes24.com/Perf/60207", "https://humpback.jp/contents/1073598"] },
+      "representativeSongs": { "status": "partial", "checkedAt": "2026-09-24", "sources": ["https://humpback.jp/movies/categories/youtube", "https://www.youtube.com/watch?v=d6i4AtCxrDo"] }
+    },
+    "priceVerifiedAt": "2026-09-24",
+    "verifiedAt": "2026-09-24",
+    "createdAt": "2026-09-24T03:10:12+09:00"
   }
 ]
