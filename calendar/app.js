@@ -68,6 +68,7 @@ const attendanceRecords = document.querySelector("#attendanceRecords");
 const attendanceRecordsEmpty = document.querySelector("#attendanceRecordsEmpty");
 let artistAliases = {};
 let schedules = [];
+let schedulesReady = false;
 let festivalLineups = [];
 let attendanceSchedules = [];
 let updates = [];
@@ -128,11 +129,13 @@ function isPublicSchedule(schedule) {
 }
 
 function ticketDateDisplay(schedule) {
-  if (!schedule.ticketDate && schedule.ticketingStatus === "pending_announcement") return "발표 대기";
+  if (!schedule.ticketDate) return window.JLIVE_VISITOR?.ticketStatus(schedule).label || "정보 미확인";
+  if (!window.JLIVE_VISITOR?.isVerifiedDate(schedule, "ticketDate")) return "정보 미확인";
   return formatScheduleDate(schedule.ticketDate, schedule.ticketTime);
 }
 
 function timeMinutes(value = "") {
+  if (window.JLIVE_VISITOR) return window.JLIVE_VISITOR.timeMinutes(value);
   const match = String(value).match(/(오전|오후|낮|밤)?\s*(\d{1,2})(?::(\d{2}))?/);
   if (!match) return Number.MAX_SAFE_INTEGER;
   let hour = Number(match[2]);
@@ -143,6 +146,7 @@ function timeMinutes(value = "") {
 }
 
 function seoulDateParts(now = new Date()) {
+  if (window.JLIVE_VISITOR) return window.JLIVE_VISITOR.seoulDateParts(now);
   const parts = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Seoul", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).formatToParts(now);
   const value = type => parts.find(part => part.type === type)?.value || "";
   return { date: `${value("year")}-${value("month")}-${value("day")}`, minutes: Number(value("hour")) * 60 + Number(value("minute")) };
@@ -171,21 +175,43 @@ function homeArtistName(schedule) {
 
 function homePriceMarkup(schedule) {
   const prices = (schedule.seatPrices || []).filter(price => Number.isFinite(Number(price.price)) && price.price > 0);
-  if (!prices.length) return schedule.ticketingStatus === "pending_announcement" ? "발표 대기" : "가격 미확인";
+  if (!prices.length) return schedule.verification?.price?.status === "pending_announcement" ? "공식 발표 대기" : "정보 미확인";
   const minimum = Math.min(...prices.map(price => Number(price.price)));
   const detail = prices.map(price => `${price.name} ${Number(price.price).toLocaleString("ko-KR")}원`).join(" · ");
   return prices.length === 1 ? escapeHtml(detail) : `<span>최저 ${minimum.toLocaleString("ko-KR")}원</span><details><summary>좌석별 가격 ${prices.length}개</summary><span>${escapeHtml(detail)}</span></details>`;
 }
 
-function homeMatchesSearch(schedule, query) {
-  if (!query) return true;
-  return [schedule.artist, ...(artistAliases[schedule.artist] || []), schedule.venue, schedule.concertDate]
-    .some(value => normalizeSearchText(value).includes(query));
+function scheduleSearchFields(schedule) {
+  const dates = [schedule.concertDate, schedule.ticketDate, schedule.presaleDate].filter(Boolean).flatMap(value => {
+    const match = String(value).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if (!match) return [];
+    return [`${Number(match[2])}월 ${Number(match[3])}일`, `${Number(match[2])}월${Number(match[3])}일`, `${Number(match[2])}/${Number(match[3])}`];
+  });
+  return [schedule.artist, ...(artistAliases[schedule.artist] || []), schedule.venue, schedule.concertDate, schedule.ticketDate, schedule.presaleDate, ...dates].filter(Boolean);
 }
 
-function renderHomeConcertCard(schedule) {
+function scheduleMatchesSearch(schedule, query) {
+  const normalized = normalizeSearchText(query);
+  return !normalized || scheduleSearchFields(schedule).some(value => normalizeSearchText(value).includes(normalized));
+}
+
+function homeMatchesSearch(schedule, query) {
+  if (!query) return true;
+  return scheduleMatchesSearch(schedule, query);
+}
+
+function homeSeriesKey(schedule) {
+  return [schedule.artist, schedule.venue, schedule.vendorUrl || schedule.vendor || ""].join("\u0000");
+}
+
+function renderHomeConcertCard(series) {
+  const occurrences = Array.isArray(series) ? series : [series];
+  const schedule = occurrences[0];
   const status = schedule.status === "cancelled" ? "공식 취소" : schedule.status === "postponed" ? "공식 연기 · 새 일정은 상세의 공식 출처에서 확인하세요" : "";
-  return `<article class="home-schedule-card" data-home-event-id="${escapeHtml(schedule.id)}"><div><span class="section-kicker">${escapeHtml(schedule.genre || "J-POP")}</span><h3><a href="./events/${encodeURIComponent(schedule.id)}">${escapeHtml(homeArtistName(schedule))}</a></h3>${status ? `<p class="home-schedule-status">${status}</p>` : ""}</div><dl><div><dt>공연</dt><dd>${escapeHtml(formatAttendanceDate(schedule.concertDate))}${schedule.time ? ` · ${escapeHtml(schedule.time)}` : " · 시간 미확인"}</dd></div><div><dt>공연장</dt><dd>${escapeHtml(schedule.venue || "미확인")}</dd></div><div><dt>일반예매</dt><dd>${escapeHtml(ticketDateDisplay(schedule))}</dd></div>${schedule.presaleDate || schedule.presaleStatus ? `<div><dt>선예매</dt><dd>${escapeHtml(presaleDisplay(schedule))}</dd></div>` : ""}<div><dt>가격</dt><dd>${homePriceMarkup(schedule)}</dd></div></dl><p class="home-schedule-verified">관련 정보 확인 ${escapeHtml(schedule.priceVerifiedAt || schedule.scheduleVerifiedAt || schedule.verifiedAt || "기록 없음")}</p><div class="home-schedule-links"><a href="./events/${encodeURIComponent(schedule.id)}">공연 상세 보기 <span aria-hidden="true">→</span></a>${schedule.vendorUrl ? `<a href="${escapeHtml(schedule.vendorUrl)}" target="_blank" rel="noopener noreferrer">공식 예매처 <span aria-hidden="true">↗</span></a>` : ""}</div></article>`;
+  const dates = occurrences.map(item => `<li><a href="./events/${encodeURIComponent(item.id)}"><time>${escapeHtml(formatAttendanceDate(item.concertDate))}${item.time ? ` · ${escapeHtml(item.time)}` : " · 시간 미확인"}</time><span>회차 상세</span></a>${occurrences.length > 1 ? `<small>예매 상태 ${escapeHtml(window.JLIVE_VISITOR?.ticketStatus(item).label || "정보 미확인")} · 일반예매 ${escapeHtml(ticketDateDisplay(item))}${item.presaleDate || item.presaleStatus ? ` · 선예매 ${escapeHtml(presaleDisplay(item))}` : ""} · 가격 ${homePriceMarkup(item)}</small>` : ""}</li>`).join("");
+  const prices = new Set(occurrences.map(item => JSON.stringify(item.seatPrices || [])));
+  const ticketState = window.JLIVE_VISITOR?.ticketStatus(schedule) || { label: "정보 미확인" };
+  return `<article class="home-schedule-card" data-home-event-id="${escapeHtml(schedule.id)}"><div><span class="section-kicker">${escapeHtml(schedule.genre || "J-POP")}</span><h3><a href="./events/${encodeURIComponent(schedule.id)}">${escapeHtml(homeArtistName(schedule))}</a>${occurrences.length > 1 ? ` <small>${occurrences.length}회</small>` : ""}</h3>${status ? `<p class="home-schedule-status">${status}</p>` : ""}</div><dl><div><dt>회차</dt><dd><ul class="home-series-dates">${dates}</ul></dd></div><div><dt>공연장</dt><dd>${escapeHtml(schedule.venue || "미확인")}</dd></div><div><dt>예매 상태</dt><dd>${escapeHtml(ticketState.label)}${ticketState.note ? ` · ${escapeHtml(ticketState.note)}` : ""}</dd></div>${occurrences.length === 1 ? `<div><dt>일반예매</dt><dd>${escapeHtml(ticketDateDisplay(schedule))}</dd></div>${schedule.presaleDate || schedule.presaleStatus ? `<div><dt>선예매</dt><dd>${escapeHtml(presaleDisplay(schedule))}</dd></div>` : ""}<div><dt>가격</dt><dd>${homePriceMarkup(schedule)}</dd></div>` : prices.size === 1 ? `<div><dt>가격</dt><dd>${homePriceMarkup(schedule)}</dd></div>` : ""}</dl><p class="home-schedule-verified">일정 확인 ${escapeHtml(schedule.scheduleVerifiedAt || schedule.verifiedAt || "기록 없음")} · 가격 확인 ${escapeHtml(schedule.priceVerifiedAt || "기록 없음")}</p><div class="home-schedule-links">${schedule.vendorUrl ? `<a href="${escapeHtml(schedule.vendorUrl)}" target="_blank" rel="noopener noreferrer">공식 예매처 <span aria-hidden="true">↗</span></a>` : ""}</div></article>`;
 }
 
 function renderHomeSchedule() {
@@ -196,7 +222,7 @@ function renderHomeSchedule() {
   document.querySelectorAll("[data-home-view]").forEach(button => button.setAttribute("aria-pressed", String(button.dataset.homeView === homeScheduleView)));
   if (homeTicketFallback) homeTicketFallback.hidden = true;
   if (homeScheduleView === "ticket") {
-    const ticketRows = publicSchedules.flatMap(schedule => [["선예매", schedule.presaleDate, schedule.presaleTime], [schedule.ticketLabel || "일반예매", schedule.ticketDate, schedule.ticketTime]].map(([label, date, time]) => ({ schedule, label, date, time: time || "" }))).filter(item => item.date && !["cancelled", "postponed"].includes(item.schedule.status) && (item.date > current.date || (item.date === current.date && (item.time ? timeMinutes(item.time) > current.minutes : true))) && !hasStarted(item.schedule));
+    const ticketRows = publicSchedules.flatMap(schedule => [["선예매", schedule.presaleDate, schedule.presaleTime, "presaleDate"], [schedule.ticketLabel || "일반예매", schedule.ticketDate, schedule.ticketTime, "ticketDate"]].map(([label, date, time, field]) => ({ schedule, label, date, time: time || "", field }))).filter(item => item.date && window.JLIVE_VISITOR?.isVerifiedDate(item.schedule, item.field) && !["cancelled", "postponed"].includes(item.schedule.status) && (item.date > current.date || (item.date === current.date && (item.time ? timeMinutes(item.time) > current.minutes : true))) && !hasStarted(item.schedule));
     const groups = new Map();
     for (const item of ticketRows) {
       const key = [item.schedule.artist, item.schedule.venue, item.schedule.vendorUrl || "", item.label, item.date, item.time, item.schedule.presaleStatus || "", item.schedule.presaleCondition || item.schedule.presaleEligibility || item.schedule.presaleAudience || ""].join("\u0000");
@@ -210,10 +236,17 @@ function renderHomeSchedule() {
   }
   const upcoming = publicSchedules.filter(schedule => !hasStarted(schedule)).sort((a, b) => a.concertDate.localeCompare(b.concertDate) || timeMinutes(a.time) - timeMinutes(b.time) || a.id.localeCompare(b.id));
   const months = new Map();
+  const series = new Map();
   for (const schedule of upcoming) {
+    const key = `${schedule.concertDate.slice(0, 7)}\u0000${homeSeriesKey(schedule)}`;
+    if (!series.has(key)) series.set(key, []);
+    series.get(key).push(schedule);
+  }
+  for (const occurrences of series.values()) {
+    const schedule = occurrences[0];
     const key = schedule.concertDate.slice(0, 7);
     if (!months.has(key)) months.set(key, []);
-    months.get(key).push(schedule);
+    months.get(key).push(occurrences);
   }
   homeScheduleList.innerHTML = months.size ? [...months.entries()].map(([key, entries]) => { const [year, month] = key.split("-").map(Number); return `<section class="home-schedule-month"><h3>${year}년 ${month}월</h3><div class="home-schedule-grid">${entries.map(renderHomeConcertCard).join("")}</div></section>`; }).join("") : `<p class="home-schedule-empty">${query ? "검색어와 일치하는 예정 공연이 없습니다." : "현재 공개 가능한 예정 공연이 없습니다."}</p>`;
   homeScheduleStatus.textContent = query ? `“${artistSearch.value.trim()}” 검색 결과를 공연일과 시작 시각 순으로 보여줍니다.` : "다가오는 공연을 공연일과 시작 시각 순으로 보여줍니다.";
@@ -282,7 +315,7 @@ function eventsForDate(key) {
 }
 
 function presaleDisplay(schedule) {
-  if (schedule.presaleDate) return formatScheduleDate(schedule.presaleDate, schedule.presaleTime);
+  if (schedule.presaleDate) return window.JLIVE_VISITOR?.isVerifiedDate(schedule, "presaleDate") ? formatScheduleDate(schedule.presaleDate, schedule.presaleTime) : "정보 미확인";
   if (schedule.presaleStatus === "none") return "없음";
   if (schedule.presaleStatus === "checking") return "확인 중";
   return "공지 미확인";
@@ -297,8 +330,8 @@ function verifiedTicketAvailability(schedule) {
 }
 
 function ticketAvailabilityDisplay(schedule) {
-  const status = verifiedTicketAvailability(schedule);
-  return status ? `${status === "sold_out" ? "매진" : "판매 중"} · 확인 시점 기준 ${schedule.ticketStatusVerifiedAt.slice(0, 10)}` : "공식 예매처 확인";
+  const status = window.JLIVE_VISITOR?.ticketStatus(schedule);
+  return status ? `${status.label}${status.note ? ` · ${status.note}` : ""}` : "정보 미확인";
 }
 
 function sourceLabel(source) {
@@ -599,21 +632,27 @@ function renderArtistSearch() {
   const query = normalizeSearchText(artistSearch.value);
   artistSearchResults.hidden = !query;
   if (!query) return;
+  if (!schedulesReady) {
+    artistSearchResults.innerHTML = '<div class="artist-search-empty"><strong>공연 일정을 불러오는 중입니다.</strong><span>잠시 후 검색 결과가 표시됩니다.</span></div>';
+    return;
+  }
 
-  const matches = window.JLIVE_SEARCH?.findMatches(schedules, artistAliases, query) || schedules.filter(schedule =>
-    [schedule.artist, ...(artistAliases[schedule.artist] || []), schedule.venue, schedule.concertDate]
-      .some(name => normalizeSearchText(name).includes(query))
-  );
+  const indexedMatches = window.JLIVE_SEARCH?.findMatches(schedules, artistAliases, query) || [];
+  const matches = schedules.filter(schedule => indexedMatches.some(item => item.id === schedule.id) || scheduleMatchesSearch(schedule, query));
   const festivalMatches = festivalArtistSearchMatches(query);
-  const scheduleResults = matches.map(schedule => `
+  const scheduleResults = matches.map(schedule => {
+    const status = window.JLIVE_VISITOR?.ticketStatus(schedule) || { label: "정보 미확인" };
+    return `
       <div class="artist-search-result-row">
         <button class="artist-search-result" type="button" data-id="${escapeHtml(schedule.id)}">
-          <strong>${escapeHtml(schedule.artist)}</strong>
-          <small>${escapeHtml(schedule.venue)}</small>
-          <time>${escapeHtml(formatDate(schedule.concertDate))}</time>
+          <strong>${escapeHtml(homeArtistName(schedule))}</strong>
+          <small>${escapeHtml(schedule.venue || "공연장 미확인")} · ${escapeHtml(status.label)}</small>
+          <time>${escapeHtml(formatScheduleDate(schedule.concertDate, schedule.time || "시간 미확인"))}</time>
         </button>
+        <a class="artist-search-ticket" href="./events/${encodeURIComponent(schedule.id)}" aria-label="${escapeHtml(schedule.artist)} 공연 상세 보기">상세 ↗</a>
         ${schedule.vendorUrl ? `<a class="artist-search-ticket" href="${escapeHtml(schedule.vendorUrl)}" data-search-ticket="${escapeHtml(schedule.id)}" target="_blank" rel="noopener noreferrer">예매 ↗</a>` : ""}
-      </div>`).join("");
+      </div>`;
+  }).join("");
   const festivalResults = festivalMatches.map(item => `
       <div class="artist-search-result-row festival-search-row">
         <a class="artist-search-result festival-search-result" href="./festivals/${encodeURIComponent(item.lineup.id)}" aria-label="${escapeHtml(item.artist)} ${escapeHtml(item.lineup.name)} 라인업 보기">
@@ -626,7 +665,7 @@ function renderArtistSearch() {
     ? `${scheduleResults}${festivalResults}`
     : (() => {
       const alternatives = window.JLIVE_SEARCH?.suggestions(schedules, artistAliases, query) || [];
-      return `<div class="artist-search-empty"><strong>검색 결과가 없습니다.</strong><span>한글·영문·일본어 표기, 공연장명으로 다시 검색해 보세요.</span>${alternatives.length ? `<small>혹시 이 공연을 찾으셨나요?</small><div class="artist-search-suggestions">${alternatives.map(schedule => `<button type="button" data-id="${escapeHtml(schedule.id)}">${escapeHtml(schedule.artist)}</button>`).join("")}</div>` : ""}<a href="./artists/">전체 아티스트 목록 보기 →</a></div>`;
+      return `<div class="artist-search-empty"><strong>검색 결과가 없습니다.</strong><span>아티스트·공연장·공연 날짜를 다시 확인하거나 날짜 형식(2026-10-03, 10월 3일)을 바꿔 검색해 보세요.</span>${alternatives.length ? `<small>혹시 이 공연을 찾으셨나요?</small><div class="artist-search-suggestions">${alternatives.map(schedule => `<button type="button" data-id="${escapeHtml(schedule.id)}">${escapeHtml(schedule.artist)}</button>`).join("")}</div>` : ""}<button type="button" data-clear-search>검색어 지우기</button><a href="#homeSchedule" data-show-all-schedules>전체 예정 공연 보기 →</a></div>`;
     })();
 }
 
@@ -1324,6 +1363,11 @@ document.querySelectorAll("[data-home-view]").forEach(button => button.addEventL
   renderHomeSchedule();
   saveHomeScheduleState();
 }));
+document.querySelectorAll("[data-home-view-link]").forEach(link => link.addEventListener("click", event => {
+  homeScheduleView = link.dataset.homeViewLink === "ticket" ? "ticket" : "concert";
+  renderHomeSchedule();
+  saveHomeScheduleState();
+}));
 homeSchedule?.addEventListener("click", event => {
   const link = event.target.closest("a[href*='./events/']");
   if (!link || (event.button && event.button !== 0) || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
@@ -1332,7 +1376,24 @@ homeSchedule?.addEventListener("click", event => {
   location.assign(link.href);
 });
 window.addEventListener("pagehide", saveHomeScheduleState);
+window.addEventListener("pageshow", event => {
+  if (!event.persisted) return;
+  restoreHomeScheduleState();
+  renderArtistSearch();
+  renderHomeSchedule();
+});
 artistSearchResults.addEventListener("click", event => {
+  if (event.target.closest("[data-clear-search], [data-show-all-schedules]")) {
+    event.preventDefault();
+    artistSearch.value = "";
+    artistSearchReset.hidden = true;
+    renderArtistSearch();
+    renderHomeSchedule();
+    saveHomeScheduleState();
+    if (event.target.closest("[data-show-all-schedules]")) homeSchedule?.scrollIntoView({ behavior: "smooth", block: "start" });
+    else artistSearch.focus();
+    return;
+  }
   const ticketLink = event.target.closest("[data-search-ticket]");
   if (ticketLink) {
     const schedule = schedules.find(item => item.id === ticketLink.dataset.searchTicket);
@@ -1350,7 +1411,8 @@ artistSearchResults.addEventListener("click", event => {
   if (!schedule) return;
   window.JLIVE_ANALYTICS.track("artist_result_open", { artist: schedule.artist });
   viewDate = parseDate(schedule.concertDate);
-  closeArtistSearch(true);
+  closeArtistSearch(false);
+  saveHomeScheduleState();
   selectSchedule(schedule, "concert", schedule.concertDate);
 });
 
@@ -1493,7 +1555,9 @@ async function initialize() {
     attendanceSchedules = [...schedules, ...[...historical2023Events, ...historicalEvents].filter(event =>
       event.status === "confirmed" && !scheduleIds.has(event.id)).map(event => ({ ...event, historical: true }))];
     schedules.sort((a, b) => a.concertDate.localeCompare(b.concertDate));
+    schedulesReady = true;
     restoreHomeScheduleState();
+    renderArtistSearch();
     renderHomeSchedule();
     window.JLIVE_ARTIST_IMAGES.preload(schedules);
     renderWeekendSpotlight();

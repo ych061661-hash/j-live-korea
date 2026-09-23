@@ -32,6 +32,13 @@ test("matches aliases and venue/date fields", () => {
   assert.ok(search.findMatches(events, aliases, "킨텍스").length > 0);
 });
 
+test("matches Korean month/day and ISO date queries", () => {
+  const sample = [{ id: "sample", artist: "Band", venue: "KSPO DOME", concertDate: "2026-10-03" }];
+  assert.equal(search.findMatches(sample, {}, "2026-10-03")[0].id, "sample");
+  assert.equal(search.findMatches(sample, {}, "10월 3일")[0].id, "sample");
+  assert.equal(search.findMatches(sample, {}, "KSPO DOME")[0].id, "sample");
+});
+
 test("suggests a nearby artist name when the query has a small typo", () => {
   const result = search.suggestions([{ artist: "SPYAIR", venue: "Hall" }], { SPYAIR: ["스파이에어"] }, "spyairr");
   assert.equal(result[0].artist, "SPYAIR");

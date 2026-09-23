@@ -96,10 +96,26 @@ test("renders the next concert and verified Korea attendance history", () => {
     aliases: {}, editorial: {}, siteUrl: "https://j-live.kr", today: "2026-07-29"
   });
 
-  assert.match(html, /NEXT CONCERT/);
+  assert.match(html, /예정된 한국 공연/);
   assert.match(html, /KOREA HISTORY/);
   assert.match(html, /1,200명/);
   assert.match(html, /https:\/\/artist\.example\/news/);
+});
+
+test("provides a useful route when the artist directory has no confirmed entries", () => {
+  const html = artistIndexHtml({ groups: new Map(), aliases: {}, siteUrl: "https://j-live.kr", today: "2026-09-23" });
+  assert.match(html, /현재 공식 확인된 아티스트 공연 기록이 없습니다/);
+  assert.match(html, /\.\.\/#calendar/);
+});
+
+test("artist pages show no false next show while retaining confirmed history", () => {
+  const html = artistPageHtml({
+    artist: "Band", events: [{ ...event, concertDate: "2025-05-03" }], aliases: {}, editorial: {},
+    siteUrl: "https://j-live.kr", today: "2026-07-29"
+  });
+  assert.match(html, /현재 예정된 공연이 없습니다/);
+  assert.match(html, /공식 확인 내한 이력/);
+  assert.match(html, /\.\.\/events\/band-2026-08-01/);
 });
 
 test("renders the current Monday-to-Sunday weekly page", () => {
@@ -128,6 +144,13 @@ test("uses Seoul calendar weeks across year boundaries and sorts same-day shows 
     ], aliases: {}, editorial: {}, siteUrl: "https://j-live.kr", today: "2026-08-01"
   });
   assert.ok(page.html.indexOf("Earlier") < page.html.indexOf("Later"));
+});
+
+test("weekly empty states link back to a real calendar path", () => {
+  const page = weeklyPageHtml({ events: [], aliases: {}, editorial: {}, siteUrl: "https://j-live.kr", today: "2026-07-29" });
+  assert.match(page.html, /이 기간에는 등록된 공연이 없습니다/);
+  assert.match(page.html, /href="\.\.\/#calendar"/);
+  assert.match(page.html, /이 기간에는 확인된 예매 일정이 없습니다/);
 });
 
 test("deduplicates identical series-level ticket updates", () => {

@@ -1916,22 +1916,22 @@
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-08-12",
+    "priceVerifiedAt": "2026-09-23",
     "sources": [
       "https://starto.jp/s/p/live/10494?artist=156&lang=en",
       "https://www.sonymusic.co.jp/artist/KentoNakajima/info/583773",
       "https://ticket.yes24.com/Perf/58653",
       "https://m.ticket.yes24.com/Notice/17913"
     ],
-    "scheduleVerifiedAt": "2026-09-19",
-    "verifiedAt": "2026-09-19",
+    "scheduleVerifiedAt": "2026-09-23",
+    "verifiedAt": "2026-09-23",
     "verification": {
-      "artist": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://www.sonymusic.co.jp/artist/KentoNakajima/info/583773"] },
-      "concertDate": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://www.sonymusic.co.jp/artist/KentoNakajima/info/583773"] },
-      "venue": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://starto.jp/s/p/live/10494?artist=156&lang=en"] },
-      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://ticket.yes24.com/Perf/58653"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://ticket.yes24.com/Perf/58653"] },
-      "ticketConditions": { "status": "unverified", "checkedAt": "2026-09-19", "sources": ["https://m.ticket.yes24.com/Notice/17913"] },
+      "artist": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://www.sonymusic.co.jp/artist/KentoNakajima/info/583773"] },
+      "concertDate": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://www.sonymusic.co.jp/artist/KentoNakajima/info/583773"] },
+      "venue": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://starto.jp/s/p/live/10494?artist=156&lang=en"] },
+      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://ticket.yes24.com/Perf/58653"] },
+      "price": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://ticket.yes24.com/Perf/58653"] },
+      "ticketConditions": { "status": "unverified", "checkedAt": "2026-09-23", "sources": ["https://m.ticket.yes24.com/Notice/17913"] },
       "availability": { "status": "unverified", "checkedAt": "2026-09-19", "sources": ["https://ticket.yes24.com/Perf/58653"] }
     },
     "createdAt": "2026-06-16T09:00:00+09:00"
@@ -2281,26 +2281,31 @@
       "https://world.nol.com/ja/ticket/places/26000166/products/26010474",
       "https://nol.yanolja.com/ticket/products/26010474"
     ],
-    "scheduleVerifiedAt": "2026-09-19",
-    "verifiedAt": "2026-09-19",
+    "scheduleVerifiedAt": "2026-09-23",
+    "verifiedAt": "2026-09-23",
     "verification": {
-      "artist": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://ano-official.com/live_information/detail/42411"] },
-      "concertDate": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://ano-official.com/live_information/detail/42411"] },
-      "venue": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://world.nol.com/ja/ticket/places/26000166/products/26010474"] },
-      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://world.nol.com/ja/ticket/places/26000166/products/26010474"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://world.nol.com/ja/ticket/places/26000166/products/26010474"] },
-      "ticketConditions": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://world.nol.com/ja/ticket/places/26000166/products/26010474"] },
+      "artist": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://ano-official.com/live_information/detail/42411"] },
+      "concertDate": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://ano-official.com/live_information/detail/42411"] },
+      "venue": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://world.nol.com/ja/ticket/places/26000166/products/26010474"] },
+      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://world.nol.com/ja/ticket/places/26000166/products/26010474"] },
+      "price": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://world.nol.com/ja/ticket/places/26000166/products/26010474"] },
+      "ticketConditions": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://world.nol.com/ja/ticket/places/26000166/products/26010474"] },
       "availability": { "status": "unverified", "checkedAt": "2026-09-19", "sources": ["https://world.nol.com/ja/ticket/places/26000166/products/26010474"] }
     },
     "createdAt": "2026-07-25T15:00:00+09:00",
     "seatPrices": [
       {
-        "name": "전석",
+        "name": "스탠딩 일반",
+        "price": 138000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 일반",
         "price": 138000,
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-09-19"
+    "priceVerifiedAt": "2026-09-23"
   },
   {
     "id": "ano-2026-10-18",
@@ -2342,26 +2347,31 @@
       "https://world.nol.com/ja/ticket/places/26000166/products/26010474",
       "https://nol.yanolja.com/ticket/products/26010474"
     ],
-    "scheduleVerifiedAt": "2026-09-19",
-    "verifiedAt": "2026-09-19",
+    "scheduleVerifiedAt": "2026-09-23",
+    "verifiedAt": "2026-09-23",
     "verification": {
-      "artist": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://ano-official.com/news/detail/84837"] },
-      "concertDate": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://ano-official.com/news/detail/84837"] },
-      "venue": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://ano-official.com/news/detail/84837"] },
-      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://world.nol.com/ja/ticket/places/26000166/products/26010474"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://world.nol.com/ja/ticket/places/26000166/products/26010474"] },
-      "ticketConditions": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://world.nol.com/ja/ticket/places/26000166/products/26010474"] },
+      "artist": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://ano-official.com/news/detail/84837"] },
+      "concertDate": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://ano-official.com/news/detail/84837"] },
+      "venue": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://ano-official.com/news/detail/84837"] },
+      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://world.nol.com/ja/ticket/places/26000166/products/26010474"] },
+      "price": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://world.nol.com/ja/ticket/places/26000166/products/26010474"] },
+      "ticketConditions": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://world.nol.com/ja/ticket/places/26000166/products/26010474"] },
       "availability": { "status": "unverified", "checkedAt": "2026-09-19", "sources": ["https://world.nol.com/ja/ticket/places/26000166/products/26010474"] }
     },
     "createdAt": "2026-07-25T15:00:00+09:00",
     "seatPrices": [
       {
-        "name": "전석",
+        "name": "스탠딩 일반",
+        "price": 138000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 일반",
         "price": 138000,
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-09-19"
+    "priceVerifiedAt": "2026-09-23"
   },
   {
     "id": "andteam-2026-10-03",
@@ -2414,22 +2424,22 @@
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-09-19",
+    "priceVerifiedAt": "2026-09-23",
     "sources": [
       "https://weverse.io/andteam/notice/37990",
     "https://world.nol.com/en/ticket/places/26000892/products/26011092",
       "https://www.youtube.com/@andTEAM_official/videos"
     ],
-    "scheduleVerifiedAt": "2026-09-19",
-    "verifiedAt": "2026-09-19",
+    "scheduleVerifiedAt": "2026-09-23",
+    "verifiedAt": "2026-09-23",
     "verification": {
-      "artist": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://weverse.io/andteam/notice/37990"] },
-      "concertDate": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://weverse.io/andteam/notice/37990"] },
-      "venue": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://weverse.io/andteam/notice/37990"] },
-      "presaleDate": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://weverse.io/andteam/notice/37990"] },
-      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://world.nol.com/en/ticket/places/26000892/products/26011092"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://world.nol.com/en/ticket/places/26000892/products/26011092"] },
-      "ticketConditions": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://weverse.io/andteam/notice/37990"] },
+      "artist": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://weverse.io/andteam/notice/37990"] },
+      "concertDate": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://weverse.io/andteam/notice/37990"] },
+      "venue": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://weverse.io/andteam/notice/37990"] },
+      "presaleDate": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://weverse.io/andteam/notice/37990"] },
+      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://world.nol.com/en/ticket/places/26000892/products/26011092"] },
+      "price": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://world.nol.com/en/ticket/places/26000892/products/26011092"] },
+      "ticketConditions": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://weverse.io/andteam/notice/37990"] },
       "availability": { "status": "unverified", "checkedAt": "2026-09-19", "sources": ["https://world.nol.com/en/ticket/places/26000892/products/26011092"] }
     },
     "createdAt": "2026-08-06T16:30:00+09:00",

@@ -23,7 +23,8 @@
   <script src="../content.js?v=20260728"></script>
   <script src="../analytics.js" defer></script>
   <script src="../site.js?v=20260825conversion1" defer></script>
-  <script src="../event.js?v=20260825conversion1" defer></script>
+  <script src="../visitor-utils.js?v=20260923ux1"></script>
+  <script src="../event.js?v=20260923ux1" defer></script>
 </head>
 <body data-event-id="natori-2026-07-19">
   <div class="shell">
@@ -53,9 +54,11 @@
               <div><dt>공연장</dt><dd id="factVenue">올림픽공원 올림픽홀</dd></div>
               <div><dt>가격</dt><dd id="factPrice">일반석 138,000원 · 시야제한석 124,000원</dd></div>
               <div><dt>선예매</dt><dd id="factPresale">공지 미확인</dd></div>
-              <div><dt>일반예매</dt><dd id="factTicket">2026년 5월 8일(금) 오후 8:00</dd></div>
+              <div><dt>일반예매</dt><dd id="factTicket">정보 미확인</dd></div>
               <div><dt>예매처</dt><dd id="factVendor">멜론티켓</dd></div>
-              <div><dt>판매 상태</dt><dd id="factAvailability">공식 예매처 확인</dd></div>
+              <div><dt>판매 상태</dt><dd id="factAvailability">공연 종료</dd></div>
+              <div><dt>일정 확인일</dt><dd id="factScheduleVerified">2026-06-16</dd></div>
+              <div><dt>가격 확인일</dt><dd id="factPriceVerified">2026-08-12</dd></div>
             </dl>
             <a class="ticket-button" id="eventTicket" href="https://ticket.melon.com/performance/index.htm?prodId=213098" data-track-vendor="멜론티켓" target="_blank" rel="noopener noreferrer">공식 예매처 확인 ↗</a>
             <a class="correction-link" id="correctionLink" href="../corrections">정보 수정 요청</a>
@@ -65,7 +68,7 @@
             <section class="editorial-section series-section">
               <div class="section-kicker">CONCERT DATES</div>
               <h2>확인된 공연 일정</h2>
-              <p id="seriesSummary">이번 내한은 2회 공연으로 진행됩니다. 날짜별 공연 시각과 예매 조건이 달라질 수 있으므로 선택한 회차를 확인하세요.</p>
+              <p id="seriesSummary">지난 공연 기록입니다. 일정과 예매 조건은 당시의 기록이며 현재 판매 상태를 나타내지 않습니다. 동일 시리즈에는 2회 공연 기록이 있습니다.</p>
               <ul class="series-date-list" id="seriesDates"><li><a href="natori-2026-07-18">2026년 7월 18일(토) 오후 6:00</a></li>
 <li class="active"><a href="natori-2026-07-19">2026년 7월 19일(일) 오후 6:00</a></li></ul>
             </section>
@@ -73,7 +76,8 @@
               <div class="section-kicker">TICKET ANALYSIS</div>
               <h2>공연별 실제 예매 분석</h2>
               <p class="content-note">공식 예매처 기준 · 마지막 확인 2026-08-12</p>
-              <dl class="analysis-list"><div><dt>좌석 등급과 가격</dt><dd>일반석 138,000원 · 시야제한석 124,000원</dd></div></dl>
+              <div class="series-comparison"><h3>회차별 시작 시각 비교</h3><div class="venue-table-wrap"><table class="venue-compare-table"><thead><tr><th scope="col">공연일</th><th scope="col">시작 시각</th></tr></thead><tbody><tr><th scope="row">2026년 7월 18일(토)</th><td>오후 6:00</td></tr><tr><th scope="row">2026년 7월 19일(일)</th><td>오후 6:00</td></tr></tbody></table></div><p>권종별 액면가: 일반석 138,000원 (최저 확인가보다 14,000원 높음) · 시야제한석 124,000원 (최저 확인가)</p><p class="content-note">권종 가격은 공연별 공식 예매 안내 기준입니다. 금액 차이만 비교했으며 등급별 좌석 위치·특전은 공식 상품 안내에서 확인되는 범위만 표시합니다.</p></div>
+              <dl class="analysis-list"></dl>
             </section>
             <section class="editorial-section">
               <div class="section-kicker">ARTIST</div>
@@ -86,7 +90,7 @@
               <p id="venueGuide">지하철 5호선·9호선 올림픽공원역에서 접근할 수 있습니다. 같은 날 공원 안에서 여러 행사가 열릴 수 있으므로 공연장 위치를 미리 확인하세요.</p><a class="inline-guide-link" href="../guides/venues/olympic-hall">올림픽공원 올림픽홀 현장 가이드 보기 →</a>
               <p class="content-note">교통편과 출입구는 당일 운영 상황에 따라 달라질 수 있습니다. 출발 전 주최사와 공연장 공지를 다시 확인하세요.</p>
             </section>
-            <!-- ADSENSE_SLOT_INLINE -->
+<!-- ADSENSE_SLOT_INLINE -->
             <section class="editorial-section">
               <div class="section-kicker">DAY PLAN</div>
               <h2>공연 당일 체크리스트</h2>
@@ -114,7 +118,7 @@
               <div class="section-kicker">SOURCES</div>
               <h2>공식 출처와 검증 기록</h2>
               <div class="source-links" id="eventSources"><a class="source-link" href="https://ticket.melon.com/performance/index.htm?prodId=213098" target="_blank" rel="noopener noreferrer">멜론티켓 예매 페이지 ↗</a></div>
-              <p class="verified-copy" id="eventVerified">일정 확인 2026-06-16 · 가격 확인 2026-08-12 · 판매 상태 확인 미확인 · 글 수정 2026-06-16</p>
+              <p class="verified-copy" id="eventVerified">일정 확인 2026-06-16 · 가격 확인 2026-08-12 · 판매 상태 확인 미확인 · 글 수정 2026-06-16</p><p class="content-note">정보 재확인 대상입니다. 위에 적힌 항목별 확인일을 보고 예매 전 공식 출처에서 현재 안내를 다시 확인하세요.</p>
             </section>
           </div>
         </div>

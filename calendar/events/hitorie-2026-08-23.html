@@ -23,7 +23,8 @@
   <script src="../content.js?v=20260728"></script>
   <script src="../analytics.js" defer></script>
   <script src="../site.js?v=20260825conversion1" defer></script>
-  <script src="../event.js?v=20260825conversion1" defer></script>
+  <script src="../visitor-utils.js?v=20260923ux1"></script>
+  <script src="../event.js?v=20260923ux1" defer></script>
 </head>
 <body data-event-id="hitorie-2026-08-23">
   <div class="shell">
@@ -53,9 +54,11 @@
               <div><dt>공연장</dt><dd id="factVenue">KT&amp;G 상상마당 라이브홀</dd></div>
               <div><dt>가격</dt><dd id="factPrice">VIP (전석 스탠딩) 99,000원 · 일반 (전석 스탠딩) 66,000원</dd></div>
               <div><dt>선예매</dt><dd id="factPresale">공지 미확인</dd></div>
-              <div><dt>일반예매</dt><dd id="factTicket">2026년 7월 1일(수) 낮 12:00</dd></div>
+              <div><dt>일반예매</dt><dd id="factTicket">정보 미확인</dd></div>
               <div><dt>예매처</dt><dd id="factVendor">YES24 티켓</dd></div>
-              <div><dt>판매 상태</dt><dd id="factAvailability">공식 예매처 확인</dd></div>
+              <div><dt>판매 상태</dt><dd id="factAvailability">공연 종료</dd></div>
+              <div><dt>일정 확인일</dt><dd id="factScheduleVerified">2026-08-15</dd></div>
+              <div><dt>가격 확인일</dt><dd id="factPriceVerified">2026-08-12</dd></div>
             </dl>
             <a class="ticket-button" id="eventTicket" href="https://ticket.yes24.com/Perf/59024" data-track-vendor="YES24 티켓" target="_blank" rel="noopener noreferrer">공식 예매처 확인 ↗</a>
             <a class="correction-link" id="correctionLink" href="../corrections">정보 수정 요청</a>
@@ -65,13 +68,14 @@
             <section class="editorial-section series-section">
               <div class="section-kicker">CONCERT DATES</div>
               <h2>확인된 공연 일정</h2>
-              <p id="seriesSummary">현재 공식 확인된 한국 공연은 1회입니다. 추가 회차나 운영 변경은 연결된 공식 출처에서 다시 확인합니다.</p>
+              <p id="seriesSummary">지난 공연 기록입니다. 일정과 예매 조건은 당시의 기록이며 현재 판매 상태를 나타내지 않습니다. 동일 시리즈에는 1회 공연 기록이 있습니다.</p>
               <ul class="series-date-list" id="seriesDates"><li class="active"><a href="hitorie-2026-08-23">2026년 8월 23일(일) 오후 5:00</a></li></ul>
             </section>
             <section class="editorial-section ticket-analysis">
               <div class="section-kicker">TICKET ANALYSIS</div>
               <h2>공연별 실제 예매 분석</h2>
               <p class="content-note">공식 예매처 기준 · 마지막 확인 2026-08-12</p>
+
               <dl class="analysis-list"><div><dt>좌석 등급과 가격</dt><dd>VIP (전석 스탠딩) 99,000원 · 일반 (전석 스탠딩) 66,000원</dd></div></dl>
             </section>
             <section class="editorial-section">
@@ -85,7 +89,7 @@
               <p id="venueGuide">서울 홍대 권역에 있으며 지하철 2호선 홍대입구역과 6호선 상수역에서 걸어갈 수 있습니다. 주말 저녁에는 주변이 혼잡하므로 번호별 대기와 물품 보관 안내를 미리 확인하세요.</p>
               <p class="content-note">교통편과 출입구는 당일 운영 상황에 따라 달라질 수 있습니다. 출발 전 주최사와 공연장 공지를 다시 확인하세요.</p>
             </section>
-            <!-- ADSENSE_SLOT_INLINE -->
+<!-- ADSENSE_SLOT_INLINE -->
             <section class="editorial-section">
               <div class="section-kicker">DAY PLAN</div>
               <h2>공연 당일 체크리스트</h2>
@@ -115,7 +119,6 @@
               <p class="content-note"><a href="../about" rel="author">여일육 작성</a> · <a href="../guides/verification">편집·검증 기준</a> · 마지막 일정 검증 2026-08-15</p>
               <h3>이번 공연의 관전 포인트</h3>
               <p>HITORIE 공연은 시노다의 기타와 보컬이 짧은 간격으로 방향을 바꾸고, 베이스와 드럼이 그 변화를 단단하게 붙잡는 합주가 핵심입니다. 빠른 곡에서는 세 악기가 같은 리듬을 밀어붙이는 순간과 각자 다른 프레이즈로 갈라지는 순간을 비교해 보세요. 조용한 도입이 갑자기 거친 기타로 전환될 때 라이브 특유의 긴장감이 가장 선명하게 드러납니다.</p>
-  <h3>공연 전 더 깊게 듣는 순서</h3><p>입문용 추천곡 3개의 순서와 다를 수 있습니다. 이 글은 공연을 더 깊게 듣기 위한 관점입니다. 먼저 &#039;オン・ザ・フロントライン&#039;에서 현재 3인조의 날카로운 기타와 속도감을 듣고, &#039;アンノウン・マザーグース&#039;에서 반복되는 프레이즈와 감정의 상승을 비교해 보세요. &#039;3分29秒&#039;는 짧은 시간 안에 전개와 밀도가 빠르게 바뀌어 밴드의 리듬 감각을 파악하기 좋습니다. 세 곡의 기타 진입과 드럼 변화를 익히면 공연의 급격한 전환을 놓치지 않게 됩니다.</p>
               <h3>공연장 도착과 귀가 계획</h3><p>KT&amp;G 상상마당 라이브홀은 홍대 거리 안에 있어 주말 공연 전후 주변이 붐빌 수 있습니다. 티켓의 입장 번호와 집합 시각을 확인하고, 큰 짐과 화장실 이용은 대기 줄에 합류하기 전에 해결하는 편이 좋습니다. 공연 종료 뒤에는 홍대입구역과 상수역 중 덜 혼잡한 귀가 경로를 비교하고 마지막 대중교통 시간도 미리 저장해 두세요.</p>
             </section>
             <section class="editorial-section">
@@ -124,7 +127,7 @@
               <div class="source-links" id="eventSources"><a class="source-link" href="https://www.hitorie.jp/contents/1081323" target="_blank" rel="noopener noreferrer">hitorie.jp ↗</a>
 <a class="source-link" href="https://www.highjinkx.com/hitorie-2026" target="_blank" rel="noopener noreferrer">highjinkx.com ↗</a>
 <a class="source-link" href="https://ticket.yes24.com/Perf/59024" target="_blank" rel="noopener noreferrer">YES24 예매 페이지 ↗</a></div>
-              <p class="verified-copy" id="eventVerified">일정 확인 2026-08-15 · 가격 확인 2026-08-12 · 판매 상태 확인 미확인 · 글 수정 2026-08-15</p>
+              <p class="verified-copy" id="eventVerified">일정 확인 2026-08-15 · 가격 확인 2026-08-12 · 판매 상태 확인 미확인 · 글 수정 2026-08-15</p><p class="content-note">정보 재확인 대상입니다. 위에 적힌 항목별 확인일을 보고 예매 전 공식 출처에서 현재 안내를 다시 확인하세요.</p>
             </section>
           </div>
         </div>

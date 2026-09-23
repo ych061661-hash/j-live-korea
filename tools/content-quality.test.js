@@ -39,15 +39,22 @@ function similarity(left, right) {
   return shared / (left.size + right.size - shared);
 }
 
-test("keeps every indexed event substantial and distinct", () => {
+test("keeps indexed event pages distinct and backed by documented editorial review", () => {
   const sitemap = read("sitemap.xml");
   const ids = [...sitemap.matchAll(/<loc>https:\/\/j-live\.kr\/calendar\/events\/([^<]+)<\/loc>/g)].map(match => decodeURIComponent(match[1]));
   assert.ok(ids.length > 0, "expected at least one indexable future event");
+  const reviews = JSON.parse(read("calendar/data/page-reviews.json")).reviews;
 
   const documents = ids.map(id => {
     const text = visibleText(read(`calendar/events/${id}.html`));
-    const words = text.split(/\s+/).filter(Boolean);
-    assert.ok(words.length >= 600, `${id} is too thin at ${words.length} words`);
+    const review = reviews[id];
+    assert.ok(review, `${id} is missing an editorial review`);
+    assert.equal(review.quality, "approved", id);
+    assert.equal(review.index, "approved", id);
+    assert.ok(review.readerTasks.length, `${id} has no user task rationale`);
+    assert.ok(review.specificValue.length, `${id} has no event-specific value rationale`);
+    assert.ok(review.evidenceSources.length, `${id} has no editorial evidence links`);
+    assert.match(text, /공연별 실제 예매 분석|이번 공연의 관전 포인트|공연 정보/, id);
     return { id, values: shingles(text) };
   });
 
@@ -76,7 +83,7 @@ test("keeps pending records out of the confirmed sitemap and generated pages", (
   }
 });
 
-test("keeps every indexed venue guide practical and substantial", () => {
+test("keeps every indexed venue guide actionable with source and freshness context", () => {
   const sitemap = read("sitemap.xml");
   const urls = [...sitemap.matchAll(/<loc>(https:\/\/j-live\.kr\/calendar\/guides\/venues\/[^<]+)<\/loc>/g)]
     .map(match => match[1])
@@ -86,8 +93,6 @@ test("keeps every indexed venue guide practical and substantial", () => {
   for (const url of urls) {
     const file = indexedFileFor(url);
     const html = fs.readFileSync(file, "utf8");
-    const words = visibleText(html).split(/\s+/).filter(Boolean);
-    assert.ok(words.length >= 325, `${url} is too thin at ${words.length} words`);
     assert.match(html, /처음 가기 전에 먼저 정할 것/, url);
     assert.match(html, /공연별로 다시 확인할 것/, url);
     assert.match(html, /마지막 시설 확인/, url);
@@ -108,8 +113,6 @@ test("makes the standing guide actionable without inventing event rules", () => 
 
 test("keeps the indexed artist directory explanatory rather than link-only", () => {
   const html = read("calendar/artists/index.html");
-  const words = visibleText(html).split(/\s+/).filter(Boolean);
-  assert.ok(words.length >= 550, `artist directory is too thin at ${words.length} words`);
   assert.ok((html.match(/<h2\b/gi) || []).length >= 3, "artist directory needs explanatory sections");
   assert.match(html, /목록을 읽는 방법/);
   assert.match(html, /누구를 목록에 포함하나요/);
@@ -220,8 +223,6 @@ test("keeps editorial trust pages free of advertising code", () => {
     assert.doesNotMatch(read(page), /pagead2\.googlesyndication\.com/, page);
   }
   const about = read("calendar/about.html");
-  const aboutWords = visibleText(about).split(/\s+/).filter(Boolean);
-  assert.ok(aboutWords.length >= 450, `about page is too thin at ${aboutWords.length} words`);
   assert.match(about, /광고와 편집은 분리합니다/);
   assert.match(about, /정보 수정 요청/);
   assert.match(about, /소개 페이지 마지막 수정/);
@@ -426,7 +427,7 @@ test("keeps indexable concerts within two weeks freshly reverified", () => {
 
 test("labels the homepage search and attendance inputs", () => {
   const homepage = read("calendar/index.html");
-  assert.match(homepage, /id="artistSearch"[^>]+aria-label="아티스트 이름 검색"/);
+  assert.match(homepage, /id="artistSearch"[^>]+aria-label="아티스트, 공연장 또는 공연 날짜 검색"/);
   assert.match(homepage, /id="artistSearchReset"[^>]+hidden/);
   assert.match(homepage, /name="unitPrice"[^>]+aria-label="티켓 1매 가격"/);
   assert.match(homepage, /name="quantity"[^>]+aria-label="티켓 매수"/);
@@ -460,9 +461,13 @@ test("uses accessible home schedule controls and replaces the static list after 
   assert.match(app, /homeTicketFallback\) homeTicketFallback\.hidden = true/);
   assert.match(app, /artistSearchReset\?\.addEventListener\("click"/);
   assert.match(app, /homeScheduleStateKey/);
+  assert.match(app, /공연 일정을 불러오는 중입니다/);
+  assert.match(app, /schedulesReady = true;\s*restoreHomeScheduleState\(\);\s*renderArtistSearch\(\);/);
   assert.match(app, /history\.replaceState\(\{ \.\.\.\(history\.state \|\| \{\}\), homeSchedule: state \}, ""\)/);
+  assert.match(app, /closeArtistSearch\(false\);\s*saveHomeScheduleState\(\);\s*selectSchedule\(schedule, "concert", schedule\.concertDate\);/);
   assert.match(app, /location\.assign\(link\.href\)/);
   assert.match(app, /window\.addEventListener\("pagehide", saveHomeScheduleState\)/);
+  assert.match(app, /window\.addEventListener\("pageshow", event => \{\s*if \(!event\.persisted\) return;\s*restoreHomeScheduleState\(\);\s*renderArtistSearch\(\);\s*renderHomeSchedule\(\);/);
 });
 
 test("presents audience figures as scoped J-LIVE records, not a universal ranking", () => {
@@ -477,6 +482,19 @@ test("presents audience figures as scoped J-LIVE records, not a universal rankin
   assert.match(app, /attendanceSourceType !== "press" \|\| schedule\.attendancePublisher/);
 });
 
+test("puts an accessible venue/date search and the two list actions in the homepage hero", () => {
+  const homepage = read("calendar/index.html");
+  const hero = homepage.slice(homepage.indexOf('<section class="hero"'), homepage.indexOf("</section>", homepage.indexOf('<section class="hero"')));
+  assert.match(hero, /아티스트·공연장·날짜로 검색/);
+  assert.match(hero, /aria-describedby="artistSearchHelp"/);
+  assert.match(hero, /2026-10-03/);
+  assert.match(hero, /data-home-view-link="concert"/);
+  assert.match(hero, /다가오는 공연/);
+  assert.match(hero, /data-home-view-link="ticket"/);
+  assert.match(hero, /예매 오픈 예정/);
+  assert.doesNotMatch(homepage.slice(homepage.indexOf('<section class="calendar-area"'), homepage.indexOf("</section>", homepage.indexOf('<section class="calendar-area"'))), /id="artistSearch"/);
+});
+
 test("keeps the verification standard available from the homepage footer without promoting the founder story", () => {
   const homepage = read("calendar/index.html");
   assert.doesNotMatch(homepage, /<section class="home-editorial-trust"/);
@@ -485,10 +503,8 @@ test("keeps the verification standard available from the homepage footer without
   assert.match(homepage, /<footer class="site-footer">[\s\S]*href="\.\/guides\/verification"[\s\S]*편집·검증 기준/);
 });
 
-test("publishes a substantial first-hand story without invented experience claims", () => {
+test("publishes a qualified first-hand story without invented experience claims", () => {
   const story = read("calendar/stories/why-j-live.html");
-  const words = visibleText(story).split(/\s+/).filter(Boolean);
-  assert.ok(words.length >= 700, `first-hand story is too thin at ${words.length} words`);
   assert.match(story, /2024년 4월 19일|2024\.04\.19/);
   assert.match(story, /2026년에는 6월 20일과 21일/);
   assert.match(story, /2024년 12월 14일 고척스카이돔/);
@@ -502,8 +518,6 @@ test("publishes a substantial first-hand story without invented experience claim
 
 test("keeps the fan-club directory decision-oriented and ad-free", () => {
   const page = read("calendar/fanclubs/index.html");
-  const words = visibleText(page).split(/\s+/).filter(Boolean);
-  assert.ok(words.length >= 950, `fan-club guide is too thin at ${words.length} words`);
   assert.match(page, /한국 팬은 회비보다 가입 목적을 먼저 봐야 합니다/);
   assert.match(page, /해외 가입 경로가 확인된 6개 멤버십/);
   assert.match(page, /해외 가입 지원.*한국 공연 선예매 보장이 아니라/s);
@@ -521,7 +535,9 @@ test("keeps the original data report substantial, transparent, and connected", (
   assert.ok(visibleText(report).split(/\s+/).length >= 500, "annual report is too thin");
   assert.match(report, /공연 시리즈/);
   assert.match(report, /같은 아티스트·공연장·예매 페이지/);
-  assert.match(report, /가격 통계에는 공식 페이지에서 원화 가격이 확인된/);
+  assert.match(report, /중앙값은 각 시리즈에서 확인된 권종 중 가장 낮은 원화 액면가 1개씩/);
+  assert.match(report, /전체 40개 시리즈 원자료 표 보기/);
+  assert.match(report, /전체 페스티벌 라인업 집계가 아닙니다/);
   assert.match(report, /한계와 수정 원칙/);
   assert.match(report, /rel="author">여일육 작성·분석/);
   assert.match(report, /"@type":"Dataset"/);

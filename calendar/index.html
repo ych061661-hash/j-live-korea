@@ -17,6 +17,7 @@
   <link rel="icon" type="image/png" href="./assets/brand/j-live-app-logo.png">
   <link rel="apple-touch-icon" href="./assets/brand/j-live-app-logo.png">
   <link rel="stylesheet" href="./styles.css?v=20260921schedule6">
+  <script src="./visitor-utils.js?v=20260923ux1"></script>
   <script src="./site-config.js?v=20260808ea"></script>
   <script src="./site.js?v=20260825conversion1" defer></script>
 </head>
@@ -38,15 +39,28 @@
     <section class="hero" aria-labelledby="heroTitle">
       <div class="hero-main">
         <div class="eyebrow">J-LIVE · 공식 출처 기반</div>
-        <h1 id="heroTitle">2026 J-POP 내한 공연·티켓팅 일정</h1>
+        <h1 id="heroTitle"><span>2026 J-POP 내한</span><span>공연·티켓팅 일정</span></h1>
         <p class="hero-subtitle">놓치고 싶지 않은 내한의 모든 날짜</p>
         <p class="hero-copy">
           한국에서 열리는 J-POP 내한 공연의 날짜·예매처·공연장 정보를 한 곳에서 확인하세요.
           로그인 없이 저장하고, 중요한 변경은 이메일로 받을 수 있습니다.
         </p>
+        <div class="artist-search home-hero-search">
+          <div class="artist-search-heading">
+            <label for="artistSearch">아티스트·공연장·날짜로 검색</label>
+            <span>예: 2026-10-03 · 10월 3일</span>
+          </div>
+          <div class="artist-search-field">
+            <i aria-hidden="true"></i>
+            <input id="artistSearch" type="search" aria-label="아티스트, 공연장 또는 공연 날짜 검색" aria-describedby="artistSearchHelp" placeholder="킹누, KSPO DOME, 2026-10-03" autocomplete="off">
+            <button id="artistSearchReset" type="button" aria-label="검색어 지우기" hidden>검색 초기화</button>
+          </div>
+          <p id="artistSearchHelp" class="search-help">한글·영문·일문 아티스트 별칭, 공연장, 공연일과 예매일을 검색할 수 있습니다.</p>
+          <div class="artist-search-results" id="artistSearchResults" role="region" aria-label="공연 검색 결과" aria-live="polite" hidden></div>
+        </div>
         <div class="hero-actions" aria-label="홈페이지 주요 행동">
-          <a class="hero-primary" href="#calendar">공연 검색하기 <span aria-hidden="true">↓</span></a>
-          <a class="hero-secondary" href="./alerts/">예매 알림 받기 <span aria-hidden="true">↗</span></a>
+          <a class="hero-primary" href="#homeSchedule" data-home-view-link="concert">다가오는 공연 <span aria-hidden="true">↓</span></a>
+          <a class="hero-secondary" href="#homeSchedule" data-home-view-link="ticket">예매 오픈 예정 <span aria-hidden="true">↓</span></a>
         </div>
       </div>
     </section>
@@ -64,18 +78,6 @@
 
     <main class="app" hidden aria-busy="true">
       <section class="calendar-area">
-        <div class="artist-search">
-          <div class="artist-search-heading">
-            <label for="artistSearch">아티스트 찾기</label>
-            <span>한글 · English · 日本語</span>
-          </div>
-          <div class="artist-search-field">
-            <i aria-hidden="true"></i>
-            <input id="artistSearch" type="search" aria-label="아티스트 이름 검색" placeholder="킹누, King Gnu, キングヌー" autocomplete="off">
-            <button id="artistSearchReset" type="button" hidden>검색 초기화</button>
-          </div>
-          <div class="artist-search-results" id="artistSearchResults" role="region" aria-label="아티스트 검색 결과" aria-live="polite" hidden></div>
-        </div>
         <div class="calendar-toolbar">
           <div class="month-nav">
             <button class="icon-button" id="prevMonth" type="button" aria-label="이전 달">‹</button>
@@ -155,6 +157,7 @@
     <dl>
       <div><dt>공연</dt><dd>2026년 9월 26일(토) 오후 4:00</dd></div>
       <div><dt>공연장</dt><dd>인스파이어 아레나</dd></div>
+      <div><dt>예매 상태</dt><dd>예매 시작일 지남</dd></div>
       <div><dt>일반예매</dt><dd>2026년 6월 29일(월) 오후 7:00</dd></div>
 
       <div><dt>가격</dt><dd><span>최저 165,000원</span><details><summary>좌석별 가격 3개</summary><span>VIP석 242,000원 · R석 187,000원 · S석 165,000원</span></details></dd></div>
@@ -162,61 +165,14 @@
     <p class="home-schedule-verified">관련 정보 확인 2026-09-19</p>
     <div class="home-schedule-links"><a href="./events/takuya-kimura-2026-09-26">공연 상세 보기 <span aria-hidden="true">→</span></a><a href="https://world.nol.com/ja/ticket/places/26000661/products/26008115" target="_blank" rel="noopener noreferrer">공식 예매처 <span aria-hidden="true">↗</span></a></div>
   </article></div></section>
-<section class="home-schedule-month"><h3>2026년 10월</h3><div class="home-schedule-grid"><article class="home-schedule-card" data-home-event-id="kento-nakajima-2026-10-03">
-    <div><span class="section-kicker">J-POP / IDOL</span><h3><a href="./events/kento-nakajima-2026-10-03">나카지마 켄토 (Kento Nakajima)</a></h3></div>
-    <dl>
-      <div><dt>공연</dt><dd>2026년 10월 3일(토) 오후 5:00</dd></div>
-      <div><dt>공연장</dt><dd>올림픽공원 올림픽홀</dd></div>
-      <div><dt>일반예매</dt><dd>2026년 6월 4일(목) 오후 2:00</dd></div>
-
-      <div><dt>가격</dt><dd><span>최저 132,000원</span><details><summary>좌석별 가격 4개</summary><span>VIP석 250,000원 · R석 154,000원 · S석 143,000원 · A석 132,000원</span></details></dd></div>
-    </dl>
-    <p class="home-schedule-verified">관련 정보 확인 2026-08-12</p>
-    <div class="home-schedule-links"><a href="./events/kento-nakajima-2026-10-03">공연 상세 보기 <span aria-hidden="true">→</span></a><a href="https://m.ticket.yes24.com/Perf/58653" target="_blank" rel="noopener noreferrer">공식 예매처 <span aria-hidden="true">↗</span></a></div>
-  </article>
-<article class="home-schedule-card" data-home-event-id="andteam-2026-10-03">
-    <div><span class="section-kicker">J-POP / IDOL</span><h3><a href="./events/andteam-2026-10-03">앤팀 (&amp;TEAM)</a></h3></div>
-    <dl>
-      <div><dt>공연</dt><dd>2026년 10월 3일(토) 오후 6:00</dd></div>
-      <div><dt>공연장</dt><dd>KSPO DOME</dd></div>
-      <div><dt>일반예매</dt><dd>2026년 8월 11일(화) 오후 8:00</dd></div>
-      <div><dt>선예매</dt><dd>2026년 8월 10일(월) 오후 8:00</dd></div>
-
-      <div><dt>가격</dt><dd><span>최저 165,000원</span><details><summary>좌석별 가격 3개</summary><span>M&amp;G석 253,000원 · SOUND CHECK석 220,000원 · 일반석 165,000원</span></details></dd></div>
-    </dl>
-    <p class="home-schedule-verified">관련 정보 확인 2026-09-19</p>
-    <div class="home-schedule-links"><a href="./events/andteam-2026-10-03">공연 상세 보기 <span aria-hidden="true">→</span></a><a href="https://world.nol.com/en/ticket/places/26000892/products/26011092" target="_blank" rel="noopener noreferrer">공식 예매처 <span aria-hidden="true">↗</span></a></div>
-  </article>
-<article class="home-schedule-card" data-home-event-id="kento-nakajima-2026-10-04">
-    <div><span class="section-kicker">J-POP / IDOL</span><h3><a href="./events/kento-nakajima-2026-10-04">나카지마 켄토 (Kento Nakajima)</a></h3></div>
-    <dl>
-      <div><dt>공연</dt><dd>2026년 10월 4일(일) 오후 4:00</dd></div>
-      <div><dt>공연장</dt><dd>올림픽공원 올림픽홀</dd></div>
-      <div><dt>일반예매</dt><dd>2026년 6월 4일(목) 오후 2:00</dd></div>
-
-      <div><dt>가격</dt><dd><span>최저 132,000원</span><details><summary>좌석별 가격 4개</summary><span>VIP석 250,000원 · R석 154,000원 · S석 143,000원 · A석 132,000원</span></details></dd></div>
-    </dl>
-    <p class="home-schedule-verified">관련 정보 확인 2026-09-19</p>
-    <div class="home-schedule-links"><a href="./events/kento-nakajima-2026-10-04">공연 상세 보기 <span aria-hidden="true">→</span></a><a href="https://m.ticket.yes24.com/Perf/58653" target="_blank" rel="noopener noreferrer">공식 예매처 <span aria-hidden="true">↗</span></a></div>
-  </article>
-<article class="home-schedule-card" data-home-event-id="andteam-2026-10-04">
-    <div><span class="section-kicker">J-POP / IDOL</span><h3><a href="./events/andteam-2026-10-04">앤팀 (&amp;TEAM)</a></h3></div>
-    <dl>
-      <div><dt>공연</dt><dd>2026년 10월 4일(일) 오후 5:00</dd></div>
-      <div><dt>공연장</dt><dd>KSPO DOME</dd></div>
-      <div><dt>일반예매</dt><dd>2026년 8월 11일(화) 오후 8:00</dd></div>
-      <div><dt>선예매</dt><dd>2026년 8월 10일(월) 오후 8:00</dd></div>
-
-      <div><dt>가격</dt><dd><span>최저 165,000원</span><details><summary>좌석별 가격 3개</summary><span>M&amp;G석 253,000원 · SOUND CHECK석 220,000원 · 일반석 165,000원</span></details></dd></div>
-    </dl>
-    <p class="home-schedule-verified">관련 정보 확인 2026-09-19</p>
-    <div class="home-schedule-links"><a href="./events/andteam-2026-10-04">공연 상세 보기 <span aria-hidden="true">→</span></a><a href="https://world.nol.com/en/ticket/places/26000892/products/26011092" target="_blank" rel="noopener noreferrer">공식 예매처 <span aria-hidden="true">↗</span></a></div>
-  </article>
+<section class="home-schedule-month"><h3>2026년 10월</h3><div class="home-schedule-grid"><article class="home-schedule-card" data-home-event-id="kento-nakajima-2026-10-03"><div><span class="section-kicker">J-POP / IDOL</span><h3><a href="./events/kento-nakajima-2026-10-03">나카지마 켄토 (Kento Nakajima)</a> <small>2회</small></h3></div><dl><div><dt>회차</dt><dd><ul class="home-series-dates"><li><a href="./events/kento-nakajima-2026-10-03"><time>2026년 10월 3일(토) 오후 5:00</time><span>회차 상세</span></a><small>예매 상태 예매 시작일 지남 · 일반예매 2026년 6월 4일(목) 오후 2:00 · 가격 <span>최저 132,000원</span><details><summary>좌석별 가격 4개</summary><span>VIP석 250,000원 · R석 154,000원 · S석 143,000원 · A석 132,000원</span></details></small></li><li><a href="./events/kento-nakajima-2026-10-04"><time>2026년 10월 4일(일) 오후 4:00</time><span>회차 상세</span></a><small>예매 상태 예매 시작일 지남 · 일반예매 2026년 6월 4일(목) 오후 2:00 · 가격 <span>최저 132,000원</span><details><summary>좌석별 가격 4개</summary><span>VIP석 250,000원 · R석 154,000원 · S석 143,000원 · A석 132,000원</span></details></small></li></ul></dd></div><div><dt>공연장</dt><dd>올림픽공원 올림픽홀</dd></div><div><dt>예매 상태</dt><dd>예매 시작일 지남</dd></div><div><dt>가격</dt><dd><span>최저 132,000원</span><details><summary>좌석별 가격 4개</summary><span>VIP석 250,000원 · R석 154,000원 · S석 143,000원 · A석 132,000원</span></details></dd></div></dl><p class="home-schedule-verified">일정 확인 2026-09-23 · 가격 확인 2026-09-23</p><div class="home-schedule-links"><a href="https://m.ticket.yes24.com/Perf/58653" target="_blank" rel="noopener noreferrer">공식 예매처 <span aria-hidden="true">↗</span></a></div></article>
+<article class="home-schedule-card" data-home-event-id="andteam-2026-10-03"><div><span class="section-kicker">J-POP / IDOL</span><h3><a href="./events/andteam-2026-10-03">앤팀 (&amp;TEAM)</a> <small>2회</small></h3></div><dl><div><dt>회차</dt><dd><ul class="home-series-dates"><li><a href="./events/andteam-2026-10-03"><time>2026년 10월 3일(토) 오후 6:00</time><span>회차 상세</span></a><small>예매 상태 예매 시작일 지남 · 일반예매 2026년 8월 11일(화) 오후 8:00 · 선예매 2026년 8월 10일(월) 오후 8:00 · 가격 <span>최저 165,000원</span><details><summary>좌석별 가격 3개</summary><span>M&amp;G석 253,000원 · SOUND CHECK석 220,000원 · 일반석 165,000원</span></details></small></li><li><a href="./events/andteam-2026-10-04"><time>2026년 10월 4일(일) 오후 5:00</time><span>회차 상세</span></a><small>예매 상태 예매 시작일 지남 · 일반예매 2026년 8월 11일(화) 오후 8:00 · 선예매 2026년 8월 10일(월) 오후 8:00 · 가격 <span>최저 165,000원</span><details><summary>좌석별 가격 3개</summary><span>M&amp;G석 253,000원 · SOUND CHECK석 220,000원 · 일반석 165,000원</span></details></small></li></ul></dd></div><div><dt>공연장</dt><dd>KSPO DOME</dd></div><div><dt>예매 상태</dt><dd>예매 시작일 지남</dd></div><div><dt>가격</dt><dd><span>최저 165,000원</span><details><summary>좌석별 가격 3개</summary><span>M&amp;G석 253,000원 · SOUND CHECK석 220,000원 · 일반석 165,000원</span></details></dd></div></dl><p class="home-schedule-verified">일정 확인 2026-09-23 · 가격 확인 2026-09-23</p><div class="home-schedule-links"><a href="https://world.nol.com/en/ticket/places/26000892/products/26011092" target="_blank" rel="noopener noreferrer">공식 예매처 <span aria-hidden="true">↗</span></a></div></article>
 <article class="home-schedule-card" data-home-event-id="cero-2026-10-10">
     <div><span class="section-kicker">J-POP / INDIE</span><h3><a href="./events/cero-2026-10-10">세로 (cero)</a></h3></div>
     <dl>
       <div><dt>공연</dt><dd>2026년 10월 10일(토) 오후 7:00</dd></div>
       <div><dt>공연장</dt><dd>KT&amp;G 상상마당 홍대 라이브홀</dd></div>
+      <div><dt>예매 상태</dt><dd>예매 시작일 지남</dd></div>
       <div><dt>일반예매</dt><dd>2026년 8월 3일(월) 오후 12:00</dd></div>
 
       <div><dt>가격</dt><dd>전석 스탠딩 77,000원</dd></div>
@@ -229,7 +185,8 @@
     <dl>
       <div><dt>공연</dt><dd>2026년 10월 17일(토) 시간 미확인</dd></div>
       <div><dt>공연장</dt><dd>WESTBRIDGE</dd></div>
-      <div><dt>일반예매</dt><dd>미정</dd></div>
+      <div><dt>예매 상태</dt><dd>정보 미확인</dd></div>
+      <div><dt>일반예매</dt><dd>정보 미확인</dd></div>
       <div><dt>선예매</dt><dd>확인 중</dd></div>
 
       <div><dt>가격</dt><dd><span>최저 99,000원</span><details><summary>좌석별 가격 2개</summary><span>VIP section 132,000원 · General section 99,000원</span></details></dd></div>
@@ -237,23 +194,13 @@
     <p class="home-schedule-verified">관련 정보 확인 2026-09-23</p>
     <div class="home-schedule-links"><a href="./events/hag-2026-10-17">공연 상세 보기 <span aria-hidden="true">→</span></a><a href="https://ticket.yes24.com/English/Perf/59841" target="_blank" rel="noopener noreferrer">공식 예매처 <span aria-hidden="true">↗</span></a></div>
   </article>
-<article class="home-schedule-card" data-home-event-id="ano-2026-10-17">
-    <div><span class="section-kicker">J-POP / ALT-POP</span><h3><a href="./events/ano-2026-10-17">아노 (ano)</a></h3></div>
-    <dl>
-      <div><dt>공연</dt><dd>2026년 10월 17일(토) 오후 6:00</dd></div>
-      <div><dt>공연장</dt><dd>블루스퀘어 우리WON뱅킹홀</dd></div>
-      <div><dt>일반예매</dt><dd>2026년 7월 21일(화) 오후 8:00</dd></div>
-
-      <div><dt>가격</dt><dd>전석 138,000원</dd></div>
-    </dl>
-    <p class="home-schedule-verified">관련 정보 확인 2026-09-19</p>
-    <div class="home-schedule-links"><a href="./events/ano-2026-10-17">공연 상세 보기 <span aria-hidden="true">→</span></a><a href="https://nol.yanolja.com/ticket/products/26010474" target="_blank" rel="noopener noreferrer">공식 예매처 <span aria-hidden="true">↗</span></a></div>
-  </article>
+<article class="home-schedule-card" data-home-event-id="ano-2026-10-17"><div><span class="section-kicker">J-POP / ALT-POP</span><h3><a href="./events/ano-2026-10-17">아노 (ano)</a> <small>2회</small></h3></div><dl><div><dt>회차</dt><dd><ul class="home-series-dates"><li><a href="./events/ano-2026-10-17"><time>2026년 10월 17일(토) 오후 6:00</time><span>회차 상세</span></a><small>예매 상태 예매 시작일 지남 · 일반예매 2026년 7월 21일(화) 오후 8:00 · 가격 <span>최저 138,000원</span><details><summary>좌석별 가격 2개</summary><span>스탠딩 일반 138,000원 · 지정석 일반 138,000원</span></details></small></li><li><a href="./events/ano-2026-10-18"><time>2026년 10월 18일(일) 오후 6:00</time><span>회차 상세</span></a><small>예매 상태 예매 시작일 지남 · 일반예매 2026년 7월 21일(화) 오후 8:00 · 가격 <span>최저 138,000원</span><details><summary>좌석별 가격 2개</summary><span>스탠딩 일반 138,000원 · 지정석 일반 138,000원</span></details></small></li></ul></dd></div><div><dt>공연장</dt><dd>블루스퀘어 우리WON뱅킹홀</dd></div><div><dt>예매 상태</dt><dd>예매 시작일 지남</dd></div><div><dt>가격</dt><dd><span>최저 138,000원</span><details><summary>좌석별 가격 2개</summary><span>스탠딩 일반 138,000원 · 지정석 일반 138,000원</span></details></dd></div></dl><p class="home-schedule-verified">일정 확인 2026-09-23 · 가격 확인 2026-09-23</p><div class="home-schedule-links"><a href="https://nol.yanolja.com/ticket/products/26010474" target="_blank" rel="noopener noreferrer">공식 예매처 <span aria-hidden="true">↗</span></a></div></article>
 <article class="home-schedule-card" data-home-event-id="omoinotake-2026-10-17">
     <div><span class="section-kicker">J-POP / PIANO TRIO</span><h3><a href="./events/omoinotake-2026-10-17">오모이노타케 (Omoinotake)</a></h3></div>
     <dl>
       <div><dt>공연</dt><dd>2026년 10월 17일(토) 오후 7:00</dd></div>
       <div><dt>공연장</dt><dd>공감센터 공감홀</dd></div>
+      <div><dt>예매 상태</dt><dd>예매 시작일 지남</dd></div>
       <div><dt>일반예매</dt><dd>2026년 5월 13일(수) 낮 12:00</dd></div>
 
       <div><dt>가격</dt><dd><span>최저 99,000원</span><details><summary>좌석별 가격 2개</summary><span>VIP 132,000원 · 일반 99,000원</span></details></dd></div>
@@ -266,7 +213,8 @@
     <dl>
       <div><dt>공연</dt><dd>2026년 10월 18일(일) 시간 미확인</dd></div>
       <div><dt>공연장</dt><dd>YES24 WANDERLOCH HALL</dd></div>
-      <div><dt>일반예매</dt><dd>미정</dd></div>
+      <div><dt>예매 상태</dt><dd>정보 미확인</dd></div>
+      <div><dt>일반예매</dt><dd>정보 미확인</dd></div>
       <div><dt>선예매</dt><dd>확인 중</dd></div>
 
       <div><dt>가격</dt><dd>가격 미확인</dd></div>
@@ -274,24 +222,13 @@
     <p class="home-schedule-verified">관련 정보 확인 2026-09-23</p>
     <div class="home-schedule-links"><a href="./events/takase-toya-2026-10-18">공연 상세 보기 <span aria-hidden="true">→</span></a><a href="https://ticket.yes24.com/English/Perf/60065" target="_blank" rel="noopener noreferrer">공식 예매처 <span aria-hidden="true">↗</span></a></div>
   </article>
-<article class="home-schedule-card" data-home-event-id="ano-2026-10-18">
-    <div><span class="section-kicker">J-POP / ALT-POP</span><h3><a href="./events/ano-2026-10-18">아노 (ano)</a></h3></div>
-    <dl>
-      <div><dt>공연</dt><dd>2026년 10월 18일(일) 오후 6:00</dd></div>
-      <div><dt>공연장</dt><dd>블루스퀘어 우리WON뱅킹홀</dd></div>
-      <div><dt>일반예매</dt><dd>2026년 7월 21일(화) 오후 8:00</dd></div>
-
-      <div><dt>가격</dt><dd>전석 138,000원</dd></div>
-    </dl>
-    <p class="home-schedule-verified">관련 정보 확인 2026-09-19</p>
-    <div class="home-schedule-links"><a href="./events/ano-2026-10-18">공연 상세 보기 <span aria-hidden="true">→</span></a><a href="https://nol.yanolja.com/ticket/products/26010474" target="_blank" rel="noopener noreferrer">공식 예매처 <span aria-hidden="true">↗</span></a></div>
-  </article>
 <article class="home-schedule-card" data-home-event-id="flow-2026-10-28">
     <div><span class="section-kicker">J-ROCK</span><h3><a href="./events/flow-2026-10-28">플로우 (FLOW)</a></h3></div>
     <dl>
       <div><dt>공연</dt><dd>2026년 10월 28일(수) 오후 8:00</dd></div>
       <div><dt>공연장</dt><dd>YES24 LIVE HALL</dd></div>
-      <div><dt>일반예매</dt><dd>2026년 9월 10일(목) 오후 12:00</dd></div>
+      <div><dt>예매 상태</dt><dd>정보 미확인</dd></div>
+      <div><dt>일반예매</dt><dd>정보 미확인</dd></div>
       <div><dt>선예매</dt><dd>확인 중</dd></div>
 
       <div><dt>가격</dt><dd><span>최저 99,000원</span><details><summary>좌석별 가격 3개</summary><span>스탠딩 VIP석 165,000원 · 지정석 110,000원 · 스탠딩 일반석 99,000원</span></details></dd></div>
@@ -304,7 +241,8 @@
     <dl>
       <div><dt>공연</dt><dd>2026년 11월 7일(토) 오후 7:00</dd></div>
       <div><dt>공연장</dt><dd>KT&amp;G 상상마당 라이브홀</dd></div>
-      <div><dt>일반예매</dt><dd>2026년 6월 30일(화) 낮 12:00</dd></div>
+      <div><dt>예매 상태</dt><dd>정보 미확인</dd></div>
+      <div><dt>일반예매</dt><dd>정보 미확인</dd></div>
 
       <div><dt>가격</dt><dd>전석 스탠딩 88,000원</dd></div>
     </dl>
@@ -316,8 +254,9 @@
     <dl>
       <div><dt>공연</dt><dd>2026년 11월 28일(토) 오후 6:00</dd></div>
       <div><dt>공연장</dt><dd>명화라이브홀</dd></div>
-      <div><dt>일반예매</dt><dd>2026년 7월 31일(금) 오후 6:00</dd></div>
-      <div><dt>선예매</dt><dd>2026년 7월 27일(월) 오후 6:00</dd></div>
+      <div><dt>예매 상태</dt><dd>정보 미확인</dd></div>
+      <div><dt>일반예매</dt><dd>정보 미확인</dd></div>
+      <div><dt>선예매</dt><dd>정보 미확인</dd></div>
 
       <div><dt>가격</dt><dd>전석 99,000원</dd></div>
     </dl>
@@ -329,7 +268,8 @@
     <dl>
       <div><dt>공연</dt><dd>2026년 12월 3일(목) 오후 8:00</dd></div>
       <div><dt>공연장</dt><dd>무신사 개러지</dd></div>
-      <div><dt>일반예매</dt><dd>2026년 8월 13일(목) 오후 2:00</dd></div>
+      <div><dt>예매 상태</dt><dd>정보 미확인</dd></div>
+      <div><dt>일반예매</dt><dd>정보 미확인</dd></div>
 
       <div><dt>가격</dt><dd>스탠딩 88,000원</dd></div>
     </dl>
@@ -341,43 +281,22 @@
     <dl>
       <div><dt>공연</dt><dd>2026년 12월 5일(토) 오후 6:00</dd></div>
       <div><dt>공연장</dt><dd>YES24 LIVE HALL</dd></div>
-      <div><dt>일반예매</dt><dd>2026년 8월 10일(월) 오후 8:00</dd></div>
+      <div><dt>예매 상태</dt><dd>정보 미확인</dd></div>
+      <div><dt>일반예매</dt><dd>정보 미확인</dd></div>
 
       <div><dt>가격</dt><dd>전석 138,000원</dd></div>
     </dl>
     <p class="home-schedule-verified">관련 정보 확인 2026-08-12</p>
     <div class="home-schedule-links"><a href="./events/kana-boon-2026-12-05">공연 상세 보기 <span aria-hidden="true">→</span></a><a href="https://ticket.yes24.com/Perf/59553" target="_blank" rel="noopener noreferrer">공식 예매처 <span aria-hidden="true">↗</span></a></div>
   </article>
-<article class="home-schedule-card" data-home-event-id="yuuri-2026-12-05">
-    <div><span class="section-kicker">J-POP / SINGER-SONGWRITER</span><h3><a href="./events/yuuri-2026-12-05">유우리 (YUURI)</a></h3></div>
-    <dl>
-      <div><dt>공연</dt><dd>2026년 12월 5일(토) 오후 6:00</dd></div>
-      <div><dt>공연장</dt><dd>인스파이어 아레나</dd></div>
-      <div><dt>일반예매</dt><dd>2026년 7월 31일(금) 오후 8:00</dd></div>
-
-      <div><dt>가격</dt><dd><span>최저 143,000원</span><details><summary>좌석별 가격 3개</summary><span>R석 165,000원 · S석 154,000원 · A석 143,000원</span></details></dd></div>
-    </dl>
-    <p class="home-schedule-verified">관련 정보 확인 2026-08-12</p>
-    <div class="home-schedule-links"><a href="./events/yuuri-2026-12-05">공연 상세 보기 <span aria-hidden="true">→</span></a><a href="https://nol.yanolja.com/ticket/products/26010352" target="_blank" rel="noopener noreferrer">공식 예매처 <span aria-hidden="true">↗</span></a></div>
-  </article>
-<article class="home-schedule-card" data-home-event-id="yuuri-2026-12-06">
-    <div><span class="section-kicker">J-POP / SINGER-SONGWRITER</span><h3><a href="./events/yuuri-2026-12-06">유우리 (YUURI)</a></h3></div>
-    <dl>
-      <div><dt>공연</dt><dd>2026년 12월 6일(일) 오후 5:00</dd></div>
-      <div><dt>공연장</dt><dd>인스파이어 아레나</dd></div>
-      <div><dt>일반예매</dt><dd>2026년 7월 31일(금) 오후 8:00</dd></div>
-
-      <div><dt>가격</dt><dd><span>최저 143,000원</span><details><summary>좌석별 가격 3개</summary><span>R석 165,000원 · S석 154,000원 · A석 143,000원</span></details></dd></div>
-    </dl>
-    <p class="home-schedule-verified">관련 정보 확인 2026-08-12</p>
-    <div class="home-schedule-links"><a href="./events/yuuri-2026-12-06">공연 상세 보기 <span aria-hidden="true">→</span></a><a href="https://nol.yanolja.com/ticket/products/26010352" target="_blank" rel="noopener noreferrer">공식 예매처 <span aria-hidden="true">↗</span></a></div>
-  </article>
+<article class="home-schedule-card" data-home-event-id="yuuri-2026-12-05"><div><span class="section-kicker">J-POP / SINGER-SONGWRITER</span><h3><a href="./events/yuuri-2026-12-05">유우리 (YUURI)</a> <small>2회</small></h3></div><dl><div><dt>회차</dt><dd><ul class="home-series-dates"><li><a href="./events/yuuri-2026-12-05"><time>2026년 12월 5일(토) 오후 6:00</time><span>회차 상세</span></a><small>예매 상태 정보 미확인 · 일반예매 정보 미확인 · 가격 <span>최저 143,000원</span><details><summary>좌석별 가격 3개</summary><span>R석 165,000원 · S석 154,000원 · A석 143,000원</span></details></small></li><li><a href="./events/yuuri-2026-12-06"><time>2026년 12월 6일(일) 오후 5:00</time><span>회차 상세</span></a><small>예매 상태 정보 미확인 · 일반예매 정보 미확인 · 가격 <span>최저 143,000원</span><details><summary>좌석별 가격 3개</summary><span>R석 165,000원 · S석 154,000원 · A석 143,000원</span></details></small></li></ul></dd></div><div><dt>공연장</dt><dd>인스파이어 아레나</dd></div><div><dt>예매 상태</dt><dd>정보 미확인</dd></div><div><dt>가격</dt><dd><span>최저 143,000원</span><details><summary>좌석별 가격 3개</summary><span>R석 165,000원 · S석 154,000원 · A석 143,000원</span></details></dd></div></dl><p class="home-schedule-verified">일정 확인 2026-07-25 · 가격 확인 2026-08-12</p><div class="home-schedule-links"><a href="https://nol.yanolja.com/ticket/products/26010352" target="_blank" rel="noopener noreferrer">공식 예매처 <span aria-hidden="true">↗</span></a></div></article>
 <article class="home-schedule-card" data-home-event-id="zazen-boys-2026-12-06">
     <div><span class="section-kicker">J-ROCK</span><h3><a href="./events/zazen-boys-2026-12-06">자젠보이즈 (ZAZEN BOYS)</a></h3></div>
     <dl>
       <div><dt>공연</dt><dd>2026년 12월 6일(일) 오후 5:00</dd></div>
       <div><dt>공연장</dt><dd>무신사 개러지</dd></div>
-      <div><dt>일반예매</dt><dd>미정</dd></div>
+      <div><dt>예매 상태</dt><dd>정보 미확인</dd></div>
+      <div><dt>일반예매</dt><dd>정보 미확인</dd></div>
       <div><dt>선예매</dt><dd>확인 중</dd></div>
 
       <div><dt>가격</dt><dd>스탠딩석 99,000원</dd></div>
@@ -390,7 +309,8 @@
     <dl>
       <div><dt>공연</dt><dd>2026년 12월 13일(일) 오후 5:00</dd></div>
       <div><dt>공연장</dt><dd>무신사 개러지</dd></div>
-      <div><dt>일반예매</dt><dd>2026년 8월 31일(월) 오후 7:00</dd></div>
+      <div><dt>예매 상태</dt><dd>정보 미확인</dd></div>
+      <div><dt>일반예매</dt><dd>정보 미확인</dd></div>
 
       <div><dt>가격</dt><dd>전석 스탠딩 88,000원</dd></div>
     </dl>
@@ -402,7 +322,8 @@
     <dl>
       <div><dt>공연</dt><dd>2026년 12월 19일(토) 오후 7:00</dd></div>
       <div><dt>공연장</dt><dd>YES24 LIVE HALL</dd></div>
-      <div><dt>일반예매</dt><dd>미정</dd></div>
+      <div><dt>예매 상태</dt><dd>정보 미확인</dd></div>
+      <div><dt>일반예매</dt><dd>정보 미확인</dd></div>
       <div><dt>선예매</dt><dd>확인 중</dd></div>
 
       <div><dt>가격</dt><dd><span>최저 110,000원</span><details><summary>좌석별 가격 2개</summary><span>지정석 121,000원 · 스탠딩석 110,000원</span></details></dd></div>
@@ -415,7 +336,8 @@
     <dl>
       <div><dt>공연</dt><dd>2026년 12월 20일(일) 오후 6:00</dd></div>
       <div><dt>공연장</dt><dd>YES24 라이브홀</dd></div>
-      <div><dt>일반예매</dt><dd>2026년 8월 19일(수) 낮 12:00</dd></div>
+      <div><dt>예매 상태</dt><dd>정보 미확인</dd></div>
+      <div><dt>일반예매</dt><dd>정보 미확인</dd></div>
 
       <div><dt>가격</dt><dd><span>최저 110,000원</span><details><summary>좌석별 가격 2개</summary><span>1층 스탠딩 110,000원 · 2층 지정석 121,000원</span></details></dd></div>
     </dl>
@@ -427,7 +349,8 @@
     <dl>
       <div><dt>공연</dt><dd>2026년 12월 26일(토) 오후 5:00</dd></div>
       <div><dt>공연장</dt><dd>금정문화회관 금빛누리홀</dd></div>
-      <div><dt>일반예매</dt><dd>2026년 8월 13일(목) 오후 12:00</dd></div>
+      <div><dt>예매 상태</dt><dd>정보 미확인</dd></div>
+      <div><dt>일반예매</dt><dd>정보 미확인</dd></div>
 
       <div><dt>가격</dt><dd><span>최저 55,000원</span><details><summary>좌석별 가격 4개</summary><span>VIP석 88,000원 · R석 77,000원 · S석 66,000원 · A석 55,000원</span></details></dd></div>
     </dl>
@@ -439,7 +362,8 @@
     <dl>
       <div><dt>공연</dt><dd>2027년 1월 9일(토) 오후 6:00</dd></div>
       <div><dt>공연장</dt><dd>고척스카이돔</dd></div>
-      <div><dt>일반예매</dt><dd>2026년 6월 17일(수) 오후 7:00</dd></div>
+      <div><dt>예매 상태</dt><dd>정보 미확인</dd></div>
+      <div><dt>일반예매</dt><dd>정보 미확인</dd></div>
 
       <div><dt>가격</dt><dd><span>최저 132,000원</span><details><summary>좌석별 가격 6개</summary><span>플로어 FR 210,000원 · 플로어 SR 198,000원 · 플로어 R 187,000원 · 지정석 S 165,000원 · 지정석 A 154,000원 · 지정석 B 132,000원</span></details></dd></div>
     </dl>
@@ -451,8 +375,9 @@
     <dl>
       <div><dt>공연</dt><dd>2027년 1월 23일(토) 오후 6:00</dd></div>
       <div><dt>공연장</dt><dd>일산 킨텍스(KINTEX) HALL 9A</dd></div>
-      <div><dt>일반예매</dt><dd>2026년 8월 24일(월) 오후 8:00</dd></div>
-      <div><dt>선예매</dt><dd>2026년 8월 21일(금) 오후 8:00</dd></div>
+      <div><dt>예매 상태</dt><dd>정보 미확인</dd></div>
+      <div><dt>일반예매</dt><dd>정보 미확인</dd></div>
+      <div><dt>선예매</dt><dd>정보 미확인</dd></div>
 
       <div><dt>가격</dt><dd>전석 135,000원</dd></div>
     </dl>
@@ -580,6 +505,6 @@
   <script src="./attendance.js?v=20260813" defer></script>
   <script src="./alerts.js?v=20260729" defer></script>
   <script src="./search-utils.js?v=20260825conversion1" defer></script>
-  <script src="./app.js?v=20260921schedule6" defer></script>
+  <script src="./app.js?v=20260923ux1" defer></script>
 </body>
 </html>

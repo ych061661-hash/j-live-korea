@@ -9,13 +9,22 @@
   }
 
   function fieldsFor(schedule, aliases = {}) {
+    const dateFields = [schedule.concertDate, schedule.ticketDate, schedule.presaleDate].filter(Boolean);
+    const localizedDates = dateFields.flatMap(value => {
+      const match = String(value).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      if (!match) return [];
+      const month = Number(match[2]);
+      const day = Number(match[3]);
+      return [`${month}월 ${day}일`, `${month}월${day}일`, `${month}/${day}`];
+    });
     return [
       schedule.artist,
       ...(aliases[schedule.artist] || []),
       schedule.venue,
       schedule.concertDate,
       schedule.ticketDate,
-      schedule.presaleDate
+      schedule.presaleDate,
+      ...localizedDates
     ].filter(Boolean).map(normalize);
   }
 

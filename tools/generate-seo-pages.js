@@ -7,6 +7,7 @@ const {
   artistIndexHtml, artistPageHtml, artistSlug, buildUpdateHistory,
   snapshotEvents, updatesPageHtml, weeklyPageHtml
 } = require("./discovery-pages");
+const visitor = require("../calendar/visitor-utils");
 
 const root = path.resolve(__dirname, "..");
 const calendar = path.join(root, "calendar");
@@ -99,8 +100,15 @@ function isFreshlyVerified(event, today, maxDays = INDEX_FRESHNESS_DAYS) {
 }
 
 function ticketDateDisplay(event) {
-  if (!event.ticketDate && event.ticketingStatus === "pending_announcement") return "발표 대기";
+  if (!event.ticketDate) return visitor.ticketStatus(event).label;
+  if (!visitor.isVerifiedDate(event, "ticketDate")) return "정보 미확인";
   return humanDate(event.ticketDate, event.ticketTime);
+}
+
+function buildInstant(today) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(String(today || ""))) return new Date();
+  const current = visitor.seoulDateParts();
+  return today === current.date ? new Date() : new Date(`${today}T12:00:00+09:00`);
 }
 
 function isoDateTime(date, time) {
@@ -155,7 +163,7 @@ function seriesDatesMarkup(group, activeId) {
 }
 
 function presaleDisplay(event) {
-  if (event.presaleDate) return humanDate(event.presaleDate, event.presaleTime);
+  if (event.presaleDate) return visitor.isVerifiedDate(event, "presaleDate") ? humanDate(event.presaleDate, event.presaleTime) : "정보 미확인";
   if (event.presaleStatus === "none") return "없음";
   if (event.presaleStatus === "checking") return "확인 중";
   return "공지 미확인";
@@ -233,7 +241,22 @@ function relatedEventsMarkup(event, events, today) {
   return relatedEvents(event, events, today).map(item => `<a href="./events/${encodeURIComponent(item.id)}" data-related-event="${escapeHtml(item.id)}"><span>${escapeHtml(item.genre || "J-POP")}</span><strong>${escapeHtml(item.artist)}</strong><p>${escapeHtml(humanDate(item.concertDate, item.time))}</p><em>${escapeHtml(item.venue)}</em></a>`).join("\n");
 }
 
-function ticketGuideMarkup(event, editorial) {
+function seriesComparisonMarkup(event, group = []) {
+  if (group.length < 2) return "";
+  const dates = group.map(item => `<tr><th scope="row">${escapeHtml(humanDate(item.concertDate))}</th><td>${escapeHtml(item.time || "시간 미확인")}</td></tr>`).join("");
+  const seatPrices = (event.seatPrices || []).filter(item => Number(item.price) > 0 && (!item.priceCurrency || item.priceCurrency === "KRW"));
+  const baseline = seatPrices.length ? Math.min(...seatPrices.map(item => Number(item.price))) : 0;
+  const prices = seatPrices.length
+    ? `<p>권종별 액면가: ${seatPrices.map(item => {
+      const amount = Number(item.price);
+      const difference = amount > baseline ? ` (최저 확인가보다 ${ (amount - baseline).toLocaleString("ko-KR")}원 높음)` : " (최저 확인가)";
+      return `${escapeHtml(item.name)} ${amount.toLocaleString("ko-KR")}원${difference}`;
+    }).join(" · ")}</p>`
+    : "";
+  return `<div class="series-comparison"><h3>회차별 시작 시각 비교</h3><div class="venue-table-wrap"><table class="venue-compare-table"><thead><tr><th scope="col">공연일</th><th scope="col">시작 시각</th></tr></thead><tbody>${dates}</tbody></table></div>${prices}<p class="content-note">권종 가격은 공연별 공식 예매 안내 기준입니다. 금액 차이만 비교했으며 등급별 좌석 위치·특전은 공식 상품 안내에서 확인되는 범위만 표시합니다.</p></div>`;
+}
+
+function ticketGuideMarkup(event, editorial, group = []) {
   const guide = editorial.ticketGuides?.[event.artist];
   const verifiedPrices = Array.isArray(event.seatPrices) && event.seatPrices.length
     ? event.seatPrices.map(item => `${item.name} ${Number(item.price).toLocaleString("ko-KR")}원`).join(" · ")
@@ -246,11 +269,13 @@ function ticketGuideMarkup(event, editorial) {
     ["티켓 수령·모바일 티켓", guide?.ticket],
     ["취소표가 풀리는 방식", guide?.cancellation]
   ].filter(([, value]) => value);
+  const displayedRows = group.length > 1 ? rows.filter(([label]) => label !== "좌석 등급과 가격") : rows;
   return `<section class="editorial-section ticket-analysis">
               <div class="section-kicker">TICKET ANALYSIS</div>
               <h2>공연별 실제 예매 분석</h2>
               <p class="content-note">공식 예매처 기준 · 마지막 확인 ${escapeHtml(event.priceVerifiedAt || guide?.verifiedAt || event.verifiedAt || "기록 없음")}</p>
-              <dl class="analysis-list">${rows.map(([label, value]) => `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>`).join("")}</dl>
+              ${seriesComparisonMarkup(event, group)}
+              <dl class="analysis-list">${displayedRows.map(([label, value]) => `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>`).join("")}</dl>
             </section>`;
 }
 
@@ -273,33 +298,43 @@ function richEventGuideMarkup(event, editorial) {
               <p class="content-note"><a href="../about" rel="author">여일육 작성</a> · <a href="../guides/verification">편집·검증 기준</a> · 마지막 일정 검증 ${escapeHtml(event.verifiedAt || "기록 없음")}</p>
               <h3>이번 공연의 관전 포인트</h3>
               <p>${escapeHtml(guide.focus)}</p>
-  ${optionalSection(
-    "공연 전 더 깊게 듣는 순서",
-    guide.listening
-      ? `입문용 추천곡 3개의 순서와 다를 수 있습니다. 이 글은 공연을 더 깊게 듣기 위한 관점입니다. ${guide.listening}`
-      : "",
-  )}
               ${optionalSection("공연장 도착과 귀가 계획", guide.plan)}
             </section>`;
 }
 
 const hasEditorialGuide = (event, editorial) => Boolean(editorial.eventGuides?.[event.artist]);
 
-function hasIndexableEventContent(event, editorial) {
+function hasReviewedEventQuality(event, editorial, review) {
   const guide = editorial.eventGuides?.[event.artist];
-  const songGuides = editorial.songGuides?.[event.artist] || [];
-  const songs = event.songs || [];
-  return event.ticketingStatus !== "conflict"
+  return Boolean(review
+    && review.quality === "approved"
+    && String(review.reviewedAt || "").match(/^\d{4}-\d{2}-\d{2}$/)
+    && Array.isArray(review.readerTasks) && review.readerTasks.length > 0
+    && Array.isArray(review.specificValue) && review.specificValue.length > 0
+    && Array.isArray(review.evidenceSources) && review.evidenceSources.length > 0
+    && review.duplicateCheck === "clear"
+    && event.status === "confirmed"
+    && event.ticketingStatus !== "conflict"
     && event.verification?.ticketing?.status !== "conflict"
-    && String(editorial.artists?.[event.artist] || "").length >= 40
-    && [guide?.focus, guide?.listening, guide?.plan].every(value => String(value || "").length >= 100)
-    && songGuides.length === 3
-    && songGuides.every(song => String(song.title || "").trim() && String(song.note || "").length >= 35)
-    && String(editorial.venues?.[event.venue] || "").length >= 50
-    && songs.length === 3
-    && songs.every(song => /^https:\/\/(?:www\.)?youtube\.com\/watch\?/i.test(String(song[2] || "")))
     && Array.isArray(event.sources)
-    && event.sources.length > 0;
+    && event.sources.length > 0
+    && review.evidenceSources.some(source => event.sources.includes(source))
+    && (guide || event.ticketDate || event.presaleDate || event.seatPrices?.length));
+}
+
+function hasIndexableEventContent(event, editorial, review) {
+  return hasReviewedEventQuality(event, editorial, review) && review.index === "approved";
+}
+
+function eventPageDecision(event, editorial, review, today) {
+  const fresh = isFreshlyVerified(event, today);
+  const isFuture = event.concertDate >= today;
+  const indexable = hasIndexableEventContent(event, editorial, review)
+    && (isFuture || review?.archive === "approved");
+  const adsAllowed = hasReviewedEventQuality(event, editorial, review)
+    && review?.ads === "approved"
+    && (isFuture || review?.archive === "approved");
+  return { indexable, adsAllowed, needsRecheck: !fresh, archive: !isFuture && review?.archive === "approved" };
 }
 
 function isHomepageEvent(event, today = "") {
@@ -327,13 +362,14 @@ function seatPriceMarkup(event) {
   return prices.length === 1 ? detail : `<span>최저 ${minimum.toLocaleString("ko-KR")}원</span><details><summary>좌석별 가격 ${prices.length}개</summary><span>${escapeHtml(detail)}</span></details>`;
 }
 
-function eventCardMarkup(event, aliases) {
+function eventCardMarkup(event, aliases, now) {
   const status = event.status === "cancelled" ? "공식 취소" : event.status === "postponed" ? "공식 연기" : "";
   return `<article class="home-schedule-card" data-home-event-id="${escapeHtml(event.id)}">
     <div><span class="section-kicker">${escapeHtml(event.genre || "J-POP")}</span><h3><a href="./events/${encodeURIComponent(event.id)}">${escapeHtml(homeArtistName(event, aliases))}</a></h3>${status ? `<p class="home-schedule-status">${status}</p>` : ""}</div>
     <dl>
       <div><dt>공연</dt><dd>${escapeHtml(humanDate(event.concertDate, event.time || "시간 미확인"))}</dd></div>
       <div><dt>공연장</dt><dd>${escapeHtml(event.venue || "미확인")}</dd></div>
+      <div><dt>예매 상태</dt><dd>${escapeHtml(visitor.ticketStatus(event, now).label)}</dd></div>
       <div><dt>일반예매</dt><dd>${escapeHtml(ticketDateDisplay(event))}</dd></div>
 ${event.presaleDate || event.presaleStatus ? `      <div><dt>선예매</dt><dd>${escapeHtml(presaleDisplay(event))}</dd></div>\n` : ""}
       <div><dt>가격</dt><dd>${seatPriceMarkup(event)}</dd></div>
@@ -343,7 +379,7 @@ ${event.presaleDate || event.presaleStatus ? `      <div><dt>선예매</dt><dd>$
   </article>`;
 }
 
-function monthGroupsMarkup(events, aliases) {
+function monthGroupsMarkup(events, aliases, now) {
   const groups = new Map();
   for (const event of events) {
     const key = event.concertDate.slice(0, 7);
@@ -352,17 +388,32 @@ function monthGroupsMarkup(events, aliases) {
   }
   return [...groups.entries()].sort(([left], [right]) => left.localeCompare(right)).map(([key, entries]) => {
     const [year, month] = key.split("-").map(Number);
-    const cards = entries.sort((a, b) => a.concertDate.localeCompare(b.concertDate) || (a.time || "").localeCompare(b.time || "") || a.id.localeCompare(b.id)).map(event => eventCardMarkup(event, aliases)).join("\n");
+    const ordered = entries.sort((a, b) => a.concertDate.localeCompare(b.concertDate) || (a.time || "").localeCompare(b.time || "") || a.id.localeCompare(b.id));
+    const series = new Map();
+    for (const event of ordered) {
+      const seriesId = seriesKey(event);
+      if (!series.has(seriesId)) series.set(seriesId, []);
+      series.get(seriesId).push(event);
+    }
+    const cards = [...series.values()].map(group => {
+      if (group.length === 1) return eventCardMarkup(group[0], aliases, now);
+      const event = group[0];
+      const dates = group.map(item => `<li><a href="./events/${encodeURIComponent(item.id)}"><time>${escapeHtml(humanDate(item.concertDate, item.time || "시간 미확인"))}</time><span>회차 상세</span></a><small>예매 상태 ${escapeHtml(visitor.ticketStatus(item, now).label)} · 일반예매 ${escapeHtml(ticketDateDisplay(item))}${item.presaleDate || item.presaleStatus ? ` · 선예매 ${escapeHtml(presaleDisplay(item))}` : ""} · 가격 ${seatPriceMarkup(item)}</small></li>`).join("");
+      const samePrices = new Set(group.map(item => JSON.stringify(item.seatPrices || []))).size === 1;
+      return `<article class="home-schedule-card" data-home-event-id="${escapeHtml(event.id)}"><div><span class="section-kicker">${escapeHtml(event.genre || "J-POP")}</span><h3><a href="./events/${encodeURIComponent(event.id)}">${escapeHtml(homeArtistName(event, aliases))}</a> <small>${group.length}회</small></h3></div><dl><div><dt>회차</dt><dd><ul class="home-series-dates">${dates}</ul></dd></div><div><dt>공연장</dt><dd>${escapeHtml(event.venue || "미확인")}</dd></div><div><dt>예매 상태</dt><dd>${escapeHtml(visitor.ticketStatus(event, now).label)}</dd></div>${samePrices ? `<div><dt>가격</dt><dd>${seatPriceMarkup(event)}</dd></div>` : ""}</dl><p class="home-schedule-verified">일정 확인 ${escapeHtml(event.scheduleVerifiedAt || event.verifiedAt || "기록 없음")} · 가격 확인 ${escapeHtml(event.priceVerifiedAt || "기록 없음")}</p><div class="home-schedule-links">${event.vendorUrl ? `<a href="${escapeHtml(event.vendorUrl)}" target="_blank" rel="noopener noreferrer">공식 예매처 <span aria-hidden="true">↗</span></a>` : ""}</div></article>`;
+    }).join("\n");
     return `<section class="home-schedule-month"><h3>${year}년 ${month}월</h3><div class="home-schedule-grid">${cards}</div></section>`;
   }).join("\n");
 }
 
-function ticketGroups(events, today) {
+function ticketGroups(events, today, now = buildInstant(today)) {
   const entries = [];
   for (const event of events) {
     if (["cancelled", "postponed"].includes(event.status)) continue;
-    for (const [type, date, time] of [["presale", event.presaleDate, event.presaleTime], ["ticket", event.ticketDate, event.ticketTime]]) {
-      if (!date || date < today) continue;
+    for (const [type, date, time, field] of [["presale", event.presaleDate, event.presaleTime, "presaleDate"], ["ticket", event.ticketDate, event.ticketTime, "ticketDate"]]) {
+      if (!date || !visitor.isVerifiedDate(event, field)) continue;
+      const current = visitor.seoulDateParts(now);
+      if (date < current.date || (date === current.date && time && visitor.timeMinutes(time) <= current.minutes)) continue;
       entries.push({ event, type, date, time: time || "", label: type === "presale" ? "선예매" : (event.ticketLabel || "일반예매") });
     }
   }
@@ -375,8 +426,8 @@ function ticketGroups(events, today) {
   return [...groups.values()].sort((a, b) => a.date.localeCompare(b.date) || a.time.localeCompare(b.time) || a.event.artist.localeCompare(b.event.artist));
 }
 
-function ticketGroupsMarkup(events, aliases, today) {
-  const cards = ticketGroups(events, today).map(group => {
+function ticketGroupsMarkup(events, aliases, today, now = buildInstant(today)) {
+  const cards = ticketGroups(events, today, now).map(group => {
     const targets = group.events.map(event => humanDate(event.concertDate, event.time || "시간 미확인")).join(" · ");
     return `<article class="home-ticket-card"><span class="section-kicker">${escapeHtml(group.label)}</span><h3>${escapeHtml(homeArtistName(group.event, aliases))}</h3><p><strong>${escapeHtml(humanDate(group.date, group.time || "시간 미확인"))}</strong></p><p>대상 공연: ${escapeHtml(targets)}</p><a href="./events/${encodeURIComponent(group.event.id)}">공연·예매 조건 보기 <span aria-hidden="true">→</span></a></article>`;
   }).join("\n");
@@ -384,9 +435,10 @@ function ticketGroupsMarkup(events, aliases, today) {
 }
 
 function homepageScheduleMarkup(events, aliases, today = "") {
+  const now = buildInstant(today);
   const publicEvents = events.filter(event => isHomepageEvent(event, today));
-  const upcoming = monthGroupsMarkup(publicEvents, aliases) || "<p class=\"home-schedule-empty\">현재 공개 가능한 예정 공연이 없습니다.</p>";
-  const tickets = ticketGroupsMarkup(publicEvents, aliases, today);
+  const upcoming = monthGroupsMarkup(publicEvents, aliases, now) || "<p class=\"home-schedule-empty\">현재 공개 가능한 예정 공연이 없습니다.</p>";
+  const tickets = ticketGroupsMarkup(publicEvents, aliases, today, now);
   return `<section class="home-schedule" id="homeSchedule" aria-labelledby="homeScheduleTitle">
     <div class="home-schedule-heading"><div><span class="section-kicker">ALL UPCOMING SHOWS</span><h2 id="homeScheduleTitle">전체 예정 공연</h2><p>공식 개최 정보가 확인된 공연을 공연일 순으로 제공합니다. 달력의 범례·필터는 월간 그리드에만 적용되고, 아래 전환은 목록의 날짜 기준을 바꿉니다. 마지막 확인일이 오래된 정보는 예매 전 공식 출처를 다시 확인하세요.</p></div><a href="#calendar">달력에서 날짜 찾기 <span aria-hidden="true">↓</span></a></div>
     <div class="home-schedule-switch" role="group" aria-label="목록 기준 선택"><button type="button" data-home-view="concert" aria-pressed="true">다가오는 공연</button><button type="button" data-home-view="ticket" aria-pressed="false">예매 오픈 예정</button></div>
@@ -400,6 +452,7 @@ function homepageMeta(today) {
   const year = Number(String(today).slice(0, 4));
   return {
     year,
+    headingYear: String(year),
     title: `${year} J-POP 내한 공연·티켓팅 일정 | J-LIVE`,
     description: `${year}년 한국에서 열리는 J-POP 내한 공연과 예매 오픈 일정을 공식 출처 기준으로 확인하세요.`,
     ogDescription: `${year}년 J-POP 내한 공연일과 예매 오픈 일정을 공식 출처 기준으로 확인하세요.`
@@ -450,7 +503,7 @@ function articleStructuredData(event, canonical, siteUrl) {
   }).replace(/</g, "\\u003c");
 }
 
-function renderEventPage({ event, events, group, primary, editorial, siteUrl, template, today }) {
+function renderEventPage({ event, events, group, primary, editorial, review, siteUrl, template, today }) {
   const canonical = `${siteUrl}/calendar/events/${encodeURIComponent(primary.id)}`;
   const image = artistImageInfo(event, siteUrl);
   const socialImage = image.url;
@@ -462,7 +515,8 @@ function renderEventPage({ event, events, group, primary, editorial, siteUrl, te
   const imageAlt = image.fallback ? "J-LIVE 기본 공연 이미지" : `${event.artist} 공식 프로필`;
   const imageSize = image.fallback ? 'width="512" height="512"' : 'width="1200" height="675"';
   const imageClass = image.fallback ? ' class="event-photo-fallback"' : "";
-  const indexable = event.status === "confirmed" && event.id === primary.id && group.some(item => item.concertDate >= today) && hasIndexableEventContent(event, editorial) && isFreshlyVerified(event, today);
+  const pageDecision = event.id === primary.id ? eventPageDecision(event, editorial, review, today) : { indexable: false, adsAllowed: false, needsRecheck: false, archive: false };
+  const indexable = pageDecision.indexable;
   const years = [...new Set(group.map(item => item.concertDate.slice(0, 4)))].join("·");
   const [, month, day] = event.concertDate.split("-").map(Number);
   const title = `${event.artist} 내한 ${years} 예매 일정 | ${month}월 ${day}일 공연 정보`;
@@ -472,13 +526,13 @@ function renderEventPage({ event, events, group, primary, editorial, siteUrl, te
   const venueGuide = editorial.venues[event.venue] || `${event.venue} 방문 전 공식 공연장 안내에서 대중교통, 주차와 입장 게이트를 확인하세요.`;
   const songs = (event.songs || []).map(song => song[0]).filter(Boolean);
   const songGuide = songs.length ? `아래 ${songs.join(", ")} 순서는 J-LIVE의 입문용 추천 순서입니다. 각 곡은 공식 YouTube 영상으로 연결됩니다.` : `${event.artist}의 공식 YouTube 채널에서 최근 대표곡과 라이브 영상을 확인하세요.`;
-  const seriesSummary = event.status === "cancelled" ? "이 공연은 공식 취소 상태로 기록되어 있습니다. 자세한 변경 내용은 연결된 공식 출처를 확인하세요." : event.status === "postponed" ? "이 공연은 공식 연기 상태로 기록되어 있습니다. 새 일정은 연결된 공식 출처를 확인하세요." : group.length > 1 ? `이번 내한은 ${group.length}회 공연으로 진행됩니다. 날짜별 공연 시각과 예매 조건이 달라질 수 있으므로 선택한 회차를 확인하세요.` : "현재 공식 확인된 한국 공연은 1회입니다. 추가 회차나 운영 변경은 연결된 공식 출처에서 다시 확인합니다.";
+  const seriesSummary = event.status === "cancelled" ? "이 공연은 공식 취소 상태로 기록되어 있습니다. 자세한 변경 내용은 연결된 공식 출처를 확인하세요." : event.status === "postponed" ? "이 공연은 공식 연기 상태로 기록되어 있습니다. 새 일정은 연결된 공식 출처를 확인하세요." : pageDecision.archive || event.concertDate < today ? `지난 공연 기록입니다. 일정과 예매 조건은 당시의 기록이며 현재 판매 상태를 나타내지 않습니다. 동일 시리즈에는 ${group.length}회 공연 기록이 있습니다.` : group.length > 1 ? `이번 내한은 ${group.length}회 공연으로 진행됩니다. 날짜별 공연 시각과 예매 조건이 달라질 수 있으므로 선택한 회차를 확인하세요.` : "현재 공식 확인된 한국 공연은 1회입니다. 추가 회차나 운영 변경은 연결된 공식 출처에서 다시 확인합니다.";
   const robots = indexable ? "index,follow,max-image-preview:large" : "noindex,follow";
-  const ticketAnalysis = ticketGuideMarkup(event, editorial);
+  const ticketAnalysis = ticketGuideMarkup(event, editorial, group);
   const detailGuides = [richEventGuideMarkup(event, editorial)].filter(Boolean).join("\n            ");
 
   return template
-    .replace("<head>", `<head>${indexable ? `\n  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3081918168688274" crossorigin="anonymous"></script>\n${fundingChoicesSnippet}` : ""}`)
+    .replace("<head>", `<head>${pageDecision.adsAllowed ? `\n  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3081918168688274" crossorigin="anonymous"></script>\n${fundingChoicesSnippet}` : ""}`)
     .replace("<title>공연 상세 | 제이라이브 코리아</title>", `<title>${escapeHtml(title)}</title>`)
     .replace('content="J-POP 내한 공연 일정, 예매 정보, 공연장 교통과 대표곡을 확인하세요."', `content="${escapeHtml(description)}"`)
     .replace(/\s*<meta name="robots" content="noindex,follow">\r?\n?/, "\n")
@@ -500,16 +554,19 @@ function renderEventPage({ event, events, group, primary, editorial, siteUrl, te
     .replace('<div class="related-event-grid" id="relatedEvents"></div>', `<div class="related-event-grid" id="relatedEvents">${relatedEventsMarkup(event, events, today)}</div>`)
     .replace(/<section class="editorial-section">\s*<div class="section-kicker">SOURCES<\/div>/, `${detailGuides ? `${detailGuides}\n            ` : ""}<section class="editorial-section">\n              <div class="section-kicker">SOURCES</div>`)
     .replace('<div class="source-links" id="eventSources"></div>', `<div class="source-links" id="eventSources">${sourcesMarkup(event)}</div>`)
-    .replace('<p class="verified-copy" id="eventVerified"></p>', `<p class="verified-copy" id="eventVerified">일정 확인 ${escapeHtml(event.scheduleVerifiedAt || event.verifiedAt || "기록 없음")} · 가격 확인 ${escapeHtml(event.priceVerifiedAt || "미확인")} · 판매 상태 확인 ${escapeHtml(event.ticketStatusVerifiedAt || "미확인")} · 글 수정 ${escapeHtml(event.articleUpdatedAt || event.verifiedAt || "기록 없음")}</p>`)
+    .replace('<p class="verified-copy" id="eventVerified"></p>', `<p class="verified-copy" id="eventVerified">일정 확인 ${escapeHtml(event.scheduleVerifiedAt || event.verifiedAt || "기록 없음")} · 가격 확인 ${escapeHtml(event.priceVerifiedAt || "미확인")} · 판매 상태 확인 ${escapeHtml(event.ticketStatusVerifiedAt || "미확인")} · 글 수정 ${escapeHtml(event.articleUpdatedAt || event.verifiedAt || "기록 없음")}</p>${pageDecision.needsRecheck ? `<p class="content-note">정보 재확인 대상입니다. 위에 적힌 항목별 확인일을 보고 예매 전 공식 출처에서 현재 안내를 다시 확인하세요.</p>` : ""}`)
     .replace('<dd id="factDate"></dd>', `<dd id="factDate">${escapeHtml(humanDate(event.concertDate, event.time))}</dd>`)
     .replace('<dd id="factVenue"></dd>', `<dd id="factVenue">${escapeHtml(event.venue)}</dd>`)
     .replace('<dd id="factPrice"></dd>', `<dd id="factPrice">${escapeHtml(Array.isArray(event.seatPrices) && event.seatPrices.length ? event.seatPrices.map(item => `${item.name} ${Number(item.price).toLocaleString("ko-KR")}원`).join(" · ") : editorial.ticketGuides?.[event.artist]?.price || "공식 예매처 확인")}</dd>`)
     .replace('<dd id="factPresale"></dd>', `<dd id="factPresale">${escapeHtml(presaleDisplay(event))}</dd>`)
     .replace('<dd id="factTicket"></dd>', `<dd id="factTicket">${escapeHtml(ticketDateDisplay(event))}</dd>`)
     .replace('<dd id="factVendor"></dd>', `<dd id="factVendor">${escapeHtml(event.vendor || "미정")}</dd>`)
-    .replace('<dd id="factAvailability"></dd>', `<dd id="factAvailability">${escapeHtml(ticketAvailabilityDisplay(event))}</dd>`)
-    .replace('id="eventTicket" target=', `id="eventTicket" href="${escapeHtml(event.vendorUrl || "#")}" data-track-vendor="${escapeHtml(event.vendor || "미정")}" target=`)
-    .replaceAll('href="./', 'href="../').replaceAll('src="./', 'src="../');
+    .replace('<dd id="factAvailability"></dd>', `<dd id="factAvailability">${escapeHtml(visitor.ticketStatus(event).label)}</dd>`)
+    .replace('<dd id="factScheduleVerified"></dd>', `<dd id="factScheduleVerified">${escapeHtml(event.scheduleVerifiedAt || event.verifiedAt || "기록 없음")}</dd>`)
+    .replace('<dd id="factPriceVerified"></dd>', `<dd id="factPriceVerified">${escapeHtml(event.priceVerifiedAt || "기록 없음")}</dd>`)
+    .replace('id="eventTicket" target=', `id="eventTicket"${event.vendorUrl ? ` href="${escapeHtml(event.vendorUrl)}"` : " hidden"} data-track-vendor="${escapeHtml(event.vendor || "미정")}" target=`)
+    .replaceAll('href="./', 'href="../').replaceAll('src="./', 'src="../')
+    .replace(/^[ \t]+$/gm, "");
 }
 
 function venueSourcesMarkup(guide) {
@@ -786,11 +843,21 @@ function dataReportHtml(events, siteUrl, today) {
   const venueCounts = rankedCounts(yearEvents.map(event => event.venue));
   const vendorCounts = rankedCounts(series.map(event => event.vendor));
   const artists = new Set(yearEvents.map(event => event.artist));
+  const groupPrices = group => {
+    const seats = group.flatMap(event => event.seatPrices || [])
+      .filter(item => (!item.priceCurrency || item.priceCurrency === "KRW") && Number.isFinite(Number(item.price)) && Number(item.price) > 0)
+      .map(item => Number(item.price));
+    if (seats.length) return seats;
+    return group.filter(event => !event.priceCurrency || event.priceCurrency === "KRW")
+      .map(event => Number(event.price)).filter(price => Number.isFinite(price) && price > 0);
+  };
   const priced = seriesGroups.map(group => {
-    const prices = group.filter(event => !event.priceCurrency || event.priceCurrency === "KRW").map(event => Number(event.price)).filter(price => Number.isFinite(price) && price > 0);
+    const prices = groupPrices(group);
     return prices.length ? Math.min(...prices) : null;
   }).filter(price => price !== null);
-  const highestSeats = seriesGroups.flatMap(group => group[0].seatPrices || []).map(item => Number(item.price)).filter(Number.isFinite);
+  const highestSeats = seriesGroups.flatMap(group => group.flatMap(event => event.seatPrices || [])
+    .filter(item => (!item.priceCurrency || item.priceCurrency === "KRW") && Number.isFinite(Number(item.price)) && Number(item.price) > 0)
+    .map(item => Number(item.price)));
   const presales = seriesGroups.filter(group => group.some(event => event.presaleDate)).length;
   const ticketed = seriesGroups.filter(group => group.some(event => event.ticketDate)).length;
   const leadDays = seriesGroups.map(group => {
@@ -810,7 +877,24 @@ function dataReportHtml(events, siteUrl, today) {
   const title = "2026 J-POP 내한 공연 데이터 리포트 | 제이라이브 코리아";
   const description = `공식 출처로 확인한 2026년 일본 아티스트 내한 ${series.length}개 공연 시리즈의 월별 일정, 공연장, 예매처, 가격과 선예매 현황을 분석했습니다.`;
   const socialImage = `${siteUrl}/calendar/assets/brand/j-live-social-card.png`;
-  const reportLinks = seriesGroups.map(group => `<a href="../events/${encodeURIComponent(group[0].id)}"><strong>${escapeHtml(group[0].artist)}</strong><span>${escapeHtml(group.map(event => humanDate(event.concertDate)).join(" · "))}</span></a>`).join("");
+  const sourceRows = seriesGroups.map(group => {
+    const first = group[0];
+    const dates = group.map(event => humanDate(event.concertDate, event.time || "시간 미확인")).join(" · ");
+    const prices = new Map();
+    for (const event of group) {
+      for (const seat of event.seatPrices || []) {
+        if ((!seat.priceCurrency || seat.priceCurrency === "KRW") && Number(seat.price) > 0) prices.set(`${seat.name}|${seat.price}`, `${seat.name} ${Number(seat.price).toLocaleString("ko-KR")}원`);
+      }
+      if (!(event.seatPrices || []).length && (!event.priceCurrency || event.priceCurrency === "KRW") && Number(event.price) > 0) prices.set(`공식 가격|${event.price}`, `공식 페이지 표기 ${Number(event.price).toLocaleString("ko-KR")}원`);
+    }
+    const sources = [...new Set(group.flatMap(event => [...(event.sources || []), event.vendorUrl]).filter(Boolean))];
+    const sourceLinks = sources.map(source => {
+      try { return `<a href="${escapeHtml(source)}" target="_blank" rel="noopener noreferrer">${escapeHtml(new URL(source).hostname.replace(/^www\./, ""))} ↗</a>`; }
+      catch { return ""; }
+    }).filter(Boolean).join(" · ");
+    const verifiedAt = group.flatMap(event => [event.priceVerifiedAt, event.verification?.price?.verifiedAt, event.scheduleVerifiedAt, event.verifiedAt]).filter(Boolean).sort().at(-1) || "미기록";
+    return `<tr><th scope="row"><a href="../events/${encodeURIComponent(first.id)}">${escapeHtml(first.artist)}</a></th><td>${escapeHtml(dates)}</td><td>${escapeHtml([...prices.values()].join(" · ") || "원화 가격 미확인")}</td><td>${sourceLinks || "출처 링크 미등록"}</td><td>${escapeHtml(verifiedAt)}</td></tr>`;
+  }).join("");
   const datasetData = {
     "@context": "https://schema.org", "@type": "Dataset", name: title, description, url: canonical,
     creator: { "@type": "Person", name: "여일육", url: `${siteUrl}/calendar/about` },
@@ -836,16 +920,16 @@ function dataReportHtml(events, siteUrl, today) {
   <main class="guide-article data-report"><span class="section-kicker">J-LIVE ORIGINAL DATA</span><h1>2026 J-POP 내한<br>데이터 리포트</h1>
     <p class="guide-lead">공식 예매처·주최사·아티스트 발표를 대조해 축적한 J-LIVE 공연 기록을 직접 분석했습니다. 단순 목록이 아니라 공연이 언제 집중되고, 어떤 공연장과 예매처가 많이 쓰이며, 티켓 가격과 선예매가 어떻게 구성되는지 보여줍니다.</p>
     <p class="guide-updated"><a href="../about" rel="author">여일육 작성·분석</a> · <a href="../guides/verification">집계·검증 기준</a> · 데이터 기준일 ${escapeHtml(today)}</p>
-    <section class="report-method"><h2>먼저, 숫자를 세는 기준</h2><p><strong>공연 시리즈</strong>는 같은 아티스트·공연장·예매 페이지로 열린 여러 회차를 하나로 셉니다. <strong>확인된 공연 회차</strong>는 같은 날 2회 공연이면 2회, 다른 날짜 2회 공연이면 2회로 세는 실제 무대 단위입니다. <strong>서로 다른 공연 날짜</strong>는 하루에 여러 회차가 있더라도 날짜 1일로만 셉니다. <strong>참여 아티스트</strong>는 단독 공연과 페스티벌의 대표 아티스트 기준이며, 페스티벌 개별 출연진은 별도 합산하지 않습니다. 가격 통계에는 공식 페이지에서 원화 가격이 확인된 시리즈만 포함하며, ‘매진’이나 공연장 최대 수용 인원으로 관객 수를 추정하지 않습니다.</p></section>
+    <section class="report-method"><h2>먼저, 숫자를 세는 기준</h2><p><strong>공연 시리즈</strong>는 같은 아티스트·공연장·예매 페이지로 묶인 기록입니다. 같은 날 2회 공연이면 회차 2개, 서로 다른 날짜면 날짜 2일로 세며, 공연장과 예매 페이지가 같은 페스티벌도 아티스트별 원자료 기록으로 나뉠 수 있어 이 수치는 페스티벌 행사 수와 같지 않습니다. <strong>기록된 아티스트 표기</strong>는 원본 공연 항목의 artist 필드 고유값입니다. 현재 원본에는 단독·페스티벌 출연 유형을 가르는 필드가 없어 전체 페스티벌 라인업 인원이나 단독 아티스트 수로 해석할 수 없습니다. 가격 중앙값은 시리즈 내 확인된 원화 좌석 등급 중 최저 액면가를 기준으로 하고, 확인된 최고 권종가는 명명된 좌석 유형만 포함합니다. ‘매진’이나 공연장 최대 수용 인원으로 관객 수를 추정하지 않습니다.</p></section>
     <section class="report-summary" aria-labelledby="reportSummaryTitle"><h2 id="reportSummaryTitle">한눈에 보는 2026년</h2><div class="report-stat-grid">
-      <div><span>확인된 공연 시리즈</span><strong>${series.length}</strong><small>같은 투어 다회차 중복 제외</small></div><div><span>확인된 공연 회차</span><strong>${yearEvents.length}</strong><small>같은 날 2회 공연도 각각 1회</small></div><div><span>서로 다른 공연 날짜</span><strong>${distinctConcertDates.size}</strong><small>하루 여러 회차는 1일</small></div><div><span>참여 아티스트</span><strong>${artists.size}</strong><small>페스티벌 대표 아티스트 기준</small></div><div><span>가격 확인률</span><strong>${series.length ? Math.round(priced.length / series.length * 100) : 0}%</strong><small>${priced.length}/${series.length}개 시리즈</small></div>
+      <div><span>확인된 공연 시리즈</span><strong>${series.length}</strong><small>같은 아티스트·장소·예매 페이지로 묶은 기록</small></div><div><span>확인된 공연 회차</span><strong>${yearEvents.length}</strong><small>같은 날 2회 공연도 각각 1회</small></div><div><span>서로 다른 공연 날짜</span><strong>${distinctConcertDates.size}</strong><small>하루 여러 회차는 1일</small></div><div><span>기록된 아티스트 표기</span><strong>${artists.size}</strong><small>원본 artist 필드의 고유값</small></div><div><span>가격 확인률</span><strong>${series.length ? Math.round(priced.length / series.length * 100) : 0}%</strong><small>${priced.length}/${series.length}개 시리즈</small></div>
     </div></section>
     <section><span class="section-kicker">WHEN</span><h2>공연은 언제 집중됐나</h2><p>${busiestMonths.length ? `${busiestMonths.map(item => item.label).join("·")}이 ${highestMonthCount}개 공연 회차로 공동 최다입니다.` : "확인된 공연 회차가 없습니다."} 같은 날 여러 회차는 각각 반영하며, 월별 수치는 공식 출처로 확인된 예정·종료 공연을 함께 반영하므로 새 공연이 추가되면 달라집니다.</p>${reportBars(activeMonths, count => `${count}회차`)}</section>
     <section><span class="section-kicker">WHERE</span><h2>가장 많이 쓰인 공연장</h2><p>${topVenue ? `${topVenue.label}에서 ${topVenue.count}개 공연 회차가 확인됐습니다.` : "확인된 공연장이 없습니다."} 같은 날 여러 회차도 각각 반영하므로, 서로 다른 공연 날짜 수와는 다른 지표입니다.</p>${reportBars(venueCounts.slice(0, 8), count => `${count}회차`)}</section>
     <section><span class="section-kicker">TICKETING</span><h2>예매처와 선예매 공개 현황</h2><p>${topVendor ? `${topVendor.label}이 ${topVendor.count}개 시리즈로 가장 많이 사용됐습니다.` : "확인된 예매처가 없습니다."} 일반예매 날짜는 ${ticketed}/${series.length}개, 선예매는 ${presales}/${series.length}개 시리즈에서 공식 발표가 확인됐습니다. 선예매가 없다는 뜻이 아니라, 공개된 일정이 확인된 경우만 셌습니다.</p>${reportBars(vendorCounts, count => `${count}개 시리즈`)}</section>
-    <section><span class="section-kicker">PRICE</span><h2>티켓 가격은 어느 정도였나</h2><div class="report-price-grid"><div><span>시리즈별 최저가 중앙값</span><strong>${medianPrice ? `${medianPrice.toLocaleString("ko-KR")}원` : "자료 부족"}</strong></div><div><span>확인된 최고 좌석가</span><strong>${maxPrice ? `${maxPrice.toLocaleString("ko-KR")}원` : "자료 부족"}</strong></div><div><span>일반예매→첫 공연 중앙값</span><strong>${medianLead !== null ? `${medianLead}일 전` : "자료 부족"}</strong></div></div><p>중앙값은 극단적으로 비싼 VIP석이나 저가 권종 하나에 전체 결과가 흔들리지 않도록 사용했습니다. 최고 좌석가는 특전·사운드체크가 포함된 등급일 수 있으므로 공연 간 단순 품질 비교에는 적합하지 않습니다.</p></section>
+    <section><span class="section-kicker">PRICE</span><h2>티켓 가격은 어느 정도였나</h2><div class="report-price-grid"><div><span>시리즈별 최저 원화 권종 중앙값</span><strong>${medianPrice ? `${medianPrice.toLocaleString("ko-KR")}원` : "자료 부족"}</strong></div><div><span>확인된 최고 명명 권종가</span><strong>${maxPrice ? `${maxPrice.toLocaleString("ko-KR")}원` : "자료 부족"}</strong></div><div><span>일반예매→첫 공연 중앙값</span><strong>${medianLead !== null ? `${medianLead}일 전` : "자료 부족"}</strong></div></div><p>중앙값은 각 시리즈에서 확인된 권종 중 가장 낮은 원화 액면가 1개씩을 사용합니다. VIP·스탠딩·다일권 등 좌석 성격이 다른 가격은 원자료 표에서 이름을 보존하며, 서로의 혜택이나 품질을 금액만으로 비교하지 않습니다. 예매 수수료·배송비는 제외한 값입니다.</p></section>
     <section><span class="section-kicker">WHAT THIS MEANS</span><h2>팬 입장에서 읽을 수 있는 것</h2><ul><li>공연이 몰리는 달에는 같은 예매처의 티켓 오픈과 공연장 귀가 수요가 겹칠 수 있어 일정 저장이 더 중요합니다.</li><li>선예매는 모든 공연의 기본 절차가 아닙니다. 팬클럽 가입 전 실제 한국 공연 공지의 대상 회원·가입 마감일을 먼저 확인해야 합니다.</li><li>표시 가격은 예매 수수료·배송비를 제외한 티켓 액면가 기준입니다. 최종 결제 금액은 예매 단계에서 다시 확인해야 합니다.</li></ul></section>
-    <section><h2>분석에 사용한 전체 공연 기록</h2><p>아래 전체 시리즈는 이 리포트의 원자료입니다. 각 기록의 공식 출처와 마지막 확인일은 공연 상세페이지에서 볼 수 있습니다.</p><div class="report-source-grid">${reportLinks}</div><a class="inline-guide-link" href="../">전체 공연 캘린더 보기 →</a></section>
+    <section><h2>분석에 사용한 전체 공연 기록</h2><p>아래 원자료 표는 시리즈별 공연 날짜·회차, 동일 통화의 권종 가격, 공식 아티스트·주최사·예매처 출처와 마지막 기록 확인일을 보여줍니다. 가격 유형은 일반권·VIP·특전석을 한 가격으로 합치지 않으며, 가격이 없는 것은 미확인으로 둡니다. 공연 구분(단독·페스티벌 출연)을 별도 원본 필드로 관리하지 않아 참여 아티스트 수는 등록된 공연 기록의 아티스트 표기 수이며, 전체 페스티벌 라인업 집계가 아닙니다. 통계의 집계 단위는 위 방법 설명을 따릅니다.</p><details class="report-raw-data"><summary>전체 ${series.length}개 시리즈 원자료 표 보기</summary><div class="venue-table-wrap"><table class="venue-compare-table"><thead><tr><th scope="col">아티스트·상세</th><th scope="col">공연일·회차</th><th scope="col">공식 가격 유형</th><th scope="col">공식 자료 출처</th><th scope="col">마지막 기록 확인</th></tr></thead><tbody>${sourceRows}</tbody></table></div></details><a class="inline-guide-link" href="../">전체 공연 캘린더 보기 →</a></section>
     <section><h2>한계와 수정 원칙</h2><p><strong>원자료 생성일</strong>은 ${escapeHtml(today)}이며, 이 리포트의 계산 기준일입니다. <strong>공식 정보 확인일</strong>은 공연마다 다르며 상세페이지에 별도로 표시됩니다. 발표 전 공연, 비공개 초청 행사, 가격이 이미지로만 제공되어 아직 검증하지 못한 권종은 빠질 수 있습니다. 이 수치는 J-LIVE가 확인한 한국 공연 기록의 분석이지, 전체 한국 공연 시장 통계가 아닙니다. 공식 공지가 바뀌면 원자료와 리포트를 함께 갱신하며, 오류는 정보 수정 요청으로 접수합니다.</p><a class="inline-guide-link" href="../corrections">데이터 오류 제보하기 →</a></section>
   </main><footer class="site-footer"><nav><a href="../about">소개</a><a href="../guides/verification">검증 기준</a><a href="../corrections">정보 수정 요청</a></nav></footer>
 </div></body></html>\n`;
@@ -857,6 +941,7 @@ function main() {
   const events = allEvents.filter(event => event.status === "confirmed");
   const aliases = JSON.parse(readUtf8(path.join(calendar, "data", "artist-aliases.json")));
   const editorial = loadEditorial(path.join(calendar, "content.js"));
+  const pageReviews = JSON.parse(readUtf8(path.join(calendar, "data", "page-reviews.json")));
   const configText = readUtf8(path.join(calendar, "site-config.js"));
   const siteUrlMatch = configText.match(/siteUrl:\s*"([^"]+)"/);
   const siteUrl = (siteUrlMatch ? siteUrlMatch[1] : "https://example.com").replace(/\/$/, "");
@@ -878,6 +963,7 @@ function main() {
       group: confirmed ? confirmedSeries.groupById.get(event.id) : groupById.get(event.id),
       primary: confirmed ? confirmedSeries.primaryById.get(event.id) : primaryById.get(event.id),
       editorial,
+      review: pageReviews.reviews[event.id],
       siteUrl,
       template,
       today
@@ -904,7 +990,9 @@ function main() {
   const artistDirectory = path.join(calendar, "artists");
   fs.mkdirSync(artistDirectory, { recursive: true });
   for (const filename of fs.readdirSync(artistDirectory)) if (filename.endsWith(".html")) fs.unlinkSync(path.join(artistDirectory, filename));
-  const indexablePrimaryEvents = futurePrimaryEvents.filter(event => hasIndexableEventContent(event, editorial) && isFreshlyVerified(event, today));
+  const indexablePrimaryEvents = events.filter(event => confirmedSeries.primaryById.get(event.id)?.id === event.id
+    && hasIndexableEventContent(event, editorial, pageReviews.reviews[event.id])
+    && (event.concertDate >= today ? isFreshlyVerified(event, today) : pageReviews.reviews[event.id]?.archive === "approved"));
   const indexableArtists = new Set(indexablePrimaryEvents.map(event => event.artist));
   for (const [artist, artistEvents] of artistGroups) {
     writeUtf8(path.join(artistDirectory, `${artistSlug(artistEvents[0])}.html`), artistPageHtml({ artist, events: artistEvents, aliases, editorial, siteUrl, today, indexable: indexableArtists.has(artist) }));
@@ -950,6 +1038,7 @@ function main() {
   const primaryEvents = indexablePrimaryEvents;
   const homeMeta = homepageMeta(today);
   const homepage = homepageTemplate
+    .replace("<!-- HOME_HEADING_YEAR -->", String(homeMeta.headingYear))
     .replace("<!-- HOME_YEAR -->", String(homeMeta.year))
     .replace("<!-- HOME_TITLE -->", homeMeta.title)
     .replace("<!-- HOME_TITLE -->", homeMeta.title)
@@ -970,8 +1059,8 @@ function main() {
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(item => `  <url><loc>${escapeHtml(item.loc)}</loc>${item.lastmod ? `<lastmod>${item.lastmod}</lastmod>` : ""}</url>`).join("\n")}\n</urlset>\n`;
   writeUtf8(path.join(root, "sitemap.xml"), sitemap);
   writeUtf8(path.join(root, "robots.txt"), `User-agent: *\nAllow: /\nDisallow: /calendar/admin.html\nSitemap: ${siteUrl}/sitemap.xml\n`);
-  console.log(`Generated ${events.length} pages; ${primaryEvents.length} future series are indexable for ${siteUrl}`);
+  console.log(`Generated ${events.length} pages; ${primaryEvents.length} reviewed event series are indexable for ${siteUrl}`);
 }
 
 if (require.main === module) main();
-module.exports = { articleStructuredData, assertCleanText, buildSeries, checklistMarkup, dataReportHtml, hasEditorialGuide, hasIndexableEventContent, homepageMeta, homepageScheduleMarkup, humanDate, isFreshlyVerified, isHomepageEvent, isHostingConfirmedPending, isPublicEvent, monthGroupsMarkup, relatedEvents, renderEventPage, richEventGuideMarkup, seatPriceMarkup, songsMarkup, sourceLabel, sourcesMarkup, ticketGroups, ticketGroupsMarkup, seoulDateKey, seriesDatesMarkup, seriesKey, structuredData, ticketDateDisplay, ticketGuideMarkup, venueFacilityMapMarkup, venueGuideForEvent, venueIndexHtml, venuePageHtml, youtubeVideoId };
+module.exports = { articleStructuredData, assertCleanText, buildSeries, checklistMarkup, dataReportHtml, eventPageDecision, hasEditorialGuide, hasIndexableEventContent, hasReviewedEventQuality, homepageMeta, homepageScheduleMarkup, humanDate, isFreshlyVerified, isHomepageEvent, isHostingConfirmedPending, isPublicEvent, monthGroupsMarkup, relatedEvents, renderEventPage, richEventGuideMarkup, seatPriceMarkup, songsMarkup, sourceLabel, sourcesMarkup, ticketGroups, ticketGroupsMarkup, seoulDateKey, seriesDatesMarkup, seriesKey, structuredData, ticketDateDisplay, ticketGuideMarkup, venueFacilityMapMarkup, venueGuideForEvent, venueIndexHtml, venuePageHtml, youtubeVideoId };

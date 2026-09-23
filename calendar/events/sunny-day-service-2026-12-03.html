@@ -23,7 +23,8 @@
   <script src="../content.js?v=20260728"></script>
   <script src="../analytics.js" defer></script>
   <script src="../site.js?v=20260825conversion1" defer></script>
-  <script src="../event.js?v=20260825conversion1" defer></script>
+  <script src="../visitor-utils.js?v=20260923ux1"></script>
+  <script src="../event.js?v=20260923ux1" defer></script>
 </head>
 <body data-event-id="sunny-day-service-2026-12-03">
   <div class="shell">
@@ -53,9 +54,11 @@
               <div><dt>공연장</dt><dd id="factVenue">무신사 개러지</dd></div>
               <div><dt>가격</dt><dd id="factPrice">스탠딩 88,000원</dd></div>
               <div><dt>선예매</dt><dd id="factPresale">공지 미확인</dd></div>
-              <div><dt>일반예매</dt><dd id="factTicket">2026년 8월 13일(목) 오후 2:00</dd></div>
+              <div><dt>일반예매</dt><dd id="factTicket">정보 미확인</dd></div>
               <div><dt>예매처</dt><dd id="factVendor">NOL 티켓</dd></div>
-              <div><dt>판매 상태</dt><dd id="factAvailability">공식 예매처 확인</dd></div>
+              <div><dt>판매 상태</dt><dd id="factAvailability">정보 미확인</dd></div>
+              <div><dt>일정 확인일</dt><dd id="factScheduleVerified">2026-08-13</dd></div>
+              <div><dt>가격 확인일</dt><dd id="factPriceVerified">2026-08-12</dd></div>
             </dl>
             <a class="ticket-button" id="eventTicket" href="https://tickets.interpark.com/goods/26011116" data-track-vendor="NOL 티켓" target="_blank" rel="noopener noreferrer">공식 예매처 확인 ↗</a>
             <a class="correction-link" id="correctionLink" href="../corrections">정보 수정 요청</a>
@@ -72,6 +75,7 @@
               <div class="section-kicker">TICKET ANALYSIS</div>
               <h2>공연별 실제 예매 분석</h2>
               <p class="content-note">공식 예매처 기준 · 마지막 확인 2026-08-12</p>
+
               <dl class="analysis-list"><div><dt>좌석 등급과 가격</dt><dd>스탠딩 88,000원</dd></div></dl>
             </section>
             <section class="editorial-section">
@@ -85,7 +89,7 @@
               <p id="venueGuide">서울 마포구 홍대 권역에 있으며 지하철 2호선·공항철도·경의중앙선 홍대입구역을 이용할 수 있습니다. 주말에는 주변 유동 인구가 많아 대중교통 이용을 권합니다.</p>
               <p class="content-note">교통편과 출입구는 당일 운영 상황에 따라 달라질 수 있습니다. 출발 전 주최사와 공연장 공지를 다시 확인하세요.</p>
             </section>
-            <!-- ADSENSE_SLOT_INLINE -->
+<!-- ADSENSE_SLOT_INLINE -->
             <section class="editorial-section">
               <div class="section-kicker">DAY PLAN</div>
               <h2>공연 당일 체크리스트</h2>
@@ -115,7 +119,6 @@
               <p class="content-note"><a href="../about" rel="author">여일육 작성</a> · <a href="../guides/verification">편집·검증 기준</a> · 마지막 일정 검증 2026-08-13</p>
               <h3>이번 공연의 관전 포인트</h3>
               <p>Sunny Day Service 공연은 화려한 장치보다 기타와 리듬, 소카베 케이이치의 담백한 목소리가 일상의 장면을 천천히 꺼내는 과정에 집중해 볼 만합니다. 오래된 대표곡과 최근 연주가 한 세트 안에서 만날 때 기타 톤과 템포가 어떻게 달라지는지 들어보세요. 단순하게 들리는 멜로디도 라이브에서는 멤버의 호흡과 여백에 따라 다른 표정을 만들기 때문에 곡이 끝나는 순간까지 지켜볼 재미가 있습니다.</p>
-  <h3>공연 전 더 깊게 듣는 순서</h3><p>입문용 추천곡 3개의 순서와 다를 수 있습니다. 이 글은 공연을 더 깊게 듣기 위한 관점입니다. &#039;セツナ&#039;는 선명한 기타와 애틋한 멜로디가 함께 달리는 대표곡으로 밴드의 청춘성을 먼저 느끼기 좋습니다. &#039;クリスマス&#039;에서는 계절의 풍경을 담담하게 풀어내는 보컬과 따뜻한 밴드 질감을 비교해 보세요. &#039;苺畑でつかまえて&#039;는 더 부드럽고 몽환적인 분위기로 이어져 Sunny Day Service가 같은 기타 팝 안에서도 장면의 온도를 바꾸는 방식을 보여줍니다.</p>
               <h3>공연장 도착과 귀가 계획</h3><p>무신사 개러지는 홍대입구역에서 접근할 수 있지만 평일 저녁에도 역과 공연장 주변이 붐빌 수 있습니다. 스탠딩 번호와 집합 시각, 티켓 수령 방식을 먼저 확인하고 업무나 수업 뒤 이동한다면 환승 지연까지 고려해 도착 시간을 잡으세요. 큰 짐과 화장실 이용은 입장 대기 전에 마치고, 공연 종료 후에는 홍대입구역의 여러 노선 중 실제 막차가 여유 있는 경로를 선택하세요.</p>
             </section>
             <section class="editorial-section">
@@ -124,7 +127,7 @@
               <div class="source-links" id="eventSources"><a class="source-link" href="https://tickets.interpark.com/goods/26011116" target="_blank" rel="noopener noreferrer">NOL 티켓 공지 ↗</a>
 <a class="source-link" href="https://www.sokabekeiichi.com/" target="_blank" rel="noopener noreferrer">sokabekeiichi.com ↗</a>
 <a class="source-link" href="https://www.youtube.com/@SunnyDayServiceofficial/videos" target="_blank" rel="noopener noreferrer">YouTube ↗</a></div>
-              <p class="verified-copy" id="eventVerified">일정 확인 2026-08-13 · 가격 확인 2026-08-12 · 판매 상태 확인 미확인 · 글 수정 2026-08-13</p>
+              <p class="verified-copy" id="eventVerified">일정 확인 2026-08-13 · 가격 확인 2026-08-12 · 판매 상태 확인 미확인 · 글 수정 2026-08-13</p><p class="content-note">정보 재확인 대상입니다. 위에 적힌 항목별 확인일을 보고 예매 전 공식 출처에서 현재 안내를 다시 확인하세요.</p>
             </section>
           </div>
         </div>

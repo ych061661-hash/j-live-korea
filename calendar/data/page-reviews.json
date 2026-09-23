@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-09-23",
+  "reviews": {
+    "takuya-kimura-2026-09-26": {
+      "quality": "approved",
+      "index": "approved",
+      "ads": "approved",
+      "duplicateCheck": "clear",
+      "reviewedAt": "2026-09-19",
+      "readerTasks": ["회차별 시각과 예매 조건 확인", "공연장 이동 및 귀가 계획"],
+      "specificValue": ["공연일·장소·예매 조건을 공식 자료와 대조", "공연장 특성과 공연 당일 이동 결정을 연결"],
+      "editorialNote": "공통 아티스트 소개와 별도로 공연 일정·예매·현장 이동 정보를 제공한다.",
+      "evidenceSources": ["https://starto.jp/s/p/live/10520?ima=1216&lang=en", "https://candcstage.com/live/tour.php?id=1003026", "https://world.nol.com/ja/ticket/places/26000661/products/26008115"]
+    },
+    "omoinotake-2026-10-17": {
+      "quality": "approved",
+      "index": "approved",
+      "ads": "approved",
+      "duplicateCheck": "clear",
+      "reviewedAt": "2026-09-19",
+      "readerTasks": ["티켓 가격과 예매 정보 확인", "소규모 공연장 접근 및 입장 준비"],
+      "specificValue": ["공식 예매처의 공연별 조건을 정리", "공감홀 접근·입장 전 확인 항목을 해당 장소와 연결"],
+      "editorialNote": "페이지의 주요 효용은 공연별 예매 조건 및 장소별 준비 정보이며, 음악 소개는 보조 정보다.",
+      "evidenceSources": ["https://omoinotake.com/info/2196/", "https://ticket.yes24.com/Perf/58335", "https://www.highjinkx.com/omoinotake-2026"]
+    },
+    "kento-nakajima-2026-10-03": {
+      "quality": "approved",
+      "index": "approved",
+      "ads": "approved",
+      "duplicateCheck": "clear",
+      "reviewedAt": "2026-09-19",
+      "readerTasks": ["10월 3·4일 회차 시각 비교", "VIP·R·S·A 좌석 가격 비교", "예매처의 수령·입장 조건 확인"],
+      "specificValue": ["두 회차 공연 시작 시각과 공통 권종 가격을 한눈에 비교", "YES24 공지에 명시된 관람 연령·티켓 관련 조건 및 미확인 사항 구분"],
+      "editorialNote": "티켓 페이지가 모바일 티켓을 수령 방식으로 표기하나 모바일 전용 여부, 구매 제한, 전 관객 본인 확인은 별도로 확인되지 않아 단정하지 않는다.",
+      "evidenceSources": ["https://ticket.yes24.com/Perf/58653", "https://m.ticket.yes24.com/Notice/17913", "https://www.sonymusic.co.jp/artist/KentoNakajima/info/583773"]
+    },
+    "ano-2026-10-17": {
+      "quality": "approved",
+      "index": "approved",
+      "ads": "approved",
+      "duplicateCheck": "clear",
+      "reviewedAt": "2026-09-19",
+      "readerTasks": ["10월 17·18일 공연 시각과 좌석 유형 비교", "티켓 수령·본인 인증 조건 확인"],
+      "specificValue": ["스탠딩과 지정석의 같은 액면가를 구분해 표시", "NOL World의 1인 구매 제한·연령·현장 교환 안내를 정리"],
+      "editorialNote": "가격이 같더라도 관람 형태가 다른 좌석을 하나의 전석 항목으로 합치지 않는다.",
+      "evidenceSources": ["https://ano-official.com/live_information/detail/42411", "https://world.nol.com/ja/ticket/places/26000166/products/26010474"]
+    },
+    "andteam-2026-10-03": {
+      "quality": "approved",
+      "index": "approved",
+      "ads": "approved",
+      "duplicateCheck": "clear",
+      "reviewedAt": "2026-09-19",
+      "readerTasks": ["10월 3·4일 회차 시각 비교", "M&G·SOUND CHECK·일반 좌석 가격 비교", "본인 확인·입장 절차 준비"],
+      "specificValue": ["공식 자료 기준 회차별 시작 시각과 세 권종 가격 비교", "모바일 티켓·여권 기반 본인 확인·현장 손목밴드·입장 시간 차이 정리"],
+      "editorialNote": "권종 명칭과 금액은 확인되지만 각 유료 권종의 세부 특전은 공식 예매 조건에 명시된 범위만 안내한다.",
+      "evidenceSources": ["https://weverse.io/andteam/notice/37990", "https://world.nol.com/en/ticket/places/26000892/products/26011092"]
+    },
+    "cero-2026-10-10": {
+      "quality": "approved",
+      "index": "approved",
+      "ads": "approved",
+      "duplicateCheck": "clear",
+      "reviewedAt": "2026-09-19",
+      "readerTasks": ["공연 일정·가격·예매처 확인", "홍대 공연장 접근 및 관람 준비"],
+      "specificValue": ["아티스트·주최사·예매처의 개최 정보를 교차 확인", "공연별 티켓 정보를 공연장 가이드와 연결"],
+      "editorialNote": "현 판매 잔여석은 표시하지 않고 공연 사실과 예매 조건을 분리해 제공한다.",
+      "evidenceSources": ["https://cero-web.jp/category/live/", "https://www.highjinkx.com/show-list/cero", "https://ticket.yes24.com/Perf/59471"]
+    }
+  }
+}

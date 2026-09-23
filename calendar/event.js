@@ -28,15 +28,16 @@ function isPublicEvent(event) {
 }
 
 function ticketDateDisplay(event) {
-  if (!event.ticketDate && event.ticketingStatus === "pending_announcement") return "발표 대기";
+  if (!event.ticketDate) return window.JLIVE_VISITOR?.ticketStatus(event).label || "정보 미확인";
+  if (!window.JLIVE_VISITOR?.isVerifiedDate(event, "ticketDate")) return "정보 미확인";
   return humanDate(event.ticketDate, event.ticketTime);
 }
 
 function presaleDisplay(event) {
-  if (event.presaleDate) return humanDate(event.presaleDate, event.presaleTime);
+  if (event.presaleDate) return window.JLIVE_VISITOR?.isVerifiedDate(event, "presaleDate") ? humanDate(event.presaleDate, event.presaleTime) : "정보 미확인";
   if (event.presaleStatus === "none") return "없음";
   if (event.presaleStatus === "checking") return "확인 중";
-  return "공지 미확인";
+  return event.ticketingStatus === "pending_announcement" ? "공식 발표 대기" : "정보 미확인";
 }
 
 function verifiedTicketAvailability(event) {
@@ -229,12 +230,16 @@ function renderEvent(event, events) {
   document.querySelector("#factTicket").textContent = ticketDateDisplay(event);
   document.querySelector("#factVendor").textContent = event.vendor || "미정";
   document.querySelector("#factPrice").textContent = priceDisplay(event);
-  document.querySelector("#factAvailability").textContent = ticketAvailabilityDisplay(event);
+  const ticketState = window.JLIVE_VISITOR?.ticketStatus(event);
+  document.querySelector("#factAvailability").textContent = ticketState?.label || ticketAvailabilityDisplay(event);
+  document.querySelector("#factScheduleVerified").textContent = event.scheduleVerifiedAt || event.verifiedAt || "기록 없음";
+  document.querySelector("#factPriceVerified").textContent = event.priceVerifiedAt || "기록 없음";
   document.querySelector("#eventVerified").textContent = `일정 확인 ${event.scheduleVerifiedAt || event.verifiedAt || "미확인"} · 가격 확인 ${event.priceVerifiedAt || "미확인"} · 판매 상태 확인 ${event.ticketStatusVerifiedAt || "미확인"} · 글 수정 ${event.articleUpdatedAt || event.verifiedAt || "미확인"}`;
 
   const ticket = document.querySelector("#eventTicket");
   ticket.hidden = !event.vendorUrl;
-  ticket.href = event.vendorUrl || "#";
+  if (event.vendorUrl) ticket.href = event.vendorUrl;
+  else ticket.removeAttribute("href");
   ticket.dataset.trackVendor = event.vendor || "미정";
   const correctionBase = location.pathname.includes("/calendar/events/") ? "../corrections" : "./corrections";
   document.querySelector("#correctionLink").href = `${correctionBase}?event=${encodeURIComponent(event.id)}&artist=${encodeURIComponent(event.artist)}`;

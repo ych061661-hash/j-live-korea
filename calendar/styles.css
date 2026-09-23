@@ -1242,6 +1242,17 @@ footer { padding:22px 0 34px; color:#686970; font-size:11px; text-align:center; 
 .home-page .calendar-area { padding:28px; }
 .home-page .artist-search { padding:16px 18px; border-color:rgba(215,255,79,.24); background:linear-gradient(110deg,rgba(215,255,79,.09),transparent 48%),var(--surface); }
 .home-page .artist-search-heading span { font-size:9px; }
+.home-hero-search { position:relative; max-width:640px; margin:24px auto 0; text-align:left; }
+.home-hero-search .search-help { margin:7px 0 0; color:var(--muted); font-size:11px; line-height:1.5; }
+.home-page .artist-search-result-row { grid-template-columns:minmax(0,1fr) auto auto; }
+.home-page .artist-search-result { min-height:48px; }
+.home-page .artist-search-ticket { min-width:54px; min-height:44px; box-sizing:border-box; }
+.home-series-dates { display:grid; gap:6px; margin:0; padding:0; list-style:none; }
+.home-series-dates li { display:grid; gap:3px; }
+.home-series-dates li > a { display:flex; justify-content:space-between; gap:8px; color:var(--text); text-decoration:underline; text-decoration-color:rgba(255,255,255,.25); text-underline-offset:3px; }
+.home-series-dates li > a span,.home-series-dates li > small { color:var(--muted); font-size:10px; }
+.weekly-nav { display:flex; flex-wrap:wrap; gap:10px; margin:18px 0; }
+.weekly-nav a { display:inline-flex; align-items:center; min-height:42px; padding:0 13px; border:1px solid var(--line); border-radius:99px; color:var(--lime); text-decoration:none; }
 .home-page .calendar-toolbar { padding:0 2px; }
 .home-page .month-nav h2 { font-size:25px; letter-spacing:-.035em; }
 .home-page .weekdays { color:#81828a; font-size:11px; letter-spacing:.08em; }
@@ -1352,6 +1363,7 @@ footer { padding:22px 0 34px; color:#686970; font-size:11px; text-align:center; 
 .home-page .hero .eyebrow { color:var(--lime); font-size:12px; font-weight:800; letter-spacing:.12em; }
 .home-page .hero h1 { max-width:930px; margin:20px auto 24px; font-size:clamp(54px,8vw,96px); line-height:.98; letter-spacing:-.075em; }
 .home-page .hero h1 span { display:block; color:#a7a8af; }
+.home-page .hero h1 span:first-child { color:var(--text); }
 .home-page .hero-copy { max-width:600px; margin:0 auto; padding:0; border:0; color:var(--muted); font-size:16px; line-height:1.7; text-wrap:balance; }
 .home-page .email-alerts-top {
   grid-template-columns:minmax(0,1fr) minmax(420px,.85fr);

@@ -23,7 +23,8 @@
   <script src="../content.js?v=20260728"></script>
   <script src="../analytics.js" defer></script>
   <script src="../site.js?v=20260825conversion1" defer></script>
-  <script src="../event.js?v=20260825conversion1" defer></script>
+  <script src="../visitor-utils.js?v=20260923ux1"></script>
+  <script src="../event.js?v=20260923ux1" defer></script>
 </head>
 <body data-event-id="echoes-aooo-2026-06-12">
   <div class="shell">
@@ -53,9 +54,11 @@
               <div><dt>공연장</dt><dd id="factVenue">YES24 원더로크홀</dd></div>
               <div><dt>가격</dt><dd id="factPrice">3일권 258,000원 · 1일권 99,000원</dd></div>
               <div><dt>선예매</dt><dd id="factPresale">공지 미확인</dd></div>
-              <div><dt>일반예매</dt><dd id="factTicket">2026년 2월 20일(금) 오후 8:00</dd></div>
+              <div><dt>일반예매</dt><dd id="factTicket">정보 미확인</dd></div>
               <div><dt>예매처</dt><dd id="factVendor">YES24 티켓</dd></div>
-              <div><dt>판매 상태</dt><dd id="factAvailability">공식 예매처 확인</dd></div>
+              <div><dt>판매 상태</dt><dd id="factAvailability">공연 종료</dd></div>
+              <div><dt>일정 확인일</dt><dd id="factScheduleVerified">2026-06-11</dd></div>
+              <div><dt>가격 확인일</dt><dd id="factPriceVerified">2026-08-12</dd></div>
             </dl>
             <a class="ticket-button" id="eventTicket" href="https://ticket.yes24.com/Perf/57214" data-track-vendor="YES24 티켓" target="_blank" rel="noopener noreferrer">공식 예매처 확인 ↗</a>
             <a class="correction-link" id="correctionLink" href="../corrections">정보 수정 요청</a>
@@ -65,13 +68,14 @@
             <section class="editorial-section series-section">
               <div class="section-kicker">CONCERT DATES</div>
               <h2>확인된 공연 일정</h2>
-              <p id="seriesSummary">현재 공식 확인된 한국 공연은 1회입니다. 추가 회차나 운영 변경은 연결된 공식 출처에서 다시 확인합니다.</p>
+              <p id="seriesSummary">지난 공연 기록입니다. 일정과 예매 조건은 당시의 기록이며 현재 판매 상태를 나타내지 않습니다. 동일 시리즈에는 1회 공연 기록이 있습니다.</p>
               <ul class="series-date-list" id="seriesDates"><li class="active"><a href="echoes-aooo-2026-06-12">2026년 6월 12일(금) 오후 6:00</a></li></ul>
             </section>
             <section class="editorial-section ticket-analysis">
               <div class="section-kicker">TICKET ANALYSIS</div>
               <h2>공연별 실제 예매 분석</h2>
               <p class="content-note">공식 예매처 기준 · 마지막 확인 2026-08-12</p>
+
               <dl class="analysis-list"><div><dt>좌석 등급과 가격</dt><dd>3일권 258,000원 · 1일권 99,000원</dd></div></dl>
             </section>
             <section class="editorial-section">
@@ -85,7 +89,7 @@
               <p id="venueGuide">서울 신촌 아트레온 건물에 있습니다. 지하철 2호선 신촌역에서 도보로 이동할 수 있으며, 입장 대기 공간이 넓지 않아 공지된 번호별 대기 시간을 확인하는 편이 좋습니다.</p><a class="inline-guide-link" href="../guides/venues/wanderloch-hall">YES24 원더로크홀 현장 가이드 보기 →</a>
               <p class="content-note">교통편과 출입구는 당일 운영 상황에 따라 달라질 수 있습니다. 출발 전 주최사와 공연장 공지를 다시 확인하세요.</p>
             </section>
-            <!-- ADSENSE_SLOT_INLINE -->
+<!-- ADSENSE_SLOT_INLINE -->
             <section class="editorial-section">
               <div class="section-kicker">DAY PLAN</div>
               <h2>공연 당일 체크리스트</h2>
@@ -113,7 +117,7 @@
               <div class="section-kicker">SOURCES</div>
               <h2>공식 출처와 검증 기록</h2>
               <div class="source-links" id="eventSources"><a class="source-link" href="https://ticket.yes24.com/Perf/57214" target="_blank" rel="noopener noreferrer">YES24 예매 페이지 ↗</a></div>
-              <p class="verified-copy" id="eventVerified">일정 확인 2026-06-11 · 가격 확인 2026-08-12 · 판매 상태 확인 미확인 · 글 수정 2026-06-11</p>
+              <p class="verified-copy" id="eventVerified">일정 확인 2026-06-11 · 가격 확인 2026-08-12 · 판매 상태 확인 미확인 · 글 수정 2026-06-11</p><p class="content-note">정보 재확인 대상입니다. 위에 적힌 항목별 확인일을 보고 예매 전 공식 출처에서 현재 안내를 다시 확인하세요.</p>
             </section>
           </div>
         </div>
