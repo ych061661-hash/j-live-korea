@@ -467,7 +467,7 @@ test("uses accessible home schedule controls and replaces the static list after 
   assert.match(app, /공연 일정을 불러오는 중입니다/);
   assert.match(app, /schedulesReady = true;\s*restoreHomeScheduleState\(\);\s*renderArtistSearch\(\);/);
   assert.match(app, /history\.replaceState\(\{ \.\.\.\(history\.state \|\| \{\}\), homeSchedule: state \}, ""\)/);
-  assert.match(app, /closeArtistSearch\(false\);\s*saveHomeScheduleState\(\);\s*selectSchedule\(schedule, "concert", schedule\.concertDate\);/);
+  assert.match(app, /closeArtistSearch\(false\);\s*saveHomeScheduleState\(\);\s*selectSchedule\(schedule, "concert", schedule\.concertDate, true, button\);/);
   assert.match(app, /location\.assign\(link\.href\)/);
   assert.match(app, /window\.addEventListener\("pagehide", saveHomeScheduleState\)/);
   assert.match(app, /window\.addEventListener\("pageshow", event => \{\s*if \(!event\.persisted\) return;\s*restoreHomeScheduleState\(\);\s*renderArtistSearch\(\);\s*renderHomeSchedule\(\);/);

@@ -86,7 +86,9 @@ let mobileDetailHistoryActive = false;
 let mobileDetailScrollY = 0;
 let mobileDetailReturnFocus = null;
 let mobileDetailReturnFocusSelector = "";
+let mobileDetailRestoreSearchResults = false;
 let homeScheduleView = "concert";
+let restoredHomeScheduleState = null;
 const homeScheduleStateKey = "j-live-home-schedule-state";
 const mobileQuery = window.matchMedia("(max-width: 820px)");
 
@@ -261,7 +263,11 @@ function saveHomeScheduleState() {
   const state = {
     query: artistSearch?.value || "",
     view: homeScheduleView,
-    scrollY: window.scrollY
+    scrollY: window.scrollY,
+    month: `${viewDate.getFullYear()}-${String(viewDate.getMonth() + 1).padStart(2, "0")}`,
+    selectedId,
+    selectedType,
+    selectedDateKey
   };
   try {
     history.replaceState({ ...(history.state || {}), homeSchedule: state }, "");
@@ -273,8 +279,13 @@ function saveHomeScheduleState() {
 function restoreHomeScheduleState() {
   try {
     const state = history.state?.homeSchedule || JSON.parse(sessionStorage.getItem(homeScheduleStateKey) || "{}");
+    restoredHomeScheduleState = state;
     if (typeof state.query === "string") artistSearch.value = state.query;
     if (state.view === "ticket" || state.view === "concert") homeScheduleView = state.view;
+    if (/^\d{4}-(0[1-9]|1[0-2])$/.test(state.month || "")) {
+      const [year, month] = state.month.split("-").map(Number);
+      viewDate = new Date(year, month - 1, 1);
+    }
     artistSearchReset.hidden = !artistSearch.value.trim();
     if (Number.isFinite(state.scrollY) && state.scrollY > 0) requestAnimationFrame(() => window.scrollTo(0, state.scrollY));
   } catch {}
@@ -1078,6 +1089,7 @@ function openMobileDetail(schedule, returnFocus = document.activeElement) {
   if (!mobileQuery.matches) return;
   mobileDetailScrollY = window.scrollY;
   mobileDetailReturnFocus = returnFocus instanceof HTMLElement ? returnFocus : null;
+  mobileDetailRestoreSearchResults = Boolean(mobileDetailReturnFocus?.closest("#artistSearchResults"));
   const activeDay = mobileDetailReturnFocus?.closest(".day[data-date]");
   mobileDetailReturnFocusSelector = activeDay?.dataset.date ? `.day[data-date="${activeDay.dataset.date}"]` : "";
   if (!mobileDetailHistoryActive) {
@@ -1098,30 +1110,32 @@ function closeMobileDetail({ fromHistory = false } = {}) {
   }
   mobileDetailHistoryActive = false;
   requestAnimationFrame(() => {
+    if (mobileDetailRestoreSearchResults) artistSearchResults.hidden = false;
     window.scrollTo({ top: mobileDetailScrollY, behavior: "auto" });
     const returnTarget = mobileDetailReturnFocusSelector ? document.querySelector(mobileDetailReturnFocusSelector) : mobileDetailReturnFocus;
     returnTarget?.focus({ preventScroll: true });
     mobileDetailReturnFocus = null;
     mobileDetailReturnFocusSelector = "";
+    mobileDetailRestoreSearchResults = false;
   });
 }
 
-function selectSchedule(schedule, type = "concert", key = schedule.concertDate, openDetail = true) {
-  const returnFocus = document.activeElement;
+function selectSchedule(schedule, type = "concert", key = schedule.concertDate, openDetail = true, returnFocus = document.activeElement) {
   selectedId = schedule.id;
   selectedType = type;
   selectedDateKey = key;
   renderDetail(schedule, type);
   renderLineup(key);
   renderCalendar();
+  saveHomeScheduleState();
   if (openDetail) openMobileDetail(schedule, returnFocus);
 }
 
-function selectCalendarDate(key) {
+function selectCalendarDate(key, returnFocus = document.activeElement) {
   const dayEvents = eventsForDate(key);
   const firstEvent = dayEvents.find(({ type }) => type !== "festival" && filters.has(type));
   if (firstEvent) {
-    selectSchedule(firstEvent.schedule, firstEvent.type, key);
+    selectSchedule(firstEvent.schedule, firstEvent.type, key, true, returnFocus);
     return;
   }
   const festivalEvent = dayEvents.find(({ type }) => type === "festival");
@@ -1138,8 +1152,9 @@ function selectCalendarDate(key) {
   empty.hidden = false;
   empty.innerHTML = `<strong>${escapeHtml(formatDate(key))}</strong><span>이 날짜에는 등록된 공연이나 예매 일정이 없습니다.</span>`;
   renderCalendar();
+  saveHomeScheduleState();
   window.JLIVE_ANALYTICS.track("calendar_empty_date_select", { date: key });
-  openMobileDetail();
+  openMobileDetail(null, returnFocus);
 }
 
 document.querySelector("#dayLineup").addEventListener("click", event => {
@@ -1411,7 +1426,7 @@ artistSearchResults.addEventListener("click", event => {
   viewDate = parseDate(schedule.concertDate);
   closeArtistSearch(false);
   saveHomeScheduleState();
-  selectSchedule(schedule, "concert", schedule.concertDate);
+  selectSchedule(schedule, "concert", schedule.concertDate, true, button);
 });
 
 document.querySelector("#ticketButton").addEventListener("click", () => {
@@ -1432,16 +1447,19 @@ document.querySelector("#detailPageButton").addEventListener("click", () => {
 document.querySelectorAll(".filter").forEach(button => button.addEventListener("click", () => {
   filters.has(button.dataset.type) ? filters.delete(button.dataset.type) : filters.add(button.dataset.type);
   button.classList.toggle("active", filters.has(button.dataset.type));
+  button.setAttribute("aria-pressed", String(filters.has(button.dataset.type)));
   renderCalendar();
 }));
 
 document.querySelector("#prevMonth").addEventListener("click", () => {
   viewDate = new Date(viewDate.getFullYear(), viewDate.getMonth() - 1, 1);
   renderCalendar();
+  saveHomeScheduleState();
 });
 document.querySelector("#nextMonth").addEventListener("click", () => {
   viewDate = new Date(viewDate.getFullYear(), viewDate.getMonth() + 1, 1);
   renderCalendar();
+  saveHomeScheduleState();
 });
 document.querySelector("#notifyButton").addEventListener("click", async event => {
   try {
@@ -1459,7 +1477,7 @@ window.addEventListener("popstate", () => {
   closeMobileDetail({ fromHistory: true });
 });
 document.addEventListener("keydown", event => {
-  if (event.key === "Escape") closeMobileDetail();
+  if (event.key === "Escape" && document.body.classList.contains("mobile-detail-open")) closeMobileDetail();
 });
 mobileQuery.addEventListener("change", event => {
   if (!event.matches) closeMobileDetail();
@@ -1501,14 +1519,14 @@ calendar.addEventListener("mouseleave", () => document.querySelectorAll(".day").
 calendar.addEventListener("click", event => {
   if (event.target.closest(".event-chip")) return;
   const day = event.target.closest(".day");
-  if (day) selectCalendarDate(day.dataset.date);
+  if (day) selectCalendarDate(day.dataset.date, day);
 });
 calendar.addEventListener("keydown", event => {
   if (event.key !== "Enter" && event.key !== " ") return;
   const day = event.target.closest(".day");
   if (!day || event.target.closest(".event-chip")) return;
   event.preventDefault();
-  selectCalendarDate(day.dataset.date);
+  selectCalendarDate(day.dataset.date, day);
 });
 
 async function initialize() {
@@ -1572,8 +1590,15 @@ async function initialize() {
       revealCalendarApp();
       return;
     }
-    viewDate = parseDate(upcoming.concertDate);
-    selectSchedule(upcoming, "concert", upcoming.concertDate, false);
+    const restoredSchedule = schedules.find(event => event.id === restoredHomeScheduleState?.selectedId);
+    const initialSchedule = restoredSchedule || upcoming;
+    if (!/^\d{4}-(0[1-9]|1[0-2])$/.test(restoredHomeScheduleState?.month || "")) {
+      viewDate = parseDate(initialSchedule.concertDate);
+    }
+    const initialDateKey = restoredSchedule && schedules.some(event => event.id === restoredHomeScheduleState.selectedId && event.concertDate === restoredHomeScheduleState.selectedDateKey)
+      ? restoredHomeScheduleState.selectedDateKey
+      : initialSchedule.concertDate;
+    selectSchedule(restoredSchedule || initialSchedule, restoredSchedule ? restoredHomeScheduleState.selectedType || "concert" : "concert", initialDateKey, false);
     revealCalendarApp();
   } catch (error) {
     document.querySelector("#detailEmpty").innerHTML = `<strong>데이터 연결 오류</strong><span>${escapeHtml(error.message)}</span>`;

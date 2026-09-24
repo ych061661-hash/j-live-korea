@@ -21,13 +21,31 @@ test("gives mobile detail a browser-back state and restores scroll", () => {
   assert.match(app, /window\.addEventListener\("popstate"/);
   assert.match(app, /window\.scrollTo\(\{ top: mobileDetailScrollY/);
   assert.match(app, /mobileDetailReturnFocusSelector = activeDay\?\.dataset\.date/);
+  assert.match(app, /mobileDetailRestoreSearchResults = Boolean\(mobileDetailReturnFocus\?\.closest\("#artistSearchResults"\)\)/);
+  assert.match(app, /if \(mobileDetailRestoreSearchResults\) artistSearchResults\.hidden = false/);
   assert.match(app, /document\.querySelector\(mobileDetailReturnFocusSelector\)/);
-  assert.match(app, /const returnFocus = document\.activeElement;/);
+  assert.match(app, /function selectSchedule\(schedule, type = "concert", key = schedule\.concertDate, openDetail = true, returnFocus = document\.activeElement\)/);
   assert.match(app, /openMobileDetail\(schedule, returnFocus\)/);
   assert.match(app, /setMobileDetailIsolation\(true\)/);
   assert.match(app, /toggleAttribute\("inert", open\)/);
   assert.match(app, /#closeDetail"\)\?\.focus/);
+  assert.match(app, /month: `\$\{viewDate\.getFullYear\(\)\}-\$\{String\(viewDate\.getMonth\(\) \+ 1\)\.padStart\(2, "0"\)\}`/);
+  assert.match(app, /selectedId,\s*selectedType,\s*selectedDateKey/);
+  assert.match(app, /restoredHomeScheduleState\?\.selectedId/);
+  assert.match(app, /event\.key === "Escape" && document\.body\.classList\.contains\("mobile-detail-open"\)/);
   assert.doesNotMatch(app, /beforeinstallprompt/);
+});
+
+test("keeps mobile search results in page flow and names date categories without relying on color", () => {
+  assert.match(styles, /\.home-page \.artist-search-results\s*\{\s*position:static;[\s\S]*?max-height:min\(48dvh,360px\)/);
+  assert.match(styles, /\.home-page \.artist-search-heading \{ display:grid; justify-content:start; justify-items:start; gap:4px; \}/);
+  const index = fs.readFileSync(path.join(__dirname, "..", "calendar", "index.html"), "utf8");
+  assert.match(index, /data-type="concert"[^>]+aria-pressed="true"[^>]*>[\s\S]*?공연일/);
+  assert.match(index, /data-type="ticket"[^>]+aria-pressed="true"[^>]*>[\s\S]*?일반예매일/);
+  assert.match(index, /data-type="presale"[^>]+aria-pressed="true"[^>]*>[\s\S]*?선예매일/);
+  assert.match(app, /button\.setAttribute\("aria-pressed", String\(filters\.has\(button\.dataset\.type\)\)\)/);
+  const site = fs.readFileSync(path.join(__dirname, "..", "calendar", "site.js"), "utf8");
+  assert.doesNotMatch(`${app}\n${site}\n${index}`, /beforeinstallprompt|appinstalled|rel=["']manifest["']/);
 });
 
 test("keeps the mobile detail close target and ticket CTA clear of overlap", () => {

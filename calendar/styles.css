@@ -1298,7 +1298,20 @@ footer { padding:22px 0 34px; color:#686970; font-size:11px; text-align:center; 
   .home-page .weekend-spotlight { margin-top:0; padding:18px 0 18px 16px; }
   .home-page .weekend-card { min-height:146px; }
   .home-page .calendar-area { padding:18px 12px 26px; }
-  .home-page .artist-search { padding:14px; }
+  .home-page .artist-search { display:block; padding:14px; }
+  .home-page .artist-search-heading { display:grid; justify-content:start; justify-items:start; gap:4px; }
+  .home-page .artist-search-heading span { margin:0; }
+  .home-page .artist-search-results {
+    position:static;
+    width:100%;
+    max-height:min(48dvh,360px);
+    margin-top:10px;
+    box-sizing:border-box;
+  }
+  .home-page .artist-search-result-row { grid-template-columns:minmax(0,1fr) auto; }
+  .home-page .artist-search-result-row > .artist-search-result { grid-column:1/-1; grid-template-columns:minmax(0,1fr) minmax(0,auto); }
+  .home-page .artist-search-result time { grid-column:2; grid-row:1/3; max-width:100px; text-align:right; white-space:normal; }
+  .home-page .artist-search-ticket { min-height:44px; }
   .home-page .month-nav h2 { font-size:22px; }
   .home-page .filters { padding:2px 1px 4px; scroll-snap-type:x proximity; }
   .home-page .filter { flex:0 0 auto; min-width:104px; min-height:44px; scroll-snap-align:start; }
