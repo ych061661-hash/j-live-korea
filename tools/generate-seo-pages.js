@@ -937,7 +937,7 @@ function main() {
   const configText = readUtf8(path.join(calendar, "site-config.js"));
   const siteUrlMatch = configText.match(/siteUrl:\s*"([^"]+)"/);
   const siteUrl = (siteUrlMatch ? siteUrlMatch[1] : "https://example.com").replace(/\/$/, "");
-  const template = readUtf8(path.join(calendar, "event.html"));
+  const template = readUtf8(path.join(root, "tools", "event-page-template.html"));
   const homepageTemplate = readUtf8(path.join(calendar, "index.html"));
   const eventsDirectory = path.join(calendar, "events");
   fs.mkdirSync(eventsDirectory, { recursive: true });

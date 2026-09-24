@@ -59,28 +59,24 @@ test("redirects legacy Search Console URLs to canonical paths with specific rule
   }
   assert.ok(lines.indexOf("/calendar/guides/venues.html  /calendar/guides/venues/  301") < lines.indexOf("/calendar/guides/venues/:venue.html  /calendar/guides/venues/:venue  301"));
   assert.ok(lines.indexOf("/calendar/guides/olympic-park.html  /calendar/guides/venues/olympic-hall  301") < lines.indexOf("/calendar/guides/venues/:venue.html  /calendar/guides/venues/:venue  301"));
-  assert.ok(lines.indexOf("/demo/admin.html  /404  404!") < lines.indexOf("/demo/events/:event.html  /calendar/events/:event  301"));
   const weeklyCanonical = read("calendar/weekly/index.html").match(/<link rel="canonical" href="https:\/\/j-live\.kr\/calendar\/weekly\/(\d{4}-\d{2}-\d{2})">/)?.[1];
   assert.ok(weeklyCanonical, "the current weekly page must have a dated canonical path");
   assert.ok(lines.indexOf(`/calendar/weekly/index.html  /calendar/weekly/${weeklyCanonical}  301`) < lines.indexOf("/calendar/weekly/:week.html  /calendar/weekly/:week  301"));
   assert.ok(lines.includes(`/calendar/weekly/  /calendar/weekly/${weeklyCanonical}  301`));
   assert.ok(lines.includes(`/calendar/weekly  /calendar/weekly/${weeklyCanonical}  301`));
-  assert.ok(lines.includes("/demo/admin*  /404  404!"));
-  assert.ok(lines.includes("/demo/event.html  /404  404!"));
-  assert.ok(lines.includes("/calendar/event.html  /404  404!"));
-  assert.ok(lines.includes("/calendar/event  /404  404!"));
   assert.equal(lines.includes("/demo/*  /calendar/:splat  301"), false, "unknown demo URLs must not be redirected to unrelated or nonexistent calendar paths");
+  assert.doesNotMatch(read("_redirects"), /\s404!?\s*$/, "Cloudflare Pages _redirects cannot force an HTTP 404; retired assets must not be published");
+  for (const retiredPath of [
+    "calendar/event.html",
+    "calendar/minimal-preview/index.html",
+    "calendar/palette-preview/index.html",
+    "calendar/original-calendar-frame.html",
+    "calendar/original-calendar-frame.css"
+  ]) assert.equal(fs.existsSync(path.join(root, retiredPath)), false, `${retiredPath} must not be deployed as a public asset`);
+  assert.ok(fs.existsSync(path.join(root, "tools/event-page-template.html")), "the event generator template must remain available outside the public asset tree");
   for (const rule of [
-    "/calendar/minimal-preview  /404  404!",
-    "/calendar/minimal-preview/  /404  404!",
-    "/calendar/minimal-preview/index.html  /404  404!",
-    "/calendar/minimal-preview/*  /404  404!",
-    "/calendar/palette-preview  /404  404!",
-    "/calendar/palette-preview/  /404  404!",
-    "/calendar/palette-preview/index.html  /404  404!",
-    "/calendar/palette-preview/*  /404  404!",
-    "/calendar/original-calendar-frame.html  /404  404!",
-    "/calendar/original-calendar-frame  /404  404!"
+    "/calendar/events/:event.html  /calendar/events/:event  301",
+    "/demo/events/:event.html  /calendar/events/:event  301"
   ]) assert.ok(lines.includes(rule), `Expected route rule: ${rule}`);
   assert.doesNotMatch(read("sitemap.xml"), /\/demo\/|\.html<\/loc>|https:\/\/www\.j-live\.kr/);
   assert.match(read(".github/workflows/refresh-weekly.yml"), /git add _redirects /, "the daily weekly-page publisher must commit the generated redirect target");
@@ -109,7 +105,7 @@ test("publishes hosting-confirmed pending events as noindex pages without ads", 
     primary: primaryById.get(event.id),
     editorial: { artists: {}, venues: {}, ticketGuides: {} },
     siteUrl: "https://j-live.kr",
-    template: read("calendar/event.html"),
+    template: read("tools/event-page-template.html"),
     today: "2026-09-18"
   });
 
@@ -145,7 +141,7 @@ test("keeps Vaundy event records available after the show without falsely advert
   const { primaryById, groupById } = buildSeries(series, "2026-09-21");
   const context = { window: {} };
   vm.runInNewContext(read("calendar/content.js"), context);
-  const options = { event, events: series, group: groupById.get(event.id), primary: primaryById.get(event.id), editorial: context.window.JLIVE_CONTENT, siteUrl: "https://j-live.kr", template: read("calendar/event.html") };
+  const options = { event, events: series, group: groupById.get(event.id), primary: primaryById.get(event.id), editorial: context.window.JLIVE_CONTENT, siteUrl: "https://j-live.kr", template: read("tools/event-page-template.html") };
   const endedHtml = renderEventPage({ ...options, today: "2026-09-21" });
   assert.match(endedHtml, /name="robots" content="noindex/);
   const upcoming = buildSeries(series, "2026-09-19");
