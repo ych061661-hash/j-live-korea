@@ -56,6 +56,23 @@ test("renders artist pages with three songs and correct directory links", () => 
   assert.doesNotMatch(directory, /pagead2\.googlesyndication\.com/);
 });
 
+test("renders only curated artist intros and keeps unverified history compact", () => {
+  const withoutEditorial = artistPageHtml({
+    artist: "Band", events: [event], aliases: {}, editorial: {},
+    siteUrl: "https://j-live.kr", today: "2026-07-29"
+  });
+  assert.doesNotMatch(withoutEditorial, /Band의 한국 내한 공연과 예매 기록/);
+  assert.doesNotMatch(withoutEditorial, /KOREA HISTORY/);
+  assert.doesNotMatch(withoutEditorial, /공식 확인 내한 이력/);
+  assert.match(withoutEditorial, /J-LIVE에서 공식 확인한 과거 내한 기록은 아직 없습니다/);
+
+  const withEditorial = artistPageHtml({
+    artist: "Band", events: [event], aliases: {}, editorial: { artists: { Band: "검증된 편집자 소개입니다." } },
+    siteUrl: "https://j-live.kr", today: "2026-07-29"
+  });
+  assert.match(withEditorial, /검증된 편집자 소개입니다/);
+});
+
 test("keeps the artist directory canonical on a trailing-slash URL", () => {
   const groups = new Map([
     ["Artist", [{ id: "artist-2026-09-01", artist: "Artist", concertDate: "2026-09-01" }]],

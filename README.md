@@ -13,7 +13,13 @@ Cloudflare Pages reads `_redirects` and `_headers` directly from the repository.
 
 ## Local event admin
 
-The event manager is local-only and never deployed as a public admin page.
+The event manager API runs locally and is not a production backend. The current
+Cloudflare Pages configuration is documented with the repository root (`/`) as
+its output directory, which means source files under `tools/` may also be
+served as static files unless the deployed project excludes them. The admin UI
+and Markdown source files are marked `noindex`, but that is not access control.
+Do not treat `/tools/admin/` as private until the production output excludes
+`tools/` or an access-control layer is confirmed.
 
 ```powershell
 node tools/admin-server.js

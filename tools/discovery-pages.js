@@ -104,7 +104,7 @@ function artistPageHtml({ artist, events, aliases, editorial, siteUrl, today, in
   const venues = [...new Set(sorted.map(event => event.venue))];
   const festflowFestivals = festflowFestivalsFor(artist);
   const vendors = [...new Map(sorted.filter(event => event.vendorUrl).map(event => [event.vendor, event.vendorUrl])).entries()];
-  const intro = editorial.artists?.[artist] || `${artist}의 한국 내한 공연과 예매 기록을 공식 출처 기준으로 정리합니다.`;
+  const intro = editorial.artists?.[artist];
   const eventRows = list => list.length ? list.map(event => {
     const dates = visitor.verificationDates(event);
     const now = new Date(`${today}T12:00:00+09:00`);
@@ -128,16 +128,19 @@ function artistPageHtml({ artist, events, aliases, editorial, siteUrl, today, in
       ? humanDate(first.concertDate, first.time)
       : `${humanDate(first.concertDate)} ~ ${humanDate(last.concertDate)}`;
     return `<li><a class="artist-history-main" href="../events/${encodeURIComponent(first.id)}"><time>${escapeHtml(dates)}</time><strong>${escapeHtml(first.venue)}</strong><span>${group.length}회 공연</span></a><div class="artist-history-audience"><small>공식 관객 수</small><b>${attendance ? `${Number(attendance.attendance).toLocaleString("ko-KR")}명` : "미공개"}</b>${attendance?.attendanceScope ? `<span>${escapeHtml(attendance.attendanceScope)}</span>` : ""}${attendance?.attendanceSource ? `<a href="${escapeHtml(attendance.attendanceSource)}" target="_blank" rel="noopener noreferrer">${escapeHtml(attendance.attendancePublisher || "공식 발표")} 확인 ↗</a>` : ""}</div></li>`;
-  }).join("") || '<li class="empty-row">공식 확인된 지난 내한 기록이 없습니다.</li>';
+  }).join("");
   const upcomingSection = upcoming.length
     ? `<section><span class="section-kicker">UPCOMING KOREA SHOWS</span><h2>예정된 한국 공연</h2><ul class="artist-event-list">${eventRows(upcoming)}</ul></section>`
     : `<section><span class="section-kicker">UPCOMING KOREA SHOWS</span><h2>예정된 한국 공연</h2><p class="empty-row">현재 예정된 공연이 없습니다.</p></section>`;
+  const historySection = past.length
+    ? `<section class="artist-history"><span class="section-kicker">KOREA HISTORY</span><h2>공식 확인 내한 이력</h2><ol class="artist-history-list">${historyRows}</ol><p class="artist-history-note">J-LIVE가 공식 출처로 확인한 기록만 표시하며, 관객 수는 발표된 경우에만 제공합니다.</p></section>`
+    : '<p class="artist-history-empty empty-row">J-LIVE에서 공식 확인한 과거 내한 기록은 아직 없습니다.</p>';
   const body = `<main class="artist-profile">
-    <section class="artist-profile-hero"><img src="${escapeHtml(imageUrl(latest, siteUrl))}" alt="${escapeHtml(hasArtistImage(latest) ? `${artist} 공식 프로필` : "J-LIVE 기본 아티스트 이미지")}" width="800" height="800" loading="eager" decoding="async"><div><span class="section-kicker">ARTIST PROFILE</span><h1>${escapeHtml(artist)}</h1><p>${escapeHtml(intro)}</p></div></section>
+    <section class="artist-profile-hero"><img src="${escapeHtml(imageUrl(latest, siteUrl))}" alt="${escapeHtml(hasArtistImage(latest) ? `${artist} 공식 프로필` : "J-LIVE 기본 아티스트 이미지")}" width="800" height="800" loading="eager" decoding="async"><div><span class="section-kicker">ARTIST PROFILE</span><h1>${escapeHtml(artist)}</h1>${intro ? `<p>${escapeHtml(intro)}</p>` : ""}</div></section>
     <section class="artist-name-grid" aria-label="아티스트 이름 표기"><div><small>한국어</small><strong>${escapeHtml(names.korean)}</strong></div><div><small>English</small><strong>${escapeHtml(names.english)}</strong></div><div><small>日本語</small><strong>${escapeHtml(names.japanese)}</strong></div></section>
     <div class="artist-profile-grid">
       ${upcomingSection}
-      <section class="artist-history"><span class="section-kicker">KOREA HISTORY</span><h2>공식 확인 내한 이력</h2><ol class="artist-history-list">${historyRows}</ol><p class="artist-history-note">J-LIVE가 공식 출처로 확인한 기록만 표시하며, 관객 수는 발표된 경우에만 제공합니다.</p></section>
+      ${historySection}
     </div>
     <section class="artist-songs"><span class="section-kicker">START WITH 3 SONGS</span><h2>대표곡 3개</h2><div class="song-list">${songs.map(song => `<a class="song" href="${escapeHtml(song[2])}" target="_blank" rel="noopener noreferrer"><span class="play">▶</span><span>${escapeHtml(song[0])}</span><em>공식 YouTube</em></a>`).join("")}</div></section>
     <section class="artist-related"><div><h2>관련 공연장</h2><p>${venues.map(escapeHtml).join(" · ")}</p></div><div><h2>예매처</h2><p>${vendors.length ? vendors.map(([name, url]) => `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" data-track-vendor="${escapeHtml(name)}">${escapeHtml(name)} ↗</a>`).join(" · ") : "확인된 예매처가 없습니다."}</p></div></section>${festflowFestivals.length ? `<section class="artist-festivals"><h2>페스티벌 출연</h2><p>${escapeHtml(artist)}의 일본 페스티벌 출연 라인업은 <a href="https://festflow.kr" target="_blank" rel="noopener noreferrer">페스플로우</a>에서 확인할 수 있습니다.</p><p>${festflowFestivals.map(f => `<a href="https://festflow.kr/festivals/${encodeURIComponent(f.slug)}" target="_blank" rel="noopener noreferrer">${escapeHtml(f.name)} ↗</a>`).join(" · ")}</p></section>` : ""}

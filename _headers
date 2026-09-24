@@ -10,3 +10,12 @@
 /calendar/ads.txt
   Content-Type: text/plain; charset=utf-8
   Cache-Control: public, max-age=3600, must-revalidate
+
+/calendar/analytics.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+/tools/*
+  X-Robots-Tag: noindex, nofollow
+
+/*.md
+  X-Robots-Tag: noindex, nofollow

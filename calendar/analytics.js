@@ -6,7 +6,12 @@
 
   function read(storage) {
     try {
-      return { ...empty(), ...JSON.parse((storage || root.localStorage).getItem(STORAGE_KEY) || "null") };
+      const stored = JSON.parse((storage || root.localStorage).getItem(STORAGE_KEY) || "null") || {};
+      return {
+        ...empty(),
+        ...stored,
+        emptySearches: sanitizeEmptySearches(stored.emptySearches)
+      };
     } catch {
       return empty();
     }
@@ -34,9 +39,46 @@
     return "other";
   }
 
+  function searchLengthBucket(value) {
+    const length = [...String(value || "").normalize("NFKC").trim()].length;
+    if (length === 0) return "0";
+    if (length <= 4) return "1-4";
+    if (length <= 10) return "5-10";
+    if (length <= 20) return "11-20";
+    return "21+";
+  }
+
+  function searchBucketKey(language, lengthBucket) {
+    return `${language}:${lengthBucket}`;
+  }
+
+  function sanitizeEmptySearches(searches = {}) {
+    const safe = {};
+    for (const [storedKey, count] of Object.entries(searches || {})) {
+      const currentBucket = storedKey.match(/^(korean|japanese|latin|mixed|other):(0|1-4|5-10|11-20|21\+)$/);
+      const key = currentBucket
+        ? storedKey
+        : searchBucketKey(searchLanguage(storedKey), searchLengthBucket(storedKey));
+      safe[key] = (Number(safe[key]) || 0) + (Number(count) || 0);
+    }
+    return safe;
+  }
+
   function sanitizeDetail(name, detail = {}) {
     const safe = { ...detail };
     if (name === "email_alert_artist_select") delete safe.artist;
+    if (name === "empty_search") {
+      const term = String(detail.search_term || "");
+      return term
+        ? {
+          search_language: searchLanguage(term),
+          search_length_bucket: searchLengthBucket(term)
+        }
+        : {};
+    }
+    if (name === "favorite_save") {
+      return ["events", "artists"].includes(detail.type) ? { type: detail.type } : {};
+    }
     return safe;
   }
 
@@ -44,7 +86,9 @@
     const safeDetail = sanitizeDetail(name, detail);
     const data = read(storage);
     if (name === "artist_search") increment(data.searches, safeDetail.artist);
-    if (name === "empty_search") increment(data.emptySearches, safeDetail.search_term);
+    if (name === "empty_search" && safeDetail.search_language && safeDetail.search_length_bucket) {
+      increment(data.emptySearches, searchBucketKey(safeDetail.search_language, safeDetail.search_length_bucket));
+    }
     if (name === "ticket_click") increment(data.ticketClicks, safeDetail.vendor);
     if (name === "favorite_save" && ["events", "artists"].includes(safeDetail.type)) data.saves[safeDetail.type] += 1;
     if (name === "favorites_snapshot") data.favorites = { events: Number(safeDetail.events) || 0, artists: Number(safeDetail.artists) || 0 };
@@ -55,7 +99,7 @@
     return data;
   }
 
-  const api = { STORAGE_KEY, read, safeSearchTerm, sanitizeDetail, searchLanguage, track };
+  const api = { STORAGE_KEY, read, safeSearchTerm, sanitizeDetail, searchLanguage, searchLengthBucket, track };
   root.JLIVE_ANALYTICS = api;
   if (typeof module === "object" && module.exports) module.exports = api;
 })(typeof window === "object" ? window : globalThis);
