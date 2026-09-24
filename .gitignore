@@ -1,4 +1,5 @@
 .netlify
+dist/
 alerts-worker/wrangler.jsonc
 .wrangler/
 alerts-worker/.wrangler/
