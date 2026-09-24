@@ -1826,3 +1826,24 @@ footer { padding:22px 0 34px; color:#686970; font-size:11px; text-align:center; 
   .day { height:76px; min-height:76px; }
   .event-stack,.day.has-many:hover .event-stack,.day.has-many:focus-within .event-stack { max-height:48px; }
 }
+
+.home-page .guide-preview { margin:20px 0 0; padding:20px 24px; border-radius:20px; }
+.home-page .guide-preview-heading { align-items:center; }
+.home-page .guide-preview-heading h2 { font-size:23px; }
+.home-page .guide-preview-heading p { max-width:460px; }
+.home-page .guide-preview-links { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; margin-top:14px; }
+.home-page .guide-preview-links a { display:flex; align-items:center; justify-content:space-between; gap:10px; min-width:0; min-height:48px; padding:10px 14px; border:1px solid var(--line); border-radius:12px; color:var(--text); font-size:12px; line-height:1.4; text-decoration:none; overflow-wrap:anywhere; }
+.home-page .guide-preview-links a span { flex:0 0 auto; color:var(--lime); }
+.home-page .guide-preview-links a:hover { border-color:var(--lime); }
+.home-page .guide-preview-links a:focus-visible { outline:2px solid var(--lime); outline-offset:2px; }
+.data-report .report-scope-note { margin:20px 0 12px; padding:14px 16px; border:1px solid rgba(198,255,49,.3); border-left:3px solid var(--lime); border-radius:12px; background:rgba(198,255,49,.055); color:var(--text); font-size:13px; line-height:1.65; }
+.data-report .report-scope-note strong { color:var(--lime); }
+
+@media (max-width:640px) {
+  .home-page .guide-preview { margin:18px 12px 0; padding:18px 16px; }
+  .home-page .guide-preview-heading { display:block; }
+  .home-page .guide-preview-heading h2 { font-size:22px; }
+  .home-page .guide-preview-heading p { margin-top:7px; font-size:11px; }
+  .home-page .guide-preview-links { grid-template-columns:repeat(2,minmax(0,1fr)); gap:7px; margin-top:12px; }
+  .home-page .guide-preview-links a { min-height:50px; padding:9px 10px; font-size:11px; }
+}

@@ -256,7 +256,9 @@ function venueGuideForEvent(event, editorial) {
 
 function venueGuideLink(event, editorial) {
   const entry = venueGuideForEvent(event, editorial);
-  return entry ? `<a class="inline-guide-link" href="../guides/venues/${encodeURIComponent(entry[0])}">${escapeHtml(entry[1].name)} 현장 가이드 보기 →</a>` : "";
+  return entry
+    ? `<a class="inline-guide-link" href="../guides/venues/${encodeURIComponent(entry[0])}">${escapeHtml(entry[1].name)} 방문 가이드 보기 →</a>`
+    : `<a class="inline-guide-link" href="../guides/venues/">공연장별 방문 가이드에서 ${escapeHtml(event.venue || "공연장")} 정보 찾기 →</a>`;
 }
 
 function richEventGuideMarkup(event, editorial) {
@@ -475,7 +477,7 @@ function articleStructuredData(event, canonical, siteUrl) {
   }).replace(/</g, "\\u003c");
 }
 
-function renderEventPage({ event, events, group, primary, editorial, review, siteUrl, template, today }) {
+function renderEventPage({ event, events, group, primary, editorial, review, siteUrl, template, today, artistProfileSlug = "" }) {
   const canonical = `${siteUrl}/calendar/events/${encodeURIComponent(primary.id)}`;
   const image = artistImageInfo(event, siteUrl);
   const socialImage = image.url;
@@ -495,6 +497,9 @@ function renderEventPage({ event, events, group, primary, editorial, review, sit
   const dates = group.map(item => humanDate(item.concertDate, item.time)).join(", ");
   const description = `${event.artist} 내한 공연은 ${dates} ${event.venue}에서 열립니다. 예매 정보와 공식 출처를 확인하세요.`;
   const artistIntro = editorial.artists[event.artist] || "";
+  const artistProfileLink = artistProfileSlug
+    ? `<a class="artist-profile-link" href="../artists/${encodeURIComponent(artistProfileSlug)}">${escapeHtml(event.artist)} 아티스트 정보 →</a>`
+    : "";
   const venueGuide = editorial.venues[event.venue] || "";
   const songs = (event.songs || []).filter(song => song[0] && song[2]);
   const seriesSummary = event.status === "cancelled" ? "이 공연은 공식 취소 상태로 기록되어 있습니다. 자세한 변경 내용은 연결된 공식 출처를 확인하세요." : event.status === "postponed" ? "이 공연은 공식 연기 상태로 기록되어 있습니다. 새 일정은 연결된 공식 출처를 확인하세요." : pageDecision.archive || event.concertDate < today ? `지난 공연 기록입니다. 일정과 예매 조건은 당시의 기록이며 현재 판매 상태를 나타내지 않습니다. 동일 시리즈에는 ${group.length}회 공연 기록이 있습니다.` : group.length > 1 ? `이번 내한은 ${group.length}회 공연으로 진행됩니다. 날짜별 공연 시각과 예매 조건이 달라질 수 있으므로 선택한 회차를 확인하세요.` : "현재 공식 확인된 한국 공연은 1회입니다. 추가 회차나 운영 변경은 연결된 공식 출처에서 다시 확인합니다.";
@@ -516,7 +521,7 @@ function renderEventPage({ event, events, group, primary, editorial, review, sit
     .replace('<strong id="eventSummary"></strong>', `<strong id="eventSummary">${escapeHtml(`${event.status === "cancelled" ? "공식 취소 · " : event.status === "postponed" ? "공식 연기 · " : ""}${dates} · ${event.venue}`)}</strong>`)
     .replace('<p id="seriesSummary"></p>', `<p id="seriesSummary">${escapeHtml(seriesSummary)}</p>`)
     .replace('<ul class="series-date-list" id="seriesDates"></ul>', `<ul class="series-date-list" id="seriesDates">${seriesDatesMarkup(group, event.id)}</ul>`)
-    .replace('<!-- EVENT_ARTIST_INTRO -->', artistIntro ? `<section class="editorial-section" id="artistIntroSection"><div class="section-kicker">ARTIST</div><h2>아티스트 소개</h2><p id="artistIntro">${escapeHtml(artistIntro)}</p><a class="artist-profile-link" href="../artists/${encodeURIComponent(artistSlug(event))}">${escapeHtml(event.artist)} 아티스트 페이지 →</a></section>` : "")
+    .replace('<!-- EVENT_ARTIST_INTRO -->', artistIntro || artistProfileLink ? `<section class="editorial-section" id="artistIntroSection"><div class="section-kicker">ARTIST</div><h2>${artistIntro ? "아티스트 소개" : "아티스트 정보"}</h2>${artistIntro ? `<p id="artistIntro">${escapeHtml(artistIntro)}</p>` : ""}${artistProfileLink}</section>` : "")
     .replace('<!-- EVENT_VENUE_GUIDE -->', venueGuide || venueGuideLink(event, editorial) ? `<section class="editorial-section" id="venueGuideSection"><div class="section-kicker">VENUE GUIDE</div><h2>공연장 안내</h2>${venueGuide ? `<p id="venueGuide">${escapeHtml(venueGuide)}</p>` : ""}${venueGuideLink(event, editorial)}</section>` : "")
     .replace('<!-- EVENT_TICKET_ANALYSIS -->', ticketAnalysis || "<!-- no event-specific ticket analysis -->")
     .replace('<!-- EVENT_SONGS -->', songs.length ? `<section class="editorial-section"><div class="section-kicker">ARTIST TRACKS</div><h2>공식 대표곡 영상</h2><div class="song-list" id="eventSongs">${songsMarkup({ ...event, songs }, editorial.songGuides?.[event.artist] || [])}</div></section>` : "")
@@ -710,7 +715,7 @@ function venuePageHtml(slug, guide, siteUrl, events = [], today = seoulDateKey()
   const description = guide.seoDescription || `${guide.name} 교통, 입장 동선, 화장실, 물품 보관과 귀가 정보를 공식 출처 기준으로 정리했습니다.`;
   const title = guide.seoTitle || `${guide.name} 교통·화장실·물품보관 가이드`;
   const facilityMap = venueFacilityMapMarkup(slug, sections, guide.verifiedAt);
-  const relatedEvents = guide.showRelatedEvents ? venueRelatedEventsMarkup(guide, events, today) : "";
+  const relatedEvents = venueRelatedEventsMarkup(guide, events, today);
   const officialMapLink = guide.officialMapUrl ? `<p class="venue-official-map"><a class="inline-guide-link" href="${escapeHtml(guide.officialMapUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(guide.officialMapLabel || `${guide.name} 공식 지도`)} ↗</a><span>현장 층·구역과 행사별 통제는 공식 지도 및 공연 공지에서 다시 확인하세요.</span></p>` : "";
   const decisionGuide = guide.firstDecision && guide.variable ? `<section class="venue-decision-guide">
       <span class="section-kicker">BEFORE YOU GO</span><h2>처음 가기 전에 먼저 정할 것</h2><p>${escapeHtml(guide.firstDecision)}</p>
@@ -904,7 +909,8 @@ function dataReportHtml(events, siteUrl, today) {
   <header><a class="brand" href="../"><span class="brand-mark">J</span> 제이라이브 코리아</a><a class="ghost-button" href="../">공연 달력</a></header>
   <main class="guide-article data-report"><span class="section-kicker">J-LIVE ORIGINAL DATA</span><h1>2026 J-POP 내한<br>데이터 리포트</h1>
     <p class="guide-lead">공식 예매처·주최사·아티스트 발표를 대조해 축적한 J-LIVE 공연 기록을 직접 분석했습니다. 단순 목록이 아니라 공연이 언제 집중되고, 어떤 공연장과 예매처가 많이 쓰이며, 티켓 가격과 선예매가 어떻게 구성되는지 보여줍니다.</p>
-    <p class="guide-updated"><a href="../about" rel="author">여일육 작성·분석</a> · <a href="../guides/verification">집계·검증 기준</a> · 데이터 기준일 ${escapeHtml(today)}</p>
+    <p class="report-scope-note"><strong>집계 범위:</strong> J-LIVE가 공식 출처로 확인해 기록한 2026년 한국 공연입니다. 전체 한국 공연 시장 통계가 아닙니다. <strong>데이터 기준일:</strong> ${escapeHtml(today)}</p>
+    <p class="guide-updated"><a href="../about" rel="author">여일육 작성·분석</a> · <a href="../guides/verification">집계·검증 기준</a></p>
     <section class="report-method"><h2>먼저, 숫자를 세는 기준</h2><p><strong>공연 시리즈</strong>는 같은 아티스트·공연장·예매 페이지로 묶인 기록입니다. 같은 날 2회 공연이면 회차 2개, 서로 다른 날짜면 날짜 2일로 세며, 공연장과 예매 페이지가 같은 페스티벌도 아티스트별 원자료 기록으로 나뉠 수 있어 이 수치는 페스티벌 행사 수와 같지 않습니다. <strong>기록된 아티스트 표기</strong>는 원본 공연 항목의 artist 필드 고유값입니다. 현재 원본에는 단독·페스티벌 출연 유형을 가르는 필드가 없어 전체 페스티벌 라인업 인원이나 단독 아티스트 수로 해석할 수 없습니다. 가격 중앙값은 시리즈 내 확인된 원화 좌석 등급 중 최저 액면가를 기준으로 하고, 확인된 최고 권종가는 명명된 좌석 유형만 포함합니다. ‘매진’이나 공연장 최대 수용 인원으로 관객 수를 추정하지 않습니다.</p></section>
     <section class="report-summary" aria-labelledby="reportSummaryTitle"><h2 id="reportSummaryTitle">한눈에 보는 2026년</h2><div class="report-stat-grid">
       <div><span>확인된 공연 시리즈</span><strong>${series.length}</strong><small>같은 아티스트·장소·예매 페이지로 묶은 기록</small></div><div><span>확인된 공연 회차</span><strong>${yearEvents.length}</strong><small>같은 날 2회 공연도 각각 1회</small></div><div><span>서로 다른 공연 날짜</span><strong>${distinctConcertDates.size}</strong><small>하루 여러 회차는 1일</small></div><div><span>기록된 아티스트 표기</span><strong>${artists.size}</strong><small>원본 artist 필드의 고유값</small></div><div><span>가격 확인률</span><strong>${series.length ? Math.round(priced.length / series.length * 100) : 0}%</strong><small>${priced.length}/${series.length}개 시리즈</small></div>
@@ -915,7 +921,7 @@ function dataReportHtml(events, siteUrl, today) {
     <section><span class="section-kicker">PRICE</span><h2>티켓 가격은 어느 정도였나</h2><div class="report-price-grid"><div><span>시리즈별 최저 원화 권종 중앙값</span><strong>${medianPrice ? `${medianPrice.toLocaleString("ko-KR")}원` : "자료 부족"}</strong></div><div><span>확인된 최고 명명 권종가</span><strong>${maxPrice ? `${maxPrice.toLocaleString("ko-KR")}원` : "자료 부족"}</strong></div><div><span>일반예매→첫 공연 중앙값</span><strong>${medianLead !== null ? `${medianLead}일 전` : "자료 부족"}</strong></div></div><p>중앙값은 각 시리즈에서 확인된 권종 중 가장 낮은 원화 액면가 1개씩을 사용합니다. VIP·스탠딩·다일권 등 좌석 성격이 다른 가격은 원자료 표에서 이름을 보존하며, 서로의 혜택이나 품질을 금액만으로 비교하지 않습니다. 예매 수수료·배송비는 제외한 값입니다.</p></section>
     <section><span class="section-kicker">WHAT THIS MEANS</span><h2>팬 입장에서 읽을 수 있는 것</h2><ul><li>공연이 몰리는 달에는 같은 예매처의 티켓 오픈과 공연장 귀가 수요가 겹칠 수 있어 일정 저장이 더 중요합니다.</li><li>선예매는 모든 공연의 기본 절차가 아닙니다. 팬클럽 가입 전 실제 한국 공연 공지의 대상 회원·가입 마감일을 먼저 확인해야 합니다.</li><li>표시 가격은 예매 수수료·배송비를 제외한 티켓 액면가 기준입니다. 최종 결제 금액은 예매 단계에서 다시 확인해야 합니다.</li></ul></section>
     <section><h2>분석에 사용한 전체 공연 기록</h2><p>아래 원자료 표는 시리즈별 공연 날짜·회차, 동일 통화의 권종 가격, 공식 아티스트·주최사·예매처 출처와 마지막 기록 확인일을 보여줍니다. 가격 유형은 일반권·VIP·특전석을 한 가격으로 합치지 않으며, 가격이 없는 것은 미확인으로 둡니다. 공연 구분(단독·페스티벌 출연)을 별도 원본 필드로 관리하지 않아 참여 아티스트 수는 등록된 공연 기록의 아티스트 표기 수이며, 전체 페스티벌 라인업 집계가 아닙니다. 통계의 집계 단위는 위 방법 설명을 따릅니다.</p><details class="report-raw-data"><summary>전체 ${series.length}개 시리즈 원자료 표 보기</summary><div class="venue-table-wrap"><table class="venue-compare-table"><thead><tr><th scope="col">아티스트·상세</th><th scope="col">공연일·회차</th><th scope="col">공식 가격 유형</th><th scope="col">공식 자료 출처</th><th scope="col">마지막 기록 확인</th></tr></thead><tbody>${sourceRows}</tbody></table></div></details><a class="inline-guide-link" href="../">전체 공연 캘린더 보기 →</a></section>
-    <section><h2>한계와 수정 원칙</h2><p><strong>원자료 생성일</strong>은 ${escapeHtml(today)}이며, 이 리포트의 계산 기준일입니다. <strong>공식 정보 확인일</strong>은 공연마다 다르며 상세페이지에 별도로 표시됩니다. 발표 전 공연, 비공개 초청 행사, 가격이 이미지로만 제공되어 아직 검증하지 못한 권종은 빠질 수 있습니다. 이 수치는 J-LIVE가 확인한 한국 공연 기록의 분석이지, 전체 한국 공연 시장 통계가 아닙니다. 공식 공지가 바뀌면 원자료와 리포트를 함께 갱신하며, 오류는 정보 수정 요청으로 접수합니다.</p><a class="inline-guide-link" href="../corrections">데이터 오류 제보하기 →</a></section>
+    <section><h2>한계와 수정 원칙</h2><p><strong>원자료 생성일</strong>은 ${escapeHtml(today)}이며, 이 리포트의 계산 기준일입니다. <strong>공식 정보 확인일</strong>은 공연마다 다르며 상세페이지에 별도로 표시됩니다. 발표 전 공연, 비공개 초청 행사, 가격이 이미지로만 제공되어 아직 검증하지 못한 권종은 빠질 수 있습니다. 공식 공지가 바뀌면 원자료와 리포트를 함께 갱신하며, 오류는 정보 수정 요청으로 접수합니다.</p><a class="inline-guide-link" href="../corrections">데이터 오류 제보하기 →</a></section>
   </main><footer class="site-footer"><nav><a href="../about">소개</a><a href="../guides/verification">검증 기준</a><a href="../corrections">정보 수정 요청</a></nav></footer>
 </div></body></html>\n`;
 }
@@ -947,6 +953,8 @@ function main() {
   const { primaryById, groupById } = buildSeries(pageEvents, today);
   const confirmedSeries = buildSeries(events, today);
   const futurePrimaryEvents = events.filter(event => confirmedSeries.primaryById.get(event.id).id === event.id && confirmedSeries.groupById.get(event.id).some(item => item.concertDate >= today));
+  const artistProfileSlugs = new Map();
+  for (const event of events) if (!artistProfileSlugs.has(event.artist)) artistProfileSlugs.set(event.artist, artistSlug(event));
   for (const event of pageEvents) {
     const confirmed = event.status === "confirmed";
     const html = renderEventPage({
@@ -958,7 +966,8 @@ function main() {
       review: pageReviews.reviews[event.id],
       siteUrl,
       template,
-      today
+      today,
+      artistProfileSlug: artistProfileSlugs.get(event.artist) || ""
     });
     writeUtf8(path.join(eventsDirectory, `${event.id}.html`), html);
   }
