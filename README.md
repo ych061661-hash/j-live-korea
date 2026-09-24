@@ -6,21 +6,20 @@ Static production files for [j-live.kr](https://j-live.kr).
 
 - Production branch: `main`
 - Root directory: `/`
-
-Cloudflare Pages reads `_redirects` and `_headers` directly from the repository.
-The existing production settings were documented as no build command and `/`
-output. Before the next deployment, change them in the Pages project settings to:
-
 - Build command: `node tools/build-site.js`
 - Build output directory: `dist`
 
+Cloudflare Pages uploads the generated `dist/` directory. The build copies only
+the public root files and `calendar/`; local tools, tests, Markdown sources, and
+the admin UI are excluded. `_redirects` and `_headers` are copied into `dist/`
+for Pages to apply during deployment.
+
 ## Local event admin
 
-The event manager API runs locally and is not a production backend. Once the
-Pages build settings above are applied, the build script copies only the public
-root files and `calendar/` into `dist/`; local tools, tests, Markdown source
-files, and the admin UI are excluded. `noindex` is not access control; verify
-`/tools/admin/` returns 404 after changing those Pages settings and deploying.
+The event manager API runs locally and is not a production backend. The local
+admin UI is intentionally excluded from the production artifact; verify
+`/tools/admin/` returns 404 after the first deployment using this build config.
+`noindex` alone is not access control.
 
 ```powershell
 node tools/admin-server.js
