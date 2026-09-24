@@ -2,6 +2,7 @@
 
 const test = require("node:test");
 const assert = require("node:assert/strict");
+const { weeklyRedirectRules } = require("./generate-seo-pages");
 const { articleStructuredData, buildSeries, dataReportHtml, eventPageDecision, hasEditorialGuide, hasIndexableEventContent, homepageMeta, homepageScheduleMarkup, humanDate, isFreshlyVerified, relatedEvents, renderEventPage, richEventGuideMarkup, seoulDateKey, seriesDatesMarkup, songsMarkup, sourceLabel, structuredData, ticketGuideMarkup, ticketGroups, ticketGroupsMarkup, venueGuideForEvent, venueIndexHtml, venuePageHtml, venueRelatedEventsMarkup } = require("./generate-seo-pages");
 
 test("groups consecutive dates and selects the first future performance", () => {
@@ -28,6 +29,15 @@ test("derives homepage year copy from the build date", () => {
   assert.equal(homepageMeta("2026-12-31").title, "2026 J-POP 내한 공연·티켓팅 일정 | J-LIVE");
   assert.equal(homepageMeta("2027-01-01").title, "2027 J-POP 내한 공연·티켓팅 일정 | J-LIVE");
   assert.equal(homepageMeta("2027-01-01").headingYear, "2027");
+});
+
+test("redirects the weekly index to its current dated canonical page", () => {
+  const rules = weeklyRedirectRules("# BEGIN GENERATED WEEKLY REDIRECTS\n# END GENERATED WEEKLY REDIRECTS\n", "2026-09-21");
+  assert.match(rules, /\/calendar\/weekly\/index\.html  \/calendar\/weekly\/2026-09-21  301/);
+  assert.match(rules, /\/calendar\/weekly\/  \/calendar\/weekly\/2026-09-21  301/);
+  assert.match(rules, /\/calendar\/weekly  \/calendar\/weekly\/2026-09-21  301/);
+  assert.throws(() => weeklyRedirectRules("", "2026-09-21"), /Missing generated weekly redirect markers/);
+  assert.throws(() => weeklyRedirectRules("# BEGIN GENERATED WEEKLY REDIRECTS\n# END GENERATED WEEKLY REDIRECTS\n", "not-a-date"), /Invalid weekly redirect date/);
 });
 
 test("calculates freshness for review queues independently from editorial approval", () => {

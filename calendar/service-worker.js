@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_VERSION = "j-live-pwa-v98-herocenter";
+const CACHE_VERSION = "j-live-pwa-v99-urlcleanup";
 const APP_SHELL = [
   "/calendar/",
   "/calendar/index.html",
@@ -15,8 +15,6 @@ const APP_SHELL = [
   "/calendar/email-alerts.js?v=20260825conversion1",
   "/calendar/alerts/",
   "/calendar/alerts/index.html",
-  "/calendar/original-calendar-frame.html",
-  "/calendar/original-calendar-frame.css?v=20260825conversion1",
   "/calendar/search-utils.js?v=20260825conversion1",
   "/calendar/app.js?v=20260921schedule6",
   "/calendar/content.js",

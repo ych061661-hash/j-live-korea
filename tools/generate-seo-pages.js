@@ -920,6 +920,13 @@ function dataReportHtml(events, siteUrl, today) {
 </div></body></html>\n`;
 }
 
+function weeklyRedirectRules(redirects, weekStart) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(weekStart)) throw new Error(`Invalid weekly redirect date: ${weekStart}`);
+  const marker = /(^# BEGIN GENERATED WEEKLY REDIRECTS\r?\n)[\s\S]*?(^# END GENERATED WEEKLY REDIRECTS$)/m;
+  if (!marker.test(redirects)) throw new Error("Missing generated weekly redirect markers in _redirects");
+  return redirects.replace(marker, `$1/calendar/weekly/index.html  /calendar/weekly/${weekStart}  301\n/calendar/weekly/  /calendar/weekly/${weekStart}  301\n/calendar/weekly  /calendar/weekly/${weekStart}  301\n$2`);
+}
+
 function main() {
   const today = process.env.BUILD_DATE || seoulDateKey();
   const allEvents = JSON.parse(readUtf8(path.join(calendar, "data", "events.json")));
@@ -999,6 +1006,8 @@ function main() {
   // Keep dated pages as stable weekly snapshots so old shares and bookmarks stay valid.
   writeUtf8(path.join(weeklyDirectory, `${weekly.start}.html`), weekly.html);
   writeUtf8(path.join(weeklyDirectory, "index.html"), weekly.html);
+  const redirectsFile = path.join(root, "_redirects");
+  writeUtf8(redirectsFile, weeklyRedirectRules(readUtf8(redirectsFile), weekly.start));
 
   const venuePaths = Object.entries(editorial.venueGuides || {}).map(([slug, guide]) => ({
     path: `/calendar/guides/venues/${encodeURIComponent(slug)}`,
@@ -1048,4 +1057,4 @@ function main() {
 }
 
 if (require.main === module) main();
-module.exports = { articleStructuredData, assertCleanText, buildSeries, dataReportHtml, eventPageDecision, hasEditorialGuide, hasIndexableEventContent, hasReviewedEventQuality, homepageMeta, homepageScheduleMarkup, humanDate, isFreshlyVerified, isHomepageEvent, isHostingConfirmedPending, isPublicEvent, monthGroupsMarkup, relatedEvents, renderEventPage, richEventGuideMarkup, seatPriceMarkup, songsMarkup, sourceLabel, sourcesMarkup, ticketGroups, ticketGroupsMarkup, seoulDateKey, seriesDatesMarkup, seriesKey, structuredData, ticketDateDisplay, ticketGuideMarkup, venueFacilityMapMarkup, venueGuideForEvent, venueRelatedEventsMarkup, venueIndexHtml, venuePageHtml, youtubeVideoId };
+module.exports = { articleStructuredData, assertCleanText, buildSeries, dataReportHtml, eventPageDecision, hasEditorialGuide, hasIndexableEventContent, hasReviewedEventQuality, homepageMeta, homepageScheduleMarkup, humanDate, isFreshlyVerified, isHomepageEvent, isHostingConfirmedPending, isPublicEvent, monthGroupsMarkup, relatedEvents, renderEventPage, richEventGuideMarkup, seatPriceMarkup, songsMarkup, sourceLabel, sourcesMarkup, ticketGroups, ticketGroupsMarkup, seoulDateKey, seriesDatesMarkup, seriesKey, structuredData, ticketDateDisplay, ticketGuideMarkup, venueFacilityMapMarkup, venueGuideForEvent, venueRelatedEventsMarkup, venueIndexHtml, venuePageHtml, weeklyRedirectRules, youtubeVideoId };

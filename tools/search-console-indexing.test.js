@@ -22,6 +22,31 @@ test("redirects legacy Search Console URLs to canonical paths with specific rule
     ["/calendar/corrections.html", "/calendar/corrections"],
     ["/calendar/privacy.html", "/calendar/privacy"],
     ["/calendar/terms.html", "/calendar/terms"],
+    ["/calendar/updates.html", "/calendar/updates"],
+    ["/calendar", "/calendar/"],
+    ["/calendar/artists", "/calendar/artists/"],
+    ["/calendar/artists/index.html", "/calendar/artists/"],
+    ["/calendar/guides/venues/index.html", "/calendar/guides/venues/"],
+    ["/calendar/fanclubs", "/calendar/fanclubs/"],
+    ["/calendar/fanclubs/index.html", "/calendar/fanclubs/"],
+    ["/calendar/alerts", "/calendar/alerts/"],
+    ["/calendar/alerts/index.html", "/calendar/alerts/"],
+    ["/demo", "/calendar/"],
+    ["/demo/", "/calendar/"],
+    ["/demo/index.html", "/calendar/"],
+    ["/demo/about.html", "/calendar/about"],
+    ["/demo/contact.html", "/calendar/contact"],
+    ["/demo/corrections.html", "/calendar/corrections"],
+    ["/demo/privacy.html", "/calendar/privacy"],
+    ["/demo/terms.html", "/calendar/terms"],
+    ["/demo/events/:event.html", "/calendar/events/:event"],
+    ["/demo/events/:event", "/calendar/events/:event"],
+    ["/demo/data/events.json", "/calendar/data/events.json"],
+    ["/calendar/weekly/:week.html", "/calendar/weekly/:week"],
+    ["/calendar/guides/:guide.html", "/calendar/guides/:guide"],
+    ["/calendar/reports/:report.html", "/calendar/reports/:report"],
+    ["/calendar/stories/:story.html", "/calendar/stories/:story"],
+    ["/calendar/festivals/:festival.html", "/calendar/festivals/:festival"],
     ["/calendar/guides/venues.html", "/calendar/guides/venues/"],
     ["/calendar/guides/venues/:venue.html", "/calendar/guides/venues/:venue"],
     ["/calendar/events/:event.html", "/calendar/events/:event"],
@@ -34,6 +59,31 @@ test("redirects legacy Search Console URLs to canonical paths with specific rule
   }
   assert.ok(lines.indexOf("/calendar/guides/venues.html  /calendar/guides/venues/  301") < lines.indexOf("/calendar/guides/venues/:venue.html  /calendar/guides/venues/:venue  301"));
   assert.ok(lines.indexOf("/calendar/guides/olympic-park.html  /calendar/guides/venues/olympic-hall  301") < lines.indexOf("/calendar/guides/venues/:venue.html  /calendar/guides/venues/:venue  301"));
+  assert.ok(lines.indexOf("/demo/admin.html  /404  404!") < lines.indexOf("/demo/events/:event.html  /calendar/events/:event  301"));
+  const weeklyCanonical = read("calendar/weekly/index.html").match(/<link rel="canonical" href="https:\/\/j-live\.kr\/calendar\/weekly\/(\d{4}-\d{2}-\d{2})">/)?.[1];
+  assert.ok(weeklyCanonical, "the current weekly page must have a dated canonical path");
+  assert.ok(lines.indexOf(`/calendar/weekly/index.html  /calendar/weekly/${weeklyCanonical}  301`) < lines.indexOf("/calendar/weekly/:week.html  /calendar/weekly/:week  301"));
+  assert.ok(lines.includes(`/calendar/weekly/  /calendar/weekly/${weeklyCanonical}  301`));
+  assert.ok(lines.includes(`/calendar/weekly  /calendar/weekly/${weeklyCanonical}  301`));
+  assert.ok(lines.includes("/demo/admin*  /404  404!"));
+  assert.ok(lines.includes("/demo/event.html  /404  404!"));
+  assert.ok(lines.includes("/calendar/event.html  /404  404!"));
+  assert.ok(lines.includes("/calendar/event  /404  404!"));
+  assert.equal(lines.includes("/demo/*  /calendar/:splat  301"), false, "unknown demo URLs must not be redirected to unrelated or nonexistent calendar paths");
+  for (const rule of [
+    "/calendar/minimal-preview  /404  404!",
+    "/calendar/minimal-preview/  /404  404!",
+    "/calendar/minimal-preview/index.html  /404  404!",
+    "/calendar/minimal-preview/*  /404  404!",
+    "/calendar/palette-preview  /404  404!",
+    "/calendar/palette-preview/  /404  404!",
+    "/calendar/palette-preview/index.html  /404  404!",
+    "/calendar/palette-preview/*  /404  404!",
+    "/calendar/original-calendar-frame.html  /404  404!",
+    "/calendar/original-calendar-frame  /404  404!"
+  ]) assert.ok(lines.includes(rule), `Expected route rule: ${rule}`);
+  assert.doesNotMatch(read("sitemap.xml"), /\/demo\/|\.html<\/loc>|https:\/\/www\.j-live\.kr/);
+  assert.match(read(".github/workflows/refresh-weekly.yml"), /git add _redirects /, "the daily weekly-page publisher must commit the generated redirect target");
 });
 
 test("publishes hosting-confirmed pending events as noindex pages without ads", () => {
