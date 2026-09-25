@@ -18,6 +18,11 @@ test("production build includes public site files but excludes source and admin 
   for (const entry of ["_headers", "_redirects", "ads.txt", "robots.txt", "sitemap.xml", "calendar/index.html", "calendar/data/events.json"]) {
     assert.equal(fs.existsSync(path.join(output, entry)), true, `${entry} should be deployed`);
   }
+  assert.equal(
+    fs.readFileSync(path.join(output, "ads.txt"), "utf8"),
+    fs.readFileSync(path.join(ROOT, "ads.txt"), "utf8"),
+    "the deployed root ads.txt should exactly match the verified source file",
+  );
   for (const entry of ["tools", "alerts-worker", "README.md", "memory.md", "DAILY-SEARCH-POLICY.md", ".github", ".git"]) {
     assert.equal(fs.existsSync(path.join(output, entry)), false, `${entry} must not be deployed`);
   }

@@ -53,3 +53,9 @@ test("verification dates never borrow the body edit date or an unverified stock 
   assert.equal(visitor.priceStatus({ verification: { price: { status: "pending_announcement" } } }).label, "가격 발표 대기");
   assert.equal(visitor.priceStatus({ ticketingStatus: "pending_announcement" }).label, "가격 미확인");
 });
+
+test("verification summary omits an unrecorded body edit date and includes only a real one", () => {
+  const event = { scheduleVerifiedAt: "2026-09-20", priceVerifiedAt: "2026-09-21" };
+  assert.equal(visitor.verificationSummary(event), "일정 확인 2026-09-20 · 가격 확인 2026-09-21 · 판매 상태 확인 미확인");
+  assert.equal(visitor.verificationSummary({ ...event, articleUpdatedAt: "2026-09-22" }), "일정 확인 2026-09-20 · 가격 확인 2026-09-21 · 판매 상태 확인 미확인 · 본문 수정 2026-09-22");
+});

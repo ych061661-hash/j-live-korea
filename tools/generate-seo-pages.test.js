@@ -2,6 +2,8 @@
 
 const test = require("node:test");
 const assert = require("node:assert/strict");
+const fs = require("node:fs");
+const path = require("node:path");
 const { weeklyRedirectRules } = require("./generate-seo-pages");
 const { articleStructuredData, buildSeries, dataReportHtml, eventPageDecision, hasEditorialGuide, hasIndexableEventContent, homepageMeta, homepageScheduleMarkup, humanDate, isFreshlyVerified, relatedEvents, renderEventPage, richEventGuideMarkup, seoulDateKey, seriesDatesMarkup, songsMarkup, sourceLabel, structuredData, ticketGuideMarkup, ticketGroups, ticketGroupsMarkup, venueGuideForEvent, venueIndexHtml, venuePageHtml, venueRelatedEventsMarkup } = require("./generate-seo-pages");
 
@@ -40,6 +42,25 @@ test("redirects the weekly index to its current dated canonical page", () => {
   assert.throws(() => weeklyRedirectRules("# BEGIN GENERATED WEEKLY REDIRECTS\n# END GENERATED WEEKLY REDIRECTS\n", "not-a-date"), /Invalid weekly redirect date/);
 });
 
+test("omits missing artist photos from event content and structured data instead of substituting a brand image", () => {
+  const event = {
+    id: "artist-without-avatar-2026-10-01", artist: "Artist Without Avatar", concertDate: "2026-10-01",
+    time: "오후 7:00", venue: "Hall", status: "confirmed", youtubeChannel: "",
+    youtubeProfileImage: "", sources: [], songs: []
+  };
+  const html = renderEventPage({
+    event, events: [event], group: [event], primary: event, editorial: { artists: {}, venues: {} },
+    review: undefined, siteUrl: "https://j-live.kr",
+    template: '<html><head><title>공연 상세 | 제이라이브 코리아</title><meta name="description" content="J-POP 내한 공연 일정, 예매 정보, 공연장 교통과 대표곡을 확인하세요."><meta name="robots" content="noindex,follow"><link rel="canonical" id="canonicalLink" href=""></head><body><article id="eventArticle" hidden><section class="event-hero"><img id="eventPhoto" alt="" referrerpolicy="no-referrer" width="1200" height="675" decoding="async" fetchpriority="high"></section></article></body></html>',
+    today: "2026-09-25"
+  });
+
+  assert.doesNotMatch(html, /<img id="eventPhoto"|<meta property="og:image"|j-live-(?:social-card|app-logo)\.png/);
+  const schemas = [...html.matchAll(/<script type="application\/ld\+json" id="(?:event|article)StructuredData">([\s\S]*?)<\/script>/g)];
+  assert.equal(schemas.length, 2);
+  for (const [, serialized] of schemas) assert.equal(Object.hasOwn(JSON.parse(serialized), "image"), false);
+});
+
 test("calculates freshness for review queues independently from editorial approval", () => {
   assert.equal(isFreshlyVerified({ verifiedAt: "2026-09-18" }, "2026-09-19"), true);
   assert.equal(isFreshlyVerified({ verifiedAt: "2026-08-19" }, "2026-09-19"), false);
@@ -66,16 +87,12 @@ test("keeps only future confirmed events in the related list", () => {
   assert.deepEqual(relatedEvents(event, events, "2026-08-10").map(item => item.id), ["future"]);
 });
 
-test("matches song notes by official video id before legacy title fallback", () => {
-  const html = songsMarkup({ songs: [["Same title", "", "https://www.youtube.com/watch?v=official-id"]] }, [
-    { title: "Same title", videoId: "wrong-id", note: "wrong title match" },
-    { title: "Different title", videoId: "official-id", note: "official video match" }
-  ]);
-  assert.match(html, /official video match/);
-  assert.doesNotMatch(html, /wrong title match/);
-  const noReasons = songsMarkup({ songs: [["Song", "", "https://www.youtube.com/watch?v=id"]] });
-  assert.match(noReasons, /Song/);
-  assert.doesNotMatch(noReasons, /<em>/);
+test("shows linked song titles without unsupported per-song editorial notes", () => {
+  const html = songsMarkup({ songs: [["Same title", "Unverified note", "https://www.youtube.com/watch?v=official-id"]] });
+  assert.match(html, /Same title/);
+  assert.match(html, /href="https:\/\/www\.youtube\.com\/watch\?v=official-id"/);
+  assert.match(html, /YouTube 영상/);
+  assert.doesNotMatch(html, /Unverified note|<em>.*감상/);
 });
 
 test("keeps event-specific ticket conditions, omits price duplication, and skips generic artist/song sections", () => {
@@ -92,17 +109,35 @@ test("keeps event-specific ticket conditions, omits price duplication, and skips
   assert.match(html, /<dd id="factPrice">R 100원<\/dd>/);
 });
 
-test("uses an existing artist introduction and leaves shared show-day guidance as one link", () => {
+test("uses an artist introduction only with its official source and keeps shared show-day guidance as a link", () => {
   const template = '<!-- EVENT_TICKET_ANALYSIS --><!-- EVENT_ARTIST_INTRO --><!-- EVENT_VENUE_GUIDE --><!-- EVENT_SONGS --><section><a href="../guides/standing-concert">공연 당일 공통 준비 체크리스트</a></section>';
   const html = renderEventPage({
     event: { id: "artist-2026-09-01", artist: "Artist", concertDate: "2026-09-01", time: "오후 7:00", venue: "Hall", status: "confirmed", songs: [["Track", "", "https://www.youtube.com/watch?v=track-id"]], sources: ["https://official.example/show"] },
     events: [], group: [{ id: "artist-2026-09-01", concertDate: "2026-09-01", time: "오후 7:00" }], primary: { id: "artist-2026-09-01" },
-    editorial: { artists: { Artist: "저장소에 이미 등록된 편집자 소개입니다." }, venues: {}, songGuides: {} }, siteUrl: "https://j-live.kr", template, today: "2026-08-01"
+    editorial: { artists: { Artist: "출처가 없는 기존 소개입니다." }, artistProfiles: { Artist: { summary: "공식 프로필로 확인된 소개입니다.", source: "https://official.example/profile" } }, venues: {}, songGuides: {} }, siteUrl: "https://j-live.kr", template, today: "2026-08-01"
   });
-  assert.match(html, /저장소에 이미 등록된 편집자 소개입니다\./);
-  assert.match(html, /공식 대표곡 영상/);
+  assert.match(html, /공식 프로필로 확인된 소개입니다/);
+  assert.match(html, /href="https:\/\/official\.example\/profile"[^>]*>아티스트 공식 프로필/);
+  assert.doesNotMatch(html, /출처가 없는 기존 소개입니다/);
+  assert.match(html, /관련 곡 영상/);
   assert.match(html, /공연 당일 공통 준비 체크리스트/);
   assert.doesNotMatch(html, /입장구와 집합 시각|최신 판매 상태와 관람 조건|위 예매 분석/);
+});
+
+test("links event pages to the venue guide without repeating generic venue copy", () => {
+  const template = '<!-- EVENT_TICKET_ANALYSIS --><!-- EVENT_ARTIST_INTRO --><!-- EVENT_VENUE_GUIDE --><!-- EVENT_SONGS -->';
+  const html = renderEventPage({
+    event: { id: "artist-2026-09-01", artist: "Artist", concertDate: "2026-09-01", time: "오후 7:00", venue: "Hall", status: "confirmed", songs: [], sources: [] },
+    events: [], group: [{ id: "artist-2026-09-01", concertDate: "2026-09-01", time: "오후 7:00" }], primary: { id: "artist-2026-09-01" },
+    editorial: {
+      artists: {},
+      venues: { Hall: "상세 페이지마다 되풀이되던 일반 교통 안내입니다." },
+      venueGuides: { hall: { name: "Hall", venues: ["Hall"] } }
+    },
+    siteUrl: "https://j-live.kr", template, today: "2026-08-01"
+  });
+  assert.match(html, /href="\.\.\/guides\/venues\/hall">Hall 방문 가이드 보기/);
+  assert.doesNotMatch(html, /되풀이되던 일반 교통 안내|id="venueGuide"/);
 });
 
 test("renders artist-specific editorial content only when it exists", () => {
@@ -110,20 +145,33 @@ test("renders artist-specific editorial content only when it exists", () => {
   const editorial = { eventGuides: { Artist: { focus: "관전 포인트", listening: "듣는 순서", plan: "동선 메모" } } };
 
   const html = richEventGuideMarkup(event, editorial);
-  assert.match(html, /J-LIVE ORIGINAL/);
+  assert.match(html, /EDITORIAL NOTE/);
+  assert.match(html, /주관적 편집 해석이며 공식 발표나 공연 세트리스트를 뜻하지 않습니다/);
+  assert.match(html, /음악에서 살펴볼 점/);
   assert.match(html, /관전 포인트/);
   assert.doesNotMatch(html, /듣는 순서/);
-  assert.match(html, /동선 메모/);
+  assert.doesNotMatch(html, /동선 메모/);
   assert.equal(hasEditorialGuide(event, editorial), true);
   assert.equal(hasEditorialGuide({ artist: "Unknown" }, editorial), false);
   assert.equal(richEventGuideMarkup({ artist: "Unknown" }, editorial), "");
 });
 
+test("does not repeat artist-level editorial or venue plans on secondary series pages", () => {
+  const html = richEventGuideMarkup(
+    { id: "show-2", artist: "Artist" },
+    { eventGuides: { Artist: { focus: "Artist-wide music analysis", plan: "Unverified venue plan" } } },
+    { id: "show-1" }
+  );
+  assert.match(html, /공연 시리즈 공통 음악 감상 노트/);
+  assert.match(html, /href="\.\/events\/show-1"/);
+  assert.doesNotMatch(html, /Artist-wide music analysis|Unverified venue plan/);
+});
+
 test("uses documented editorial judgment rather than word or song-count thresholds", () => {
   const event = {
-    id: "artist-2026-09-20", artist: "Artist", venue: "Venue", status: "confirmed",
+    id: "artist-2026-09-20", artist: "Artist", venue: "Venue", status: "confirmed", ticketingStatus: "confirmed",
     concertDate: "2026-09-20", verifiedAt: "2026-09-19", sources: ["https://tickets.example/show"],
-    songs: [["Song A", "", "https://youtube.com/watch?v=a"]],
+    priceVerifiedAt: "2026-09-19", songs: [["Song A", "", "https://youtube.com/watch?v=a"]],
     ticketDate: "2026-08-01", seatPrices: [{ name: "일반", price: 99000 }]
   };
   const editorial = {
@@ -134,10 +182,12 @@ test("uses documented editorial judgment rather than word or song-count threshol
   assert.equal(hasIndexableEventContent(event, { eventGuides: { Artist: { focus: "일반적인 공연은 즐겁습니다.", plan: "즐겁게 관람하세요." } } }, undefined), false);
   assert.equal(hasIndexableEventContent({ ...event, sources: [] }, editorial, review), false);
   assert.equal(hasIndexableEventContent({ ...event, ticketingStatus: "conflict" }, editorial, review), false);
+  assert.equal(hasIndexableEventContent({ ...event, seatPrices: [], ticketDate: "", ticketingStatus: "" }, editorial, review), false);
+  assert.equal(hasIndexableEventContent({ ...event, verification: { price: { status: "unverified" } }, ticketDate: "", ticketingStatus: "" }, editorial, review), false);
 });
 
 test("separates index and ad approval; archive pages require an explicit record review", () => {
-  const event = { id: "archive-show", artist: "Band", venue: "Hall", status: "confirmed", concertDate: "2026-01-01", verifiedAt: "2025-12-01", sources: ["https://official.example/show"], ticketDate: "2025-10-01" };
+  const event = { id: "archive-show", artist: "Band", venue: "Hall", status: "confirmed", ticketingStatus: "confirmed", concertDate: "2026-01-01", verifiedAt: "2025-12-01", sources: ["https://official.example/show"], ticketDate: "2025-10-01" };
   const editorial = { eventGuides: { Band: { focus: "Show-specific decisions", plan: "Venue details" } } };
   const review = { quality: "approved", index: "approved", ads: "not-approved", duplicateCheck: "clear", archive: "approved", reviewedAt: "2026-09-20", readerTasks: ["Past ticket conditions"], specificValue: ["Record of this show"], evidenceSources: ["https://official.example/show"] };
   const decision = eventPageDecision(event, editorial, review, "2026-09-23");
@@ -147,6 +197,53 @@ test("separates index and ad approval; archive pages require an explicit record 
   assert.equal(decision.needsRecheck, true);
   assert.equal(eventPageDecision(event, editorial, { ...review, archive: undefined }, "2026-09-23").indexable, false);
   assert.equal(eventPageDecision({ ...event, concertDate: "2026-10-01" }, editorial, { ...review, archive: undefined }, "2026-09-23").indexable, true);
+});
+
+test("stale schedule or ticket facts suspend ads without removing the useful event page from the index", () => {
+  const event = {
+    id: "freshness-show", artist: "Band", venue: "Hall", status: "confirmed", ticketingStatus: "confirmed",
+    concertDate: "2026-10-01", verifiedAt: "2026-08-25", scheduleVerifiedAt: "2026-08-25",
+    ticketDate: "2026-08-01", priceVerifiedAt: "2026-09-19", sources: ["https://official.example/show"],
+    seatPrices: [{ name: "일반", price: 99000 }],
+    verification: {
+      concertDate: { status: "confirmed", verifiedAt: "2026-08-25" },
+      ticketDate: { status: "confirmed", verifiedAt: "2026-09-19" },
+      price: { status: "confirmed", verifiedAt: "2026-09-19" }
+    }
+  };
+  const review = { quality: "approved", index: "approved", ads: "approved", duplicateCheck: "clear", reviewedAt: "2026-09-20", readerTasks: ["좌석 가격 비교"], specificValue: ["검증된 좌석 가격"], evidenceSources: ["https://official.example/show"] };
+  const editorial = {};
+
+  const stale = eventPageDecision(event, editorial, review, "2026-09-25");
+  assert.equal(stale.needsRecheck, true);
+  assert.equal(stale.indexable, true);
+  assert.equal(stale.adsAllowed, false);
+
+  const atBoundary = eventPageDecision({
+    ...event, verifiedAt: "2026-08-26", scheduleVerifiedAt: "2026-08-26",
+    verification: { ...event.verification, concertDate: { status: "confirmed", verifiedAt: "2026-08-26" } }
+  }, editorial, review, "2026-09-25");
+  assert.equal(atBoundary.needsRecheck, false);
+  assert.equal(atBoundary.adsAllowed, true);
+
+  const stalePrice = eventPageDecision({
+    ...event, verifiedAt: "2026-09-23", scheduleVerifiedAt: "2026-09-23", priceVerifiedAt: "2026-08-25",
+    verification: { ...event.verification, concertDate: { status: "confirmed", verifiedAt: "2026-09-23" }, price: { status: "confirmed", verifiedAt: "2026-08-25" } }
+  }, editorial, review, "2026-09-25");
+  assert.equal(stalePrice.needsRecheck, false);
+  assert.equal(stalePrice.indexable, true);
+  assert.equal(stalePrice.adsAllowed, false);
+
+  const missingPriceCheck = eventPageDecision({
+    ...event, verifiedAt: "2026-09-23", scheduleVerifiedAt: "2026-09-23", priceVerifiedAt: undefined,
+    verification: { ...event.verification, concertDate: { status: "confirmed", verifiedAt: "2026-09-23" }, price: undefined }
+  }, editorial, review, "2026-09-25");
+  assert.equal(missingPriceCheck.indexable, true);
+  assert.equal(missingPriceCheck.adsAllowed, false);
+
+  const archived = eventPageDecision({ ...event, concertDate: "2026-01-01" }, editorial, { ...review, archive: "approved" }, "2026-09-25");
+  assert.equal(archived.indexable, true);
+  assert.equal(archived.adsAllowed, false);
 });
 
 test("attributes indexable event articles to the named author and policy", () => {
@@ -180,11 +277,11 @@ test("does not publish unverified or historical ticket inventory in structured d
   assert.equal(JSON.parse(structuredData({ ...base, status: "cancelled" }, [base], "https://j-live.kr/calendar/events/artist", "https://j-live.kr")).eventStatus, "https://schema.org/EventCancelled");
 });
 
-test("matches song notes by title and labels sources by verified vendor or exact domain", () => {
-  const html = songsMarkup({ songs: [["B", "기본 B", "https://www.youtube.com/watch?v=b"], ["A", "기본 A", "https://www.youtube.com/watch?v=a"]] }, [{ title: "A", note: "A에 맞는 설명" }, { title: "B", note: "B에 맞는 설명" }]);
-  assert.match(html, /B에 맞는 설명/);
-  assert.match(html, /A에 맞는 설명/);
-  assert.doesNotMatch(html, /기본 [AB]/);
+test("omits unverified song descriptions and labels sources by verified vendor or exact domain", () => {
+  const html = songsMarkup({ songs: [["B", "확인되지 않은 설명 B", "https://www.youtube.com/watch?v=b"], ["A", "확인되지 않은 설명 A", "https://www.youtube.com/watch?v=a"]] });
+  assert.match(html, /B/);
+  assert.match(html, /A/);
+  assert.doesNotMatch(html, /확인되지 않은 설명/);
   assert.equal(sourceLabel("https://ticket.yes24.com/Perf/1"), "YES24 예매 페이지");
   assert.equal(sourceLabel("https://official.example/path"), "official.example");
 });
@@ -258,6 +355,94 @@ test("renders ticket analysis and resolves a venue field guide", () => {
   assert.equal(venueGuideForEvent(event, editorial)[0], "hall");
 });
 
+test("publishes an endDate only from the current event's verified endTime", () => {
+  const base = { artist: "Artist", concertDate: "2026-11-07", time: "오후 7:00", venue: "Hall", vendorUrl: "https://tickets.example/show" };
+  const neighboringEvent = {
+    ...base,
+    id: "neighboring-show",
+    endTime: "21:00",
+    verification: { endTime: { status: "confirmed", sources: ["https://official.example/neighboring-show"] } }
+  };
+  const currentWithoutEndTime = { ...base, id: "current-show" };
+  const omitted = JSON.parse(structuredData(currentWithoutEndTime, [currentWithoutEndTime, neighboringEvent], "https://j-live.kr/calendar/events/current-show", "https://j-live.kr"));
+  assert.equal(omitted.endDate, undefined);
+
+  const regallily = {
+    ...base,
+    id: "regallily-2026-11-07",
+    endTime: "20:30",
+    verification: { endTime: { status: "confirmed", verifiedAt: "2026-09-25", sources: ["https://www.highjinkx.com/show-list/regallily"] } }
+  };
+  const verified = JSON.parse(structuredData(regallily, [regallily], "https://j-live.kr/calendar/events/regallily-2026-11-07", "https://j-live.kr"));
+  assert.equal(verified.endDate, "2026-11-07T20:30:00+09:00");
+});
+
+test("Fujii Kaze detail separates verified ticket conditions and never labels the ticket vendor as organizer", () => {
+  const fs = require("node:fs");
+  const path = require("node:path");
+  const vm = require("node:vm");
+  const events = JSON.parse(fs.readFileSync(path.join(__dirname, "../calendar/data/events.json"), "utf8"));
+  const content = fs.readFileSync(path.join(__dirname, "../calendar/content.js"), "utf8");
+  const event = events.find(item => item.id === "fujii-kaze-2027-01-09");
+  const window = {};
+  vm.runInNewContext(content, { window });
+  const guide = window.JLIVE_CONTENT.ticketGuides["Fujii Kaze"];
+  assert.ok(event && guide, "Fujii Kaze source data and ticket guide must exist");
+  const detail = ticketGuideMarkup(event, { ticketGuides: { "Fujii Kaze": guide } });
+  assert.match(detail, /만 7세 이상/);
+  assert.match(detail, /장애인 할인/);
+  assert.match(detail, /본인 확인·증빙 조건/);
+  assert.match(detail, /현장 수령/);
+  assert.match(detail, /일반 예매자의 구매 매수 제한이 표시되어 있지 않습니다/);
+  assert.doesNotMatch(detail, /4매|12월 8일|전 관객 본인 확인/);
+
+  const jsonLd = JSON.parse(structuredData(event, [event], "https://j-live.kr/calendar/events/fujii-kaze-2027-01-09", "https://j-live.kr"));
+  assert.deepEqual(jsonLd.organizer, {
+    "@type": "Organization", name: "AEG Presents Asia", url: "https://asia.aegpresents.com/"
+  });
+  assert.notEqual(jsonLd.organizer.url, event.vendorUrl);
+});
+
+test("event review content for Homecomings and Kawasaki Takaya preserves source-specific audience conditions", () => {
+  const fs = require("node:fs");
+  const path = require("node:path");
+  const vm = require("node:vm");
+  const events = JSON.parse(fs.readFileSync(path.join(__dirname, "../calendar/data/events.json"), "utf8"));
+  const reviews = JSON.parse(fs.readFileSync(path.join(__dirname, "../calendar/data/page-reviews.json"), "utf8")).reviews;
+  const window = {};
+  vm.runInNewContext(fs.readFileSync(path.join(__dirname, "../calendar/content.js"), "utf8"), { window });
+  for (const [id, expected] of [
+    ["kento-nakajima-2026-10-03", [/총 120분/, /관람 연령이 만 8세 이상/]],
+    ["homecomings-2026-12-13", [/전석 스탠딩/, /90분/, /만 8세/, /첫 단독 내한/]],
+    ["let-me-know-2026-11-28", [/70분/, /스탠딩과 지정석은 모두 99,000원/, /1인 최대 2매/, /11월 9일/, /4,000원/, /30%/]],
+    ["kawasaki-takaya-2026-12-20", [/최대 4매/, /미취학 아동 입장 불가/, /Global URL/, /여권 원본/, /입장 번호/, /펜라이트/]],
+    ["regallily-2026-11-07", [/전체관람가/, /문 열림 18:30/, /시작 19:00/, /약 90분/, /현장 수령 또는 등기우편/, /별도 선예매.*미확인/]]
+  ]) {
+    const event = events.find(item => item.id === id);
+    const review = reviews[id];
+    const guide = window.JLIVE_CONTENT.ticketGuides[event.artist];
+    const html = ticketGuideMarkup(event, { ticketGuides: { [event.artist]: guide } });
+    for (const pattern of expected) assert.match(html, pattern, `${id} should retain ${pattern}`);
+    assert.equal(eventPageDecision(event, {}, review, "2026-09-25").indexable, true, `${id} has an approved source-backed editorial record`);
+    assert.equal(eventPageDecision(event, {}, review, "2026-09-25").adsAllowed, true, `${id} has fresh schedule, price and ticket-date evidence`);
+    if (id === "let-me-know-2026-11-28") {
+      assert.deepEqual(event.seatPrices.map(item => item.name), ["스탠딩", "지정석"]);
+      assert.deepEqual(event.seatPrices.map(item => item.price), [99000, 99000]);
+    }
+  }
+  const regallily = events.find(item => item.id === "regallily-2026-11-07");
+  const template = fs.readFileSync(path.join(__dirname, "event-page-template.html"), "utf8");
+  const regallilyHtml = renderEventPage({
+    event: regallily, events, group: [regallily], primary: regallily, editorial: window.JLIVE_CONTENT,
+    review: reviews[regallily.id], siteUrl: "https://j-live.kr", template, today: "2026-09-25"
+  });
+  const eventJsonLd = JSON.parse(regallilyHtml.match(/<script type="application\/ld\+json" id="eventStructuredData">([\s\S]*?)<\/script>/)[1]);
+  assert.deepEqual(eventJsonLd.organizer, { "@type": "Organization", name: "Highjinkx", url: "https://www.highjinkx.com/" });
+  assert.match(regallilyHtml, /pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/);
+  assert.doesNotMatch(regallilyHtml, /매진|판매 중|잔여석/);
+  assert.doesNotMatch(regallilyHtml, /토요일 저녁에는.*혼잡|물품 보관을 마친 뒤/);
+});
+
 test("homepage labels announcement wait separately from unknown prices and unverified sales", () => {
   const event = {
     id: "wait-2026-10-10", artist: "Wait Artist", concertDate: "2026-10-10", time: "오후 7:00", venue: "Hall",
@@ -300,6 +485,13 @@ test("compares showtimes and named ticket tiers without inventing benefits", () 
   assert.match(html, /오후 5:00/);
   assert.doesNotMatch(html, /M&amp;G석|88,000원 높음/);
   assert.doesNotMatch(html, /특전 제공|사운드체크 참여권 제공/);
+});
+
+test("keeps the event-series showtime comparison inside narrow mobile viewports", () => {
+  const css = fs.readFileSync(path.join(__dirname, "../calendar/styles.css"), "utf8");
+  assert.match(css, /@media\s*\(max-width:\s*600px\)\s*\{[\s\S]*?\.series-comparison \.venue-table-wrap\s*\{\s*overflow-x:\s*visible;/);
+  assert.match(css, /\.series-comparison \.venue-compare-table\s*\{\s*min-width:\s*0;\s*table-layout:\s*fixed;/);
+  assert.match(css, /\.series-comparison \.venue-compare-table tbody th\s*\{\s*width:\s*44%;/);
 });
 
 test("does not duplicate verified seat prices in the ticket-conditions section", () => {

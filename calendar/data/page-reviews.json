@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "reviewedAt": "2026-09-23",
+  "reviewedAt": "2026-09-25",
   "reviews": {
     "takuya-kimura-2026-09-26": {
       "quality": "approved",
@@ -29,9 +29,9 @@
       "index": "approved",
       "ads": "approved",
       "duplicateCheck": "clear",
-      "reviewedAt": "2026-09-19",
+      "reviewedAt": "2026-09-25",
       "readerTasks": ["10월 3·4일 회차 시각 비교", "VIP·R·S·A 좌석 가격 비교", "예매처의 수령·입장 조건 확인"],
-      "specificValue": ["두 회차 공연 시작 시각과 공통 권종 가격을 한눈에 비교", "YES24 공지에 명시된 관람 연령·티켓 관련 조건 및 미확인 사항 구분"],
+      "specificValue": ["두 회차 공연 시작 시각과 공통 권종 가격을 한눈에 비교", "YES24 상품의 총 120분 관람시간과 관람 연령·티켓 조건 및 미확인 사항 구분"],
       "editorialNote": "티켓 페이지가 모바일 티켓을 수령 방식으로 표기하나 모바일 전용 여부, 구매 제한, 전 관객 본인 확인은 별도로 확인되지 않아 단정하지 않는다.",
       "evidenceSources": ["https://ticket.yes24.com/Perf/58653", "https://m.ticket.yes24.com/Notice/17913", "https://www.sonymusic.co.jp/artist/KentoNakajima/info/583773"]
     },
@@ -67,6 +67,61 @@
       "specificValue": ["아티스트·주최사·예매처의 개최 정보를 교차 확인", "공연별 티켓 정보를 공연장 가이드와 연결"],
       "editorialNote": "현 판매 잔여석은 표시하지 않고 공연 사실과 예매 조건을 분리해 제공한다.",
       "evidenceSources": ["https://cero-web.jp/category/live/", "https://www.highjinkx.com/show-list/cero", "https://ticket.yes24.com/Perf/59471"]
+    },
+    "regallily-2026-11-07": {
+      "quality": "approved",
+      "index": "approved",
+      "ads": "approved",
+      "duplicateCheck": "clear",
+      "reviewedAt": "2026-09-25",
+      "readerTasks": ["스탠딩 입장에 필요한 문 열림·공연 시작 시각 확인", "관람 등급·약 90분 러닝타임·가격 비교", "YES24 발권 방식 확인"],
+      "specificValue": ["공식 공지의 문 열림 18:30과 시작 19:00을 구분", "전석 스탠딩 88,000원·전체관람가·약 90분을 공연별 조건으로 정리", "국내 YES24와 해외 YES24 Global 예매 링크 및 현장 수령·등기우편 선택을 안내"],
+      "editorialNote": "공식 아티스트 안내와 주최사 일정, YES24 상품 정보를 대조했다. 티켓 오픈일이 지났다고 현재 판매 상태를 추정하지 않고, 별도 선예매·의무 본인 확인은 미확인으로 남겼다.",
+      "evidenceSources": ["https://www.office-augusta.com/ko/regallily/live/?post=20261107", "https://www.highjinkx.com/show-list/regallily", "https://ticket.yes24.com/Perf/59001"]
+    },
+    "homecomings-2026-12-13": {
+      "quality": "approved",
+      "index": "approved",
+      "ads": "approved",
+      "duplicateCheck": "clear",
+      "reviewedAt": "2026-09-25",
+      "readerTasks": ["전석 스탠딩·90분 공연 준비", "관람 연령·가격·예매 일정 확인"],
+      "specificValue": ["첫 단독 내한 공연이라는 정보와 전석 스탠딩·예정 90분·만 8세 기준을 공식 티켓 안내로 확인", "일반 예매의 오픈 시각·액면가와 확인되지 않은 발권·구매 한도 정보를 분리"],
+      "editorialNote": "멜론티켓 상세 공지에서 확인되는 관람 형태·시간·연령·가격과 발권 관련 미확인 범위를 짧게 정리했다.",
+      "evidenceSources": ["https://ticket.melon.com/csoon/detail.htm?csoonId=12775"]
+    },
+    "let-me-know-2026-11-28": {
+      "quality": "approved",
+      "index": "approved",
+      "ads": "approved",
+      "duplicateCheck": "clear",
+      "reviewedAt": "2026-09-25",
+      "readerTasks": ["스탠딩·지정석 가격과 관람 형식 비교", "팬클럽 선예매 자격·인증·매수 제한 확인", "배송과 취소 수수료 준비"],
+      "specificValue": ["두 티켓 유형의 가격은 같고 관람 방식이 다르다는 점 및 70분 공연 시간을 대조", "팬클럽 가입 마감·인증 시작·선착순 판매·1인 2매 조건을 일정과 분리", "11월 9~10일 일괄 배송 및 NOL의 단계별 취소 수수료를 요약"],
+      "editorialNote": "아티스트의 한국어 공식 공지와 NOL 상품 안내를 교차 확인했다. 과거 오픈 일자에서 현재 판매 여부를 추론하지 않고, 티켓 종류·배송·환불 조건의 차이를 중심으로 정리했다.",
+      "evidenceSources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/", "https://letmeknowmusic.jp/news/3422/", "https://nol.yanolja.com/ticket/products/26010681"]
+    },
+    "kawasaki-takaya-2026-12-20": {
+      "quality": "approved",
+      "index": "approved",
+      "ads": "approved",
+      "duplicateCheck": "clear",
+      "reviewedAt": "2026-09-25",
+      "readerTasks": ["1층 스탠딩과 2층 지정석 비교", "해외 예매 티켓 수령과 입장 준비", "매수·연령·반입 조건 확인"],
+      "specificValue": ["공식 공지의 1인 최대 4매, 미취학 아동 입장 불가, 스탠딩 번호와 입장 순서를 정리", "Global 예매에 한정된 현장 수령·여권·예약 확인 조건을 한국 예매와 분리", "양도 금지·공연 당일 환불 불가·펜라이트 반입 제한을 정리"],
+      "editorialNote": "공식 아티스트 공지의 조건을 한국 예매와 Global 예매로 나누어, 해외 예매자에게 적용되는 여권·현장 수령 안내가 국내 예매자에게도 적용되는 것처럼 보이지 않도록 했다.",
+      "evidenceSources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"]
+    },
+    "fujii-kaze-2027-01-09": {
+      "quality": "approved",
+      "index": "approved",
+      "ads": "approved",
+      "duplicateCheck": "clear",
+      "reviewedAt": "2026-09-25",
+      "readerTasks": ["여섯 좌석 등급의 가격 비교", "로컬·글로벌 예매 시작 시각 확인", "관람 연령·할인 자격과 수령 조건 확인"],
+      "specificValue": ["공식 예매 공지의 여섯 좌석 가격과 만 7세 관람 등급을 한 화면에 정리", "장애인·국가유공자 할인율, 신청 경로, 현장 수령과 증빙 조건을 구분", "일반 예매자의 구매 한도·배송 정보는 확인되지 않은 상태로 구분"],
+      "editorialNote": "서울 공연의 공식 일정·가격·예매 시각을 대조했다. 멜론티켓이 명시한 할인 대상과 현장 수령 조건을 추가하고, 확인한 공지에 없는 일반 구매 한도·배송일·판매 재고는 단정하지 않는다.",
+      "evidenceSources": ["https://hehn.fujiikaze.com/pwt/", "https://ticket.melon.com/csoon/detail.htm?csoonId=12366", "https://asia.aegpresents.com/"]
     }
   }
 }

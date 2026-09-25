@@ -1,13 +1,13 @@
 "use strict";
 
-const CACHE_VERSION = "j-live-pwa-v99-urlcleanup";
+const CACHE_VERSION = "j-live-pwa-v102-event-data-network-first";
 const APP_SHELL = [
   "/calendar/",
   "/calendar/index.html",
   "/calendar/offline.html",
   "/calendar/styles.css?v=20260924herocenter1",
   "/calendar/site-config.js?v=20260808ea",
-  "/calendar/site.js?v=20260825conversion1",
+  "/calendar/site.js?v=20260925noavatarfallback1",
   "/calendar/analytics.js",
   "/calendar/favorites.js",
   "/calendar/attendance.js?v=20260813",
@@ -16,9 +16,9 @@ const APP_SHELL = [
   "/calendar/alerts/",
   "/calendar/alerts/index.html",
   "/calendar/search-utils.js?v=20260825conversion1",
-  "/calendar/app.js?v=20260921schedule6",
+  "/calendar/app.js?v=20260925noavatarfallback1",
   "/calendar/content.js",
-  "/calendar/event.js?v=20260909content2",
+  "/calendar/event.js?v=20260925noavatarfallback2",
   "/calendar/data/events.json",
   "/calendar/data/historical-events.json",
   "/calendar/data/historical-events-2023.json",
@@ -97,6 +97,21 @@ self.addEventListener("fetch", event => {
           return response;
         })
         .catch(() => caches.match(request).then(response => response || caches.match("/calendar/offline.html")))
+    );
+    return;
+  }
+
+  if (url.pathname === "/calendar/data/events.json") {
+    event.respondWith(
+      fetch(request)
+        .then(response => {
+          if (response.ok) {
+            const copy = response.clone();
+            caches.open(CACHE_VERSION).then(cache => cache.put(request, copy));
+          }
+          return response;
+        })
+        .catch(() => caches.match(request))
     );
     return;
   }

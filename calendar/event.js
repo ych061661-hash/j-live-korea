@@ -64,10 +64,6 @@ function sourceLabel(source) {
   }
 }
 
-function youtubeVideoId(url) {
-  try { return new URL(url).searchParams.get("v") || ""; } catch { return ""; }
-}
-
 function isoDateTime(date, time) {
   if (!date) return "";
   const matched = String(time || "").match(/(오전|오후|낮)\s*(\d{1,2}):(\d{2})/);
@@ -121,11 +117,14 @@ function renderSeries(event, events) {
   const series = events
     .filter(item => isPublicEvent(item) && sameSeries(item, event))
     .sort((a, b) => a.concertDate.localeCompare(b.concertDate) || (a.time || "").localeCompare(b.time || ""));
-  document.querySelector("#seriesSummary").textContent = series.length > 1
+  const summary = document.querySelector("#seriesSummary");
+  const dates = document.querySelector("#seriesDates");
+  if (!summary || !dates) return series;
+  summary.textContent = series.length > 1
     ? `이번 내한은 ${series.length}회 공연으로 진행됩니다. 날짜별 공연 시각과 예매 조건을 확인하세요.`
-    : "현재 공식 확인된 한국 공연은 1회입니다. 추가 회차는 공식 출처에서 다시 확인합니다.";
+    : "";
   const base = location.pathname.includes("/calendar/events/") ? "./" : "./events/";
-  document.querySelector("#seriesDates").innerHTML = series.map(item => `
+  dates.innerHTML = series.map(item => `
     <li class="${item.id === event.id ? "active" : ""}">
       <a href="${base}${encodeURIComponent(item.id)}">${escapeHtml(humanDate(item.concertDate, item.time))}</a>
     </li>`).join("");
@@ -185,7 +184,7 @@ function renderEvent(event, events) {
   document.querySelector("#eventSummary").textContent = `${statusPrefix}${humanDate(event.concertDate, event.time)} · ${event.venue}`;
   renderSeries(event, events);
   const artistIntro = document.querySelector("#artistIntro");
-  if (artistIntro) artistIntro.textContent = editorial.artists[event.artist] || "";
+  if (artistIntro) artistIntro.textContent = editorial.artistProfiles?.[event.artist]?.summary || "";
   const venueGuide = document.querySelector("#venueGuide");
   if (venueGuide) venueGuide.textContent = editorial.venues[event.venue] || "";
   const ticketTip = document.querySelector("#ticketTip");
@@ -202,7 +201,7 @@ function renderEvent(event, events) {
   const verificationDates = window.JLIVE_VISITOR?.verificationDates(event) || {};
   document.querySelector("#factScheduleVerified").textContent = verificationDates.schedule || "미기록";
   document.querySelector("#factPriceVerified").textContent = verificationDates.price || "미기록";
-  document.querySelector("#eventVerified").textContent = `일정 확인 ${verificationDates.schedule || "미기록"} · 가격 확인 ${verificationDates.price || "미기록"} · 판매 상태 확인 ${verificationDates.availability || "미확인"} · 본문 수정 ${verificationDates.article || "미기록"}`;
+  document.querySelector("#eventVerified").textContent = window.JLIVE_VISITOR?.verificationSummary(event) || `일정 확인 ${verificationDates.schedule || "미기록"} · 가격 확인 ${verificationDates.price || "미기록"} · 판매 상태 확인 ${verificationDates.availability || "미확인"}`;
 
   const ticket = document.querySelector("#eventTicket");
   ticket.hidden = !event.vendorUrl;
@@ -213,14 +212,10 @@ function renderEvent(event, events) {
   document.querySelector("#correctionLink").href = `${correctionBase}?event=${encodeURIComponent(event.id)}&artist=${encodeURIComponent(event.artist)}`;
 
   const songsElement = document.querySelector("#eventSongs");
-  const guideByVideo = new Map((editorial.songGuides?.[event.artist] || []).filter(guide => guide.videoId).map(guide => [guide.videoId, guide]));
   if (songsElement) songsElement.innerHTML = (event.songs || []).slice(0, 3).map(song => {
-    const videoId = youtubeVideoId(song[2]);
-    const guide = guideByVideo.get(videoId) || (editorial.songGuides?.[event.artist] || []).find(item => item.title === song[0]);
-    const note = guide?.note || song[1];
     return `
     <a class="song" href="${escapeHtml(song[2])}" target="_blank" rel="noopener noreferrer">
-      <span class="play">▶</span><span>${escapeHtml(song[0])}</span>${note ? `<em>${escapeHtml(note)}</em>` : ""}
+      <span class="play">▶</span><span>${escapeHtml(song[0])}</span><em>YouTube 영상</em>
     </a>`;
   }).join("");
   document.querySelector("#eventSources").innerHTML = (event.sources || []).map(source => {
@@ -230,21 +225,16 @@ function renderEvent(event, events) {
   renderRelatedEvents(event, events);
 
   const photo = document.querySelector("#eventPhoto");
-  const staticPhoto = photo.getAttribute("src");
-  if (!staticPhoto) {
+  if (photo) {
+    const staticPhoto = photo.getAttribute("src");
     const localPhoto = window.JLIVE_ARTIST_IMAGES.localUrl(event);
-    const remotePhoto = window.JLIVE_ARTIST_IMAGES.remoteUrl(event);
-    const fallbackPhoto = window.JLIVE_ARTIST_IMAGES.fallbackUrl();
-    photo.alt = `${event.artist} 공식 YouTube 프로필`;
-    photo.src = localPhoto || remotePhoto || fallbackPhoto;
-    photo.onerror = () => {
-      if (remotePhoto && photo.src !== remotePhoto) {
-        photo.src = remotePhoto;
-        return;
-      }
+    const photoUrl = staticPhoto || localPhoto;
+    photo.hidden = !photoUrl;
+    if (photoUrl && !staticPhoto) photo.src = photoUrl;
+    if (photoUrl) photo.onerror = () => {
       photo.onerror = null;
-      photo.alt = "J-LIVE 기본 공연 이미지";
-      photo.src = fallbackPhoto;
+      photo.removeAttribute("src");
+      photo.hidden = true;
     };
   }
 
@@ -282,6 +272,9 @@ document.querySelector("#relatedEvents").addEventListener("click", clickEvent =>
 initializeEvent().catch(error => {
   const indexPath = location.pathname.includes("/calendar/events/") ? "../" : "./";
   const loading = document.querySelector("#eventLoading");
+  document.querySelector("#eventArticle").hidden = true;
+  document.querySelectorAll(".google-auto-placed, ins.adsbygoogle, [data-ad-status]").forEach(element => element.remove());
+  document.querySelectorAll('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]').forEach(element => element.remove());
   loading.hidden = false;
   loading.innerHTML = `<strong>공연 정보를 표시할 수 없습니다.</strong><span>${escapeHtml(error.message)}</span><a href="${indexPath}">전체 달력으로 돌아가기</a>`;
 });

@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://j-live.kr/calendar/</loc><lastmod>2026-09-25</lastmod></url>
   <url><loc>https://j-live.kr/calendar/about</loc></url>
-  <url><loc>https://j-live.kr/calendar/artists/</loc><lastmod>2026-09-23</lastmod></url>
+  <url><loc>https://j-live.kr/calendar/artists/</loc><lastmod>2026-09-25</lastmod></url>
   <url><loc>https://j-live.kr/calendar/fanclubs/</loc></url>
   <url><loc>https://j-live.kr/calendar/festivals/wonderlivet-2026</loc></url>
   <url><loc>https://j-live.kr/calendar/guides/venues/</loc></url>
@@ -18,15 +18,25 @@
   <url><loc>https://j-live.kr/calendar/guides/venues/wanderloch-hall</loc><lastmod>2026-07-20</lastmod></url>
   <url><loc>https://j-live.kr/calendar/guides/venues/gocheok-sky-dome</loc><lastmod>2026-07-20</lastmod></url>
   <url><loc>https://j-live.kr/calendar/artists/takuya-kimura</loc><lastmod>2026-09-19</lastmod></url>
-  <url><loc>https://j-live.kr/calendar/artists/omoinotake</loc><lastmod>2026-09-19</lastmod></url>
-  <url><loc>https://j-live.kr/calendar/artists/kento-nakajima</loc><lastmod>2026-09-23</lastmod></url>
-  <url><loc>https://j-live.kr/calendar/artists/ano</loc><lastmod>2026-09-23</lastmod></url>
-  <url><loc>https://j-live.kr/calendar/artists/andteam</loc><lastmod>2026-09-23</lastmod></url>
-  <url><loc>https://j-live.kr/calendar/artists/cero</loc><lastmod>2026-09-19</lastmod></url>
+  <url><loc>https://j-live.kr/calendar/artists/omoinotake</loc><lastmod>2026-09-25</lastmod></url>
+  <url><loc>https://j-live.kr/calendar/artists/fujii-kaze</loc><lastmod>2026-09-25</lastmod></url>
+  <url><loc>https://j-live.kr/calendar/artists/kento-nakajima</loc><lastmod>2026-09-25</lastmod></url>
+  <url><loc>https://j-live.kr/calendar/artists/let-me-know</loc><lastmod>2026-09-25</lastmod></url>
+  <url><loc>https://j-live.kr/calendar/artists/ano</loc><lastmod>2026-09-25</lastmod></url>
+  <url><loc>https://j-live.kr/calendar/artists/andteam</loc><lastmod>2026-09-25</lastmod></url>
+  <url><loc>https://j-live.kr/calendar/artists/cero</loc><lastmod>2026-09-25</lastmod></url>
+  <url><loc>https://j-live.kr/calendar/artists/regallily</loc><lastmod>2026-09-25</lastmod></url>
+  <url><loc>https://j-live.kr/calendar/artists/kawasaki-takaya</loc><lastmod>2026-09-25</lastmod></url>
+  <url><loc>https://j-live.kr/calendar/artists/homecomings</loc><lastmod>2026-09-25</lastmod></url>
   <url><loc>https://j-live.kr/calendar/events/takuya-kimura-2026-09-26</loc><lastmod>2026-09-19</lastmod></url>
   <url><loc>https://j-live.kr/calendar/events/omoinotake-2026-10-17</loc><lastmod>2026-09-19</lastmod></url>
+  <url><loc>https://j-live.kr/calendar/events/fujii-kaze-2027-01-09</loc><lastmod>2026-09-25</lastmod></url>
   <url><loc>https://j-live.kr/calendar/events/kento-nakajima-2026-10-03</loc><lastmod>2026-09-23</lastmod></url>
+  <url><loc>https://j-live.kr/calendar/events/let-me-know-2026-11-28</loc><lastmod>2026-09-25</lastmod></url>
   <url><loc>https://j-live.kr/calendar/events/ano-2026-10-17</loc><lastmod>2026-09-23</lastmod></url>
   <url><loc>https://j-live.kr/calendar/events/andteam-2026-10-03</loc><lastmod>2026-09-23</lastmod></url>
   <url><loc>https://j-live.kr/calendar/events/cero-2026-10-10</loc><lastmod>2026-09-19</lastmod></url>
+  <url><loc>https://j-live.kr/calendar/events/regallily-2026-11-07</loc><lastmod>2026-09-25</lastmod></url>
+  <url><loc>https://j-live.kr/calendar/events/kawasaki-takaya-2026-12-20</loc><lastmod>2026-09-25</lastmod></url>
+  <url><loc>https://j-live.kr/calendar/events/homecomings-2026-12-13</loc><lastmod>2026-09-25</lastmod></url>
 </urlset>

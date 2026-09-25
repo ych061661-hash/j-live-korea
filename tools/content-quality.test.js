@@ -4,6 +4,7 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
+const vm = require("node:vm");
 
 const root = path.resolve(__dirname, "..");
 const read = file => fs.readFileSync(path.join(root, file), "utf8");
@@ -114,6 +115,15 @@ test("makes the standing guide actionable without inventing event rules", () => 
   assert.doesNotMatch(guide, /venue 안내/);
 });
 
+test("keeps Inspire Arena luggage-storage guidance tied to official confirmation", () => {
+  const html = read("calendar/guides/venues/inspire-arena.html");
+  assert.doesNotMatch(html, /inquiry\.inspireresorts\.com/);
+  assert.match(html, /공연 관객용 보관 서비스가 공지되지 않았다면/);
+  assert.match(html, /공연 관객 수하물 보관 여부/);
+  assert.match(html, /이용 대상, 크기 제한, 운영 시간·위치·요금/);
+  assert.match(html, /답을 받기 전에는 보관할 수 없는 것으로 계획하세요/);
+});
+
 test("keeps the indexed artist directory explanatory rather than link-only", () => {
   const html = read("calendar/artists/index.html");
   assert.ok((html.match(/<h2\b/gi) || []).length >= 3, "artist directory needs explanatory sections");
@@ -126,14 +136,30 @@ test("keeps the indexed artist directory explanatory rather than link-only", () 
 
 test("keeps complete Event structured data after client rendering", () => {
   const sitemap = read("sitemap.xml");
+  const sourceEvents = JSON.parse(read("calendar/data/events.json"));
   const ids = [...sitemap.matchAll(/<loc>https:\/\/j-live\.kr\/calendar\/events\/([^<]+)<\/loc>/g)].map(match => decodeURIComponent(match[1]));
   for (const id of ids) {
     const html = read(`calendar/events/${id}.html`);
     const encoded = (html.match(/id="eventStructuredData">([\s\S]*?)<\/script>/) || [])[1];
     assert.ok(encoded, `${id} is missing Event JSON-LD`);
     const event = JSON.parse(encoded);
-    for (const field of ["description", "startDate", "endDate", "image", "organizer", "offers"]) {
+    for (const field of ["description", "startDate", "offers"]) {
       assert.ok(event[field], `${id} is missing ${field}`);
+    }
+    const sourceRecord = sourceEvents.find(item => item.id === id);
+    const endTimeVerification = sourceRecord?.verification?.endTime;
+    const hasVerifiedEndTime = Boolean(sourceRecord?.endTime && endTimeVerification?.status === "confirmed" && Array.isArray(endTimeVerification.sources) && endTimeVerification.sources.length);
+    assert.equal(Object.hasOwn(event, "endDate"), hasVerifiedEndTime, `${id} must not publish an unverified or default endDate`);
+    if (event.image) {
+      assert.doesNotMatch(event.image.join(" "), /j-live-(?:social-card|app-logo)\.png/, `${id} must use an event/artist image, not a brand mark`);
+    } else {
+      assert.doesNotMatch(html, /<img id="eventPhoto"|<meta property="og:image"/, `${id} has no supported image source and must omit image markup`);
+    }
+    if (sourceRecord.organizer?.name && sourceRecord.organizer?.url) {
+      assert.equal(event.organizer?.name, sourceRecord.organizer.name, `${id} organizer name must match verified source data`);
+      assert.equal(event.organizer?.url, sourceRecord.organizer.url, `${id} organizer URL must match verified source data`);
+    } else {
+      assert.equal(event.organizer, undefined, `${id} must not mislabel the ticket vendor as organizer`);
     }
     for (const field of ["url", "validFrom", "priceCurrency", "price"]) {
       assert.ok(event.offers[field] || event.offers[field] === 0, `${id} is missing offers.${field}`);
@@ -226,6 +252,8 @@ test("keeps editorial trust pages free of advertising code", () => {
     assert.doesNotMatch(read(page), /pagead2\.googlesyndication\.com/, page);
   }
   const about = read("calendar/about.html");
+  assert.match(about, /<h2>운영자 소개<\/h2>/);
+  assert.doesNotMatch(about, /<h2>운영자 여일육을 소개합니다<\/h2>/);
   assert.match(about, /광고와 편집은 분리합니다/);
   assert.match(about, /정보 수정 요청/);
   assert.match(about, /소개 페이지 마지막 수정/);
@@ -331,7 +359,7 @@ test("keeps every public HTML page either curated in the sitemap or explicitly n
   assert.deepEqual(violations, []);
 });
 
-test("publishes complete social previews for every indexed page", () => {
+test("publishes complete social previews and omits unsupported artist images", () => {
   const sitemap = read("sitemap.xml");
   const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]);
   const meta = (html, key) => (html.match(new RegExp(`<meta[^>]+(?:property|name)="${key}"[^>]+content="([^"]+)"`, "i")) || [])[1];
@@ -342,9 +370,16 @@ test("publishes complete social previews for every indexed page", () => {
     assert.ok(meta(html, "og:title"), `${url} is missing og:title`);
     assert.ok(meta(html, "og:description"), `${url} is missing og:description`);
     assert.equal(meta(html, "og:url"), url, `${url} has a mismatched og:url`);
-    assert.match(meta(html, "og:image") || "", /^https:\/\//, `${url} needs an absolute og:image`);
-    assert.ok(meta(html, "og:image:alt"), `${url} is missing og:image:alt`);
-    assert.equal(meta(html, "twitter:card"), "summary_large_image", `${url} needs a large Twitter card`);
+    const image = meta(html, "og:image");
+    if (image) {
+      assert.match(image, /^https:\/\//, `${url} needs an absolute og:image`);
+      assert.ok(meta(html, "og:image:alt"), `${url} is missing og:image:alt`);
+    } else {
+      assert.match(url, /\/calendar\/(?:events|artists)\//, `${url} should have a social image`);
+      assert.doesNotMatch(html, /<meta property="og:image"[^>]+j-live-(?:social-card|app-logo)\.png|<img id="eventPhoto"[^>]+j-live-(?:social-card|app-logo)\.png/);
+      assert.doesNotMatch(html, /<img id="eventPhoto"/);
+    }
+    assert.equal(meta(html, "twitter:card"), image ? "summary_large_image" : "summary", `${url} has an inconsistent Twitter card`);
   }
 
   const socialCard = fs.readFileSync(path.join(root, "calendar", "assets", "brand", "j-live-social-card.png"));
@@ -361,15 +396,17 @@ test("keeps the shared app icon lightweight and correctly declared", () => {
   assert.equal(manifest.icons[0].sizes, "512x512");
 });
 
-test("uses local artist images without third-party avatar fallbacks", () => {
+test("uses local artist images and omits unavailable profile images without branded substitution", () => {
   const site = read("calendar/site.js");
   const event = read("calendar/event.js");
   const app = read("calendar/app.js");
   assert.doesNotMatch(site, /unavatar\.io/);
-  assert.match(site, /j-live-app-logo\.png/);
+  assert.doesNotMatch(site + event + app, /fallbackUrl|remoteUrl|J-LIVE 기본 공연 이미지/);
   assert.match(event, /const staticPhoto = photo\.getAttribute\("src"\)/);
-  assert.match(event, /J-LIVE 기본 공연 이미지/);
-  assert.match(app, /JLIVE_ARTIST_IMAGES\.fallbackUrl\(\)/);
+  assert.match(event, /if \(photo\) \{/);
+  assert.match(event, /photo\.hidden = !photoUrl/);
+  assert.match(app, /myShowsFeatureImage\.hidden = !photoUrl/);
+  assert.match(app, /image\.remove\(\)/);
   const events = JSON.parse(read("calendar/data/events.json"));
   for (const event of events.filter(item => item.status === "confirmed")) {
     assert.doesNotMatch(event.youtubeProfileImage || "", /^https?:\/\//i, `${event.id} must cache its profile image locally`);
@@ -485,6 +522,32 @@ test("presents audience figures as scoped J-LIVE records, not a universal rankin
   assert.match(app, /attendanceSourceType !== "press" \|\| schedule\.attendancePublisher/);
 });
 
+test("event details link to venue guidance instead of repeating generic venue summaries", () => {
+  const sitemap = read("sitemap.xml");
+  const ids = [...sitemap.matchAll(/<loc>https:\/\/j-live\.kr\/calendar\/events\/([^<]+)<\/loc>/g)]
+    .map(match => decodeURIComponent(match[1]));
+  assert.ok(ids.length > 0);
+  for (const id of ids) {
+    const html = read(`calendar/events/${id}.html`);
+    assert.match(html, /id="venueGuideSection"/, id);
+    assert.match(html, /href="\.\.\/guides\/venues\//, id);
+    assert.doesNotMatch(html, /id="venueGuide"/, id);
+  }
+});
+
+test("keeps generic Takuya Kimura listening copy off the event detail", () => {
+  const html = read("calendar/events/takuya-kimura-2026-09-26.html");
+  const artistPage = read("calendar/artists/takuya-kimura.html");
+  assert.doesNotMatch(html, /J-LIVE ORIGINAL|솔로 무대는 오랜 활동 경력을 현재의 팝 공연 문법/);
+  assert.doesNotMatch(html + artistPage, /음악, 드라마, 영화와 무대를 넘나들며 긴 시간 대중적 영향력/);
+  assert.match(html, /공연 조건·티켓 안내|예매 조건·티켓 안내/);
+  assert.match(html, /관련 곡 영상/);
+  assert.doesNotMatch(html, /EDITORIAL NOTE|주관적 편집 해석|음악에서 살펴볼 점/);
+  const guidedPage = read("calendar/events/omoinotake-2026-10-17.html");
+  assert.match(guidedPage, /주관적 편집 해석이며 공식 발표나 공연 세트리스트를 뜻하지 않습니다/);
+  assert.match(html, /Takuya Kimura 아티스트 정보/);
+});
+
 test("keeps generated event pages free of filler and links shared show-day guidance", () => {
   const directory = path.join(root, "calendar", "events");
   const pages = fs.readdirSync(directory).filter(file => file.endsWith(".html"));
@@ -494,8 +557,52 @@ test("keeps generated event pages free of filler and links shared show-day guida
     assert.doesNotMatch(html, /의 한국 공연입니다|입문용 추천 순서입니다|최근 대표곡과 라이브 영상을 확인하세요/, file);
     assert.doesNotMatch(html, /공연별 본인 확인·티켓 수령 조건은 위 예매 분석|최신 판매 상태와 관람 조건은 공식 예매처에서 다시 확인/, file);
     assert.match(html, /\.\.\/guides\/standing-concert/, `${file} needs a shared practical guide link`);
+    assert.doesNotMatch(html, /공연 당일 공통 준비/, `${file} should link the shared checklist without repeating its own section`);
     assert.doesNotMatch(html, /<em>\s*<\/em>/, `${file} has an empty song recommendation`);
   }
+});
+
+test("source-links published artist bios and distinguishes editorial listening notes from official facts", () => {
+  const window = {};
+  vm.runInNewContext(read("calendar/content.js"), { window });
+  const legacyBios = Object.values(window.JLIVE_CONTENT.artists || {});
+  const sitemap = read("sitemap.xml");
+  const artistUrls = [...sitemap.matchAll(/<loc>(https:\/\/j-live\.kr\/calendar\/artists\/[^<]+)<\/loc>/g)]
+    .map(match => match[1])
+    .filter(url => !url.endsWith("/artists/"));
+  assert.ok(artistUrls.length > 0);
+
+  for (const url of artistUrls) {
+    const html = fs.readFileSync(indexedFileFor(url), "utf8");
+    const hero = html.match(/<section class="artist-profile-hero">[\s\S]*?<\/section>/)?.[0] || "";
+    if (/<p>/.test(hero)) {
+      assert.match(hero, /class="artist-profile-source"[\s\S]*?https:\/\//, url);
+      assert.match(hero, /공식 프로필 확인 2026-09-25/, url);
+    }
+    for (const unsupportedBio of legacyBios) assert.doesNotMatch(html, new RegExp(unsupportedBio.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")), url);
+  }
+
+  const eventDirectory = path.join(root, "calendar", "events");
+  for (const file of fs.readdirSync(eventDirectory).filter(name => name.endsWith(".html"))) {
+    const html = fs.readFileSync(path.join(eventDirectory, file), "utf8");
+    if (/id="artistIntro"/.test(html)) {
+      assert.match(html, /아티스트 공식 프로필/, file);
+      assert.match(html, /공식 프로필 확인 2026-09-25/, file);
+    }
+    if (/section class="editorial-section deep-guide">[\s\S]*?EDITORIAL NOTE/.test(html)) assert.match(html, /주관적 편집 해석이며 공식 발표나 공연 세트리스트를 뜻하지 않습니다/, file);
+    assert.doesNotMatch(html, /공식 대표곡 영상|대표곡 3개/ , file);
+  }
+});
+
+test("omits a redundant single-date module while preserving multi-date series navigation", () => {
+  const singleDate = read("calendar/events/regallily-2026-11-07.html");
+  const multiDate = read("calendar/events/kento-nakajima-2026-10-03.html");
+  assert.doesNotMatch(singleDate, /class="editorial-section series-section"/);
+  assert.match(multiDate, /class="editorial-section series-section"/);
+  assert.match(multiDate, /2026년 10월 4일\(일\) 오후 4:00/);
+  assert.match(multiDate, /총 120분/);
+  assert.match(multiDate, /공연장·관람 준비/);
+  assert.match(multiDate, /예매·입장 준비 체크리스트 보기/);
 });
 
 test("puts an accessible venue/date search and the two list actions in the homepage hero", () => {

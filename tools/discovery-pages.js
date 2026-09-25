@@ -46,8 +46,10 @@ const verifiedAttendance = event => Number.isFinite(event.attendance)
   && event.attendanceSource
   && (event.attendanceSourceType !== "press" || event.attendancePublisher);
 
-function pageShell({ title, description, canonical, body, siteUrl, depth = "..", robots = "index,follow,max-image-preview:large", includeAds = true, image = "" }) {
-  const socialImage = image || `${siteUrl}/calendar/assets/brand/j-live-social-card.png`;
+function pageShell({ title, description, canonical, body, siteUrl, depth = "..", robots = "index,follow,max-image-preview:large", includeAds = true, image = undefined }) {
+  const socialImage = image === undefined ? `${siteUrl}/calendar/assets/brand/j-live-social-card.png` : image;
+  const socialImageMarkup = socialImage ? `<meta property="og:image" content="${escapeHtml(socialImage)}"><meta property="og:image:alt" content="제이라이브 코리아 페이지 미리보기">` : "";
+  const twitterCard = socialImage ? "summary_large_image" : "summary";
   return `<!doctype html>
 <html lang="ko"><head>
 ${includeAds ? '  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3081918168688274" crossorigin="anonymous"></script>\n' : ""}  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -56,11 +58,10 @@ ${includeAds ? '  <script async src="https://pagead2.googlesyndication.com/pagea
   <meta property="og:title" content="${escapeHtml(title)}"><meta property="og:description" content="${escapeHtml(description)}">
   <meta property="og:url" content="${escapeHtml(canonical)}"><meta property="og:type" content="website">
   <meta property="og:locale" content="ko_KR"><meta property="og:site_name" content="제이라이브 코리아">
-  <meta property="og:image" content="${escapeHtml(socialImage)}"><meta property="og:image:alt" content="제이라이브 코리아 페이지 미리보기">
-  <meta name="twitter:card" content="summary_large_image">
+${socialImageMarkup ? `  ${socialImageMarkup}\n` : ""}  <meta name="twitter:card" content="${twitterCard}">
   <title>${escapeHtml(title)}</title><link rel="canonical" href="${escapeHtml(canonical)}">
   <link rel="stylesheet" href="${depth}/styles.css?v=20260825conversion1">
-  <script src="${depth}/site-config.js?v=20260729ga"></script><script src="${depth}/analytics.js" defer></script><script src="${depth}/site.js?v=20260825conversion1" defer></script>
+  <script src="${depth}/site-config.js?v=20260729ga"></script><script src="${depth}/analytics.js" defer></script><script src="${depth}/site.js?v=20260925noavatarfallback1" defer></script>
 </head><body><div class="shell info-shell">
   <header><a class="brand" href="${depth}/"><span class="brand-mark">J</span> 제이라이브 코리아</a><nav class="page-nav"><a href="${depth}/weekly/">이번 주</a><a href="${depth}/updates">업데이트</a><a href="${depth}/artists/">아티스트</a></nav></header>
   ${body}
@@ -78,18 +79,17 @@ function languageNames(artist, aliases = []) {
 }
 
 function imageUrl(event, siteUrl) {
-  if (event.youtubeProfileImage && /^https?:\/\//i.test(event.youtubeProfileImage)) return event.youtubeProfileImage;
-  if (event.youtubeProfileImage) return `${siteUrl}/calendar/${String(event.youtubeProfileImage).replace(/^\.\//, "")}`;
+  if (event.youtubeProfileImage && !/^https?:\/\//i.test(event.youtubeProfileImage)) {
+    const relativePath = String(event.youtubeProfileImage).replace(/^\.\//, "");
+    const assetPath = path.resolve(__dirname, "../calendar", relativePath);
+    return assetPath.startsWith(`${artistAssets}${path.sep}`) && fs.existsSync(assetPath)
+      ? `${siteUrl}/calendar/${relativePath}`
+      : "";
+  }
   const channel = String(event.youtubeChannel || "").replace(/^@/, "").toLowerCase().replace(/[^a-z0-9_-]+/g, "-").replace(/^-+|-+$/g, "");
   return channel && fs.existsSync(path.join(artistAssets, `${channel}.jpg`))
     ? `${siteUrl}/calendar/assets/artists/${channel}.jpg`
-    : `${siteUrl}/calendar/assets/brand/j-live-app-logo.png`;
-}
-
-function hasArtistImage(event) {
-  if (event.youtubeProfileImage) return true;
-  const channel = String(event.youtubeChannel || "").replace(/^@/, "").toLowerCase().replace(/[^a-z0-9_-]+/g, "-").replace(/^-+|-+$/g, "");
-  return Boolean(channel && fs.existsSync(path.join(artistAssets, `${channel}.jpg`)));
+    : "";
 }
 
 function artistPageHtml({ artist, events, aliases, editorial, siteUrl, today, indexable = true }) {
@@ -100,11 +100,12 @@ function artistPageHtml({ artist, events, aliases, editorial, siteUrl, today, in
   const upcoming = sorted.filter(eligibleUpcoming);
   const past = sorted.filter(event => event.concertDate < today && event.status === "confirmed").reverse();
   const names = languageNames(artist, aliases[artist]);
+  const profileImage = imageUrl(latest, siteUrl);
   const songs = (latest.songs || []).slice(0, 3);
   const venues = [...new Set(sorted.map(event => event.venue))];
   const festflowFestivals = festflowFestivalsFor(artist);
   const vendors = [...new Map(sorted.filter(event => event.vendorUrl).map(event => [event.vendor, event.vendorUrl])).entries()];
-  const intro = editorial.artists?.[artist];
+  const profile = editorial.artistProfiles?.[artist];
   const eventRows = list => list.length ? list.map(event => {
     const dates = visitor.verificationDates(event);
     const now = new Date(`${today}T12:00:00+09:00`);
@@ -136,23 +137,23 @@ function artistPageHtml({ artist, events, aliases, editorial, siteUrl, today, in
     ? `<section class="artist-history"><span class="section-kicker">KOREA HISTORY</span><h2>공식 확인 내한 이력</h2><ol class="artist-history-list">${historyRows}</ol><p class="artist-history-note">J-LIVE가 공식 출처로 확인한 기록만 표시하며, 관객 수는 발표된 경우에만 제공합니다.</p></section>`
     : '<p class="artist-history-empty empty-row">J-LIVE에서 공식 확인한 과거 내한 기록은 아직 없습니다.</p>';
   const body = `<main class="artist-profile">
-    <section class="artist-profile-hero"><img src="${escapeHtml(imageUrl(latest, siteUrl))}" alt="${escapeHtml(hasArtistImage(latest) ? `${artist} 공식 프로필` : "J-LIVE 기본 아티스트 이미지")}" width="800" height="800" loading="eager" decoding="async"><div><span class="section-kicker">ARTIST PROFILE</span><h1>${escapeHtml(artist)}</h1>${intro ? `<p>${escapeHtml(intro)}</p>` : ""}</div></section>
+    <section class="artist-profile-hero">${profileImage ? `<img src="${escapeHtml(profileImage)}" alt="${escapeHtml(`${artist} 프로필 이미지`)}" width="800" height="800" loading="eager" decoding="async">` : ""}<div${profileImage ? "" : ' style="grid-column:1 / -1"'}><span class="section-kicker">ARTIST PROFILE</span><h1>${escapeHtml(artist)}</h1>${profile ? `<p>${escapeHtml(profile.summary)}</p><p class="artist-profile-source"><a href="${escapeHtml(profile.source)}" target="_blank" rel="noopener noreferrer">아티스트 공식 프로필 ↗</a> · 공식 프로필 확인 ${escapeHtml(profile.verifiedAt || "미기록")}</p>` : ""}</div></section>
     <section class="artist-name-grid" aria-label="아티스트 이름 표기"><div><small>한국어</small><strong>${escapeHtml(names.korean)}</strong></div><div><small>English</small><strong>${escapeHtml(names.english)}</strong></div><div><small>日本語</small><strong>${escapeHtml(names.japanese)}</strong></div></section>
     <div class="artist-profile-grid">
       ${upcomingSection}
       ${historySection}
     </div>
-    <section class="artist-songs"><span class="section-kicker">START WITH 3 SONGS</span><h2>대표곡 3개</h2><div class="song-list">${songs.map(song => `<a class="song" href="${escapeHtml(song[2])}" target="_blank" rel="noopener noreferrer"><span class="play">▶</span><span>${escapeHtml(song[0])}</span><em>공식 YouTube</em></a>`).join("")}</div></section>
+    <section class="artist-songs"><span class="section-kicker">YOUTUBE LINKS</span><h2>관련 곡 영상</h2><div class="song-list">${songs.map(song => `<a class="song" href="${escapeHtml(song[2])}" target="_blank" rel="noopener noreferrer"><span class="play">▶</span><span>${escapeHtml(song[0])}</span><em>YouTube 영상</em></a>`).join("")}</div></section>
     <section class="artist-related"><div><h2>관련 공연장</h2><p>${venues.map(escapeHtml).join(" · ")}</p></div><div><h2>예매처</h2><p>${vendors.length ? vendors.map(([name, url]) => `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" data-track-vendor="${escapeHtml(name)}">${escapeHtml(name)} ↗</a>`).join(" · ") : "확인된 예매처가 없습니다."}</p></div></section>${festflowFestivals.length ? `<section class="artist-festivals"><h2>페스티벌 출연</h2><p>${escapeHtml(artist)}의 일본 페스티벌 출연 라인업은 <a href="https://festflow.kr" target="_blank" rel="noopener noreferrer">페스플로우</a>에서 확인할 수 있습니다.</p><p>${festflowFestivals.map(f => `<a href="https://festflow.kr/festivals/${encodeURIComponent(f.slug)}" target="_blank" rel="noopener noreferrer">${escapeHtml(f.name)} ↗</a>`).join(" · ")}</p></section>` : ""}
   </main>`;
   return pageShell({
-    title: `${artist} 내한 공연·대표곡·지난 기록 | 제이라이브 코리아`,
-    description: `${artist}의 예정된 한국 공연, 지난 내한 기록, 대표곡 3개와 관련 공연장·예매처를 확인하세요.`,
+    title: `${artist} 내한 공연·곡 영상·지난 기록 | 제이라이브 코리아`,
+    description: `${artist}의 예정된 한국 공연, 공식 확인 내한 이력, 관련 곡 영상과 예매처를 확인하세요.`,
     canonical: `${siteUrl}/calendar/artists/${encodeURIComponent(slug)}`,
     body, siteUrl,
     robots: indexable ? "index,follow,max-image-preview:large" : "noindex,follow",
     includeAds: false,
-    image: imageUrl(latest, siteUrl)
+    image: profileImage || null
   });
 }
 

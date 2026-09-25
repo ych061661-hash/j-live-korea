@@ -54,17 +54,12 @@ window.JLIVE_ARTIST_IMAGES = (() => {
 
   const localUrl = event => {
     if (event.youtubeProfileImage && !/^https?:\/\//i.test(event.youtubeProfileImage)) {
-      return event.youtubeProfileImage;
+      const match = String(event.youtubeProfileImage).match(/^(?:\.\/)?assets\/artists\/([^/]+\.jpg)$/i);
+      if (match) return `${basePath()}${match[1]}`;
     }
     const fileName = fileNameForChannel(event.youtubeChannel);
     return fileName ? `${basePath()}${fileName}.jpg` : "";
   };
-
-  const remoteUrl = event => event.youtubeProfileImage && /^https?:\/\//i.test(event.youtubeProfileImage)
-    ? event.youtubeProfileImage
-    : "";
-
-  const fallbackUrl = () => `${location.pathname.includes("/calendar/events/") ? "../" : "./"}assets/brand/j-live-app-logo.png`;
 
   const preload = events => {
     [...new Set(events.map(localUrl).filter(Boolean))].forEach(url => {
@@ -73,7 +68,7 @@ window.JLIVE_ARTIST_IMAGES = (() => {
     });
   };
 
-  return { localUrl, remoteUrl, fallbackUrl, preload };
+  return { localUrl, preload };
 })();
 
 document.addEventListener("click", async event => {

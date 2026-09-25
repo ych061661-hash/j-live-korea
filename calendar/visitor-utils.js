@@ -85,6 +85,17 @@
     };
   }
 
-  root.JLIVE_VISITOR = { isVerifiedDate, priceStatus, seoulDateParts, ticketAvailability, ticketStatus, timeMinutes, verificationDates };
+  function verificationSummary(event) {
+    const dates = verificationDates(event);
+    const parts = [
+      `일정 확인 ${dates.schedule || "미기록"}`,
+      `가격 확인 ${dates.price || "미기록"}`,
+      `판매 상태 확인 ${dates.availability || "미확인"}`
+    ];
+    if (dates.article) parts.push(`본문 수정 ${dates.article}`);
+    return parts.join(" · ");
+  }
+
+  root.JLIVE_VISITOR = { isVerifiedDate, priceStatus, seoulDateParts, ticketAvailability, ticketStatus, timeMinutes, verificationDates, verificationSummary };
   if (typeof module === "object" && module.exports) module.exports = root.JLIVE_VISITOR;
 })(typeof window === "object" ? window : globalThis);

@@ -1646,6 +1646,10 @@
     "priceCurrency": "KRW",
     "vendor": "멜론티켓",
     "vendorUrl": "https://ticket.melon.com/csoon/detail.htm?csoonId=12366",
+    "organizer": {
+      "name": "AEG Presents Asia",
+      "url": "https://asia.aegpresents.com/"
+    },
     "youtubeChannel": "@FujiiKaze",
     "songs": [
       [
@@ -1665,11 +1669,23 @@
       ]
     ],
     "status": "confirmed",
+    "ticketingStatus": "confirmed",
     "sources": [
+      "https://hehn.fujiikaze.com/pwt/",
       "https://fujiikaze.com/news-article/news260610/",
       "https://ticket.melon.com/csoon/detail.htm?csoonId=12366"
     ],
-    "verifiedAt": "2026-08-17",
+    "verifiedAt": "2026-09-25",
+    "scheduleVerifiedAt": "2026-09-25",
+    "verification": {
+      "hosting": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://hehn.fujiikaze.com/pwt/", "https://ticket.melon.com/csoon/detail.htm?csoonId=12366"] },
+      "concertDate": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://hehn.fujiikaze.com/pwt/", "https://ticket.melon.com/csoon/detail.htm?csoonId=12366"] },
+      "concertTime": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://hehn.fujiikaze.com/pwt/", "https://ticket.melon.com/csoon/detail.htm?csoonId=12366"] },
+      "venue": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://hehn.fujiikaze.com/pwt/", "https://ticket.melon.com/csoon/detail.htm?csoonId=12366"] },
+      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://hehn.fujiikaze.com/pwt/", "https://ticket.melon.com/csoon/detail.htm?csoonId=12366"] },
+      "price": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://ticket.melon.com/csoon/detail.htm?csoonId=12366"] },
+      "ticketConditions": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://ticket.melon.com/csoon/detail.htm?csoonId=12366"] }
+    },
     "createdAt": "2026-06-11T23:38:00+09:00",
     "seatPrices": [
       {
@@ -1703,7 +1719,7 @@
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-08-12"
+    "priceVerifiedAt": "2026-09-25"
   },
   {
     "id": "the-novembers-2026-07-17",
@@ -1916,22 +1932,23 @@
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-09-23",
+    "priceVerifiedAt": "2026-09-25",
     "sources": [
       "https://starto.jp/s/p/live/10494?artist=156&lang=en",
       "https://www.sonymusic.co.jp/artist/KentoNakajima/info/583773",
       "https://ticket.yes24.com/Perf/58653",
       "https://m.ticket.yes24.com/Notice/17913"
     ],
-    "scheduleVerifiedAt": "2026-09-23",
+    "scheduleVerifiedAt": "2026-09-25",
     "verifiedAt": "2026-09-23",
     "verification": {
       "artist": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://www.sonymusic.co.jp/artist/KentoNakajima/info/583773"] },
-      "concertDate": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://www.sonymusic.co.jp/artist/KentoNakajima/info/583773"] },
-      "venue": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://starto.jp/s/p/live/10494?artist=156&lang=en"] },
+      "concertDate": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://www.sonymusic.co.jp/artist/KentoNakajima/info/583773", "https://ticket.yes24.com/Perf/58653"] },
+      "concertTime": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://www.sonymusic.co.jp/artist/KentoNakajima/info/583773", "https://ticket.yes24.com/Perf/58653"] },
+      "venue": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://starto.jp/s/p/live/10494?artist=156&lang=en", "https://www.sonymusic.co.jp/artist/KentoNakajima/info/583773", "https://ticket.yes24.com/Perf/58653"] },
       "ticketDate": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://ticket.yes24.com/Perf/58653"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://ticket.yes24.com/Perf/58653"] },
-      "ticketConditions": { "status": "unverified", "checkedAt": "2026-09-23", "sources": ["https://m.ticket.yes24.com/Notice/17913"] },
+      "price": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://ticket.yes24.com/Perf/58653"] },
+      "ticketConditions": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://ticket.yes24.com/Perf/58653", "https://m.ticket.yes24.com/Notice/17913"] },
       "availability": { "status": "unverified", "checkedAt": "2026-09-19", "sources": ["https://ticket.yes24.com/Perf/58653"] }
     },
     "createdAt": "2026-06-16T09:00:00+09:00"
@@ -2095,18 +2112,35 @@
     "status": "confirmed",
     "sources": [
       "https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/",
-      "https://letmeknowmusic.jp/news/3422/"
+      "https://letmeknowmusic.jp/news/3422/",
+      "https://nol.yanolja.com/ticket/products/26010681"
     ],
-    "verifiedAt": "2026-08-17",
+    "verifiedAt": "2026-09-25",
+    "scheduleVerifiedAt": "2026-09-25",
+    "verification": {
+      "hosting": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/"] },
+      "concertDate": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/", "https://nol.yanolja.com/ticket/products/26010681"] },
+      "concertTime": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://nol.yanolja.com/ticket/products/26010681"] },
+      "venue": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/", "https://nol.yanolja.com/ticket/products/26010681"] },
+      "presaleDate": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/"] },
+      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/"] },
+      "price": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://nol.yanolja.com/ticket/products/26010681"] },
+      "ticketConditions": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/", "https://nol.yanolja.com/ticket/products/26010681"] }
+    },
     "createdAt": "2026-07-23T15:00:00+09:00",
     "seatPrices": [
       {
-        "name": "전석",
+        "name": "스탠딩",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석",
         "price": 99000,
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-08-12"
+    "priceVerifiedAt": "2026-09-25"
   },
   {
     "id": "hitorie-2026-08-23",
@@ -2584,6 +2618,7 @@
     "genre": "J-ROCK / INDIE",
     "concertDate": "2026-11-07",
     "time": "오후 7:00",
+    "endTime": "20:30",
     "venue": "KT&G 상상마당 라이브홀",
     "presaleDate": "",
     "presaleTime": "",
@@ -2593,6 +2628,10 @@
     "priceCurrency": "KRW",
     "vendor": "YES24 티켓",
     "vendorUrl": "https://ticket.yes24.com/Perf/59001",
+    "organizer": {
+      "name": "Highjinkx",
+      "url": "https://www.highjinkx.com/"
+    },
     "youtubeChannel": "@OfficeAugusta",
     "songs": [
       [
@@ -2613,11 +2652,12 @@
     ],
     "status": "confirmed",
     "sources": [
-      "https://www.office-augusta.com/regallily/live/?post=20261107",
+      "https://www.office-augusta.com/ko/regallily/live/?post=20261107",
       "https://www.highjinkx.com/show-list/regallily",
       "https://ticket.yes24.com/Perf/59001"
     ],
-    "verifiedAt": "2026-07-25",
+    "verifiedAt": "2026-09-25",
+    "scheduleVerifiedAt": "2026-09-25",
     "createdAt": "2026-07-25T15:00:00+09:00",
     "seatPrices": [
       {
@@ -2626,7 +2666,17 @@
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-08-12"
+    "priceVerifiedAt": "2026-09-25",
+    "verification": {
+      "artist": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://www.office-augusta.com/ko/regallily/live/?post=20261107"] },
+      "concertDate": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://www.office-augusta.com/ko/regallily/live/?post=20261107"] },
+      "concertTime": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://www.office-augusta.com/ko/regallily/live/?post=20261107"] },
+      "endTime": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://www.highjinkx.com/show-list/regallily"] },
+      "venue": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://www.office-augusta.com/ko/regallily/live/?post=20261107", "https://www.highjinkx.com/show-list/regallily"] },
+      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://www.office-augusta.com/ko/regallily/live/?post=20261107"] },
+      "price": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://www.office-augusta.com/ko/regallily/live/?post=20261107", "https://ticket.yes24.com/Perf/59001"] },
+      "ticketConditions": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://ticket.yes24.com/Perf/59001"] }
+    }
   },
   {
     "id": "sunny-day-service-2026-12-03",
@@ -3200,7 +3250,17 @@
       "https://kawasaki-takaya.com/live/live-in-seoul-2026/",
       "https://ticket.yes24.com/Perf/59669"
     ],
-    "verifiedAt": "2026-08-17",
+    "verifiedAt": "2026-09-25",
+    "scheduleVerifiedAt": "2026-09-25",
+    "verification": {
+      "hosting": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
+      "concertDate": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
+      "concertTime": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
+      "venue": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
+      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
+      "price": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
+      "ticketConditions": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] }
+    },
     "createdAt": "2026-08-17T10:55:00+09:00",
     "seatPrices": [
       {
@@ -3214,7 +3274,7 @@
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-08-17",
+    "priceVerifiedAt": "2026-09-25",
     "youtubeProfileImage": "./assets/artists/kawasaki-takaya.jpg"
   },
   {
@@ -3257,7 +3317,17 @@
       "https://ponycanyon.us/musician/homecomings/",
       "https://www.youtube.com/@homecomingsch"
     ],
-    "verifiedAt": "2026-09-10",
+    "verifiedAt": "2026-09-25",
+    "scheduleVerifiedAt": "2026-09-25",
+    "verification": {
+      "hosting": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://ticket.melon.com/csoon/detail.htm?csoonId=12775"] },
+      "concertDate": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://ticket.melon.com/csoon/detail.htm?csoonId=12775"] },
+      "concertTime": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://ticket.melon.com/csoon/detail.htm?csoonId=12775"] },
+      "venue": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://ticket.melon.com/csoon/detail.htm?csoonId=12775"] },
+      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://ticket.melon.com/csoon/detail.htm?csoonId=12775"] },
+      "price": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://ticket.melon.com/csoon/detail.htm?csoonId=12775"] },
+      "ticketConditions": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://ticket.melon.com/csoon/detail.htm?csoonId=12775"] }
+    },
     "createdAt": "2026-09-08T00:00:00+09:00",
     "seatPrices": [
       {
@@ -3266,7 +3336,7 @@
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-09-08"
+    "priceVerifiedAt": "2026-09-25"
   },
   {
     "id": "hag-2026-10-17",

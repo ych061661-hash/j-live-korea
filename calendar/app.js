@@ -764,15 +764,10 @@ function renderWeekendSpotlight() {
       </a>`;
   }).join("");
 
-  weekendEvents.querySelectorAll("img").forEach((image, index) => {
+  weekendEvents.querySelectorAll("img").forEach(image => {
     image.addEventListener("error", () => {
-      const remoteUrl = window.JLIVE_ARTIST_IMAGES.remoteUrl(events[index]);
-      if (remoteUrl && image.src !== remoteUrl) {
-        image.src = remoteUrl;
-        return;
-      }
       image.onerror = null;
-      image.src = window.JLIVE_ARTIST_IMAGES.fallbackUrl();
+      image.remove();
     });
   });
 }
@@ -794,25 +789,24 @@ function renderMyShowsFeature(today) {
   const nextShow = myShowsFeatureSchedules[myShowsFeatureIndex];
   const daysUntil = Math.max(0, Math.round((parseDate(nextShow.concertDate) - parseDate(today)) / 86400000));
   const localPhoto = window.JLIVE_ARTIST_IMAGES.localUrl(nextShow);
-  const remotePhoto = window.JLIVE_ARTIST_IMAGES.remoteUrl(nextShow);
-  const fallbackPhoto = window.JLIVE_ARTIST_IMAGES.fallbackUrl();
+  const featureImageContainer = myShowsFeatureImage.closest(".my-shows-feature-image");
   myShowsFeatureLink.href = `./events/${encodeURIComponent(nextShow.id)}`;
   myShowsFeatureArtist.textContent = nextShow.artist;
   myShowsFeatureMeta.textContent = `${formatDate(nextShow.concertDate)} · ${nextShow.venue}`;
   myShowsFeatureDday.textContent = daysUntil ? `D-${daysUntil}` : "D-DAY";
   myShowsFeaturePosition.textContent = `${myShowsFeatureIndex + 1} / ${count}`;
   myShowsFeatureNav.hidden = count < 2;
-  myShowsFeatureImage.alt = `${nextShow.artist} 프로필`;
-  myShowsFeatureImage.src = localPhoto || remotePhoto || fallbackPhoto;
-  myShowsFeatureImage.hidden = false;
+  const photoUrl = localPhoto;
+  myShowsFeatureImage.alt = photoUrl ? `${nextShow.artist} 프로필` : "";
+  myShowsFeatureImage.hidden = !photoUrl;
+  if (featureImageContainer) featureImageContainer.hidden = !photoUrl;
+  if (photoUrl) myShowsFeatureImage.src = photoUrl;
+  else myShowsFeatureImage.removeAttribute("src");
   myShowsFeatureImage.onerror = () => {
-    if (remotePhoto && myShowsFeatureImage.src !== remotePhoto) {
-      myShowsFeatureImage.src = remotePhoto;
-      return;
-    }
     myShowsFeatureImage.onerror = null;
-    myShowsFeatureImage.alt = "J-LIVE 기본 공연 이미지";
-    myShowsFeatureImage.src = fallbackPhoto;
+    myShowsFeatureImage.removeAttribute("src");
+    myShowsFeatureImage.hidden = true;
+    if (featureImageContainer) featureImageContainer.hidden = true;
   };
   myShowsFeatureLink.classList.remove("is-changing");
   void myShowsFeatureLink.offsetWidth;
@@ -1041,20 +1035,16 @@ function renderDetail(schedule, type) {
   }).join("");
 
   const photo = document.querySelector("#artistPhoto");
-  photo.alt = `${schedule.artist} YouTube 프로필`;
-  photo.hidden = !schedule.youtubeChannel && !schedule.youtubeProfileImage;
   const localPhoto = window.JLIVE_ARTIST_IMAGES.localUrl(schedule);
-  const remotePhoto = window.JLIVE_ARTIST_IMAGES.remoteUrl(schedule);
-  const fallbackPhoto = window.JLIVE_ARTIST_IMAGES.fallbackUrl();
-  photo.src = localPhoto || remotePhoto || fallbackPhoto;
+  const photoUrl = localPhoto;
+  photo.alt = photoUrl ? `${schedule.artist} YouTube 프로필` : "";
+  photo.hidden = !photoUrl;
+  if (photoUrl) photo.src = photoUrl;
+  else photo.removeAttribute("src");
   photo.onerror = () => {
-    if (remotePhoto && photo.src !== remotePhoto) {
-      photo.src = remotePhoto;
-      return;
-    }
     photo.onerror = null;
-    photo.alt = "J-LIVE 기본 공연 이미지";
-    photo.src = fallbackPhoto;
+    photo.removeAttribute("src");
+    photo.hidden = true;
   };
 
   const songs = Array.isArray(schedule.songs) ? schedule.songs : [];

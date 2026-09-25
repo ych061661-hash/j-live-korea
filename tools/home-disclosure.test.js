@@ -19,7 +19,15 @@ test("keeps attendance and spending behind an explicit accessible disclosure", (
   assert.match(styles, /\.attendance-ledger-disclosure > summary:focus-visible/);
   assert.match(page, /<section class="my-shows" id="myShows" aria-labelledby="myShowsTitle" hidden>/);
   assert.match(page, /id="attendanceBoard" aria-labelledby="attendanceTitle" hidden/);
-  assert.match(serviceWorker, /j-live-pwa-v99-urlcleanup/);
+  assert.match(serviceWorker, /j-live-pwa-v102-event-data-network-first/);
   assert.doesNotMatch(serviceWorker, /original-calendar-frame/);
   assert.match(serviceWorker, /styles\.css\?v=20260924herocenter1/);
+});
+
+test("uses fresh event data when online and cached event data only as an offline fallback", () => {
+  const eventDataBranch = serviceWorker.match(/if \(url\.pathname === "\/calendar\/data\/events\.json"\)[\s\S]*?return;\s*\}/)?.[0] || "";
+  assert.match(eventDataBranch, /fetch\(request\)/);
+  assert.match(eventDataBranch, /\.catch\(\(\) => caches\.match\(request\)\)/);
+  assert.ok(eventDataBranch.indexOf("fetch(request)") < eventDataBranch.indexOf("caches.match(request)"));
+  assert.match(serviceWorker, /if \(url\.pathname === "\/calendar\/data\/events\.json"\)[\s\S]*?return;\s*\}[\s\S]*?caches\.match\(request\)\.then\(cached/);
 });

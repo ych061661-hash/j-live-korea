@@ -32,7 +32,7 @@ const event = {
   sources: ["https://tickets.example/show"]
 };
 
-test("renders artist pages with three songs and correct directory links", () => {
+test("renders related song links and correct directory links", () => {
   const html = artistPageHtml({
     artist: "Band",
     events: [event],
@@ -42,6 +42,9 @@ test("renders artist pages with three songs and correct directory links", () => 
     today: "2026-07-29"
   });
   assert.equal((html.match(/youtube\.com\/watch/g) || []).length, 3);
+  assert.match(html, /관련 곡 영상/);
+  assert.match(html, /YouTube 영상/);
+  assert.doesNotMatch(html, /대표곡 3개|공식 YouTube/);
   assert.match(html, /<meta name="robots" content="index,follow,max-image-preview:large">/);
   assert.doesNotMatch(html, /pagead2\.googlesyndication\.com/);
 
@@ -56,21 +59,23 @@ test("renders artist pages with three songs and correct directory links", () => 
   assert.doesNotMatch(directory, /pagead2\.googlesyndication\.com/);
 });
 
-test("renders only curated artist intros and keeps unverified history compact", () => {
+test("renders only source-backed artist intros and preserves the dated event history", () => {
   const withoutEditorial = artistPageHtml({
     artist: "Band", events: [event], aliases: {}, editorial: {},
     siteUrl: "https://j-live.kr", today: "2026-07-29"
   });
   assert.doesNotMatch(withoutEditorial, /Band의 한국 내한 공연과 예매 기록/);
   assert.doesNotMatch(withoutEditorial, /KOREA HISTORY/);
-  assert.doesNotMatch(withoutEditorial, /공식 확인 내한 이력/);
+  assert.doesNotMatch(withoutEditorial, /<h2>공식 확인 내한 이력<\/h2>/);
   assert.match(withoutEditorial, /J-LIVE에서 공식 확인한 과거 내한 기록은 아직 없습니다/);
 
   const withEditorial = artistPageHtml({
-    artist: "Band", events: [event], aliases: {}, editorial: { artists: { Band: "검증된 편집자 소개입니다." } },
+    artist: "Band", events: [event], aliases: {}, editorial: { artists: { Band: "출처 없는 소개는 렌더링하지 않습니다." }, artistProfiles: { Band: { summary: "공식 출처로 확인한 아티스트 소개입니다.", source: "https://official.example/profile" } } },
     siteUrl: "https://j-live.kr", today: "2026-07-29"
   });
-  assert.match(withEditorial, /검증된 편집자 소개입니다/);
+  assert.match(withEditorial, /공식 출처로 확인한 아티스트 소개입니다/);
+  assert.match(withEditorial, /href="https:\/\/official\.example\/profile"[^>]*>아티스트 공식 프로필/);
+  assert.doesNotMatch(withEditorial, /출처 없는 소개는 렌더링하지 않습니다/);
 });
 
 test("keeps the artist directory canonical on a trailing-slash URL", () => {
@@ -90,7 +95,7 @@ test("keeps the artist directory canonical on a trailing-slash URL", () => {
   assert.match(html, /누구를 목록에 포함하나요/);
 });
 
-test("uses the brand image when a channel avatar is not cached", () => {
+test("omits the profile image and social image when a channel avatar is not cached", () => {
   const html = artistPageHtml({
     artist: "Band",
     events: [{ ...event, youtubeProfileImage: "", youtubeChannel: "@missing-avatar" }],
@@ -100,7 +105,8 @@ test("uses the brand image when a channel avatar is not cached", () => {
     today: "2026-07-29"
   });
 
-  assert.match(html, /assets\/brand\/j-live-app-logo\.png/);
+  assert.doesNotMatch(html, /<img\b|assets\/brand\/j-live-app-logo\.png|<meta property="og:image"/);
+  assert.match(html, /style="grid-column:1 \/ -1"/);
 });
 
 test("renders the next concert and verified Korea attendance history", () => {
@@ -216,7 +222,7 @@ test("creates ticket opening posts and keeps later schedule changes separate", (
 test("uses calendar-relative assets on the update page", () => {
   const html = updatesPageHtml({ updates: [], siteUrl: "https://j-live.kr" });
   assert.match(html, /href="\.\/styles\.css/);
-  assert.match(html, /src="\.\/site\.js\?v=20260825conversion1"/);
+  assert.match(html, /src="\.\/site\.js\?v=20260925noavatarfallback1"/);
   assert.match(html, /공식 발표일과 J-LIVE 기록일을 구분/);
 });
 

@@ -16,6 +16,7 @@ test("redirects legacy Search Console URLs to canonical paths with specific rule
     ["/about", "/calendar/about"],
     ["/privacy", "/calendar/privacy"],
     ["/terms", "/calendar/terms"],
+    ["/olympic-park", "/calendar/guides/venues/olympic-hall"],
     ["/calendar/index.html", "/calendar/"],
     ["/calendar/about.html", "/calendar/about"],
     ["/calendar/contact.html", "/calendar/contact"],
