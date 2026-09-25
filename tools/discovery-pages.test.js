@@ -217,6 +217,18 @@ test("creates ticket opening posts and keeps later schedule changes separate", (
   const changed = { ...opened, ticketTime: "21:00" };
   const changedUpdates = buildUpdateHistory([changed], { [event.id]: opened }, [], "2026-07-30");
   assert.equal(changedUpdates[0].kind, "ticket-change");
+  assert.match(changedUpdates[0].summary, /변경 전 일반예매 .*20:00 → 변경 후 일반예매 .*21:00/);
+});
+
+test("does not publish empty ticket changes from null/blank normalization or removed dates", () => {
+  const scheduled = { ...event, ticketDate: "2026-07-30", ticketTime: "20:00", presaleDate: null, presaleTime: null };
+  const blankNormalized = { ...scheduled, presaleDate: "", presaleTime: "" };
+  assert.deepEqual(buildUpdateHistory([blankNormalized], { [event.id]: scheduled }, [], "2026-07-30"), []);
+
+  const removed = { ...scheduled, ticketDate: null, ticketTime: null };
+  const removedUpdates = buildUpdateHistory([removed], { [event.id]: scheduled }, [], "2026-07-30");
+  assert.doesNotMatch(removedUpdates.map(update => update.summary).join(" "), /예매 일정이 변경됐습니다\. \./);
+  assert.equal(removedUpdates.some(update => update.kind === "ticket-change"), false);
 });
 
 test("uses calendar-relative assets on the update page", () => {

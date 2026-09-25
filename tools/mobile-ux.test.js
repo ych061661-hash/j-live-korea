@@ -39,6 +39,7 @@ test("gives mobile detail a browser-back state and restores scroll", () => {
 test("keeps mobile search results in page flow and names date categories without relying on color", () => {
   assert.match(styles, /\.home-page \.artist-search-results\s*\{\s*position:static;[\s\S]*?max-height:min\(48dvh,360px\)/);
   assert.match(styles, /\.home-page \.artist-search-heading \{ display:grid; justify-content:start; justify-items:start; gap:4px; \}/);
+  assert.match(styles, /\.artist-search-result strong \{ min-width:0; overflow-wrap:anywhere; \}/);
   const index = fs.readFileSync(path.join(__dirname, "..", "calendar", "index.html"), "utf8");
   assert.match(index, /data-type="concert"[^>]+aria-pressed="true"[^>]*>[\s\S]*?공연일/);
   assert.match(index, /data-type="ticket"[^>]+aria-pressed="true"[^>]*>[\s\S]*?일반예매일/);

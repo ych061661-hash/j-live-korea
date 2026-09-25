@@ -14,20 +14,6 @@
     "dateMeaning": "recorded"
   },
   {
-    "id": "2026-09-10-ticket-change-vaundy-2026-09-19",
-    "date": "2026-09-10",
-    "kind": "ticket-change",
-    "label": "예매 일정 변경",
-    "artist": "Vaundy",
-    "eventId": "vaundy-2026-09-19",
-    "concertDate": "2026-09-19",
-    "summary": "예매 일정이 변경됐습니다. .",
-    "url": "https://member.vaundy.jp/feature/ASIAARENATOUR_2026",
-    "verifiedAt": "2026-09-10",
-    "recordedAt": "2026-09-10",
-    "dateMeaning": "recorded"
-  },
-  {
     "id": "2026-09-08-ticket-open-homecomings-2026-12-13",
     "date": "2026-09-08",
     "kind": "ticket-open",
@@ -196,14 +182,14 @@
     "dateMeaning": "recorded"
   },
   {
-    "id": "2026-08-05-ticket-change-cero-2026-10-10",
+    "id": "2026-08-05-ticket-open-cero-2026-10-10",
     "date": "2026-08-05",
-    "kind": "ticket-change",
-    "label": "예매 일정 변경",
+    "kind": "ticket-open",
+    "label": "티켓 오픈",
     "artist": "cero",
     "eventId": "cero-2026-10-10",
     "concertDate": "2026-10-10",
-    "summary": "예매 일정이 변경됐습니다. 선예매 미정, 일반예매 2026년 8월 3일(월) 오후 12:00.",
+    "summary": "예매 일정이 공개됐습니다. 일반예매 2026년 8월 3일(월) 오후 12:00.",
     "url": "https://cero-web.jp/",
     "verifiedAt": "2026-08-05",
     "recordedAt": "2026-08-05",

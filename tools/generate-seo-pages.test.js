@@ -355,6 +355,35 @@ test("renders ticket analysis and resolves a venue field guide", () => {
   assert.equal(venueGuideForEvent(event, editorial)[0], "hall");
 });
 
+test("T-SQUARE ticket guidance explains the official source difference without clearing review gates", () => {
+  const vm = require("node:vm");
+  const events = JSON.parse(fs.readFileSync(path.join(__dirname, "../calendar/data/events.json"), "utf8"));
+  const event = events.find(item => item.id === "t-square-2026-10-11");
+  const window = {};
+  vm.runInNewContext(fs.readFileSync(path.join(__dirname, "../calendar/content.js"), "utf8"), { window });
+  const editorial = window.JLIVE_CONTENT;
+  const guide = editorial.ticketGuides["T-SQUARE"];
+  assert.ok(event && guide, "T-SQUARE event data and its event-specific ticket guidance must exist");
+  assert.equal(event.ticketingStatus, "conflict");
+  assert.equal(event.verification.ticketing.status, "conflict");
+  assert.match(ticketGuideMarkup(event, editorial), /90분\(예정\)/);
+  assert.match(ticketGuideMarkup(event, editorial), /미취학 아동/);
+  assert.match(ticketGuideMarkup(event, editorial), /국가유공자증 또는 복지카드/);
+  assert.match(ticketGuideMarkup(event, editorial), /티켓 배송을 권장/);
+  assert.match(ticketGuideMarkup(event, editorial), /W석 88,000원/);
+  assert.match(ticketGuideMarkup(event, editorial), /결제 전 이용할 예매처/);
+
+  const template = fs.readFileSync(path.join(__dirname, "event-page-template.html"), "utf8");
+  const html = renderEventPage({ event, events: [event], group: [event], primary: event, editorial, siteUrl: "https://j-live.kr", template, today: "2026-09-25" });
+  const decision = eventPageDecision(event, editorial, undefined, "2026-09-25");
+  assert.equal(decision.indexable, false);
+  assert.equal(decision.adsAllowed, false);
+  assert.match(html, /name="robots" content="noindex,follow"/);
+  assert.doesNotMatch(html, /adsbygoogle|pagead2\.googlesyndication|fundingchoicesmessages/i);
+  assert.doesNotMatch(fs.readFileSync(path.join(__dirname, "../sitemap.xml"), "utf8"), /t-square-2026-10-11/);
+  assert.doesNotMatch(fs.readFileSync(path.join(__dirname, "../calendar/index.html"), "utf8"), /t-square-2026-10-11/);
+});
+
 test("publishes an endDate only from the current event's verified endTime", () => {
   const base = { artist: "Artist", concertDate: "2026-11-07", time: "오후 7:00", venue: "Hall", vendorUrl: "https://tickets.example/show" };
   const neighboringEvent = {

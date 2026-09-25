@@ -20,6 +20,10 @@ test("privacy policy discloses Google prior-visit ad cookies and controls", () =
   assert.match(privacy, /일치하지 않은 검색어의 원문은 저장하거나 Google Analytics로 보내지 않고/);
   assert.match(privacy, /이 검색·예매처·저장 관련 집계는 브라우저 저장소에 누적될 수 있으며/);
   assert.match(privacy, /저장·삭제 동작과 내보내기 시 기록 수만 기능 이용 통계/);
+  assert.match(privacy, /생성 후 7일이 지난 뒤 Worker의 시간별 정리 작업에서 삭제/);
+  assert.match(privacy, /24시간이 지난 기록은 같은 시간별 정리 작업에서 삭제/);
+  assert.match(privacy, /다음 정리 실행 때 삭제될 수 있습니다/);
+  assert.match(read("alerts-worker/wrangler.example.jsonc"), /"crons": \["0 \* \* \* \*"\]/);
 });
 
 test("updated analytics code must revalidate across all static page templates", () => {
