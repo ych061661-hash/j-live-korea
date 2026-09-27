@@ -15,9 +15,9 @@
 /calendar/alerts  /calendar/alerts/  301
 /calendar/alerts/index.html  /calendar/alerts/  301
 # BEGIN GENERATED WEEKLY REDIRECTS
-/calendar/weekly/index.html  /calendar/weekly/2026-09-21  301
-/calendar/weekly/  /calendar/weekly/2026-09-21  301
-/calendar/weekly  /calendar/weekly/2026-09-21  301
+/calendar/weekly/index.html  /calendar/weekly/2026-09-28  301
+/calendar/weekly/  /calendar/weekly/2026-09-28  301
+/calendar/weekly  /calendar/weekly/2026-09-28  301
 # END GENERATED WEEKLY REDIRECTS
 /calendar/weekly/:week.html  /calendar/weekly/:week  301
 /demo  /calendar/  301
