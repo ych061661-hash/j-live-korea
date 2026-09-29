@@ -97,4 +97,5 @@ Discovered but NOT investigated this run (discovery-only, over the 5-candidate c
 - J-LIVE 레코드: 개최 정보는 `hostingStatus: confirmed`, 전체는 `status: pending`, 예매는 `ticketingStatus: unverified`. 공식 공지에 공연 시작 시각과 예매 시각이 없어 두 시간 필드는 비워 둠. 공식 좌석 구분을 확인하지 못해 `seatPrices: []`; 공식 YouTube 채널과 대표곡 3곡도 미확인이라 비워 둠. StagePick 등 비공식 집계 출처의 시각은 적용하지 않음. 좌석 재고는 확인하지 않음.
 - 검색 별칭 `NEE → 니`는 WEETE 공식 계정 표기에서 확인해 `calendar/data/artist-aliases.json`에 추가. 데이터 변경을 새 서비스워커 캐시 버전(`j-live-pwa-v103-nee-alias-data`)으로 반영.
 - 공식 출처: https://neeofficial.jp/contents/1109451 ; https://x.com/weete_official/status/2104498030422733279 ; https://www.instagram.com/weete_official/ ; 예매처 링크(NEE 공지에서 연결): https://m.globalticket.melon.com/performance/detail/213863?lang=en-US
+- Cero 2026-10-10 공연을 아티스트 공식 페이지, Highjinkx, YES24로 재확인함(공연일·시각·장소·예매일·가격 변경 없음). 다가오는 공연의 7일 검증 기준을 만족하도록 관련 verifiedAt을 2026-09-29로 갱신함. 출처: https://cero-web.jp/category/live/ ; https://www.highjinkx.com/show-list/cero ; https://ticket.yes24.com/Perf/59471
 - 전체 테스트/SEO 생성/실서비스 반영은 PR 검사 결과 확인 후 기록한다.
