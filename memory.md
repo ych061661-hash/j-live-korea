@@ -90,3 +90,11 @@ Discovered but NOT investigated this run (discovery-only, over the 5-candidate c
 - 확인한 원문: https://ticket.yes24.com/English/Perf/59841, https://hag-official.com/, https://ticket.yes24.com/English/Perf/60065, https://ticket.yes24.com/Perf/59986, https://www.flow-official.jp/news/detail.php?id=2830, https://www.flow-official.jp/biography/, https://ticket.yes24.com/Perf/59963, https://www.highjinkx.com/show-list/zazen-boys, https://ticket.yes24.com/Perf/59886, https://www.jvcmusic.co.jp/sf/penthouse/.
 - 후보 상세 조사 상한 5건을 넘긴 상태에서 BLU-SWING 공식 상품 링크를 추가로 열었음. 이를 등록하지 않고 다음 실행 대기열로 이관: BLU-SWING(11/15), Coaltar of the Deepers, Mulasaki Ima(12/12), Kazumi Tateishi Trio 수원(11/22), Hump Back(2027-01-23), AKASAKI(11/21).
 - 기존 dirty worktree와 분리해 작업함. pending은 상세/검색 공개에서 제외. FLOW 및 Penthouse의 공식 가격/시간 누락을 보완함. 생성 결과에 이전 기준일로 갱신된 다수 HTML이 포함되어 있어 전체 검사와 diff 검토 통과 전 커밋/푸시/배포 금지.
+
+## Run: 2026-09-29 (KST, user-requested NEE registration)
+
+- 기존 `calendar/data/events.json`과 대조해 `nee-2026-12-18` 중복이 없음을 확인하고 등록 준비. 공식 NEE 공지에서 제목, 2026-12-18, KT&G SANGSANGMADANG LIVE HALL HONGDAE, 88,000원, MELON TICKET, 티켓 판매일 2026-09-29 확인. WEETE 공식 계정 공지도 공연 정보를 교차 확인함.
+- J-LIVE 레코드: 개최 정보는 `hostingStatus: confirmed`, 전체는 `status: pending`, 예매는 `ticketingStatus: unverified`. 공식 공지에 공연 시작 시각과 예매 시각이 없어 두 시간 필드는 비워 둠. 공식 좌석 구분을 확인하지 못해 `seatPrices: []`; 공식 YouTube 채널과 대표곡 3곡도 미확인이라 비워 둠. StagePick 등 비공식 집계 출처의 시각은 적용하지 않음. 좌석 재고는 확인하지 않음.
+- 검색 별칭 `NEE → 니`는 WEETE 공식 계정 표기에서 확인해 `calendar/data/artist-aliases.json`에 추가. 데이터 변경을 새 서비스워커 캐시 버전(`j-live-pwa-v103-nee-alias-data`)으로 반영.
+- 공식 출처: https://neeofficial.jp/contents/1109451 ; https://x.com/weete_official/status/2104498030422733279 ; https://www.instagram.com/weete_official/ ; 예매처 링크(NEE 공지에서 연결): https://m.globalticket.melon.com/performance/detail/213863?lang=en-US
+- 전체 테스트/SEO 생성/실서비스 반영은 PR 검사 결과 확인 후 기록한다.
