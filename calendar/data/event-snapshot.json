@@ -2566,9 +2566,9 @@
     "presaleStatus": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-09-19",
-    "scheduleVerifiedAt": "2026-09-19",
-    "priceVerifiedAt": "2026-09-19",
+    "verifiedAt": "2026-09-29",
+    "scheduleVerifiedAt": "2026-09-29",
+    "priceVerifiedAt": "2026-09-29",
     "sources": [
       "https://cero-web.jp/category/live/",
       "https://www.highjinkx.com/show-list/cero",
@@ -2592,35 +2592,35 @@
     "verification": {
       "artist": {
         "status": "confirmed",
-        "verifiedAt": "2026-09-19",
+        "verifiedAt": "2026-09-29",
         "sources": [
           "https://cero-web.jp/category/live/"
         ]
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-09-19",
+        "verifiedAt": "2026-09-29",
         "sources": [
           "https://cero-web.jp/category/live/"
         ]
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-09-19",
+        "verifiedAt": "2026-09-29",
         "sources": [
           "https://cero-web.jp/category/live/"
         ]
       },
       "ticketDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-09-19",
+        "verifiedAt": "2026-09-29",
         "sources": [
           "https://cero-web.jp/category/live/"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-09-19",
+        "verifiedAt": "2026-09-29",
         "sources": [
           "https://cero-web.jp/category/live/"
         ]
