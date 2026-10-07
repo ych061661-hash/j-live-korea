@@ -1270,9 +1270,9 @@
     "presaleStatus": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-09-19",
-    "scheduleVerifiedAt": "2026-09-19",
-    "priceVerifiedAt": "2026-09-19",
+    "verifiedAt": "2026-10-08",
+    "scheduleVerifiedAt": "2026-10-08",
+    "priceVerifiedAt": "2026-10-08",
     "sources": [
       "https://omoinotake.com/info/2196/",
       "https://ticket.yes24.com/Perf/58335",
@@ -1301,35 +1301,35 @@
     "verification": {
       "artist": {
         "status": "confirmed",
-        "verifiedAt": "2026-09-19",
+        "verifiedAt": "2026-10-08",
         "sources": [
           "https://omoinotake.com/info/2196/"
         ]
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-09-19",
+        "verifiedAt": "2026-10-08",
         "sources": [
           "https://omoinotake.com/info/2196/"
         ]
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-09-19",
+        "verifiedAt": "2026-10-08",
         "sources": [
           "https://omoinotake.com/info/2196/"
         ]
       },
       "ticketDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-09-19",
+        "verifiedAt": "2026-10-08",
         "sources": [
           "https://ticket.yes24.com/Perf/58335"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-09-19",
+        "verifiedAt": "2026-10-08",
         "sources": [
           "https://www.highjinkx.com/omoinotake-2026"
         ]
@@ -2166,9 +2166,9 @@
     "presaleStatus": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-09-23",
-    "scheduleVerifiedAt": "2026-09-23",
-    "priceVerifiedAt": "2026-09-23",
+    "verifiedAt": "2026-10-08",
+    "scheduleVerifiedAt": "2026-10-08",
+    "priceVerifiedAt": "2026-10-08",
     "sources": [
       "https://ano-official.com/live_information/detail/42411",
       "https://world.nol.com/ja/ticket/places/26000166/products/26010474",
@@ -2197,35 +2197,35 @@
     "verification": {
       "artist": {
         "status": "confirmed",
-        "verifiedAt": "2026-09-23",
+        "verifiedAt": "2026-10-08",
         "sources": [
           "https://ano-official.com/live_information/detail/42411"
         ]
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-09-23",
+        "verifiedAt": "2026-10-08",
         "sources": [
           "https://ano-official.com/live_information/detail/42411"
         ]
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-09-23",
+        "verifiedAt": "2026-10-08",
         "sources": [
           "https://world.nol.com/ja/ticket/places/26000166/products/26010474"
         ]
       },
       "ticketDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-09-23",
+        "verifiedAt": "2026-10-08",
         "sources": [
           "https://world.nol.com/ja/ticket/places/26000166/products/26010474"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-09-23",
+        "verifiedAt": "2026-10-08",
         "sources": [
           "https://world.nol.com/ja/ticket/places/26000166/products/26010474"
         ]
@@ -2260,9 +2260,9 @@
     "presaleStatus": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-09-23",
-    "scheduleVerifiedAt": "2026-09-23",
-    "priceVerifiedAt": "2026-09-23",
+    "verifiedAt": "2026-10-08",
+    "scheduleVerifiedAt": "2026-10-08",
+    "priceVerifiedAt": "2026-10-08",
     "sources": [
       "https://ano-official.com/news/detail/84837",
       "https://world.nol.com/ja/ticket/places/26000166/products/26010474",
@@ -2291,35 +2291,35 @@
     "verification": {
       "artist": {
         "status": "confirmed",
-        "verifiedAt": "2026-09-23",
+        "verifiedAt": "2026-10-08",
         "sources": [
           "https://ano-official.com/news/detail/84837"
         ]
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-09-23",
+        "verifiedAt": "2026-10-08",
         "sources": [
           "https://ano-official.com/news/detail/84837"
         ]
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-09-23",
+        "verifiedAt": "2026-10-08",
         "sources": [
           "https://ano-official.com/news/detail/84837"
         ]
       },
       "ticketDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-09-23",
+        "verifiedAt": "2026-10-08",
         "sources": [
           "https://world.nol.com/ja/ticket/places/26000166/products/26010474"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-09-23",
+        "verifiedAt": "2026-10-08",
         "sources": [
           "https://world.nol.com/ja/ticket/places/26000166/products/26010474"
         ]
@@ -2566,9 +2566,9 @@
     "presaleStatus": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-09-19",
-    "scheduleVerifiedAt": "2026-09-19",
-    "priceVerifiedAt": "2026-09-19",
+    "verifiedAt": "2026-10-08",
+    "scheduleVerifiedAt": "2026-10-08",
+    "priceVerifiedAt": "2026-10-08",
     "sources": [
       "https://cero-web.jp/category/live/",
       "https://www.highjinkx.com/show-list/cero",
@@ -2592,35 +2592,35 @@
     "verification": {
       "artist": {
         "status": "confirmed",
-        "verifiedAt": "2026-09-19",
+        "verifiedAt": "2026-10-08",
         "sources": [
           "https://cero-web.jp/category/live/"
         ]
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-09-19",
+        "verifiedAt": "2026-10-08",
         "sources": [
           "https://cero-web.jp/category/live/"
         ]
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-09-19",
+        "verifiedAt": "2026-10-08",
         "sources": [
           "https://cero-web.jp/category/live/"
         ]
       },
       "ticketDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-09-19",
+        "verifiedAt": "2026-10-08",
         "sources": [
           "https://cero-web.jp/category/live/"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-09-19",
+        "verifiedAt": "2026-10-08",
         "sources": [
           "https://cero-web.jp/category/live/"
         ]
