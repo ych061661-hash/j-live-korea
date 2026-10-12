@@ -1372,6 +1372,14 @@ footer { padding:22px 0 34px; color:#686970; font-size:11px; text-align:center; 
 .minimal-nav a { color:#a7a8af; font-size:12px; text-decoration:none; transition:color .18s ease; }
 .minimal-nav a:hover,.minimal-nav a:focus-visible { color:var(--text); outline:none; }
 .home-page .header-actions { gap:9px; }
+.feature-menu { position:relative; display:flex; align-items:center; }
+.feature-menu > summary { display:flex; align-items:center; justify-content:center; min-height:44px; padding:0 13px; border:1px solid var(--line); border-radius:999px; color:#c4c4ca; font-size:12px; cursor:pointer; list-style:none; }
+.feature-menu > summary::-webkit-details-marker { display:none; }
+.feature-menu > summary::after { content:"⌄"; margin-left:7px; color:var(--lime); }
+.feature-menu[open] > summary { border-color:rgba(215,255,79,.55); color:var(--text); }
+.feature-menu-panel { position:absolute; top:calc(100% + 10px); right:0; z-index:10030; display:grid; grid-template-columns:repeat(2,minmax(150px,1fr)); gap:3px; width:min(360px,calc(100vw - 28px)); padding:9px; border:1px solid var(--line); border-radius:14px; background:#17181d; box-shadow:0 16px 42px rgba(0,0,0,.42); }
+.feature-menu-panel a { display:flex; align-items:center; min-height:42px; padding:8px 10px; border-radius:8px; color:#d8d8dc; font-size:12px; line-height:1.4; }
+.feature-menu-panel a:hover,.feature-menu-panel a:focus-visible { color:var(--text); background:rgba(215,255,79,.09); }
 .home-page .header-actions .ghost-button { min-height:36px; padding:0 14px; border:0; color:#a7a8af; background:transparent; }
 .home-page .header-actions .primary-button { min-height:36px; padding:0 16px; border:0; border-radius:999px; color:#0c0d10; background:var(--text); font-size:11px; }
 .home-page .hero {
@@ -1578,6 +1586,9 @@ footer { padding:22px 0 34px; color:#686970; font-size:11px; text-align:center; 
   .home-page .shell { width:100%; }
   .home-page .minimal-header { height:64px; padding:0 14px; }
   .minimal-nav,.home-page .header-actions .ghost-button { display:none; }
+  .home-page .header-actions { align-items:center; gap:6px; }
+  .feature-menu > summary { min-height:40px; padding:0 11px; font-size:11px; }
+  .feature-menu-panel { grid-template-columns:1fr; width:min(280px,calc(100vw - 28px)); max-height:min(70vh,480px); overflow-y:auto; }
   .home-page .hero { padding:64px 18px 52px; }
   .home-page .hero h1 { font-size:clamp(46px,13vw,64px); }
   .home-page .hero-copy { font-size:14px; }

@@ -23,6 +23,11 @@ const today = "2026-09-24";
 
 test("homepage exposes compact paths to existing guides, report, updates and artists after the calendar", () => {
   const html = read("calendar/index.html");
+  const featureMenu = html.match(/<details class="feature-menu">([\s\S]*?)<\/details>/)?.[1] || "";
+  assert.match(featureMenu, /<summary[^>]*>다른 기능<\/summary>/);
+  for (const href of ["./weekly/", "./artists/", "./alerts/", "./fanclubs/", "./guides/venues/", "./guides/standing-concert", "./guides/verification", "./updates", "./reports/2026-jpop-live", "./corrections"]) {
+    assert.ok(featureMenu.includes(`href="${href}"`), `header feature menu must link to ${href}`);
+  }
   const calendarEnd = html.indexOf("</main>");
   const linksEnd = html.indexOf("<!-- SEO_UPCOMING_START -->");
   assert.ok(calendarEnd >= 0 && linksEnd > calendarEnd, "the resource links must follow the primary calendar");
@@ -38,7 +43,8 @@ test("homepage exposes compact paths to existing guides, report, updates and art
     assert.ok(resourceNav.includes(`href="${href}"`), `homepage must link to ${href}`);
     assert.ok(fs.existsSync(path.join(root, file)), `destination must exist: ${file}`);
   }
-  assert.match(resourceNav, /aria-label="공연 관련 가이드와 자료"/);
+  assert.match(resourceNav, /aria-label="J-LIVE 다른 기능"/);
+  assert.match(resourceNav, /<h2 id="guideTitle">다른 기능<\/h2>/);
 });
 
 test("each public event detail links to a matching venue guide or its directory and to ticket preparation", () => {

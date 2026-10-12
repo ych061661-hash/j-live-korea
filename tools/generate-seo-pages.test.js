@@ -260,7 +260,7 @@ test("attributes indexable event articles to the named author and policy", () =>
 });
 
 test("does not publish unverified or historical ticket inventory in structured data", () => {
-  const base = { artist: "Artist", concertDate: "2026-10-10", time: "오후 7:00", venue: "Hall", vendorUrl: "https://tickets.example/show", ticketDate: "2026-08-01", ticketTime: "오후 8:00", price: 99000 };
+  const base = { artist: "Artist", concertDate: "2026-10-20", time: "오후 7:00", venue: "Hall", vendorUrl: "https://tickets.example/show", ticketDate: "2026-08-01", ticketTime: "오후 8:00", price: 99000 };
   const unknown = JSON.parse(structuredData(base, [base], "https://j-live.kr/calendar/events/artist", "https://j-live.kr"));
   assert.equal(unknown.offers.availability, undefined);
   assert.equal(unknown.offers.validFrom, undefined);
@@ -270,7 +270,7 @@ test("does not publish unverified or historical ticket inventory in structured d
   assert.equal(verifiedOffer.offers.price, 99000);
   const soldOut = JSON.parse(structuredData({ ...base, ticketAvailability: "sold_out" }, [base], "https://j-live.kr/calendar/events/artist", "https://j-live.kr"));
   assert.equal(soldOut.offers.availability, undefined);
-  const verifiedSoldOut = JSON.parse(structuredData({ ...base, ticketAvailability: "sold_out", ticketStatusVerifiedAt: "2026-08-15T10:00:00+09:00", ticketStatusSource: "https://tickets.example/show" }, [base], "https://j-live.kr/calendar/events/artist", "https://j-live.kr"));
+  const verifiedSoldOut = JSON.parse(structuredData({ ...base, ticketAvailability: "sold_out", ticketStatusVerifiedAt: "2026-10-13T10:00:00+09:00", ticketStatusSource: "https://tickets.example/show" }, [base], "https://j-live.kr/calendar/events/artist", "https://j-live.kr"));
   assert.equal(verifiedSoldOut.offers.availability, "https://schema.org/SoldOut");
   const pastSoldOut = JSON.parse(structuredData({ ...base, concertDate: "2026-09-01", ticketAvailability: "sold_out", ticketStatusVerifiedAt: "2026-08-15T10:00:00+09:00", ticketStatusSource: "https://tickets.example/show" }, [base], "https://j-live.kr/calendar/events/artist", "https://j-live.kr"));
   assert.equal(pastSoldOut.offers.availability, undefined);
