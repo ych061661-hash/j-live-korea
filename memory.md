@@ -15,6 +15,17 @@ Format: `- <event id> — verifiedAt=<date> — note`
 | 후보 ID / 기존 ID | 아티스트·공연일·회차 | 발견일 | 마지막 시도(KST) | 누락 필드 | 확인한 공식 URL | 결과·접근 실패 원인 | 다음 행동·우선순위 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 
+## Run: 2026-10-18 (KST, user-requested registrations)
+
+- 신규 상세 조사 후보 5건을 처리함(kinoue64의 양일 공연을 한 후보로 묶음). 데이터 중복 확인 후 7개 회차 레코드를 `pending`으로 추가함. 대표곡/공식 YouTube 채널을 이번 실행에 검증하지 않았으므로 confirmed 처리하지 않음.
+- `kinoue64-2026-11-14`: 11/14 18:00, KT&G 상상마당 라이브홀, 예매 오픈 8/18 20:00, 75,000원. 출연: kinoue64, Parannoul, Lilly Eat Machine. 공식 주최사 상세: https://4kor4kor4kor.com/tickets/kinoue64-2026day1
+- `kinoue64-2026-11-15`: 11/15 18:30, Gamma Hall, 예매 오픈 8/18 20:00, 50,000원. 출연: kinoue64, Cultgazer. 공식 주최사 상세: https://4kor4kor4kor.com/tickets/kinoue64-2026day2
+- `lausbub-kirara-2026-11-20`: 11/20 20:00, KT&G 상상마당 홍대 라이브홀, 전석 스탠딩 66,000원. YES24 개별 상품(https://ticket.yes24.com/English/Perf/60323)은 2026-10-18 열람 시 bot manager 제한으로 차단됨. YES24 공식 공연목록과 주최사 상세(https://www.highjinkx.com/show-list/larara)에서 공연/일정/가격 확인. 티켓 오픈일·시각 미확인.
+- `ivy-2026-11-28`: 11/28 19:00(입장 18:30), Vel.R 벨르, 55,000원, 예매 오픈 7/13 20:00. 주최사 상세 https://4kor4kor4kor.com/tickets/ivy 에서 확인. Google Forms 예매 링크는 연결만 확인했으며 폼에 진입하거나 제출하지 않음.
+- `nee-2026-12-18`: 12/18, KT&G SANGSANGMADANG LIVE HALL HONGDAE, 88,000원, 멜론 티켓, 티켓 판매일 9/29(공식 공지에 시각 없음). 공연 시작 시각과 좌석 등급명 미확인. 공식 아티스트 공지 https://neeofficial.jp/contents/1109451. 멜론 글로벌 상품 페이지 접근 제한으로 상세 재확인은 못함.
+- `luck-life-2026-12-19` / `luck-life-2026-12-20`: 양일 무신사 개러지, 각각 18:00 / 17:00 시작(입장 17:15 / 16:15), SVIP 198,000원·VIP 154,000원·일반 99,000원, 일반예매 10/1 12:00. 아티스트 공지 https://luck-life.com/news/2026/09/30/9023 및 Melon 공식 오픈 공지 https://ticket.melon.com/csoon/detail.htm?csoonId=12884.
+- 남은 사용자 목록은 다음 실행으로 이관: NANAOAKARI(2027-01-30; 예매 오픈 예정일은 이미 지났으므로 변경 여부 공식 재검증 우선), AOSAKA: kurayamisaka & parannoul(2027-01-09), Minami(2027-03-27~28, 장소/시각/예매 정보). XMF는 2026-10-03~04 공연으로 과거라 정책상 미처리. Hump Back은 기존 `hump-back-2027-01-23`과 중복 방지.
+
 2026-09-21 코드 보완 작업에서는 공연 검색이나 공식 출처 재검증을 수행하지 않았다. 아래 과거 pending 기록은 최신 데이터와 대조한 뒤 다음 실제 검색 실행에서 대기열에 편입한다. 현재 표가 비어 있다는 사실은 미해결 공연이 없다는 뜻이 아니다.
 
 ## Run: 2026-08-17 (KST, Monday)

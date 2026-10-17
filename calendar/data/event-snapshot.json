@@ -4175,5 +4175,512 @@
         ]
       }
     }
+  },
+  "kinoue64-2026-11-14": {
+    "artist": "kinoue64",
+    "concertDate": "2026-11-14",
+    "time": "오후 6:00",
+    "venue": "KT&G 상상마당 라이브홀",
+    "vendor": "4KOR (Google Forms)",
+    "vendorUrl": "https://4kor4kor4kor.com/tickets/kinoue64-2026day1",
+    "ticketDate": "2026-08-18",
+    "ticketTime": "오후 8:00",
+    "presaleDate": "",
+    "presaleTime": "",
+    "presaleStatus": "checking",
+    "status": "pending",
+    "ticketLabel": null,
+    "verifiedAt": "2026-10-18",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-10-18",
+    "sources": [
+      "https://4kor4kor4kor.com/tickets/kinoue64-2026day1"
+    ],
+    "price": 75000,
+    "priceCurrency": "KRW",
+    "seatPrices": [],
+    "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
+    "seriesId": null,
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "confirmed",
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://4kor4kor4kor.com/tickets/kinoue64-2026day1"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://4kor4kor4kor.com/tickets/kinoue64-2026day1"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://4kor4kor4kor.com/tickets/kinoue64-2026day1"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://4kor4kor4kor.com/tickets/kinoue64-2026day1"
+        ]
+      },
+      "representativeSongs": {
+        "status": "unverified",
+        "checkedAt": "2026-10-18",
+        "sources": []
+      }
+    }
+  },
+  "kinoue64-2026-11-15": {
+    "artist": "kinoue64",
+    "concertDate": "2026-11-15",
+    "time": "오후 6:30",
+    "venue": "Gamma Hall (감마홀)",
+    "vendor": "4KOR (Google Forms)",
+    "vendorUrl": "https://4kor4kor4kor.com/tickets/kinoue64-2026day2",
+    "ticketDate": "2026-08-18",
+    "ticketTime": "오후 8:00",
+    "presaleDate": "",
+    "presaleTime": "",
+    "presaleStatus": "checking",
+    "status": "pending",
+    "ticketLabel": null,
+    "verifiedAt": "2026-10-18",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-10-18",
+    "sources": [
+      "https://4kor4kor4kor.com/tickets/kinoue64-2026day2"
+    ],
+    "price": 50000,
+    "priceCurrency": "KRW",
+    "seatPrices": [],
+    "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
+    "seriesId": null,
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "confirmed",
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://4kor4kor4kor.com/tickets/kinoue64-2026day2"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://4kor4kor4kor.com/tickets/kinoue64-2026day2"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://4kor4kor4kor.com/tickets/kinoue64-2026day2"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://4kor4kor4kor.com/tickets/kinoue64-2026day2"
+        ]
+      },
+      "representativeSongs": {
+        "status": "unverified",
+        "checkedAt": "2026-10-18",
+        "sources": []
+      }
+    }
+  },
+  "lausbub-kirara-2026-11-20": {
+    "artist": "LAUSBUB & KIRARA",
+    "concertDate": "2026-11-20",
+    "time": "오후 8:00",
+    "venue": "KT&G 상상마당 홍대 라이브홀",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/English/Perf/60323",
+    "ticketDate": "",
+    "ticketTime": "",
+    "presaleDate": "",
+    "presaleTime": "",
+    "presaleStatus": "checking",
+    "status": "pending",
+    "ticketLabel": null,
+    "verifiedAt": "2026-10-18",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-10-18",
+    "sources": [
+      "https://ticket.yes24.com/English/Perf/60323",
+      "https://www.highjinkx.com/show-list/larara"
+    ],
+    "price": 66000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "전석 스탠딩",
+        "price": 66000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
+    "seriesId": null,
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "unverified",
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://ticket.yes24.com/English/Perf/60323",
+          "https://www.highjinkx.com/show-list/larara"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://www.highjinkx.com/show-list/larara"
+        ]
+      },
+      "ticketing": {
+        "status": "access_failed",
+        "checkedAt": "2026-10-18",
+        "sources": [
+          "https://ticket.yes24.com/English/Perf/60323"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://www.highjinkx.com/show-list/larara"
+        ]
+      },
+      "representativeSongs": {
+        "status": "unverified",
+        "checkedAt": "2026-10-18",
+        "sources": []
+      }
+    }
+  },
+  "ivy-2026-11-28": {
+    "artist": "iVy",
+    "concertDate": "2026-11-28",
+    "time": "오후 7:00",
+    "venue": "Vel.R 벨르 (구. 벨로주)",
+    "vendor": "4KOR (Google Forms)",
+    "vendorUrl": "https://4kor4kor4kor.com/tickets/ivy",
+    "ticketDate": "2026-07-13",
+    "ticketTime": "오후 8:00",
+    "presaleDate": "",
+    "presaleTime": "",
+    "presaleStatus": "checking",
+    "status": "pending",
+    "ticketLabel": null,
+    "verifiedAt": "2026-10-18",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-10-18",
+    "sources": [
+      "https://4kor4kor4kor.com/tickets/ivy"
+    ],
+    "price": 55000,
+    "priceCurrency": "KRW",
+    "seatPrices": [],
+    "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
+    "seriesId": null,
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "confirmed",
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://4kor4kor4kor.com/tickets/ivy"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://4kor4kor4kor.com/tickets/ivy"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://4kor4kor4kor.com/tickets/ivy"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://4kor4kor4kor.com/tickets/ivy"
+        ]
+      },
+      "representativeSongs": {
+        "status": "unverified",
+        "checkedAt": "2026-10-18",
+        "sources": []
+      }
+    }
+  },
+  "nee-2026-12-18": {
+    "artist": "NEE",
+    "concertDate": "2026-12-18",
+    "time": "",
+    "venue": "KT&G SANGSANGMADANG LIVE HALL HONGDAE",
+    "vendor": "멜론티켓",
+    "vendorUrl": "https://m.globalticket.melon.com/performance/detail/213863?lang=en-US",
+    "ticketDate": "2026-09-29",
+    "ticketTime": "",
+    "presaleDate": "",
+    "presaleTime": "",
+    "presaleStatus": "checking",
+    "status": "pending",
+    "ticketLabel": null,
+    "verifiedAt": "2026-10-18",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-10-18",
+    "sources": [
+      "https://neeofficial.jp/contents/1109451",
+      "https://m.globalticket.melon.com/performance/detail/213863?lang=en-US"
+    ],
+    "price": 88000,
+    "priceCurrency": "KRW",
+    "seatPrices": [],
+    "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
+    "seriesId": null,
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "unverified",
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://neeofficial.jp/contents/1109451"
+        ]
+      },
+      "concertTime": {
+        "status": "unverified",
+        "checkedAt": "2026-10-18",
+        "sources": [
+          "https://neeofficial.jp/contents/1109451"
+        ]
+      },
+      "ticketing": {
+        "status": "unverified",
+        "checkedAt": "2026-10-18",
+        "sources": [
+          "https://neeofficial.jp/contents/1109451",
+          "https://m.globalticket.melon.com/performance/detail/213863?lang=en-US"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://neeofficial.jp/contents/1109451"
+        ]
+      },
+      "representativeSongs": {
+        "status": "unverified",
+        "checkedAt": "2026-10-18",
+        "sources": []
+      }
+    }
+  },
+  "luck-life-2026-12-19": {
+    "artist": "LUCK LIFE",
+    "concertDate": "2026-12-19",
+    "time": "오후 6:00",
+    "venue": "무신사 개러지",
+    "vendor": "멜론티켓",
+    "vendorUrl": "https://ticket.melon.com/csoon/detail.htm?csoonId=12884",
+    "ticketDate": "2026-10-01",
+    "ticketTime": "오후 12:00",
+    "presaleDate": "",
+    "presaleTime": "",
+    "presaleStatus": "checking",
+    "status": "pending",
+    "ticketLabel": null,
+    "verifiedAt": "2026-10-18",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-10-18",
+    "sources": [
+      "https://luck-life.com/news/2026/09/30/9023",
+      "https://ticket.melon.com/csoon/detail.htm?csoonId=12884",
+      "https://ticket.29cm.co.kr/catalog/4231268"
+    ],
+    "price": 99000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "SVIP Ticket",
+        "price": 198000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "VIP Ticket",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "일반(一般) Ticket",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
+    "seriesId": null,
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "confirmed",
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://luck-life.com/news/2026/09/30/9023",
+          "https://ticket.melon.com/csoon/detail.htm?csoonId=12884"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://luck-life.com/news/2026/09/30/9023"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://luck-life.com/news/2026/09/30/9023",
+          "https://ticket.melon.com/csoon/detail.htm?csoonId=12884"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://luck-life.com/news/2026/09/30/9023",
+          "https://ticket.melon.com/csoon/detail.htm?csoonId=12884"
+        ]
+      },
+      "representativeSongs": {
+        "status": "unverified",
+        "checkedAt": "2026-10-18",
+        "sources": []
+      }
+    }
+  },
+  "luck-life-2026-12-20": {
+    "artist": "LUCK LIFE",
+    "concertDate": "2026-12-20",
+    "time": "오후 5:00",
+    "venue": "무신사 개러지",
+    "vendor": "멜론티켓",
+    "vendorUrl": "https://ticket.melon.com/csoon/detail.htm?csoonId=12884",
+    "ticketDate": "2026-10-01",
+    "ticketTime": "오후 12:00",
+    "presaleDate": "",
+    "presaleTime": "",
+    "presaleStatus": "checking",
+    "status": "pending",
+    "ticketLabel": null,
+    "verifiedAt": "2026-10-18",
+    "scheduleVerifiedAt": null,
+    "priceVerifiedAt": "2026-10-18",
+    "sources": [
+      "https://luck-life.com/news/2026/09/30/9023",
+      "https://ticket.melon.com/csoon/detail.htm?csoonId=12884",
+      "https://ticket.29cm.co.kr/catalog/4231268"
+    ],
+    "price": 99000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "SVIP Ticket",
+        "price": 198000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "VIP Ticket",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "일반(一般) Ticket",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
+    "seriesId": null,
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "confirmed",
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://luck-life.com/news/2026/09/30/9023",
+          "https://ticket.melon.com/csoon/detail.htm?csoonId=12884"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://luck-life.com/news/2026/09/30/9023"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://luck-life.com/news/2026/09/30/9023",
+          "https://ticket.melon.com/csoon/detail.htm?csoonId=12884"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://luck-life.com/news/2026/09/30/9023",
+          "https://ticket.melon.com/csoon/detail.htm?csoonId=12884"
+        ]
+      },
+      "representativeSongs": {
+        "status": "unverified",
+        "checkedAt": "2026-10-18",
+        "sources": []
+      }
+    }
   }
 }
