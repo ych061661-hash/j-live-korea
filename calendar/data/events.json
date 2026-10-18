@@ -3997,4 +3997,332 @@
     "verifiedAt": "2026-10-18",
     "createdAt": "2026-10-18T12:00:00+09:00"
   }
+,
+{
+    "id": "kenshi-yonezu-2027-01-14",
+    "artist": "Kenshi Yonezu",
+    "genre": "J-POP / J-ROCK",
+    "venue": "인스파이어 아레나",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "2026-10-22",
+    "ticketTime": "오후 12:00",
+    "price": 143000,
+    "priceCurrency": "KRW",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://nol.yanolja.com/ticket/products/26015024",
+    "youtubeChannel": "@kenshiyonezu",
+    "songs": [
+      [
+        "Lemon",
+        "",
+        "https://www.youtube.com/watch?v=SX_ViT4Ra7k"
+      ],
+      [
+        "KICK BACK",
+        "",
+        "https://www.youtube.com/watch?v=NMA_isZYsYQ"
+      ],
+      [
+        "IRIS OUT",
+        "",
+        "https://www.youtube.com/watch?v=LmZD-TU96q4"
+      ]
+    ],
+    "status": "confirmed",
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "confirmed",
+    "seatPrices": [
+      {
+        "name": "플로어석",
+        "price": 172000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 P",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 R",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 S",
+        "price": 143000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "sources": [
+      "https://nol.yanolja.com/ticket/products/26015024",
+      "https://www.livenation.kr/event/kenshi-yonezu-2026-2027-world-tour-ghost-seoul-tickets-edp1705322",
+      "https://reissuerecords.net/profile/",
+      "https://www.youtube.com/@kenshiyonezu"
+    ],
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-19",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26015024",
+          "https://www.livenation.kr/event/kenshi-yonezu-2026-2027-world-tour-ghost-seoul-tickets-edp1705322"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-19",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26015024"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-19",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26015024",
+          "https://www.livenation.kr/event/kenshi-yonezu-2026-2027-world-tour-ghost-seoul-tickets-edp1705322"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-19",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26015024"
+        ]
+      },
+      "representativeSongs": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-19",
+        "sources": [
+          "https://www.youtube.com/watch?v=SX_ViT4Ra7k",
+          "https://www.youtube.com/watch?v=NMA_isZYsYQ",
+          "https://www.youtube.com/watch?v=LmZD-TU96q4"
+        ]
+      }
+    },
+    "priceVerifiedAt": "2026-10-19",
+    "verifiedAt": "2026-10-19",
+    "createdAt": "2026-10-19T00:00:00+09:00",
+    "concertDate": "2027-01-14",
+    "time": "오후 7:30"
+  },
+{
+    "id": "kenshi-yonezu-2027-01-16",
+    "artist": "Kenshi Yonezu",
+    "genre": "J-POP / J-ROCK",
+    "venue": "인스파이어 아레나",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "2026-10-22",
+    "ticketTime": "오후 12:00",
+    "price": 143000,
+    "priceCurrency": "KRW",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://nol.yanolja.com/ticket/products/26015024",
+    "youtubeChannel": "@kenshiyonezu",
+    "songs": [
+      [
+        "Lemon",
+        "",
+        "https://www.youtube.com/watch?v=SX_ViT4Ra7k"
+      ],
+      [
+        "KICK BACK",
+        "",
+        "https://www.youtube.com/watch?v=NMA_isZYsYQ"
+      ],
+      [
+        "IRIS OUT",
+        "",
+        "https://www.youtube.com/watch?v=LmZD-TU96q4"
+      ]
+    ],
+    "status": "confirmed",
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "confirmed",
+    "seatPrices": [
+      {
+        "name": "플로어석",
+        "price": 172000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 P",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 R",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 S",
+        "price": 143000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "sources": [
+      "https://nol.yanolja.com/ticket/products/26015024",
+      "https://www.livenation.kr/event/kenshi-yonezu-2026-2027-world-tour-ghost-seoul-tickets-edp1705322",
+      "https://reissuerecords.net/profile/",
+      "https://www.youtube.com/@kenshiyonezu"
+    ],
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-19",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26015024",
+          "https://www.livenation.kr/event/kenshi-yonezu-2026-2027-world-tour-ghost-seoul-tickets-edp1705322"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-19",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26015024"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-19",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26015024",
+          "https://www.livenation.kr/event/kenshi-yonezu-2026-2027-world-tour-ghost-seoul-tickets-edp1705322"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-19",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26015024"
+        ]
+      },
+      "representativeSongs": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-19",
+        "sources": [
+          "https://www.youtube.com/watch?v=SX_ViT4Ra7k",
+          "https://www.youtube.com/watch?v=NMA_isZYsYQ",
+          "https://www.youtube.com/watch?v=LmZD-TU96q4"
+        ]
+      }
+    },
+    "priceVerifiedAt": "2026-10-19",
+    "verifiedAt": "2026-10-19",
+    "createdAt": "2026-10-19T00:00:00+09:00",
+    "concertDate": "2027-01-16",
+    "time": "오후 7:00"
+  },
+{
+    "id": "kenshi-yonezu-2027-01-17",
+    "artist": "Kenshi Yonezu",
+    "genre": "J-POP / J-ROCK",
+    "venue": "인스파이어 아레나",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "2026-10-22",
+    "ticketTime": "오후 12:00",
+    "price": 143000,
+    "priceCurrency": "KRW",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://nol.yanolja.com/ticket/products/26015024",
+    "youtubeChannel": "@kenshiyonezu",
+    "songs": [
+      [
+        "Lemon",
+        "",
+        "https://www.youtube.com/watch?v=SX_ViT4Ra7k"
+      ],
+      [
+        "KICK BACK",
+        "",
+        "https://www.youtube.com/watch?v=NMA_isZYsYQ"
+      ],
+      [
+        "IRIS OUT",
+        "",
+        "https://www.youtube.com/watch?v=LmZD-TU96q4"
+      ]
+    ],
+    "status": "confirmed",
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "confirmed",
+    "seatPrices": [
+      {
+        "name": "플로어석",
+        "price": 172000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 P",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 R",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석 S",
+        "price": 143000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "sources": [
+      "https://nol.yanolja.com/ticket/products/26015024",
+      "https://www.livenation.kr/event/kenshi-yonezu-2026-2027-world-tour-ghost-seoul-tickets-edp1705322",
+      "https://reissuerecords.net/profile/",
+      "https://www.youtube.com/@kenshiyonezu"
+    ],
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-19",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26015024",
+          "https://www.livenation.kr/event/kenshi-yonezu-2026-2027-world-tour-ghost-seoul-tickets-edp1705322"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-19",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26015024"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-19",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26015024",
+          "https://www.livenation.kr/event/kenshi-yonezu-2026-2027-world-tour-ghost-seoul-tickets-edp1705322"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-19",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26015024"
+        ]
+      },
+      "representativeSongs": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-19",
+        "sources": [
+          "https://www.youtube.com/watch?v=SX_ViT4Ra7k",
+          "https://www.youtube.com/watch?v=NMA_isZYsYQ",
+          "https://www.youtube.com/watch?v=LmZD-TU96q4"
+        ]
+      }
+    },
+    "priceVerifiedAt": "2026-10-19",
+    "verifiedAt": "2026-10-19",
+    "createdAt": "2026-10-19T00:00:00+09:00",
+    "concertDate": "2027-01-17",
+    "time": "오후 7:00"
+  }
 ]
