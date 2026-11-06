@@ -828,9 +828,18 @@
     "status": "confirmed",
     "hostingStatus": "confirmed",
     "sources": [
-      { "label": "아티스트 투어 발표", "url": "https://member.vaundy.jp/feature/ASIAARENATOUR_2026" },
-      { "label": "NOL 공연 상세", "url": "https://tickets.interpark.com/goods/26003199" },
-      { "label": "예매 오픈 공지", "url": "https://tickets.interpark.com/contents/notice/detail/12910" }
+      {
+        "label": "아티스트 투어 발표",
+        "url": "https://member.vaundy.jp/feature/ASIAARENATOUR_2026"
+      },
+      {
+        "label": "NOL 공연 상세",
+        "url": "https://tickets.interpark.com/goods/26003199"
+      },
+      {
+        "label": "예매 오픈 공지",
+        "url": "https://tickets.interpark.com/contents/notice/detail/12910"
+      }
     ],
     "verifiedAt": "2026-09-19",
     "ticketingStatus": "confirmed",
@@ -893,9 +902,18 @@
     "status": "confirmed",
     "hostingStatus": "confirmed",
     "sources": [
-      { "label": "아티스트 투어 발표", "url": "https://member.vaundy.jp/feature/ASIAARENATOUR_2026" },
-      { "label": "NOL 공연 상세", "url": "https://tickets.interpark.com/goods/26003199" },
-      { "label": "예매 오픈 공지", "url": "https://tickets.interpark.com/contents/notice/detail/12910" }
+      {
+        "label": "아티스트 투어 발표",
+        "url": "https://member.vaundy.jp/feature/ASIAARENATOUR_2026"
+      },
+      {
+        "label": "NOL 공연 상세",
+        "url": "https://tickets.interpark.com/goods/26003199"
+      },
+      {
+        "label": "예매 오픈 공지",
+        "url": "https://tickets.interpark.com/contents/notice/detail/12910"
+      }
     ],
     "verifiedAt": "2026-09-19",
     "ticketingStatus": "confirmed",
@@ -980,13 +998,55 @@
     "priceVerifiedAt": "2026-09-19",
     "verifiedAt": "2026-09-19",
     "verification": {
-      "artist": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://starto.jp/s/p/live/10520?ima=1216&lang=en"] },
-      "concertDate": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://starto.jp/s/p/live/10520?ima=1216&lang=en"] },
-      "venue": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://starto.jp/s/p/live/10520?ima=1216&lang=en"] },
-      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://world.nol.com/ja/ticket/places/26000661/products/26008115"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://world.nol.com/ja/ticket/places/26000661/products/26008115"] },
-      "ticketConditions": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://world.nol.com/ja/ticket/places/26000661/products/26008115"] },
-      "availability": { "status": "unverified", "checkedAt": "2026-09-19", "sources": ["https://world.nol.com/ja/ticket/places/26000661/products/26008115"] }
+      "artist": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://starto.jp/s/p/live/10520?ima=1216&lang=en"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://starto.jp/s/p/live/10520?ima=1216&lang=en"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://starto.jp/s/p/live/10520?ima=1216&lang=en"
+        ]
+      },
+      "ticketDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://world.nol.com/ja/ticket/places/26000661/products/26008115"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://world.nol.com/ja/ticket/places/26000661/products/26008115"
+        ]
+      },
+      "ticketConditions": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://world.nol.com/ja/ticket/places/26000661/products/26008115"
+        ]
+      },
+      "availability": {
+        "status": "unverified",
+        "checkedAt": "2026-09-19",
+        "sources": [
+          "https://world.nol.com/ja/ticket/places/26000661/products/26008115"
+        ]
+      }
     },
     "createdAt": "2026-06-11T09:00:00+09:00"
   },
@@ -1516,13 +1576,55 @@
     "scheduleVerifiedAt": "2026-10-08",
     "verifiedAt": "2026-10-08",
     "verification": {
-      "artist": { "status": "confirmed", "verifiedAt": "2026-10-08", "sources": ["https://omoinotake.com/info/2196/"] },
-      "concertDate": { "status": "confirmed", "verifiedAt": "2026-10-08", "sources": ["https://omoinotake.com/info/2196/"] },
-      "venue": { "status": "confirmed", "verifiedAt": "2026-10-08", "sources": ["https://omoinotake.com/info/2196/"] },
-      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-10-08", "sources": ["https://ticket.yes24.com/Perf/58335"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-10-08", "sources": ["https://www.highjinkx.com/omoinotake-2026"] },
-      "ticketConditions": { "status": "unverified", "checkedAt": "2026-09-19", "sources": ["https://ticket.yes24.com/Perf/58335"] },
-      "availability": { "status": "unverified", "checkedAt": "2026-09-19", "sources": ["https://ticket.yes24.com/Perf/58335"] }
+      "artist": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-08",
+        "sources": [
+          "https://omoinotake.com/info/2196/"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-08",
+        "sources": [
+          "https://omoinotake.com/info/2196/"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-08",
+        "sources": [
+          "https://omoinotake.com/info/2196/"
+        ]
+      },
+      "ticketDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-08",
+        "sources": [
+          "https://ticket.yes24.com/Perf/58335"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-08",
+        "sources": [
+          "https://www.highjinkx.com/omoinotake-2026"
+        ]
+      },
+      "ticketConditions": {
+        "status": "unverified",
+        "checkedAt": "2026-09-19",
+        "sources": [
+          "https://ticket.yes24.com/Perf/58335"
+        ]
+      },
+      "availability": {
+        "status": "unverified",
+        "checkedAt": "2026-09-19",
+        "sources": [
+          "https://ticket.yes24.com/Perf/58335"
+        ]
+      }
     },
     "createdAt": "2026-06-11T09:00:00+09:00",
     "seatPrices": [
@@ -1678,13 +1780,60 @@
     "verifiedAt": "2026-09-25",
     "scheduleVerifiedAt": "2026-09-25",
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://hehn.fujiikaze.com/pwt/", "https://ticket.melon.com/csoon/detail.htm?csoonId=12366"] },
-      "concertDate": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://hehn.fujiikaze.com/pwt/", "https://ticket.melon.com/csoon/detail.htm?csoonId=12366"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://hehn.fujiikaze.com/pwt/", "https://ticket.melon.com/csoon/detail.htm?csoonId=12366"] },
-      "venue": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://hehn.fujiikaze.com/pwt/", "https://ticket.melon.com/csoon/detail.htm?csoonId=12366"] },
-      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://hehn.fujiikaze.com/pwt/", "https://ticket.melon.com/csoon/detail.htm?csoonId=12366"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://ticket.melon.com/csoon/detail.htm?csoonId=12366"] },
-      "ticketConditions": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://ticket.melon.com/csoon/detail.htm?csoonId=12366"] }
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://hehn.fujiikaze.com/pwt/",
+          "https://ticket.melon.com/csoon/detail.htm?csoonId=12366"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://hehn.fujiikaze.com/pwt/",
+          "https://ticket.melon.com/csoon/detail.htm?csoonId=12366"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://hehn.fujiikaze.com/pwt/",
+          "https://ticket.melon.com/csoon/detail.htm?csoonId=12366"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://hehn.fujiikaze.com/pwt/",
+          "https://ticket.melon.com/csoon/detail.htm?csoonId=12366"
+        ]
+      },
+      "ticketDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://hehn.fujiikaze.com/pwt/",
+          "https://ticket.melon.com/csoon/detail.htm?csoonId=12366"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://ticket.melon.com/csoon/detail.htm?csoonId=12366"
+        ]
+      },
+      "ticketConditions": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://ticket.melon.com/csoon/detail.htm?csoonId=12366"
+        ]
+      }
     },
     "createdAt": "2026-06-11T23:38:00+09:00",
     "seatPrices": [
@@ -1942,14 +2091,67 @@
     "scheduleVerifiedAt": "2026-09-25",
     "verifiedAt": "2026-09-23",
     "verification": {
-      "artist": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://www.sonymusic.co.jp/artist/KentoNakajima/info/583773"] },
-      "concertDate": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://www.sonymusic.co.jp/artist/KentoNakajima/info/583773", "https://ticket.yes24.com/Perf/58653"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://www.sonymusic.co.jp/artist/KentoNakajima/info/583773", "https://ticket.yes24.com/Perf/58653"] },
-      "venue": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://starto.jp/s/p/live/10494?artist=156&lang=en", "https://www.sonymusic.co.jp/artist/KentoNakajima/info/583773", "https://ticket.yes24.com/Perf/58653"] },
-      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://ticket.yes24.com/Perf/58653"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://ticket.yes24.com/Perf/58653"] },
-      "ticketConditions": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://ticket.yes24.com/Perf/58653", "https://m.ticket.yes24.com/Notice/17913"] },
-      "availability": { "status": "unverified", "checkedAt": "2026-09-19", "sources": ["https://ticket.yes24.com/Perf/58653"] }
+      "artist": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://www.sonymusic.co.jp/artist/KentoNakajima/info/583773"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://www.sonymusic.co.jp/artist/KentoNakajima/info/583773",
+          "https://ticket.yes24.com/Perf/58653"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://www.sonymusic.co.jp/artist/KentoNakajima/info/583773",
+          "https://ticket.yes24.com/Perf/58653"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://starto.jp/s/p/live/10494?artist=156&lang=en",
+          "https://www.sonymusic.co.jp/artist/KentoNakajima/info/583773",
+          "https://ticket.yes24.com/Perf/58653"
+        ]
+      },
+      "ticketDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/Perf/58653"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://ticket.yes24.com/Perf/58653"
+        ]
+      },
+      "ticketConditions": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://ticket.yes24.com/Perf/58653",
+          "https://m.ticket.yes24.com/Notice/17913"
+        ]
+      },
+      "availability": {
+        "status": "unverified",
+        "checkedAt": "2026-09-19",
+        "sources": [
+          "https://ticket.yes24.com/Perf/58653"
+        ]
+      }
     },
     "createdAt": "2026-06-16T09:00:00+09:00"
   },
@@ -2018,13 +2220,55 @@
     "scheduleVerifiedAt": "2026-09-19",
     "verifiedAt": "2026-09-19",
     "verification": {
-      "artist": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://www.sonymusic.co.jp/artist/KentoNakajima/info/583773"] },
-      "concertDate": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://www.sonymusic.co.jp/artist/KentoNakajima/info/583773"] },
-      "venue": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://starto.jp/s/p/live/10494?artist=156&lang=en"] },
-      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://ticket.yes24.com/Perf/58653"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://ticket.yes24.com/Perf/58653"] },
-      "ticketConditions": { "status": "unverified", "checkedAt": "2026-09-19", "sources": ["https://m.ticket.yes24.com/Notice/17913"] },
-      "availability": { "status": "unverified", "checkedAt": "2026-09-19", "sources": ["https://ticket.yes24.com/Perf/58653"] }
+      "artist": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://www.sonymusic.co.jp/artist/KentoNakajima/info/583773"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://www.sonymusic.co.jp/artist/KentoNakajima/info/583773"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://starto.jp/s/p/live/10494?artist=156&lang=en"
+        ]
+      },
+      "ticketDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://ticket.yes24.com/Perf/58653"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://ticket.yes24.com/Perf/58653"
+        ]
+      },
+      "ticketConditions": {
+        "status": "unverified",
+        "checkedAt": "2026-09-19",
+        "sources": [
+          "https://m.ticket.yes24.com/Notice/17913"
+        ]
+      },
+      "availability": {
+        "status": "unverified",
+        "checkedAt": "2026-09-19",
+        "sources": [
+          "https://ticket.yes24.com/Perf/58653"
+        ]
+      }
     },
     "createdAt": "2026-06-16T09:00:00+09:00"
   },
@@ -2118,14 +2362,65 @@
     "verifiedAt": "2026-09-25",
     "scheduleVerifiedAt": "2026-09-25",
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/"] },
-      "concertDate": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/", "https://nol.yanolja.com/ticket/products/26010681"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://nol.yanolja.com/ticket/products/26010681"] },
-      "venue": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/", "https://nol.yanolja.com/ticket/products/26010681"] },
-      "presaleDate": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/"] },
-      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://nol.yanolja.com/ticket/products/26010681"] },
-      "ticketConditions": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/", "https://nol.yanolja.com/ticket/products/26010681"] }
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/",
+          "https://nol.yanolja.com/ticket/products/26010681"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26010681"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/",
+          "https://nol.yanolja.com/ticket/products/26010681"
+        ]
+      },
+      "presaleDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/"
+        ]
+      },
+      "ticketDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26010681"
+        ]
+      },
+      "ticketConditions": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/",
+          "https://nol.yanolja.com/ticket/products/26010681"
+        ]
+      }
     },
     "createdAt": "2026-07-23T15:00:00+09:00",
     "seatPrices": [
@@ -2242,8 +2537,21 @@
     "verifiedAt": "2026-09-19",
     "ticketingStatus": "conflict",
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://facility.ticketlink.co.kr/global/en/help/notice/65295"] },
-      "ticketing": { "status": "conflict", "checkedAt": "2026-09-19", "sources": ["https://facility.ticketlink.co.kr/global/en/help/notice/65295", "https://nol.yanolja.com/ticket/products/26009558"] }
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://facility.ticketlink.co.kr/global/en/help/notice/65295"
+        ]
+      },
+      "ticketing": {
+        "status": "conflict",
+        "checkedAt": "2026-09-19",
+        "sources": [
+          "https://facility.ticketlink.co.kr/global/en/help/notice/65295",
+          "https://nol.yanolja.com/ticket/products/26009558"
+        ]
+      }
     },
     "createdAt": "2026-07-25T15:00:00+09:00",
     "seatPrices": [
@@ -2318,13 +2626,55 @@
     "scheduleVerifiedAt": "2026-10-08",
     "verifiedAt": "2026-10-08",
     "verification": {
-      "artist": { "status": "confirmed", "verifiedAt": "2026-10-08", "sources": ["https://ano-official.com/live_information/detail/42411"] },
-      "concertDate": { "status": "confirmed", "verifiedAt": "2026-10-08", "sources": ["https://ano-official.com/live_information/detail/42411"] },
-      "venue": { "status": "confirmed", "verifiedAt": "2026-10-08", "sources": ["https://world.nol.com/ja/ticket/places/26000166/products/26010474"] },
-      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-10-08", "sources": ["https://world.nol.com/ja/ticket/places/26000166/products/26010474"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-10-08", "sources": ["https://world.nol.com/ja/ticket/places/26000166/products/26010474"] },
-      "ticketConditions": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://world.nol.com/ja/ticket/places/26000166/products/26010474"] },
-      "availability": { "status": "unverified", "checkedAt": "2026-09-19", "sources": ["https://world.nol.com/ja/ticket/places/26000166/products/26010474"] }
+      "artist": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-08",
+        "sources": [
+          "https://ano-official.com/live_information/detail/42411"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-08",
+        "sources": [
+          "https://ano-official.com/live_information/detail/42411"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-08",
+        "sources": [
+          "https://world.nol.com/ja/ticket/places/26000166/products/26010474"
+        ]
+      },
+      "ticketDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-08",
+        "sources": [
+          "https://world.nol.com/ja/ticket/places/26000166/products/26010474"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-08",
+        "sources": [
+          "https://world.nol.com/ja/ticket/places/26000166/products/26010474"
+        ]
+      },
+      "ticketConditions": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://world.nol.com/ja/ticket/places/26000166/products/26010474"
+        ]
+      },
+      "availability": {
+        "status": "unverified",
+        "checkedAt": "2026-09-19",
+        "sources": [
+          "https://world.nol.com/ja/ticket/places/26000166/products/26010474"
+        ]
+      }
     },
     "createdAt": "2026-07-25T15:00:00+09:00",
     "seatPrices": [
@@ -2384,13 +2734,55 @@
     "scheduleVerifiedAt": "2026-10-08",
     "verifiedAt": "2026-10-08",
     "verification": {
-      "artist": { "status": "confirmed", "verifiedAt": "2026-10-08", "sources": ["https://ano-official.com/news/detail/84837"] },
-      "concertDate": { "status": "confirmed", "verifiedAt": "2026-10-08", "sources": ["https://ano-official.com/news/detail/84837"] },
-      "venue": { "status": "confirmed", "verifiedAt": "2026-10-08", "sources": ["https://ano-official.com/news/detail/84837"] },
-      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-10-08", "sources": ["https://world.nol.com/ja/ticket/places/26000166/products/26010474"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-10-08", "sources": ["https://world.nol.com/ja/ticket/places/26000166/products/26010474"] },
-      "ticketConditions": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://world.nol.com/ja/ticket/places/26000166/products/26010474"] },
-      "availability": { "status": "unverified", "checkedAt": "2026-09-19", "sources": ["https://world.nol.com/ja/ticket/places/26000166/products/26010474"] }
+      "artist": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-08",
+        "sources": [
+          "https://ano-official.com/news/detail/84837"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-08",
+        "sources": [
+          "https://ano-official.com/news/detail/84837"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-08",
+        "sources": [
+          "https://ano-official.com/news/detail/84837"
+        ]
+      },
+      "ticketDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-08",
+        "sources": [
+          "https://world.nol.com/ja/ticket/places/26000166/products/26010474"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-08",
+        "sources": [
+          "https://world.nol.com/ja/ticket/places/26000166/products/26010474"
+        ]
+      },
+      "ticketConditions": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://world.nol.com/ja/ticket/places/26000166/products/26010474"
+        ]
+      },
+      "availability": {
+        "status": "unverified",
+        "checkedAt": "2026-09-19",
+        "sources": [
+          "https://world.nol.com/ja/ticket/places/26000166/products/26010474"
+        ]
+      }
     },
     "createdAt": "2026-07-25T15:00:00+09:00",
     "seatPrices": [
@@ -2461,20 +2853,68 @@
     "priceVerifiedAt": "2026-09-23",
     "sources": [
       "https://weverse.io/andteam/notice/37990",
-    "https://world.nol.com/en/ticket/places/26000892/products/26011092",
+      "https://world.nol.com/en/ticket/places/26000892/products/26011092",
       "https://www.youtube.com/@andTEAM_official/videos"
     ],
     "scheduleVerifiedAt": "2026-09-23",
     "verifiedAt": "2026-09-23",
     "verification": {
-      "artist": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://weverse.io/andteam/notice/37990"] },
-      "concertDate": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://weverse.io/andteam/notice/37990"] },
-      "venue": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://weverse.io/andteam/notice/37990"] },
-      "presaleDate": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://weverse.io/andteam/notice/37990"] },
-      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://world.nol.com/en/ticket/places/26000892/products/26011092"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://world.nol.com/en/ticket/places/26000892/products/26011092"] },
-      "ticketConditions": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://weverse.io/andteam/notice/37990"] },
-      "availability": { "status": "unverified", "checkedAt": "2026-09-19", "sources": ["https://world.nol.com/en/ticket/places/26000892/products/26011092"] }
+      "artist": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://weverse.io/andteam/notice/37990"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://weverse.io/andteam/notice/37990"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://weverse.io/andteam/notice/37990"
+        ]
+      },
+      "presaleDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://weverse.io/andteam/notice/37990"
+        ]
+      },
+      "ticketDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://world.nol.com/en/ticket/places/26000892/products/26011092"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://world.nol.com/en/ticket/places/26000892/products/26011092"
+        ]
+      },
+      "ticketConditions": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://weverse.io/andteam/notice/37990"
+        ]
+      },
+      "availability": {
+        "status": "unverified",
+        "checkedAt": "2026-09-19",
+        "sources": [
+          "https://world.nol.com/en/ticket/places/26000892/products/26011092"
+        ]
+      }
     },
     "createdAt": "2026-08-06T16:30:00+09:00",
     "youtubeProfileImage": "./assets/artists/andteam.jpg"
@@ -2530,23 +2970,71 @@
         "priceCurrency": "KRW"
       }
     ],
-  "priceVerifiedAt": "2026-09-19",
-  "sources": [
-    "https://weverse.io/andteam/notice/37990",
-    "https://world.nol.com/en/ticket/places/26000892/products/26011092",
+    "priceVerifiedAt": "2026-09-19",
+    "sources": [
+      "https://weverse.io/andteam/notice/37990",
+      "https://world.nol.com/en/ticket/places/26000892/products/26011092",
       "https://www.youtube.com/@andTEAM_official/videos"
     ],
     "scheduleVerifiedAt": "2026-09-19",
     "verifiedAt": "2026-09-19",
     "verification": {
-      "artist": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://weverse.io/andteam/notice/37990"] },
-      "concertDate": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://weverse.io/andteam/notice/37990"] },
-      "venue": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://weverse.io/andteam/notice/37990"] },
-      "presaleDate": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://weverse.io/andteam/notice/37990"] },
-      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://world.nol.com/en/ticket/places/26000892/products/26011092"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://world.nol.com/en/ticket/places/26000892/products/26011092"] },
-      "ticketConditions": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://weverse.io/andteam/notice/37990"] },
-      "availability": { "status": "unverified", "checkedAt": "2026-09-19", "sources": ["https://world.nol.com/en/ticket/places/26000892/products/26011092"] }
+      "artist": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://weverse.io/andteam/notice/37990"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://weverse.io/andteam/notice/37990"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://weverse.io/andteam/notice/37990"
+        ]
+      },
+      "presaleDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://weverse.io/andteam/notice/37990"
+        ]
+      },
+      "ticketDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://world.nol.com/en/ticket/places/26000892/products/26011092"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://world.nol.com/en/ticket/places/26000892/products/26011092"
+        ]
+      },
+      "ticketConditions": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://weverse.io/andteam/notice/37990"
+        ]
+      },
+      "availability": {
+        "status": "unverified",
+        "checkedAt": "2026-09-19",
+        "sources": [
+          "https://world.nol.com/en/ticket/places/26000892/products/26011092"
+        ]
+      }
     },
     "createdAt": "2026-08-06T16:30:00+09:00",
     "youtubeProfileImage": "./assets/artists/andteam.jpg"
@@ -2593,13 +3081,55 @@
     "scheduleVerifiedAt": "2026-10-08",
     "verifiedAt": "2026-10-08",
     "verification": {
-      "artist": { "status": "confirmed", "verifiedAt": "2026-10-08", "sources": ["https://cero-web.jp/category/live/"] },
-      "concertDate": { "status": "confirmed", "verifiedAt": "2026-10-08", "sources": ["https://cero-web.jp/category/live/"] },
-      "venue": { "status": "confirmed", "verifiedAt": "2026-10-08", "sources": ["https://cero-web.jp/category/live/"] },
-      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-10-08", "sources": ["https://cero-web.jp/category/live/"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-10-08", "sources": ["https://cero-web.jp/category/live/"] },
-      "ticketConditions": { "status": "unverified", "checkedAt": "2026-09-19", "sources": ["https://ticket.yes24.com/Perf/59471"] },
-      "availability": { "status": "unverified", "checkedAt": "2026-09-19", "sources": ["https://ticket.yes24.com/Perf/59471"] }
+      "artist": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-08",
+        "sources": [
+          "https://cero-web.jp/category/live/"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-08",
+        "sources": [
+          "https://cero-web.jp/category/live/"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-08",
+        "sources": [
+          "https://cero-web.jp/category/live/"
+        ]
+      },
+      "ticketDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-08",
+        "sources": [
+          "https://cero-web.jp/category/live/"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-08",
+        "sources": [
+          "https://cero-web.jp/category/live/"
+        ]
+      },
+      "ticketConditions": {
+        "status": "unverified",
+        "checkedAt": "2026-09-19",
+        "sources": [
+          "https://ticket.yes24.com/Perf/59471"
+        ]
+      },
+      "availability": {
+        "status": "unverified",
+        "checkedAt": "2026-09-19",
+        "sources": [
+          "https://ticket.yes24.com/Perf/59471"
+        ]
+      }
     },
     "createdAt": "2026-07-26T11:30:00+09:00",
     "seatPrices": [
@@ -2668,14 +3198,64 @@
     ],
     "priceVerifiedAt": "2026-09-25",
     "verification": {
-      "artist": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://www.office-augusta.com/ko/regallily/live/?post=20261107"] },
-      "concertDate": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://www.office-augusta.com/ko/regallily/live/?post=20261107"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://www.office-augusta.com/ko/regallily/live/?post=20261107"] },
-      "endTime": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://www.highjinkx.com/show-list/regallily"] },
-      "venue": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://www.office-augusta.com/ko/regallily/live/?post=20261107", "https://www.highjinkx.com/show-list/regallily"] },
-      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://www.office-augusta.com/ko/regallily/live/?post=20261107"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://www.office-augusta.com/ko/regallily/live/?post=20261107", "https://ticket.yes24.com/Perf/59001"] },
-      "ticketConditions": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://ticket.yes24.com/Perf/59001"] }
+      "artist": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://www.office-augusta.com/ko/regallily/live/?post=20261107"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://www.office-augusta.com/ko/regallily/live/?post=20261107"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://www.office-augusta.com/ko/regallily/live/?post=20261107"
+        ]
+      },
+      "endTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://www.highjinkx.com/show-list/regallily"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://www.office-augusta.com/ko/regallily/live/?post=20261107",
+          "https://www.highjinkx.com/show-list/regallily"
+        ]
+      },
+      "ticketDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://www.office-augusta.com/ko/regallily/live/?post=20261107"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://www.office-augusta.com/ko/regallily/live/?post=20261107",
+          "https://ticket.yes24.com/Perf/59001"
+        ]
+      },
+      "ticketConditions": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://ticket.yes24.com/Perf/59001"
+        ]
+      }
     }
   },
   {
@@ -3084,11 +3664,41 @@
       "https://www.youtube.com/@paruchan86/videos"
     ],
     "verification": {
-      "hosting": { "status": "unverified", "checkedAt": "2026-09-19", "sources": ["https://nol.yanolja.com/ticket/products/26011287"] },
-      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://nol.yanolja.com/ticket/products/26011287"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://nol.yanolja.com/ticket/products/26011287"] },
-      "ticketConditions": { "status": "confirmed", "verifiedAt": "2026-09-19", "sources": ["https://nol.yanolja.com/ticket/products/26011287"] },
-      "availability": { "status": "unverified", "checkedAt": "2026-09-19", "sources": ["https://nol.yanolja.com/ticket/products/26011287"] }
+      "hosting": {
+        "status": "unverified",
+        "checkedAt": "2026-09-19",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26011287"
+        ]
+      },
+      "ticketDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26011287"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26011287"
+        ]
+      },
+      "ticketConditions": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-19",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26011287"
+        ]
+      },
+      "availability": {
+        "status": "unverified",
+        "checkedAt": "2026-09-19",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26011287"
+        ]
+      }
     },
     "verifiedAt": "2026-08-13",
     "createdAt": "2026-08-08T03:10:00+09:00",
@@ -3253,13 +3863,55 @@
     "verifiedAt": "2026-09-25",
     "scheduleVerifiedAt": "2026-09-25",
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
-      "concertDate": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
-      "venue": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
-      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
-      "ticketConditions": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] }
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://kawasaki-takaya.com/live/live-in-seoul-2026/"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://kawasaki-takaya.com/live/live-in-seoul-2026/"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://kawasaki-takaya.com/live/live-in-seoul-2026/"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://kawasaki-takaya.com/live/live-in-seoul-2026/"
+        ]
+      },
+      "ticketDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://kawasaki-takaya.com/live/live-in-seoul-2026/"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://kawasaki-takaya.com/live/live-in-seoul-2026/"
+        ]
+      },
+      "ticketConditions": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://kawasaki-takaya.com/live/live-in-seoul-2026/"
+        ]
+      }
     },
     "createdAt": "2026-08-17T10:55:00+09:00",
     "seatPrices": [
@@ -3320,13 +3972,55 @@
     "verifiedAt": "2026-09-25",
     "scheduleVerifiedAt": "2026-09-25",
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://ticket.melon.com/csoon/detail.htm?csoonId=12775"] },
-      "concertDate": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://ticket.melon.com/csoon/detail.htm?csoonId=12775"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://ticket.melon.com/csoon/detail.htm?csoonId=12775"] },
-      "venue": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://ticket.melon.com/csoon/detail.htm?csoonId=12775"] },
-      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://ticket.melon.com/csoon/detail.htm?csoonId=12775"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://ticket.melon.com/csoon/detail.htm?csoonId=12775"] },
-      "ticketConditions": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://ticket.melon.com/csoon/detail.htm?csoonId=12775"] }
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://ticket.melon.com/csoon/detail.htm?csoonId=12775"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://ticket.melon.com/csoon/detail.htm?csoonId=12775"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://ticket.melon.com/csoon/detail.htm?csoonId=12775"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://ticket.melon.com/csoon/detail.htm?csoonId=12775"
+        ]
+      },
+      "ticketDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://ticket.melon.com/csoon/detail.htm?csoonId=12775"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://ticket.melon.com/csoon/detail.htm?csoonId=12775"
+        ]
+      },
+      "ticketConditions": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-25",
+        "sources": [
+          "https://ticket.melon.com/csoon/detail.htm?csoonId=12775"
+        ]
+      }
     },
     "createdAt": "2026-09-08T00:00:00+09:00",
     "seatPrices": [
@@ -3361,16 +4055,55 @@
     "hostingStatus": "confirmed",
     "ticketingStatus": "unverified",
     "seatPrices": [
-      { "name": "VIP section", "price": 132000, "priceCurrency": "KRW" },
-      { "name": "General section", "price": 99000, "priceCurrency": "KRW" }
+      {
+        "name": "VIP section",
+        "price": 132000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "General section",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
     ],
-    "sources": ["https://ticket.yes24.com/English/Perf/59841", "https://hag-official.com/"],
+    "sources": [
+      "https://ticket.yes24.com/English/Perf/59841",
+      "https://hag-official.com/"
+    ],
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://ticket.yes24.com/English/Perf/59841"] },
-      "concertTime": { "status": "unverified", "checkedAt": "2026-09-23", "sources": ["https://ticket.yes24.com/English/Perf/59841"] },
-      "ticketing": { "status": "unverified", "checkedAt": "2026-09-23", "sources": ["https://ticket.yes24.com/English/Perf/59841"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://ticket.yes24.com/English/Perf/59841"] },
-      "representativeSongs": { "status": "unverified", "checkedAt": "2026-09-23", "sources": [] }
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/English/Perf/59841"
+        ]
+      },
+      "concertTime": {
+        "status": "unverified",
+        "checkedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/English/Perf/59841"
+        ]
+      },
+      "ticketing": {
+        "status": "unverified",
+        "checkedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/English/Perf/59841"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/English/Perf/59841"
+        ]
+      },
+      "representativeSongs": {
+        "status": "unverified",
+        "checkedAt": "2026-09-23",
+        "sources": []
+      }
     },
     "priceVerifiedAt": "2026-09-23",
     "verifiedAt": "2026-09-23",
@@ -3397,13 +4130,44 @@
     "hostingStatus": "confirmed",
     "ticketingStatus": "unverified",
     "seatPrices": [],
-    "sources": ["https://ticket.yes24.com/english", "https://ticket.yes24.com/English/Perf/60065"],
+    "sources": [
+      "https://ticket.yes24.com/english",
+      "https://ticket.yes24.com/English/Perf/60065"
+    ],
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://ticket.yes24.com/english"] },
-      "concertTime": { "status": "unverified", "checkedAt": "2026-09-23", "sources": ["https://ticket.yes24.com/English/Perf/60065"] },
-      "ticketing": { "status": "access_failed", "checkedAt": "2026-09-23", "sources": ["https://ticket.yes24.com/English/Perf/60065"] },
-      "price": { "status": "access_failed", "checkedAt": "2026-09-23", "sources": ["https://ticket.yes24.com/English/Perf/60065"] },
-      "representativeSongs": { "status": "unverified", "checkedAt": "2026-09-23", "sources": [] }
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/english"
+        ]
+      },
+      "concertTime": {
+        "status": "unverified",
+        "checkedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/English/Perf/60065"
+        ]
+      },
+      "ticketing": {
+        "status": "access_failed",
+        "checkedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/English/Perf/60065"
+        ]
+      },
+      "price": {
+        "status": "access_failed",
+        "checkedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/English/Perf/60065"
+        ]
+      },
+      "representativeSongs": {
+        "status": "unverified",
+        "checkedAt": "2026-09-23",
+        "sources": []
+      }
     },
     "verifiedAt": "2026-09-23",
     "createdAt": "2026-09-23T16:19:43+09:00"
@@ -3429,20 +4193,72 @@
     "hostingStatus": "confirmed",
     "ticketingStatus": "unverified",
     "seatPrices": [
-      { "name": "스탠딩 VIP석", "price": 165000, "priceCurrency": "KRW" },
-      { "name": "지정석", "price": 110000, "priceCurrency": "KRW" },
-      { "name": "스탠딩 일반석", "price": 99000, "priceCurrency": "KRW" }
+      {
+        "name": "스탠딩 VIP석",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석",
+        "price": 110000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "스탠딩 일반석",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
     ],
     "price": 99000,
     "priceCurrency": "KRW",
-    "sources": ["https://ticket.yes24.com/Perf/59986", "https://www.flow-official.jp/news/detail.php?id=2830", "https://www.flow-official.jp/biography/"],
+    "sources": [
+      "https://ticket.yes24.com/Perf/59986",
+      "https://www.flow-official.jp/news/detail.php?id=2830",
+      "https://www.flow-official.jp/biography/"
+    ],
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://ticket.yes24.com/Perf/59986", "https://www.flow-official.jp/news/detail.php?id=2830"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://ticket.yes24.com/Perf/59986"] },
-      "ticketing": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://www.flow-official.jp/news/detail.php?id=2830"] },
-      "presale": { "status": "unverified", "checkedAt": "2026-09-23", "sources": ["https://www.flow-official.jp/news/detail.php?id=2830", "https://ticket.yes24.com/Perf/59986"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://ticket.yes24.com/Perf/59986"] },
-      "representativeSongs": { "status": "unverified", "checkedAt": "2026-09-23", "sources": [] }
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/Perf/59986",
+          "https://www.flow-official.jp/news/detail.php?id=2830"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/Perf/59986"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://www.flow-official.jp/news/detail.php?id=2830"
+        ]
+      },
+      "presale": {
+        "status": "unverified",
+        "checkedAt": "2026-09-23",
+        "sources": [
+          "https://www.flow-official.jp/news/detail.php?id=2830",
+          "https://ticket.yes24.com/Perf/59986"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/Perf/59986"
+        ]
+      },
+      "representativeSongs": {
+        "status": "unverified",
+        "checkedAt": "2026-09-23",
+        "sources": []
+      }
     },
     "priceVerifiedAt": "2026-09-23",
     "verifiedAt": "2026-09-23",
@@ -3471,15 +4287,53 @@
     "hostingStatus": "confirmed",
     "ticketingStatus": "unverified",
     "seatPrices": [
-      { "name": "스탠딩석", "price": 99000, "priceCurrency": "KRW" }
+      {
+        "name": "스탠딩석",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
     ],
-    "sources": ["https://ticket.yes24.com/Perf/59963", "https://www.highjinkx.com/show-list/zazen-boys"],
+    "sources": [
+      "https://ticket.yes24.com/Perf/59963",
+      "https://www.highjinkx.com/show-list/zazen-boys"
+    ],
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://ticket.yes24.com/Perf/59963", "https://www.highjinkx.com/show-list/zazen-boys"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://www.highjinkx.com/show-list/zazen-boys"] },
-      "ticketing": { "status": "unverified", "checkedAt": "2026-09-23", "sources": ["https://ticket.yes24.com/Perf/59963", "https://www.highjinkx.com/show-list/zazen-boys"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://ticket.yes24.com/Perf/59963", "https://www.highjinkx.com/show-list/zazen-boys"] },
-      "representativeSongs": { "status": "unverified", "checkedAt": "2026-09-23", "sources": [] }
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/Perf/59963",
+          "https://www.highjinkx.com/show-list/zazen-boys"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://www.highjinkx.com/show-list/zazen-boys"
+        ]
+      },
+      "ticketing": {
+        "status": "unverified",
+        "checkedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/Perf/59963",
+          "https://www.highjinkx.com/show-list/zazen-boys"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/Perf/59963",
+          "https://www.highjinkx.com/show-list/zazen-boys"
+        ]
+      },
+      "representativeSongs": {
+        "status": "unverified",
+        "checkedAt": "2026-09-23",
+        "sources": []
+      }
     },
     "priceVerifiedAt": "2026-09-23",
     "verifiedAt": "2026-09-23",
@@ -3505,19 +4359,59 @@
     "hostingStatus": "confirmed",
     "ticketingStatus": "unverified",
     "seatPrices": [
-      { "name": "지정석", "price": 121000, "priceCurrency": "KRW" },
-      { "name": "스탠딩석", "price": 110000, "priceCurrency": "KRW" }
+      {
+        "name": "지정석",
+        "price": 121000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "스탠딩석",
+        "price": 110000,
+        "priceCurrency": "KRW"
+      }
     ],
     "price": 110000,
     "priceCurrency": "KRW",
     "vendorUrl": "https://ticket.yes24.com/Perf/59886",
-    "sources": ["https://ticket.yes24.com/Perf/59886", "https://www.jvcmusic.co.jp/sf/penthouse/"],
+    "sources": [
+      "https://ticket.yes24.com/Perf/59886",
+      "https://www.jvcmusic.co.jp/sf/penthouse/"
+    ],
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://ticket.yes24.com/Perf/59886", "https://www.jvcmusic.co.jp/sf/penthouse/"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://ticket.yes24.com/Perf/59886"] },
-      "ticketing": { "status": "access_failed", "checkedAt": "2026-09-23", "sources": ["https://ticket.yes24.com/English/Perf/59886"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://ticket.yes24.com/Perf/59886"] },
-      "representativeSongs": { "status": "unverified", "checkedAt": "2026-09-23", "sources": [] }
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/Perf/59886",
+          "https://www.jvcmusic.co.jp/sf/penthouse/"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/Perf/59886"
+        ]
+      },
+      "ticketing": {
+        "status": "access_failed",
+        "checkedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/English/Perf/59886"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-23",
+        "sources": [
+          "https://ticket.yes24.com/Perf/59886"
+        ]
+      },
+      "representativeSongs": {
+        "status": "unverified",
+        "checkedAt": "2026-09-23",
+        "sources": []
+      }
     },
     "priceVerifiedAt": "2026-09-23",
     "verifiedAt": "2026-09-23",
@@ -3542,13 +4436,21 @@
     "vendorUrl": "https://ticket.yes24.com/Perf/59686",
     "youtubeChannel": "",
     "songs": [
-      ["SUMMER GAZER '92", "", "https://www.youtube.com/watch?v=j5TXz9wCsMk"]
+      [
+        "SUMMER GAZER '92",
+        "",
+        "https://www.youtube.com/watch?v=j5TXz9wCsMk"
+      ]
     ],
     "status": "pending",
     "hostingStatus": "confirmed",
     "ticketingStatus": "unverified",
     "seatPrices": [
-      { "name": "스탠딩석", "price": 77000, "priceCurrency": "KRW" }
+      {
+        "name": "스탠딩석",
+        "price": 77000,
+        "priceCurrency": "KRW"
+      }
     ],
     "sources": [
       "https://ticket.yes24.com/Perf/59686",
@@ -3556,11 +4458,43 @@
       "https://www.youtube.com/watch?v=j5TXz9wCsMk"
     ],
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://ticket.yes24.com/Perf/59686", "https://www.highjinkx.com/show-list/cotd"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://ticket.yes24.com/Perf/59686", "https://www.highjinkx.com/show-list/cotd"] },
-      "ticketing": { "status": "unverified", "checkedAt": "2026-09-24", "sources": ["https://ticket.yes24.com/Perf/59686"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://ticket.yes24.com/Perf/59686"] },
-      "representativeSongs": { "status": "partial", "checkedAt": "2026-09-24", "sources": ["https://www.youtube.com/watch?v=j5TXz9wCsMk"] }
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://ticket.yes24.com/Perf/59686",
+          "https://www.highjinkx.com/show-list/cotd"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://ticket.yes24.com/Perf/59686",
+          "https://www.highjinkx.com/show-list/cotd"
+        ]
+      },
+      "ticketing": {
+        "status": "unverified",
+        "checkedAt": "2026-09-24",
+        "sources": [
+          "https://ticket.yes24.com/Perf/59686"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://ticket.yes24.com/Perf/59686"
+        ]
+      },
+      "representativeSongs": {
+        "status": "partial",
+        "checkedAt": "2026-09-24",
+        "sources": [
+          "https://www.youtube.com/watch?v=j5TXz9wCsMk"
+        ]
+      }
     },
     "priceVerifiedAt": "2026-09-24",
     "verifiedAt": "2026-09-24",
@@ -3577,36 +4511,90 @@
     "presaleStatus": "checking",
     "presaleDate": "",
     "presaleTime": "",
-    "ticketDate": "",
-    "ticketTime": "",
+    "ticketDate": "2026-08-27",
+    "ticketTime": "오후 6:00",
     "price": 66000,
     "priceCurrency": "KRW",
     "vendor": "YES24 티켓",
     "vendorUrl": "https://ticket.yes24.com/English/Perf/59831",
     "youtubeChannel": "",
     "songs": [
-      ["クラゲ (Kurage)", "", "https://www.youtube.com/watch?v=Vy7cxw8PaT0"]
+      [
+        "満ちていく体温",
+        "",
+        "https://www.youtube.com/watch?v=ChTPReYJxt4"
+      ],
+      [
+        "Sunset (2019 Y.Nakamura Remastering)",
+        "",
+        "https://www.youtube.com/watch?v=-ZEKdw6XBVc"
+      ],
+      [
+        "ひとひら",
+        "",
+        "https://www.youtube.com/watch?v=9esPrJGaiZc"
+      ]
     ],
     "status": "pending",
     "hostingStatus": "confirmed",
     "ticketingStatus": "unverified",
     "seatPrices": [
-      { "name": "전석 스탠딩", "price": 66000, "priceCurrency": "KRW" }
+      {
+        "name": "전석 스탠딩",
+        "price": 66000,
+        "priceCurrency": "KRW"
+      }
     ],
     "sources": [
       "https://ticket.yes24.com/English/Perf/59831",
       "https://www.highjinkx.com/show-list/blu-swing2026",
-      "https://www.blu-swing.com/posts/12835400/"
+      "https://www.blu-swing.com/posts/12835400/",
+      "https://www.blu-swing.com/posts/59173178/"
     ],
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://ticket.yes24.com/English/Perf/59831", "https://www.highjinkx.com/show-list/blu-swing2026"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://www.highjinkx.com/show-list/blu-swing2026"] },
-      "ticketing": { "status": "unverified", "checkedAt": "2026-09-24", "sources": ["https://www.highjinkx.com/show-list/blu-swing2026", "https://ticket.yes24.com/English/Perf/59831"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://www.highjinkx.com/show-list/blu-swing2026", "https://ticket.yes24.com/English/Perf/59831"] },
-      "representativeSongs": { "status": "partial", "checkedAt": "2026-09-24", "sources": ["https://www.blu-swing.com/posts/12835400/"] }
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://ticket.yes24.com/English/Perf/59831",
+          "https://www.highjinkx.com/show-list/blu-swing2026"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://www.highjinkx.com/show-list/blu-swing2026"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://www.blu-swing.com/posts/59173178/",
+          "https://www.highjinkx.com/show-list/blu-swing2026"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://www.highjinkx.com/show-list/blu-swing2026",
+          "https://ticket.yes24.com/English/Perf/59831"
+        ]
+      },
+      "representativeSongs": {
+        "status": "candidate",
+        "checkedAt": "2026-11-06",
+        "sources": [
+          "https://www.blu-swing.com/pages/2718216/page_201903242159",
+          "https://open.spotify.com/embed/artist/3dKCIyXK94LWUnyvD8LepD",
+          "https://www.blu-swing.com/posts/21293892/"
+        ]
+      }
     },
     "priceVerifiedAt": "2026-09-24",
-    "verifiedAt": "2026-09-24",
+    "verifiedAt": "2026-11-06",
     "createdAt": "2026-09-24T03:10:12+09:00"
   },
   {
@@ -3628,17 +4616,41 @@
     "vendorUrl": "https://nol.yanolja.com/ticket/products/26009224",
     "youtubeChannel": "https://www.youtube.com/channel/UC-AiP1NoABhE6hVssW3rXng",
     "songs": [
-      ["人生のメリーゴーランド (하울의 움직이는 성)", "", "https://www.youtube.com/watch?v=-KVdLKPIMHQ"],
-      ["海の見える街 (마녀 배달부 키키)", "", "https://www.youtube.com/watch?v=tR4zJlwhPjs"],
-      ["となりのトトロ (이웃집 토토로)", "", "https://www.youtube.com/watch?v=XQ-kj4VnXzs"]
+      [
+        "人生のメリーゴーランド (하울의 움직이는 성)",
+        "",
+        "https://www.youtube.com/watch?v=-KVdLKPIMHQ"
+      ],
+      [
+        "海の見える街 (마녀 배달부 키키)",
+        "",
+        "https://www.youtube.com/watch?v=tR4zJlwhPjs"
+      ],
+      [
+        "となりのトトロ (이웃집 토토로)",
+        "",
+        "https://www.youtube.com/watch?v=XQ-kj4VnXzs"
+      ]
     ],
     "status": "pending",
     "hostingStatus": "confirmed",
     "ticketingStatus": "unverified",
     "seatPrices": [
-      { "name": "VIP석", "price": 88000, "priceCurrency": "KRW" },
-      { "name": "R석", "price": 77000, "priceCurrency": "KRW" },
-      { "name": "S석", "price": 66000, "priceCurrency": "KRW" }
+      {
+        "name": "VIP석",
+        "price": 88000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "R석",
+        "price": 77000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "S석",
+        "price": 66000,
+        "priceCurrency": "KRW"
+      }
     ],
     "sources": [
       "https://nol.yanolja.com/ticket/products/26009224",
@@ -3647,11 +4659,44 @@
       "https://www.jvcmusic.co.jp/-/Artist/A023203.html"
     ],
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://nol.yanolja.com/ticket/products/26009224", "https://www.ggac.or.kr/ggac/M0000281/show/view.do?idx=SM000135"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://www.ggac.or.kr/ggac/M0000281/show/view.do?idx=SM000135"] },
-      "ticketing": { "status": "unverified", "checkedAt": "2026-09-24", "sources": ["https://nol.yanolja.com/ticket/products/26009224"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://nol.yanolja.com/ticket/products/26009224", "https://www.ggac.or.kr/ggac/M0000281/show/view.do?idx=SM000135"] },
-      "representativeSongs": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://kazumitateishi-trio.com/", "https://www.jvcmusic.co.jp/-/Artist/A023203.html"] }
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26009224",
+          "https://www.ggac.or.kr/ggac/M0000281/show/view.do?idx=SM000135"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://www.ggac.or.kr/ggac/M0000281/show/view.do?idx=SM000135"
+        ]
+      },
+      "ticketing": {
+        "status": "unverified",
+        "checkedAt": "2026-09-24",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26009224"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26009224",
+          "https://www.ggac.or.kr/ggac/M0000281/show/view.do?idx=SM000135"
+        ]
+      },
+      "representativeSongs": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://kazumitateishi-trio.com/",
+          "https://www.jvcmusic.co.jp/-/Artist/A023203.html"
+        ]
+      }
     },
     "priceVerifiedAt": "2026-09-24",
     "verifiedAt": "2026-09-24",
@@ -3676,25 +4721,67 @@
     "vendorUrl": "https://ticket.yes24.com/Perf/60203",
     "youtubeChannel": "https://www.youtube.com/@mulasakiima",
     "songs": [
-      ["魔性の女A", "", "https://www.youtube.com/watch?v=XWSU6H1g4qE"]
+      [
+        "魔性の女A",
+        "",
+        "https://www.youtube.com/watch?v=XWSU6H1g4qE"
+      ]
     ],
     "status": "pending",
     "hostingStatus": "confirmed",
     "ticketingStatus": "unverified",
     "seatPrices": [
-      { "name": "스탠딩석", "price": 99000, "priceCurrency": "KRW" },
-      { "name": "지정석", "price": 99000, "priceCurrency": "KRW" }
+      {
+        "name": "스탠딩석",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
     ],
     "sources": [
       "https://ticket.yes24.com/Perf/60203",
       "https://www.sonymusic.com.tw/artist/mulasaki-ima/"
     ],
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://ticket.yes24.com/Perf/60203"] },
-      "concertTime": { "status": "unverified", "checkedAt": "2026-09-24", "sources": ["https://ticket.yes24.com/Perf/60203"] },
-      "ticketing": { "status": "unverified", "checkedAt": "2026-09-24", "sources": ["https://ticket.yes24.com/Perf/60203"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://ticket.yes24.com/Perf/60203"] },
-      "representativeSongs": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://www.sonymusic.com.tw/artist/mulasaki-ima/"] }
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://ticket.yes24.com/Perf/60203"
+        ]
+      },
+      "concertTime": {
+        "status": "unverified",
+        "checkedAt": "2026-09-24",
+        "sources": [
+          "https://ticket.yes24.com/Perf/60203"
+        ]
+      },
+      "ticketing": {
+        "status": "unverified",
+        "checkedAt": "2026-09-24",
+        "sources": [
+          "https://ticket.yes24.com/Perf/60203"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://ticket.yes24.com/Perf/60203"
+        ]
+      },
+      "representativeSongs": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://www.sonymusic.com.tw/artist/mulasaki-ima/"
+        ]
+      }
     },
     "priceVerifiedAt": "2026-09-24",
     "verifiedAt": "2026-09-24",
@@ -3719,14 +4806,26 @@
     "vendorUrl": "https://ticket.yes24.com/Perf/60207",
     "youtubeChannel": "",
     "songs": [
-      ["拝啓、少年よ", "", "https://www.youtube.com/watch?v=d6i4AtCxrDo"]
+      [
+        "拝啓、少年よ",
+        "",
+        "https://www.youtube.com/watch?v=d6i4AtCxrDo"
+      ]
     ],
     "status": "pending",
     "hostingStatus": "confirmed",
     "ticketingStatus": "confirmed",
     "seatPrices": [
-      { "name": "스탠딩석", "price": 132000, "priceCurrency": "KRW" },
-      { "name": "지정석", "price": 132000, "priceCurrency": "KRW" }
+      {
+        "name": "스탠딩석",
+        "price": 132000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "지정석",
+        "price": 132000,
+        "priceCurrency": "KRW"
+      }
     ],
     "sources": [
       "https://ticket.yes24.com/Perf/60207",
@@ -3734,11 +4833,46 @@
       "https://humpback.jp/movies/categories/youtube"
     ],
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://ticket.yes24.com/Perf/60207", "https://humpback.jp/contents/1073598"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://ticket.yes24.com/Perf/60207", "https://humpback.jp/contents/1073598"] },
-      "ticketing": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://ticket.yes24.com/Perf/60207", "https://humpback.jp/contents/1073598"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://ticket.yes24.com/Perf/60207", "https://humpback.jp/contents/1073598"] },
-      "representativeSongs": { "status": "partial", "checkedAt": "2026-09-24", "sources": ["https://humpback.jp/movies/categories/youtube", "https://www.youtube.com/watch?v=d6i4AtCxrDo"] }
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://ticket.yes24.com/Perf/60207",
+          "https://humpback.jp/contents/1073598"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://ticket.yes24.com/Perf/60207",
+          "https://humpback.jp/contents/1073598"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://ticket.yes24.com/Perf/60207",
+          "https://humpback.jp/contents/1073598"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-09-24",
+        "sources": [
+          "https://ticket.yes24.com/Perf/60207",
+          "https://humpback.jp/contents/1073598"
+        ]
+      },
+      "representativeSongs": {
+        "status": "partial",
+        "checkedAt": "2026-09-24",
+        "sources": [
+          "https://humpback.jp/movies/categories/youtube",
+          "https://www.youtube.com/watch?v=d6i4AtCxrDo"
+        ]
+      }
     },
     "priceVerifiedAt": "2026-09-24",
     "verifiedAt": "2026-09-24",
@@ -3767,13 +4901,43 @@
     "hostingStatus": "confirmed",
     "ticketingStatus": "confirmed",
     "seatPrices": [],
-    "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day1"],
+    "sources": [
+      "https://4kor4kor4kor.com/tickets/kinoue64-2026day1"
+    ],
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day1"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day1"] },
-      "ticketing": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day1"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day1"] },
-      "representativeSongs": { "status": "unverified", "checkedAt": "2026-10-18", "sources": [] }
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://4kor4kor4kor.com/tickets/kinoue64-2026day1"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://4kor4kor4kor.com/tickets/kinoue64-2026day1"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://4kor4kor4kor.com/tickets/kinoue64-2026day1"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://4kor4kor4kor.com/tickets/kinoue64-2026day1"
+        ]
+      },
+      "representativeSongs": {
+        "status": "unverified",
+        "checkedAt": "2026-10-18",
+        "sources": []
+      }
     },
     "priceVerifiedAt": "2026-10-18",
     "verifiedAt": "2026-10-18",
@@ -3802,13 +4966,43 @@
     "hostingStatus": "confirmed",
     "ticketingStatus": "confirmed",
     "seatPrices": [],
-    "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day2"],
+    "sources": [
+      "https://4kor4kor4kor.com/tickets/kinoue64-2026day2"
+    ],
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day2"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day2"] },
-      "ticketing": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day2"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day2"] },
-      "representativeSongs": { "status": "unverified", "checkedAt": "2026-10-18", "sources": [] }
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://4kor4kor4kor.com/tickets/kinoue64-2026day2"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://4kor4kor4kor.com/tickets/kinoue64-2026day2"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://4kor4kor4kor.com/tickets/kinoue64-2026day2"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://4kor4kor4kor.com/tickets/kinoue64-2026day2"
+        ]
+      },
+      "representativeSongs": {
+        "status": "unverified",
+        "checkedAt": "2026-10-18",
+        "sources": []
+      }
     },
     "priceVerifiedAt": "2026-10-18",
     "verifiedAt": "2026-10-18",
@@ -3836,14 +5030,52 @@
     "status": "pending",
     "hostingStatus": "confirmed",
     "ticketingStatus": "unverified",
-    "seatPrices": [{ "name": "전석 스탠딩", "price": 66000, "priceCurrency": "KRW" }],
-    "sources": ["https://ticket.yes24.com/English/Perf/60323", "https://www.highjinkx.com/show-list/larara"],
+    "seatPrices": [
+      {
+        "name": "전석 스탠딩",
+        "price": 66000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "sources": [
+      "https://ticket.yes24.com/English/Perf/60323",
+      "https://www.highjinkx.com/show-list/larara"
+    ],
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://ticket.yes24.com/English/Perf/60323", "https://www.highjinkx.com/show-list/larara"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://www.highjinkx.com/show-list/larara"] },
-      "ticketing": { "status": "access_failed", "checkedAt": "2026-10-18", "sources": ["https://ticket.yes24.com/English/Perf/60323"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://www.highjinkx.com/show-list/larara"] },
-      "representativeSongs": { "status": "unverified", "checkedAt": "2026-10-18", "sources": [] }
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://ticket.yes24.com/English/Perf/60323",
+          "https://www.highjinkx.com/show-list/larara"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://www.highjinkx.com/show-list/larara"
+        ]
+      },
+      "ticketing": {
+        "status": "access_failed",
+        "checkedAt": "2026-10-18",
+        "sources": [
+          "https://ticket.yes24.com/English/Perf/60323"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://www.highjinkx.com/show-list/larara"
+        ]
+      },
+      "representativeSongs": {
+        "status": "unverified",
+        "checkedAt": "2026-10-18",
+        "sources": []
+      }
     },
     "priceVerifiedAt": "2026-10-18",
     "verifiedAt": "2026-10-18",
@@ -3872,13 +5104,43 @@
     "hostingStatus": "confirmed",
     "ticketingStatus": "confirmed",
     "seatPrices": [],
-    "sources": ["https://4kor4kor4kor.com/tickets/ivy"],
+    "sources": [
+      "https://4kor4kor4kor.com/tickets/ivy"
+    ],
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://4kor4kor4kor.com/tickets/ivy"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://4kor4kor4kor.com/tickets/ivy"] },
-      "ticketing": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://4kor4kor4kor.com/tickets/ivy"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://4kor4kor4kor.com/tickets/ivy"] },
-      "representativeSongs": { "status": "unverified", "checkedAt": "2026-10-18", "sources": [] }
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://4kor4kor4kor.com/tickets/ivy"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://4kor4kor4kor.com/tickets/ivy"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://4kor4kor4kor.com/tickets/ivy"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://4kor4kor4kor.com/tickets/ivy"
+        ]
+      },
+      "representativeSongs": {
+        "status": "unverified",
+        "checkedAt": "2026-10-18",
+        "sources": []
+      }
     },
     "priceVerifiedAt": "2026-10-18",
     "verifiedAt": "2026-10-18",
@@ -3901,22 +5163,73 @@
     "priceCurrency": "KRW",
     "vendor": "멜론티켓",
     "vendorUrl": "https://m.globalticket.melon.com/performance/detail/213863?lang=en-US",
-    "youtubeChannel": "",
-    "songs": [],
+    "youtubeChannel": "https://www.youtube.com/channel/UC0hS3r_UhEL0qVlnAcX4YAQ",
+    "songs": [
+      [
+        "不革命前夜",
+        "",
+        "https://www.youtube.com/watch?v=Dm2O_W6Rrss"
+      ],
+      [
+        "九鬼",
+        "",
+        "https://www.youtube.com/watch?v=KiVg4A7eE7Y"
+      ],
+      [
+        "歩く花",
+        "",
+        "https://www.youtube.com/watch?v=MqgPmC6DRME"
+      ]
+    ],
     "status": "pending",
     "hostingStatus": "confirmed",
-    "ticketingStatus": "unverified",
+    "ticketingStatus": "confirmed",
     "seatPrices": [],
-    "sources": ["https://neeofficial.jp/contents/1109451", "https://m.globalticket.melon.com/performance/detail/213863?lang=en-US"],
+    "sources": [
+      "https://neeofficial.jp/contents/1109451",
+      "https://m.globalticket.melon.com/performance/detail/213863?lang=en-US",
+      "https://neeofficial.jp/contents/471247"
+    ],
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://neeofficial.jp/contents/1109451"] },
-      "concertTime": { "status": "unverified", "checkedAt": "2026-10-18", "sources": ["https://neeofficial.jp/contents/1109451"] },
-      "ticketing": { "status": "unverified", "checkedAt": "2026-10-18", "sources": ["https://neeofficial.jp/contents/1109451", "https://m.globalticket.melon.com/performance/detail/213863?lang=en-US"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://neeofficial.jp/contents/1109451"] },
-      "representativeSongs": { "status": "unverified", "checkedAt": "2026-10-18", "sources": [] }
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://neeofficial.jp/contents/1109451"
+        ]
+      },
+      "concertTime": {
+        "status": "unverified",
+        "checkedAt": "2026-10-18",
+        "sources": [
+          "https://neeofficial.jp/contents/1109451"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://neeofficial.jp/contents/1109451"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://neeofficial.jp/contents/1109451"
+        ]
+      },
+      "representativeSongs": {
+        "status": "candidate",
+        "checkedAt": "2026-11-06",
+        "sources": [
+          "https://neeofficial.jp/contents/471247",
+          "https://neeofficial.jp/contents/1109451"
+        ]
+      }
     },
     "priceVerifiedAt": "2026-10-18",
-    "verifiedAt": "2026-10-18",
+    "verifiedAt": "2026-11-06",
     "createdAt": "2026-10-18T12:00:00+09:00"
   },
   {
@@ -3942,17 +5255,64 @@
     "hostingStatus": "confirmed",
     "ticketingStatus": "confirmed",
     "seatPrices": [
-      { "name": "SVIP Ticket", "price": 198000, "priceCurrency": "KRW" },
-      { "name": "VIP Ticket", "price": 154000, "priceCurrency": "KRW" },
-      { "name": "일반(一般) Ticket", "price": 99000, "priceCurrency": "KRW" }
+      {
+        "name": "SVIP Ticket",
+        "price": 198000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "VIP Ticket",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "일반(一般) Ticket",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
     ],
-    "sources": ["https://luck-life.com/news/2026/09/30/9023", "https://ticket.melon.com/csoon/detail.htm?csoonId=12884", "https://ticket.29cm.co.kr/catalog/4231268"],
+    "sources": [
+      "https://luck-life.com/news/2026/09/30/9023",
+      "https://ticket.melon.com/csoon/detail.htm?csoonId=12884",
+      "https://ticket.29cm.co.kr/catalog/4231268"
+    ],
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://luck-life.com/news/2026/09/30/9023", "https://ticket.melon.com/csoon/detail.htm?csoonId=12884"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://luck-life.com/news/2026/09/30/9023"] },
-      "ticketing": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://luck-life.com/news/2026/09/30/9023", "https://ticket.melon.com/csoon/detail.htm?csoonId=12884"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://luck-life.com/news/2026/09/30/9023", "https://ticket.melon.com/csoon/detail.htm?csoonId=12884"] },
-      "representativeSongs": { "status": "unverified", "checkedAt": "2026-10-18", "sources": [] }
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://luck-life.com/news/2026/09/30/9023",
+          "https://ticket.melon.com/csoon/detail.htm?csoonId=12884"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://luck-life.com/news/2026/09/30/9023"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://luck-life.com/news/2026/09/30/9023",
+          "https://ticket.melon.com/csoon/detail.htm?csoonId=12884"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://luck-life.com/news/2026/09/30/9023",
+          "https://ticket.melon.com/csoon/detail.htm?csoonId=12884"
+        ]
+      },
+      "representativeSongs": {
+        "status": "unverified",
+        "checkedAt": "2026-10-18",
+        "sources": []
+      }
     },
     "priceVerifiedAt": "2026-10-18",
     "verifiedAt": "2026-10-18",
@@ -3981,24 +5341,70 @@
     "hostingStatus": "confirmed",
     "ticketingStatus": "confirmed",
     "seatPrices": [
-      { "name": "SVIP Ticket", "price": 198000, "priceCurrency": "KRW" },
-      { "name": "VIP Ticket", "price": 154000, "priceCurrency": "KRW" },
-      { "name": "일반(一般) Ticket", "price": 99000, "priceCurrency": "KRW" }
+      {
+        "name": "SVIP Ticket",
+        "price": 198000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "VIP Ticket",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "일반(一般) Ticket",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
     ],
-    "sources": ["https://luck-life.com/news/2026/09/30/9023", "https://ticket.melon.com/csoon/detail.htm?csoonId=12884", "https://ticket.29cm.co.kr/catalog/4231268"],
+    "sources": [
+      "https://luck-life.com/news/2026/09/30/9023",
+      "https://ticket.melon.com/csoon/detail.htm?csoonId=12884",
+      "https://ticket.29cm.co.kr/catalog/4231268"
+    ],
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://luck-life.com/news/2026/09/30/9023", "https://ticket.melon.com/csoon/detail.htm?csoonId=12884"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://luck-life.com/news/2026/09/30/9023"] },
-      "ticketing": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://luck-life.com/news/2026/09/30/9023", "https://ticket.melon.com/csoon/detail.htm?csoonId=12884"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://luck-life.com/news/2026/09/30/9023", "https://ticket.melon.com/csoon/detail.htm?csoonId=12884"] },
-      "representativeSongs": { "status": "unverified", "checkedAt": "2026-10-18", "sources": [] }
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://luck-life.com/news/2026/09/30/9023",
+          "https://ticket.melon.com/csoon/detail.htm?csoonId=12884"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://luck-life.com/news/2026/09/30/9023"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://luck-life.com/news/2026/09/30/9023",
+          "https://ticket.melon.com/csoon/detail.htm?csoonId=12884"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-10-18",
+        "sources": [
+          "https://luck-life.com/news/2026/09/30/9023",
+          "https://ticket.melon.com/csoon/detail.htm?csoonId=12884"
+        ]
+      },
+      "representativeSongs": {
+        "status": "unverified",
+        "checkedAt": "2026-10-18",
+        "sources": []
+      }
     },
     "priceVerifiedAt": "2026-10-18",
     "verifiedAt": "2026-10-18",
     "createdAt": "2026-10-18T12:00:00+09:00"
-  }
-,
-{
+  },
+  {
     "id": "kenshi-yonezu-2027-01-14",
     "artist": "Kenshi Yonezu",
     "genre": "J-POP / J-ROCK",
@@ -4107,7 +5513,7 @@
     "concertDate": "2027-01-14",
     "time": "오후 7:30"
   },
-{
+  {
     "id": "kenshi-yonezu-2027-01-16",
     "artist": "Kenshi Yonezu",
     "genre": "J-POP / J-ROCK",
@@ -4216,7 +5622,7 @@
     "concertDate": "2027-01-16",
     "time": "오후 7:00"
   },
-{
+  {
     "id": "kenshi-yonezu-2027-01-17",
     "artist": "Kenshi Yonezu",
     "genre": "J-POP / J-ROCK",
@@ -4324,5 +5730,947 @@
     "createdAt": "2026-10-19T00:00:00+09:00",
     "concertDate": "2027-01-17",
     "time": "오후 7:00"
+  },
+  {
+    "id": "yuki-kajiura-2026-11-22",
+    "artist": "Yuki Kajiura",
+    "title": "Yuki Kajiura LIVE vol.#22 ～precious pieces～ in Seoul -SPECIAL SETLIST-",
+    "genre": "ANIME MUSIC",
+    "concertDate": "2026-11-22",
+    "time": "오후 6:00",
+    "venue": "연세대학교 대강당",
+    "presaleStatus": "checking",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "2026-10-06",
+    "ticketTime": "오후 8:00",
+    "price": 132000,
+    "priceCurrency": "KRW",
+    "vendor": "티켓링크",
+    "vendorUrl": "https://www.ticketlink.co.kr/product/66073",
+    "youtubeChannel": "https://www.youtube.com/channel/UCI_ZEKKftZPbDQZg1LaQapA",
+    "songs": [
+      [
+        "Parallel Hearts",
+        "",
+        "https://www.youtube.com/watch?v=bzF-Vol2GAA"
+      ],
+      [
+        "Magia",
+        "",
+        "https://www.youtube.com/watch?v=QwquipMpsiQ"
+      ],
+      [
+        "Oblivious",
+        "",
+        "https://www.youtube.com/watch?v=UI8Iy7kmRxo"
+      ]
+    ],
+    "status": "pending",
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "unverified",
+    "seatPrices": [
+      {
+        "name": "S석",
+        "price": 132000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "R석",
+        "price": 165000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "VIP석",
+        "price": 178000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "휠체어석",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "sources": [
+      "https://fictionjunction.com/information/13318/",
+      "https://www.ticketlink.co.kr/product/66073"
+    ],
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://fictionjunction.com/information/13318/",
+          "https://www.ticketlink.co.kr/product/66073"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://fictionjunction.com/information/13318/",
+          "https://www.ticketlink.co.kr/product/66073"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://fictionjunction.com/information/13318/",
+          "https://www.ticketlink.co.kr/product/66073"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://fictionjunction.com/information/13318/",
+          "https://www.ticketlink.co.kr/product/66073"
+        ]
+      },
+      "representativeSongs": {
+        "status": "candidate",
+        "checkedAt": "2026-11-06",
+        "sources": [
+          "https://fictionjunction.com/information/13318/",
+          "https://www.ticketlink.co.kr/product/66073"
+        ]
+      }
+    },
+    "verifiedAt": "2026-11-06",
+    "createdAt": "2026-11-06T14:42:16+09:00"
+  },
+  {
+    "id": "night-hike-tours-2026-12-19",
+    "artist": "NIGHT HIKE TOURS",
+    "title": "NIGHT HIKE TOURS 2026 in Seoul",
+    "genre": "FESTIVAL",
+    "concertDate": "2026-12-19",
+    "time": "오후 2:00 (입장 오후 1:30)",
+    "venue": "YES24 WANDERLOCH HALL",
+    "presaleStatus": "checking",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "2026-11-06",
+    "ticketTime": "오후 8:00",
+    "price": 99000,
+    "priceCurrency": "KRW",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://to.livet.one/nighthike2026",
+    "youtubeChannel": "",
+    "songs": [],
+    "status": "pending",
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "unverified",
+    "seatPrices": [
+      {
+        "name": "전석",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "sources": [
+      "https://prtimes.jp/main/html/rd/p/000000018.000120563.html"
+    ],
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://prtimes.jp/main/html/rd/p/000000018.000120563.html"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://prtimes.jp/main/html/rd/p/000000018.000120563.html"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://prtimes.jp/main/html/rd/p/000000018.000120563.html"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://prtimes.jp/main/html/rd/p/000000018.000120563.html"
+        ]
+      },
+      "representativeSongs": {
+        "status": "unverified",
+        "checkedAt": "2026-11-06",
+        "sources": []
+      }
+    },
+    "verifiedAt": "2026-11-06",
+    "createdAt": "2026-11-06T14:42:16+09:00"
+  },
+  {
+    "id": "kazumi-tateishi-trio-2026-12-22-seoul",
+    "artist": "Kazumi Tateishi Trio",
+    "title": "2026 카즈미 타테이시 트리오 내한공연 - GHIBLI meets JAZZ",
+    "genre": "JAZZ",
+    "concertDate": "2026-12-22",
+    "time": "오후 7:30",
+    "venue": "영등포아트홀",
+    "presaleStatus": "checking",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "2026-10-19",
+    "ticketTime": "낮 12:00",
+    "price": 66000,
+    "priceCurrency": "KRW",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://m.ticket.yes24.com/Notice/18678",
+    "youtubeChannel": "https://www.youtube.com/channel/UC-AiP1NoABhE6hVssW3rXng",
+    "songs": [
+      [
+        "人生のメリーゴーランド (하울의 움직이는 성)",
+        "",
+        "https://www.youtube.com/watch?v=-KVdLKPIMHQ"
+      ],
+      [
+        "海の見える街 (마녀 배달부 키키)",
+        "",
+        "https://www.youtube.com/watch?v=tR4zJlwhPjs"
+      ],
+      [
+        "となりのトトロ (이웃집 토토로)",
+        "",
+        "https://www.youtube.com/watch?v=XQ-kj4VnXzs"
+      ]
+    ],
+    "status": "confirmed",
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "confirmed",
+    "seatPrices": [
+      {
+        "name": "VIP석",
+        "price": 88000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "R석",
+        "price": 77000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "S석",
+        "price": 66000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "sources": [
+      "https://m.ticket.yes24.com/Notice/18678",
+      "https://world.nol.com/en/ticket/products/26010060"
+    ],
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://m.ticket.yes24.com/Notice/18678",
+          "https://world.nol.com/en/ticket/products/26010060"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://m.ticket.yes24.com/Notice/18678",
+          "https://world.nol.com/en/ticket/products/26010060"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://m.ticket.yes24.com/Notice/18678",
+          "https://world.nol.com/en/ticket/products/26010060"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://m.ticket.yes24.com/Notice/18678",
+          "https://world.nol.com/en/ticket/products/26010060"
+        ]
+      },
+      "representativeSongs": {
+        "status": "candidate",
+        "checkedAt": "2026-11-06",
+        "sources": [
+          "https://m.ticket.yes24.com/Notice/18678",
+          "https://world.nol.com/en/ticket/products/26010060"
+        ]
+      }
+    },
+    "verifiedAt": "2026-11-06",
+    "createdAt": "2026-11-06T14:42:16+09:00"
+  },
+  {
+    "id": "kazumi-tateishi-trio-2026-12-24-seoul",
+    "artist": "Kazumi Tateishi Trio",
+    "title": "2026 카즈미 타테이시 트리오 내한공연 - CHRISTMAS meets JAZZ",
+    "genre": "JAZZ",
+    "concertDate": "2026-12-24",
+    "time": "오후 7:30",
+    "venue": "강동아트센터 대극장 한강",
+    "presaleStatus": "checking",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "",
+    "ticketTime": "",
+    "price": 55000,
+    "priceCurrency": "KRW",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://world.nol.com/en/ticket/products/26010350",
+    "youtubeChannel": "https://www.youtube.com/channel/UC-AiP1NoABhE6hVssW3rXng",
+    "songs": [
+      [
+        "人生のメリーゴーランド (하울의 움직이는 성)",
+        "",
+        "https://www.youtube.com/watch?v=-KVdLKPIMHQ"
+      ],
+      [
+        "海の見える街 (마녀 배달부 키키)",
+        "",
+        "https://www.youtube.com/watch?v=tR4zJlwhPjs"
+      ],
+      [
+        "となりのトトロ (이웃집 토토로)",
+        "",
+        "https://www.youtube.com/watch?v=XQ-kj4VnXzs"
+      ]
+    ],
+    "status": "pending",
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "unverified",
+    "seatPrices": [
+      {
+        "name": "VIP석",
+        "price": 88000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "R석",
+        "price": 77000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "S석",
+        "price": 66000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "A석",
+        "price": 55000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "sources": [
+      "https://world.nol.com/en/ticket/products/26010350",
+      "https://culture.seoul.go.kr/culture/culture/cultureEvent/view.do?cultcode=158770&menuNo=200013"
+    ],
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://world.nol.com/en/ticket/products/26010350",
+          "https://culture.seoul.go.kr/culture/culture/cultureEvent/view.do?cultcode=158770&menuNo=200013"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://world.nol.com/en/ticket/products/26010350",
+          "https://culture.seoul.go.kr/culture/culture/cultureEvent/view.do?cultcode=158770&menuNo=200013"
+        ]
+      },
+      "ticketing": {
+        "status": "unverified",
+        "checkedAt": "2026-11-06",
+        "sources": [
+          "https://world.nol.com/en/ticket/products/26010350",
+          "https://culture.seoul.go.kr/culture/culture/cultureEvent/view.do?cultcode=158770&menuNo=200013"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://world.nol.com/en/ticket/products/26010350",
+          "https://culture.seoul.go.kr/culture/culture/cultureEvent/view.do?cultcode=158770&menuNo=200013"
+        ]
+      },
+      "representativeSongs": {
+        "status": "candidate",
+        "checkedAt": "2026-11-06",
+        "sources": [
+          "https://world.nol.com/en/ticket/products/26010350",
+          "https://culture.seoul.go.kr/culture/culture/cultureEvent/view.do?cultcode=158770&menuNo=200013"
+        ]
+      }
+    },
+    "verifiedAt": "2026-11-06",
+    "createdAt": "2026-11-06T14:42:16+09:00"
+  },
+  {
+    "id": "pile-fan-event-2026-12-26-1330",
+    "artist": "Pile",
+    "title": "Pile Fan Event 2026 in Seoul",
+    "genre": "FAN EVENT",
+    "concertDate": "2026-12-26",
+    "time": "오후 1:30",
+    "venue": "Aube Studio 3층",
+    "presaleStatus": "checking",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "2026-10-27",
+    "ticketTime": "오후 7:00",
+    "price": 132000,
+    "priceCurrency": "KRW",
+    "vendor": "티켓링크",
+    "vendorUrl": "https://www.ticketlink.co.kr/product/66563",
+    "youtubeChannel": "",
+    "songs": [
+      [
+        "キミがくれたKISEKI",
+        "",
+        "https://www.youtube.com/watch?v=6C8Xl7CWALw"
+      ],
+      [
+        "ドリームトリガー",
+        "",
+        "https://www.youtube.com/watch?v=MMrIEt6PkI4"
+      ],
+      [
+        "伝説のFLARE",
+        "",
+        "https://www.youtube.com/watch?v=Kpp6R4gZbVc"
+      ]
+    ],
+    "status": "pending",
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "unverified",
+    "seatPrices": [
+      {
+        "name": "일반석",
+        "price": 132000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "자유석",
+        "price": 132000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "sources": [
+      "https://www.ticketlink.co.kr/help/notice/66302"
+    ],
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://www.ticketlink.co.kr/help/notice/66302"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://www.ticketlink.co.kr/help/notice/66302"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://www.ticketlink.co.kr/help/notice/66302"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://www.ticketlink.co.kr/help/notice/66302"
+        ]
+      },
+      "representativeSongs": {
+        "status": "candidate",
+        "checkedAt": "2026-11-06",
+        "sources": [
+          "https://www.ticketlink.co.kr/help/notice/66302"
+        ]
+      }
+    },
+    "verifiedAt": "2026-11-06",
+    "createdAt": "2026-11-06T14:42:16+09:00"
+  },
+  {
+    "id": "pile-fan-event-2026-12-26-1700",
+    "artist": "Pile",
+    "title": "Pile Fan Event 2026 in Seoul",
+    "genre": "FAN EVENT",
+    "concertDate": "2026-12-26",
+    "time": "오후 5:00",
+    "venue": "Aube Studio 3층",
+    "presaleStatus": "checking",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "2026-10-27",
+    "ticketTime": "오후 7:00",
+    "price": 132000,
+    "priceCurrency": "KRW",
+    "vendor": "티켓링크",
+    "vendorUrl": "https://www.ticketlink.co.kr/product/66563",
+    "youtubeChannel": "",
+    "songs": [
+      [
+        "キミがくれたKISEKI",
+        "",
+        "https://www.youtube.com/watch?v=6C8Xl7CWALw"
+      ],
+      [
+        "ドリームトリガー",
+        "",
+        "https://www.youtube.com/watch?v=MMrIEt6PkI4"
+      ],
+      [
+        "伝説のFLARE",
+        "",
+        "https://www.youtube.com/watch?v=Kpp6R4gZbVc"
+      ]
+    ],
+    "status": "pending",
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "unverified",
+    "seatPrices": [
+      {
+        "name": "일반석",
+        "price": 132000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "자유석",
+        "price": 132000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "sources": [
+      "https://www.ticketlink.co.kr/help/notice/66302"
+    ],
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://www.ticketlink.co.kr/help/notice/66302"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://www.ticketlink.co.kr/help/notice/66302"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://www.ticketlink.co.kr/help/notice/66302"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://www.ticketlink.co.kr/help/notice/66302"
+        ]
+      },
+      "representativeSongs": {
+        "status": "candidate",
+        "checkedAt": "2026-11-06",
+        "sources": [
+          "https://www.ticketlink.co.kr/help/notice/66302"
+        ]
+      }
+    },
+    "verifiedAt": "2026-11-06",
+    "createdAt": "2026-11-06T14:42:16+09:00"
+  },
+  {
+    "id": "pile-fan-event-2026-12-27-1330",
+    "artist": "Pile",
+    "title": "Pile Fan Event 2026 in Seoul",
+    "genre": "FAN EVENT",
+    "concertDate": "2026-12-27",
+    "time": "오후 1:30",
+    "venue": "Aube Studio 3층",
+    "presaleStatus": "checking",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "2026-10-27",
+    "ticketTime": "오후 7:00",
+    "price": 132000,
+    "priceCurrency": "KRW",
+    "vendor": "티켓링크",
+    "vendorUrl": "https://www.ticketlink.co.kr/product/66563",
+    "youtubeChannel": "",
+    "songs": [
+      [
+        "キミがくれたKISEKI",
+        "",
+        "https://www.youtube.com/watch?v=6C8Xl7CWALw"
+      ],
+      [
+        "ドリームトリガー",
+        "",
+        "https://www.youtube.com/watch?v=MMrIEt6PkI4"
+      ],
+      [
+        "伝説のFLARE",
+        "",
+        "https://www.youtube.com/watch?v=Kpp6R4gZbVc"
+      ]
+    ],
+    "status": "pending",
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "unverified",
+    "seatPrices": [
+      {
+        "name": "일반석",
+        "price": 132000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "자유석",
+        "price": 132000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "sources": [
+      "https://www.ticketlink.co.kr/help/notice/66302"
+    ],
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://www.ticketlink.co.kr/help/notice/66302"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://www.ticketlink.co.kr/help/notice/66302"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://www.ticketlink.co.kr/help/notice/66302"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://www.ticketlink.co.kr/help/notice/66302"
+        ]
+      },
+      "representativeSongs": {
+        "status": "candidate",
+        "checkedAt": "2026-11-06",
+        "sources": [
+          "https://www.ticketlink.co.kr/help/notice/66302"
+        ]
+      }
+    },
+    "verifiedAt": "2026-11-06",
+    "createdAt": "2026-11-06T14:42:16+09:00"
+  },
+  {
+    "id": "pile-fan-event-2026-12-27-1700",
+    "artist": "Pile",
+    "title": "Pile Fan Event 2026 in Seoul",
+    "genre": "FAN EVENT",
+    "concertDate": "2026-12-27",
+    "time": "오후 5:00",
+    "venue": "Aube Studio 3층",
+    "presaleStatus": "checking",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "2026-10-27",
+    "ticketTime": "오후 7:00",
+    "price": 132000,
+    "priceCurrency": "KRW",
+    "vendor": "티켓링크",
+    "vendorUrl": "https://www.ticketlink.co.kr/product/66563",
+    "youtubeChannel": "",
+    "songs": [
+      [
+        "キミがくれたKISEKI",
+        "",
+        "https://www.youtube.com/watch?v=6C8Xl7CWALw"
+      ],
+      [
+        "ドリームトリガー",
+        "",
+        "https://www.youtube.com/watch?v=MMrIEt6PkI4"
+      ],
+      [
+        "伝説のFLARE",
+        "",
+        "https://www.youtube.com/watch?v=Kpp6R4gZbVc"
+      ]
+    ],
+    "status": "pending",
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "unverified",
+    "seatPrices": [
+      {
+        "name": "일반석",
+        "price": 132000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "자유석",
+        "price": 132000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "sources": [
+      "https://www.ticketlink.co.kr/help/notice/66302"
+    ],
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://www.ticketlink.co.kr/help/notice/66302"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://www.ticketlink.co.kr/help/notice/66302"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://www.ticketlink.co.kr/help/notice/66302"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://www.ticketlink.co.kr/help/notice/66302"
+        ]
+      },
+      "representativeSongs": {
+        "status": "candidate",
+        "checkedAt": "2026-11-06",
+        "sources": [
+          "https://www.ticketlink.co.kr/help/notice/66302"
+        ]
+      }
+    },
+    "verifiedAt": "2026-11-06",
+    "createdAt": "2026-11-06T14:42:16+09:00"
+  },
+  {
+    "id": "cho-q-may-2027-01-23",
+    "artist": "Cho Q May",
+    "title": "Cho Q May 「Starlight Map Tour」",
+    "genre": "J-POP",
+    "concertDate": "2027-01-23",
+    "time": "오후 7:00",
+    "venue": "YES24 원더로크홀",
+    "presaleStatus": "checking",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "2026-11-11",
+    "ticketTime": "오후 8:00",
+    "price": 99000,
+    "priceCurrency": "KRW",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://m.ticket.yes24.com/Notice/18766?order=1&type=1",
+    "youtubeChannel": "https://www.youtube.com/@Cho_Q_May",
+    "songs": [
+      [
+        "貴方の恋人になりたい",
+        "",
+        "https://www.youtube.com/watch?v=dJhp6awU5Z8"
+      ],
+      [
+        "青の魔法",
+        "",
+        "https://www.youtube.com/watch?v=2nD2jpyvUh8"
+      ],
+      [
+        "リンカーネーション",
+        "",
+        "https://www.youtube.com/watch?v=fZEl89YELx4"
+      ]
+    ],
+    "status": "pending",
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "unverified",
+    "seatPrices": [
+      {
+        "name": "VIP",
+        "price": 110000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "1층 스탠딩석",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "2층 지정좌석",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "sources": [
+      "https://m.ticket.yes24.com/Notice/18766?order=1&type=1"
+    ],
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://m.ticket.yes24.com/Notice/18766?order=1&type=1"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://m.ticket.yes24.com/Notice/18766?order=1&type=1"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://m.ticket.yes24.com/Notice/18766?order=1&type=1"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://m.ticket.yes24.com/Notice/18766?order=1&type=1"
+        ]
+      },
+      "representativeSongs": {
+        "status": "candidate",
+        "checkedAt": "2026-11-06",
+        "sources": [
+          "https://m.ticket.yes24.com/Notice/18766?order=1&type=1"
+        ]
+      }
+    },
+    "verifiedAt": "2026-11-06",
+    "createdAt": "2026-11-06T14:42:16+09:00"
+  },
+  {
+    "id": "kessoku-band-2027-05-08",
+    "artist": "結束バンド",
+    "title": "結束バンド ASIA TOUR 2027 “To Asia.”",
+    "genre": "J-ROCK",
+    "concertDate": "2027-05-08",
+    "time": "",
+    "venue": "KINTEX",
+    "presaleStatus": "checking",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "",
+    "ticketTime": "",
+    "vendor": "",
+    "vendorUrl": "",
+    "youtubeChannel": "",
+    "songs": [
+      [
+        "ギターと孤独と蒼い惑星",
+        "",
+        "https://www.youtube.com/watch?v=p010N38zFrA"
+      ],
+      [
+        "星座になれたら",
+        "",
+        "https://www.youtube.com/watch?v=fJh5UeiULZs"
+      ],
+      [
+        "青春コンプレックス",
+        "",
+        "https://www.youtube.com/watch?v=Yd8kUoB72xU"
+      ]
+    ],
+    "status": "pending",
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "unverified",
+    "seatPrices": [],
+    "sources": [
+      "https://news.aniplex.co.jp/detail.html?id=71601"
+    ],
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-06",
+        "sources": [
+          "https://news.aniplex.co.jp/detail.html?id=71601"
+        ]
+      },
+      "concertTime": {
+        "status": "unverified",
+        "checkedAt": "2026-11-06",
+        "sources": [
+          "https://news.aniplex.co.jp/detail.html?id=71601"
+        ]
+      },
+      "ticketing": {
+        "status": "unverified",
+        "checkedAt": "2026-11-06",
+        "sources": [
+          "https://news.aniplex.co.jp/detail.html?id=71601"
+        ]
+      },
+      "price": {
+        "status": "unverified",
+        "checkedAt": "2026-11-06",
+        "sources": [
+          "https://news.aniplex.co.jp/detail.html?id=71601"
+        ]
+      },
+      "representativeSongs": {
+        "status": "candidate",
+        "checkedAt": "2026-11-06",
+        "sources": [
+          "https://news.aniplex.co.jp/detail.html?id=71601"
+        ]
+      }
+    },
+    "verifiedAt": "2026-11-06",
+    "createdAt": "2026-11-06T14:42:16+09:00"
   }
 ]
