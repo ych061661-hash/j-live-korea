@@ -1,5 +1,33 @@
 [
   {
+    "id": "2026-11-08-ticket-open-kurayamisaka-2027-01-09",
+    "date": "2026-11-08",
+    "kind": "ticket-open",
+    "label": "티켓 오픈",
+    "artist": "kurayamisaka",
+    "eventId": "kurayamisaka-2027-01-09",
+    "concertDate": "2027-01-09",
+    "summary": "예매 일정이 공개됐습니다. 일반예매 2026년 9월 17일(목) 오후 12:00.",
+    "url": "https://www.highjinkx.com/aosaka",
+    "verifiedAt": "2026-11-08",
+    "recordedAt": "2026-11-08",
+    "dateMeaning": "recorded"
+  },
+  {
+    "id": "2026-11-08-announcement-kurayamisaka-2027-01-09",
+    "date": "2026-11-08",
+    "kind": "announcement",
+    "label": "신규 공연",
+    "artist": "kurayamisaka",
+    "eventId": "kurayamisaka-2027-01-09",
+    "concertDate": "2027-01-09",
+    "summary": "2027년 1월 9일(토) 오후 6:30 KT&G 상상마당 홍대 라이브홀 공연이 발표됐습니다.",
+    "url": "https://www.highjinkx.com/aosaka",
+    "verifiedAt": "2026-11-08",
+    "recordedAt": "2026-11-08",
+    "dateMeaning": "recorded"
+  },
+  {
     "id": "2026-10-19-ticket-open-kenshi-yonezu-2027-01-14",
     "date": "2026-10-19",
     "kind": "ticket-open",

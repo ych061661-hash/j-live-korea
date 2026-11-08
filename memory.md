@@ -14,6 +14,33 @@ Format: `- <event id> — verifiedAt=<date> — note`
 
 | 후보 ID / 기존 ID | 아티스트·공연일·회차 | 발견일 | 마지막 시도(KST) | 누락 필드 | 확인한 공식 URL | 결과·접근 실패 원인 | 다음 행동·우선순위 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| rain-tree-2026-12-20 | Rain Tree 2026-12-20 17:00 | 2026-11-08 | 2026-11-08 21:40 | 대표곡 2곡, 한국어 공식 표기 | https://ticket.yes24.com/Perf/59777 , https://rt-official.jp/news/2026/08/18/8126/ | 일정·가격·선예매 확인. 공식 MV는 Ｉ Ｌ Ｕ 1곡만 업로더 확인 | 공식 채널 MV 2곡 추가 확인 후 confirmed |
+| nanaoakari-2027-01-30 | NANAOAKARI 2027-01-30 18:00 | 2026-11-08 | 2026-11-08 21:40 | 한국어 공식 표기 | https://ticket.yes24.com/Perf/60411 , https://www.sonymusic.co.jp/artist/nanaoakari/info/587259 | 필수 공연 사실과 공식 MV 3곡 확인. YES24·소니 원문에 한글 아티스트명이 없어 confirmed로 올리지 않음 | 공식 한글 표기 확인 시 confirmed |
+| kurayamisaka-2027-01-09 | kurayamisaka & parannoul 2027-01-09 18:30 | 2026-11-08 | 2026-11-08 21:40 | 별도 예매처 상품 URL | https://www.highjinkx.com/aosaka , https://kurayamisaka.com/live/ | 주최 페이지와 아티스트 라이브 페이지로 확정. 아티스트 페이지에 sold out | 예매처 상품 URL이 공개되면 vendorUrl 교체 |
+| motfd-2026-12-04 | MOTFD 2026-12-04 19:30 | 2026-11-08 | 2026-11-08 21:40 | 일반예매 일시, 대표곡 3곡 | https://ticket.melon.com/performance/index.htm?prodId=213843 , https://www.motfd.com/ | 멜론은 전석 77,000원·19:30. 예매 오픈 시각 없음. 공식 사이트 2026-10-30 갱신분에 서울 ×(SOLD OUT) | 예매 오픈 공지와 공식 MV 3곡 |
+| minami-2027-03-27 / 03-28 | 美波 Timesick Traveler 서울 양일 | 2026-11-08 | 2026-11-08 21:40 | 장소, 시작 시각, 예매처, 가격, 대표곡 | https://www.373official.com/pages/937733/schedule | 날짜만 공식. 일본 국내 88,00엔·12/12 12:00 일반예매는 서울에 적용하지 않음 | 서울 장소·예매 공지 |
+| 雪国 2026-12-17 | claras in Seoul | 2026-11-08 | 2026-11-08 | 공식 예매 원문 | 없음 | 집계·블로그만 발견. 공식 상품 URL을 열지 못해 미저장 | 멜론티켓 공식 상품 |
+| AKASAKI 2026-11-21 | ONIGIRI 서울 | 이전 대기열 | 2026-11-08 | — | https://akasaki.red/news/detail/86706 | 2026-08-13 공식 전 공연 취소. events.json에 없던 회차라 신규 추가하지 않음 | 재발표가 있으면 추가 |
+| ELLEGARDEN | Bad For Education Tour II | 2026-11-08 | 미조사 | 전부 | YES24 연관 상품 목록에 제목만 보임 | 상세조사 5건 한도 이후 | 다음 실행 1순위 신규 후보 |
+
+## Run: 2026-11-08 (KST, 짝수일 신규 발견 우선)
+
+실행 시각은 Asia/Seoul 2026-11-08 21:22 이후. 원격은 https://github.com/ych061661-hash/j-live-korea. 작업 트리는 시작 시 clean이었다. 과거 memory 기록은 이번 확인으로 재사용하지 않았다.
+
+- 모드: 짝수일 신규 발견 우선. 상세 조사 5건은 Rain Tree, NANAOAKARI, AOSAKA(kurayamisaka & parannoul), Mass Of The Fermenting Dregs, 美波 서울 양일.
+- 예외 재검증: 14일 이내이고 예매 시각이 비어 있던 BLU-SWING(11/15), LAUSBUB & KIRARA(11/20), Kazumi Tateishi Trio 수원(11/22). 일정·장소·가격은 기존과 같았다. 일반예매 일시·선예매는 이번에도 원문에 없었다. 대표곡 검증일은 갱신하지 않았다.
+- 색인 유지 재확인: LET ME KNOW는 아티스트 공지와 NOL 상품에서 11/28 18:00, 명화라이브홀, 스탠딩·지정석 각 99,000원, 선예매 7/27 18:00(LET YOU KNOW 회원·1인 2매), 일반예매 7/31 18:00이 기존과 같았다. Kawasaki Takaya는 공식 사이트와 YES24에서 12/20 18:00, 1층 스탠딩 110,000원, 2층 지정석 121,000원, 일반예매 8/19 정오가 기존과 같았다. Fujii Kaze 투어 페이지에서 2027-01-09 18:00, 고척스카이돔, 로컬 예매 6/17 19:00을 재확인했다. 좌석 가격 원문(멜론 csoon)은 이번엔 열지 않아 가격 검증일은 2026-09-25로 두었다. 세 건 모두 대표곡은 재검증하지 않았다.
+- Homecomings 멜론 상품(prodId=213806)과 csoon 12775는 2026-11-08 조회 시 HTTP 500이었다. 기존 가격·곡·검증일은 삭제하거나 내리지 않았다.
+- BLU-SWING 영어 YES24와 Highjinkx를 다시 열었다. 11/15 17:00, 홍대 롤링홀, 전석 스탠딩 66,000원. 예매 오픈 시각 없음.
+- LAUSBUB 영어 YES24는 이번엔 열렸고(2026-10-18 access_failed를 유지하지 않음) 11/20, KT&G, Standing W66,000. 시작 20:00와 전석 스탠딩 66,000원은 Highjinkx. 오픈 시각은 여전히 없음.
+- Kazumi 수원은 경기아트센터 공연 페이지에서 11/22 17:00, VIP 88,000 / R 77,000 / S 66,000 재확인. NOL 상품 페이지는 이번 실행에서 열지 않아 예매 시각 기록은 2026-09-24 그대로다. 대표곡 3곡은 이번 신규 검증이 아니다.
+- 신규 confirmed는 kurayamisaka-2027-01-09만. 대표곡 farewell, sekisei inko, jitensha는 이번 oEmbed로 채널 @kurayamisaka_official 확인. 조회수는 연 영상 메타데이터의 225.9K, 146.6K, 96.5K 순이며 가사 영상은 제외. 곡 URL은 sources에 넣지 않았다.
+- NANAOAKARI 대표곡 3곡도 이번 신규 검증(@nanaoakariSMEJ / ナナヲアカリ OFFICIAL). 세 곡 모두의 공개 조회수를 공식 페이지에서 확정하지 않아 순위라고 기록하지 않았다. 인스턴트헤븐 검색 카드에 34.0M이 보였고, 나머지 조회수는 제3자 집계뿐이라 저장하지 않았다.
+- Rain Tree 대표곡은 Ｉ Ｌ Ｕ(https://www.youtube.com/watch?v=s3PlR56gznk, 채널 Rain Tree @RainTree_RT, 검색 카드 조회수 1.7M)만 확인. 공식 무비 목록의 다른 곡은 watch URL을 열지 못해 만들지 않았다.
+- MOTFD 공식 유튜브 @motfdofficial 이름만 보였고 업로더가 확인된 watch 3곡이 없어 곡을 비웠다.
+- 접근: YES24 한국어 59777·60411, 영어 59831·60323, 멜론 213843, Highjinkx, 경기아트센터, 아티스트 공식 사이트는 공개 페이지로 열렸다. 로그인·대기열·좌석 선택·비공개 API는 사용하지 않았다. 카즈미 NOL 상품은 시도하지 않았다.
+- 미조사로 넘김: 위 예외 3건을 뺀 기존 미래 공연 재검증, 雪国 공식 상품, ELLEGARDEN 상세. 유키 구라모토 12/15–16은 발견만 하고 상세조사하지 않았다.
+- AKASAKI 서울 11/21은 공식 취소 공지(2026-08-13)를 검색 결과로 확인했다. 저장소에 없던 회차라 취소 레코드를 새로 만들지 않았다.
 
 ## Run: 2026-10-18 (KST, user-requested registrations)
 

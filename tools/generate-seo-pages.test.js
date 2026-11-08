@@ -270,7 +270,7 @@ test("does not publish unverified or historical ticket inventory in structured d
   assert.equal(verifiedOffer.offers.price, 99000);
   const soldOut = JSON.parse(structuredData({ ...base, ticketAvailability: "sold_out" }, [base], "https://j-live.kr/calendar/events/artist", "https://j-live.kr"));
   assert.equal(soldOut.offers.availability, undefined);
-  const verifiedSoldOut = JSON.parse(structuredData({ ...base, ticketAvailability: "sold_out", ticketStatusVerifiedAt: "2026-10-13T10:00:00+09:00", ticketStatusSource: "https://tickets.example/show" }, [base], "https://j-live.kr/calendar/events/artist", "https://j-live.kr"));
+  const verifiedSoldOut = JSON.parse(structuredData({ ...base, concertDate: "2027-02-20", ticketAvailability: "sold_out", ticketStatusVerifiedAt: "2026-10-13T10:00:00+09:00", ticketStatusSource: "https://tickets.example/show" }, [{ ...base, concertDate: "2027-02-20" }], "https://j-live.kr/calendar/events/artist", "https://j-live.kr"));
   assert.equal(verifiedSoldOut.offers.availability, "https://schema.org/SoldOut");
   const pastSoldOut = JSON.parse(structuredData({ ...base, concertDate: "2026-09-01", ticketAvailability: "sold_out", ticketStatusVerifiedAt: "2026-08-15T10:00:00+09:00", ticketStatusSource: "https://tickets.example/show" }, [base], "https://j-live.kr/calendar/events/artist", "https://j-live.kr"));
   assert.equal(pastSoldOut.offers.availability, undefined);
@@ -452,8 +452,9 @@ test("event review content for Homecomings and Kawasaki Takaya preserves source-
     const guide = window.JLIVE_CONTENT.ticketGuides[event.artist];
     const html = ticketGuideMarkup(event, { ticketGuides: { [event.artist]: guide } });
     for (const pattern of expected) assert.match(html, pattern, `${id} should retain ${pattern}`);
+    const evidenceToday = event.verifiedAt > "2026-09-25" ? event.verifiedAt : "2026-09-25";
     assert.equal(eventPageDecision(event, {}, review, "2026-09-25").indexable, true, `${id} has an approved source-backed editorial record`);
-    assert.equal(eventPageDecision(event, {}, review, "2026-09-25").adsAllowed, true, `${id} has fresh schedule, price and ticket-date evidence`);
+    assert.equal(eventPageDecision(event, {}, review, evidenceToday).adsAllowed, true, `${id} has fresh schedule, price and ticket-date evidence`);
     if (id === "let-me-know-2026-11-28") {
       assert.deepEqual(event.seatPrices.map(item => item.name), ["스탠딩", "지정석"]);
       assert.deepEqual(event.seatPrices.map(item => item.price), [99000, 99000]);

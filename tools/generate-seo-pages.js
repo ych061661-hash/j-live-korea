@@ -1026,8 +1026,7 @@ function main() {
   fs.mkdirSync(artistDirectory, { recursive: true });
   for (const filename of fs.readdirSync(artistDirectory)) if (filename.endsWith(".html")) fs.unlinkSync(path.join(artistDirectory, filename));
   const indexablePrimaryEvents = events.filter(event => confirmedSeries.primaryById.get(event.id)?.id === event.id
-    && hasIndexableEventContent(event, editorial, pageReviews.reviews[event.id])
-    && (event.concertDate >= today ? isFreshlyVerified(event, today) : pageReviews.reviews[event.id]?.archive === "approved"));
+    && eventPageDecision(event, editorial, pageReviews.reviews[event.id], today).indexable);
   const indexableArtists = new Set(indexablePrimaryEvents.map(event => event.artist));
   for (const [artist, artistEvents] of artistGroups) {
     writeUtf8(path.join(artistDirectory, `${artistSlug(artistEvents[0])}.html`), artistPageHtml({ artist, events: artistEvents, aliases, editorial, siteUrl, today, indexable: indexableArtists.has(artist) }));
