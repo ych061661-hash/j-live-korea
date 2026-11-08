@@ -1438,8 +1438,8 @@
     "presaleStatus": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-08",
-    "scheduleVerifiedAt": "2026-11-08",
+    "verifiedAt": "2026-09-25",
+    "scheduleVerifiedAt": "2026-09-25",
     "priceVerifiedAt": "2026-09-25",
     "sources": [
       "https://hehn.fujiikaze.com/pwt/",
@@ -1489,7 +1489,7 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-08",
+        "verifiedAt": "2026-09-25",
         "sources": [
           "https://hehn.fujiikaze.com/pwt/",
           "https://ticket.melon.com/csoon/detail.htm?csoonId=12366"
@@ -1497,7 +1497,7 @@
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-08",
+        "verifiedAt": "2026-09-25",
         "sources": [
           "https://hehn.fujiikaze.com/pwt/",
           "https://ticket.melon.com/csoon/detail.htm?csoonId=12366"
@@ -1505,7 +1505,7 @@
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-08",
+        "verifiedAt": "2026-09-25",
         "sources": [
           "https://hehn.fujiikaze.com/pwt/",
           "https://ticket.melon.com/csoon/detail.htm?csoonId=12366"
@@ -1513,7 +1513,7 @@
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-08",
+        "verifiedAt": "2026-09-25",
         "sources": [
           "https://hehn.fujiikaze.com/pwt/",
           "https://ticket.melon.com/csoon/detail.htm?csoonId=12366"
@@ -1521,7 +1521,7 @@
       },
       "ticketDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-08",
+        "verifiedAt": "2026-09-25",
         "sources": [
           "https://hehn.fujiikaze.com/pwt/",
           "https://ticket.melon.com/csoon/detail.htm?csoonId=12366"
@@ -1943,9 +1943,9 @@
     "presaleStatus": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-08",
-    "scheduleVerifiedAt": "2026-11-08",
-    "priceVerifiedAt": "2026-11-08",
+    "verifiedAt": "2026-09-25",
+    "scheduleVerifiedAt": "2026-09-25",
+    "priceVerifiedAt": "2026-09-25",
     "sources": [
       "https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/",
       "https://letmeknowmusic.jp/news/3422/",
@@ -1974,14 +1974,14 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-08",
+        "verifiedAt": "2026-09-25",
         "sources": [
           "https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/"
         ]
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-08",
+        "verifiedAt": "2026-09-25",
         "sources": [
           "https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/",
           "https://nol.yanolja.com/ticket/products/26010681"
@@ -1989,14 +1989,14 @@
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-08",
+        "verifiedAt": "2026-09-25",
         "sources": [
           "https://nol.yanolja.com/ticket/products/26010681"
         ]
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-08",
+        "verifiedAt": "2026-09-25",
         "sources": [
           "https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/",
           "https://nol.yanolja.com/ticket/products/26010681"
@@ -2004,28 +2004,28 @@
       },
       "presaleDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-08",
+        "verifiedAt": "2026-09-25",
         "sources": [
           "https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/"
         ]
       },
       "ticketDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-08",
+        "verifiedAt": "2026-09-25",
         "sources": [
           "https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-08",
+        "verifiedAt": "2026-09-25",
         "sources": [
           "https://nol.yanolja.com/ticket/products/26010681"
         ]
       },
       "ticketConditions": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-08",
+        "verifiedAt": "2026-09-25",
         "sources": [
           "https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/",
           "https://nol.yanolja.com/ticket/products/26010681"
@@ -3211,9 +3211,9 @@
     "presaleStatus": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-08",
-    "scheduleVerifiedAt": "2026-11-08",
-    "priceVerifiedAt": "2026-11-08",
+    "verifiedAt": "2026-09-25",
+    "scheduleVerifiedAt": "2026-09-25",
+    "priceVerifiedAt": "2026-09-25",
     "sources": [
       "https://kawasaki-takaya.com/live/live-in-seoul-2026/",
       "https://ticket.yes24.com/Perf/59669"
@@ -3241,49 +3241,49 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-08",
+        "verifiedAt": "2026-09-25",
         "sources": [
           "https://kawasaki-takaya.com/live/live-in-seoul-2026/"
         ]
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-08",
+        "verifiedAt": "2026-09-25",
         "sources": [
           "https://kawasaki-takaya.com/live/live-in-seoul-2026/"
         ]
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-08",
+        "verifiedAt": "2026-09-25",
         "sources": [
           "https://kawasaki-takaya.com/live/live-in-seoul-2026/"
         ]
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-08",
+        "verifiedAt": "2026-09-25",
         "sources": [
           "https://kawasaki-takaya.com/live/live-in-seoul-2026/"
         ]
       },
       "ticketDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-08",
+        "verifiedAt": "2026-09-25",
         "sources": [
           "https://kawasaki-takaya.com/live/live-in-seoul-2026/"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-08",
+        "verifiedAt": "2026-09-25",
         "sources": [
           "https://kawasaki-takaya.com/live/live-in-seoul-2026/"
         ]
       },
       "ticketConditions": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-08",
+        "verifiedAt": "2026-09-25",
         "sources": [
           "https://kawasaki-takaya.com/live/live-in-seoul-2026/"
         ]

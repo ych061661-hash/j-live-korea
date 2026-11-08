@@ -6,6 +6,7 @@ const os = require("node:os");
 const path = require("node:path");
 const test = require("node:test");
 const { buildSite, assertSafeOutputPath } = require("./build-site");
+const { eventPageDecision, seoulDateKey } = require("./generate-seo-pages");
 
 const ROOT = path.resolve(__dirname, "..");
 
@@ -66,7 +67,15 @@ test("production artifact preserves noindex/ad separation and sitemap membership
   }
 
   assert.ok(html.length > 0, "the public calendar artifact should contain HTML pages");
-  assert.ok(indexedAdPages > 0, "the test must exercise at least one reviewed ad-bearing page");
+  const events = JSON.parse(fs.readFileSync(path.join(ROOT, "calendar/data/events.json"), "utf8"));
+  const reviews = JSON.parse(fs.readFileSync(path.join(ROOT, "calendar/data/page-reviews.json"), "utf8")).reviews;
+  const today = seoulDateKey();
+  const adEligible = events.some(event => eventPageDecision(event, {}, reviews[event.id], today).adsAllowed);
+  if (adEligible) {
+    assert.ok(indexedAdPages > 0, "a freshly reviewed event must keep its ad page in the deploy artifact");
+  } else {
+    assert.equal(indexedAdPages, 0, "stale verification must remove ads without inventing a new verification date");
+  }
 });
 
 test("production build refuses to delete the project root or its parent", () => {
