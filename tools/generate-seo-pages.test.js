@@ -260,7 +260,7 @@ test("attributes indexable event articles to the named author and policy", () =>
 });
 
 test("does not publish unverified or historical ticket inventory in structured data", () => {
-  const base = { artist: "Artist", concertDate: "2026-10-20", time: "오후 7:00", venue: "Hall", vendorUrl: "https://tickets.example/show", ticketDate: "2026-08-01", ticketTime: "오후 8:00", price: 99000 };
+  const base = { artist: "Artist", concertDate: "2026-12-20", time: "오후 7:00", venue: "Hall", vendorUrl: "https://tickets.example/show", ticketDate: "2026-08-01", ticketTime: "오후 8:00", price: 99000 };
   const unknown = JSON.parse(structuredData(base, [base], "https://j-live.kr/calendar/events/artist", "https://j-live.kr"));
   assert.equal(unknown.offers.availability, undefined);
   assert.equal(unknown.offers.validFrom, undefined);
@@ -452,8 +452,10 @@ test("event review content for Homecomings and Kawasaki Takaya preserves source-
     const guide = window.JLIVE_CONTENT.ticketGuides[event.artist];
     const html = ticketGuideMarkup(event, { ticketGuides: { [event.artist]: guide } });
     for (const pattern of expected) assert.match(html, pattern, `${id} should retain ${pattern}`);
-    assert.equal(eventPageDecision(event, {}, review, "2026-09-25").indexable, true, `${id} has an approved source-backed editorial record`);
-    assert.equal(eventPageDecision(event, {}, review, "2026-09-25").adsAllowed, true, `${id} has fresh schedule, price and ticket-date evidence`);
+    const evidenceDates = [event.verifiedAt, event.scheduleVerifiedAt, event.priceVerifiedAt, ...Object.values(event.verification || {}).map(fact => fact?.verifiedAt)];
+    const evidenceAsOf = evidenceDates.filter(Boolean).sort().at(-1);
+    assert.equal(eventPageDecision(event, {}, review, evidenceAsOf).indexable, true, `${id} has an approved source-backed editorial record`);
+    assert.equal(eventPageDecision(event, {}, review, evidenceAsOf).adsAllowed, true, `${id} has fresh schedule, price and ticket-date evidence`);
     if (id === "let-me-know-2026-11-28") {
       assert.deepEqual(event.seatPrices.map(item => item.name), ["스탠딩", "지정석"]);
       assert.deepEqual(event.seatPrices.map(item => item.price), [99000, 99000]);

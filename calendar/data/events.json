@@ -2115,17 +2115,17 @@
       "https://letmeknowmusic.jp/news/3422/",
       "https://nol.yanolja.com/ticket/products/26010681"
     ],
-    "verifiedAt": "2026-09-25",
-    "scheduleVerifiedAt": "2026-09-25",
+    "verifiedAt": "2026-11-09",
+    "scheduleVerifiedAt": "2026-11-09",
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/"] },
-      "concertDate": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/", "https://nol.yanolja.com/ticket/products/26010681"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://nol.yanolja.com/ticket/products/26010681"] },
-      "venue": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/", "https://nol.yanolja.com/ticket/products/26010681"] },
-      "presaleDate": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/"] },
-      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://nol.yanolja.com/ticket/products/26010681"] },
-      "ticketConditions": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/", "https://nol.yanolja.com/ticket/products/26010681"] }
+      "hosting": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/"] },
+      "concertDate": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/", "https://nol.yanolja.com/ticket/products/26010681"] },
+      "concertTime": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://nol.yanolja.com/ticket/products/26010681"] },
+      "venue": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/", "https://nol.yanolja.com/ticket/products/26010681"] },
+      "presaleDate": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/"] },
+      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/"] },
+      "price": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://nol.yanolja.com/ticket/products/26010681"] },
+      "ticketConditions": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/", "https://nol.yanolja.com/ticket/products/26010681"] }
     },
     "createdAt": "2026-07-23T15:00:00+09:00",
     "seatPrices": [
@@ -2140,7 +2140,7 @@
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-09-25"
+    "priceVerifiedAt": "2026-11-09"
   },
   {
     "id": "hitorie-2026-08-23",
@@ -3219,6 +3219,7 @@
     "concertDate": "2026-12-20",
     "time": "오후 6:00",
     "venue": "YES24 라이브홀",
+    "presaleStatus": "none",
     "presaleDate": "",
     "presaleTime": "",
     "ticketDate": "2026-08-19",
@@ -3250,16 +3251,16 @@
       "https://kawasaki-takaya.com/live/live-in-seoul-2026/",
       "https://ticket.yes24.com/Perf/59669"
     ],
-    "verifiedAt": "2026-09-25",
-    "scheduleVerifiedAt": "2026-09-25",
+    "verifiedAt": "2026-11-09",
+    "scheduleVerifiedAt": "2026-11-09",
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
-      "concertDate": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
-      "venue": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
-      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
-      "ticketConditions": { "status": "confirmed", "verifiedAt": "2026-09-25", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] }
+      "hosting": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
+      "concertDate": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
+      "concertTime": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
+      "venue": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
+      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
+      "price": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
+      "ticketConditions": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] }
     },
     "createdAt": "2026-08-17T10:55:00+09:00",
     "seatPrices": [
@@ -3274,7 +3275,7 @@
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-09-25",
+    "priceVerifiedAt": "2026-11-09",
     "youtubeProfileImage": "./assets/artists/kawasaki-takaya.jpg"
   },
   {
@@ -3574,39 +3575,48 @@
     "concertDate": "2026-11-15",
     "time": "오후 5:00",
     "venue": "홍대 롤링홀",
-    "presaleStatus": "checking",
+    "presaleStatus": "none",
     "presaleDate": "",
     "presaleTime": "",
-    "ticketDate": "",
-    "ticketTime": "",
+    "ticketDate": "2026-08-27",
+    "ticketTime": "오후 12:00",
     "price": 66000,
     "priceCurrency": "KRW",
     "vendor": "YES24 티켓",
     "vendorUrl": "https://ticket.yes24.com/English/Perf/59831",
-    "youtubeChannel": "",
+    "youtubeChannel": "@BLUSWINGchannel",
+    "youtubeProfileImage": "./assets/artists/bluswingchannel.jpg",
     "songs": [
-      ["クラゲ (Kurage)", "", "https://www.youtube.com/watch?v=Vy7cxw8PaT0"]
+      ["クラゲ (Kurage)", "", "https://www.youtube.com/watch?v=Vy7cxw8PaT0"],
+      ["BLUE MOON", "", "https://www.youtube.com/watch?v=gQw8ZNZBK_M"],
+      ["悲しい自由", "", "https://www.youtube.com/watch?v=D2jePJruUdA"]
     ],
     "status": "pending",
     "hostingStatus": "confirmed",
-    "ticketingStatus": "unverified",
+    "ticketingStatus": "confirmed",
     "seatPrices": [
       { "name": "전석 스탠딩", "price": 66000, "priceCurrency": "KRW" }
     ],
     "sources": [
       "https://ticket.yes24.com/English/Perf/59831",
       "https://www.highjinkx.com/show-list/blu-swing2026",
-      "https://www.blu-swing.com/posts/12835400/"
+      "https://www.highjinkx.com/blu-swing-2026",
+      "https://www.blu-swing.com/posts/59173178/"
     ],
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://ticket.yes24.com/English/Perf/59831", "https://www.highjinkx.com/show-list/blu-swing2026"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://www.highjinkx.com/show-list/blu-swing2026"] },
-      "ticketing": { "status": "unverified", "checkedAt": "2026-09-24", "sources": ["https://www.highjinkx.com/show-list/blu-swing2026", "https://ticket.yes24.com/English/Perf/59831"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://www.highjinkx.com/show-list/blu-swing2026", "https://ticket.yes24.com/English/Perf/59831"] },
-      "representativeSongs": { "status": "partial", "checkedAt": "2026-09-24", "sources": ["https://www.blu-swing.com/posts/12835400/"] }
+      "hosting": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://ticket.yes24.com/English/Perf/59831", "https://www.highjinkx.com/show-list/blu-swing2026", "https://www.highjinkx.com/blu-swing-2026"] },
+      "concertDate": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://ticket.yes24.com/English/Perf/59831", "https://www.highjinkx.com/blu-swing-2026"] },
+      "concertTime": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://www.highjinkx.com/blu-swing-2026", "https://www.highjinkx.com/show-list/blu-swing2026"] },
+      "venue": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://www.highjinkx.com/blu-swing-2026", "https://ticket.yes24.com/English/Perf/59831"] },
+      "presale": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://www.highjinkx.com/blu-swing-2026", "https://www.blu-swing.com/posts/59173178/"] },
+      "ticketing": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://www.highjinkx.com/blu-swing-2026"] },
+      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://www.highjinkx.com/blu-swing-2026"] },
+      "price": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://www.highjinkx.com/blu-swing-2026", "https://www.highjinkx.com/show-list/blu-swing2026", "https://ticket.yes24.com/English/Perf/59831"] },
+      "representativeSongs": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://www.youtube.com/watch?v=Vy7cxw8PaT0", "https://www.youtube.com/watch?v=gQw8ZNZBK_M", "https://www.youtube.com/watch?v=D2jePJruUdA", "https://www.blu-swing.com/posts/12835400/"] }
     },
-    "priceVerifiedAt": "2026-09-24",
-    "verifiedAt": "2026-09-24",
+    "priceVerifiedAt": "2026-11-09",
+    "scheduleVerifiedAt": "2026-11-09",
+    "verifiedAt": "2026-11-09",
     "createdAt": "2026-09-24T03:10:12+09:00"
   },
   {
@@ -3642,19 +3652,23 @@
     ],
     "sources": [
       "https://nol.yanolja.com/ticket/products/26009224",
+      "https://tickets.interpark.com/goods/26009224",
       "https://www.ggac.or.kr/ggac/M0000281/show/view.do?idx=SM000135",
       "https://kazumitateishi-trio.com/",
       "https://www.jvcmusic.co.jp/-/Artist/A023203.html"
     ],
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://nol.yanolja.com/ticket/products/26009224", "https://www.ggac.or.kr/ggac/M0000281/show/view.do?idx=SM000135"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://www.ggac.or.kr/ggac/M0000281/show/view.do?idx=SM000135"] },
-      "ticketing": { "status": "unverified", "checkedAt": "2026-09-24", "sources": ["https://nol.yanolja.com/ticket/products/26009224"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://nol.yanolja.com/ticket/products/26009224", "https://www.ggac.or.kr/ggac/M0000281/show/view.do?idx=SM000135"] },
+      "hosting": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://nol.yanolja.com/ticket/products/26009224", "https://tickets.interpark.com/goods/26009224", "https://www.ggac.or.kr/ggac/M0000281/show/view.do?idx=SM000135"] },
+      "concertDate": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://nol.yanolja.com/ticket/products/26009224", "https://www.ggac.or.kr/ggac/M0000281/show/view.do?idx=SM000135"] },
+      "concertTime": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://www.ggac.or.kr/ggac/M0000281/show/view.do?idx=SM000135", "https://tickets.interpark.com/goods/26009224"] },
+      "venue": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://nol.yanolja.com/ticket/products/26009224", "https://www.ggac.or.kr/ggac/M0000281/show/view.do?idx=SM000135"] },
+      "ticketing": { "status": "unverified", "checkedAt": "2026-11-09", "sources": ["https://nol.yanolja.com/ticket/products/26009224", "https://tickets.interpark.com/goods/26009224"] },
+      "price": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://nol.yanolja.com/ticket/products/26009224", "https://tickets.interpark.com/goods/26009224", "https://www.ggac.or.kr/ggac/M0000281/show/view.do?idx=SM000135"] },
       "representativeSongs": { "status": "confirmed", "verifiedAt": "2026-09-24", "sources": ["https://kazumitateishi-trio.com/", "https://www.jvcmusic.co.jp/-/Artist/A023203.html"] }
     },
-    "priceVerifiedAt": "2026-09-24",
-    "verifiedAt": "2026-09-24",
+    "priceVerifiedAt": "2026-11-09",
+    "scheduleVerifiedAt": "2026-11-09",
+    "verifiedAt": "2026-11-09",
     "createdAt": "2026-09-24T03:10:12+09:00"
   },
   {
@@ -3752,7 +3766,7 @@
     "concertDate": "2026-11-14",
     "time": "오후 6:00",
     "venue": "KT&G 상상마당 라이브홀",
-    "presaleStatus": "checking",
+    "presaleStatus": "none",
     "presaleDate": "",
     "presaleTime": "",
     "ticketDate": "2026-08-18",
@@ -3769,14 +3783,19 @@
     "seatPrices": [],
     "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day1"],
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day1"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day1"] },
-      "ticketing": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day1"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day1"] },
+      "hosting": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day1"] },
+      "concertDate": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day1"] },
+      "concertTime": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day1"] },
+      "venue": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day1"] },
+      "presale": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day1"] },
+      "ticketing": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day1"] },
+      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day1"] },
+      "price": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day1"] },
       "representativeSongs": { "status": "unverified", "checkedAt": "2026-10-18", "sources": [] }
     },
-    "priceVerifiedAt": "2026-10-18",
-    "verifiedAt": "2026-10-18",
+    "priceVerifiedAt": "2026-11-09",
+    "scheduleVerifiedAt": "2026-11-09",
+    "verifiedAt": "2026-11-09",
     "createdAt": "2026-10-18T12:00:00+09:00"
   },
   {
@@ -3787,7 +3806,7 @@
     "concertDate": "2026-11-15",
     "time": "오후 6:30",
     "venue": "Gamma Hall (감마홀)",
-    "presaleStatus": "checking",
+    "presaleStatus": "none",
     "presaleDate": "",
     "presaleTime": "",
     "ticketDate": "2026-08-18",
@@ -3804,14 +3823,19 @@
     "seatPrices": [],
     "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day2"],
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day2"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day2"] },
-      "ticketing": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day2"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day2"] },
+      "hosting": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day2"] },
+      "concertDate": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day2"] },
+      "concertTime": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day2"] },
+      "venue": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day2"] },
+      "presale": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day2"] },
+      "ticketing": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day2"] },
+      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day2"] },
+      "price": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://4kor4kor4kor.com/tickets/kinoue64-2026day2"] },
       "representativeSongs": { "status": "unverified", "checkedAt": "2026-10-18", "sources": [] }
     },
-    "priceVerifiedAt": "2026-10-18",
-    "verifiedAt": "2026-10-18",
+    "priceVerifiedAt": "2026-11-09",
+    "scheduleVerifiedAt": "2026-11-09",
+    "verifiedAt": "2026-11-09",
     "createdAt": "2026-10-18T12:00:00+09:00"
   },
   {
@@ -3822,31 +3846,45 @@
     "concertDate": "2026-11-20",
     "time": "오후 8:00",
     "venue": "KT&G 상상마당 홍대 라이브홀",
-    "presaleStatus": "checking",
+    "presaleStatus": "none",
     "presaleDate": "",
     "presaleTime": "",
-    "ticketDate": "",
-    "ticketTime": "",
+    "ticketDate": "2026-09-29",
+    "ticketTime": "오후 12:00",
     "price": 66000,
     "priceCurrency": "KRW",
     "vendor": "YES24 티켓",
     "vendorUrl": "https://ticket.yes24.com/English/Perf/60323",
-    "youtubeChannel": "",
-    "songs": [],
-    "status": "pending",
+    "youtubeChannel": "@LAUSBUB",
+    "youtubeProfileImage": "./assets/artists/lausbub.jpg",
+    "songs": [
+      ["Telefon", "", "https://www.youtube.com/watch?v=zbTUx2rIDy8"],
+      ["sign", "", "https://www.youtube.com/watch?v=Cfta2wTJoZQ"],
+      ["higher", "", "https://www.youtube.com/watch?v=2I6iOmCvvmE"]
+    ],
+    "status": "confirmed",
     "hostingStatus": "confirmed",
-    "ticketingStatus": "unverified",
+    "ticketingStatus": "confirmed",
     "seatPrices": [{ "name": "전석 스탠딩", "price": 66000, "priceCurrency": "KRW" }],
-    "sources": ["https://ticket.yes24.com/English/Perf/60323", "https://www.highjinkx.com/show-list/larara"],
+    "sources": [
+      "https://www.highjinkx.com/larara",
+      "https://www.highjinkx.com/show-list/larara",
+      "https://ticket.yes24.com/English/Perf/60323"
+    ],
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://ticket.yes24.com/English/Perf/60323", "https://www.highjinkx.com/show-list/larara"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://www.highjinkx.com/show-list/larara"] },
-      "ticketing": { "status": "access_failed", "checkedAt": "2026-10-18", "sources": ["https://ticket.yes24.com/English/Perf/60323"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://www.highjinkx.com/show-list/larara"] },
-      "representativeSongs": { "status": "unverified", "checkedAt": "2026-10-18", "sources": [] }
+      "hosting": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://www.highjinkx.com/larara", "https://ticket.yes24.com/English/Perf/60323"] },
+      "concertDate": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://www.highjinkx.com/larara", "https://www.highjinkx.com/show-list/larara", "https://ticket.yes24.com/English/Perf/60323"] },
+      "concertTime": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://www.highjinkx.com/larara", "https://www.highjinkx.com/show-list/larara"] },
+      "venue": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://www.highjinkx.com/larara", "https://ticket.yes24.com/English/Perf/60323"] },
+      "presale": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://www.highjinkx.com/larara"] },
+      "ticketing": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://www.highjinkx.com/larara", "https://ticket.yes24.com/English/Perf/60323"] },
+      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://www.highjinkx.com/larara"] },
+      "price": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://www.highjinkx.com/larara", "https://www.highjinkx.com/show-list/larara", "https://ticket.yes24.com/English/Perf/60323"] },
+      "representativeSongs": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://lausbub.jp/movies/categories/video", "https://www.youtube.com/watch?v=zbTUx2rIDy8", "https://www.youtube.com/watch?v=Cfta2wTJoZQ", "https://www.youtube.com/watch?v=2I6iOmCvvmE"] }
     },
-    "priceVerifiedAt": "2026-10-18",
-    "verifiedAt": "2026-10-18",
+    "priceVerifiedAt": "2026-11-09",
+    "scheduleVerifiedAt": "2026-11-09",
+    "verifiedAt": "2026-11-09",
     "createdAt": "2026-10-18T12:00:00+09:00"
   },
   {

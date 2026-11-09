@@ -659,7 +659,7 @@ test("keeps the original data report substantial, transparent, and connected", (
   assert.match(report, /공연 시리즈/);
   assert.match(report, /같은 아티스트·공연장·예매 페이지/);
   assert.match(report, /중앙값은 각 시리즈에서 확인된 권종 중 가장 낮은 원화 액면가 1개씩/);
-  assert.match(report, /전체 40개 시리즈 원자료 표 보기/);
+  assert.match(report, /전체 41개 시리즈 원자료 표 보기/);
   assert.match(report, /전체 페스티벌 라인업 집계가 아닙니다/);
   assert.match(report, /한계와 수정 원칙/);
   assert.match(report, /rel="author">여일육 작성·분석/);

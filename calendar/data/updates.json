@@ -1,5 +1,19 @@
 [
   {
+    "id": "2026-11-09-ticket-open-lausbub-kirara-2026-11-20",
+    "date": "2026-11-09",
+    "kind": "ticket-open",
+    "label": "티켓 오픈",
+    "artist": "LAUSBUB & KIRARA",
+    "eventId": "lausbub-kirara-2026-11-20",
+    "concertDate": "2026-11-20",
+    "summary": "예매 일정이 공개됐습니다. 일반예매 2026년 9월 29일(화) 오후 12:00.",
+    "url": "https://www.highjinkx.com/larara",
+    "verifiedAt": "2026-11-09",
+    "recordedAt": "2026-11-09",
+    "dateMeaning": "recorded"
+  },
+  {
     "id": "2026-10-19-ticket-open-kenshi-yonezu-2027-01-14",
     "date": "2026-10-19",
     "kind": "ticket-open",
