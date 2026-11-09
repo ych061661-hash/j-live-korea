@@ -3862,8 +3862,8 @@
       ["sign", "", "https://www.youtube.com/watch?v=Cfta2wTJoZQ"],
       ["higher", "", "https://www.youtube.com/watch?v=2I6iOmCvvmE"]
     ],
-    "status": "confirmed",
-    "hostingStatus": "confirmed",
+    "status": "pending",
+    "hostingStatus": "conflict",
     "ticketingStatus": "confirmed",
     "seatPrices": [{ "name": "전석 스탠딩", "price": 66000, "priceCurrency": "KRW" }],
     "sources": [
@@ -3872,8 +3872,8 @@
       "https://ticket.yes24.com/English/Perf/60323"
     ],
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://www.highjinkx.com/larara", "https://ticket.yes24.com/English/Perf/60323"] },
-      "concertDate": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://www.highjinkx.com/larara", "https://www.highjinkx.com/show-list/larara", "https://ticket.yes24.com/English/Perf/60323"] },
+      "hosting": { "status": "conflict", "checkedAt": "2026-11-09", "sources": ["https://www.highjinkx.com/larara", "https://www.highjinkx.com/show-list/larara", "https://ticket.yes24.com/English/Perf/60323"], "reason": "공연 연도가 공식 출처 사이에서 해소되지 않아 공개 승인을 보류함" },
+      "concertDate": { "status": "conflict", "checkedAt": "2026-11-09", "sources": ["https://www.highjinkx.com/larara", "https://www.highjinkx.com/show-list/larara", "https://ticket.yes24.com/English/Perf/60323"], "sourceYears": { "https://www.highjinkx.com/larara": "한글 본문 2026년 11월 20일, 영문 Show Information 2027.11.20", "https://www.highjinkx.com/show-list/larara": "2026-11-20", "https://ticket.yes24.com/English/Perf/60323": "2026-11-20" }, "reason": "주최사 https://www.highjinkx.com/larara 한글 본문은 2026년 11월 20일이고 같은 페이지 영문 Show Information은 2027.11.20이다. https://www.highjinkx.com/show-list/larara 는 2026-11-20, https://ticket.yes24.com/English/Perf/60323 는 Nov 20, 2026이다. 정정 공지와 게시 수정 시각이 없고 공식 포스터는 11.20.Fri만 있어 연도를 적지 않는다. 정책에 한글·예매처·요일·다수 출처로 이 충돌을 해소하는 우선순위가 없어 기록된 2026-11-20은 유지하고 연도는 conflict다." },
       "concertTime": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://www.highjinkx.com/larara", "https://www.highjinkx.com/show-list/larara"] },
       "venue": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://www.highjinkx.com/larara", "https://ticket.yes24.com/English/Perf/60323"] },
       "presale": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://www.highjinkx.com/larara"] },
@@ -3883,7 +3883,6 @@
       "representativeSongs": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://lausbub.jp/movies/categories/video", "https://www.youtube.com/watch?v=zbTUx2rIDy8", "https://www.youtube.com/watch?v=Cfta2wTJoZQ", "https://www.youtube.com/watch?v=2I6iOmCvvmE"] }
     },
     "priceVerifiedAt": "2026-11-09",
-    "scheduleVerifiedAt": "2026-11-09",
     "verifiedAt": "2026-11-09",
     "createdAt": "2026-10-18T12:00:00+09:00"
   },
