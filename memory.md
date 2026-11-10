@@ -14,12 +14,34 @@ Format: `- <event id> — verifiedAt=<date> — note`
 
 | 후보 ID / 기존 ID | 아티스트·공연일·회차 | 발견일 | 마지막 시도(KST) | 누락 필드 | 확인한 공식 URL | 결과·접근 실패 원인 | 다음 행동·우선순위 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| blu-swing-2026-11-15 | BLU-SWING 2026-11-15 1회 | 2026-09-24 | 2026-11-09 | 공식 한글 별칭. 공연 사실·대표곡 3곡은 이번 확인 | https://www.highjinkx.com/blu-swing-2026 | 예매·가격·곡은 확인. 공식 페이지에 한글 표기가 없어 confirmed 보류 | 공식 한글 표기가 나오면 confirmed |
-| kinoue64-2026-11-14 / kinoue64-2026-11-15 | kinoue64 11/14·11/15 | 2026-10-18 | 2026-11-09 | 공식 유튜브 대표곡 3곡, 좌석등급 명칭 | https://4kor4kor4kor.com/tickets/kinoue64-2026day1 | 일정·단일가 재확인. 등급명 없는 단일가. 곡 미검증 | 공식 채널 영상 3곡 |
-| kazumi-tateishi-trio-2026-11-22-suwon | Kazumi 수원 2026-11-22 | 2026-09-24 | 2026-11-09 | 일반예매 일시. 선예매 공지 없음은 미확인 | https://tickets.interpark.com/goods/26009224 | 상품 페이지에 오픈 일시 없음. 예매대기 배지는 일시장 아님 | 오픈 공지 재확인 |
-| kazumi 추가 도시 | 광주·성남·영등포·강동·대구 | 2026-11-09 | 2026-11-09 | 상세 미조사 | https://tickets.interpark.com/goods/26009224 | 관련 공연 목록만 봄. 각 상품 페이지는 열지 않음 | 다음 신규 조사. 부산 12/26은 기존 레코드 |
-| ivy-2026-11-28 | iVy 2026-11-28 | 2026-10-18 | 이번 미실시 | 대표곡, 좌석등급명 |  | 재검증 예산상 다음 순위 | 4KOR 공식 페이지 재오픈 |
-| let-me-know-2026-11-28 | LET ME KNOW 2026-11-28 | 기존 | 2026-11-09 | 없음. 사실 유지 | https://nol.yanolja.com/ticket/products/26010681 | 일정·선예매·가격 재확인 | 변경 신호 없으면 7일 후 |
+| zenbu loudcarnival / one-man | ぜんぶ君のせいだ。 11/13·11/14·11/15 | 2026-11-10 | 2026-11-10 | 시작 시각 충돌. 팬미팅 장소 비공개 | https://kiminosei.com/live/ | 아티스트 일정 카드는 LOUDCARNIVAL 시각 TBA, 원맨은 18:30. 연결 예매 페이지 렌더는 오전 시각. 원문 재조회 HTTP 429. 미등록 | 429 해소 후 mysub 원문 재오픈. 시각 확정 전 추가 금지 |
+| yuki-kajiura-2026-11-22 | Yuki Kajiura 2026-11-22 | 2026-11-10 | 2026-11-10 | 대표곡 3곡, 티켓링크 상품 URL | http://yonsei-arts.com/product/521 | 일정·가격·일반예매 확인. 상품 URL은 연 공식 공지에 없음 | 공식 영상 3곡과 티켓링크 상품 페이지 |
+| ellegarden-2026-11-28 / 11-29 | ELLEGARDEN 11/28·11/29 | 2026-11-10 | 2026-11-10 | 시작 시각, YES24 상품 URL, 대표곡, 공식 한글 별칭 | https://www.universal-music.co.jp/ellegarden/news/2026-08-10/ | 날짜·장소·88,000원·일반예매 9/1 19:00 확인. 시작 시각은 공지에 없음 | YES24 상품 페이지와 공식 영상 3곡 |
+| kazumi 광주·성남·영등포·강동·대구 | 2026-12-19~25 | 2026-11-09 | 2026-11-10 | 일반예매·선예매 일시. 영등포 외 한국어 상품 페이지 | http://kazumitateishi.com/live.html | pending 등록. 영등포만 NOL 상품을 염. 곡은 2026-09-24 재사용 | 도시별 상품 페이지와 오픈 공지 |
+| choqmay-2027-01-23 | ChoQMay 2027-01-23 | 2026-11-10 | 2026-11-10 | YES24 상품 본문은 접근 제한. 사실은 아티스트·멜론으로 확인 | https://ticket.melon.com/performance/index.htm?prodId=214199 | confirmed. 일반예매 2026-11-11 20:00. 선예매 문구 없음 | 예매 오픈 후 변경 공지만 |
+| blu-swing-2026-11-15 | BLU-SWING 2026-11-15 | 2026-09-24 | 2026-11-09 | 공식 한글 별칭 | https://www.highjinkx.com/blu-swing-2026 | 7일 이내. 이번 미재오픈 | 한글 표기 나오면 confirmed |
+| kinoue64-2026-11-14 / 11-15 | kinoue64 | 2026-10-18 | 2026-11-09 | 대표곡 3곡, 좌석등급 명칭 | https://4kor4kor4kor.com/tickets/kinoue64-2026day1 | 7일 이내. 이번 미재오픈 | 공식 영상 3곡 |
+| kazumi-tateishi-trio-2026-11-22-suwon | Kazumi 수원 | 2026-09-24 | 2026-11-10 | 일반예매 일시 | http://kazumitateishi.com/live.html | 아티스트 페이지 가격·17:00은 기존과 같음. 오픈 일시는 여전히 없음. 레코드는 변경하지 않음 | 오픈 공지 |
+| ivy-2026-11-28 | iVy 2026-11-28 | 2026-10-18 | 2026-10-18 | 대표곡, 좌석등급명 |  | 짝수일 신규 예산으로 이번 미실시 | 다음 재검증 |
+| 발견만 | Blue Note Tokyo 11/26, Mass of the Fermenting Dregs 12/4, Khaki 12/5 | 2026-11-10 | 이번 미실시 | 상세 미조사 |  | 집계 목록에서만 봄. 공식 페이지 미오픈 | 다음 신규 조사 |
+
+## Run: 2026-11-10 (KST, 짝수일, 신규 발견 우선)
+
+KST 날짜는 `TZ=Asia/Seoul date`로 `2026-11-10` 화요일을 재확인했다. 신규 상세 조사 5건. 기존 미래 공연 재검증은 예매 임박·공식 변경이 아니면 하지 않았다. 저장된 일반예매일이 앞으로 30일 이내인 기존 레코드는 없었다. 7일 이내 검증 건은 건너뛰었다.
+
+- `choqmay-2027-01-23` 신규 confirmed. 2027-01-23 오후 7:00, YES24 WANDERLOCH HALL. 일반예매 2026-11-11 수 오후 8:00. 선예매 문구 없음. 좌석: VIP 110,000원, 1층 스탠딩석 99,000원, 2층 지정좌석 99,000원. 최저 일반 액면가 99,000원. 공연 근거: https://choqmay-official.com/contents/1123197 https://ticket.melon.com/performance/index.htm?prodId=214199 . YES24 https://ticket.yes24.com/Perf/60901 는 2026-11-10 열람 시 "비정상적인 접근으로 일시적으로 서비스 접속이 제한"이라 본문을 사실 근거로 쓰지 않았다. 대표곡 3곡은 이번 신규 검증, 채널 @Cho_Q_May. 조회수를 연 공식 MV 중 상위 3곡: 貴方の恋人になりたい https://www.youtube.com/watch?v=dJhp6awU5Z8 (74,501,327), sister https://www.youtube.com/watch?v=pDzdTzqqCGw (869,627), 未恋 https://www.youtube.com/watch?v=PLQAYzuxt08 (771,568). 라이브 영상은 제외. `遊泳禁止、天ノ川` `十三月の銀河` watch 페이지는 HTTP 429라 순위에서 빠졌다. 곡 근거와 공연 근거를 분리했다. 별칭 초큐메이는 멜론 본문·공식 해시태그, チョーキューメイ는 공식 사이트 명칭. 채널 아바타는 이번 실행에서 이미지로 저장하지 못했다.
+- `yuki-kajiura-2026-11-22` 신규 pending. 2026-11-22 오후 6:00, 연세대학교 대강당. 일반예매 2026-10-06 화 오후 8:00. 서울 공지에 선예매 문구 없음. VIP석 178,000원, R석 165,000원, S석 132,000원. 휠체어석은 연 공식 페이지에 없어 넣지 않음. 티켓링크 상품 URL은 연 공식 공지에 없었다. vendorUrl은 가격·오픈 시각이 있는 연세문화예술공간 페이지. 대표곡 3곡은 이번 미검증이라 confirmed 아님. 공연 근거: https://fictionjunction.com/live/13125/ https://fictionjunction.com/information/infotype/live/ http://yonsei-arts.com/product/521 . 별칭 카지우라 유키·梶浦由記는 같은 공식 공지.
+- `ellegarden-2026-11-28` `ellegarden-2026-11-29` 신규 pending. 양일 YES24 LIVE HALL. 한국 공연 가격 KRW 88,000, 등급 1階スタンディング (整理番号付)와 2階指定席. 일반예매 2026-09-01 화 19:00, 한국 일정에 선예매 블록 없음. 시작 시각은 이 공지에 없다. YES24 개별 상품 번호는 공지에 없고, 같은 실행에서 YES24 상품 페이지가 접속 제한이라 추정하지 않음. 대표곡 미검증. 공식 한글 표기를 연 페이지에서 찾지 못해 별칭을 만들지 않음. 공연 근거: https://www.universal-music.co.jp/ellegarden/news/2026-08-10/ .
+- Kazumi Tateishi Trio 추가 5도시 신규 pending. 아티스트 공식 라이브 페이지에서 일정·가격 확인. 일반예매·선예매 일시는 그 페이지에 없음. 대표곡 3곡은 이번 영상을 다시 열지 않고 2026-09-24 수원 검증을 재사용. 수원 11/22와 부산 12/26은 같은 페이지의 가격·시작 시각이 기존 값과 같아 레코드를 바꾸지 않음. 영등포만 NOL 상품을 열어 19:30, VIP석 88,000 / R석 77,000 / S석 66,000을 대조했다. `예매대기` 배지는 오픈 일시로 쓰지 않음. 나머지 도시 한국어 상품 페이지는 열지 않았고 가격은 아티스트 페이지의 VIP席·R席·S席·A席 금액이다. 등급 한글 표기는 같은 투어의 영등포 NOL 표기와 기존 레코드와 맞춘 것이다.
+  - 광주 2026-12-19 오후 5:00 국립아시아문화전당 예술극장 극장2. VIP석 88,000 / R석 77,000 / S석 66,000. 예매 URL은 아티스트가 적은 https://triple.global .
+  - 성남 2026-12-20 오후 3:00 성남아트센터 콘서트홀. VIP석 88,000 / R석 77,000 / S석 66,000 / A석 55,000.
+  - 영등포 2026-12-22 오후 7:30 영등포아트홀. VIP석 88,000 / R석 77,000 / S석 66,000. 상품 https://nol.yanolja.com/ticket/products/26010060 .
+  - 강동 2026-12-24 오후 7:30 강동아트센터 대극장 한강. VIP석 88,000 / R석 77,000 / S석 66,000 / A석 55,000.
+  - 대구 2026-12-25 오후 5:00 대덕문화전당 드림홀. VIP석 88,000 / R석 77,000 / S석 66,000. A석은 이 회차 공지에 없음.
+  - 공연 근거: http://kazumitateishi.com/live.html . 영등포 추가 근거: https://nol.yanolja.com/ticket/products/26010060 https://world.nol.com/en/ticket/products/26010060 . 곡 근거(기존 재사용): https://kazumitateishi-trio.com/ https://www.jvcmusic.co.jp/-/Artist/A023203.html .
+- ぜんぶ君のせいだ。 한국 일정은 상세 조사했으나 등록하지 않음. 공식 https://kiminosei.com/live/ 는 11/13·11/14 주간·11/14 야간 LOUDCARNIVAL을 아틀리에홀로 적고 시각은 TBA, DAY PASS 35,000원 / DOOR +5,000원. 11/15 원맨은 BABYDOLL, OPEN 18:00 / START 18:30, 예매 30,000원 / 당일 35,000원. 같은 페이지가 연결한 mysub 예매 페이지 렌더에는 11/13 시작 10:00, 야간으로 제목이 붙은 11/14 페이지도 시작 10:00, 11/15 원맨도 시작 9:30으로 보여 시각이 충돌한다. 원문 HTML 재조회는 HTTP 429. 팬미팅은 장소가 참가자에게만 공개라 등록하지 않음. 티켓 링크: https://mysub.kr/events/261113-loudcarnival-korea-tour https://mysub.kr/events/261114-loudcarnival-korea-tour https://mysub.kr/events/261115-loudcarnival-zenbukiminoseida-korea-live .
+- 집계 목록에서만 보고 공식 페이지를 열지 않은 후보: Blue Note Tokyo All-Star Jazz Orchestra 2026-11-26 세종, Mass of the Fermenting Dregs 2026-12-04, Khaki 2026-12-05. 다음 신규 조사.
+- 접근 실패로 기존 값 삭제나 상태 하향 없음. 취소·연기 공지를 새로 확인하지 않음.
 
 ## Run: 2026-11-09 (KST, 홀수일, 재검증 우선)
 

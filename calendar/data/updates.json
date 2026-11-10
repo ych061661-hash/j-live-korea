@@ -1,5 +1,33 @@
 [
   {
+    "id": "2026-11-10-ticket-open-choqmay-2027-01-23",
+    "date": "2026-11-10",
+    "kind": "ticket-open",
+    "label": "티켓 오픈",
+    "artist": "ChoQMay",
+    "eventId": "choqmay-2027-01-23",
+    "concertDate": "2027-01-23",
+    "summary": "예매 일정이 공개됐습니다. 일반예매 2026년 11월 11일(수) 오후 8:00.",
+    "url": "https://choqmay-official.com/contents/1123197",
+    "verifiedAt": "2026-11-10",
+    "recordedAt": "2026-11-10",
+    "dateMeaning": "recorded"
+  },
+  {
+    "id": "2026-11-10-announcement-choqmay-2027-01-23",
+    "date": "2026-11-10",
+    "kind": "announcement",
+    "label": "신규 공연",
+    "artist": "ChoQMay",
+    "eventId": "choqmay-2027-01-23",
+    "concertDate": "2027-01-23",
+    "summary": "2027년 1월 23일(토) 오후 7:00 YES24 WANDERLOCH HALL 공연이 발표됐습니다.",
+    "url": "https://choqmay-official.com/contents/1123197",
+    "verifiedAt": "2026-11-10",
+    "recordedAt": "2026-11-10",
+    "dateMeaning": "recorded"
+  },
+  {
     "id": "2026-11-09-ticket-open-lausbub-kirara-2026-11-20",
     "date": "2026-11-09",
     "kind": "ticket-open",
