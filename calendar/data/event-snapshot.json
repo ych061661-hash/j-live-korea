@@ -2753,11 +2753,12 @@
     "presaleStatus": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-08-13",
-    "scheduleVerifiedAt": null,
-    "priceVerifiedAt": "2026-08-12",
+    "verifiedAt": "2026-11-11",
+    "scheduleVerifiedAt": "2026-11-11",
+    "priceVerifiedAt": "2026-11-11",
     "sources": [
       "https://tickets.interpark.com/goods/26011116",
+      "https://world.nol.com/en/ticket/products/26011116",
       "https://www.sokabekeiichi.com/",
       "https://www.youtube.com/@SunnyDayServiceofficial/videos"
     ],
@@ -2792,10 +2793,11 @@
     "presaleStatus": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-07-25",
-    "scheduleVerifiedAt": null,
-    "priceVerifiedAt": "2026-08-12",
+    "verifiedAt": "2026-11-11",
+    "scheduleVerifiedAt": "2026-11-11",
+    "priceVerifiedAt": "2026-11-11",
     "sources": [
+      "https://nol.yanolja.com/ticket/products/26010352",
       "https://tickets.interpark.com/contents/notice/detail/14619"
     ],
     "price": 143000,
@@ -2839,10 +2841,11 @@
     "presaleStatus": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-07-25",
-    "scheduleVerifiedAt": null,
-    "priceVerifiedAt": "2026-08-12",
+    "verifiedAt": "2026-11-11",
+    "scheduleVerifiedAt": "2026-11-11",
+    "priceVerifiedAt": "2026-11-11",
     "sources": [
+      "https://nol.yanolja.com/ticket/products/26010352",
       "https://tickets.interpark.com/contents/notice/detail/14619"
     ],
     "price": 143000,
@@ -3629,9 +3632,9 @@
     "presaleStatus": "checking",
     "status": "pending",
     "ticketLabel": null,
-    "verifiedAt": "2026-09-23",
-    "scheduleVerifiedAt": null,
-    "priceVerifiedAt": "2026-09-23",
+    "verifiedAt": "2026-11-11",
+    "scheduleVerifiedAt": "2026-11-11",
+    "priceVerifiedAt": "2026-11-11",
     "sources": [
       "https://ticket.yes24.com/Perf/59963",
       "https://www.highjinkx.com/show-list/zazen-boys"
@@ -3654,7 +3657,7 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-09-23",
+        "verifiedAt": "2026-11-11",
         "sources": [
           "https://ticket.yes24.com/Perf/59963",
           "https://www.highjinkx.com/show-list/zazen-boys"
@@ -3662,14 +3665,14 @@
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-09-23",
+        "verifiedAt": "2026-11-11",
         "sources": [
           "https://www.highjinkx.com/show-list/zazen-boys"
         ]
       },
       "ticketing": {
         "status": "unverified",
-        "checkedAt": "2026-09-23",
+        "checkedAt": "2026-11-11",
         "sources": [
           "https://ticket.yes24.com/Perf/59963",
           "https://www.highjinkx.com/show-list/zazen-boys"
@@ -3677,7 +3680,7 @@
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-09-23",
+        "verifiedAt": "2026-11-11",
         "sources": [
           "https://ticket.yes24.com/Perf/59963",
           "https://www.highjinkx.com/show-list/zazen-boys"
@@ -4545,12 +4548,12 @@
     "ticketTime": "오후 8:00",
     "presaleDate": "",
     "presaleTime": "",
-    "presaleStatus": "checking",
+    "presaleStatus": "none",
     "status": "pending",
     "ticketLabel": null,
-    "verifiedAt": "2026-10-18",
-    "scheduleVerifiedAt": null,
-    "priceVerifiedAt": "2026-10-18",
+    "verifiedAt": "2026-11-11",
+    "scheduleVerifiedAt": "2026-11-11",
+    "priceVerifiedAt": "2026-11-11",
     "sources": [
       "https://4kor4kor4kor.com/tickets/ivy"
     ],
@@ -4566,36 +4569,41 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-10-18",
+        "verifiedAt": "2026-11-11",
         "sources": [
           "https://4kor4kor4kor.com/tickets/ivy"
         ]
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-10-18",
+        "verifiedAt": "2026-11-11",
         "sources": [
           "https://4kor4kor4kor.com/tickets/ivy"
         ]
       },
       "ticketing": {
         "status": "confirmed",
-        "verifiedAt": "2026-10-18",
+        "verifiedAt": "2026-11-11",
         "sources": [
           "https://4kor4kor4kor.com/tickets/ivy"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-10-18",
+        "verifiedAt": "2026-11-11",
         "sources": [
           "https://4kor4kor4kor.com/tickets/ivy"
         ]
       },
       "representativeSongs": {
-        "status": "unverified",
-        "checkedAt": "2026-10-18",
-        "sources": []
+        "status": "confirmed",
+        "verifiedAt": "2026-11-11",
+        "sources": [
+          "https://www.youtube.com/watch?v=ZxKgSX_TDlg",
+          "https://www.youtube.com/watch?v=i9cGSedD3_Q",
+          "https://www.youtube.com/watch?v=d87IcvcyMak",
+          "https://www.youtube.com/@ivy_atlantide/videos"
+        ]
       }
     }
   },
@@ -5137,9 +5145,9 @@
     "presaleStatus": "none",
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-10",
-    "scheduleVerifiedAt": "2026-11-10",
-    "priceVerifiedAt": "2026-11-10",
+    "verifiedAt": "2026-11-11",
+    "scheduleVerifiedAt": "2026-11-11",
+    "priceVerifiedAt": "2026-11-11",
     "sources": [
       "https://choqmay-official.com/contents/1123197",
       "https://ticket.melon.com/performance/index.htm?prodId=214199"
@@ -5172,7 +5180,7 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-11",
         "sources": [
           "https://choqmay-official.com/contents/1123197",
           "https://ticket.melon.com/performance/index.htm?prodId=214199"
@@ -5180,7 +5188,7 @@
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-11",
         "sources": [
           "https://choqmay-official.com/contents/1123197",
           "https://ticket.melon.com/performance/index.htm?prodId=214199"
@@ -5188,7 +5196,7 @@
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-11",
         "sources": [
           "https://choqmay-official.com/contents/1123197",
           "https://ticket.melon.com/performance/index.htm?prodId=214199"
@@ -5196,7 +5204,7 @@
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-11",
         "sources": [
           "https://choqmay-official.com/contents/1123197",
           "https://ticket.melon.com/performance/index.htm?prodId=214199"
@@ -5204,14 +5212,14 @@
       },
       "ticketing": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-11",
         "sources": [
           "https://choqmay-official.com/contents/1123197"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-11",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214199"
         ]

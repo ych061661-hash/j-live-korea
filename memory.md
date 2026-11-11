@@ -14,16 +14,30 @@ Format: `- <event id> — verifiedAt=<date> — note`
 
 | 후보 ID / 기존 ID | 아티스트·공연일·회차 | 발견일 | 마지막 시도(KST) | 누락 필드 | 확인한 공식 URL | 결과·접근 실패 원인 | 다음 행동·우선순위 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| zenbu loudcarnival / one-man | ぜんぶ君のせいだ。 11/13·11/14·11/15 | 2026-11-10 | 2026-11-10 | 시작 시각 충돌. 팬미팅 장소 비공개 | https://kiminosei.com/live/ | 아티스트 일정 카드는 LOUDCARNIVAL 시각 TBA, 원맨은 18:30. 연결 예매 페이지 렌더는 오전 시각. 원문 재조회 HTTP 429. 미등록 | 429 해소 후 mysub 원문 재오픈. 시각 확정 전 추가 금지 |
+| zenbu loudcarnival / one-man | ぜんぶ君のせいだ。 11/13·11/14·11/15 | 2026-11-10 | 2026-11-11 | 합동 공연 시작 시각 TBA. 팬미팅 장소 비공개 | https://kiminosei.com/live/ | 아티스트 일정은 LOUDCARNIVAL 시각 TBA, 원맨 OPEN 18:00/START 18:30. mysub 11/13은 Vercel Security Checkpoint HTTP 429. 미등록 | 429 해소 후 예매 원문. 시각 확정 전 추가 금지 |
+| ivy-2026-11-28 | iVy 2026-11-28 | 2026-10-18 | 2026-11-11 | 좌석 등급 명칭, 공식 한글 별칭 | https://4kor4kor4kor.com/tickets/ivy | 일정·예매 55,000원·일반예매 재확인. 선예매 문구 없음. 대표곡 3곡은 이번 신규 검증. pending 유지 | 등급명·한글 표기가 공식 페이지에 나오면 confirmed |
+| zazen-boys-2026-12-06 | ZAZEN BOYS 2026-12-06 | 2026-09-23 | 2026-11-11 | 일반예매·선예매 일시, 대표곡 | https://www.highjinkx.com/show-list/zazen-boys | 17:00·무신사 개러지·전석 스탠딩 99,000원 재확인. YES24 상품은 접속 제한. 29CM는 시간 초과 | YES24 또는 29CM 상품 본문 |
+| 발견만 | Blue Note Tokyo 11/26, Mass of the Fermenting Dregs 12/4, Khaki 12/5 | 2026-11-10 | 이번 미실시 | 상세 미조사 |  | 홀수일 재검증으로 예산 사용. 공식 페이지 미오픈 | 다음 신규 조사. Blue Note 11/26이 날짜상 앞섬 |
 | yuki-kajiura-2026-11-22 | Yuki Kajiura 2026-11-22 | 2026-11-10 | 2026-11-10 | 대표곡 3곡, 티켓링크 상품 URL | http://yonsei-arts.com/product/521 | 일정·가격·일반예매 확인. 상품 URL은 연 공식 공지에 없음 | 공식 영상 3곡과 티켓링크 상품 페이지 |
 | ellegarden-2026-11-28 / 11-29 | ELLEGARDEN 11/28·11/29 | 2026-11-10 | 2026-11-10 | 시작 시각, YES24 상품 URL, 대표곡, 공식 한글 별칭 | https://www.universal-music.co.jp/ellegarden/news/2026-08-10/ | 날짜·장소·88,000원·일반예매 9/1 19:00 확인. 시작 시각은 공지에 없음 | YES24 상품 페이지와 공식 영상 3곡 |
 | kazumi 광주·성남·영등포·강동·대구 | 2026-12-19~25 | 2026-11-09 | 2026-11-10 | 일반예매·선예매 일시. 영등포 외 한국어 상품 페이지 | http://kazumitateishi.com/live.html | pending 등록. 영등포만 NOL 상품을 염. 곡은 2026-09-24 재사용 | 도시별 상품 페이지와 오픈 공지 |
-| choqmay-2027-01-23 | ChoQMay 2027-01-23 | 2026-11-10 | 2026-11-10 | YES24 상품 본문은 접근 제한. 사실은 아티스트·멜론으로 확인 | https://ticket.melon.com/performance/index.htm?prodId=214199 | confirmed. 일반예매 2026-11-11 20:00. 선예매 문구 없음 | 예매 오픈 후 변경 공지만 |
+| choqmay-2027-01-23 | ChoQMay 2027-01-23 | 2026-11-10 | 2026-11-11 | YES24 상품 본문은 시간 초과. 사실은 아티스트·멜론으로 재확인 | https://ticket.melon.com/performance/index.htm?prodId=214199 | confirmed. 일반예매 2026-11-11 20:00. 가격·일정 유지. 곡은 2026-11-10 재사용 | 예매 후 변경 공지만 |
 | blu-swing-2026-11-15 | BLU-SWING 2026-11-15 | 2026-09-24 | 2026-11-09 | 공식 한글 별칭 | https://www.highjinkx.com/blu-swing-2026 | 7일 이내. 이번 미재오픈 | 한글 표기 나오면 confirmed |
 | kinoue64-2026-11-14 / 11-15 | kinoue64 | 2026-10-18 | 2026-11-09 | 대표곡 3곡, 좌석등급 명칭 | https://4kor4kor4kor.com/tickets/kinoue64-2026day1 | 7일 이내. 이번 미재오픈 | 공식 영상 3곡 |
-| kazumi-tateishi-trio-2026-11-22-suwon | Kazumi 수원 | 2026-09-24 | 2026-11-10 | 일반예매 일시 | http://kazumitateishi.com/live.html | 아티스트 페이지 가격·17:00은 기존과 같음. 오픈 일시는 여전히 없음. 레코드는 변경하지 않음 | 오픈 공지 |
-| ivy-2026-11-28 | iVy 2026-11-28 | 2026-10-18 | 2026-10-18 | 대표곡, 좌석등급명 |  | 짝수일 신규 예산으로 이번 미실시 | 다음 재검증 |
-| 발견만 | Blue Note Tokyo 11/26, Mass of the Fermenting Dregs 12/4, Khaki 12/5 | 2026-11-10 | 이번 미실시 | 상세 미조사 |  | 집계 목록에서만 봄. 공식 페이지 미오픈 | 다음 신규 조사 |
+| kazumi-tateishi-trio-2026-11-22-suwon | Kazumi 수원 | 2026-09-24 | 2026-11-10 | 일반예매 일시 | http://kazumitateishi.com/live.html | 7일 이내. 이번 미재오픈 | 오픈 공지 |
+
+## Run: 2026-11-11 (KST, 홀수일, 재검증 우선)
+
+KST 날짜는 `TZ=Asia/Seoul date`로 `2026-11-11` 수요일을 재확인했다. 원격은 `https://github.com/ych061661-hash/j-live-korea.git`와 일치하고 작업 트리는 깨끗했다. 신규 상세 조사 0건. 기존 레코드와 직전 대기 후보를 재검증했다. 7일 이내 검증 건은 예매 당일 예외와 이미 막힌 임박 후보 재시도 외에는 건너뛰었다.
+
+- `choqmay-2027-01-23` 사실 유지. 2027-01-23 오후 7:00, YES24 WANDERLOCH HALL. 일반예매 2026-11-11 수 오후 8:00. 선예매 문구 없음. VIP 110,000원, 1층 스탠딩석 99,000원, 2층 지정좌석 99,000원. 최저 일반 액면가 99,000원. 대표곡 3곡은 이번 영상을 다시 열지 않고 2026-11-10 검증을 재사용. 공연 근거: https://choqmay-official.com/contents/1123197 https://ticket.melon.com/performance/index.htm?prodId=214199 . 아티스트 공지가 링크한 YES24 https://ticket.yes24.com/Perf/60901 는 연결 시간 초과라 사실 근거로 쓰지 않았다. 곡 근거(기존 재사용): https://www.youtube.com/watch?v=dJhp6awU5Z8 https://www.youtube.com/watch?v=pDzdTzqqCGw https://www.youtube.com/watch?v=PLQAYzuxt08 .
+- `ivy-2026-11-28` 일정 유지, pending 유지. 2026-11-28 19:00(open 18:30), Vel.R 벨르 (구. 벨로주), 예매 55,000원, 일반예매 2026-07-13 20:00. 선예매 문구가 없어 presaleStatus를 none으로 바꿨다. 좌석 등급명은 페이지에 없어 seatPrices는 비움. 대표곡 3곡은 이번 신규 검증, 채널 @ivy_atlantide. 채널 동영상 탭에 표시된 조회수 상위 공식 MV: ゆがむ ぴんく https://www.youtube.com/watch?v=ZxKgSX_TDlg (127K), セプタム https://www.youtube.com/watch?v=i9cGSedD3_Q (91K), kirakirakiller https://www.youtube.com/watch?v=d87IcvcyMak (43K). 라이브·라디오·다이제스트·트레일러는 제외. 채널 아바타는 og:image JPEG 900x900으로 저장. 공식 한글 표기는 연 페이지에 없어 confirmed로 올리지 않음. 공연 근거: https://4kor4kor4kor.com/tickets/ivy . 곡 근거: 위 3개 watch URL과 https://www.youtube.com/@ivy_atlantide/videos .
+- `zazen-boys-2026-12-06` 시작 시각·장소·가격 유지. 2026-12-06 시작 17:00, 위젯 종료 시각은 18:30(KST, 캘린더 20261206T080000Z/093000Z)이라 시작 시각을 바꾸지 않음. 무신사 개러지, 기획사 문구는 전석 스탠딩 99,000원. 저장된 등급명 스탠딩석은 YES24에서 온 값이고 이번 YES24 재열람이 막혀 이름을 바꾸지 않음. 일반예매·선예매 일시는 여전히 없음. 대표곡은 이번 미검증. 공연 근거: https://www.highjinkx.com/show-list/zazen-boys . YES24 https://ticket.yes24.com/Perf/59963 는 "비정상적인 접근으로 일시적으로 서비스 접속이 제한". 29CM https://ticket.29cm.co.kr/catalog/4190403 는 시간 초과.
+- `sunny-day-service-2026-12-03` 사실 유지. 2026-12-03 오후 8:00, 무신사 개러지, STANDING 예매 88,000원. 한국어 상품의 현매 99,000원은 같은 스탠딩의 당일가로 보고 등급에 넣지 않음. 예매대기 배지는 매진 공지로 쓰지 않음. 대표곡은 이번 미재오픈, 기존 3곡 유지. 소카베 뉴스 목록에는 이 서울 일정이 보이지 않았으나 취소 문구는 없었다. 공연 근거: https://tickets.interpark.com/goods/26011116 https://world.nol.com/en/ticket/products/26011116 . 곡 근거(기존): https://www.youtube.com/@SunnyDayServiceofficial/videos .
+- `yuuri-2026-12-05` `yuuri-2026-12-06` 사실 유지. 12/05 6PM, 12/06 5PM, 인스파이어 아레나. R석 165,000원, S석 154,000원, A석 143,000원. 상품 페이지에 선예매·일반예매 시각은 없고, 오픈 공지 https://tickets.interpark.com/contents/notice/detail/14619 는 본문이 비어 기존 일반예매 2026-07-31 오후 8:00를 유지. 대표곡은 이번 미재오픈. 공연 근거: https://nol.yanolja.com/ticket/products/26010352 . 곡 근거(기존): 저장된 watch URL 3개.
+- ぜんぶ君のせいだ。는 다시 열었으나 등록하지 않음. https://kiminosei.com/live/ 는 11/13·11/14 주간·11/14 야간 LOUDCARNIVAL을 ATELIER HALL, TIME TBA, DAY PASS 35,000원 / DOOR +5,000원으로 유지. 11/15 원맨은 BABYDOLL, OPEN 18:00 / START 18:30, 예매 30,000원 / 당일 35,000원. 팬미팅은 합정역 근처, 장소는 참가자에게만 공개, 13:00–15:00, 80,000원. mysub 11/13 https://mysub.kr/events/261113-loudcarnival-korea-tour 는 HTTP 429 Vercel Security Checkpoint.
+- 신규 후보 상세 조사는 하지 않음. 다음 재확인: ぜんぶ君のせいだ。 예매 원문, ZAZEN BOYS 예매 오픈, iVy 등급명·한글 표기, 예매일 미확인 pending(紫 今, Penthouse), 7일 넘은 confirmed(KANA-BOON, CUTIE STREET, Kazumi 부산, Kenshi Yonezu, Fujii Kaze 가격 공지, Homecomings 오픈 공지), NEE·LUCK LIFE. 다음 신규: Blue Note Tokyo 2026-11-26, Mass of the Fermenting Dregs 2026-12-04, Khaki 2026-12-05.
+- 접근 실패로 기존 값 삭제나 상태 하향 없음. 취소·연기 공지를 새로 확인하지 않음.
 
 ## Run: 2026-11-10 (KST, 짝수일, 신규 발견 우선)
 

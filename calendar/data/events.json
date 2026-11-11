@@ -2719,13 +2719,15 @@
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-08-12",
+    "priceVerifiedAt": "2026-11-11",
+    "scheduleVerifiedAt": "2026-11-11",
     "sources": [
       "https://tickets.interpark.com/goods/26011116",
+      "https://world.nol.com/en/ticket/products/26011116",
       "https://www.sokabekeiichi.com/",
       "https://www.youtube.com/@SunnyDayServiceofficial/videos"
     ],
-    "verifiedAt": "2026-08-13",
+    "verifiedAt": "2026-11-11",
     "createdAt": "2026-08-06T16:30:00+09:00"
   },
   {
@@ -2763,9 +2765,10 @@
     ],
     "status": "confirmed",
     "sources": [
+      "https://nol.yanolja.com/ticket/products/26010352",
       "https://tickets.interpark.com/contents/notice/detail/14619"
     ],
-    "verifiedAt": "2026-07-25",
+    "verifiedAt": "2026-11-11",
     "createdAt": "2026-07-23T15:00:00+09:00",
     "seatPrices": [
       {
@@ -2784,7 +2787,8 @@
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-08-12"
+    "priceVerifiedAt": "2026-11-11",
+    "scheduleVerifiedAt": "2026-11-11"
   },
   {
     "id": "yuuri-2026-12-06",
@@ -2821,9 +2825,10 @@
     ],
     "status": "confirmed",
     "sources": [
+      "https://nol.yanolja.com/ticket/products/26010352",
       "https://tickets.interpark.com/contents/notice/detail/14619"
     ],
-    "verifiedAt": "2026-07-25",
+    "verifiedAt": "2026-11-11",
     "createdAt": "2026-07-23T15:00:00+09:00",
     "seatPrices": [
       {
@@ -2842,7 +2847,8 @@
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-08-12"
+    "priceVerifiedAt": "2026-11-11",
+    "scheduleVerifiedAt": "2026-11-11"
   },
   {
     "id": "kana-boon-2026-12-05",
@@ -3476,14 +3482,15 @@
     ],
     "sources": ["https://ticket.yes24.com/Perf/59963", "https://www.highjinkx.com/show-list/zazen-boys"],
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://ticket.yes24.com/Perf/59963", "https://www.highjinkx.com/show-list/zazen-boys"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://www.highjinkx.com/show-list/zazen-boys"] },
-      "ticketing": { "status": "unverified", "checkedAt": "2026-09-23", "sources": ["https://ticket.yes24.com/Perf/59963", "https://www.highjinkx.com/show-list/zazen-boys"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-09-23", "sources": ["https://ticket.yes24.com/Perf/59963", "https://www.highjinkx.com/show-list/zazen-boys"] },
+      "hosting": { "status": "confirmed", "verifiedAt": "2026-11-11", "sources": ["https://ticket.yes24.com/Perf/59963", "https://www.highjinkx.com/show-list/zazen-boys"] },
+      "concertTime": { "status": "confirmed", "verifiedAt": "2026-11-11", "sources": ["https://www.highjinkx.com/show-list/zazen-boys"] },
+      "ticketing": { "status": "unverified", "checkedAt": "2026-11-11", "sources": ["https://ticket.yes24.com/Perf/59963", "https://www.highjinkx.com/show-list/zazen-boys"] },
+      "price": { "status": "confirmed", "verifiedAt": "2026-11-11", "sources": ["https://ticket.yes24.com/Perf/59963", "https://www.highjinkx.com/show-list/zazen-boys"] },
       "representativeSongs": { "status": "unverified", "checkedAt": "2026-09-23", "sources": [] }
     },
-    "priceVerifiedAt": "2026-09-23",
-    "verifiedAt": "2026-09-23",
+    "priceVerifiedAt": "2026-11-11",
+    "scheduleVerifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-11",
     "createdAt": "2026-09-23T16:19:43+09:00"
   },
   {
@@ -3895,7 +3902,7 @@
     "concertDate": "2026-11-28",
     "time": "오후 7:00",
     "venue": "Vel.R 벨르 (구. 벨로주)",
-    "presaleStatus": "checking",
+    "presaleStatus": "none",
     "presaleDate": "",
     "presaleTime": "",
     "ticketDate": "2026-07-13",
@@ -3904,22 +3911,28 @@
     "priceCurrency": "KRW",
     "vendor": "4KOR (Google Forms)",
     "vendorUrl": "https://4kor4kor4kor.com/tickets/ivy",
-    "youtubeChannel": "",
-    "songs": [],
+    "youtubeChannel": "@ivy_atlantide",
+    "youtubeProfileImage": "./assets/artists/ivy_atlantide.jpg",
+    "songs": [
+      ["ゆがむ ぴんく", "", "https://www.youtube.com/watch?v=ZxKgSX_TDlg"],
+      ["セプタム", "", "https://www.youtube.com/watch?v=i9cGSedD3_Q"],
+      ["kirakirakiller", "", "https://www.youtube.com/watch?v=d87IcvcyMak"]
+    ],
     "status": "pending",
     "hostingStatus": "confirmed",
     "ticketingStatus": "confirmed",
     "seatPrices": [],
     "sources": ["https://4kor4kor4kor.com/tickets/ivy"],
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://4kor4kor4kor.com/tickets/ivy"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://4kor4kor4kor.com/tickets/ivy"] },
-      "ticketing": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://4kor4kor4kor.com/tickets/ivy"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-10-18", "sources": ["https://4kor4kor4kor.com/tickets/ivy"] },
-      "representativeSongs": { "status": "unverified", "checkedAt": "2026-10-18", "sources": [] }
+      "hosting": { "status": "confirmed", "verifiedAt": "2026-11-11", "sources": ["https://4kor4kor4kor.com/tickets/ivy"] },
+      "concertTime": { "status": "confirmed", "verifiedAt": "2026-11-11", "sources": ["https://4kor4kor4kor.com/tickets/ivy"] },
+      "ticketing": { "status": "confirmed", "verifiedAt": "2026-11-11", "sources": ["https://4kor4kor4kor.com/tickets/ivy"] },
+      "price": { "status": "confirmed", "verifiedAt": "2026-11-11", "sources": ["https://4kor4kor4kor.com/tickets/ivy"] },
+      "representativeSongs": { "status": "confirmed", "verifiedAt": "2026-11-11", "sources": ["https://www.youtube.com/watch?v=ZxKgSX_TDlg", "https://www.youtube.com/watch?v=i9cGSedD3_Q", "https://www.youtube.com/watch?v=d87IcvcyMak", "https://www.youtube.com/@ivy_atlantide/videos"] }
     },
-    "priceVerifiedAt": "2026-10-18",
-    "verifiedAt": "2026-10-18",
+    "priceVerifiedAt": "2026-11-11",
+    "scheduleVerifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-11",
     "createdAt": "2026-10-18T12:00:00+09:00"
   },
   {
@@ -4425,7 +4438,7 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-11",
         "sources": [
           "https://choqmay-official.com/contents/1123197",
           "https://ticket.melon.com/performance/index.htm?prodId=214199"
@@ -4433,7 +4446,7 @@
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-11",
         "sources": [
           "https://choqmay-official.com/contents/1123197",
           "https://ticket.melon.com/performance/index.htm?prodId=214199"
@@ -4441,7 +4454,7 @@
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-11",
         "sources": [
           "https://choqmay-official.com/contents/1123197",
           "https://ticket.melon.com/performance/index.htm?prodId=214199"
@@ -4449,7 +4462,7 @@
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-11",
         "sources": [
           "https://choqmay-official.com/contents/1123197",
           "https://ticket.melon.com/performance/index.htm?prodId=214199"
@@ -4457,14 +4470,14 @@
       },
       "ticketing": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-11",
         "sources": [
           "https://choqmay-official.com/contents/1123197"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-11",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214199"
         ]
@@ -4480,9 +4493,9 @@
         ]
       }
     },
-    "priceVerifiedAt": "2026-11-10",
-    "scheduleVerifiedAt": "2026-11-10",
-    "verifiedAt": "2026-11-10",
+    "priceVerifiedAt": "2026-11-11",
+    "scheduleVerifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-11",
     "createdAt": "2026-11-10T10:00:00+09:00",
     "organizer": "위트(weete)"
   },
