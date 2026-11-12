@@ -14,10 +14,15 @@ Format: `- <event id> — verifiedAt=<date> — note`
 
 | 후보 ID / 기존 ID | 아티스트·공연일·회차 | 발견일 | 마지막 시도(KST) | 누락 필드 | 확인한 공식 URL | 결과·접근 실패 원인 | 다음 행동·우선순위 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| zenbu loudcarnival / one-man | ぜんぶ君のせいだ。 11/13·11/14·11/15 | 2026-11-10 | 2026-11-11 | 합동 공연 시작 시각 TBA. 팬미팅 장소 비공개 | https://kiminosei.com/live/ | 아티스트 일정은 LOUDCARNIVAL 시각 TBA, 원맨 OPEN 18:00/START 18:30. mysub 11/13은 Vercel Security Checkpoint HTTP 429. 미등록 | 429 해소 후 예매 원문. 시각 확정 전 추가 금지 |
+| blue-note-tokyo-all-star-jazz-orchestra-2026-11-26 | Blue Note Tokyo All-Star Jazz Orchestra 2026-11-26 | 2026-11-10 | 2026-11-12 | 일반예매·선예매 일시, 대표곡 3곡, 공식 한글·일본어 별칭 | https://nol.yanolja.com/ticket/products/26012128 | pending. 19:30·세종예술의전당·R석 60,000·S석 40,000. 예매 공지 본문과 포스터에 오픈 일시 없음. curl은 HTTP 403 | 오픈 공지와 공식 영상 3곡 |
+| mass-of-the-fermenting-dregs-2026-12-04 | Mass Of The Fermenting Dregs 2026-12-04 | 2026-11-10 | 2026-11-12 | 일반예매·선예매 일시, 대표곡 3곡 | https://ticket.melon.com/performance/index.htm?prodId=213843 | pending. 19:30·상상마당 홍대·전석 77,000. 아티스트 투어는 서울 SOLDOUT. 멜론 예매 공지 본문은 비어 있음. curl 원문은 HTTP 423 | 오픈 공지와 공식 채널 영상 3곡 |
+| khaki-2026-12-05 | Khaki 2026-12-05 | 2026-11-10 | 2026-11-12 | 일반예매·선예매 일시, 대표곡 3곡. 가격 숫자는 영문 상품에만 표시 | https://nol.yanolja.com/ticket/products/26012829 | cancelled. THE VAULT 취소 공지와 판매취소. 전석 스탠딩 88,000원은 영문 NOL. 대표곡 미검증 | 취소 후 재공지 여부만 |
+| sui-sui-duck-2026-12-20 | sui sui duck 2026-12-20 | 2026-11-12 | 2026-11-12 | 일반예매·선예매 일시, 대표곡 3곡, 일본어 별칭 | https://ticket.melon.com/performance/index.htm?prodId=214128 | pending. 19:00·Vel.R(벨르)·전석 44,000. 한글 스이스이덕은 상품명. 예매 공지 본문 비어 있음 | 오픈 공지와 공식 영상 3곡 |
+| runidre-2027-01-16 | RUNIDRE 2027-01-16 | 2026-11-12 | 2026-11-12 | 일반예매·선예매 일시, 대표곡 3곡, 한글·일본어 별칭 | https://ticket.melon.com/performance/index.htm?prodId=214040 | pending. 15:00·큐브컨벤션센터. Happy Clover 254,000·Smile Clover 176,000·Enjoy Clover 66,000. 예매 공지 본문 비어 있음 | 오픈 공지와 공식 영상 3곡 |
+| 발견만 | 雪国 One Man Tour 2026 claras in Seoul | 2026-11-12 | 이번 미실시 | 상세 미조사 | https://ticket.melon.com/concert/index.htm | 멜론 콘서트 목록 제목만 봄. 상품 페이지는 5건 상한으로 열지 않음 | 다음 신규 조사 |
+| zenbu loudcarnival / one-man | ぜんぶ君のせいだ。 11/13·11/14·11/15 | 2026-11-10 | 2026-11-11 | 합동 공연 시작 시각 TBA. 팬미팅 장소 비공개 | https://kiminosei.com/live/ | 이번 미재오픈. 직전 기록은 시각 충돌·mysub HTTP 429라 미등록 유지 | 429 해소 후 예매 원문. 시각 확정 전 추가 금지 |
 | ivy-2026-11-28 | iVy 2026-11-28 | 2026-10-18 | 2026-11-11 | 좌석 등급 명칭, 공식 한글 별칭 | https://4kor4kor4kor.com/tickets/ivy | 일정·예매 55,000원·일반예매 재확인. 선예매 문구 없음. 대표곡 3곡은 이번 신규 검증. pending 유지 | 등급명·한글 표기가 공식 페이지에 나오면 confirmed |
 | zazen-boys-2026-12-06 | ZAZEN BOYS 2026-12-06 | 2026-09-23 | 2026-11-11 | 일반예매·선예매 일시, 대표곡 | https://www.highjinkx.com/show-list/zazen-boys | 17:00·무신사 개러지·전석 스탠딩 99,000원 재확인. YES24 상품은 접속 제한. 29CM는 시간 초과 | YES24 또는 29CM 상품 본문 |
-| 발견만 | Blue Note Tokyo 11/26, Mass of the Fermenting Dregs 12/4, Khaki 12/5 | 2026-11-10 | 이번 미실시 | 상세 미조사 |  | 홀수일 재검증으로 예산 사용. 공식 페이지 미오픈 | 다음 신규 조사. Blue Note 11/26이 날짜상 앞섬 |
 | yuki-kajiura-2026-11-22 | Yuki Kajiura 2026-11-22 | 2026-11-10 | 2026-11-10 | 대표곡 3곡, 티켓링크 상품 URL | http://yonsei-arts.com/product/521 | 일정·가격·일반예매 확인. 상품 URL은 연 공식 공지에 없음 | 공식 영상 3곡과 티켓링크 상품 페이지 |
 | ellegarden-2026-11-28 / 11-29 | ELLEGARDEN 11/28·11/29 | 2026-11-10 | 2026-11-10 | 시작 시각, YES24 상품 URL, 대표곡, 공식 한글 별칭 | https://www.universal-music.co.jp/ellegarden/news/2026-08-10/ | 날짜·장소·88,000원·일반예매 9/1 19:00 확인. 시작 시각은 공지에 없음 | YES24 상품 페이지와 공식 영상 3곡 |
 | kazumi 광주·성남·영등포·강동·대구 | 2026-12-19~25 | 2026-11-09 | 2026-11-10 | 일반예매·선예매 일시. 영등포 외 한국어 상품 페이지 | http://kazumitateishi.com/live.html | pending 등록. 영등포만 NOL 상품을 염. 곡은 2026-09-24 재사용 | 도시별 상품 페이지와 오픈 공지 |
@@ -25,6 +30,17 @@ Format: `- <event id> — verifiedAt=<date> — note`
 | blu-swing-2026-11-15 | BLU-SWING 2026-11-15 | 2026-09-24 | 2026-11-09 | 공식 한글 별칭 | https://www.highjinkx.com/blu-swing-2026 | 7일 이내. 이번 미재오픈 | 한글 표기 나오면 confirmed |
 | kinoue64-2026-11-14 / 11-15 | kinoue64 | 2026-10-18 | 2026-11-09 | 대표곡 3곡, 좌석등급 명칭 | https://4kor4kor4kor.com/tickets/kinoue64-2026day1 | 7일 이내. 이번 미재오픈 | 공식 영상 3곡 |
 | kazumi-tateishi-trio-2026-11-22-suwon | Kazumi 수원 | 2026-09-24 | 2026-11-10 | 일반예매 일시 | http://kazumitateishi.com/live.html | 7일 이내. 이번 미재오픈 | 오픈 공지 |
+
+## Run: 2026-11-12 (KST, 짝수일, 신규 발견 우선)
+
+KST 날짜는 `TZ=Asia/Seoul date`로 `2026-11-12` 목요일을 재확인했다. 원격은 `https://github.com/ych061661-hash/j-live-korea.git`와 일치하고 작업 트리는 깨끗했다. 실행 중인 다른 일일 검증 에이전트는 없었다. 신규 상세 조사 5건. 기존 미래 공연 재검증은 예매 임박·공식 변경 신호가 없어 하지 않았다. 저장된 일반예매일이 오늘부터 30일 이내인 기존 레코드는 없었다. 7일 이내 검증 건은 건너뛰었다. 대표곡 3곡은 다섯 건 모두 이번 미검증이라 confirmed로 올리지 않았다. 접근 실패로 기존 값 삭제나 상태 하향 없음.
+
+- `blue-note-tokyo-all-star-jazz-orchestra-2026-11-26` 신규 pending. 2026-11-26 목 19:30, 세종예술의전당. R석 60,000원, S석 40,000원. 최저 일반 액면가 40,000원. 선예매·일반예매 일시는 연 상품 본문과 공식 포스터에 없다. 공연 근거: https://nol.yanolja.com/ticket/products/26012128 . 같은 URL curl은 HTTP 403. 곡은 미검증.
+- `mass-of-the-fermenting-dregs-2026-12-04` 신규 pending. 2026-12-04 금 오후 7:30, KT&G 상상마당 홍대 라이브홀, 전석 77,000원. 아티스트 공식 투어 페이지는 서울을 SOLDOUT으로 적는다. 멜론 상품의 예매 공지 본문은 비어 있어 오픈 일시를 넣지 않았다. 현장가 88,000원은 연 공식 페이지에 없어 넣지 않음. 공연 근거: https://ticket.melon.com/performance/index.htm?prodId=213843 https://www.motfd.com/iwaouthetour . 멜론 curl은 HTTP 423. 공식 사이트 유튜브 채널 ID는 `UC8HQ1Us0QsSb1i3UW6dJ26g`이나 채널 동영상 목록이 렌더되지 않아 대표곡은 비움. `@Motfd` 영상은 그 채널과 같은지 확인하지 못해 쓰지 않음.
+- `khaki-2026-12-05` 신규 cancelled. 2026-12-05 토 오후 7:00, KT&G 상상마당 홍대 라이브홀. 한국어 NOL 상품의 THE VAULT 공지는 나카시오 히로토 건강 문제로 2026년 라이브 활동 중단과 공연 취소, 예매처 일괄 취소를 알린다. 판매 상태는 판매취소. 전석 스탠딩 88,000원은 같은 상품의 영문 NOL에 있다. 선예매·일반예매 일시는 연 페이지에 없다. 대표곡 미검증. 별칭 카키는 한국어 상품명. 공연 근거: https://nol.yanolja.com/ticket/products/26012829 https://world.nol.com/en/ticket/places/24000730/products/26012829 . NOL curl은 HTTP 403.
+- `sui-sui-duck-2026-12-20` 신규 pending. 2026-12-20 일 오후 7:00, Vel.R(벨르), 전석 44,000원. 선예매·일반예매 일시는 예매 공지 본문이 비어 확인하지 못함. 별칭 스이스이덕은 멜론 상품명. 일본어 표기는 연 페이지에 없음. 대표곡 미검증. 공연 근거: https://ticket.melon.com/performance/index.htm?prodId=214128 .
+- `runidre-2027-01-16` 신규 pending. 2027-01-16 토 오후 3:00, 큐브컨벤션센터. Happy Clover 254,000원, Smile Clover 176,000원, Enjoy Clover 66,000원. 최저 일반 액면가 66,000원. 선예매·일반예매 일시와 한글·일본어 별칭은 연 페이지에 없음. 대표곡 미검증. 공연 근거: https://ticket.melon.com/performance/index.htm?prodId=214040 .
+- 다음 신규: 멜론 콘서트 목록에만 보인 雪国 One Man Tour 2026 “claras” in Seoul. 상품 페이지는 열지 않음. 다음 재확인: 위 5건의 예매 오픈 공지와 공식 영상, 예매일 미확인 pending(ZAZEN BOYS, 紫 今, Penthouse, Kazumi 추가 도시), 7일 넘은 confirmed(KANA-BOON, CUTIE STREET, Kazumi 부산, Kenshi Yonezu, Fujii Kaze 가격 공지, Homecomings 오픈 공지).
 
 ## Run: 2026-11-11 (KST, 홀수일, 재검증 우선)
 
