@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_VERSION = "j-live-pwa-v104-20261112-aliases";
+const CACHE_VERSION = "j-live-pwa-v105-20261114-aliases";
 const APP_SHELL = [
   "/calendar/",
   "/calendar/index.html",

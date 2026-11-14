@@ -6472,5 +6472,394 @@
         "sources": []
       }
     }
+  },
+  "yukiguni-2026-12-17": {
+    "artist": "雪国",
+    "concertDate": "2026-12-17",
+    "time": "오후 8:00",
+    "venue": "얼라이브홀",
+    "vendor": "멜론티켓",
+    "vendorUrl": "https://ticket.melon.com/performance/index.htm?prodId=214216",
+    "ticketDate": "",
+    "ticketTime": "",
+    "presaleDate": "",
+    "presaleTime": "",
+    "presaleStatus": "checking",
+    "status": "pending",
+    "ticketLabel": null,
+    "verifiedAt": "2026-11-14",
+    "scheduleVerifiedAt": "2026-11-14",
+    "priceVerifiedAt": "2026-11-14",
+    "sources": [
+      "https://ticket.melon.com/performance/index.htm?prodId=214216"
+    ],
+    "price": 66000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "스탠딩",
+        "price": 66000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
+    "seriesId": null,
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "unverified",
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-14",
+        "sources": [
+          "https://ticket.melon.com/performance/index.htm?prodId=214216"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-14",
+        "sources": [
+          "https://ticket.melon.com/performance/index.htm?prodId=214216"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-14",
+        "sources": [
+          "https://ticket.melon.com/performance/index.htm?prodId=214216"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-14",
+        "sources": [
+          "https://ticket.melon.com/performance/index.htm?prodId=214216"
+        ]
+      },
+      "ticketing": {
+        "status": "unverified",
+        "checkedAt": "2026-11-14",
+        "sources": [
+          "https://ticket.melon.com/performance/index.htm?prodId=214216"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-14",
+        "sources": [
+          "https://ticket.melon.com/performance/index.htm?prodId=214216"
+        ]
+      },
+      "representativeSongs": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-14",
+        "sources": [
+          "https://www.youtube.com/watch?v=-p5fSjGXUVI",
+          "https://www.youtube.com/watch?v=w50-b2OhWjw",
+          "https://www.youtube.com/watch?v=L8XgNc_MimY",
+          "https://www.youtube.com/@ykq2_band/videos"
+        ]
+      }
+    }
+  },
+  "nothings-carved-in-stone-2026-12-20": {
+    "artist": "Nothing's Carved In Stone",
+    "concertDate": "2026-12-20",
+    "time": "오후 6:00",
+    "venue": "롤링홀",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://nol.yanolja.com/ticket/products/26015587",
+    "ticketDate": "",
+    "ticketTime": "",
+    "presaleDate": "",
+    "presaleTime": "",
+    "presaleStatus": "checking",
+    "status": "pending",
+    "ticketLabel": null,
+    "verifiedAt": "2026-11-14",
+    "scheduleVerifiedAt": "2026-11-14",
+    "priceVerifiedAt": "2026-11-14",
+    "sources": [
+      "https://www.ncis.jp/news/one-man-live-korea/",
+      "https://nol.yanolja.com/ticket/products/26015587",
+      "https://world.nol.com/en/ticket/products/26015587"
+    ],
+    "price": 88000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "전석 스탠딩",
+        "price": 88000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
+    "seriesId": null,
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "unverified",
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-14",
+        "sources": [
+          "https://www.ncis.jp/news/one-man-live-korea/",
+          "https://nol.yanolja.com/ticket/products/26015587"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-14",
+        "sources": [
+          "https://www.ncis.jp/news/one-man-live-korea/",
+          "https://nol.yanolja.com/ticket/products/26015587"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-14",
+        "sources": [
+          "https://www.ncis.jp/news/one-man-live-korea/",
+          "https://nol.yanolja.com/ticket/products/26015587"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-14",
+        "sources": [
+          "https://www.ncis.jp/news/one-man-live-korea/",
+          "https://nol.yanolja.com/ticket/products/26015587"
+        ]
+      },
+      "ticketing": {
+        "status": "unverified",
+        "checkedAt": "2026-11-14",
+        "sources": [
+          "https://www.ncis.jp/news/one-man-live-korea/",
+          "https://nol.yanolja.com/ticket/products/26015587"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-14",
+        "sources": [
+          "https://www.ncis.jp/news/one-man-live-korea/",
+          "https://world.nol.com/en/ticket/products/26015587"
+        ]
+      },
+      "representativeSongs": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-14",
+        "sources": [
+          "https://www.youtube.com/watch?v=NdMjsZOzeEQ",
+          "https://www.youtube.com/watch?v=wpVZ4y3N4_Q",
+          "https://www.youtube.com/watch?v=jdrr6PgidNI",
+          "https://www.ncis.jp/"
+        ]
+      }
+    }
+  },
+  "kurayamisaka-2027-01-09": {
+    "artist": "kurayamisaka",
+    "concertDate": "2027-01-09",
+    "time": "오후 6:30",
+    "venue": "KT&G 상상마당 홍대 라이브홀",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Perf/60147",
+    "ticketDate": "2026-09-17",
+    "ticketTime": "오후 12:00",
+    "presaleDate": "",
+    "presaleTime": "",
+    "presaleStatus": "none",
+    "status": "pending",
+    "ticketLabel": null,
+    "verifiedAt": "2026-11-14",
+    "scheduleVerifiedAt": "2026-11-14",
+    "priceVerifiedAt": "2026-11-14",
+    "sources": [
+      "https://www.highjinkx.com/aosaka",
+      "https://kurayamisaka.com/live/"
+    ],
+    "price": 88000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "전석 스탠딩",
+        "price": 88000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "ticketAvailability": "sold_out",
+    "ticketStatusVerifiedAt": "2026-11-14T09:00:00+09:00",
+    "ticketStatusSource": "https://kurayamisaka.com/live/",
+    "seriesId": null,
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "confirmed",
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-14",
+        "sources": [
+          "https://www.highjinkx.com/aosaka",
+          "https://kurayamisaka.com/live/"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-14",
+        "sources": [
+          "https://www.highjinkx.com/aosaka",
+          "https://kurayamisaka.com/live/"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-14",
+        "sources": [
+          "https://www.highjinkx.com/aosaka"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-14",
+        "sources": [
+          "https://www.highjinkx.com/aosaka",
+          "https://kurayamisaka.com/live/"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-14",
+        "sources": [
+          "https://www.highjinkx.com/aosaka"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-14",
+        "sources": [
+          "https://www.highjinkx.com/aosaka"
+        ]
+      },
+      "representativeSongs": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-14",
+        "sources": [
+          "https://www.youtube.com/watch?v=igHx-8HpK14",
+          "https://www.youtube.com/watch?v=dBOT-TLz0Zg",
+          "https://www.youtube.com/watch?v=DPTg3D80cOI",
+          "https://kurayamisaka.com/"
+        ]
+      }
+    }
+  },
+  "koresawa-2027-02-27": {
+    "artist": "Koresawa",
+    "concertDate": "2027-02-27",
+    "time": "오후 6:00",
+    "venue": "YES24 WANDERLOCH HALL",
+    "vendor": "멜론티켓",
+    "vendorUrl": "https://ticket.melon.com/performance/index.htm?prodId=214074",
+    "ticketDate": "2026-10-22",
+    "ticketTime": "오후 8:00",
+    "presaleDate": "",
+    "presaleTime": "",
+    "presaleStatus": "none",
+    "status": "confirmed",
+    "ticketLabel": null,
+    "verifiedAt": "2026-11-14",
+    "scheduleVerifiedAt": "2026-11-14",
+    "priceVerifiedAt": "2026-11-14",
+    "sources": [
+      "https://www.koresawa.jp/live.html",
+      "https://ticket.melon.com/performance/index.htm?prodId=214074",
+      "https://ticket.yes24.com/Perf/60647"
+    ],
+    "price": 99000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "VIP",
+        "price": 110000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "1층 스탠딩석",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "2층 지정석",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
+    "seriesId": null,
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "confirmed",
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-14",
+        "sources": [
+          "https://www.koresawa.jp/live.html",
+          "https://ticket.melon.com/performance/index.htm?prodId=214074"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-14",
+        "sources": [
+          "https://www.koresawa.jp/live.html",
+          "https://ticket.melon.com/performance/index.htm?prodId=214074"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-14",
+        "sources": [
+          "https://www.koresawa.jp/live.html",
+          "https://ticket.melon.com/performance/index.htm?prodId=214074"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-14",
+        "sources": [
+          "https://www.koresawa.jp/live.html",
+          "https://ticket.melon.com/performance/index.htm?prodId=214074"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-14",
+        "sources": [
+          "https://www.koresawa.jp/live.html"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-14",
+        "sources": [
+          "https://www.koresawa.jp/live.html",
+          "https://ticket.melon.com/performance/index.htm?prodId=214074"
+        ]
+      },
+      "representativeSongs": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-14",
+        "sources": [
+          "https://www.youtube.com/watch?v=7B_PVsPvcg0",
+          "https://www.youtube.com/watch?v=e3857A5uuCA",
+          "https://www.youtube.com/watch?v=3EIHuC5e21k",
+          "https://www.koresawa.jp/video.html"
+        ]
+      }
+    }
   }
 }

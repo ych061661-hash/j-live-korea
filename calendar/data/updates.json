@@ -1,5 +1,33 @@
 [
   {
+    "id": "2026-11-14-ticket-open-koresawa-2027-02-27",
+    "date": "2026-11-14",
+    "kind": "ticket-open",
+    "label": "티켓 오픈",
+    "artist": "Koresawa",
+    "eventId": "koresawa-2027-02-27",
+    "concertDate": "2027-02-27",
+    "summary": "예매 일정이 공개됐습니다. 일반예매 2026년 10월 22일(목) 오후 8:00.",
+    "url": "https://www.koresawa.jp/live.html",
+    "verifiedAt": "2026-11-14",
+    "recordedAt": "2026-11-14",
+    "dateMeaning": "recorded"
+  },
+  {
+    "id": "2026-11-14-announcement-koresawa-2027-02-27",
+    "date": "2026-11-14",
+    "kind": "announcement",
+    "label": "신규 공연",
+    "artist": "Koresawa",
+    "eventId": "koresawa-2027-02-27",
+    "concertDate": "2027-02-27",
+    "summary": "2027년 2월 27일(토) 오후 6:00 YES24 WANDERLOCH HALL 공연이 발표됐습니다.",
+    "url": "https://www.koresawa.jp/live.html",
+    "verifiedAt": "2026-11-14",
+    "recordedAt": "2026-11-14",
+    "dateMeaning": "recorded"
+  },
+  {
     "id": "2026-11-10-ticket-open-choqmay-2027-01-23",
     "date": "2026-11-10",
     "kind": "ticket-open",
