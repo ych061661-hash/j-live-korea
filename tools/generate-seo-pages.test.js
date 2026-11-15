@@ -481,10 +481,10 @@ test("homepage labels announcement wait separately from unknown prices and unver
     price: 0, vendorUrl: "https://tickets.example/wait", verifiedAt: "2026-09-20", sources: ["https://official.example/wait"]
   };
   const html = homepageScheduleMarkup([event], {}, "2026-09-24");
-  assert.match(html, /예매 일정 발표 대기/);
+  const card = html.match(/<article class="home-schedule-card"[\s\S]*?<\/article>/)[0];
   assert.match(html, /가격 미확인/);
-  assert.match(html, /현재 판매 상태는 공식 예매처에서 확인/);
-  assert.match(html, /일정 확인 2026-09-20 · 가격 확인 미기록 · 판매 상태 확인 미확인/);
+  assert.doesNotMatch(card, /예매 일정|판매 상태|일반예매|선예매/);
+  assert.match(card, /일정 확인 2026-09-20 · 가격 확인 미기록/);
   assert.doesNotMatch(html, /본문 수정 2026-09-20/);
 });
 

@@ -377,13 +377,9 @@ function eventCardMarkup(event, aliases, now) {
     <dl>
       <div><dt>공연</dt><dd>${escapeHtml(humanDate(event.concertDate, event.time || "시간 미확인"))}</dd></div>
       <div><dt>공연장</dt><dd>${escapeHtml(event.venue || "미확인")}</dd></div>
-      <div><dt>예매 일정</dt><dd>${escapeHtml(visitor.ticketStatus(event, now).label)}</dd></div>
-      <div><dt>판매 상태</dt><dd>${escapeHtml(ticketAvailabilityDisplay(event, now))}</dd></div>
-      <div><dt>일반예매</dt><dd>${escapeHtml(ticketDateDisplay(event))}</dd></div>
-${event.presaleDate || event.presaleStatus ? `      <div><dt>선예매</dt><dd>${escapeHtml(presaleDisplay(event))}</dd></div>\n` : ""}
       <div><dt>가격</dt><dd>${seatPriceMarkup(event)}</dd></div>
     </dl>
-    <p class="home-schedule-verified">일정 확인 ${escapeHtml(visitor.verificationDates(event).schedule || "미기록")} · 가격 확인 ${escapeHtml(visitor.verificationDates(event).price || "미기록")} · 판매 상태 확인 ${escapeHtml(visitor.verificationDates(event).availability || "미확인")}</p>
+    <p class="home-schedule-verified">일정 확인 ${escapeHtml(visitor.verificationDates(event).schedule || "미기록")} · 가격 확인 ${escapeHtml(visitor.verificationDates(event).price || "미기록")}</p>
     <div class="home-schedule-links"><a href="./events/${encodeURIComponent(event.id)}">공연 상세 보기 <span aria-hidden="true">→</span></a>${event.vendorUrl ? `<a href="${escapeHtml(event.vendorUrl)}" target="_blank" rel="noopener noreferrer">공식 예매처 <span aria-hidden="true">↗</span></a>` : ""}</div>
   </article>`;
 }
@@ -407,9 +403,9 @@ function monthGroupsMarkup(events, aliases, now) {
     const cards = [...series.values()].map(group => {
       if (group.length === 1) return eventCardMarkup(group[0], aliases, now);
       const event = group[0];
-      const dates = group.map(item => `<li><a href="./events/${encodeURIComponent(item.id)}"><time>${escapeHtml(humanDate(item.concertDate, item.time || "시간 미확인"))}</time><span>회차 상세</span></a><small>${escapeHtml(visitor.ticketStatus(item, now).label)} · 판매 상태 ${escapeHtml(ticketAvailabilityDisplay(item, now))} · 일반예매 ${escapeHtml(ticketDateDisplay(item))}${item.presaleDate || item.presaleStatus ? ` · 선예매 ${escapeHtml(presaleDisplay(item))}` : ""} · 가격 ${seatPriceMarkup(item)}</small></li>`).join("");
+      const dates = group.map(item => `<li><a href="./events/${encodeURIComponent(item.id)}"><time>${escapeHtml(humanDate(item.concertDate, item.time || "시간 미확인"))}</time><span>회차 상세</span></a><small>가격 ${seatPriceMarkup(item)}</small></li>`).join("");
       const samePrices = new Set(group.map(item => JSON.stringify(item.seatPrices || []))).size === 1;
-      return `<article class="home-schedule-card" data-home-event-id="${escapeHtml(event.id)}"><div><span class="section-kicker">${escapeHtml(event.genre || "J-POP")}</span><h3><a href="./events/${encodeURIComponent(event.id)}">${escapeHtml(homeArtistName(event, aliases))}</a> <small>${group.length}회</small></h3></div><dl><div><dt>회차</dt><dd><ul class="home-series-dates">${dates}</ul></dd></div><div><dt>공연장</dt><dd>${escapeHtml(event.venue || "미확인")}</dd></div><div><dt>예매 일정</dt><dd>${escapeHtml(visitor.ticketStatus(event, now).label)}</dd></div>${samePrices ? `<div><dt>가격</dt><dd>${seatPriceMarkup(event)}</dd></div>` : ""}</dl><p class="home-schedule-verified">일정 확인 ${escapeHtml(visitor.verificationDates(event).schedule || "미기록")} · 가격 확인 ${escapeHtml(visitor.verificationDates(event).price || "미기록")} · 판매 상태 확인 ${escapeHtml(visitor.verificationDates(event).availability || "미확인")}</p><div class="home-schedule-links">${event.vendorUrl ? `<a href="${escapeHtml(event.vendorUrl)}" target="_blank" rel="noopener noreferrer">공식 예매처 <span aria-hidden="true">↗</span></a>` : ""}</div></article>`;
+      return `<article class="home-schedule-card" data-home-event-id="${escapeHtml(event.id)}"><div><span class="section-kicker">${escapeHtml(event.genre || "J-POP")}</span><h3><a href="./events/${encodeURIComponent(event.id)}">${escapeHtml(homeArtistName(event, aliases))}</a> <small>${group.length}회</small></h3></div><dl><div><dt>회차</dt><dd><ul class="home-series-dates">${dates}</ul></dd></div><div><dt>공연장</dt><dd>${escapeHtml(event.venue || "미확인")}</dd></div>${samePrices ? `<div><dt>가격</dt><dd>${seatPriceMarkup(event)}</dd></div>` : ""}</dl><p class="home-schedule-verified">일정 확인 ${escapeHtml(visitor.verificationDates(event).schedule || "미기록")} · 가격 확인 ${escapeHtml(visitor.verificationDates(event).price || "미기록")}</p><div class="home-schedule-links">${event.vendorUrl ? `<a href="${escapeHtml(event.vendorUrl)}" target="_blank" rel="noopener noreferrer">공식 예매처 <span aria-hidden="true">↗</span></a>` : ""}</div></article>`;
     }).join("\n");
     return `<section class="home-schedule-month"><h3>${year}년 ${month}월</h3><div class="home-schedule-grid">${cards}</div></section>`;
   }).join("\n");
