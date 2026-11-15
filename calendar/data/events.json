@@ -3360,6 +3360,7 @@
     "vendor": "멜론티켓",
     "vendorUrl": "https://ticket.melon.com/performance/index.htm?prodId=213806",
     "youtubeChannel": "@homecomingsch",
+    "youtubeProfileImage": "assets/artists/homecomingsch.jpg",
     "songs": [
       [
         "angel near you",
@@ -3567,7 +3568,8 @@
     "ticketDate": "2026-09-01",
     "ticketTime": "오후 12:00",
     "vendor": "YES24 티켓",
-    "youtubeChannel": "",
+    "youtubeChannel": "@Penthouse",
+    "youtubeProfileImage": "assets/artists/penthouse.jpg",
     "songs": [],
     "status": "pending",
     "hostingStatus": "confirmed",
@@ -3706,6 +3708,7 @@
     "vendor": "NOL 티켓",
     "vendorUrl": "https://nol.yanolja.com/ticket/products/26009224",
     "youtubeChannel": "https://www.youtube.com/channel/UC-AiP1NoABhE6hVssW3rXng",
+    "youtubeProfileImage": "assets/artists/kazumi-tateishi-trio.jpg",
     "songs": [
       ["人生のメリーゴーランド (하울의 움직이는 성)", "", "https://www.youtube.com/watch?v=-KVdLKPIMHQ"],
       ["海の見える街 (마녀 배달부 키키)", "", "https://www.youtube.com/watch?v=tR4zJlwhPjs"],
@@ -3759,6 +3762,7 @@
     "vendor": "YES24 티켓",
     "vendorUrl": "https://ticket.yes24.com/Perf/60203",
     "youtubeChannel": "https://www.youtube.com/@mulasakiima",
+    "youtubeProfileImage": "assets/artists/mulasakiima.jpg",
     "songs": [
       ["魔性の女A", "", "https://www.youtube.com/watch?v=XWSU6H1g4qE"]
     ],
@@ -3803,7 +3807,8 @@
     "priceCurrency": "KRW",
     "vendor": "YES24 티켓",
     "vendorUrl": "https://ticket.yes24.com/Perf/60207",
-    "youtubeChannel": "",
+    "youtubeChannel": "@humpback_official",
+    "youtubeProfileImage": "assets/artists/humpback_official.jpg",
     "songs": [
       ["拝啓、少年よ", "", "https://www.youtube.com/watch?v=d6i4AtCxrDo"]
     ],
@@ -4019,7 +4024,8 @@
     "priceCurrency": "KRW",
     "vendor": "멜론티켓",
     "vendorUrl": "https://m.globalticket.melon.com/performance/detail/213863?lang=en-US",
-    "youtubeChannel": "",
+    "youtubeChannel": "@nee",
+    "youtubeProfileImage": "assets/artists/nee.jpg",
     "songs": [],
     "status": "pending",
     "hostingStatus": "confirmed",
@@ -4055,7 +4061,8 @@
     "priceCurrency": "KRW",
     "vendor": "멜론티켓",
     "vendorUrl": "https://ticket.melon.com/csoon/detail.htm?csoonId=12884",
-    "youtubeChannel": "",
+    "youtubeChannel": "@lucklife0315",
+    "youtubeProfileImage": "assets/artists/lucklife0315.jpg",
     "songs": [],
     "status": "pending",
     "hostingStatus": "confirmed",
@@ -4096,7 +4103,8 @@
     "priceCurrency": "KRW",
     "vendor": "멜론티켓",
     "vendorUrl": "https://ticket.melon.com/csoon/detail.htm?csoonId=12884",
-    "youtubeChannel": "",
+    "youtubeChannel": "@lucklife0315",
+    "youtubeProfileImage": "assets/artists/lucklife0315.jpg",
     "songs": [],
     "status": "pending",
     "hostingStatus": "confirmed",
@@ -4135,6 +4143,7 @@
     "vendor": "NOL 티켓",
     "vendorUrl": "https://nol.yanolja.com/ticket/products/26015024",
     "youtubeChannel": "@kenshiyonezu",
+    "youtubeProfileImage": "assets/artists/kenshiyonezu.jpg",
     "songs": [
       [
         "Lemon",
@@ -4245,6 +4254,7 @@
     "vendor": "NOL 티켓",
     "vendorUrl": "https://nol.yanolja.com/ticket/products/26015024",
     "youtubeChannel": "@kenshiyonezu",
+    "youtubeProfileImage": "assets/artists/kenshiyonezu.jpg",
     "songs": [
       [
         "Lemon",
@@ -4355,6 +4365,7 @@
     "vendor": "NOL 티켓",
     "vendorUrl": "https://nol.yanolja.com/ticket/products/26015024",
     "youtubeChannel": "@kenshiyonezu",
+    "youtubeProfileImage": "assets/artists/kenshiyonezu.jpg",
     "songs": [
       [
         "Lemon",
@@ -4469,6 +4480,7 @@
     "vendor": "멜론티켓",
     "vendorUrl": "https://ticket.melon.com/performance/index.htm?prodId=214199",
     "youtubeChannel": "@Cho_Q_May",
+    "youtubeProfileImage": "assets/artists/cho_q_may.jpg",
     "songs": [
       [
         "貴方の恋人になりたい",
@@ -4591,7 +4603,8 @@
     "priceCurrency": "KRW",
     "vendor": "티켓링크",
     "vendorUrl": "http://yonsei-arts.com/product/521",
-    "youtubeChannel": "",
+    "youtubeChannel": "@YukiKajiura_official",
+    "youtubeProfileImage": "assets/artists/yukikajiura_official.jpg",
     "songs": [],
     "status": "pending",
     "hostingStatus": "confirmed",
@@ -4695,7 +4708,8 @@
     "priceCurrency": "KRW",
     "vendor": "YES24 티켓",
     "vendorUrl": "https://ticket.yes24.com/",
-    "youtubeChannel": "",
+    "youtubeChannel": "@ELLEGARDEN_OFFICIAL",
+    "youtubeProfileImage": "assets/artists/ellegarden_official.jpg",
     "songs": [],
     "status": "pending",
     "hostingStatus": "confirmed",
@@ -4786,7 +4800,8 @@
     "priceCurrency": "KRW",
     "vendor": "YES24 티켓",
     "vendorUrl": "https://ticket.yes24.com/",
-    "youtubeChannel": "",
+    "youtubeChannel": "@ELLEGARDEN_OFFICIAL",
+    "youtubeProfileImage": "assets/artists/ellegarden_official.jpg",
     "songs": [],
     "status": "pending",
     "hostingStatus": "confirmed",
@@ -4878,6 +4893,7 @@
     "vendor": "triple.global",
     "vendorUrl": "https://triple.global",
     "youtubeChannel": "https://www.youtube.com/channel/UC-AiP1NoABhE6hVssW3rXng",
+    "youtubeProfileImage": "assets/artists/kazumi-tateishi-trio.jpg",
     "songs": [
       [
         "人生のメリーゴーランド (하울의 움직이는 성)",
@@ -4995,6 +5011,7 @@
     "vendor": "triple.global",
     "vendorUrl": "https://triple.global",
     "youtubeChannel": "https://www.youtube.com/channel/UC-AiP1NoABhE6hVssW3rXng",
+    "youtubeProfileImage": "assets/artists/kazumi-tateishi-trio.jpg",
     "songs": [
       [
         "人生のメリーゴーランド (하울의 움직이는 성)",
@@ -5117,6 +5134,7 @@
     "vendor": "NOL 티켓",
     "vendorUrl": "https://nol.yanolja.com/ticket/products/26010060",
     "youtubeChannel": "https://www.youtube.com/channel/UC-AiP1NoABhE6hVssW3rXng",
+    "youtubeProfileImage": "assets/artists/kazumi-tateishi-trio.jpg",
     "songs": [
       [
         "人生のメリーゴーランド (하울의 움직이는 성)",
@@ -5244,6 +5262,7 @@
     "vendor": "triple.global",
     "vendorUrl": "https://triple.global",
     "youtubeChannel": "https://www.youtube.com/channel/UC-AiP1NoABhE6hVssW3rXng",
+    "youtubeProfileImage": "assets/artists/kazumi-tateishi-trio.jpg",
     "songs": [
       [
         "人生のメリーゴーランド (하울의 움직이는 성)",
@@ -5366,6 +5385,7 @@
     "vendor": "triple.global",
     "vendorUrl": "https://triple.global",
     "youtubeChannel": "https://www.youtube.com/channel/UC-AiP1NoABhE6hVssW3rXng",
+    "youtubeProfileImage": "assets/artists/kazumi-tateishi-trio.jpg",
     "songs": [
       [
         "人生のメリーゴーランド (하울의 움직이는 성)",
@@ -5572,7 +5592,8 @@
     "priceCurrency": "KRW",
     "vendor": "NOL 티켓",
     "vendorUrl": "https://nol.yanolja.com/ticket/products/26012829",
-    "youtubeChannel": "",
+    "youtubeChannel": "@khaki_band",
+    "youtubeProfileImage": "assets/artists/khaki_band.jpg",
     "songs": [],
     "status": "cancelled",
     "hostingStatus": "confirmed",
@@ -5653,7 +5674,8 @@
     "priceCurrency": "KRW",
     "vendor": "멜론티켓",
     "vendorUrl": "https://ticket.melon.com/performance/index.htm?prodId=214040",
-    "youtubeChannel": "",
+    "youtubeChannel": "@RUNIDRE",
+    "youtubeProfileImage": "assets/artists/runidre.jpg",
     "songs": [],
     "status": "pending",
     "hostingStatus": "confirmed",
