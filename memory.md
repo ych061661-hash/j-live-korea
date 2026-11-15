@@ -20,8 +20,8 @@ Format: `- <event id> — verifiedAt=<date> — note`
 | nee-2026-12-18 | NEE 2026-12-18 | 2026-10-18 | 2026-11-13 | 시작 시각, 일반예매 시각, 좌석 등급명, 대표곡 3곡 | https://neeofficial.jp/contents/1109451 | pending. 날짜·장소·88,000원·판매일 2026-09-29 재확인. 시각은 공지에 없음 | 시작 시각·판매 시각·공식 영상 3곡 |
 | luck-life-2026-12-19 / 12-20 | LUCK LIFE | 2026-10-18 | 2026-11-13 | 대표곡 3곡 | https://luck-life.com/news/2026/09/30/9023 | pending. 양일 일정·가격·일반예매 2026-10-01 12:00 재확인. 선예매 문구 없음 | 공식 영상 3곡 |
 | zenbu loudcarnival / one-man | ぜんぶ君のせいだ。 11/14·11/15 | 2026-11-10 | 2026-11-13 | 11/14 시작 시각 TBA. 11/15 시각 충돌. 팬미팅 장소 비공개 | https://kiminosei.com/live/ | 미등록. 11/13은 오늘이라 대상 아님. 11/15 mysub는 OPEN 9:00/START 9:30, 아티스트 페이지는 18:00/18:30 | 시각 충돌 해소 전 추가 금지 |
-| blue-note-tokyo-all-star-jazz-orchestra-2026-11-26 | Blue Note Tokyo All-Star Jazz Orchestra 2026-11-26 | 2026-11-10 | 2026-11-12 | 일반예매·선예매 일시, 대표곡 3곡, 공식 한글·일본어 별칭 | https://nol.yanolja.com/ticket/products/26012128 | 7일 이내. 이번 미재오픈 | 오픈 공지와 공식 영상 3곡 |
-| mass-of-the-fermenting-dregs-2026-12-04 | Mass Of The Fermenting Dregs 2026-12-04 | 2026-11-10 | 2026-11-12 | 일반예매·선예매 일시, 대표곡 3곡 | https://ticket.melon.com/performance/index.htm?prodId=213843 | 7일 이내. 이번 미재오픈 | 오픈 공지와 공식 채널 영상 3곡 |
+| blue-note-tokyo-all-star-jazz-orchestra-2026-11-26 | Blue Note Tokyo All-Star Jazz Orchestra 2026-11-26 | 2026-11-10 | 2026-11-15 | 일반예매·선예매 일시, 대표곡 3곡, 공식 한글·일본어 별칭 | https://nol.yanolja.com/ticket/products/26012128 | pending 유지. 2026-11-15 NOL 상품에서 11/26 19:30·세종예술의전당·R석 60,000/S석 40,000 재확인. 오픈 일시는 본문에 없음. 공연장 공식 https://www.sjac.or.kr/base/nrr/performance/read?performanceNo=658&menuLevel=2&menuNo=76 는 fetch HTTP 500·curl TLS 인증서 검증 실패(http도 500). 조기예매 8/26 00:00은 집계 사이트(spotts)에만 있어 미반영 | 공연장 공식 페이지 재시도, 공식 영상 3곡 |
+| mass-of-the-fermenting-dregs-2026-12-04 | Mass Of The Fermenting Dregs 2026-12-04 | 2026-11-10 | 2026-11-15 | 일반예매·선예매 일시, 한글 별칭(공식 한글 표기 미발견) | https://ticket.melon.com/performance/index.htm?prodId=213843 https://www.motfd.com/iwaouthetour | pending 유지. 2026-11-15 일정·19:30·전석 77,000·Seoul SOLDOUT 재확인, 대표곡 3곡 이번 검증 완료. 오픈 일시는 멜론 본문·공식 투어 페이지에 없음 | 오픈 일시 공식 근거 |
 | sui-sui-duck-2026-12-20 | sui sui duck 2026-12-20 | 2026-11-12 | 2026-11-12 | 일반예매·선예매 일시, 대표곡 3곡, 일본어 별칭 | https://ticket.melon.com/performance/index.htm?prodId=214128 | 7일 이내. 이번 미재오픈 | 오픈 공지와 공식 영상 3곡 |
 | runidre-2027-01-16 | RUNIDRE 2027-01-16 | 2026-11-12 | 2026-11-12 | 일반예매·선예매 일시, 대표곡 3곡, 한글·일본어 별칭 | https://ticket.melon.com/performance/index.htm?prodId=214040 | 7일 이내. 이번 미재오픈 | 오픈 공지와 공식 영상 3곡 |
 | yukiguni-2026-12-17 | 雪国 2026-12-17 | 2026-11-12 | 2026-11-14 | 일반예매·선예매 일시 | https://ticket.melon.com/performance/index.htm?prodId=214216 | pending 신규. 상품 본문·포스터에 예매 오픈 일시 없음. 11/06 20:00은 집계 사이트에만 있음. 아티스트 공식 https://ykq2.jp/ 은 curl·fetch HTTP 403 | 멜론 오픈 공지 또는 기획사(테잎스) 공지 |
@@ -33,6 +33,18 @@ Format: `- <event id> — verifiedAt=<date> — note`
 | ellegarden-2026-11-28 / 11-29 | ELLEGARDEN 11/28·11/29 | 2026-11-10 | 2026-11-10 | 시작 시각, YES24 상품 URL, 대표곡, 공식 한글 별칭 | https://www.universal-music.co.jp/ellegarden/news/2026-08-10/ | 7일 이내. 이번 미재오픈 | YES24 상품 페이지와 공식 영상 3곡 |
 | kazumi 광주·성남·영등포·강동·대구·부산 | 2026-12-19~26 | 2026-11-09 | 2026-11-10 | 추가 도시 일반예매 일시. 부산은 2026-11-10 같은 공식 페이지에서 가격이 기존과 같아 레코드 미변경 | http://kazumitateishi.com/live.html | 7일 이내. 이번 미재오픈 | 도시별 오픈 공지 |
 | kazumi-tateishi-trio-2026-12-26 | Kazumi 부산 | 2026-08-12 | 2026-11-10 | 이번 실행에서 상품 페이지는 다시 열지 않음 | http://kazumitateishi.com/live.html | 2026-11-10에 아티스트 라이브 페이지의 부산 일정·가격이 기존 값과 같았음 | 다음 홀수일 상품 페이지 재오픈 |
+
+## Run: 2026-11-15 (KST, 홀수일, 재검증 우선)
+
+`date`로 2026-11-15 일요일 08:58 KST 확인. 원격 `https://github.com/ych061661-hash/j-live-korea.git` 일치, 기존 체크아웃 `/workspace/j-live-korea` 작업 트리 깨끗했고 origin/main(c38ec3c 주간 갱신)으로 fast-forward 후 작업. 같은 목적의 실행 중 프로세스 없음. 상세 재검증 5건(신규 후보 조사 0건): 7일 이상 미검증 기존 레코드(카즈미 부산), 공연 임박·예매 정보 미확인 pending(카즈미 수원, Blue Note 세종, MotFD, NCIS). 대표곡 조회수는 watch 페이지 공개 viewCount로 비교.
+
+- `kazumi-tateishi-trio-2026-12-26` (confirmed 유지): 2026-12-26 토 OPEN 16:30 / START 17:00, 금정문화회관 금빛누리홀, VIP석 88,000 / R석 77,000 / S석 66,000 / A석 55,000 재확인. 공연 근거(저장): https://nol.yanolja.com/ticket/products/26011629 https://world.nol.com/en/ticket/products/26011629 . 아티스트 공식 http://kazumitateishi.com/live.html 도 같은 값(OPEN 16:30/START 17:00)이나 https 인증서 실패·http 출처는 confirmed 테스트(보안 출처) 불가라 sources에 저장하지 않음. 일반예매 2026-08-13 12:00은 2026-08-12 기존 검증 재사용(이번 공식 페이지에 오픈 일시 표기 없음). 곡은 기존 재사용. NOL 한국어 페이지의 "예매대기" 라벨은 판매 중인 이 상품에도 표시되어 판매 상태 근거로 쓰지 않음.
+- `kazumi-tateishi-trio-2026-11-22-suwon` (pending 유지): 아티스트 공식 라이브 페이지에서 11/22 OPEN 16:30 / START 17:00, 경기아트센터 소극장, VIP 88,000 / R 77,000 / S 66,000 재확인. 예매 오픈 일시는 공식 페이지에 없음. 같은 페이지의 광주·성남·영등포·강동·대구 일정·가격도 기존 값과 같았음(레코드 verifiedAt은 미변경).
+- `blue-note-tokyo-all-star-jazz-orchestra-2026-11-26` (pending 유지): NOL 상품에서 11/26 19:30, 세종예술의전당, R석 60,000 / S석 40,000 재확인. 예매 오픈 일시 미표기. 공연장 공식 상세는 HTTP 500/TLS 검증 실패.
+- `mass-of-the-fermenting-dregs-2026-12-04` (pending 유지): 멜론 상품에서 12/4 금 19:30, KT&G 상상마당 홍대 라이브홀, 전석 77,000원, 주최 더 텔 테일 하트 재확인. 공식 투어 페이지 Seoul SOLDOUT! 재확인. 예매 오픈 일시 미표기. 대표곡(이번 검증, motfd.com이 링크한 @motfdofficial UC8HQ1Us0QsSb1i3UW6dJ26g, 라이브·티저·어쿠스틱 제외 스튜디오 MV 조회수 순): New Order https://www.youtube.com/watch?v=amDRAO9Ey30 (630,518) , スローモーションリプレイ https://www.youtube.com/watch?v=G9Vjk1tIygo (105,994) , You https://www.youtube.com/watch?v=5bdFRpvIudw (98,420). 채널 공개 검색 결과 기준 비교이며 레이블 채널 업로드는 미비교. 공식 채널 og:image를 `calendar/assets/artists/motfdofficial.jpg`로 캐시. 공식 한글 표기 미발견으로 별칭 미추가.
+- `nothings-carved-in-stone-2026-12-20`: NOL 한국어 상품 재오픈, 12/20 18:00·롤링홀 동일, 예매 오픈 일시 여전히 미표기. "예매대기" 라벨은 위 사유로 판매 개시 근거 아님. 2026-11-14 검증이라 레코드 미변경.
+- 미처리(다음 실행): 雪国 멜론 오픈 공지, 紫 今 시작 시각, Penthouse/Hump Back/LUCK LIFE/NEE 공식 영상, ZAZEN BOYS·ELLEGARDEN·Yuki Kajiura(11/22) 상품 페이지, 11-09 검증분(lausbub, let-me-know, kawasaki-takaya)은 11-16부터 7일 경과. 신규 후보 조사는 이번 실행에서 하지 않음.
+- 접근 실패로 기존 값 삭제·상태 하향 없음. 취소·연기 공지 신규 확인 없음.
 
 ## Run: 2026-11-14 (KST, 짝수일, 신규 발견 우선)
 

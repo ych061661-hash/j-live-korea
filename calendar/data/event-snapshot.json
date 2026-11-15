@@ -3120,11 +3120,13 @@
     "presaleStatus": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-08-12",
-    "scheduleVerifiedAt": null,
-    "priceVerifiedAt": "2026-08-12",
+    "verifiedAt": "2026-11-15",
+    "scheduleVerifiedAt": "2026-11-15",
+    "priceVerifiedAt": "2026-11-15",
     "sources": [
       "https://tickets.interpark.com/goods/26011629",
+      "https://nol.yanolja.com/ticket/products/26011629",
+      "https://world.nol.com/en/ticket/products/26011629",
       "https://kazumitateishi-trio.com/",
       "https://www.jvcmusic.co.jp/-/Discography/A023203/VICL-63644.html",
       "https://www.jvcmusic.co.jp/-/Discography/A023203/VICL-63758.html"
@@ -3159,7 +3161,61 @@
     "seriesId": null,
     "hostingStatus": null,
     "ticketingStatus": null,
-    "verification": null
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-15",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26011629"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-15",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26011629"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-15",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26011629"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-15",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26011629"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-08-12",
+        "checkedAt": "2026-11-15",
+        "sources": [
+          "https://tickets.interpark.com/goods/26011629"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-15",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26011629",
+          "https://world.nol.com/en/ticket/products/26011629"
+        ]
+      },
+      "representativeSongs": {
+        "status": "confirmed",
+        "verifiedAt": "2026-08-12",
+        "sources": [
+          "https://kazumitateishi-trio.com/",
+          "https://www.jvcmusic.co.jp/-/Discography/A023203/VICL-63644.html",
+          "https://www.jvcmusic.co.jp/-/Discography/A023203/VICL-63758.html"
+        ]
+      }
+    }
   },
   "luv-2026-03-21": {
     "artist": "luv",
@@ -3988,13 +4044,14 @@
     "presaleStatus": "checking",
     "status": "pending",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-09",
-    "scheduleVerifiedAt": "2026-11-09",
-    "priceVerifiedAt": "2026-11-09",
+    "verifiedAt": "2026-11-15",
+    "scheduleVerifiedAt": "2026-11-15",
+    "priceVerifiedAt": "2026-11-15",
     "sources": [
       "https://nol.yanolja.com/ticket/products/26009224",
       "https://tickets.interpark.com/goods/26009224",
       "https://www.ggac.or.kr/ggac/M0000281/show/view.do?idx=SM000135",
+      "http://kazumitateishi.com/live.html",
       "https://kazumitateishi-trio.com/",
       "https://www.jvcmusic.co.jp/-/Artist/A023203.html"
     ],
@@ -4026,8 +4083,9 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-09",
+        "verifiedAt": "2026-11-15",
         "sources": [
+          "http://kazumitateishi.com/live.html",
           "https://nol.yanolja.com/ticket/products/26009224",
           "https://tickets.interpark.com/goods/26009224",
           "https://www.ggac.or.kr/ggac/M0000281/show/view.do?idx=SM000135"
@@ -4035,40 +4093,45 @@
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-09",
+        "verifiedAt": "2026-11-15",
         "sources": [
+          "http://kazumitateishi.com/live.html",
           "https://nol.yanolja.com/ticket/products/26009224",
           "https://www.ggac.or.kr/ggac/M0000281/show/view.do?idx=SM000135"
         ]
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-09",
+        "verifiedAt": "2026-11-15",
         "sources": [
+          "http://kazumitateishi.com/live.html",
           "https://www.ggac.or.kr/ggac/M0000281/show/view.do?idx=SM000135",
           "https://tickets.interpark.com/goods/26009224"
         ]
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-09",
+        "verifiedAt": "2026-11-15",
         "sources": [
+          "http://kazumitateishi.com/live.html",
           "https://nol.yanolja.com/ticket/products/26009224",
           "https://www.ggac.or.kr/ggac/M0000281/show/view.do?idx=SM000135"
         ]
       },
       "ticketing": {
         "status": "unverified",
-        "checkedAt": "2026-11-09",
+        "checkedAt": "2026-11-15",
         "sources": [
+          "http://kazumitateishi.com/live.html",
           "https://nol.yanolja.com/ticket/products/26009224",
           "https://tickets.interpark.com/goods/26009224"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-09",
+        "verifiedAt": "2026-11-15",
         "sources": [
+          "http://kazumitateishi.com/live.html",
           "https://nol.yanolja.com/ticket/products/26009224",
           "https://tickets.interpark.com/goods/26009224",
           "https://www.ggac.or.kr/ggac/M0000281/show/view.do?idx=SM000135"
@@ -6098,9 +6161,9 @@
     "presaleStatus": "checking",
     "status": "pending",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-12",
-    "scheduleVerifiedAt": "2026-11-12",
-    "priceVerifiedAt": "2026-11-12",
+    "verifiedAt": "2026-11-15",
+    "scheduleVerifiedAt": "2026-11-15",
+    "priceVerifiedAt": "2026-11-15",
     "sources": [
       "https://nol.yanolja.com/ticket/products/26012128"
     ],
@@ -6127,28 +6190,28 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-12",
+        "verifiedAt": "2026-11-15",
         "sources": [
           "https://nol.yanolja.com/ticket/products/26012128"
         ]
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-12",
+        "verifiedAt": "2026-11-15",
         "sources": [
           "https://nol.yanolja.com/ticket/products/26012128"
         ]
       },
       "ticketing": {
         "status": "unverified",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-15",
         "sources": [
           "https://nol.yanolja.com/ticket/products/26012128"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-12",
+        "verifiedAt": "2026-11-15",
         "sources": [
           "https://nol.yanolja.com/ticket/products/26012128"
         ]
@@ -6174,9 +6237,9 @@
     "presaleStatus": "checking",
     "status": "pending",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-12",
-    "scheduleVerifiedAt": "2026-11-12",
-    "priceVerifiedAt": "2026-11-12",
+    "verifiedAt": "2026-11-15",
+    "scheduleVerifiedAt": "2026-11-15",
+    "priceVerifiedAt": "2026-11-15",
     "sources": [
       "https://ticket.melon.com/performance/index.htm?prodId=213843",
       "https://www.motfd.com/iwaouthetour"
@@ -6191,7 +6254,7 @@
       }
     ],
     "ticketAvailability": "sold_out",
-    "ticketStatusVerifiedAt": "2026-11-12T09:00:00+09:00",
+    "ticketStatusVerifiedAt": "2026-11-15T09:10:00+09:00",
     "ticketStatusSource": "https://www.motfd.com/iwaouthetour",
     "seriesId": null,
     "hostingStatus": "confirmed",
@@ -6199,7 +6262,7 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-12",
+        "verifiedAt": "2026-11-15",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=213843",
           "https://www.motfd.com/iwaouthetour"
@@ -6207,37 +6270,42 @@
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-12",
+        "verifiedAt": "2026-11-15",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=213843"
         ]
       },
       "ticketing": {
         "status": "unverified",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-15",
         "sources": [
-          "https://ticket.melon.com/performance/index.htm?prodId=213843"
+          "https://ticket.melon.com/performance/index.htm?prodId=213843",
+          "https://www.motfd.com/iwaouthetour"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-12",
+        "verifiedAt": "2026-11-15",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=213843"
         ]
       },
       "availability": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-12",
+        "verifiedAt": "2026-11-15",
         "sources": [
           "https://www.motfd.com/iwaouthetour"
         ]
       },
       "representativeSongs": {
-        "status": "unverified",
-        "checkedAt": "2026-11-12",
+        "status": "confirmed",
+        "verifiedAt": "2026-11-15",
         "sources": [
-          "https://www.motfd.com/"
+          "https://www.motfd.com/",
+          "https://www.youtube.com/channel/UC8HQ1Us0QsSb1i3UW6dJ26g",
+          "https://www.youtube.com/watch?v=amDRAO9Ey30",
+          "https://www.youtube.com/watch?v=G9Vjk1tIygo",
+          "https://www.youtube.com/watch?v=5bdFRpvIudw"
         ]
       }
     }
