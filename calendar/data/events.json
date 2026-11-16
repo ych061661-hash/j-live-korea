@@ -2115,17 +2115,17 @@
       "https://letmeknowmusic.jp/news/3422/",
       "https://nol.yanolja.com/ticket/products/26010681"
     ],
-    "verifiedAt": "2026-11-09",
-    "scheduleVerifiedAt": "2026-11-09",
+    "verifiedAt": "2026-11-16",
+    "scheduleVerifiedAt": "2026-11-16",
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/"] },
-      "concertDate": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/", "https://nol.yanolja.com/ticket/products/26010681"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://nol.yanolja.com/ticket/products/26010681"] },
-      "venue": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/", "https://nol.yanolja.com/ticket/products/26010681"] },
-      "presaleDate": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/"] },
-      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://nol.yanolja.com/ticket/products/26010681"] },
-      "ticketConditions": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/", "https://nol.yanolja.com/ticket/products/26010681"] }
+      "hosting": { "status": "confirmed", "verifiedAt": "2026-11-16", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/"] },
+      "concertDate": { "status": "confirmed", "verifiedAt": "2026-11-16", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/", "https://nol.yanolja.com/ticket/products/26010681"] },
+      "concertTime": { "status": "confirmed", "verifiedAt": "2026-11-16", "sources": ["https://nol.yanolja.com/ticket/products/26010681"] },
+      "venue": { "status": "confirmed", "verifiedAt": "2026-11-16", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/", "https://nol.yanolja.com/ticket/products/26010681"] },
+      "presaleDate": { "status": "confirmed", "verifiedAt": "2026-11-16", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/"] },
+      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-11-16", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/"] },
+      "price": { "status": "confirmed", "verifiedAt": "2026-11-16", "sources": ["https://nol.yanolja.com/ticket/products/26010681"] },
+      "ticketConditions": { "status": "confirmed", "verifiedAt": "2026-11-16", "sources": ["https://letmeknowmusic.jp/live_information/let-me-know-live-tour-2026-re-still-romance-korea/", "https://nol.yanolja.com/ticket/products/26010681"] }
     },
     "createdAt": "2026-07-23T15:00:00+09:00",
     "seatPrices": [
@@ -2140,7 +2140,7 @@
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-11-09"
+    "priceVerifiedAt": "2026-11-16"
   },
   {
     "id": "hitorie-2026-08-23",
@@ -3317,15 +3317,15 @@
       "https://kawasaki-takaya.com/live/live-in-seoul-2026/",
       "https://ticket.yes24.com/Perf/59669"
     ],
-    "verifiedAt": "2026-11-09",
-    "scheduleVerifiedAt": "2026-11-09",
+    "verifiedAt": "2026-11-16",
+    "scheduleVerifiedAt": "2026-11-16",
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
-      "concertDate": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
-      "venue": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
-      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
+      "hosting": { "status": "confirmed", "verifiedAt": "2026-11-16", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
+      "concertDate": { "status": "confirmed", "verifiedAt": "2026-11-16", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
+      "concertTime": { "status": "confirmed", "verifiedAt": "2026-11-16", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
+      "venue": { "status": "confirmed", "verifiedAt": "2026-11-16", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
+      "ticketDate": { "status": "confirmed", "verifiedAt": "2026-11-16", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
+      "price": { "status": "confirmed", "verifiedAt": "2026-11-16", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] },
       "ticketConditions": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://kawasaki-takaya.com/live/live-in-seoul-2026/"] }
     },
     "createdAt": "2026-08-17T10:55:00+09:00",
@@ -3341,7 +3341,7 @@
         "priceCurrency": "KRW"
       }
     ],
-    "priceVerifiedAt": "2026-11-09",
+    "priceVerifiedAt": "2026-11-16",
     "youtubeProfileImage": "./assets/artists/kawasaki-takaya.jpg"
   },
   {
@@ -3951,19 +3951,19 @@
       "https://ticket.yes24.com/English/Perf/60323"
     ],
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://www.highjinkx.com/larara", "https://ticket.yes24.com/English/Perf/60323"] },
-      "concertDate": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://www.highjinkx.com/larara", "https://www.highjinkx.com/show-list/larara", "https://ticket.yes24.com/English/Perf/60323"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://www.highjinkx.com/larara", "https://www.highjinkx.com/show-list/larara"] },
-      "venue": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://www.highjinkx.com/larara", "https://ticket.yes24.com/English/Perf/60323"] },
+      "hosting": { "status": "confirmed", "verifiedAt": "2026-11-16", "sources": ["https://www.highjinkx.com/larara", "https://ticket.yes24.com/English/Perf/60323"] },
+      "concertDate": { "status": "confirmed", "verifiedAt": "2026-11-16", "sources": ["https://www.highjinkx.com/larara", "https://www.highjinkx.com/show-list/larara", "https://ticket.yes24.com/English/Perf/60323"] },
+      "concertTime": { "status": "confirmed", "verifiedAt": "2026-11-16", "sources": ["https://www.highjinkx.com/larara", "https://www.highjinkx.com/show-list/larara"] },
+      "venue": { "status": "confirmed", "verifiedAt": "2026-11-16", "sources": ["https://www.highjinkx.com/larara", "https://ticket.yes24.com/English/Perf/60323"] },
       "presale": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://www.highjinkx.com/larara"] },
       "ticketing": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://www.highjinkx.com/larara", "https://ticket.yes24.com/English/Perf/60323"] },
       "ticketDate": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://www.highjinkx.com/larara"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://www.highjinkx.com/larara", "https://www.highjinkx.com/show-list/larara", "https://ticket.yes24.com/English/Perf/60323"] },
+      "price": { "status": "confirmed", "verifiedAt": "2026-11-16", "sources": ["https://www.highjinkx.com/larara", "https://www.highjinkx.com/show-list/larara", "https://ticket.yes24.com/English/Perf/60323"] },
       "representativeSongs": { "status": "confirmed", "verifiedAt": "2026-11-09", "sources": ["https://lausbub.jp/movies/categories/video", "https://www.youtube.com/watch?v=zbTUx2rIDy8", "https://www.youtube.com/watch?v=Cfta2wTJoZQ", "https://www.youtube.com/watch?v=2I6iOmCvvmE"] }
     },
-    "priceVerifiedAt": "2026-11-09",
-    "scheduleVerifiedAt": "2026-11-09",
-    "verifiedAt": "2026-11-09",
+    "priceVerifiedAt": "2026-11-16",
+    "scheduleVerifiedAt": "2026-11-16",
+    "verifiedAt": "2026-11-16",
     "createdAt": "2026-10-18T12:00:00+09:00"
   },
   {
@@ -6165,5 +6165,236 @@
     "verifiedAt": "2026-11-14",
     "createdAt": "2026-11-14T09:30:00+09:00",
     "organizer": "위트(weete)"
+  },
+  {
+    "id": "lovely-summer-chan-2027-01-11",
+    "artist": "Lovely Summer Chan",
+    "title": "「LSC 10th Anniversary GIG tour」 Lovely Summer Chan(러블리서머짱) Live in Seoul",
+    "genre": "J-POP / INDIE",
+    "concertDate": "2027-01-11",
+    "time": "오후 8:00",
+    "venue": "KT&G 상상마당 홍대 라이브홀",
+    "presaleStatus": "none",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "2026-10-19",
+    "ticketTime": "오후 6:00",
+    "price": 88000,
+    "priceCurrency": "KRW",
+    "vendor": "멜론티켓",
+    "vendorUrl": "https://ticket.melon.com/performance/index.htm?prodId=214118",
+    "youtubeChannel": "@LovelySummerChan-official",
+    "youtubeProfileImage": "assets/artists/lovelysummerchan-official.jpg",
+    "songs": [
+      [
+        "あなたは煙草 私はシャボン",
+        "",
+        "https://www.youtube.com/watch?v=0HmFe-OicGY"
+      ],
+      [
+        "AH!",
+        "",
+        "https://www.youtube.com/watch?v=foG6QlVJIc8"
+      ],
+      [
+        "FLY FLY FLY",
+        "",
+        "https://www.youtube.com/watch?v=EQDRX2ApI_4"
+      ]
+    ],
+    "status": "confirmed",
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "confirmed",
+    "seatPrices": [
+      {
+        "name": "전석",
+        "price": 88000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "sources": [
+      "https://www.lovelysummerchan.com/live-event.html",
+      "https://ticket.melon.com/performance/index.htm?prodId=214118"
+    ],
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-16",
+        "sources": [
+          "https://www.lovelysummerchan.com/live-event.html",
+          "https://ticket.melon.com/performance/index.htm?prodId=214118"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-16",
+        "sources": [
+          "https://www.lovelysummerchan.com/live-event.html",
+          "https://ticket.melon.com/performance/index.htm?prodId=214118"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-16",
+        "sources": [
+          "https://www.lovelysummerchan.com/live-event.html",
+          "https://ticket.melon.com/performance/index.htm?prodId=214118"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-16",
+        "sources": [
+          "https://www.lovelysummerchan.com/live-event.html",
+          "https://ticket.melon.com/performance/index.htm?prodId=214118"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-16",
+        "sources": [
+          "https://www.lovelysummerchan.com/live-event.html"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-16",
+        "sources": [
+          "https://www.lovelysummerchan.com/live-event.html",
+          "https://ticket.melon.com/performance/index.htm?prodId=214118"
+        ]
+      },
+      "representativeSongs": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-16",
+        "sources": [
+          "https://www.youtube.com/watch?v=0HmFe-OicGY",
+          "https://www.youtube.com/watch?v=foG6QlVJIc8",
+          "https://www.youtube.com/watch?v=EQDRX2ApI_4",
+          "https://www.lovelysummerchan.com/",
+          "https://www.youtube.com/@LovelySummerChan-official/videos"
+        ]
+      }
+    },
+    "priceVerifiedAt": "2026-11-16",
+    "scheduleVerifiedAt": "2026-11-16",
+    "verifiedAt": "2026-11-16",
+    "createdAt": "2026-11-16T09:30:00+09:00",
+    "organizer": "(주)이릴레반트"
+  },
+  {
+    "id": "necry-talkie-2027-03-27",
+    "artist": "Necry Talkie",
+    "title": "Necry Talkie 1st Live in Korea",
+    "genre": "J-ROCK",
+    "concertDate": "2027-03-27",
+    "time": "오후 5:00",
+    "venue": "롤링홀",
+    "presaleStatus": "none",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "2026-10-26",
+    "ticketTime": "오후 12:00",
+    "price": 88000,
+    "priceCurrency": "KRW",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://nol.yanolja.com/ticket/products/26015072",
+    "youtubeChannel": "@NecryTalkieOfficial",
+    "youtubeProfileImage": "assets/artists/necrytalkieofficial.jpg",
+    "songs": [
+      [
+        "北上のススメ",
+        "",
+        "https://www.youtube.com/watch?v=0l-qw9yRFOA"
+      ],
+      [
+        "オシャレ大作戦",
+        "",
+        "https://www.youtube.com/watch?v=Aw1Awul1818"
+      ],
+      [
+        "こんがらがった！",
+        "",
+        "https://www.youtube.com/watch?v=G7_cFQrQNz8"
+      ]
+    ],
+    "status": "confirmed",
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "confirmed",
+    "seatPrices": [
+      {
+        "name": "스탠딩석",
+        "price": 88000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "sources": [
+      "https://www.necrytalkie.jp/live.html",
+      "https://nol.yanolja.com/ticket/products/26015072",
+      "https://world.nol.com/en/ticket/products/26015072"
+    ],
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-16",
+        "sources": [
+          "https://www.necrytalkie.jp/live.html",
+          "https://nol.yanolja.com/ticket/products/26015072"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-16",
+        "sources": [
+          "https://www.necrytalkie.jp/live.html",
+          "https://nol.yanolja.com/ticket/products/26015072"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-16",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26015072"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-16",
+        "sources": [
+          "https://www.necrytalkie.jp/live.html",
+          "https://nol.yanolja.com/ticket/products/26015072"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-16",
+        "sources": [
+          "https://www.necrytalkie.jp/live.html"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-16",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26015072",
+          "https://world.nol.com/en/ticket/products/26015072"
+        ]
+      },
+      "representativeSongs": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-16",
+        "sources": [
+          "https://www.youtube.com/watch?v=0l-qw9yRFOA",
+          "https://www.youtube.com/watch?v=Aw1Awul1818",
+          "https://www.youtube.com/watch?v=G7_cFQrQNz8",
+          "https://www.necrytalkie.jp/movie.html"
+        ]
+      }
+    },
+    "priceVerifiedAt": "2026-11-16",
+    "scheduleVerifiedAt": "2026-11-16",
+    "verifiedAt": "2026-11-16",
+    "createdAt": "2026-11-16T09:30:00+09:00",
+    "organizer": "Jinurock Entertainment"
   }
 ]
