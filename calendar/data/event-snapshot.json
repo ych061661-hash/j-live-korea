@@ -5356,21 +5356,21 @@
     "time": "오후 6:00",
     "venue": "연세대학교 대강당",
     "vendor": "티켓링크",
-    "vendorUrl": "http://yonsei-arts.com/product/521",
+    "vendorUrl": "https://www.ticketlink.co.kr/product/66073",
     "ticketDate": "2026-10-06",
     "ticketTime": "오후 8:00",
     "presaleDate": "",
     "presaleTime": "",
     "presaleStatus": "none",
-    "status": "pending",
+    "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-10",
-    "scheduleVerifiedAt": "2026-11-10",
-    "priceVerifiedAt": "2026-11-10",
+    "verifiedAt": "2026-11-17",
+    "scheduleVerifiedAt": "2026-11-17",
+    "priceVerifiedAt": "2026-11-17",
     "sources": [
       "https://fictionjunction.com/live/13125/",
       "https://fictionjunction.com/information/infotype/live/",
-      "http://yonsei-arts.com/product/521"
+      "https://www.ticketlink.co.kr/product/66073"
     ],
     "price": 132000,
     "priceCurrency": "KRW",
@@ -5400,65 +5400,75 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
           "https://fictionjunction.com/live/13125/",
+          "https://fictionjunction.com/information/infotype/live/",
           "http://yonsei-arts.com/product/521"
         ]
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
           "https://fictionjunction.com/live/13125/",
+          "https://fictionjunction.com/information/infotype/live/",
           "http://yonsei-arts.com/product/521"
         ]
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
           "https://fictionjunction.com/live/13125/",
+          "https://fictionjunction.com/information/infotype/live/",
           "http://yonsei-arts.com/product/521"
         ]
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
           "https://fictionjunction.com/live/13125/",
+          "https://fictionjunction.com/information/infotype/live/",
           "http://yonsei-arts.com/product/521"
         ]
       },
       "ticketing": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
           "https://fictionjunction.com/information/infotype/live/",
-          "http://yonsei-arts.com/product/521"
+          "http://yonsei-arts.com/product/521",
+          "https://www.ticketlink.co.kr/product/66073"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
           "http://yonsei-arts.com/product/521"
         ]
       },
       "representativeSongs": {
-        "status": "unverified",
-        "checkedAt": "2026-11-10",
-        "sources": []
+        "status": "confirmed",
+        "verifiedAt": "2026-11-17",
+        "sources": [
+          "https://www.youtube.com/watch?v=0NqXqqAYbyc",
+          "https://www.youtube.com/watch?v=Oio_Myp61Y0",
+          "https://www.youtube.com/watch?v=BDUItFbK_U4",
+          "https://fictionjunction.com/"
+        ]
       }
     }
   },
   "ellegarden-2026-11-28": {
     "artist": "ELLEGARDEN",
     "concertDate": "2026-11-28",
-    "time": "",
+    "time": "오후 6:00",
     "venue": "YES24 LIVE HALL",
     "vendor": "YES24 티켓",
-    "vendorUrl": "https://ticket.yes24.com/",
+    "vendorUrl": "https://ticket.yes24.com/Perf/59771",
     "ticketDate": "2026-09-01",
     "ticketTime": "오후 7:00",
     "presaleDate": "",
@@ -5466,22 +5476,24 @@
     "presaleStatus": "none",
     "status": "pending",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-10",
-    "scheduleVerifiedAt": "2026-11-10",
-    "priceVerifiedAt": "2026-11-10",
+    "verifiedAt": "2026-11-17",
+    "scheduleVerifiedAt": "2026-11-17",
+    "priceVerifiedAt": "2026-11-17",
     "sources": [
-      "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/"
+      "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/",
+      "https://ticket.yes24.com/Perf/59771",
+      "https://yes24livehall.com/ko/show/detail.php?P=1&id=2179&perform_date=20261128"
     ],
     "price": 88000,
     "priceCurrency": "KRW",
     "seatPrices": [
       {
-        "name": "1階スタンディング (整理番号付)",
+        "name": "스탠딩석",
         "price": 88000,
         "priceCurrency": "KRW"
       },
       {
-        "name": "2階指定席",
+        "name": "지정석",
         "price": 88000,
         "priceCurrency": "KRW"
       }
@@ -5495,60 +5507,83 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
-          "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/"
+          "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/",
+          "https://ticket.yes24.com/Perf/59771",
+          "https://yes24livehall.com/ko/show/detail.php?P=1&id=2179&perform_date=20261128"
         ]
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
-          "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/"
+          "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/",
+          "https://ticket.yes24.com/Perf/59771",
+          "https://yes24livehall.com/ko/show/detail.php?P=1&id=2179&perform_date=20261128"
         ]
       },
       "concertTime": {
-        "status": "unverified",
-        "checkedAt": "2026-11-10",
+        "status": "confirmed",
+        "verifiedAt": "2026-11-17",
         "sources": [
-          "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/"
+          "https://ticket.yes24.com/Perf/59771",
+          "https://yes24livehall.com/ko/show/detail.php?P=1&id=2179&perform_date=20261128"
         ]
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
-          "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/"
+          "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/",
+          "https://ticket.yes24.com/Perf/59771",
+          "https://yes24livehall.com/ko/show/detail.php?P=1&id=2179&perform_date=20261128"
         ]
       },
       "ticketing": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
           "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
+          "https://ticket.yes24.com/Perf/59771",
+          "https://yes24livehall.com/ko/show/detail.php?P=1&id=2179&perform_date=20261128",
           "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/"
         ]
       },
       "representativeSongs": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-17",
+        "sources": [
+          "https://www.youtube.com/watch?v=Qp8SwP3Ggl8",
+          "https://www.youtube.com/watch?v=mg12LHwCwBo",
+          "https://www.youtube.com/watch?v=JVJqyzgUxT8",
+          "https://www.youtube.com/@ELLEGARDEN_OFFICIAL"
+        ]
+      },
+      "aliases": {
         "status": "unverified",
-        "checkedAt": "2026-11-10",
-        "sources": []
+        "checkedAt": "2026-11-17",
+        "sources": [
+          "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/",
+          "https://ticket.yes24.com/Perf/59771"
+        ],
+        "note": "공식 한글·일본어 표기 미확인(공식 원문은 모두 ELLEGARDEN 라틴 표기)"
       }
     }
   },
   "ellegarden-2026-11-29": {
     "artist": "ELLEGARDEN",
     "concertDate": "2026-11-29",
-    "time": "",
+    "time": "오후 6:00",
     "venue": "YES24 LIVE HALL",
     "vendor": "YES24 티켓",
-    "vendorUrl": "https://ticket.yes24.com/",
+    "vendorUrl": "https://ticket.yes24.com/Perf/59771",
     "ticketDate": "2026-09-01",
     "ticketTime": "오후 7:00",
     "presaleDate": "",
@@ -5556,22 +5591,24 @@
     "presaleStatus": "none",
     "status": "pending",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-10",
-    "scheduleVerifiedAt": "2026-11-10",
-    "priceVerifiedAt": "2026-11-10",
+    "verifiedAt": "2026-11-17",
+    "scheduleVerifiedAt": "2026-11-17",
+    "priceVerifiedAt": "2026-11-17",
     "sources": [
-      "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/"
+      "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/",
+      "https://ticket.yes24.com/Perf/59771",
+      "https://yes24livehall.com/ko/show/detail.php?P=1&id=2179&perform_date=20261129"
     ],
     "price": 88000,
     "priceCurrency": "KRW",
     "seatPrices": [
       {
-        "name": "1階スタンディング (整理番号付)",
+        "name": "스탠딩석",
         "price": 88000,
         "priceCurrency": "KRW"
       },
       {
-        "name": "2階指定席",
+        "name": "지정석",
         "price": 88000,
         "priceCurrency": "KRW"
       }
@@ -5585,50 +5622,73 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
-          "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/"
+          "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/",
+          "https://ticket.yes24.com/Perf/59771",
+          "https://yes24livehall.com/ko/show/detail.php?P=1&id=2179&perform_date=20261129"
         ]
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
-          "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/"
+          "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/",
+          "https://ticket.yes24.com/Perf/59771",
+          "https://yes24livehall.com/ko/show/detail.php?P=1&id=2179&perform_date=20261129"
         ]
       },
       "concertTime": {
-        "status": "unverified",
-        "checkedAt": "2026-11-10",
+        "status": "confirmed",
+        "verifiedAt": "2026-11-17",
         "sources": [
-          "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/"
+          "https://ticket.yes24.com/Perf/59771",
+          "https://yes24livehall.com/ko/show/detail.php?P=1&id=2179&perform_date=20261129"
         ]
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
-          "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/"
+          "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/",
+          "https://ticket.yes24.com/Perf/59771",
+          "https://yes24livehall.com/ko/show/detail.php?P=1&id=2179&perform_date=20261129"
         ]
       },
       "ticketing": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
           "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
+          "https://ticket.yes24.com/Perf/59771",
+          "https://yes24livehall.com/ko/show/detail.php?P=1&id=2179&perform_date=20261129",
           "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/"
         ]
       },
       "representativeSongs": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-17",
+        "sources": [
+          "https://www.youtube.com/watch?v=Qp8SwP3Ggl8",
+          "https://www.youtube.com/watch?v=mg12LHwCwBo",
+          "https://www.youtube.com/watch?v=JVJqyzgUxT8",
+          "https://www.youtube.com/@ELLEGARDEN_OFFICIAL"
+        ]
+      },
+      "aliases": {
         "status": "unverified",
-        "checkedAt": "2026-11-10",
-        "sources": []
+        "checkedAt": "2026-11-17",
+        "sources": [
+          "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/",
+          "https://ticket.yes24.com/Perf/59771"
+        ],
+        "note": "공식 한글·일본어 표기 미확인(공식 원문은 모두 ELLEGARDEN 라틴 표기)"
       }
     }
   },
@@ -5637,8 +5697,8 @@
     "concertDate": "2026-12-19",
     "time": "오후 5:00",
     "venue": "국립아시아문화전당 예술극장 극장2",
-    "vendor": "triple.global",
-    "vendorUrl": "https://triple.global",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://nol.yanolja.com/ticket/products/26010847",
     "ticketDate": "",
     "ticketTime": "",
     "presaleDate": "",
@@ -5646,11 +5706,12 @@
     "presaleStatus": "checking",
     "status": "pending",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-10",
-    "scheduleVerifiedAt": "2026-11-10",
-    "priceVerifiedAt": "2026-11-10",
+    "verifiedAt": "2026-11-17",
+    "scheduleVerifiedAt": "2026-11-17",
+    "priceVerifiedAt": "2026-11-17",
     "sources": [
-      "http://kazumitateishi.com/live.html"
+      "http://kazumitateishi.com/live.html",
+      "https://nol.yanolja.com/ticket/products/26010847"
     ],
     "price": 66000,
     "priceCurrency": "KRW",
@@ -5680,44 +5741,49 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
-          "http://kazumitateishi.com/live.html"
+          "http://kazumitateishi.com/live.html",
+          "https://nol.yanolja.com/ticket/products/26010847"
         ]
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
-          "http://kazumitateishi.com/live.html"
+          "http://kazumitateishi.com/live.html",
+          "https://nol.yanolja.com/ticket/products/26010847"
         ]
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
           "http://kazumitateishi.com/live.html"
         ]
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
-          "http://kazumitateishi.com/live.html"
+          "http://kazumitateishi.com/live.html",
+          "https://nol.yanolja.com/ticket/products/26010847"
         ]
       },
       "ticketing": {
         "status": "unverified",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-17",
         "sources": [
-          "http://kazumitateishi.com/live.html"
+          "http://kazumitateishi.com/live.html",
+          "https://nol.yanolja.com/ticket/products/26010847"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
-          "http://kazumitateishi.com/live.html"
+          "http://kazumitateishi.com/live.html",
+          "https://nol.yanolja.com/ticket/products/26010847"
         ]
       },
       "representativeSongs": {
@@ -5736,8 +5802,8 @@
     "concertDate": "2026-12-20",
     "time": "오후 3:00",
     "venue": "성남아트센터 콘서트홀",
-    "vendor": "triple.global",
-    "vendorUrl": "https://triple.global",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://nol.yanolja.com/ticket/products/26009563",
     "ticketDate": "",
     "ticketTime": "",
     "presaleDate": "",
@@ -5745,11 +5811,12 @@
     "presaleStatus": "checking",
     "status": "pending",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-10",
-    "scheduleVerifiedAt": "2026-11-10",
-    "priceVerifiedAt": "2026-11-10",
+    "verifiedAt": "2026-11-17",
+    "scheduleVerifiedAt": "2026-11-17",
+    "priceVerifiedAt": "2026-11-17",
     "sources": [
-      "http://kazumitateishi.com/live.html"
+      "http://kazumitateishi.com/live.html",
+      "https://nol.yanolja.com/ticket/products/26009563"
     ],
     "price": 55000,
     "priceCurrency": "KRW",
@@ -5784,44 +5851,49 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
-          "http://kazumitateishi.com/live.html"
+          "http://kazumitateishi.com/live.html",
+          "https://nol.yanolja.com/ticket/products/26009563"
         ]
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
-          "http://kazumitateishi.com/live.html"
+          "http://kazumitateishi.com/live.html",
+          "https://nol.yanolja.com/ticket/products/26009563"
         ]
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
           "http://kazumitateishi.com/live.html"
         ]
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
-          "http://kazumitateishi.com/live.html"
+          "http://kazumitateishi.com/live.html",
+          "https://nol.yanolja.com/ticket/products/26009563"
         ]
       },
       "ticketing": {
         "status": "unverified",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-17",
         "sources": [
-          "http://kazumitateishi.com/live.html"
+          "http://kazumitateishi.com/live.html",
+          "https://nol.yanolja.com/ticket/products/26009563"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
-          "http://kazumitateishi.com/live.html"
+          "http://kazumitateishi.com/live.html",
+          "https://nol.yanolja.com/ticket/products/26009563"
         ]
       },
       "representativeSongs": {
@@ -5949,8 +6021,8 @@
     "concertDate": "2026-12-24",
     "time": "오후 7:30",
     "venue": "강동아트센터 대극장 한강",
-    "vendor": "triple.global",
-    "vendorUrl": "https://triple.global",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://nol.yanolja.com/ticket/products/26010350",
     "ticketDate": "",
     "ticketTime": "",
     "presaleDate": "",
@@ -5958,11 +6030,12 @@
     "presaleStatus": "checking",
     "status": "pending",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-10",
-    "scheduleVerifiedAt": "2026-11-10",
-    "priceVerifiedAt": "2026-11-10",
+    "verifiedAt": "2026-11-17",
+    "scheduleVerifiedAt": "2026-11-17",
+    "priceVerifiedAt": "2026-11-17",
     "sources": [
-      "http://kazumitateishi.com/live.html"
+      "http://kazumitateishi.com/live.html",
+      "https://nol.yanolja.com/ticket/products/26010350"
     ],
     "price": 55000,
     "priceCurrency": "KRW",
@@ -5997,44 +6070,49 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
-          "http://kazumitateishi.com/live.html"
+          "http://kazumitateishi.com/live.html",
+          "https://nol.yanolja.com/ticket/products/26010350"
         ]
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
-          "http://kazumitateishi.com/live.html"
+          "http://kazumitateishi.com/live.html",
+          "https://nol.yanolja.com/ticket/products/26010350"
         ]
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
           "http://kazumitateishi.com/live.html"
         ]
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
-          "http://kazumitateishi.com/live.html"
+          "http://kazumitateishi.com/live.html",
+          "https://nol.yanolja.com/ticket/products/26010350"
         ]
       },
       "ticketing": {
         "status": "unverified",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-17",
         "sources": [
-          "http://kazumitateishi.com/live.html"
+          "http://kazumitateishi.com/live.html",
+          "https://nol.yanolja.com/ticket/products/26010350"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
-          "http://kazumitateishi.com/live.html"
+          "http://kazumitateishi.com/live.html",
+          "https://nol.yanolja.com/ticket/products/26010350"
         ]
       },
       "representativeSongs": {
@@ -6053,8 +6131,8 @@
     "concertDate": "2026-12-25",
     "time": "오후 5:00",
     "venue": "대덕문화전당 드림홀",
-    "vendor": "triple.global",
-    "vendorUrl": "https://triple.global",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://nol.yanolja.com/ticket/products/26011212",
     "ticketDate": "",
     "ticketTime": "",
     "presaleDate": "",
@@ -6062,11 +6140,12 @@
     "presaleStatus": "checking",
     "status": "pending",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-10",
-    "scheduleVerifiedAt": "2026-11-10",
-    "priceVerifiedAt": "2026-11-10",
+    "verifiedAt": "2026-11-17",
+    "scheduleVerifiedAt": "2026-11-17",
+    "priceVerifiedAt": "2026-11-17",
     "sources": [
-      "http://kazumitateishi.com/live.html"
+      "http://kazumitateishi.com/live.html",
+      "https://nol.yanolja.com/ticket/products/26011212"
     ],
     "price": 66000,
     "priceCurrency": "KRW",
@@ -6096,44 +6175,49 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
-          "http://kazumitateishi.com/live.html"
+          "http://kazumitateishi.com/live.html",
+          "https://nol.yanolja.com/ticket/products/26011212"
         ]
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
-          "http://kazumitateishi.com/live.html"
+          "http://kazumitateishi.com/live.html",
+          "https://nol.yanolja.com/ticket/products/26011212"
         ]
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
           "http://kazumitateishi.com/live.html"
         ]
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
-          "http://kazumitateishi.com/live.html"
+          "http://kazumitateishi.com/live.html",
+          "https://nol.yanolja.com/ticket/products/26011212"
         ]
       },
       "ticketing": {
         "status": "unverified",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-17",
         "sources": [
-          "http://kazumitateishi.com/live.html"
+          "http://kazumitateishi.com/live.html",
+          "https://nol.yanolja.com/ticket/products/26011212"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-17",
         "sources": [
-          "http://kazumitateishi.com/live.html"
+          "http://kazumitateishi.com/live.html",
+          "https://nol.yanolja.com/ticket/products/26011212"
         ]
       },
       "representativeSongs": {
