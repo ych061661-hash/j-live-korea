@@ -6530,5 +6530,500 @@
     "verifiedAt": "2026-11-16",
     "createdAt": "2026-11-16T09:30:00+09:00",
     "organizer": "Jinurock Entertainment"
+  },
+  {
+    "id": "rain-tree-2026-12-20",
+    "artist": "Rain Tree",
+    "title": "Rain Tree Concert 2026 in Seoul",
+    "genre": "J-POP",
+    "concertDate": "2026-12-20",
+    "time": "오후 5:00",
+    "venue": "YES24 WANDERLOCH HALL",
+    "presaleDate": "2026-08-18",
+    "presaleTime": "오후 8:00",
+    "presaleCondition": "팬클럽 선행 추첨이며 VIP만 구매 대상. 신청 2026-08-18 20:00–2026-08-21 23:59, 당첨 발표 2026-08-26, 당첨자에게만 구매 페이지 안내.",
+    "ticketDate": "2026-09-07",
+    "ticketTime": "오후 8:00",
+    "price": 99000,
+    "priceCurrency": "KRW",
+    "vendor": "YES24 티켓",
+    "vendorUrl": "https://ticket.yes24.com/Special/59777",
+    "youtubeChannel": "@RainTree_RT",
+    "youtubeProfileImage": "assets/artists/raintree_rt.jpg",
+    "songs": [
+      [
+        "好きだよとどっちが先に言うのか？",
+        "",
+        "https://www.youtube.com/watch?v=SWnPlMB3WpA"
+      ],
+      [
+        "君の居場所、僕の居場所",
+        "",
+        "https://www.youtube.com/watch?v=hAf4lBYOIjI"
+      ],
+      [
+        "好きなんて嘘に決まってる",
+        "",
+        "https://www.youtube.com/watch?v=VDW4KrLDSl4"
+      ]
+    ],
+    "status": "pending",
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "confirmed",
+    "seatPrices": [
+      {
+        "name": "1階スタンディング",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "2階指定席",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "VIP（1階スタンディングエリア優先入場）",
+        "price": 110000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "sources": [
+      "https://rt-official.jp/news/2026/08/18/8126/",
+      "https://ticket.yes24.com/Special/59777"
+    ],
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-18",
+        "sources": [
+          "https://rt-official.jp/news/2026/08/18/8126/"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-18",
+        "sources": [
+          "https://rt-official.jp/news/2026/08/18/8126/"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-18",
+        "sources": [
+          "https://rt-official.jp/news/2026/08/18/8126/"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-18",
+        "sources": [
+          "https://rt-official.jp/news/2026/08/18/8126/"
+        ]
+      },
+      "presaleDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-18",
+        "sources": [
+          "https://rt-official.jp/news/2026/08/18/8126/"
+        ]
+      },
+      "ticketDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-18",
+        "sources": [
+          "https://rt-official.jp/news/2026/08/18/8126/"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-18",
+        "sources": [
+          "https://rt-official.jp/news/2026/08/18/8126/"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-18",
+        "sources": [
+          "https://rt-official.jp/news/2026/08/18/8126/"
+        ]
+      },
+      "representativeSongs": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-18",
+        "sources": [
+          "https://www.youtube.com/watch?v=SWnPlMB3WpA",
+          "https://www.youtube.com/watch?v=hAf4lBYOIjI",
+          "https://www.youtube.com/watch?v=VDW4KrLDSl4",
+          "https://rt-official.jp/",
+          "https://www.youtube.com/@RainTree_RT/videos"
+        ]
+      }
+    },
+    "priceVerifiedAt": "2026-11-18",
+    "scheduleVerifiedAt": "2026-11-18",
+    "verifiedAt": "2026-11-18",
+    "createdAt": "2026-11-18T10:00:00+09:00",
+    "organizer": "LIVET"
+  },
+  {
+    "id": "koji-matsuo-2026-12-27",
+    "artist": "KOJI MATSUO",
+    "title": "2026 마츠오 코지 단독 콘서트 : ONE WAY STREET In KOREA",
+    "genre": "J-POP",
+    "concertDate": "2026-12-27",
+    "time": "오후 4:00",
+    "venue": "스페이스 브릭",
+    "presaleStatus": "checking",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "",
+    "ticketTime": "",
+    "price": 99000,
+    "priceCurrency": "KRW",
+    "vendor": "멜론티켓",
+    "vendorUrl": "https://ticket.melon.com/performance/index.htm?prodId=214171",
+    "songs": [],
+    "status": "pending",
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "unverified",
+    "seatPrices": [
+      {
+        "name": "VIP",
+        "price": 132000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "일반",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "sources": [
+      "https://ticket.melon.com/performance/index.htm?prodId=214171"
+    ],
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-18",
+        "sources": [
+          "https://ticket.melon.com/performance/index.htm?prodId=214171"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-18",
+        "sources": [
+          "https://ticket.melon.com/performance/index.htm?prodId=214171"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-18",
+        "sources": [
+          "https://ticket.melon.com/performance/index.htm?prodId=214171",
+          "https://cdnticket.melon.co.kr/resource/image/upload/product/2026/10/202610231544410bd29ccf-a11a-46b5-8dc2-79016b180032.jpg"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-18",
+        "sources": [
+          "https://ticket.melon.com/performance/index.htm?prodId=214171"
+        ]
+      },
+      "ticketing": {
+        "status": "unverified",
+        "checkedAt": "2026-11-18",
+        "sources": [
+          "https://ticket.melon.com/performance/index.htm?prodId=214171"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-18",
+        "sources": [
+          "https://ticket.melon.com/performance/index.htm?prodId=214171"
+        ]
+      },
+      "representativeSongs": {
+        "status": "unverified",
+        "checkedAt": "2026-11-18",
+        "sources": []
+      }
+    },
+    "priceVerifiedAt": "2026-11-18",
+    "scheduleVerifiedAt": "2026-11-18",
+    "verifiedAt": "2026-11-18",
+    "createdAt": "2026-11-18T10:00:00+09:00",
+    "organizer": "락킨코리아주식회사"
+  },
+  {
+    "id": "yoasobi-2027-04-17",
+    "artist": "YOASOBI",
+    "title": "YOASOBI 11-CITY ASIA-OCEANIA TOUR 2026-2027 “초행성” in Goyang",
+    "genre": "J-POP",
+    "concertDate": "2027-04-17",
+    "time": "오후 7:30",
+    "venue": "고양종합운동장 주경기장",
+    "presaleDate": "2026-11-30",
+    "presaleTime": "오후 6:00",
+    "presaleCondition": "위버스 인증 2026-11-16 20:00–2026-11-30 18:59 후 선예매. 선예매 2026-11-30 18:00–18:59. 선예매 매수 포함 1인 3매. 일반예매 전 2026-11-30 19:00–19:59 판매 일시 중지.",
+    "ticketDate": "2026-11-30",
+    "ticketTime": "오후 8:00",
+    "price": 143000,
+    "priceCurrency": "KRW",
+    "vendor": "멜론티켓",
+    "vendorUrl": "https://ticket.melon.com/performance/index.htm?prodId=214279",
+    "youtubeChannel": "@YOASOBI_Official",
+    "youtubeProfileImage": "assets/artists/yoasobi_official.jpg",
+    "songs": [
+      [
+        "アイドル",
+        "",
+        "https://www.youtube.com/watch?v=ZRtdQ81jPUQ"
+      ],
+      [
+        "怪物",
+        "",
+        "https://www.youtube.com/watch?v=dy90tA3TT1c"
+      ],
+      [
+        "夜に駆ける",
+        "",
+        "https://www.youtube.com/watch?v=x8VYWazR5mE"
+      ]
+    ],
+    "status": "pending",
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "confirmed",
+    "seatPrices": [
+      {
+        "name": "SR석",
+        "price": 187000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "R석",
+        "price": 154000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "S석",
+        "price": 143000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "sources": [
+      "https://www.yoasobi-music.jp/news/588606",
+      "https://litt.ly/yoasobi",
+      "https://ticket.melon.com/performance/index.htm?prodId=214279"
+    ],
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-18",
+        "sources": [
+          "https://www.yoasobi-music.jp/news/588606",
+          "https://ticket.melon.com/performance/index.htm?prodId=214279"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-18",
+        "sources": [
+          "https://www.yoasobi-music.jp/news/588606",
+          "https://ticket.melon.com/performance/index.htm?prodId=214279"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-18",
+        "sources": [
+          "https://ticket.melon.com/performance/index.htm?prodId=214279"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-18",
+        "sources": [
+          "https://www.yoasobi-music.jp/news/588606",
+          "https://ticket.melon.com/performance/index.htm?prodId=214279"
+        ]
+      },
+      "presaleDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-18",
+        "sources": [
+          "https://litt.ly/yoasobi",
+          "https://ticket.melon.com/performance/index.htm?prodId=214279"
+        ]
+      },
+      "ticketDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-18",
+        "sources": [
+          "https://litt.ly/yoasobi",
+          "https://ticket.melon.com/performance/index.htm?prodId=214279"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-18",
+        "sources": [
+          "https://litt.ly/yoasobi",
+          "https://ticket.melon.com/performance/index.htm?prodId=214279"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-18",
+        "sources": [
+          "https://ticket.melon.com/performance/index.htm?prodId=214279"
+        ]
+      },
+      "representativeSongs": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-18",
+        "sources": [
+          "https://www.youtube.com/watch?v=ZRtdQ81jPUQ",
+          "https://www.youtube.com/watch?v=dy90tA3TT1c",
+          "https://www.youtube.com/watch?v=x8VYWazR5mE",
+          "https://www.yoasobi-music.jp/special/superplanet/",
+          "https://www.youtube.com/@YOASOBI_Official"
+        ]
+      }
+    },
+    "priceVerifiedAt": "2026-11-18",
+    "scheduleVerifiedAt": "2026-11-18",
+    "verifiedAt": "2026-11-18",
+    "createdAt": "2026-11-18T10:00:00+09:00",
+    "organizer": "LIVET"
+  },
+  {
+    "id": "asian-kung-fu-generation-2027-05-22",
+    "artist": "ASIAN KUNG-FU GENERATION",
+    "title": "ASIAN KUNG-FU GENERATION 30th Anniversary Extra Show in Korea",
+    "genre": "J-ROCK",
+    "concertDate": "2027-05-22",
+    "time": "오후 6:00",
+    "venue": "일산 킨텍스(KINTEX) HALL 10",
+    "presaleStatus": "none",
+    "presaleDate": "",
+    "presaleTime": "",
+    "ticketDate": "2026-11-27",
+    "ticketTime": "오후 8:00",
+    "price": 125000,
+    "priceCurrency": "KRW",
+    "vendor": "멜론티켓",
+    "vendorUrl": "https://ticket.melon.com/performance/index.htm?prodId=214339",
+    "youtubeChannel": "@akgSMEJ",
+    "youtubeProfileImage": "assets/artists/akgsmej.jpg",
+    "songs": [
+      [
+        "Re:Re:",
+        "",
+        "https://www.youtube.com/watch?v=Jj5vpv65Sc0"
+      ],
+      [
+        "出町柳パラレルユニバース",
+        "",
+        "https://www.youtube.com/watch?v=axZIjv9BRwQ"
+      ],
+      [
+        "スキンズ",
+        "",
+        "https://www.youtube.com/watch?v=I7PE9Z2DoTU"
+      ]
+    ],
+    "status": "pending",
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "confirmed",
+    "seatPrices": [
+      {
+        "name": "전석",
+        "price": 125000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "sources": [
+      "https://www.akglive.com/30th/",
+      "https://ticket.melon.com/performance/index.htm?prodId=214339",
+      "https://ticket.melon.com/csoon/index.htm"
+    ],
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-18",
+        "sources": [
+          "https://www.akglive.com/30th/",
+          "https://ticket.melon.com/performance/index.htm?prodId=214339"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-18",
+        "sources": [
+          "https://www.akglive.com/30th/",
+          "https://ticket.melon.com/performance/index.htm?prodId=214339"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-18",
+        "sources": [
+          "https://ticket.melon.com/performance/index.htm?prodId=214339",
+          "https://cdnticket.melon.co.kr/resource/image/upload/product/2026/11/20261116211246fac82f08-db01-4ca6-9c01-c58fe8a78a26.png"
+        ]
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-18",
+        "sources": [
+          "https://www.akglive.com/30th/",
+          "https://ticket.melon.com/performance/index.htm?prodId=214339"
+        ]
+      },
+      "ticketDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-18",
+        "sources": [
+          "https://www.akglive.com/30th/",
+          "https://ticket.melon.com/csoon/index.htm"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-18",
+        "sources": [
+          "https://www.akglive.com/30th/",
+          "https://ticket.melon.com/csoon/index.htm",
+          "https://ticket.melon.com/performance/index.htm?prodId=214339"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-18",
+        "sources": [
+          "https://ticket.melon.com/performance/index.htm?prodId=214339"
+        ]
+      },
+      "representativeSongs": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-18",
+        "sources": [
+          "https://www.youtube.com/watch?v=Jj5vpv65Sc0",
+          "https://www.youtube.com/watch?v=axZIjv9BRwQ",
+          "https://www.youtube.com/watch?v=I7PE9Z2DoTU",
+          "https://www.asiankung-fu.com/s/n80/?ima=0514",
+          "https://www.youtube.com/@akgSMEJ"
+        ]
+      }
+    },
+    "priceVerifiedAt": "2026-11-18",
+    "scheduleVerifiedAt": "2026-11-18",
+    "verifiedAt": "2026-11-18",
+    "createdAt": "2026-11-18T10:00:00+09:00",
+    "organizer": "LIVET"
   }
 ]
