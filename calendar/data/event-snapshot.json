@@ -2753,9 +2753,9 @@
     "presaleStatus": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-11",
-    "scheduleVerifiedAt": "2026-11-11",
-    "priceVerifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-19",
+    "scheduleVerifiedAt": "2026-11-19",
+    "priceVerifiedAt": "2026-11-19",
     "sources": [
       "https://tickets.interpark.com/goods/26011116",
       "https://world.nol.com/en/ticket/products/26011116",
@@ -2793,9 +2793,9 @@
     "presaleStatus": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-11",
-    "scheduleVerifiedAt": "2026-11-11",
-    "priceVerifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-19",
+    "scheduleVerifiedAt": "2026-11-19",
+    "priceVerifiedAt": "2026-11-19",
     "sources": [
       "https://nol.yanolja.com/ticket/products/26010352",
       "https://tickets.interpark.com/contents/notice/detail/14619"
@@ -2841,9 +2841,9 @@
     "presaleStatus": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-11",
-    "scheduleVerifiedAt": "2026-11-11",
-    "priceVerifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-19",
+    "scheduleVerifiedAt": "2026-11-19",
+    "priceVerifiedAt": "2026-11-19",
     "sources": [
       "https://nol.yanolja.com/ticket/products/26010352",
       "https://tickets.interpark.com/contents/notice/detail/14619"
@@ -3688,9 +3688,9 @@
     "presaleStatus": "checking",
     "status": "pending",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-11",
-    "scheduleVerifiedAt": "2026-11-11",
-    "priceVerifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-19",
+    "scheduleVerifiedAt": "2026-11-19",
+    "priceVerifiedAt": "2026-11-19",
     "sources": [
       "https://ticket.yes24.com/Perf/59963",
       "https://www.highjinkx.com/show-list/zazen-boys"
@@ -3713,7 +3713,7 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-11",
+        "verifiedAt": "2026-11-19",
         "sources": [
           "https://ticket.yes24.com/Perf/59963",
           "https://www.highjinkx.com/show-list/zazen-boys"
@@ -3721,14 +3721,14 @@
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-11",
+        "verifiedAt": "2026-11-19",
         "sources": [
           "https://www.highjinkx.com/show-list/zazen-boys"
         ]
       },
       "ticketing": {
         "status": "unverified",
-        "checkedAt": "2026-11-11",
+        "checkedAt": "2026-11-19",
         "sources": [
           "https://ticket.yes24.com/Perf/59963",
           "https://www.highjinkx.com/show-list/zazen-boys"
@@ -3736,7 +3736,7 @@
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-11",
+        "verifiedAt": "2026-11-19",
         "sources": [
           "https://ticket.yes24.com/Perf/59963",
           "https://www.highjinkx.com/show-list/zazen-boys"
@@ -3761,11 +3761,11 @@
     "presaleDate": "",
     "presaleTime": "",
     "presaleStatus": "none",
-    "status": "pending",
+    "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-13",
-    "scheduleVerifiedAt": "2026-11-13",
-    "priceVerifiedAt": "2026-11-13",
+    "verifiedAt": "2026-11-19",
+    "scheduleVerifiedAt": "2026-11-19",
+    "priceVerifiedAt": "2026-11-19",
     "sources": [
       "https://ticket.yes24.com/Perf/59886",
       "https://www.jvcmusic.co.jp/sf/penthouse/",
@@ -3794,7 +3794,7 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-19",
         "sources": [
           "https://ticket.yes24.com/Perf/59886",
           "https://www.jvcmusic.co.jp/sf/penthouse/",
@@ -3803,7 +3803,7 @@
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-19",
         "sources": [
           "https://ticket.yes24.com/Perf/59886",
           "https://penthouse-tokyo.com/news/1662/"
@@ -3811,30 +3811,36 @@
       },
       "ticketing": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-19",
         "sources": [
           "https://penthouse-tokyo.com/news/1662/"
         ]
       },
       "presale": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-19",
         "sources": [
           "https://penthouse-tokyo.com/news/1662/"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-19",
         "sources": [
           "https://ticket.yes24.com/Perf/59886",
           "https://penthouse-tokyo.com/news/1662/"
         ]
       },
       "representativeSongs": {
-        "status": "unverified",
-        "checkedAt": "2026-09-23",
-        "sources": []
+        "status": "confirmed",
+        "verifiedAt": "2026-11-19",
+        "sources": [
+          "https://www.youtube.com/watch?v=m4yCXpCiXpk",
+          "https://www.youtube.com/watch?v=nI61IxcCiXc",
+          "https://www.youtube.com/watch?v=BYU0nLyMJ_E",
+          "https://penthouse-tokyo.com/",
+          "https://www.youtube.com/channel/UC5HwceAVbRH7sKrmucI5onQ"
+        ]
       }
     }
   },
@@ -4642,9 +4648,9 @@
     "presaleStatus": "none",
     "status": "pending",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-11",
-    "scheduleVerifiedAt": "2026-11-11",
-    "priceVerifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-19",
+    "scheduleVerifiedAt": "2026-11-19",
+    "priceVerifiedAt": "2026-11-19",
     "sources": [
       "https://4kor4kor4kor.com/tickets/ivy"
     ],
@@ -4660,28 +4666,28 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-11",
+        "verifiedAt": "2026-11-19",
         "sources": [
           "https://4kor4kor4kor.com/tickets/ivy"
         ]
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-11",
+        "verifiedAt": "2026-11-19",
         "sources": [
           "https://4kor4kor4kor.com/tickets/ivy"
         ]
       },
       "ticketing": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-11",
+        "verifiedAt": "2026-11-19",
         "sources": [
           "https://4kor4kor4kor.com/tickets/ivy"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-11",
+        "verifiedAt": "2026-11-19",
         "sources": [
           "https://4kor4kor4kor.com/tickets/ivy"
         ]
@@ -4766,9 +4772,16 @@
         ]
       },
       "representativeSongs": {
-        "status": "unverified",
-        "checkedAt": "2026-10-18",
-        "sources": []
+        "status": "confirmed",
+        "verifiedAt": "2026-11-19",
+        "sources": [
+          "https://www.youtube.com/watch?v=Dm2O_W6Rrss",
+          "https://www.youtube.com/watch?v=EJ8lBjQls4w",
+          "https://www.youtube.com/watch?v=vcJ8enqerNY",
+          "https://neeofficial.jp/",
+          "https://www.youtube.com/channel/UC0hS3r_UhEL0qVlnAcX4YAQ",
+          "https://www.youtube.com/channel/UCbNUDTaVIit_aNNrjZH6clg"
+        ]
       }
     }
   },
@@ -5259,9 +5272,9 @@
     "presaleStatus": "none",
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-11",
-    "scheduleVerifiedAt": "2026-11-11",
-    "priceVerifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-19",
+    "scheduleVerifiedAt": "2026-11-19",
+    "priceVerifiedAt": "2026-11-19",
     "sources": [
       "https://choqmay-official.com/contents/1123197",
       "https://ticket.melon.com/performance/index.htm?prodId=214199"
@@ -5294,7 +5307,7 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-11",
+        "verifiedAt": "2026-11-19",
         "sources": [
           "https://choqmay-official.com/contents/1123197",
           "https://ticket.melon.com/performance/index.htm?prodId=214199"
@@ -5302,7 +5315,7 @@
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-11",
+        "verifiedAt": "2026-11-19",
         "sources": [
           "https://choqmay-official.com/contents/1123197",
           "https://ticket.melon.com/performance/index.htm?prodId=214199"
@@ -5310,7 +5323,7 @@
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-11",
+        "verifiedAt": "2026-11-19",
         "sources": [
           "https://choqmay-official.com/contents/1123197",
           "https://ticket.melon.com/performance/index.htm?prodId=214199"
@@ -5318,7 +5331,7 @@
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-11",
+        "verifiedAt": "2026-11-19",
         "sources": [
           "https://choqmay-official.com/contents/1123197",
           "https://ticket.melon.com/performance/index.htm?prodId=214199"
@@ -5326,16 +5339,17 @@
       },
       "ticketing": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-11",
+        "verifiedAt": "2026-11-19",
         "sources": [
           "https://choqmay-official.com/contents/1123197"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-11",
+        "verifiedAt": "2026-11-19",
         "sources": [
-          "https://ticket.melon.com/performance/index.htm?prodId=214199"
+          "https://ticket.melon.com/performance/index.htm?prodId=214199",
+          "https://choqmay-official.com/contents/1123197"
         ]
       },
       "representativeSongs": {
@@ -5921,9 +5935,9 @@
     "presaleStatus": "checking",
     "status": "pending",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-10",
-    "scheduleVerifiedAt": "2026-11-10",
-    "priceVerifiedAt": "2026-11-10",
+    "verifiedAt": "2026-11-19",
+    "scheduleVerifiedAt": "2026-11-19",
+    "priceVerifiedAt": "2026-11-19",
     "sources": [
       "http://kazumitateishi.com/live.html",
       "https://nol.yanolja.com/ticket/products/26010060",
@@ -5957,7 +5971,7 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-19",
         "sources": [
           "http://kazumitateishi.com/live.html",
           "https://nol.yanolja.com/ticket/products/26010060",
@@ -5966,7 +5980,7 @@
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-19",
         "sources": [
           "http://kazumitateishi.com/live.html",
           "https://nol.yanolja.com/ticket/products/26010060"
@@ -5974,7 +5988,7 @@
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-19",
         "sources": [
           "http://kazumitateishi.com/live.html",
           "https://nol.yanolja.com/ticket/products/26010060"
@@ -5982,7 +5996,7 @@
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-19",
         "sources": [
           "http://kazumitateishi.com/live.html",
           "https://nol.yanolja.com/ticket/products/26010060"
@@ -5990,7 +6004,7 @@
       },
       "ticketing": {
         "status": "unverified",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-19",
         "sources": [
           "http://kazumitateishi.com/live.html",
           "https://nol.yanolja.com/ticket/products/26010060"
@@ -5998,7 +6012,7 @@
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-10",
+        "verifiedAt": "2026-11-19",
         "sources": [
           "http://kazumitateishi.com/live.html",
           "https://nol.yanolja.com/ticket/products/26010060",
@@ -6487,9 +6501,9 @@
     "presaleStatus": "checking",
     "status": "pending",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-12",
-    "scheduleVerifiedAt": "2026-11-12",
-    "priceVerifiedAt": "2026-11-12",
+    "verifiedAt": "2026-11-19",
+    "scheduleVerifiedAt": "2026-11-19",
+    "priceVerifiedAt": "2026-11-19",
     "sources": [
       "https://ticket.melon.com/performance/index.htm?prodId=214128"
     ],
@@ -6511,36 +6525,43 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-12",
+        "verifiedAt": "2026-11-19",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214128"
         ]
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-12",
+        "verifiedAt": "2026-11-19",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214128"
         ]
       },
       "ticketing": {
         "status": "unverified",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-19",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214128"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-12",
+        "verifiedAt": "2026-11-19",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214128"
         ]
       },
       "representativeSongs": {
-        "status": "unverified",
-        "checkedAt": "2026-11-12",
-        "sources": []
+        "status": "confirmed",
+        "verifiedAt": "2026-11-19",
+        "sources": [
+          "https://www.youtube.com/watch?v=8S-2Z7XeKZo",
+          "https://www.youtube.com/watch?v=YP5MDQAQ38c",
+          "https://www.youtube.com/watch?v=k4ZJ9DB1Dio",
+          "https://lit.link/suisuiduck",
+          "https://avexnet.jp/news/1037683",
+          "https://www.youtube.com/@suisuiduck"
+        ]
       }
     }
   },
@@ -6551,18 +6572,20 @@
     "venue": "큐브컨벤션센터",
     "vendor": "멜론티켓",
     "vendorUrl": "https://ticket.melon.com/performance/index.htm?prodId=214040",
-    "ticketDate": "",
-    "ticketTime": "",
+    "ticketDate": "2026-10-23",
+    "ticketTime": "오후 6:00",
     "presaleDate": "",
     "presaleTime": "",
-    "presaleStatus": "checking",
+    "presaleStatus": "none",
     "status": "pending",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-12",
-    "scheduleVerifiedAt": "2026-11-12",
-    "priceVerifiedAt": "2026-11-12",
+    "verifiedAt": "2026-11-19",
+    "scheduleVerifiedAt": "2026-11-19",
+    "priceVerifiedAt": "2026-11-19",
     "sources": [
-      "https://ticket.melon.com/performance/index.htm?prodId=214040"
+      "https://ticket.melon.com/performance/index.htm?prodId=214040",
+      "https://ticket.melon.com/csoon/detail.htm?csoonId=13110",
+      "https://runidre.com/"
     ],
     "price": 66000,
     "priceCurrency": "KRW",
@@ -6588,40 +6611,58 @@
     "ticketStatusSource": null,
     "seriesId": null,
     "hostingStatus": "confirmed",
-    "ticketingStatus": "unverified",
+    "ticketingStatus": "confirmed",
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-12",
+        "verifiedAt": "2026-11-19",
         "sources": [
-          "https://ticket.melon.com/performance/index.htm?prodId=214040"
+          "https://ticket.melon.com/performance/index.htm?prodId=214040",
+          "https://ticket.melon.com/csoon/detail.htm?csoonId=13110",
+          "https://runidre.com/"
         ]
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-12",
+        "verifiedAt": "2026-11-19",
         "sources": [
-          "https://ticket.melon.com/performance/index.htm?prodId=214040"
+          "https://ticket.melon.com/performance/index.htm?prodId=214040",
+          "https://ticket.melon.com/csoon/detail.htm?csoonId=13110",
+          "https://runidre.com/"
         ]
       },
       "ticketing": {
-        "status": "unverified",
-        "checkedAt": "2026-11-12",
+        "status": "confirmed",
+        "verifiedAt": "2026-11-19",
         "sources": [
-          "https://ticket.melon.com/performance/index.htm?prodId=214040"
+          "https://ticket.melon.com/csoon/detail.htm?csoonId=13110"
+        ]
+      },
+      "presale": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-19",
+        "sources": [
+          "https://ticket.melon.com/csoon/detail.htm?csoonId=13110"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-12",
+        "verifiedAt": "2026-11-19",
         "sources": [
-          "https://ticket.melon.com/performance/index.htm?prodId=214040"
+          "https://ticket.melon.com/performance/index.htm?prodId=214040",
+          "https://ticket.melon.com/csoon/detail.htm?csoonId=13110"
         ]
       },
       "representativeSongs": {
-        "status": "unverified",
-        "checkedAt": "2026-11-12",
-        "sources": []
+        "status": "confirmed",
+        "verifiedAt": "2026-11-19",
+        "sources": [
+          "https://www.youtube.com/watch?v=5lvpBMrIEns",
+          "https://www.youtube.com/watch?v=f0HzJrueaAs",
+          "https://www.youtube.com/watch?v=doAjsYjllX4",
+          "https://runidre.com/",
+          "https://www.youtube.com/@RUNIDRE"
+        ]
       }
     }
   },
@@ -7551,9 +7592,9 @@
     "presaleStatus": "none",
     "status": "pending",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-18",
-    "scheduleVerifiedAt": "2026-11-18",
-    "priceVerifiedAt": "2026-11-18",
+    "verifiedAt": "2026-11-19",
+    "scheduleVerifiedAt": "2026-11-19",
+    "priceVerifiedAt": "2026-11-19",
     "sources": [
       "https://www.akglive.com/30th/",
       "https://ticket.melon.com/performance/index.htm?prodId=214339",
@@ -7577,7 +7618,7 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-18",
+        "verifiedAt": "2026-11-19",
         "sources": [
           "https://www.akglive.com/30th/",
           "https://ticket.melon.com/performance/index.htm?prodId=214339"
@@ -7585,7 +7626,7 @@
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-18",
+        "verifiedAt": "2026-11-19",
         "sources": [
           "https://www.akglive.com/30th/",
           "https://ticket.melon.com/performance/index.htm?prodId=214339"
@@ -7593,7 +7634,7 @@
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-18",
+        "verifiedAt": "2026-11-19",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214339",
           "https://cdnticket.melon.co.kr/resource/image/upload/product/2026/11/20261116211246fac82f08-db01-4ca6-9c01-c58fe8a78a26.png"
@@ -7601,7 +7642,7 @@
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-18",
+        "verifiedAt": "2026-11-19",
         "sources": [
           "https://www.akglive.com/30th/",
           "https://ticket.melon.com/performance/index.htm?prodId=214339"
@@ -7626,7 +7667,7 @@
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-18",
+        "verifiedAt": "2026-11-19",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214339"
         ]
