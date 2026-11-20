@@ -14,11 +14,15 @@ Format: `- <event id> — verifiedAt=<date> — note`
 
 | 후보 ID / 기존 ID | 아티스트·공연일·회차 | 발견일 | 마지막 시도(KST) | 누락 필드 | 확인한 공식 URL | 결과·접근 실패 원인 | 다음 행동·우선순위 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| yoasobi-2027-04-17 | YOASOBI 2027-04-17 | 2026-11-18 | 2026-11-18 | 공식 한글·일본어 별칭 | https://ticket.melon.com/performance/index.htm?prodId=214279 | pending. 일정·가격·위버스 선예매·일반예매·대표곡 3곡은 이번 검증. 공식 페이지와 포스터는 라틴 YOASOBI만 사용 | 공식 한글·일본어 표기가 있으면 confirmed |
-| asian-kung-fu-generation-2027-05-22 | ASIAN KUNG-FU GENERATION 2027-05-22 | 2026-11-18 | 2026-11-19 | 공식 한글 별칭 | https://ticket.melon.com/performance/index.htm?prodId=214339 | pending. 2026-11-19 멜론 상품에서 2027-05-22 오후 6시·KINTEX HALL 10·전석 125,000원 재확인. 오픈 목록(일반예매 11/27 20:00)은 이번 미재오픈 | 11/27 일반예매 직전 오픈 공지 재확인, 공식 한글 표기 |
+| yoasobi-2027-04-17 | YOASOBI 2027-04-17 | 2026-11-18 | 2026-11-20 | 공식 한글·일본어 별칭 | https://ticket.melon.com/performance/index.htm?prodId=214279 | pending. 2026-11-20 멜론 상품에서 일정·SR 187,000/R 154,000/S 143,000·위버스 선예매 11/30 18:00–18:59·일반예매 11/30 20:00 재확인. 사실 변경 없음. 대표곡은 이번 미재오픈 | 공식 한글·일본어 표기가 있으면 confirmed |
+| asian-kung-fu-generation-2027-05-22 | ASIAN KUNG-FU GENERATION 2027-05-22 | 2026-11-18 | 2026-11-20 | 공식 한글 별칭 | https://www.akglive.com/30th/ https://ticket.melon.com/csoon/index.htm | pending. 2026-11-20 투어 페이지 ticket 줄 2026-11-27 20:00과 멜론 오픈 목록 [오픈] 26.11.27(금) 재확인. 상품은 오후 6시·전석 125,000. 선예매 문구 없음. 대표곡은 이번 미재오픈 | 공식 한글 표기. 11/27 오픈 당일 상품 공지 |
+| pile-fan-event-2026-12-26 (미등록) | Pile 팬이벤트 12/26·12/27 | 2026-11-20 | 2026-11-20 | 콘서트 아님 | https://pile.asia/contents/1126122 | 미등록. 공식 본문은 12/25 전시 1일점장, 12/26·12/27 팬이벤트. 일반판매 11/14 12:00–12/24 23:59. 장소·가격은 본문에 없음 | 콘서트 공지가 생기면 재검토 |
+| night-hike-tours-2026-12-19 (미등록) | NIGHT HIKE TOURS 2026-12-19 | 2026-11-20 | 2026-11-20 | 단일 아티스트 스키마 부적합, 좌석 등급명 | https://prtimes.jp/main/html/rd/p/000000018.000120563.html | 미등록. 주최 보도자료는 12/19 OPEN 13:30/START 14:00·YES24 WANDERLOCH HALL·99,000원·일반판매 11/6 20:00. 등급명은 없음. YES24 단축 주소는 접속 제한. 공식 사이트 본문 비어 있음 | 페스티벌 등록 여부 사용자 결정, YES24 재오픈 |
+| dovlvl-2026-12 (미등록) | 도비비(Dovlvl) | 2026-11-20 | 2026-11-20 | 범위 외(한국 아티스트) | https://www.candidmusic.co.kr/dovlvl | 미등록. 기획사 페이지는 J-POP 커버를 하는 한국 싱어송라이터이고, 적힌 공연은 2026-03-21 부산(과거). 12월 일정은 집계 사이트에만 있어 열지 않음 | 일본 아티스트 공연이 아니면 등록 안 함 |
+| ohashi-ayaka-2027-07-03 (미등록) | 大橋彩香 Asia Tour evila | 2026-11-20 | 2026-11-20 | 공식 사이트에 서울 일정 없음 | https://ayaka-ohashi.com/contents/1124947 | 미등록. 공식 신곡 공지와 뉴스 목록에 투어·서울 문구 없음. 공식 X는 403. 뉴스 사이트 일정은 근거로 쓰지 않음 | 공식 사이트·레이블 공지 후 등록 |
+| kessoku-band-2027-05-08 (미등록) | 結束バンド 2027-05-08 KINTEX | 2026-11-16 | 2026-11-20 | 시작 시각, 예매처, 가격, 예매 일시 | https://news.aniplex.co.jp/detail.html?id=71601 | 미등록(발표 대기). 2026-11-20 재확인. 서울·홍콩 티켓은 여전히 추후 안내 | 한국 예매 공지 후 등록 |
 | rain-tree-2026-12-20 | Rain Tree 2026-12-20 | 2026-11-14 | 2026-11-18 | 공식 한글 별칭 | https://rt-official.jp/news/2026/08/18/8126/ | pending. 일정·가격·팬클럽 선행·일반예매·대표곡 3곡은 이번 검증. YES24 상품 본문은 접속 제한 | 공식 한글 표기. YES24 본문 재오픈 |
 | koji-matsuo-2026-12-27 | KOJI MATSUO 2026-12-27 | 2026-11-14 | 2026-11-18 | 일반예매·선예매 일시, 대표곡 3곡, 공식 일본어 별칭 | https://ticket.melon.com/performance/index.htm?prodId=214171 | pending. 일정·VIP 132,000/일반 99,000은 멜론 본문. 오픈 일시와 공식 채널은 연 페이지에 없음 | 오픈 공지와 공식 영상 3곡 |
-| kessoku-band-2027-05-08 (미등록) | 結束バンド 2027-05-08 KINTEX | 2026-11-16 | 2026-11-18 | 시작 시각, 예매처, 가격, 예매 일시 | https://news.aniplex.co.jp/detail.html?id=71601 | 미등록(발표 대기). 서울·홍콩 티켓은 추후 안내 | 한국 예매 공지 후 등록 |
 | penthouse-2026-12-19 | Penthouse 2026-12-19 | 2026-09-23 | 2026-11-19 | 없음 | https://penthouse-tokyo.com/news/1662/ | 2026-11-19 confirmed 전환. 공식 공지에서 19:00·1층 스탠딩 110,000/2층 지정석 121,000·일반예매 9/1 12:00 재확인, 대표곡 3곡 이번 검증. YES24 Perf/59886은 접속 제한 | 공연 후 종료. YES24 제한 해제 시 한국어 등급명 재확인 |
 | mulasaki-ima-2026-12-12 | 紫 今 2026-12-12 | 2026-09-24 | 2026-11-13 | 시작 시각, 대표곡 3곡. 가격은 이번 미재확인 | https://www.threads.com/@mulasakiima/post/DdTjbtmkq8G | pending. 일반예매 2026-09-23 20:00. YES24 상품은 시간 초과 | 시작 시각과 공식 영상 3곡 |
 | hump-back-2027-01-23 | Hump Back 2027-01-23 | 2026-09-24 | 2026-11-19 | 대표곡 2곡(기존 1곡) | https://humpback.jp/movies/categories/youtube | pending 유지. 공식 사이트 링크 채널은 @humpback_official(UC9G6cVN89XFM5DCZGU8yn-Q)인데 주요 MV(拝啓、少年よ·僕らは今日も車の中·LILLY)의 watch 업로더는 @humpback_official_s(UCAuD49XRmjVfYjmbo8sWENA)라 채널 불일치. 공연 사실은 이번 미재오픈 | 두 채널 관계를 공식 근거로 확인 후 3곡 |
@@ -42,6 +46,20 @@ Format: `- <event id> — verifiedAt=<date> — note`
 | minami-2027-03-27/28 (미등록) | 美波 Timesick Traveler 2027 서울 3/27·3/28 | 2026-11-14 | 2026-11-16 | 공연장, 시작 시각, 가격, 예매처, 예매 일시 | https://www.373official.com/posts/59243766/ | 미등록(발표 대기). 공식 공지 "会場および公演詳細は、後日発表" | 공식 상세 발표 후 등록 |
 | yoko-takahashi-2027-02-27 (미등록) | 高橋洋子 EVANGELION Live Tour 夜想曲 서울 2027-02-27 이화여대 대강당 | 2026-11-14 | 2026-11-16 | 시작 시각, 예매처, 가격, 예매 일시 | https://www.eva-info.jp/27375 | 미등록(발표 대기). "チケットに関する詳細情報は各開催都市ごとに今後発表予定". king-cr.jp 아티스트 페이지 추정 URL은 404 | 한국 예매 공지 발표 후 등록 |
 | saito-shuka / hanamiya-nina (범위 외) | 사이토 슈카 팬 이벤트 12/5·6, 하나미야 니나 라디오 이벤트 12/6 | 2026-11-14 | 2026-11-16 | — | (검색 결과로만 확인, 공식 페이지 미열람) | 콘서트가 아닌 팬 이벤트/라디오 공개 이벤트라 상세 조사·등록 안 함 | 사용자 요청 시에만 |
+
+## Run: 2026-11-20 (KST, 짝수일, 신규 발견 우선)
+
+`TZ=Asia/Seoul date`로 2026-11-20 금요일 08:54 KST 확인. 원격 `https://github.com/ych061661-hash/j-live-korea.git` 일치, origin/main과 같고 작업 트리 깨끗. 열린 PR은 #1(2026-09-29 NEE), #2(2026-11-06 초안)로 이번 일일 작업이 아님. 예매 임박 재검증 2건 후 신규 상세 조사 5건. 대표곡은 이번 실행에서 다시 열지 않음. 접근 실패로 기존 값 삭제·상태 하향 없음. 취소·연기 공지 신규 확인 없음.
+
+- `yoasobi-2027-04-17` 사실 유지, verifiedAt 2026-11-20. 멜론 상품 https://ticket.melon.com/performance/index.htm?prodId=214279 에서 2027-04-17 토 오후 7:30, 고양종합운동장 주경기장, SR석 187,000 / R석 154,000 / S석 143,000 재확인. 위버스 인증 2026-11-16 20:00–11/30 18:59, 선예매 11/30 18:00–18:59, 일반예매 11/30 20:00, 선예매 매수 포함 1인 3매, 11/30 19:00–19:59 판매 중지. 대표곡 3곡은 2026-11-18 검증 유지. confirmed 보류: 연 페이지가 라틴 YOASOBI만 사용. 공연 근거(이번): 위 멜론 상품.
+- `asian-kung-fu-generation-2027-05-22` 사실 유지, verifiedAt 2026-11-20. 멜론 상품은 2027-05-22 토 오후 6시, KINTEX HALL 10, 전석 125,000원, 선예매 문구 없음. 일반예매 2026-11-27 금 20:00은 투어 페이지 ticket 줄(https://www.akglive.com/30th/ `p.ticket` 2026年11月27日(金)20:00〜)과 멜론 오픈 목록 https://ticket.melon.com/csoon/index.htm 의 [오픈] 26.11.27(금)이 같다. 목록에는 시각이 없다. 대표곡은 2026-11-18 검증 유지. confirmed 보류: 공식 한글 표기 없음.
+- Pile은 미등록. https://pile.asia/contents/1126122 는 12/25 서울 전시 1일점장, 12/26·12/27 팬이벤트. 일반판매 2026-11-14 12:00–12/24 23:59. 유료회원 선행은 종료. 본문에 장소·좌석 가격 없음. 신청 버튼 https://r.funity.jp/pile-seoul 은 콘서트가 아니라 열지 않음.
+- NIGHT HIKE TOURS는 미등록. 주최 TRIBALCON 보도자료 https://prtimes.jp/main/html/rd/p/000000018.000120563.html : 2026-12-19 토, YES24 WANDERLOCH HALL, OPEN 13:30 / START 14:00(예정), 99,000원, YES24, 판매 2026-11-06 20:00. 출연은 다수이고 타임테이블은 추후. 좌석 등급명은 이 글에 없다. 판매 페이지 https://to.livet.one/nighthike2026 는 "비정상적인 접근으로 일시적으로 서비스 접속이 제한". https://nighthike.net/ 본문은 비어 있음. 집계·뉴스의 1층 스탠딩/2층 자유석 구분은 저장하지 않음. KIMCHIKURA와 같이 단일 아티스트 레코드로 넣지 않음.
+- 도비비는 미등록. https://www.candidmusic.co.kr/dovlvl 은 J-POP을 커버하는 한국 싱어송라이터이고, 페이지의 공연은 2026-03-21 부산이라 과거. 12월 지방 일정은 집계 사이트에만 보여 공식 상품을 열지 않음.
+- 大橋彩香는 미등록. https://ayaka-ohashi.com/contents/news 와 신곡 공지 https://ayaka-ohashi.com/contents/1124947 에 서울·투어 문구 없음. 같은 날 팬미팅 공지 https://ayaka-ohashi.com/contents/1124640 는 2027-01-30 도쿄. 공식 X https://x.com/AyakaOhashi/status/2118321650655715700 는 HTTP 403. 뉴스 사이트의 2027-07-03 서울은 근거로 쓰지 않음.
+- 結束バンド는 미등록 유지. https://news.aniplex.co.jp/detail.html?id=71601 는 2027-05-08 서울 KINTEX만 있고 티켓은 추후.
+- 하이징크스 목록 https://www.highjinkx.com/show-list 의 오늘 이후 일정 중 캘린더에 없는 제목은 Jane Remover 2026-12-11뿐. 상세 조사 상한 이후라 상품 페이지는 열지 않음.
+- 이번 미처리(다음): 11/13 확인 confirmed(KANA-BOON 12/05는 11/21부터 14일 색인 창), Hump Back 채널, LUCK LIFE·紫 今 대표곡, NEE 시작 시각. KIMCHIKURA × ANISAMA는 사용자 결정 대기라 상품을 열지 않음.
 
 ## Run: 2026-11-19 (KST, 홀수일, 재검증 우선)
 

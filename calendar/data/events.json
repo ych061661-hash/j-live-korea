@@ -6841,7 +6841,7 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-18",
+        "verifiedAt": "2026-11-20",
         "sources": [
           "https://www.yoasobi-music.jp/news/588606",
           "https://ticket.melon.com/performance/index.htm?prodId=214279"
@@ -6849,7 +6849,7 @@
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-18",
+        "verifiedAt": "2026-11-20",
         "sources": [
           "https://www.yoasobi-music.jp/news/588606",
           "https://ticket.melon.com/performance/index.htm?prodId=214279"
@@ -6857,14 +6857,14 @@
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-18",
+        "verifiedAt": "2026-11-20",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214279"
         ]
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-18",
+        "verifiedAt": "2026-11-20",
         "sources": [
           "https://www.yoasobi-music.jp/news/588606",
           "https://ticket.melon.com/performance/index.htm?prodId=214279"
@@ -6872,7 +6872,7 @@
       },
       "presaleDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-18",
+        "verifiedAt": "2026-11-20",
         "sources": [
           "https://litt.ly/yoasobi",
           "https://ticket.melon.com/performance/index.htm?prodId=214279"
@@ -6880,7 +6880,7 @@
       },
       "ticketDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-18",
+        "verifiedAt": "2026-11-20",
         "sources": [
           "https://litt.ly/yoasobi",
           "https://ticket.melon.com/performance/index.htm?prodId=214279"
@@ -6888,7 +6888,7 @@
       },
       "ticketing": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-18",
+        "verifiedAt": "2026-11-20",
         "sources": [
           "https://litt.ly/yoasobi",
           "https://ticket.melon.com/performance/index.htm?prodId=214279"
@@ -6896,7 +6896,7 @@
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-18",
+        "verifiedAt": "2026-11-20",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214279"
         ]
@@ -6913,9 +6913,9 @@
         ]
       }
     },
-    "priceVerifiedAt": "2026-11-18",
-    "scheduleVerifiedAt": "2026-11-18",
-    "verifiedAt": "2026-11-18",
+    "priceVerifiedAt": "2026-11-20",
+    "scheduleVerifiedAt": "2026-11-20",
+    "verifiedAt": "2026-11-20",
     "createdAt": "2026-11-18T10:00:00+09:00",
     "organizer": "LIVET"
   },
@@ -6973,7 +6973,7 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-19",
+        "verifiedAt": "2026-11-20",
         "sources": [
           "https://www.akglive.com/30th/",
           "https://ticket.melon.com/performance/index.htm?prodId=214339"
@@ -6981,7 +6981,7 @@
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-19",
+        "verifiedAt": "2026-11-20",
         "sources": [
           "https://www.akglive.com/30th/",
           "https://ticket.melon.com/performance/index.htm?prodId=214339"
@@ -6989,7 +6989,7 @@
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-19",
+        "verifiedAt": "2026-11-20",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214339",
           "https://cdnticket.melon.co.kr/resource/image/upload/product/2026/11/20261116211246fac82f08-db01-4ca6-9c01-c58fe8a78a26.png"
@@ -6997,7 +6997,7 @@
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-19",
+        "verifiedAt": "2026-11-20",
         "sources": [
           "https://www.akglive.com/30th/",
           "https://ticket.melon.com/performance/index.htm?prodId=214339"
@@ -7005,7 +7005,7 @@
       },
       "ticketDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-18",
+        "verifiedAt": "2026-11-20",
         "sources": [
           "https://www.akglive.com/30th/",
           "https://ticket.melon.com/csoon/index.htm"
@@ -7013,7 +7013,7 @@
       },
       "ticketing": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-18",
+        "verifiedAt": "2026-11-20",
         "sources": [
           "https://www.akglive.com/30th/",
           "https://ticket.melon.com/csoon/index.htm",
@@ -7022,7 +7022,7 @@
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-19",
+        "verifiedAt": "2026-11-20",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214339"
         ]
@@ -7039,9 +7039,9 @@
         ]
       }
     },
-    "priceVerifiedAt": "2026-11-19",
-    "scheduleVerifiedAt": "2026-11-19",
-    "verifiedAt": "2026-11-19",
+    "priceVerifiedAt": "2026-11-20",
+    "scheduleVerifiedAt": "2026-11-20",
+    "verifiedAt": "2026-11-20",
     "createdAt": "2026-11-18T10:00:00+09:00",
     "organizer": "LIVET"
   }
