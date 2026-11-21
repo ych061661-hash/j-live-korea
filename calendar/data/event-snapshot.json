@@ -1438,8 +1438,8 @@
     "presaleStatus": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-13",
-    "scheduleVerifiedAt": "2026-11-13",
+    "verifiedAt": "2026-11-21",
+    "scheduleVerifiedAt": "2026-11-21",
     "priceVerifiedAt": "2026-11-13",
     "sources": [
       "https://hehn.fujiikaze.com/pwt/",
@@ -1489,7 +1489,7 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://hehn.fujiikaze.com/pwt/",
           "https://ticket.melon.com/csoon/detail.htm?csoonId=12366"
@@ -1497,7 +1497,7 @@
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://hehn.fujiikaze.com/pwt/",
           "https://ticket.melon.com/csoon/detail.htm?csoonId=12366"
@@ -1505,7 +1505,7 @@
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://hehn.fujiikaze.com/pwt/",
           "https://ticket.melon.com/csoon/detail.htm?csoonId=12366"
@@ -1513,7 +1513,7 @@
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://hehn.fujiikaze.com/pwt/",
           "https://ticket.melon.com/csoon/detail.htm?csoonId=12366"
@@ -1521,7 +1521,7 @@
       },
       "ticketDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://hehn.fujiikaze.com/pwt/",
           "https://ticket.melon.com/csoon/detail.htm?csoonId=12366"
@@ -2889,9 +2889,9 @@
     "presaleStatus": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-13",
-    "scheduleVerifiedAt": "2026-11-13",
-    "priceVerifiedAt": "2026-11-13",
+    "verifiedAt": "2026-11-21",
+    "scheduleVerifiedAt": "2026-11-21",
+    "priceVerifiedAt": "2026-11-21",
     "sources": [
       "https://m.ticket.yes24.com/Notice/18262",
       "https://ticket.yes24.com/Perf/59553",
@@ -2928,9 +2928,9 @@
     "presaleStatus": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-13",
-    "scheduleVerifiedAt": "2026-11-13",
-    "priceVerifiedAt": "2026-11-13",
+    "verifiedAt": "2026-11-21",
+    "scheduleVerifiedAt": "2026-11-21",
+    "priceVerifiedAt": "2026-11-21",
     "sources": [
       "https://ticket.melon.com/csoon/detail.htm?csoonId=12672",
       "https://ticket.melon.com/performance/index.htm?prodId=213705",
@@ -3363,9 +3363,9 @@
     "presaleStatus": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-13",
-    "scheduleVerifiedAt": "2026-11-13",
-    "priceVerifiedAt": "2026-11-13",
+    "verifiedAt": "2026-11-21",
+    "scheduleVerifiedAt": "2026-11-21",
+    "priceVerifiedAt": "2026-11-21",
     "sources": [
       "https://ticket.melon.com/csoon/detail.htm?csoonId=12775",
       "https://ticket.melon.com/performance/index.htm?prodId=213806",
@@ -3390,49 +3390,49 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://ticket.melon.com/csoon/detail.htm?csoonId=12775"
         ]
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://ticket.melon.com/csoon/detail.htm?csoonId=12775"
         ]
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://ticket.melon.com/csoon/detail.htm?csoonId=12775"
         ]
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://ticket.melon.com/csoon/detail.htm?csoonId=12775"
         ]
       },
       "ticketDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://ticket.melon.com/csoon/detail.htm?csoonId=12775"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://ticket.melon.com/csoon/detail.htm?csoonId=12775"
         ]
       },
       "ticketConditions": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://ticket.melon.com/csoon/detail.htm?csoonId=12775"
         ]
@@ -4167,7 +4167,7 @@
     "presaleStatus": "none",
     "status": "pending",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-13",
+    "verifiedAt": "2026-11-21",
     "scheduleVerifiedAt": null,
     "priceVerifiedAt": "2026-09-24",
     "sources": [
@@ -4198,7 +4198,7 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://ticket.yes24.com/Perf/60203",
           "https://www.threads.com/@mulasakiima/post/DdTjbtmkq8G"
@@ -4206,7 +4206,7 @@
       },
       "concertTime": {
         "status": "unverified",
-        "checkedAt": "2026-11-13",
+        "checkedAt": "2026-11-21",
         "sources": [
           "https://ticket.yes24.com/Perf/60203",
           "https://www.threads.com/@mulasakiima/post/DdTjbtmkq8G"
@@ -4214,14 +4214,14 @@
       },
       "ticketing": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://www.threads.com/@mulasakiima/post/DdTjbtmkq8G"
         ]
       },
       "presale": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://www.threads.com/@mulasakiima/post/DdTjbtmkq8G"
         ]
@@ -4235,9 +4235,12 @@
       },
       "representativeSongs": {
         "status": "confirmed",
-        "verifiedAt": "2026-09-24",
+        "verifiedAt": "2026-11-21",
         "sources": [
-          "https://www.sonymusic.com.tw/artist/mulasaki-ima/"
+          "https://www.sonymusic.com.tw/artist/mulasaki-ima/",
+          "https://www.youtube.com/watch?v=d0QFalAKRNM",
+          "https://www.youtube.com/watch?v=-tO9d1Nwd0M",
+          "https://www.youtube.com/watch?v=wjB--ZH1JQw"
         ]
       }
     }
@@ -4256,9 +4259,9 @@
     "presaleStatus": "none",
     "status": "pending",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-13",
-    "scheduleVerifiedAt": "2026-11-13",
-    "priceVerifiedAt": "2026-11-13",
+    "verifiedAt": "2026-11-21",
+    "scheduleVerifiedAt": "2026-11-21",
+    "priceVerifiedAt": "2026-11-21",
     "sources": [
       "https://ticket.yes24.com/Perf/60207",
       "https://humpback.jp/contents/1073598",
@@ -4287,7 +4290,7 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://ticket.yes24.com/Perf/60207",
           "https://humpback.jp/contents/1073598"
@@ -4295,7 +4298,7 @@
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://ticket.yes24.com/Perf/60207",
           "https://humpback.jp/contents/1073598"
@@ -4303,7 +4306,7 @@
       },
       "ticketing": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://ticket.yes24.com/Perf/60207",
           "https://humpback.jp/contents/1073598"
@@ -4311,25 +4314,27 @@
       },
       "presale": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://humpback.jp/contents/1073598"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://ticket.yes24.com/Perf/60207",
           "https://humpback.jp/contents/1073598"
         ]
       },
       "representativeSongs": {
-        "status": "partial",
-        "checkedAt": "2026-09-24",
+        "status": "confirmed",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://humpback.jp/movies/categories/youtube",
-          "https://www.youtube.com/watch?v=d6i4AtCxrDo"
+          "https://www.youtube.com/watch?v=_FXaF3wHsRw",
+          "https://www.youtube.com/watch?v=XdOhahzbeq8",
+          "https://www.youtube.com/watch?v=B3F6ls158KE"
         ]
       }
     }
@@ -4718,9 +4723,9 @@
     "presaleStatus": "none",
     "status": "pending",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-13",
+    "verifiedAt": "2026-11-21",
     "scheduleVerifiedAt": null,
-    "priceVerifiedAt": "2026-11-13",
+    "priceVerifiedAt": "2026-11-21",
     "sources": [
       "https://neeofficial.jp/contents/1109451",
       "https://m.globalticket.melon.com/performance/detail/213863?lang=en-US"
@@ -4737,21 +4742,21 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://neeofficial.jp/contents/1109451"
         ]
       },
       "concertTime": {
         "status": "unverified",
-        "checkedAt": "2026-11-13",
+        "checkedAt": "2026-11-21",
         "sources": [
           "https://neeofficial.jp/contents/1109451"
         ]
       },
       "ticketing": {
         "status": "unverified",
-        "checkedAt": "2026-11-13",
+        "checkedAt": "2026-11-21",
         "sources": [
           "https://neeofficial.jp/contents/1109451",
           "https://m.globalticket.melon.com/performance/detail/213863?lang=en-US"
@@ -4759,14 +4764,14 @@
       },
       "presale": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://neeofficial.jp/contents/1109451"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://neeofficial.jp/contents/1109451"
         ]
@@ -4797,11 +4802,11 @@
     "presaleDate": "",
     "presaleTime": "",
     "presaleStatus": "none",
-    "status": "pending",
+    "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-13",
-    "scheduleVerifiedAt": "2026-11-13",
-    "priceVerifiedAt": "2026-11-13",
+    "verifiedAt": "2026-11-21",
+    "scheduleVerifiedAt": "2026-11-21",
+    "priceVerifiedAt": "2026-11-21",
     "sources": [
       "https://luck-life.com/news/2026/09/30/9023",
       "https://ticket.melon.com/csoon/detail.htm?csoonId=12884",
@@ -4835,7 +4840,7 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://luck-life.com/news/2026/09/30/9023",
           "https://ticket.melon.com/csoon/detail.htm?csoonId=12884"
@@ -4843,14 +4848,14 @@
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://luck-life.com/news/2026/09/30/9023"
         ]
       },
       "ticketing": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://luck-life.com/news/2026/09/30/9023",
           "https://ticket.melon.com/csoon/detail.htm?csoonId=12884"
@@ -4858,7 +4863,7 @@
       },
       "presale": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://luck-life.com/news/2026/09/30/9023",
           "https://ticket.melon.com/csoon/detail.htm?csoonId=12884"
@@ -4866,16 +4871,22 @@
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://luck-life.com/news/2026/09/30/9023",
           "https://ticket.melon.com/csoon/detail.htm?csoonId=12884"
         ]
       },
       "representativeSongs": {
-        "status": "unverified",
-        "checkedAt": "2026-10-18",
-        "sources": []
+        "status": "confirmed",
+        "verifiedAt": "2026-11-21",
+        "sources": [
+          "https://luck-life.com/",
+          "https://www.youtube.com/watch?v=EqxHuNxj8UM",
+          "https://www.youtube.com/watch?v=MK7jH9NfYnM",
+          "https://www.youtube.com/watch?v=YMcdznuf5IA",
+          "https://www.youtube.com/@lucklife0315"
+        ]
       }
     }
   },
@@ -4891,11 +4902,11 @@
     "presaleDate": "",
     "presaleTime": "",
     "presaleStatus": "none",
-    "status": "pending",
+    "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-13",
-    "scheduleVerifiedAt": "2026-11-13",
-    "priceVerifiedAt": "2026-11-13",
+    "verifiedAt": "2026-11-21",
+    "scheduleVerifiedAt": "2026-11-21",
+    "priceVerifiedAt": "2026-11-21",
     "sources": [
       "https://luck-life.com/news/2026/09/30/9023",
       "https://ticket.melon.com/csoon/detail.htm?csoonId=12884",
@@ -4929,7 +4940,7 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://luck-life.com/news/2026/09/30/9023",
           "https://ticket.melon.com/csoon/detail.htm?csoonId=12884"
@@ -4937,14 +4948,14 @@
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://luck-life.com/news/2026/09/30/9023"
         ]
       },
       "ticketing": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://luck-life.com/news/2026/09/30/9023",
           "https://ticket.melon.com/csoon/detail.htm?csoonId=12884"
@@ -4952,7 +4963,7 @@
       },
       "presale": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://luck-life.com/news/2026/09/30/9023",
           "https://ticket.melon.com/csoon/detail.htm?csoonId=12884"
@@ -4960,16 +4971,22 @@
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://luck-life.com/news/2026/09/30/9023",
           "https://ticket.melon.com/csoon/detail.htm?csoonId=12884"
         ]
       },
       "representativeSongs": {
-        "status": "unverified",
-        "checkedAt": "2026-10-18",
-        "sources": []
+        "status": "confirmed",
+        "verifiedAt": "2026-11-21",
+        "sources": [
+          "https://luck-life.com/",
+          "https://www.youtube.com/watch?v=EqxHuNxj8UM",
+          "https://www.youtube.com/watch?v=MK7jH9NfYnM",
+          "https://www.youtube.com/watch?v=YMcdznuf5IA",
+          "https://www.youtube.com/@lucklife0315"
+        ]
       }
     }
   },
@@ -4987,9 +5004,9 @@
     "presaleStatus": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-13",
-    "scheduleVerifiedAt": "2026-11-13",
-    "priceVerifiedAt": "2026-11-13",
+    "verifiedAt": "2026-11-21",
+    "scheduleVerifiedAt": "2026-11-21",
+    "priceVerifiedAt": "2026-11-21",
     "sources": [
       "https://nol.yanolja.com/ticket/products/26015024",
       "https://www.livenation.kr/event/kenshi-yonezu-2026-2027-world-tour-ghost-seoul-tickets-edp1705322",
@@ -5029,7 +5046,7 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://nol.yanolja.com/ticket/products/26015024",
           "https://www.livenation.kr/event/kenshi-yonezu-2026-2027-world-tour-ghost-seoul-tickets-edp1705322"
@@ -5037,7 +5054,7 @@
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://nol.yanolja.com/ticket/products/26015024"
         ]
@@ -5052,7 +5069,7 @@
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://nol.yanolja.com/ticket/products/26015024"
         ]
@@ -5082,9 +5099,9 @@
     "presaleStatus": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-13",
-    "scheduleVerifiedAt": "2026-11-13",
-    "priceVerifiedAt": "2026-11-13",
+    "verifiedAt": "2026-11-21",
+    "scheduleVerifiedAt": "2026-11-21",
+    "priceVerifiedAt": "2026-11-21",
     "sources": [
       "https://nol.yanolja.com/ticket/products/26015024",
       "https://www.livenation.kr/event/kenshi-yonezu-2026-2027-world-tour-ghost-seoul-tickets-edp1705322",
@@ -5124,7 +5141,7 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://nol.yanolja.com/ticket/products/26015024",
           "https://www.livenation.kr/event/kenshi-yonezu-2026-2027-world-tour-ghost-seoul-tickets-edp1705322"
@@ -5132,7 +5149,7 @@
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://nol.yanolja.com/ticket/products/26015024"
         ]
@@ -5147,7 +5164,7 @@
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://nol.yanolja.com/ticket/products/26015024"
         ]
@@ -5177,9 +5194,9 @@
     "presaleStatus": null,
     "status": "confirmed",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-13",
-    "scheduleVerifiedAt": "2026-11-13",
-    "priceVerifiedAt": "2026-11-13",
+    "verifiedAt": "2026-11-21",
+    "scheduleVerifiedAt": "2026-11-21",
+    "priceVerifiedAt": "2026-11-21",
     "sources": [
       "https://nol.yanolja.com/ticket/products/26015024",
       "https://www.livenation.kr/event/kenshi-yonezu-2026-2027-world-tour-ghost-seoul-tickets-edp1705322",
@@ -5219,7 +5236,7 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://nol.yanolja.com/ticket/products/26015024",
           "https://www.livenation.kr/event/kenshi-yonezu-2026-2027-world-tour-ghost-seoul-tickets-edp1705322"
@@ -5227,7 +5244,7 @@
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://nol.yanolja.com/ticket/products/26015024"
         ]
@@ -5242,7 +5259,7 @@
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-13",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://nol.yanolja.com/ticket/products/26015024"
         ]
@@ -7592,9 +7609,9 @@
     "presaleStatus": "none",
     "status": "pending",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-20",
-    "scheduleVerifiedAt": "2026-11-20",
-    "priceVerifiedAt": "2026-11-20",
+    "verifiedAt": "2026-11-21",
+    "scheduleVerifiedAt": "2026-11-21",
+    "priceVerifiedAt": "2026-11-21",
     "sources": [
       "https://www.akglive.com/30th/",
       "https://ticket.melon.com/performance/index.htm?prodId=214339",
@@ -7618,7 +7635,7 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-20",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://www.akglive.com/30th/",
           "https://ticket.melon.com/performance/index.htm?prodId=214339"
@@ -7626,7 +7643,7 @@
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-20",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://www.akglive.com/30th/",
           "https://ticket.melon.com/performance/index.htm?prodId=214339"
@@ -7634,7 +7651,7 @@
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-20",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214339",
           "https://cdnticket.melon.co.kr/resource/image/upload/product/2026/11/20261116211246fac82f08-db01-4ca6-9c01-c58fe8a78a26.png"
@@ -7642,7 +7659,7 @@
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-20",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://www.akglive.com/30th/",
           "https://ticket.melon.com/performance/index.htm?prodId=214339"
@@ -7650,7 +7667,7 @@
       },
       "ticketDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-20",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://www.akglive.com/30th/",
           "https://ticket.melon.com/csoon/index.htm"
@@ -7658,7 +7675,7 @@
       },
       "ticketing": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-20",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://www.akglive.com/30th/",
           "https://ticket.melon.com/csoon/index.htm",
@@ -7667,7 +7684,7 @@
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-20",
+        "verifiedAt": "2026-11-21",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214339"
         ]
