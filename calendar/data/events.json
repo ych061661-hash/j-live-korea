@@ -3817,16 +3817,36 @@
     "youtubeChannel": "@humpback_official",
     "youtubeProfileImage": "assets/artists/humpback_official.jpg",
     "songs": [
-      ["オーマイラブ", "", "https://www.youtube.com/watch?v=_FXaF3wHsRw"],
-      ["明るい葬式", "", "https://www.youtube.com/watch?v=XdOhahzbeq8"],
-      ["あの街まで", "", "https://www.youtube.com/watch?v=B3F6ls158KE"]
+      [
+        "オーマイラブ",
+        "",
+        "https://www.youtube.com/watch?v=_FXaF3wHsRw"
+      ],
+      [
+        "明るい葬式",
+        "",
+        "https://www.youtube.com/watch?v=XdOhahzbeq8"
+      ],
+      [
+        "あの街まで",
+        "",
+        "https://www.youtube.com/watch?v=B3F6ls158KE"
+      ]
     ],
     "status": "pending",
     "hostingStatus": "confirmed",
     "ticketingStatus": "confirmed",
     "seatPrices": [
-      { "name": "1층 스탠딩", "price": 132000, "priceCurrency": "KRW" },
-      { "name": "2층 지정석", "price": 132000, "priceCurrency": "KRW" }
+      {
+        "name": "1층 스탠딩",
+        "price": 132000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "2층 지정석",
+        "price": 132000,
+        "priceCurrency": "KRW"
+      }
     ],
     "sources": [
       "https://ticket.yes24.com/Perf/60207",
@@ -3834,16 +3854,64 @@
       "https://humpback.jp/movies/categories/youtube"
     ],
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-11-24", "sources": ["https://ticket.yes24.com/Perf/60207", "https://humpback.jp/contents/1073598"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-11-24", "sources": ["https://ticket.yes24.com/Perf/60207", "https://humpback.jp/contents/1073598"] },
-      "ticketing": { "status": "confirmed", "verifiedAt": "2026-11-24", "sources": ["https://ticket.yes24.com/Perf/60207", "https://humpback.jp/contents/1073598"] },
-      "presale": { "status": "confirmed", "verifiedAt": "2026-11-24", "sources": ["https://humpback.jp/contents/1073598"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-11-24", "sources": ["https://ticket.yes24.com/Perf/60207", "https://humpback.jp/contents/1073598"] },
-      "representativeSongs": { "status": "confirmed", "verifiedAt": "2026-11-21", "sources": ["https://humpback.jp/movies/categories/youtube", "https://www.youtube.com/watch?v=_FXaF3wHsRw", "https://www.youtube.com/watch?v=XdOhahzbeq8", "https://www.youtube.com/watch?v=B3F6ls158KE"] }
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-25",
+        "sources": [
+          "https://humpback.jp/contents/1073598"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-25",
+        "sources": [
+          "https://humpback.jp/contents/1073598"
+        ]
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-25",
+        "sources": [
+          "https://humpback.jp/contents/1073598"
+        ]
+      },
+      "presale": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-25",
+        "sources": [
+          "https://humpback.jp/contents/1073598"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-25",
+        "sources": [
+          "https://humpback.jp/contents/1073598"
+        ]
+      },
+      "representativeSongs": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-21",
+        "sources": [
+          "https://humpback.jp/movies/categories/youtube",
+          "https://www.youtube.com/watch?v=_FXaF3wHsRw",
+          "https://www.youtube.com/watch?v=XdOhahzbeq8",
+          "https://www.youtube.com/watch?v=B3F6ls158KE"
+        ]
+      },
+      "aliases": {
+        "status": "unverified",
+        "checkedAt": "2026-11-25",
+        "sources": [
+          "https://humpback.jp/",
+          "https://humpback.jp/contents/1073598"
+        ],
+        "note": "공식 설명은 「Hump Back」. ハンプバック은 상점·도장 이름에만 있어 별칭으로 만들지 않음."
+      }
     },
-    "priceVerifiedAt": "2026-11-24",
-    "scheduleVerifiedAt": "2026-11-24",
-    "verifiedAt": "2026-11-24",
+    "priceVerifiedAt": "2026-11-25",
+    "scheduleVerifiedAt": "2026-11-25",
+    "verifiedAt": "2026-11-25",
     "createdAt": "2026-09-24T03:10:12+09:00"
   },
   {
@@ -4036,28 +4104,95 @@
     "youtubeChannel": "@nee",
     "youtubeProfileImage": "assets/artists/nee.jpg",
     "songs": [
-      ["不革命前夜", "", "https://www.youtube.com/watch?v=Dm2O_W6Rrss"],
-      ["第一次世界", "", "https://www.youtube.com/watch?v=EJ8lBjQls4w"],
-      ["本日の正体", "", "https://www.youtube.com/watch?v=vcJ8enqerNY"]
+      [
+        "不革命前夜",
+        "",
+        "https://www.youtube.com/watch?v=Dm2O_W6Rrss"
+      ],
+      [
+        "第一次世界",
+        "",
+        "https://www.youtube.com/watch?v=EJ8lBjQls4w"
+      ],
+      [
+        "本日の正体",
+        "",
+        "https://www.youtube.com/watch?v=vcJ8enqerNY"
+      ]
     ],
     "status": "pending",
     "hostingStatus": "confirmed",
     "ticketingStatus": "unverified",
     "seatPrices": [
-      { "name": "전석 스탠딩", "price": 88000, "priceCurrency": "KRW" }
+      {
+        "name": "전석 스탠딩",
+        "price": 88000,
+        "priceCurrency": "KRW"
+      }
     ],
-    "sources": ["https://neeofficial.jp/contents/1109451", "https://ticket.melon.com/performance/index.htm?prodId=213863", "https://m.globalticket.melon.com/performance/detail/213863?lang=en-US"],
+    "sources": [
+      "https://neeofficial.jp/contents/1109451",
+      "https://ticket.melon.com/performance/index.htm?prodId=213863",
+      "https://m.globalticket.melon.com/performance/detail/213863?lang=en-US"
+    ],
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-11-24", "sources": ["https://neeofficial.jp/contents/1109451", "https://ticket.melon.com/performance/index.htm?prodId=213863"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-11-24", "sources": ["https://ticket.melon.com/performance/index.htm?prodId=213863"] },
-      "ticketing": { "status": "unverified", "checkedAt": "2026-11-24", "sources": ["https://neeofficial.jp/contents/1109451", "https://ticket.melon.com/performance/index.htm?prodId=213863"], "note": "판매일은 2026-09-29. 판매 시각은 공식 공지와 멜론 상품 본문에 없음" },
-      "presale": { "status": "confirmed", "verifiedAt": "2026-11-24", "sources": ["https://neeofficial.jp/contents/1109451", "https://ticket.melon.com/performance/index.htm?prodId=213863"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-11-24", "sources": ["https://ticket.melon.com/performance/index.htm?prodId=213863", "https://neeofficial.jp/contents/1109451"] },
-      "representativeSongs": { "status": "confirmed", "verifiedAt": "2026-11-19", "sources": ["https://www.youtube.com/watch?v=Dm2O_W6Rrss", "https://www.youtube.com/watch?v=EJ8lBjQls4w", "https://www.youtube.com/watch?v=vcJ8enqerNY", "https://neeofficial.jp/", "https://www.youtube.com/channel/UC0hS3r_UhEL0qVlnAcX4YAQ", "https://www.youtube.com/channel/UCbNUDTaVIit_aNNrjZH6clg"] }
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-25",
+        "sources": [
+          "https://neeofficial.jp/contents/1109451",
+          "https://ticket.melon.com/performance/index.htm?prodId=213863"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-25",
+        "sources": [
+          "https://neeofficial.jp/contents/1109451",
+          "https://ticket.melon.com/performance/index.htm?prodId=213863"
+        ]
+      },
+      "ticketing": {
+        "status": "unverified",
+        "checkedAt": "2026-11-25",
+        "sources": [
+          "https://neeofficial.jp/contents/1109451",
+          "https://ticket.melon.com/performance/index.htm?prodId=213863"
+        ],
+        "note": "판매일은 2026-09-29. 판매 시각은 공식 공지와 멜론 상품 본문에 없음."
+      },
+      "presale": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-25",
+        "sources": [
+          "https://neeofficial.jp/contents/1109451",
+          "https://ticket.melon.com/performance/index.htm?prodId=213863"
+        ]
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-25",
+        "sources": [
+          "https://neeofficial.jp/contents/1109451",
+          "https://ticket.melon.com/performance/index.htm?prodId=213863"
+        ]
+      },
+      "representativeSongs": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-19",
+        "sources": [
+          "https://www.youtube.com/watch?v=Dm2O_W6Rrss",
+          "https://www.youtube.com/watch?v=EJ8lBjQls4w",
+          "https://www.youtube.com/watch?v=vcJ8enqerNY",
+          "https://neeofficial.jp/",
+          "https://www.youtube.com/channel/UC0hS3r_UhEL0qVlnAcX4YAQ",
+          "https://www.youtube.com/channel/UCbNUDTaVIit_aNNrjZH6clg"
+        ]
+      }
     },
-    "priceVerifiedAt": "2026-11-24",
-    "scheduleVerifiedAt": "2026-11-24",
-    "verifiedAt": "2026-11-24",
+    "priceVerifiedAt": "2026-11-25",
+    "scheduleVerifiedAt": "2026-11-25",
+    "verifiedAt": "2026-11-25",
     "createdAt": "2026-10-18T12:00:00+09:00"
   },
   {
@@ -4801,7 +4936,7 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-17",
+        "verifiedAt": "2026-11-25",
         "sources": [
           "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/",
           "https://ticket.yes24.com/Perf/59771",
@@ -4810,7 +4945,7 @@
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-17",
+        "verifiedAt": "2026-11-25",
         "sources": [
           "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/",
           "https://ticket.yes24.com/Perf/59771",
@@ -4827,7 +4962,7 @@
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-17",
+        "verifiedAt": "2026-11-25",
         "sources": [
           "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/",
           "https://ticket.yes24.com/Perf/59771",
@@ -4836,19 +4971,21 @@
       },
       "ticketing": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-17",
+        "verifiedAt": "2026-11-25",
         "sources": [
           "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/"
-        ]
+        ],
+        "note": "2026-11-25 한국 블록은 일반판매 9/1(화) 19:00〜, 선예매 블록 없음. YES24 Perf/59771는 비정상 접근 제한."
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-17",
+        "verifiedAt": "2026-11-25",
         "sources": [
           "https://ticket.yes24.com/Perf/59771",
           "https://yes24livehall.com/ko/show/detail.php?P=1&id=2179&perform_date=20261128",
           "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/"
-        ]
+        ],
+        "note": "2026-11-25 유니버설 공지 KRW 88,000, 1階スタンディング/2階指定席. YES24는 접속 제한이라 한국어 등급명 스탠딩석/지정석은 2026-11-17 값을 유지."
       },
       "representativeSongs": {
         "status": "confirmed",
@@ -4870,9 +5007,9 @@
         "note": "공식 한글·일본어 표기 미확인(공식 원문은 모두 ELLEGARDEN 라틴 표기)"
       }
     },
-    "priceVerifiedAt": "2026-11-17",
+    "priceVerifiedAt": "2026-11-25",
     "scheduleVerifiedAt": "2026-11-17",
-    "verifiedAt": "2026-11-17",
+    "verifiedAt": "2026-11-25",
     "createdAt": "2026-11-10T10:00:00+09:00",
     "organizer": "(주)엠피엠지"
   },
@@ -4935,7 +5072,7 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-17",
+        "verifiedAt": "2026-11-25",
         "sources": [
           "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/",
           "https://ticket.yes24.com/Perf/59771",
@@ -4944,7 +5081,7 @@
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-17",
+        "verifiedAt": "2026-11-25",
         "sources": [
           "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/",
           "https://ticket.yes24.com/Perf/59771",
@@ -4961,7 +5098,7 @@
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-17",
+        "verifiedAt": "2026-11-25",
         "sources": [
           "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/",
           "https://ticket.yes24.com/Perf/59771",
@@ -4970,19 +5107,21 @@
       },
       "ticketing": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-17",
+        "verifiedAt": "2026-11-25",
         "sources": [
           "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/"
-        ]
+        ],
+        "note": "2026-11-25 한국 블록은 일반판매 9/1(화) 19:00〜, 선예매 블록 없음. YES24 Perf/59771는 비정상 접근 제한."
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-17",
+        "verifiedAt": "2026-11-25",
         "sources": [
           "https://ticket.yes24.com/Perf/59771",
           "https://yes24livehall.com/ko/show/detail.php?P=1&id=2179&perform_date=20261129",
           "https://www.universal-music.co.jp/ellegarden/news/2026-08-10/"
-        ]
+        ],
+        "note": "2026-11-25 유니버설 공지 KRW 88,000, 1階スタンディング/2階指定席. YES24는 접속 제한이라 한국어 등급명 스탠딩석/지정석은 2026-11-17 값을 유지."
       },
       "representativeSongs": {
         "status": "confirmed",
@@ -5004,9 +5143,9 @@
         "note": "공식 한글·일본어 표기 미확인(공식 원문은 모두 ELLEGARDEN 라틴 표기)"
       }
     },
-    "priceVerifiedAt": "2026-11-17",
+    "priceVerifiedAt": "2026-11-25",
     "scheduleVerifiedAt": "2026-11-17",
-    "verifiedAt": "2026-11-17",
+    "verifiedAt": "2026-11-25",
     "createdAt": "2026-11-10T10:00:00+09:00",
     "organizer": "(주)엠피엠지"
   },
@@ -5668,20 +5807,75 @@
     "hostingStatus": "confirmed",
     "ticketingStatus": "unverified",
     "seatPrices": [
-      { "name": "R석", "price": 60000, "priceCurrency": "KRW" },
-      { "name": "S석", "price": 40000, "priceCurrency": "KRW" }
+      {
+        "name": "R석",
+        "price": 60000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "S석",
+        "price": 40000,
+        "priceCurrency": "KRW"
+      }
     ],
-    "sources": ["https://nol.yanolja.com/ticket/products/26012128"],
+    "sources": [
+      "https://nol.yanolja.com/ticket/products/26012128"
+    ],
     "verification": {
-      "hosting": { "status": "confirmed", "verifiedAt": "2026-11-23", "sources": ["https://nol.yanolja.com/ticket/products/26012128"] },
-      "concertTime": { "status": "confirmed", "verifiedAt": "2026-11-23", "sources": ["https://nol.yanolja.com/ticket/products/26012128"] },
-      "ticketing": { "status": "unverified", "checkedAt": "2026-11-23", "sources": ["https://nol.yanolja.com/ticket/products/26012128"] },
-      "price": { "status": "confirmed", "verifiedAt": "2026-11-23", "sources": ["https://nol.yanolja.com/ticket/products/26012128"] },
-      "representativeSongs": { "status": "unverified", "checkedAt": "2026-11-12", "sources": [] }
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-25",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26012128"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-25",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26012128"
+        ]
+      },
+      "ticketing": {
+        "status": "unverified",
+        "checkedAt": "2026-11-25",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26012128"
+        ],
+        "note": "NOL 본문에 일반예매·선예매 일시 없음. 예매대기 배지는 판매 상태 근거로 쓰지 않음. 세종예술의전당 페이지는 TLS 발급자 확인 실패와 WebFetch HTTP 500."
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-25",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26012128"
+        ]
+      },
+      "representativeSongs": {
+        "status": "unverified",
+        "checkedAt": "2026-11-25",
+        "sources": [
+          "https://www.bluenote.co.jp/jp/artists/bnt-all-star-jazz-orchestra/",
+          "https://www.youtube.com/watch?v=nxYu9k38ZPA",
+          "https://www.youtube.com/watch?v=1-tcKbM_L4E",
+          "https://www.youtube.com/watch?v=1e0Ii9NOM0A",
+          "https://www.youtube.com/watch?v=X2k3nWC9e4E",
+          "https://www.youtube.com/watch?v=aB4G-Of-utQ"
+        ],
+        "note": "공식 아티스트 페이지 삽입 영상과 Trains 영상을 열었으나 곡명·공식 채널·비라이브 조건을 함께 만족하는 서로 다른 3곡을 확정하지 못함. ROCK WITH YOU는 라이브, aB4G-Of-utQ는 박수가 있는 라이브 클립이라 제외."
+      },
+      "aliases": {
+        "status": "unverified",
+        "checkedAt": "2026-11-25",
+        "sources": [
+          "https://www.bluenote.co.jp/jp/artists/bnt-all-star-jazz-orchestra/"
+        ],
+        "note": "아티스트 페이지 제목의 일본어 표기를 별칭에 추가. 그 페이지의 공연은 2027-01-07 도쿄 회차라 세종 일정·가격 근거로 쓰지 않음. 한글 표기는 공연장 페이지를 열지 못해 추가하지 않음."
+      }
     },
-    "priceVerifiedAt": "2026-11-23",
-    "scheduleVerifiedAt": "2026-11-23",
-    "verifiedAt": "2026-11-23",
+    "priceVerifiedAt": "2026-11-25",
+    "scheduleVerifiedAt": "2026-11-25",
+    "verifiedAt": "2026-11-25",
     "createdAt": "2026-11-12T09:30:00+09:00"
   },
   {
@@ -6407,59 +6601,59 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-24",
+        "verifiedAt": "2026-11-25",
         "sources": [
-          "https://indigolaend.com/news/1435/",
-          "https://ticket.yes24.com/Perf/60869"
-        ]
+          "https://indigolaend.com/news/1435/"
+        ],
+        "note": "2026-11-25 공식 공지 재확인. YES24 상품 페이지는 이번 미재오픈. 저장된 등급명 스탠딩석/지정석은 유지."
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-24",
+        "verifiedAt": "2026-11-25",
         "sources": [
-          "https://indigolaend.com/news/1435/",
-          "https://ticket.yes24.com/Perf/60869"
-        ]
+          "https://indigolaend.com/news/1435/"
+        ],
+        "note": "2026-11-25 공식 공지 재확인. YES24 상품 페이지는 이번 미재오픈. 저장된 등급명 스탠딩석/지정석은 유지."
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-24",
+        "verifiedAt": "2026-11-25",
         "sources": [
-          "https://indigolaend.com/news/1435/",
-          "https://ticket.yes24.com/Perf/60869"
-        ]
+          "https://indigolaend.com/news/1435/"
+        ],
+        "note": "2026-11-25 공식 공지 재확인. YES24 상품 페이지는 이번 미재오픈. 저장된 등급명 스탠딩석/지정석은 유지."
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-24",
+        "verifiedAt": "2026-11-25",
         "sources": [
-          "https://indigolaend.com/news/1435/",
-          "https://ticket.yes24.com/Perf/60869"
-        ]
+          "https://indigolaend.com/news/1435/"
+        ],
+        "note": "2026-11-25 공식 공지 재확인. YES24 상품 페이지는 이번 미재오픈. 저장된 등급명 스탠딩석/지정석은 유지."
       },
       "ticketing": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-24",
+        "verifiedAt": "2026-11-25",
         "sources": [
-          "https://indigolaend.com/news/1435/",
-          "https://ticket.yes24.com/Perf/60869"
-        ]
+          "https://indigolaend.com/news/1435/"
+        ],
+        "note": "2026-11-25 공식 공지 재확인. YES24 상품 페이지는 이번 미재오픈. 저장된 등급명 스탠딩석/지정석은 유지."
       },
       "presale": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-24",
+        "verifiedAt": "2026-11-25",
         "sources": [
-          "https://indigolaend.com/news/1435/",
-          "https://ticket.yes24.com/Perf/60869"
-        ]
+          "https://indigolaend.com/news/1435/"
+        ],
+        "note": "2026-11-25 공식 공지 재확인. YES24 상품 페이지는 이번 미재오픈. 저장된 등급명 스탠딩석/지정석은 유지."
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-24",
+        "verifiedAt": "2026-11-25",
         "sources": [
-          "https://indigolaend.com/news/1435/",
-          "https://ticket.yes24.com/Perf/60869"
-        ]
+          "https://indigolaend.com/news/1435/"
+        ],
+        "note": "2026-11-25 공식 공지 재확인. YES24 상품 페이지는 이번 미재오픈. 저장된 등급명 스탠딩석/지정석은 유지."
       },
       "representativeSongs": {
         "status": "confirmed",
@@ -6482,9 +6676,9 @@
         "note": "한·일 본문과 YES24 출연명은 라틴 indigo la End. 공식 한글 표기 없음"
       }
     },
-    "priceVerifiedAt": "2026-11-24",
-    "scheduleVerifiedAt": "2026-11-24",
-    "verifiedAt": "2026-11-24",
+    "priceVerifiedAt": "2026-11-25",
+    "scheduleVerifiedAt": "2026-11-25",
+    "verifiedAt": "2026-11-25",
     "createdAt": "2026-11-22T10:40:00+09:00",
     "organizer": "마운드미디어 주식회사"
   },
@@ -7130,49 +7324,50 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-24",
+        "verifiedAt": "2026-11-25",
         "sources": [
           "https://theoralcigarettes.com/news/detail/3317"
         ]
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-24",
+        "verifiedAt": "2026-11-25",
         "sources": [
           "https://theoralcigarettes.com/news/detail/3317"
         ]
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-24",
+        "verifiedAt": "2026-11-25",
         "sources": [
           "https://theoralcigarettes.com/news/detail/3317"
         ]
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-24",
+        "verifiedAt": "2026-11-25",
         "sources": [
           "https://theoralcigarettes.com/news/detail/3317"
         ]
       },
       "ticketing": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-24",
+        "verifiedAt": "2026-11-25",
         "sources": [
           "https://theoralcigarettes.com/news/detail/3317"
-        ]
+        ],
+        "note": "아티스트 공식은 2026/12/11(금) 18:00. 레이블 뉴스 https://news.ponycanyon.co.jp/2026/11/128029 박스의 2027年12月11日18:00은 채택하지 않음. 2027-12-11은 토요일이고 같은 글 본문은 연도 없는 12월 11일. 상품 번호는 공식 글에 없음."
       },
       "presale": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-24",
+        "verifiedAt": "2026-11-25",
         "sources": [
           "https://theoralcigarettes.com/news/detail/3317"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-23",
+        "verifiedAt": "2026-11-25",
         "sources": [
           "https://theoralcigarettes.com/news/list/4?page=2"
         ]
@@ -7191,16 +7386,16 @@
       },
       "aliases": {
         "status": "unverified",
-        "checkedAt": "2026-11-24",
+        "checkedAt": "2026-11-25",
         "sources": [
           "https://theoralcigarettes.com/news/detail/3317"
         ],
-        "note": "연 공식 페이지의 아티스트 표기는 THE ORAL CIGARETTES. 공식 한글·일본어 아티스트명은 없음. YES24 검색은 오류 화면만 반환해 상품 번호를 확인하지 못함"
+        "note": "연 공식 페이지의 아티스트 표기는 THE ORAL CIGARETTES. 이번 재오픈에서도 상품 번호가 있는 YES24 URL은 나오지 않음. 검색은 다른 밴드(Cigarettes After Sex) 과거 상품만 가리킴."
       }
     },
-    "priceVerifiedAt": "2026-11-23",
-    "scheduleVerifiedAt": "2026-11-24",
-    "verifiedAt": "2026-11-24",
+    "priceVerifiedAt": "2026-11-25",
+    "scheduleVerifiedAt": "2026-11-25",
+    "verifiedAt": "2026-11-25",
     "createdAt": "2026-11-22T10:40:00+09:00"
   },
   {
@@ -7267,58 +7462,56 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-24",
+        "verifiedAt": "2026-11-25",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214279"
         ]
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-24",
+        "verifiedAt": "2026-11-25",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214279"
         ]
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-24",
+        "verifiedAt": "2026-11-25",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214279"
         ]
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-24",
+        "verifiedAt": "2026-11-25",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214279"
         ]
       },
       "presaleDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-23",
+        "verifiedAt": "2026-11-25",
         "sources": [
-          "https://litt.ly/yoasobi",
           "https://ticket.melon.com/performance/index.htm?prodId=214279"
         ]
       },
       "ticketDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-23",
+        "verifiedAt": "2026-11-25",
         "sources": [
-          "https://litt.ly/yoasobi",
           "https://ticket.melon.com/performance/index.htm?prodId=214279"
         ]
       },
       "ticketing": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-24",
+        "verifiedAt": "2026-11-25",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214279"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-24",
+        "verifiedAt": "2026-11-25",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214279"
         ]
@@ -7335,9 +7528,9 @@
         ]
       }
     },
-    "priceVerifiedAt": "2026-11-24",
-    "scheduleVerifiedAt": "2026-11-24",
-    "verifiedAt": "2026-11-24",
+    "priceVerifiedAt": "2026-11-25",
+    "scheduleVerifiedAt": "2026-11-25",
+    "verifiedAt": "2026-11-25",
     "createdAt": "2026-11-18T10:00:00+09:00",
     "organizer": "LIVET"
   },
@@ -7395,7 +7588,7 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-24",
+        "verifiedAt": "2026-11-25",
         "sources": [
           "https://www.akglive.com/30th/",
           "https://ticket.melon.com/performance/index.htm?prodId=214339"
@@ -7403,7 +7596,7 @@
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-24",
+        "verifiedAt": "2026-11-25",
         "sources": [
           "https://www.akglive.com/30th/",
           "https://ticket.melon.com/performance/index.htm?prodId=214339"
@@ -7411,7 +7604,7 @@
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-24",
+        "verifiedAt": "2026-11-25",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214339",
           "https://cdnticket.melon.co.kr/resource/image/upload/product/2026/11/20261116211246fac82f08-db01-4ca6-9c01-c58fe8a78a26.png"
@@ -7419,7 +7612,7 @@
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-24",
+        "verifiedAt": "2026-11-25",
         "sources": [
           "https://www.akglive.com/30th/",
           "https://ticket.melon.com/performance/index.htm?prodId=214339"
@@ -7427,23 +7620,23 @@
       },
       "ticketDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-23",
-        "sources": [
-          "https://www.akglive.com/30th/",
-          "https://ticket.melon.com/csoon/index.htm"
-        ]
-      },
-      "ticketing": {
-        "status": "confirmed",
-        "verifiedAt": "2026-11-24",
+        "verifiedAt": "2026-11-25",
         "sources": [
           "https://www.akglive.com/30th/"
         ],
-        "note": "2026-11-24 멜론 오픈 목록 HOT에는 이 공연이 없어 20:00 근거는 투어 페이지. csoon은 이전 출처로 상품 sources에 유지"
+        "note": "2026-11-25 날짜·20:00은 투어 페이지 한국 줄. 멜론 오픈 목록은 이번 미재오픈."
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-25",
+        "sources": [
+          "https://www.akglive.com/30th/"
+        ],
+        "note": "2026-11-25 투어 한국 줄은 2026年11月27日(金)20:00〜만 있고 선예매 문구 없음. 멜론 상품 본문에는 오픈 시각이 없음. 멜론 오픈 목록은 이번 미재오픈."
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-24",
+        "verifiedAt": "2026-11-25",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214339"
         ]
@@ -7460,9 +7653,9 @@
         ]
       }
     },
-    "priceVerifiedAt": "2026-11-24",
-    "scheduleVerifiedAt": "2026-11-24",
-    "verifiedAt": "2026-11-24",
+    "priceVerifiedAt": "2026-11-25",
+    "scheduleVerifiedAt": "2026-11-25",
+    "verifiedAt": "2026-11-25",
     "createdAt": "2026-11-18T10:00:00+09:00",
     "organizer": "LIVET"
   }
@@ -7530,55 +7723,51 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-24",
+        "verifiedAt": "2026-11-25",
         "sources": [
-          "https://www.memetokyo.com/contents/1114893",
-          "https://booking.naver.com/booking/12/bizes/1293964/items/8116949"
+          "https://www.memetokyo.com/contents/1114893"
         ]
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-24",
+        "verifiedAt": "2026-11-25",
         "sources": [
-          "https://www.memetokyo.com/contents/1114893",
-          "https://booking.naver.com/booking/12/bizes/1293964/items/8116949"
+          "https://www.memetokyo.com/contents/1114893"
         ]
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-24",
+        "verifiedAt": "2026-11-25",
         "sources": [
           "https://www.memetokyo.com/contents/1114893"
         ]
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-24",
+        "verifiedAt": "2026-11-25",
         "sources": [
-          "https://www.memetokyo.com/contents/1114893",
-          "https://booking.naver.com/booking/12/bizes/1293964/items/8116949"
+          "https://www.memetokyo.com/contents/1114893"
         ]
       },
       "ticketing": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-24",
+        "verifiedAt": "2026-11-25",
         "sources": [
           "https://www.memetokyo.com/contents/1114893"
         ]
       },
       "presale": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-24",
+        "verifiedAt": "2026-11-25",
         "sources": [
           "https://www.memetokyo.com/contents/1114893"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-24",
+        "verifiedAt": "2026-11-25",
         "sources": [
-          "https://www.memetokyo.com/contents/1114893",
-          "https://booking.naver.com/booking/12/bizes/1293964/items/8116949"
+          "https://www.memetokyo.com/contents/1114893"
         ]
       },
       "representativeSongs": {
@@ -7594,17 +7783,17 @@
       },
       "aliases": {
         "status": "unverified",
-        "checkedAt": "2026-11-24",
+        "checkedAt": "2026-11-25",
         "sources": [
           "https://www.memetokyo.com/",
           "https://www.memetokyo.com/contents/1114893"
         ],
-        "note": "공식 표기는 ミームトーキョー, meme tokyo., みーむとーきょー. 공식 한글 아티스트명은 없음"
+        "note": "2026-11-25 공식 공지는 ミームトーキョー만 사용. 공식 한글 아티스트명은 없음."
       }
     },
-    "priceVerifiedAt": "2026-11-24",
-    "scheduleVerifiedAt": "2026-11-24",
-    "verifiedAt": "2026-11-24",
+    "priceVerifiedAt": "2026-11-25",
+    "scheduleVerifiedAt": "2026-11-25",
+    "verifiedAt": "2026-11-25",
     "createdAt": "2026-11-24T09:30:00+09:00"
   }
 ]
