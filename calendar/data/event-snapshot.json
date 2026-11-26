@@ -6298,8 +6298,8 @@
     "presaleStatus": "checking",
     "status": "pending",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-25",
-    "scheduleVerifiedAt": "2026-11-25",
+    "verifiedAt": "2026-11-26",
+    "scheduleVerifiedAt": "2026-11-26",
     "priceVerifiedAt": "2026-11-25",
     "sources": [
       "https://nol.yanolja.com/ticket/products/26012128"
@@ -6327,25 +6327,25 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-25",
+        "verifiedAt": "2026-11-26",
         "sources": [
           "https://nol.yanolja.com/ticket/products/26012128"
         ]
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-25",
+        "verifiedAt": "2026-11-26",
         "sources": [
           "https://nol.yanolja.com/ticket/products/26012128"
         ]
       },
       "ticketing": {
         "status": "unverified",
-        "checkedAt": "2026-11-25",
+        "checkedAt": "2026-11-26",
         "sources": [
           "https://nol.yanolja.com/ticket/products/26012128"
         ],
-        "note": "NOL 본문에 일반예매·선예매 일시 없음. 예매대기 배지는 판매 상태 근거로 쓰지 않음. 세종예술의전당 페이지는 TLS 발급자 확인 실패와 WebFetch HTTP 500."
+        "note": "NOL 본문에 일반예매·선예매 일시 없음. 예매대기 배지는 판매 상태 근거로 쓰지 않음. 2026-11-26 본문은 19:30을 유지하고 '본 상품은 판매가 종료되었어요'라고 표시했다. 취소·매진 문장은 없어 ticketAvailability는 바꾸지 않음. 가격 숫자는 이번 본문에 없어 기존 R석 60,000/S석 40,000은 유지. 세종예술의전당 페이지는 이번 미재시도."
       },
       "price": {
         "status": "confirmed",
@@ -7139,9 +7139,9 @@
     "presaleStatus": "none",
     "status": "pending",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-25",
-    "scheduleVerifiedAt": "2026-11-25",
-    "priceVerifiedAt": "2026-11-25",
+    "verifiedAt": "2026-11-26",
+    "scheduleVerifiedAt": "2026-11-26",
+    "priceVerifiedAt": "2026-11-26",
     "sources": [
       "https://indigolaend.com/news/1435/",
       "https://ticket.yes24.com/Perf/60869"
@@ -7169,7 +7169,7 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-25",
+        "verifiedAt": "2026-11-26",
         "sources": [
           "https://indigolaend.com/news/1435/"
         ],
@@ -7177,7 +7177,7 @@
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-25",
+        "verifiedAt": "2026-11-26",
         "sources": [
           "https://indigolaend.com/news/1435/"
         ],
@@ -7185,7 +7185,7 @@
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-25",
+        "verifiedAt": "2026-11-26",
         "sources": [
           "https://indigolaend.com/news/1435/"
         ],
@@ -7193,7 +7193,7 @@
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-25",
+        "verifiedAt": "2026-11-26",
         "sources": [
           "https://indigolaend.com/news/1435/"
         ],
@@ -7201,7 +7201,7 @@
       },
       "ticketing": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-25",
+        "verifiedAt": "2026-11-26",
         "sources": [
           "https://indigolaend.com/news/1435/"
         ],
@@ -7209,7 +7209,7 @@
       },
       "presale": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-25",
+        "verifiedAt": "2026-11-26",
         "sources": [
           "https://indigolaend.com/news/1435/"
         ],
@@ -7217,7 +7217,7 @@
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-25",
+        "verifiedAt": "2026-11-26",
         "sources": [
           "https://indigolaend.com/news/1435/"
         ],
@@ -7236,7 +7236,7 @@
       },
       "aliases": {
         "status": "unverified",
-        "checkedAt": "2026-11-24",
+        "checkedAt": "2026-11-26",
         "sources": [
           "https://indigolaend.com/news/1435/",
           "https://ticket.yes24.com/Perf/60869"
@@ -7766,8 +7766,8 @@
     "presaleStatus": "none",
     "status": "pending",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-25",
-    "scheduleVerifiedAt": "2026-11-25",
+    "verifiedAt": "2026-11-26",
+    "scheduleVerifiedAt": "2026-11-26",
     "priceVerifiedAt": "2026-11-25",
     "sources": [
       "https://theoralcigarettes.com/news/detail/3317",
@@ -7796,35 +7796,35 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-25",
+        "verifiedAt": "2026-11-26",
         "sources": [
           "https://theoralcigarettes.com/news/detail/3317"
         ]
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-25",
+        "verifiedAt": "2026-11-26",
         "sources": [
           "https://theoralcigarettes.com/news/detail/3317"
         ]
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-25",
+        "verifiedAt": "2026-11-26",
         "sources": [
           "https://theoralcigarettes.com/news/detail/3317"
         ]
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-25",
+        "verifiedAt": "2026-11-26",
         "sources": [
           "https://theoralcigarettes.com/news/detail/3317"
         ]
       },
       "ticketing": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-25",
+        "verifiedAt": "2026-11-26",
         "sources": [
           "https://theoralcigarettes.com/news/detail/3317"
         ],
@@ -7832,7 +7832,7 @@
       },
       "presale": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-25",
+        "verifiedAt": "2026-11-26",
         "sources": [
           "https://theoralcigarettes.com/news/detail/3317"
         ]
@@ -7858,7 +7858,7 @@
       },
       "aliases": {
         "status": "unverified",
-        "checkedAt": "2026-11-25",
+        "checkedAt": "2026-11-26",
         "sources": [
           "https://theoralcigarettes.com/news/detail/3317"
         ],
@@ -7880,9 +7880,9 @@
     "presaleStatus": null,
     "status": "pending",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-25",
-    "scheduleVerifiedAt": "2026-11-25",
-    "priceVerifiedAt": "2026-11-25",
+    "verifiedAt": "2026-11-26",
+    "scheduleVerifiedAt": "2026-11-26",
+    "priceVerifiedAt": "2026-11-26",
     "sources": [
       "https://www.yoasobi-music.jp/news/588606",
       "https://litt.ly/yoasobi",
@@ -7916,56 +7916,56 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-25",
+        "verifiedAt": "2026-11-26",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214279"
         ]
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-25",
+        "verifiedAt": "2026-11-26",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214279"
         ]
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-25",
+        "verifiedAt": "2026-11-26",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214279"
         ]
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-25",
+        "verifiedAt": "2026-11-26",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214279"
         ]
       },
       "presaleDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-25",
+        "verifiedAt": "2026-11-26",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214279"
         ]
       },
       "ticketDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-25",
+        "verifiedAt": "2026-11-26",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214279"
         ]
       },
       "ticketing": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-25",
+        "verifiedAt": "2026-11-26",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214279"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-25",
+        "verifiedAt": "2026-11-26",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214279"
         ]
@@ -7997,9 +7997,9 @@
     "presaleStatus": "none",
     "status": "pending",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-25",
-    "scheduleVerifiedAt": "2026-11-25",
-    "priceVerifiedAt": "2026-11-25",
+    "verifiedAt": "2026-11-26",
+    "scheduleVerifiedAt": "2026-11-26",
+    "priceVerifiedAt": "2026-11-26",
     "sources": [
       "https://www.akglive.com/30th/",
       "https://ticket.melon.com/performance/index.htm?prodId=214339",
@@ -8023,7 +8023,7 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-25",
+        "verifiedAt": "2026-11-26",
         "sources": [
           "https://www.akglive.com/30th/",
           "https://ticket.melon.com/performance/index.htm?prodId=214339"
@@ -8031,7 +8031,7 @@
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-25",
+        "verifiedAt": "2026-11-26",
         "sources": [
           "https://www.akglive.com/30th/",
           "https://ticket.melon.com/performance/index.htm?prodId=214339"
@@ -8039,7 +8039,7 @@
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-25",
+        "verifiedAt": "2026-11-26",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214339",
           "https://cdnticket.melon.co.kr/resource/image/upload/product/2026/11/20261116211246fac82f08-db01-4ca6-9c01-c58fe8a78a26.png"
@@ -8047,7 +8047,7 @@
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-25",
+        "verifiedAt": "2026-11-26",
         "sources": [
           "https://www.akglive.com/30th/",
           "https://ticket.melon.com/performance/index.htm?prodId=214339"
@@ -8055,7 +8055,7 @@
       },
       "ticketDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-25",
+        "verifiedAt": "2026-11-26",
         "sources": [
           "https://www.akglive.com/30th/"
         ],
@@ -8063,7 +8063,7 @@
       },
       "ticketing": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-25",
+        "verifiedAt": "2026-11-26",
         "sources": [
           "https://www.akglive.com/30th/"
         ],
@@ -8071,7 +8071,7 @@
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-25",
+        "verifiedAt": "2026-11-26",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214339"
         ]
@@ -8204,6 +8204,326 @@
           "https://www.memetokyo.com/contents/1114893"
         ],
         "note": "2026-11-25 공식 공지는 ミームトーキョー만 사용. 공식 한글 아티스트명은 없음."
+      }
+    }
+  },
+  "blue-note-tokyo-all-star-jazz-orchestra-2026-11-27": {
+    "artist": "Blue Note Tokyo All-Star Jazz Orchestra",
+    "concertDate": "2026-11-27",
+    "time": "오후 7:30",
+    "venue": "서산시문화회관 대공연장",
+    "vendor": "서산시문화회관",
+    "vendorUrl": "https://www.seosan.go.kr/culture/selectBbsNttView.do?bbsNo=36&key=818&nttNo=340758",
+    "ticketDate": "2026-11-17",
+    "ticketTime": "오전 10:00",
+    "presaleDate": "",
+    "presaleTime": "",
+    "presaleStatus": "none",
+    "status": "pending",
+    "ticketLabel": null,
+    "verifiedAt": "2026-11-26",
+    "scheduleVerifiedAt": "2026-11-26",
+    "priceVerifiedAt": "2026-11-26",
+    "sources": [
+      "https://www.seosan.go.kr/culture/selectBbsNttView.do?bbsNo=36&key=818&nttNo=340758"
+    ],
+    "price": 20000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "S석",
+        "price": 30000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "A석",
+        "price": 20000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
+    "seriesId": null,
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "confirmed",
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "sources": [
+          "https://www.seosan.go.kr/culture/selectBbsNttView.do?bbsNo=36&key=818&nttNo=340758"
+        ],
+        "verifiedAt": "2026-11-26"
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "sources": [
+          "https://www.seosan.go.kr/culture/selectBbsNttView.do?bbsNo=36&key=818&nttNo=340758"
+        ],
+        "verifiedAt": "2026-11-26"
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "sources": [
+          "https://www.seosan.go.kr/culture/selectBbsNttView.do?bbsNo=36&key=818&nttNo=340758"
+        ],
+        "verifiedAt": "2026-11-26"
+      },
+      "venue": {
+        "status": "confirmed",
+        "sources": [
+          "https://www.seosan.go.kr/culture/selectBbsNttView.do?bbsNo=36&key=818&nttNo=340758"
+        ],
+        "verifiedAt": "2026-11-26"
+      },
+      "ticketing": {
+        "status": "confirmed",
+        "sources": [
+          "https://www.seosan.go.kr/culture/selectBbsNttView.do?bbsNo=36&key=818&nttNo=340758"
+        ],
+        "verifiedAt": "2026-11-26",
+        "note": "일반예매 2026-11-17 10:00. 선예매 문구 없음. 예매 화면 https://www.seosan.go.kr/common/sso/culture_reservation.jsp?p_idx=274 는 본문이 비어 사실 근거로 쓰지 않음."
+      },
+      "presale": {
+        "status": "confirmed",
+        "sources": [
+          "https://www.seosan.go.kr/culture/selectBbsNttView.do?bbsNo=36&key=818&nttNo=340758"
+        ],
+        "verifiedAt": "2026-11-26",
+        "note": "공지 본문에 선예매 문구 없음."
+      },
+      "price": {
+        "status": "confirmed",
+        "sources": [
+          "https://www.seosan.go.kr/culture/selectBbsNttView.do?bbsNo=36&key=818&nttNo=340758"
+        ],
+        "verifiedAt": "2026-11-26",
+        "note": "S석 30,000 / A석 20,000. 할인Ⅰ 20%·할인Ⅱ 50%는 등급 가격이 아니라 제외. 최저 일반 액면가 A석 20,000."
+      },
+      "representativeSongs": {
+        "status": "unverified",
+        "sources": [],
+        "checkedAt": "2026-11-26",
+        "note": "이번 실행에서 공식 영상을 다시 열지 않음. 3곡 미확인이라 confirmed 아님."
+      },
+      "aliases": {
+        "status": "confirmed",
+        "sources": [
+          "https://www.seosan.go.kr/culture/selectBbsNttView.do?bbsNo=36&key=818&nttNo=340758"
+        ],
+        "checkedAt": "2026-11-26",
+        "note": "공연장 공지의 한글 표기 블루노트도쿄 재즈 오케스트라."
+      }
+    }
+  },
+  "blue-note-tokyo-all-star-jazz-orchestra-2026-11-28": {
+    "artist": "Blue Note Tokyo All-Star Jazz Orchestra",
+    "concertDate": "2026-11-28",
+    "time": "오후 4:00",
+    "venue": "익산예술의전당 대공연장",
+    "vendor": "익산예술의전당",
+    "vendorUrl": "https://www.jbct.or.kr/portal/site/menu/MENU_000000000000376?id=4124",
+    "ticketDate": "",
+    "ticketTime": "",
+    "presaleDate": "",
+    "presaleTime": "",
+    "presaleStatus": "checking",
+    "status": "pending",
+    "ticketLabel": null,
+    "verifiedAt": "2026-11-26",
+    "scheduleVerifiedAt": "2026-11-26",
+    "priceVerifiedAt": "2026-11-26",
+    "sources": [
+      "https://www.onolisa.com/en/live/blue-note-tokyo-all-star-jazz-orchestra-directed-by-eric-miyashiro-tsua-20261128",
+      "https://www.jbct.or.kr/portal/site/menu/MENU_000000000000376?id=4124"
+    ],
+    "price": 20000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "R석",
+        "price": 30000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "S석",
+        "price": 20000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
+    "seriesId": null,
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "unverified",
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "sources": [
+          "https://www.onolisa.com/en/live/blue-note-tokyo-all-star-jazz-orchestra-directed-by-eric-miyashiro-tsua-20261128",
+          "https://www.jbct.or.kr/portal/site/menu/MENU_000000000000376?id=4124"
+        ],
+        "verifiedAt": "2026-11-26"
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "sources": [
+          "https://www.onolisa.com/en/live/blue-note-tokyo-all-star-jazz-orchestra-directed-by-eric-miyashiro-tsua-20261128",
+          "https://www.jbct.or.kr/portal/site/menu/MENU_000000000000376?id=4124"
+        ],
+        "verifiedAt": "2026-11-26"
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "sources": [
+          "https://www.onolisa.com/en/live/blue-note-tokyo-all-star-jazz-orchestra-directed-by-eric-miyashiro-tsua-20261128",
+          "https://www.jbct.or.kr/portal/site/menu/MENU_000000000000376?id=4124"
+        ],
+        "verifiedAt": "2026-11-26",
+        "note": "리사 오노 공식 페이지는 2026-11-28 4:00 PM, 전북문화포털 본문은 오후 4시. 포털 id=4006의 출연 손민수는 쓰지 않음."
+      },
+      "venue": {
+        "status": "confirmed",
+        "sources": [
+          "https://www.onolisa.com/en/live/blue-note-tokyo-all-star-jazz-orchestra-directed-by-eric-miyashiro-tsua-20261128",
+          "https://www.jbct.or.kr/portal/site/menu/MENU_000000000000376?id=4124"
+        ],
+        "verifiedAt": "2026-11-26"
+      },
+      "ticketing": {
+        "status": "unverified",
+        "sources": [
+          "https://www.jbct.or.kr/portal/site/menu/MENU_000000000000376?id=4124",
+          "https://www.ticketlink.co.kr/product/65425"
+        ],
+        "checkedAt": "2026-11-26",
+        "note": "일반예매·선예매 일시가 연 공식 본문에 없음. 티켓링크 65425 본문은 비어 있음. 포털은 익산예술의전당 홈페이지의 티켓링크 연동 예매라고만 적음."
+      },
+      "price": {
+        "status": "confirmed",
+        "sources": [
+          "https://www.jbct.or.kr/portal/site/menu/MENU_000000000000376?id=4124"
+        ],
+        "verifiedAt": "2026-11-26",
+        "note": "R석 3만원 / S석 2만원. 예당회원 20%·장애유공 50% 할인은 제외. 최저 일반 액면가 S석 20,000. 리사 오노 페이지에는 가격이 없음."
+      },
+      "representativeSongs": {
+        "status": "unverified",
+        "sources": [],
+        "checkedAt": "2026-11-26",
+        "note": "이번 실행에서 공식 영상을 다시 열지 않음. 3곡 미확인이라 confirmed 아님."
+      },
+      "aliases": {
+        "status": "confirmed",
+        "sources": [
+          "https://www.jbct.or.kr/portal/site/menu/MENU_000000000000376?id=4124"
+        ],
+        "checkedAt": "2026-11-26",
+        "note": "전북문화포털 제목 블루노트 도쿄 올스타 재즈 오케스트라."
+      }
+    }
+  },
+  "pm-kenobi-2026-11-28": {
+    "artist": "PM Kenobi",
+    "concertDate": "2026-11-28",
+    "time": "오후 7:00",
+    "venue": "롤링홀",
+    "vendor": "멜론티켓",
+    "vendorUrl": "https://ticket.melon.com/performance/index.htm?prodId=213872",
+    "ticketDate": "",
+    "ticketTime": "",
+    "presaleDate": "",
+    "presaleTime": "",
+    "presaleStatus": "checking",
+    "status": "cancelled",
+    "ticketLabel": null,
+    "verifiedAt": "2026-11-26",
+    "scheduleVerifiedAt": "2026-11-26",
+    "priceVerifiedAt": "2026-11-26",
+    "sources": [
+      "https://ticket.melon.com/performance/index.htm?prodId=213872"
+    ],
+    "price": 88000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "전석",
+        "price": 88000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
+    "seriesId": null,
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "unverified",
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "sources": [
+          "https://ticket.melon.com/performance/index.htm?prodId=213872"
+        ],
+        "verifiedAt": "2026-11-26"
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "sources": [
+          "https://ticket.melon.com/performance/index.htm?prodId=213872"
+        ],
+        "verifiedAt": "2026-11-26"
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "sources": [
+          "https://ticket.melon.com/performance/index.htm?prodId=213872"
+        ],
+        "verifiedAt": "2026-11-26"
+      },
+      "venue": {
+        "status": "confirmed",
+        "sources": [
+          "https://ticket.melon.com/performance/index.htm?prodId=213872"
+        ],
+        "verifiedAt": "2026-11-26"
+      },
+      "ticketing": {
+        "status": "unverified",
+        "sources": [
+          "https://ticket.melon.com/performance/index.htm?prodId=213872"
+        ],
+        "checkedAt": "2026-11-26",
+        "note": "취소 공지에 일반예매·선예매 일시가 없음."
+      },
+      "price": {
+        "status": "confirmed",
+        "sources": [
+          "https://ticket.melon.com/performance/index.htm?prodId=213872"
+        ],
+        "verifiedAt": "2026-11-26",
+        "note": "취소 공지와 같은 상품 본문의 전석 88,000원."
+      },
+      "cancellation": {
+        "status": "confirmed",
+        "sources": [
+          "https://ticket.melon.com/performance/index.htm?prodId=213872"
+        ],
+        "verifiedAt": "2026-11-26"
+      },
+      "representativeSongs": {
+        "status": "unverified",
+        "sources": [],
+        "checkedAt": "2026-11-26",
+        "note": "공연이 공식 취소되어 대표곡을 확정하지 않음."
+      },
+      "aliases": {
+        "status": "confirmed",
+        "sources": [
+          "https://ticket.melon.com/performance/index.htm?prodId=213872"
+        ],
+        "checkedAt": "2026-11-26",
+        "note": "멜론 상품명 피엠 케노비. 공식 일본어 표기는 연 페이지에 없음."
       }
     }
   }
