@@ -7147,9 +7147,9 @@
     "presaleStatus": "none",
     "status": "pending",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-27",
-    "scheduleVerifiedAt": "2026-11-27",
-    "priceVerifiedAt": "2026-11-27",
+    "verifiedAt": "2026-11-28",
+    "scheduleVerifiedAt": "2026-11-28",
+    "priceVerifiedAt": "2026-11-28",
     "sources": [
       "https://indigolaend.com/news/1435/",
       "https://ticket.yes24.com/Perf/60869"
@@ -7177,7 +7177,7 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-27",
+        "verifiedAt": "2026-11-28",
         "sources": [
           "https://indigolaend.com/news/1435/"
         ],
@@ -7185,7 +7185,7 @@
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-27",
+        "verifiedAt": "2026-11-28",
         "sources": [
           "https://indigolaend.com/news/1435/"
         ],
@@ -7193,7 +7193,7 @@
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-27",
+        "verifiedAt": "2026-11-28",
         "sources": [
           "https://indigolaend.com/news/1435/"
         ],
@@ -7201,7 +7201,7 @@
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-27",
+        "verifiedAt": "2026-11-28",
         "sources": [
           "https://indigolaend.com/news/1435/"
         ],
@@ -7209,7 +7209,7 @@
       },
       "ticketing": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-27",
+        "verifiedAt": "2026-11-28",
         "sources": [
           "https://indigolaend.com/news/1435/"
         ],
@@ -7217,7 +7217,7 @@
       },
       "presale": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-27",
+        "verifiedAt": "2026-11-28",
         "sources": [
           "https://indigolaend.com/news/1435/"
         ],
@@ -7225,7 +7225,7 @@
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-27",
+        "verifiedAt": "2026-11-28",
         "sources": [
           "https://indigolaend.com/news/1435/"
         ],
@@ -7774,8 +7774,8 @@
     "presaleStatus": "none",
     "status": "pending",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-27",
-    "scheduleVerifiedAt": "2026-11-27",
+    "verifiedAt": "2026-11-28",
+    "scheduleVerifiedAt": "2026-11-28",
     "priceVerifiedAt": "2026-11-25",
     "sources": [
       "https://theoralcigarettes.com/news/detail/3317",
@@ -7804,35 +7804,35 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-27",
+        "verifiedAt": "2026-11-28",
         "sources": [
           "https://theoralcigarettes.com/news/detail/3317"
         ]
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-27",
+        "verifiedAt": "2026-11-28",
         "sources": [
           "https://theoralcigarettes.com/news/detail/3317"
         ]
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-27",
+        "verifiedAt": "2026-11-28",
         "sources": [
           "https://theoralcigarettes.com/news/detail/3317"
         ]
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-27",
+        "verifiedAt": "2026-11-28",
         "sources": [
           "https://theoralcigarettes.com/news/detail/3317"
         ]
       },
       "ticketing": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-27",
+        "verifiedAt": "2026-11-28",
         "sources": [
           "https://theoralcigarettes.com/news/detail/3317"
         ],
@@ -7840,7 +7840,7 @@
       },
       "presale": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-27",
+        "verifiedAt": "2026-11-28",
         "sources": [
           "https://theoralcigarettes.com/news/detail/3317"
         ]
@@ -7888,9 +7888,9 @@
     "presaleStatus": null,
     "status": "pending",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-27",
-    "scheduleVerifiedAt": "2026-11-27",
-    "priceVerifiedAt": "2026-11-27",
+    "verifiedAt": "2026-11-28",
+    "scheduleVerifiedAt": "2026-11-28",
+    "priceVerifiedAt": "2026-11-28",
     "sources": [
       "https://www.yoasobi-music.jp/news/588606",
       "https://litt.ly/yoasobi",
@@ -7924,56 +7924,56 @@
     "verification": {
       "hosting": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-27",
+        "verifiedAt": "2026-11-28",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214279"
         ]
       },
       "concertDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-27",
+        "verifiedAt": "2026-11-28",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214279"
         ]
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-27",
+        "verifiedAt": "2026-11-28",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214279"
         ]
       },
       "venue": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-27",
+        "verifiedAt": "2026-11-28",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214279"
         ]
       },
       "presaleDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-27",
+        "verifiedAt": "2026-11-28",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214279"
         ]
       },
       "ticketDate": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-27",
+        "verifiedAt": "2026-11-28",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214279"
         ]
       },
       "ticketing": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-27",
+        "verifiedAt": "2026-11-28",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214279"
         ]
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-27",
+        "verifiedAt": "2026-11-28",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214279"
         ]
@@ -8005,9 +8005,9 @@
     "presaleStatus": "none",
     "status": "pending",
     "ticketLabel": null,
-    "verifiedAt": "2026-11-27",
-    "scheduleVerifiedAt": "2026-11-27",
-    "priceVerifiedAt": "2026-11-27",
+    "verifiedAt": "2026-11-28",
+    "scheduleVerifiedAt": "2026-11-28",
+    "priceVerifiedAt": "2026-11-28",
     "sources": [
       "https://www.akglive.com/30th/",
       "https://ticket.melon.com/performance/index.htm?prodId=214339",
@@ -8047,7 +8047,7 @@
       },
       "concertTime": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-27",
+        "verifiedAt": "2026-11-28",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214339",
           "https://cdnticket.melon.co.kr/resource/image/upload/product/2026/11/20261116211246fac82f08-db01-4ca6-9c01-c58fe8a78a26.png"
@@ -8079,7 +8079,7 @@
       },
       "price": {
         "status": "confirmed",
-        "verifiedAt": "2026-11-27",
+        "verifiedAt": "2026-11-28",
         "sources": [
           "https://ticket.melon.com/performance/index.htm?prodId=214339"
         ]
@@ -8532,6 +8532,126 @@
         ],
         "checkedAt": "2026-11-26",
         "note": "멜론 상품명 피엠 케노비. 공식 일본어 표기는 연 페이지에 없음."
+      }
+    }
+  },
+  "toshiki-soejima-2027-01-23": {
+    "artist": "Toshiki Soejima",
+    "concertDate": "2027-01-23",
+    "time": "오후 6:00",
+    "venue": "마포아트센터 아트홀맥",
+    "vendor": "NOL 티켓",
+    "vendorUrl": "https://nol.yanolja.com/ticket/products/26016824",
+    "ticketDate": "",
+    "ticketTime": "",
+    "presaleDate": "",
+    "presaleTime": "",
+    "presaleStatus": "checking",
+    "status": "pending",
+    "ticketLabel": null,
+    "verifiedAt": "2026-11-28",
+    "scheduleVerifiedAt": "2026-11-28",
+    "priceVerifiedAt": "2026-11-28",
+    "sources": [
+      "https://nol.yanolja.com/ticket/products/26016824"
+    ],
+    "price": 77000,
+    "priceCurrency": "KRW",
+    "seatPrices": [
+      {
+        "name": "VIP석",
+        "price": 121000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "R석",
+        "price": 99000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "S석",
+        "price": 88000,
+        "priceCurrency": "KRW"
+      },
+      {
+        "name": "A석",
+        "price": 77000,
+        "priceCurrency": "KRW"
+      }
+    ],
+    "ticketAvailability": null,
+    "ticketStatusVerifiedAt": null,
+    "ticketStatusSource": null,
+    "seriesId": null,
+    "hostingStatus": "confirmed",
+    "ticketingStatus": "unverified",
+    "verification": {
+      "hosting": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-28",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26016824"
+        ]
+      },
+      "concertDate": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-28",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26016824"
+        ]
+      },
+      "concertTime": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-28",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26016824"
+        ],
+        "note": "NOL 운영 시간 2027. 1, 23 (토) 오후6시."
+      },
+      "venue": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-28",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26016824"
+        ]
+      },
+      "ticketing": {
+        "status": "unverified",
+        "checkedAt": "2026-11-28",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26016824",
+          "https://tickets.interpark.com/contents/notice/detail/15985"
+        ],
+        "note": "2026-11-28 NOL 상품 본문에 일반예매·선예매 일시가 없음. 오픈 공지 15985는 본문이 렌더링되지 않음. 집계 사이트의 2026-11-25 11:00은 저장하지 않음. 예매대기 배지는 판매 근거로 쓰지 않음."
+      },
+      "price": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-28",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26016824"
+        ],
+        "note": "NOL 가격 VIP석 121,000 / R석 99,000 / S석 88,000 / A석 77,000. 2층 1·2열 시야방해석 할인(77,000)과 복지·유공자 할인은 등급에 넣지 않음."
+      },
+      "representativeSongs": {
+        "status": "confirmed",
+        "verifiedAt": "2026-11-28",
+        "sources": [
+          "https://toshiki-soejima.com/",
+          "https://www.youtube.com/channel/UCLalk9T_6MeFtiMrhxN48fA",
+          "https://www.youtube.com/watch?v=c0c83cugRBQ",
+          "https://www.youtube.com/watch?v=XKWIYe5TlQU",
+          "https://www.youtube.com/watch?v=DflIJNwwRgY"
+        ],
+        "note": "공식 사이트가 링크한 채널(@toshikisoejima) 업로드. 2026-11-28 조회수 Time 255,659 / Life Is Better (Music Video) 136,820 / Yours, Truly (Official Video) 38,882. 라이브·잼 세션·커버·쇼츠 제외."
+      },
+      "aliases": {
+        "status": "confirmed",
+        "checkedAt": "2026-11-28",
+        "sources": [
+          "https://nol.yanolja.com/ticket/products/26016824",
+          "https://www.youtube.com/channel/UCLalk9T_6MeFtiMrhxN48fA"
+        ],
+        "note": "토시키 소에지마는 NOL 상품명, ソエジマトシキ는 공식 채널명·공식 사이트."
       }
     }
   }
